@@ -1,0 +1,24 @@
+# Commit notes
+
+One note per commit, in commit order. Each explains what changed, why it is
+built that way, what it costs, and what a reviewer should check.
+
+This repository is meant to be deployed into other projects. These notes are
+how someone decides what to keep and what to replace without having to
+reconstruct the reasoning from the code.
+
+The practice is enforced by the `commit-notes` skill in
+[`.claude/skills/commit-notes/`](../../.claude/skills/commit-notes/SKILL.md):
+before any commit, the pending work is split into commits that each carry one
+idea, and each gets a note here, staged in the same commit. Routine archive
+digest commits are exempt — they change data, not the system.
+
+Note 0000 is the exception to "one note per commit": it is a retroactive
+reference for everything built before the practice existed.
+
+## Index
+
+| # | Note | Kind | What it establishes |
+| --- | --- | --- | --- |
+| 0000 | [Baseline: the pipeline as inherited](0000-baseline-the-inherited-pipeline.md) | reference | The load-bearing decisions of the original system, written down after the fact |
+| 0001 | [Adopt the commit-note practice](0001-adopt-commit-notes.md) | chore | No change to the system lands without a note |
