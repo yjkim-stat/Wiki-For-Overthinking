@@ -61,8 +61,17 @@ _LIST_FIELDS = {
 _KINDS = tuple(_REQUIRED_FIELDS)
 
 
-def validate_result(kind: str, result: Any) -> list[str]:
-    """Check a submitted result against the contract. Returns error strings."""
+def validate_result(
+    kind: str, result: Any, topics: list[str] | None = None
+) -> list[str]:
+    """Check a submitted result against the contract. Returns error strings.
+
+    ``topics`` is the task's own topic list. It is optional so the two-argument
+    signature keeps working, but without it the ``relevance`` keys cannot be
+    checked against anything — a paper's relevance decides which topic page it
+    renders under, and a key naming a slug the task does not have renders
+    nowhere at all.
+    """
     errors: list[str] = []
     if not isinstance(result, dict):
         return ["result must be a JSON object"]
@@ -83,6 +92,35 @@ def validate_result(kind: str, result: Any) -> list[str]:
         relevance = result.get("relevance", {})
         if relevance and not isinstance(relevance, dict):
             errors.append("field `relevance` must be an object keyed by topic slug")
+        else:
+            # Which topics a paper belongs to is settled in one of two ways, and
+            # only one of them is authoritative here.
+            #
+            # A collected paper was scored, so the task's topics *are* the
+            # answer: relevance must cover them exactly. A hand-filed PDF is the
+            # other case — its task carries every tracked topic as a menu,
+            # because the reader is the one deciding, and their answer is itself
+            # filtered against the real topic list when it is applied. There is
+            # nothing settled to require coverage against, so coverage is not
+            # required. A key outside their answer is still wrong, because it
+            # renders nowhere.
+            declared = result.get("topics")
+            reader_assigned = isinstance(declared, list)
+            allowed = set(declared) if reader_assigned else set(topics or [])
+            required = set() if reader_assigned else set(topics or [])
+
+            if topics or reader_assigned:
+                keys = set(relevance or {})
+                for extra in sorted(keys - allowed):
+                    errors.append(
+                        f"`relevance` names '{extra}', which is not one of this "
+                        f"paper's topics: {', '.join(sorted(allowed)) or '(none)'}"
+                    )
+                for missing in sorted(required - keys):
+                    errors.append(f"`relevance` is missing an entry for '{missing}'")
+                for slug, text in (relevance or {}).items():
+                    if slug in allowed and not str(text).strip():
+                        errors.append(f"`relevance['{slug}']` is empty")
 
         bibliography = result.get("bibliography")
         if bibliography is not None:
@@ -219,7 +257,7 @@ class Queue:
         if not task:
             raise FileNotFoundError(f"no pending task with id '{task_id}'")
 
-        errors = validate_result(task["kind"], result)
+        errors = validate_result(task["kind"], result, task.get("topics") or None)
         if errors:
             raise ValueError(
                 f"result for '{task_id}' is invalid:\n  - " + "\n  - ".join(errors)

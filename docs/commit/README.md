@@ -36,3 +36,4 @@ reference for everything built before the practice existed.
 | 0013 | [A stored transcript is not a video record](0013-transcripts-are-not-records.md) | fix | One unreadable file cost every entry point; an optional dependency hid it |
 | 0014 | [A chapter timestamp is required, not defaulted](0014-chapter-timestamps-are-required.md) | fix · breaking | A missing value that renders as a plausible 0:00 is worse than a rejection |
 | 0015 | [A ruled `kind` defends itself against the next harvest](0015-a-ruled-kind-defends-itself.md) | fix | A deliberate judgement outranks a majority vote over field placement |
+| 0016 | [A paper's `relevance` is checked against the topics it has](0016-relevance-keys-are-checked.md) | fix · breaking | The validator could not see the one thing that made the record wrong |
