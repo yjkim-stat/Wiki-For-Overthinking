@@ -45,7 +45,7 @@ wiki:
 _SOURCES = """
 arxiv:
   enabled: false
-  categories: [cs.RO]
+  categories: [stat.ML]
 conferences:
   enabled: false
   venues: []
@@ -60,8 +60,8 @@ name: {name}
 description: A topic used by the test suite.
 keywords:
   any:
-    - world model
-    - latent action
+    - causal inference
+    - instrumental variable
   all: []
   none:
     - unrelated nonsense
@@ -86,7 +86,7 @@ class Sandbox:
     """Temporary repository root, cleaned up on ``close()``."""
 
     def __init__(self, topics: dict[str, str] | None = None) -> None:
-        self.root = Path(tempfile.mkdtemp(prefix="rwam-test-"))
+        self.root = Path(tempfile.mkdtemp(prefix="rrtm-test-"))
         (self.root / "config" / "topics").mkdir(parents=True)
 
         (self.root / "config" / "settings.yaml").write_text(

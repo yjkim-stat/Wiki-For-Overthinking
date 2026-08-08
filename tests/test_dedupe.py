@@ -8,7 +8,7 @@ from .sandbox import Sandbox
 
 
 def paper(**kwargs) -> Paper:
-    base = dict(id="", title="A World Model", source="arxiv")
+    base = dict(id="", title="A Causal Estimator", source="arxiv")
     base.update(kwargs)
     if not base["id"]:
         base["id"] = canonical_paper_id(
@@ -30,8 +30,8 @@ class CanonicalIdTests(unittest.TestCase):
 
     def test_title_fallback_is_stable(self):
         self.assertEqual(
-            canonical_paper_id(title="A World Model!"),
-            canonical_paper_id(title="a  world   model"),
+            canonical_paper_id(title="A Causal Estimator!"),
+            canonical_paper_id(title="a  causal   estimator"),
         )
 
     def test_requires_at_least_one_identifier(self):
@@ -39,7 +39,7 @@ class CanonicalIdTests(unittest.TestCase):
             canonical_paper_id()
 
     def test_title_normalization(self):
-        self.assertEqual(normalize_title("A  World-Model: Part 1"), "a world model part 1")
+        self.assertEqual(normalize_title("A  Doubly-Robust: Part 1"), "a doubly robust part 1")
 
 
 class MergeTests(unittest.TestCase):
@@ -67,9 +67,9 @@ class MergeTests(unittest.TestCase):
 
     def test_categories_are_unioned_without_duplicates(self):
         merged = merge_papers(
-            paper(categories=["cs.RO"]), paper(categories=["cs.RO", "cs.LG"])
+            paper(categories=["stat.ML"]), paper(categories=["stat.ML", "cs.LG"])
         )
-        self.assertEqual(sorted(merged.categories), ["cs.LG", "cs.RO"])
+        self.assertEqual(sorted(merged.categories), ["cs.LG", "stat.ML"])
 
     def test_richer_author_list_wins(self):
         merged = merge_papers(paper(authors=["A"]), paper(authors=["A", "B"]))
@@ -100,12 +100,12 @@ class DeduplicatorTests(unittest.TestCase):
 
     def test_same_title_from_another_source_collapses_onto_the_arxiv_record(self):
         first, _ = self.deduper.resolve_paper(
-            paper(arxiv_id="2401.00001", title="A World Model")
+            paper(arxiv_id="2401.00001", title="A Causal Estimator")
         )
         self.store.save_paper(first)
 
         second, is_new = self.deduper.resolve_paper(
-            paper(title="A World Model", source="dblp", venue="ICLR", doi="10.1/x")
+            paper(title="A Causal Estimator", source="dblp", venue="ICLR", doi="10.1/x")
         )
         self.assertFalse(is_new)
         self.assertEqual(second.id, "arxiv:2401.00001")

@@ -8,7 +8,7 @@ from .sandbox import Sandbox
 
 class SlugTests(unittest.TestCase):
     def test_slugify(self):
-        self.assertEqual(slugify("Vision-Language Action!"), "vision-language-action")
+        self.assertEqual(slugify("Doubly-Robust Estimation!"), "doubly-robust-estimation")
 
     def test_slugify_never_returns_empty(self):
         self.assertEqual(slugify("!!!"), "untitled")

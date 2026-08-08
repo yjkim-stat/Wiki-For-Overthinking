@@ -19,9 +19,9 @@ _WORD_BOUNDARY_CACHE: dict[str, re.Pattern] = {}
 def _pattern(term: str) -> re.Pattern:
     """Case-insensitive matcher for ``term``.
 
-    Word boundaries keep "VLA" from matching inside "Vlasov"; multi-word terms
-    tolerate any run of whitespace or hyphens between words so that "world
-    model", "world-model" and a line-wrapped abstract all match.
+    Word boundaries keep "ATE" from matching inside "Water"; multi-word terms
+    tolerate any run of whitespace or hyphens between words so that "causal
+    inference", "causal-inference" and a line-wrapped abstract all match.
     """
     cached = _WORD_BOUNDARY_CACHE.get(term)
     if cached is None:

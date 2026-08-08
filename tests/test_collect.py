@@ -24,23 +24,23 @@ ARXIV_ATOM = """<?xml version="1.0" encoding="UTF-8"?>
     <id>http://arxiv.org/abs/2401.12345v2</id>
     <updated>2024-02-01T10:00:00Z</updated>
     <published>2024-01-22T09:30:00Z</published>
-    <title>Learning a World Model
-      for Manipulation</title>
-    <summary>  We learn a latent action model from unlabelled video.  </summary>
+    <title>Causal Inference
+      from Panel Data</title>
+    <summary>  We estimate treatment effects with an instrumental variable.  </summary>
     <author><name>Ada Lovelace</name></author>
     <author><name>Alan Turing</name></author>
     <arxiv:doi>10.1000/example</arxiv:doi>
-    <arxiv:journal_ref>CoRL 2024</arxiv:journal_ref>
+    <arxiv:journal_ref>NeurIPS 2024</arxiv:journal_ref>
     <link href="http://arxiv.org/abs/2401.12345v2" rel="alternate" type="text/html"/>
     <link title="pdf" href="http://arxiv.org/pdf/2401.12345v2" rel="related"/>
-    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
   </entry>
   <entry>
     <id>http://arxiv.org/abs/2402.00001v1</id>
     <published>2024-02-02T00:00:00Z</published>
     <title>Unrelated Chemistry Paper</title>
-    <summary>Nothing to do with robots.</summary>
+    <summary>Nothing to do with the tracked topic.</summary>
     <author><name>Someone Else</name></author>
   </entry>
 </feed>
@@ -53,11 +53,11 @@ YOUTUBE_FEED = """<?xml version="1.0" encoding="UTF-8"?>
   <entry>
     <yt:videoId>abc123XYZ</yt:videoId>
     <yt:channelId>UC0000000000000000000000</yt:channelId>
-    <title>World models for robot learning</title>
-    <author><name>Robotics Seminar</name></author>
+    <title>Causal inference in observational studies</title>
+    <author><name>Research Seminar</name></author>
     <published>2024-03-01T12:00:00+00:00</published>
     <media:group>
-      <media:description>A talk on latent action models.</media:description>
+      <media:description>A talk on instrumental variables.</media:description>
     </media:group>
   </entry>
 </feed>
@@ -68,8 +68,8 @@ SEMANTIC_SCHOLAR = {
     "data": [
         {
             "paperId": "abcdef",
-            "title": "A World Model for Control",
-            "abstract": "We study world models.",
+            "title": "A Doubly Robust Estimator",
+            "abstract": "We study doubly robust estimation.",
             "venue": "ICLR",
             "year": 2025,
             "publicationDate": "2025-01-10",
@@ -86,8 +86,8 @@ OPENREVIEW = {
         {
             "id": "note123",
             "content": {
-                "title": {"value": "Latent Action Pretraining"},
-                "abstract": {"value": "We pretrain on video."},
+                "title": {"value": "Instrumental Variable Estimation"},
+                "abstract": {"value": "We estimate effects under weak instruments."},
                 "authors": {"value": ["Barbara Liskov"]},
                 "pdf": {"value": "/pdf/note123.pdf"},
                 "venue": {"value": "ICLR 2025 Poster"},
@@ -103,7 +103,7 @@ DBLP = {
                 {
                     "info": {
                         "key": "conf/iclr/Example25",
-                        "title": "A World Model Paper.",
+                        "title": "A Causal Inference Paper.",
                         "authors": {"author": [{"text": "Donald Knuth"}]},
                         "venue": "ICLR",
                         "year": "2025",
@@ -160,16 +160,16 @@ class ArxivTests(unittest.TestCase):
     def test_fields_are_normalized(self):
         papers = {p.id: p for p in self._collect(StubClient(xml=ARXIV_ATOM))}
         paper = papers["arxiv:2401.12345"]
-        self.assertEqual(paper.title, "Learning a World Model for Manipulation")
+        self.assertEqual(paper.title, "Causal Inference from Panel Data")
         self.assertEqual(paper.authors, ["Ada Lovelace", "Alan Turing"])
         self.assertEqual(
-            paper.abstract, "We learn a latent action model from unlabelled video."
+            paper.abstract, "We estimate treatment effects with an instrumental variable."
         )
         self.assertEqual(paper.published, "2024-01-22")
         self.assertEqual(paper.year, 2024)
         self.assertEqual(paper.doi, "10.1000/example")
-        self.assertEqual(paper.venue, "CoRL 2024")
-        self.assertEqual(paper.categories, ["cs.RO", "cs.LG"])
+        self.assertEqual(paper.venue, "NeurIPS 2024")
+        self.assertEqual(paper.categories, ["stat.ML", "cs.LG"])
         self.assertEqual(paper.pdf_url, "http://arxiv.org/pdf/2401.12345v2")
         self.assertEqual(paper.url, "https://arxiv.org/abs/2401.12345")
 
@@ -182,8 +182,8 @@ class ArxivTests(unittest.TestCase):
         client = StubClient(xml=ARXIV_ATOM)
         self._collect(client)
         query = client.calls[0][1]["search_query"]
-        self.assertIn("cat:cs.RO", query)
-        self.assertIn('all:"world model"', query)
+        self.assertIn("cat:stat.ML", query)
+        self.assertIn('all:"causal inference"', query)
         self.assertIn("submittedDate:[20240101", query)
 
     def test_long_keyword_lists_are_split_across_requests(self):
@@ -212,7 +212,7 @@ class YouTubeTests(unittest.TestCase):
         self.cfg = self.sandbox.config()
         self.cfg.sources["youtube"]["enabled"] = True
         self.cfg.sources["youtube"]["channels"] = [
-            {"name": "Robotics Seminar", "channel_id": "UC0000000000000000000000"}
+            {"name": "Research Seminar", "channel_id": "UC0000000000000000000000"}
         ]
 
     def tearDown(self):
@@ -228,9 +228,9 @@ class YouTubeTests(unittest.TestCase):
         self.assertEqual(len(videos), 1)
         video = videos[0]
         self.assertEqual(video.id, "youtube:abc123XYZ")
-        self.assertEqual(video.title, "World models for robot learning")
-        self.assertEqual(video.channel, "Robotics Seminar")
-        self.assertEqual(video.description, "A talk on latent action models.")
+        self.assertEqual(video.title, "Causal inference in observational studies")
+        self.assertEqual(video.channel, "Research Seminar")
+        self.assertEqual(video.description, "A talk on instrumental variables.")
         self.assertEqual(video.published, "2024-03-01")
         self.assertEqual(video.url, "https://www.youtube.com/watch?v=abc123XYZ")
 
@@ -312,7 +312,7 @@ class ConferenceTests(unittest.TestCase):
         )
         self.assertTrue(papers)
         paper = papers[0]
-        self.assertEqual(paper.title, "Latent Action Pretraining")
+        self.assertEqual(paper.title, "Instrumental Variable Estimation")
         self.assertEqual(paper.authors, ["Barbara Liskov"])
         self.assertEqual(paper.url, "https://openreview.net/forum?id=note123")
         self.assertEqual(paper.pdf_url, "https://openreview.net/pdf/note123.pdf")
@@ -328,7 +328,7 @@ class ConferenceTests(unittest.TestCase):
         )
         self.assertTrue(papers)
         paper = papers[0]
-        self.assertEqual(paper.title, "A World Model Paper")  # trailing period dropped
+        self.assertEqual(paper.title, "A Causal Inference Paper")  # trailing period dropped
         self.assertEqual(paper.id, "doi:10.1000/dblp")
         self.assertEqual(paper.authors, ["Donald Knuth"])
 

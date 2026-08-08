@@ -16,7 +16,7 @@ class InlineTests(unittest.TestCase):
                          "<strong>hi</strong> and <em>there</em>")
 
     def test_underscores_inside_words_are_left_alone(self):
-        self.assertEqual(md.inline("latent_action_model"), "latent_action_model")
+        self.assertEqual(md.inline("average_treatment_effect"), "average_treatment_effect")
 
     def test_link(self):
         self.assertEqual(

@@ -14,7 +14,7 @@ GOOD_PAPER_RESULT = {
     "results": "Better.",
     "limitations": "Slow.",
     "relevance": {"test-topic": "Relevant because."},
-    "concepts": ["Latent Action Model"],
+    "concepts": ["Instrumental Variable"],
     "methods": [],
     "datasets": [],
     "tags": ["x"],
@@ -77,7 +77,7 @@ class QueueTests(unittest.TestCase):
             language="en",
             instructions="Read it.",
             output_schema={"one_liner": "string"},
-            payload={"title": "A World Model"},
+            payload={"title": "A Causal Estimator"},
         )
 
     def test_enqueue_then_list(self):
@@ -154,7 +154,7 @@ class SummarizerTests(unittest.TestCase):
         summarizer = get_summarizer(self.cfg.settings, enqueue=self.queue.enqueue)
         self.assertIsInstance(summarizer, QueueSummarizer)
         outcome = summarizer.summarize_paper(
-            Paper(id="arxiv:1", title="A World Model", source="arxiv"),
+            Paper(id="arxiv:1", title="A Causal Estimator", source="arxiv"),
             [{"slug": "test-topic", "name": "Test", "description": "d"}],
             "en",
         )

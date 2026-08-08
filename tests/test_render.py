@@ -21,14 +21,14 @@ def result_for(title: str) -> dict:
         "one_liner": f"{title} does a thing.",
         "problem": "The thing was hard.",
         "contributions": ["First contribution", "Second contribution"],
-        "method": "By learning a latent action space.",
+        "method": "By reweighting with an estimated propensity score.",
         "results": "Beats the baseline by 12 points.",
         "limitations": "Only evaluated in simulation.",
         "relevance": {SLUG: "Moves the topic forward."},
-        "concepts": ["Latent Action Model"],
+        "concepts": ["Instrumental Variable"],
         "methods": ["Behaviour Cloning"],
         "datasets": ["Open X-Embodiment"],
-        "tags": ["robotics"],
+        "tags": ["causal-inference"],
     }
 
 
@@ -43,14 +43,14 @@ class RenderPipelineTests(unittest.TestCase):
         for index in (1, 2):
             paper = Paper(
                 id=f"arxiv:2401.0000{index}",
-                title=f"Paper {index}: a world model",
+                title=f"Paper {index}: causal inference",
                 source="arxiv",
                 authors=["Ada Lovelace", "Alan Turing"],
-                abstract="We learn a latent action model.",
+                abstract="We estimate effects with an instrumental variable.",
                 url=f"https://arxiv.org/abs/2401.0000{index}",
                 published="2024-01-15",
                 year=2024,
-                categories=["cs.RO"],
+                categories=["stat.ML"],
                 arxiv_id=f"2401.0000{index}",
                 topics=[SLUG],
                 scores={SLUG: 0.8},
@@ -60,9 +60,9 @@ class RenderPipelineTests(unittest.TestCase):
 
         self.video = Video(
             id="youtube:abc123",
-            title="A talk about world models",
+            title="A talk about causal inference",
             source_id="abc123",
-            channel="Robotics Seminar",
+            channel="Research Seminar",
             url="https://www.youtube.com/watch?v=abc123",
             published="2024-02-01",
             topics=[SLUG],
@@ -119,7 +119,7 @@ class RenderPipelineTests(unittest.TestCase):
     def test_entity_seen_twice_is_promoted_to_a_note(self):
         self._complete_paper_tasks()
         render.run(self.cfg)
-        note = wiki.note_path(self.cfg.layout, "concept", "latent-action-model")
+        note = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable")
         self.assertTrue(note.exists(), "concept with two sources should get a note")
         self.assertIn("Paper 1", note.read_text(encoding="utf-8"))
 
@@ -150,20 +150,20 @@ class RenderPipelineTests(unittest.TestCase):
         task_id = next(
             t
             for t in self.queue.pending_ids(kind="concept")
-            if self.queue.load(t)["item_id"] == "Latent Action Model"
+            if self.queue.load(t)["item_id"] == "Instrumental Variable"
         )
         self.queue.complete(
             task_id,
-            {"definition": "A model of action in latent space.", "kind": "concept"},
+            {"definition": "A variable that shifts treatment but not the outcome.", "kind": "concept"},
         )
         render.run(self.cfg)
-        note = wiki.note_path(self.cfg.layout, "concept", "latent-action-model")
-        self.assertIn("A model of action in latent space", note.read_text(encoding="utf-8"))
+        note = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable")
+        self.assertIn("shifts treatment but not the outcome", note.read_text(encoding="utf-8"))
 
     def test_manual_section_survives_a_rerender(self):
         self._complete_paper_tasks()
         render.run(self.cfg)
-        note = wiki.note_path(self.cfg.layout, "concept", "latent-action-model")
+        note = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable")
         note.write_text(
             note.read_text(encoding="utf-8") + "\n\nMY OWN ANALYSIS\n", encoding="utf-8"
         )
@@ -174,7 +174,7 @@ class RenderPipelineTests(unittest.TestCase):
         self._complete_paper_tasks()
         render.run(self.cfg)
         render.run(self.cfg)
-        text = wiki.note_path(self.cfg.layout, "concept", "latent-action-model").read_text(
+        text = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable").read_text(
             encoding="utf-8"
         )
         self.assertEqual(text.count("<!-- auto:begin -->"), 1)
