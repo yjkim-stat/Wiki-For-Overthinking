@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import re
 import shutil
 from pathlib import Path
 
@@ -21,7 +22,7 @@ from .common import log
 from .common.config import Config
 from .common.llm import get_summarizer
 from .common.schema import PaperSummary, VideoSummary, utcnow
-from .common.store import RecordStore
+from .common.store import RecordStore, read_json
 from .enrich.queue import Queue
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
@@ -327,6 +328,135 @@ def queue_missing_definitions(cfg: Config) -> int:
     return queued
 
 
+# A hand-written section may declare how many sources it was written against.
+_ANALYSIS_SOURCES_RE = re.compile(r"<!--\s*analysis-sources:\s*(\d+)\s*-->")
+
+
+def _definition_source_count(queue: Queue, name: str) -> int | None:
+    """How many sources the definition task for ``name`` was written against."""
+    task_id = Queue.task_id("concept", name)
+    for path in (queue.archive_path(task_id), queue.done_path(task_id)):
+        task = read_json(path)
+        if task:
+            count = ((task.get("payload") or {}).get("source_count"))
+            return count if isinstance(count, int) else None
+    return None
+
+
+def stale_definitions(cfg: Config) -> list[dict]:
+    """Definitions whose evidence has grown since they were written.
+
+    Every counter in this system measures whether something is *unwritten*.
+    None measured whether it was *out of date* — so a definition was written
+    once and never revisited, however far its evidence outgrew it. The result
+    is a note that reads as complete while describing a subset of its own
+    sources: "in all three sources" standing at nine, or a claim a later source
+    flatly contradicts. Not thin. Wrong, and confidently so.
+
+    The consequence governs how the archive is operated, so it is worth stating
+    plainly: **an empty queue means nothing is unwritten. It does not mean
+    nothing is out of date.**
+
+    The recorded count is used rather than a phrase match because it also
+    catches the more dangerous kind — a definition that enumerates its sources
+    by name reads as exhaustive while describing four of ten.
+    """
+    store = RecordStore(cfg.layout)
+    queue = Queue(cfg.layout)
+
+    stale: list[dict] = []
+    for concept in store.iter_concepts():
+        if not concept.definition.strip():
+            continue
+        written_for = _definition_source_count(queue, concept.name)
+        now = len(concept.evidence)
+        if written_for is not None and now > written_for:
+            stale.append(
+                {
+                    "slug": concept.slug,
+                    "name": concept.name,
+                    "written_for": written_for,
+                    "sources_now": now,
+                }
+            )
+    return sorted(stale, key=lambda row: row["written_for"] - row["sources_now"])
+
+
+def stale_analysis(cfg: Config) -> list[dict]:
+    """Hand-written sections that declared a source count and have been outgrown.
+
+    The same rot reaches the prose under ``auto:end``, which is where the
+    archive's actual reasoning lives — and there it is *structurally*
+    undetectable. A definition has a countable evidence base and a recorded
+    count, so staleness is arithmetic; prose declares no dependency on anything.
+
+    So this lets it declare one. A section ending with ``<!-- analysis-sources:
+    40 -->`` is checked against the note's evidence count. Opt-in, because some
+    prose genuinely does not depend on the count.
+
+    This is the weaker half and should be read as such: it relies on authors
+    maintaining the marker. It is still better than the alternative, which is
+    that the most valuable artifact in the repository is the only one with no
+    integrity check at all.
+    """
+    store = RecordStore(cfg.layout)
+    concepts = {c.slug: c for c in store.iter_concepts()}
+    _, end_marker = wiki._markers(cfg)
+
+    stale: list[dict] = []
+    for kind in wiki.KINDS:
+        for path in sorted(cfg.layout.wiki_kind_dir(kind).glob("*.md")):
+            concept = concepts.get(path.stem)
+            if concept is None:
+                continue
+            match = _ANALYSIS_SOURCES_RE.search(wiki._preserved_tail(path, end_marker))
+            if match is None:
+                continue
+            written_for = int(match.group(1))
+            now = len(concept.evidence)
+            if now > written_for:
+                stale.append(
+                    {
+                        "slug": concept.slug,
+                        "path": str(path),
+                        "written_for": written_for,
+                        "sources_now": now,
+                    }
+                )
+    return stale
+
+
+def report_staleness(cfg: Config) -> dict[str, int]:
+    """Count what has been outgrown, and say so. Never rewrites anything.
+
+    Reporting only, deliberately. Re-deriving a definition means reading its
+    sources; a counter must not discard written work on arithmetic alone. To
+    re-queue one, clear ``definition`` in ``data/concepts/<slug>.json`` and
+    render again.
+    """
+    definitions = stale_definitions(cfg)
+    analysis = stale_analysis(cfg)
+
+    for row in definitions[:10]:
+        _LOG.warning(
+            "definition for '%s' was written against %d source(s); there are now %d",
+            row["name"],
+            row["written_for"],
+            row["sources_now"],
+        )
+    if len(definitions) > 10:
+        _LOG.warning("... and %d more stale definition(s)", len(definitions) - 10)
+    for row in analysis:
+        _LOG.warning(
+            "analysis in %s declares %d source(s); there are now %d",
+            row["path"],
+            row["written_for"],
+            row["sources_now"],
+        )
+
+    return {"definitions": len(definitions), "analysis": len(analysis)}
+
+
 def rebuild_outputs(cfg: Config, topic_slugs: list[str] | None = None) -> dict[str, int]:
     from .publish.material import gather
 
@@ -370,6 +500,9 @@ def run(
         result["wiki"] = wiki.update(cfg)
         if not skip_queueing:
             result["definitions_queued"] = queue_missing_definitions(cfg)
+        # Reported, never acted on: an empty queue means nothing is unwritten,
+        # not that nothing is out of date.
+        result["stale"] = report_staleness(cfg)
 
     if only in (None, "outputs"):
         result["outputs"] = rebuild_outputs(cfg, topic_slugs)

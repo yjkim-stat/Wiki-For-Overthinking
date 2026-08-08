@@ -99,6 +99,30 @@ queues definition tasks for any concept that has just crossed the promotion
 threshold, and regenerates the outputs. New concept tasks appear here — drain
 them the same way and render again.
 
+Render also reports what has gone **stale**, under `stale` in its result:
+
+```
+definition for 'X' was written against 3 source(s); there are now 9
+```
+
+**An empty queue means nothing is unwritten. It does not mean nothing is out of
+date.** A definition written against three sources and now standing at nine
+reads as complete while describing a third of its evidence — that is worse than
+a missing one, because nothing about it looks wrong. Nothing is rewritten
+automatically: re-deriving a definition means reading its sources, and a counter
+must not discard written work on arithmetic alone. To re-queue one, clear
+`definition` in `data/concepts/<slug>.json` and render again.
+
+Your own analysis after `<!-- auto:end -->` can opt into the same check by
+ending with a declared source count:
+
+```markdown
+<!-- analysis-sources: 9 -->
+```
+
+Update the number when you revise the section. Prose that does not depend on the
+evidence count should leave the marker out.
+
 **4. Commit.** Generated files are tracked on purpose: the container is
 ephemeral, so anything uncommitted is lost.
 

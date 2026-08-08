@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from pipelines import render
 from pipelines.common.schema import Concept, Paper, PaperSummary, Video
@@ -380,3 +381,118 @@ class RuledKindTests(unittest.TestCase):
 
     def test_an_unseen_entity_is_unaffected(self):
         self.assertEqual(self._harvest_kind("undecided-thing"), "concept")
+
+
+class StalenessTests(unittest.TestCase):
+    """An empty queue means nothing is unwritten, not that nothing is stale.
+
+    A definition is written once against N sources and never revisited, however
+    far its evidence outgrows it. The note then reads as complete while
+    describing a subset of its own evidence -- not thin, but wrong.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.cfg = self.sandbox.config()
+        self.store = RecordStore(self.cfg.layout)
+        self.queue = Queue(self.cfg.layout)
+
+    def tearDown(self):
+        self.sandbox.close()
+
+    def _concept(self, definition="A definition.", sources=5):
+        concept = Concept(
+            slug="instrumental-variable",
+            name="Instrumental Variable",
+            kind="concept",
+            definition=definition,
+            evidence=[
+                {"kind": "paper", "id": f"arxiv:{i}", "title": f"P{i}", "note": ""}
+                for i in range(sources)
+            ],
+        )
+        self.store.save_concept(concept)
+        return concept
+
+    def _definition_task(self, written_for: int):
+        task_id = self.queue.enqueue(
+            kind="concept",
+            item_id="Instrumental Variable",
+            topics=[SLUG],
+            language="en",
+            instructions="Define it.",
+            output_schema={"definition": "string"},
+            payload={"name": "Instrumental Variable", "source_count": written_for},
+        )
+        self.queue.complete(task_id, {"definition": "A definition."})
+        self.queue.archive(task_id)
+
+    def test_a_definition_outgrown_by_its_evidence_is_reported(self):
+        self._concept(sources=6)
+        self._definition_task(written_for=5)
+        rows = render.stale_definitions(self.cfg)
+        self.assertEqual([r["slug"] for r in rows], ["instrumental-variable"])
+        self.assertEqual(rows[0]["written_for"], 5)
+        self.assertEqual(rows[0]["sources_now"], 6)
+
+    def test_a_definition_still_matching_its_evidence_is_not(self):
+        self._concept(sources=5)
+        self._definition_task(written_for=5)
+        self.assertEqual(render.stale_definitions(self.cfg), [])
+
+    def test_an_entity_with_no_definition_is_never_reported(self):
+        self._concept(definition="", sources=9)
+        self._definition_task(written_for=2)
+        self.assertEqual(render.stale_definitions(self.cfg), [])
+
+    def test_reporting_never_rewrites_the_definition(self):
+        """The property that keeps this safe: a counter must not discard work."""
+        self._concept(sources=9)
+        self._definition_task(written_for=2)
+        render.report_staleness(self.cfg)
+        self.assertEqual(
+            self.store.load_concept("instrumental-variable").definition, "A definition."
+        )
+
+    def _note(self, body: str) -> Path:
+        path = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            f"# Instrumental Variable\n\n<!-- auto:begin -->\ngenerated\n"
+            f"<!-- auto:end -->\n\n{body}\n",
+            encoding="utf-8",
+        )
+        return path
+
+    def test_analysis_declaring_fewer_sources_is_reported(self):
+        self._concept(sources=9)
+        self._note("## Notes\n\nMy reading.\n\n<!-- analysis-sources: 4 -->")
+        rows = render.stale_analysis(self.cfg)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["written_for"], 4)
+        self.assertEqual(rows[0]["sources_now"], 9)
+
+    def test_analysis_without_the_marker_is_not_checked(self):
+        """Opt-in: some prose genuinely does not depend on the count."""
+        self._concept(sources=9)
+        self._note("## Notes\n\nMy reading, with no declared dependency.")
+        self.assertEqual(render.stale_analysis(self.cfg), [])
+
+    def test_analysis_still_matching_is_not_reported(self):
+        self._concept(sources=4)
+        self._note("## Notes\n\nMy reading.\n\n<!-- analysis-sources: 4 -->")
+        self.assertEqual(render.stale_analysis(self.cfg), [])
+
+    def test_reporting_never_rewrites_the_analysis(self):
+        self._concept(sources=9)
+        path = self._note("## Notes\n\nMy reading.\n\n<!-- analysis-sources: 4 -->")
+        before = path.read_text(encoding="utf-8")
+        render.report_staleness(self.cfg)
+        self.assertEqual(path.read_text(encoding="utf-8"), before)
+
+    def test_render_reports_both_counts(self):
+        self._concept(sources=9)
+        self._definition_task(written_for=2)
+        self._note("## Notes\n\nMine.\n\n<!-- analysis-sources: 4 -->")
+        result = render.run(self.cfg, skip_queueing=True)
+        self.assertEqual(result["stale"], {"definitions": 1, "analysis": 1})

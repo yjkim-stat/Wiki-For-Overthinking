@@ -41,3 +41,4 @@ reference for everything built before the practice existed.
 | 0018 | [Stop asking a host that has failed all run](0018-give-up-on-a-dead-host.md) | feature | Retry is per request; a dead source is per run |
 | 0019 | [A submitted result can be corrected](0019-reopen-a-submitted-task.md) | feature | A path back through the validator, so nobody edits `data/` by hand |
 | 0020 | [Read the programme out of the `<noscript>` block](0020-programme-listings-read-the-noscript-block.md) | fix | The navbar's login link points at a poster path; only the fallback holds papers |
+| 0021 | [Report what has gone stale](0021-report-what-has-gone-stale.md) | feature | An empty queue means nothing is unwritten, not that nothing is out of date |
