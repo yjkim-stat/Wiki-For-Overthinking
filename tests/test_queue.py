@@ -262,3 +262,68 @@ class RelevanceKeyTests(unittest.TestCase):
             "paper", self._paper({"c": "why"}, topics=["b"]), ["a", "b", "c"]
         )
         self.assertTrue(any("'c'" in e for e in errors))
+
+
+class ReopenTests(unittest.TestCase):
+    """A reader must be able to correct their own answer before render sees it.
+
+    Completion being one-way pushes people toward editing `data/` by hand, which
+    bypasses the validator — the mechanism that exists to stop, among other
+    things, an alias that would silently fuse two distinct entities.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.cfg = self.sandbox.config()
+        self.queue = Queue(self.cfg.layout)
+        self.task_id = self.queue.enqueue(
+            kind="paper",
+            item_id="arxiv:2401.00001",
+            topics=["test-topic"],
+            language="en",
+            instructions="Read it.",
+            output_schema={"one_liner": "string"},
+            payload={"title": "A Causal Estimator"},
+        )
+        self.queue.complete(self.task_id, GOOD_PAPER_RESULT)
+
+    def tearDown(self):
+        self.sandbox.close()
+
+    def test_a_completed_task_returns_to_pending(self):
+        self.queue.reopen(self.task_id)
+        self.assertEqual(self.queue.pending_ids(), [self.task_id])
+        self.assertEqual(self.queue.stats()["done"], 0)
+
+    def test_the_material_survives_and_the_answer_does_not(self):
+        self.queue.reopen(self.task_id)
+        task = self.queue.load(self.task_id)
+        for key in ("instructions", "output_schema", "payload", "topics", "language"):
+            self.assertIn(key, task)
+        self.assertNotIn("result", task)
+        self.assertNotIn("completed_at", task)
+
+    def test_a_reopened_task_can_be_answered_differently(self):
+        self.queue.reopen(self.task_id)
+        corrected = dict(GOOD_PAPER_RESULT, one_liner="It does a different thing.")
+        self.queue.complete(self.task_id, corrected)
+        self.assertEqual(
+            self.queue.load(self.task_id)["result"]["one_liner"],
+            "It does a different thing.",
+        )
+
+    def test_a_correction_is_still_validated(self):
+        self.queue.reopen(self.task_id)
+        with self.assertRaises(ValueError):
+            self.queue.complete(self.task_id, {"one_liner": "x"})
+
+    def test_an_applied_task_is_refused_with_advice(self):
+        """Render has folded it into the records; re-answering would not undo that."""
+        self.queue.archive(self.task_id)
+        with self.assertRaises(ValueError) as caught:
+            self.queue.reopen(self.task_id)
+        self.assertIn("already been applied", str(caught.exception))
+
+    def test_an_unknown_id_raises(self):
+        with self.assertRaises(FileNotFoundError):
+            self.queue.reopen("paper__nope")

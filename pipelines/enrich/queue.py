@@ -279,6 +279,38 @@ class Queue:
             if data:
                 yield data
 
+    def reopen(self, task_id: str) -> Path:
+        """Return a completed task to pending, keeping its material.
+
+        For a reader who spots their own mistake before ``render`` consumes the
+        answer. Completion is otherwise one-way, and that pushes people toward
+        editing ``data/`` by hand — which bypasses the validator entirely, and
+        is how a wrong alias once fused two distinct entities in a live archive.
+
+        Once ``render`` has applied the result the task is archived, and
+        re-answering it would not undo what was folded into the records. That
+        case is refused, and the error says what to do instead.
+        """
+        done = self.done_path(task_id)
+        if not done.exists():
+            if self.archive_path(task_id).exists():
+                raise ValueError(
+                    f"'{task_id}' has already been applied by render; edit the "
+                    "record in data/ or re-collect the item instead"
+                )
+            raise FileNotFoundError(f"no completed task with id '{task_id}'")
+
+        task = read_json(done) or {}
+        # Only the answer is dropped. The instructions, schema and source
+        # material are what made the task answerable, and they are unchanged.
+        task.pop("result", None)
+        task.pop("completed_at", None)
+        pending = self.pending_path(task_id)
+        write_json(pending, task)
+        done.unlink(missing_ok=True)
+        _LOG.info("reopened %s", task_id)
+        return pending
+
     def archive(self, task_id: str) -> None:
         """Move a consumed task out of ``done`` so it is not applied twice."""
         done = self.done_path(task_id)
@@ -339,6 +371,12 @@ def main(argv: list[str] | None = None) -> int:
     source.add_argument("--file", type=Path, help="path to a JSON result")
     source.add_argument("--stdin", action="store_true", help="read JSON from stdin")
 
+    p_reopen = sub.add_parser(
+        "reopen",
+        help="return a completed task to pending so its result can be corrected",
+    )
+    p_reopen.add_argument("task_id")
+
     args = parser.parse_args(argv)
     queue = _build_queue(args.root)
 
@@ -384,6 +422,15 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         try:
             path = queue.complete(args.task_id, result)
+        except (FileNotFoundError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        print(path)
+        return 0
+
+    if args.command == "reopen":
+        try:
+            path = queue.reopen(args.task_id)
         except (FileNotFoundError, ValueError) as exc:
             print(str(exc), file=sys.stderr)
             return 1

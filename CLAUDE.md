@@ -50,6 +50,24 @@ python3 -m pipelines.enrich.queue complete <task_id> --file /tmp/result.json
 Submission is validated. A rejected result means a required field is missing or
 mistyped — fix it and resubmit; do not work around the validator.
 
+If you notice a mistake in something you already submitted, reopen it rather
+than editing `data/` by hand:
+
+```bash
+python3 -m pipelines.enrich.queue reopen <task_id>
+```
+
+The task returns to pending with its material intact and its answer dropped, and
+the correction goes through the validator like any other submission. Hand-editing
+`data/` is what this exists to prevent — it bypasses the validator, and an alias
+filed that way does not merely mislabel, it silently merges two entities.
+
+**This is for correcting your own fresh mistake, not for revisiting settled
+work.** Once `render` has consumed a result the task is archived and `reopen`
+refuses it, which is the right answer: re-deriving a record against a conclusion
+you have already been told tends to satisfy the conclusion rather than the
+evidence. Fix the record or re-collect the item instead.
+
 For a paper task, read the abstract supplied in the task. If the paper's
 contribution cannot be established from it, fetch the linked PDF or abstract
 page rather than guessing. **Leave a field empty rather than inventing
@@ -145,6 +163,7 @@ python3 -m pipelines.run_daily --days 30          # backfill a wider window
 python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing else
 python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
+python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
 ```
