@@ -94,9 +94,10 @@ config, templates or documentation does — see the rule below.
 ## Rules
 
 - **Never hand-edit anything under `archive/`, `outputs/`, `data/index/` or a
-  wiki auto block.** All of it is regenerated; your edits will disappear. In a
-  wiki note, everything *after* `<!-- auto:end -->` is preserved forever —
-  that is where analysis belongs.
+  wiki auto block.** All of it is regenerated; your edits will disappear. Under
+  `archive/` they are deleted rather than merely overwritten, because a rebuild
+  clears the tree first. In a wiki note, everything *after* `<!-- auto:end -->`
+  is preserved forever — that is where analysis belongs.
 - **`data/` is the source of truth.** Everything else is derived and can be
   deleted and rebuilt with `python3 -m pipelines.render`.
 - **Do not add topics on your own initiative.** What the group tracks is its
@@ -114,16 +115,26 @@ config, templates or documentation does — see the rule below.
 
 ## Layout
 
-| Path | What it is |
-| --- | --- |
-| `config/topics/*.yaml` | The tracked subjects. Adding a file is all it takes. |
-| `inbox/` | Drop a PDF here to have it read and archived. Drains on the next run. |
-| `pipelines/` | The code. `run_daily.py` collects, `render.py` rebuilds. |
-| `data/` | Source of truth: records, summaries, the queue, dedup state. |
-| `archive/` | Generated page per paper and seminar, plus dated digests. |
-| `wiki/` | Generated notes with hand-written sections preserved. |
-| `outputs/` | Lecture notes, decks and reports, per topic. |
-| `templates/` | How the generated artifacts look. |
+The question this table answers is *may I write here, and what happens if I do*.
+A tour of the same tree, for a human arriving at the repository, is in the
+[README](README.md#where-things-live).
+
+| Path | Write? | What it is |
+| --- | --- | --- |
+| `data/papers/`, `data/videos/`, `data/summaries/`, `data/concepts/` | pipeline only | The source of truth: one record per paper and seminar, the readings, and the wiki entities with their evidence. Things enter through a collector, never through an editor. |
+| `data/queue/` | through the CLI | `pending/` → `done/` → `archive/`, one JSON task per unread item. Answer with `queue complete`; do not edit the files. |
+| `data/index/` | never | `papers.jsonl`, `videos.jsonl`, `rejected.jsonl`, and `seen.sqlite` — the dedup alias map, committed on purpose because a scheduled run starts from a fresh clone. |
+| `data/pdfs/`, `data/raw/`, `data/logs/` | pipeline only | Ingested PDFs, raw collector responses, run logs. Not committed. |
+| `archive/` | **never** | A generated page per paper and seminar. Rewritten from `data/` on every render, and now cleared first, so an edit here is deleted rather than merely overwritten. `archive/daily/<date>.md` is the one exception: a dated record of a run, never regenerated. |
+| `outputs/` | **never** | Lecture notes, decks and reports, per topic. Regenerated wholesale. |
+| `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. |
+| `inbox/` | drop PDFs here | Drains on the next run: the file moves to `data/pdfs/` and a reading task is queued. |
+| `config/topics/*.yaml` | when asked | The tracked subjects. Adding a file is all it takes — but see the rule above about whose decision that is. |
+| `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, YouTube channels, the inbox switch. |
+| `pipelines/` | yes | The code. `common/` config and records, `collect/` the four sources, `enrich/` scoring, dedup and the queue, `publish/` the renderers. `run_daily.py` collects, `render.py` rebuilds. |
+| `templates/` | yes | How the generated artifacts look. Editing one never requires re-collecting anything — just render again. |
+| `scripts/`, `tests/` | yes | `daily.sh`, `new_topic.sh`; and the suite, which touches neither the network nor the real `data/`. |
+| `docs/commit/` | **required** | One note per commit, staged with the commit it explains. See the rule above. |
 
 ## Common commands
 
