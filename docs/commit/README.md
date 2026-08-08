@@ -38,3 +38,4 @@ reference for everything built before the practice existed.
 | 0015 | [A ruled `kind` defends itself against the next harvest](0015-a-ruled-kind-defends-itself.md) | fix | A deliberate judgement outranks a majority vote over field placement |
 | 0016 | [A paper's `relevance` is checked against the topics it has](0016-relevance-keys-are-checked.md) | fix · breaking | The validator could not see the one thing that made the record wrong |
 | 0017 | [Keywords match regular plurals](0017-keywords-match-regular-plurals.md) | feature | A rule one letter off looks exactly like a quiet week |
+| 0018 | [Stop asking a host that has failed all run](0018-give-up-on-a-dead-host.md) | feature | Retry is per request; a dead source is per run |

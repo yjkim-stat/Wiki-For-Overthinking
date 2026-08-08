@@ -21,6 +21,11 @@ collect:
   request_timeout_s: 30
   retries: 3
   retry_backoff_s: 2
+  # Stop asking a host after this many consecutive whole-request failures.
+  # Each of those is already `retries` attempts, so this is sustained failure,
+  # not a bad minute. A source that is down for the whole run would otherwise
+  # become the run's dominant cost and still return nothing. 0 disables.
+  give_up_after_failures: 5
   user_agent: "recipe-for-research-team-management/0.1 (research archiving bot)"
 
 score:
