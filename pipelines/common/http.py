@@ -20,7 +20,7 @@ from . import log
 
 _LOG = log.get(__name__)
 
-DEFAULT_USER_AGENT = "recipe-for-world-action-model/0.1"
+DEFAULT_USER_AGENT = "recipe-for-research-team-management/0.1"
 
 # host -> monotonic timestamp of the last request
 _LAST_REQUEST: dict[str, float] = {}

@@ -1,4 +1,4 @@
-# Global settings for the research automation pipeline.
+# Global settings for the research team's pipeline.
 # Topic-specific knobs live in config/topics/<slug>.yaml.
 
 # Language for every generated artifact: summaries, wiki notes, lecture
@@ -21,7 +21,7 @@ collect:
   request_timeout_s: 30
   retries: 3
   retry_backoff_s: 2
-  user_agent: "recipe-for-world-action-model/0.1 (research archiving bot)"
+  user_agent: "recipe-for-research-team-management/0.1 (research archiving bot)"
 
 score:
   # A keyword hit is worth more in the title than in the abstract.

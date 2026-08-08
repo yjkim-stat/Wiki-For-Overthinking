@@ -1,5 +1,9 @@
 # Where papers and seminars are collected from.
 # A topic may narrow these, but never widen them.
+#
+# The lists below are a deliberately generic starting point. Replace them with
+# the categories and venues your own field publishes in — that edit matters
+# more than any keyword, because a topic can only ever match what is collected.
 
 arxiv:
   enabled: true
@@ -7,12 +11,12 @@ arxiv:
   # proxied environments routinely allow only HTTPS egress.
   api_url: "https://export.arxiv.org/api/query"
   # Default categories. A topic can override with its own `categories` list.
+  # Swap in your own: stat.AP, math.ST, econ.EM, q-bio.QM, physics.*, ...
   categories:
-    - cs.RO
     - cs.LG
-    - cs.CV
     - cs.AI
-    - cs.CL
+    - stat.ML
+    - stat.ME
   # arXiv asks for at least 3 seconds between requests.
   min_request_interval_s: 3.0
 
@@ -36,7 +40,11 @@ conferences:
 
   # Venues tracked by default. `dblp_key` and `openreview_prefix` are used by
   # the matching collector; leave them blank to skip that collector for the
-  # venue.
+  # venue. `name` is what ends up in the archive, so use the short form your
+  # field says out loud.
+  #
+  # Replace this list with your own. A venue that only Semantic Scholar knows
+  # about still works: give it a `name` and leave both keys blank.
   venues:
     - name: NeurIPS
       openreview_prefix: "NeurIPS.cc"
@@ -47,27 +55,26 @@ conferences:
     - name: ICML
       openreview_prefix: "ICML.cc"
       dblp_key: "ICML"
-    - name: CoRL
-      openreview_prefix: "robot-learning.org"
-      dblp_key: "CoRL"
-    - name: RSS
+    - name: AISTATS
       openreview_prefix: ""
-      dblp_key: "Robotics: Science and Systems"
-    - name: CVPR
-      openreview_prefix: "thecvf.com"
-      dblp_key: "CVPR"
-    - name: ICCV
-      openreview_prefix: "thecvf.com"
-      dblp_key: "ICCV"
-    - name: ECCV
+      dblp_key: "AISTATS"
+    - name: JMLR
       openreview_prefix: ""
-      dblp_key: "ECCV"
-    - name: ICRA
-      openreview_prefix: ""
-      dblp_key: "ICRA"
-    - name: ACL
-      openreview_prefix: ""
-      dblp_key: "ACL"
+      dblp_key: "J. Mach. Learn. Res."
+    # Examples of narrower tracks, commented out. Keep only what your group
+    # actually reads — every extra venue is another request per run.
+    # - name: CVPR
+    #   openreview_prefix: "thecvf.com"
+    #   dblp_key: "CVPR"
+    # - name: ACL
+    #   openreview_prefix: ""
+    #   dblp_key: "ACL"
+    # - name: KDD
+    #   openreview_prefix: ""
+    #   dblp_key: "KDD"
+    # - name: "Journal of the American Statistical Association"
+    #   openreview_prefix: ""
+    #   dblp_key: ""
 
 youtube:
   enabled: true
@@ -75,9 +82,10 @@ youtube:
   # Find a channel_id from the channel page source (`"channelId":"UC..."`).
   feed_url: "https://www.youtube.com/feeds/videos.xml"
   channels: []
-  # Example:
+  # Example — a department seminar series, a summer school, a conference's
+  # recorded talks:
   # channels:
-  #   - name: "Example Robotics Seminar"
+  #   - name: "Example Research Seminar"
   #     channel_id: "UCxxxxxxxxxxxxxxxxxxxxxx"
 
   # Transcripts need the optional `youtube-transcript-api` package. Without

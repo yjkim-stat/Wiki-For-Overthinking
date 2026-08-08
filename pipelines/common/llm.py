@@ -42,7 +42,7 @@ PAPER_OUTPUT_SCHEMA: dict[str, Any] = {
     },
     "concepts": ["string - reusable ideas this paper relies on or introduces"],
     "methods": ["string - named methods, architectures or algorithms"],
-    "datasets": ["string - datasets, benchmarks or simulators used"],
+    "datasets": ["string - datasets, benchmarks, corpora or simulators used"],
     "tags": ["string - short lowercase keywords"],
 }
 

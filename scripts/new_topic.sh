@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Create a new topic from the template.
 #
-#   scripts/new_topic.sh "Vision-Language-Action Models"
-#   scripts/new_topic.sh "World Action Model" world-action-model
+#   scripts/new_topic.sh "Causal Inference"
+#   scripts/new_topic.sh "Single-Cell Genomics" single-cell
 #
 # Writes config/topics/<slug>.yaml with the slug and name filled in. Edit the
 # keywords before the next run: the template's placeholders match nothing.

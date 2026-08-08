@@ -14,7 +14,8 @@ slug: my-topic
 name: My Topic
 
 # One or two sentences. This is handed to the summarizer as the lens through
-# which every paper is read, so make it specific.
+# which every paper is read, so make it specific: "methods for X" reads
+# everything the same way, "which assumptions X needs to be credible" does not.
 description: >-
   What this topic covers, and what question the archive is meant to answer.
 
@@ -28,7 +29,7 @@ keywords:
     - example keyword
     - another phrase
   # Every one of these must appear. Usually empty; use it to force a
-  # narrow intersection such as ["world model", "manipulation"].
+  # narrow intersection such as ["causal inference", "panel data"].
   all: []
   # Any hit here rejects the item outright, whatever else it matched.
   none:
@@ -55,8 +56,8 @@ sources:
     # Narrows the global category list from config/sources.yaml. Omit or
     # leave empty to use all of them.
     categories:
-      - cs.RO
       - cs.LG
+      - stat.ME
   conferences:
     enabled: true
     # Narrows the global venue list. Omit or leave empty to track all.
