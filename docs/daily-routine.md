@@ -119,7 +119,7 @@ without anyone asking for it.
 Notes are half generated, half yours:
 
 ```markdown
-# Latent Action Model
+# Instrumental Variable
 <!-- auto:begin -->
 ... regenerated on every render ...
 <!-- auto:end -->
@@ -136,7 +136,7 @@ the manual section, in which case it stays.
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | `no topics to run` | no topic files, or all are `_`-prefixed | `scripts/new_topic.sh "Name"` |
-| Collection returns nothing | keywords too narrow, or window too short | `--dry-run --days 30` to check |
+| Collection returns nothing | keywords too narrow, wrong arXiv categories or venues, or window too short | `--dry-run --days 30` to check, then widen `config/sources.yaml` |
 | `queue is at its cap` | more matches than `max_pending_tasks` | drain the queue, or raise the cap |
 | Result rejected on submit | a required field is empty | the error names the field |
 | Wiki note lost its text | it was written inside the auto block | put it after `<!-- auto:end -->` |

@@ -1,29 +1,39 @@
-# Recipe for World Action Model
+# Recipe for Research Team Management with Claude
 
-A research archive that maintains itself.
+The literature work a research group repeats every week, run by Claude instead
+of by hand.
 
-Define a topic once. Every day it collects new papers from arXiv and the major
-conference indexes, pulls seminar recordings from tracked YouTube channels,
-reads what clears the relevance bar, files each reading in a browsable archive,
-grows a wiki that adds a new note whenever a concept starts recurring, and
-regenerates lecture notes, slide decks and reports from everything it knows.
+Name the topics your group follows. Every day it collects new papers from arXiv
+and the major conference indexes, pulls seminar recordings from tracked YouTube
+channels, reads what clears the relevance bar, files each reading in a browsable
+archive, grows a wiki that adds a new note whenever a concept starts recurring,
+and regenerates lecture notes, slide decks and reports from everything it knows.
 
-Nothing here is specific to one field. The repository is named for the subject
-it was built to track, but a topic is a YAML file and that is the only thing
-that decides what gets collected.
+What is left for people is the part that needs judgement: deciding what the
+group tracks, and correcting what it concludes. Everything a new member would
+otherwise ask for — what has been published lately, what does this term mean,
+where do I start reading — is already written down and current.
+
+Nothing here is tied to a field. A topic is a YAML file, and that file is the
+only thing that decides what gets collected, so the same repository serves a
+machine learning group, a statistics lab or a reading group in any discipline.
 
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
 
-scripts/new_topic.sh "Vision-Language-Action Models"
-$EDITOR config/topics/vision-language-action-models.yaml   # fill in keywords.any
+scripts/new_topic.sh "Causal Inference"
+$EDITOR config/topics/causal-inference.yaml   # fill in keywords.any
 
 python3 -m pipelines.run_daily --dry-run     # what would be collected?
 python3 -m pipelines.run_daily               # collect and queue
 python3 -m pipelines.render                  # rebuild every artifact
 ```
+
+A topic is whatever the group actually follows — `"Causal Inference"`,
+`"Diffusion Models"`, `"Single-Cell Genomics"`, `"Monetary Policy"`. Add one per
+subject; they are collected and rendered independently.
 
 After the first real run, `archive/daily/<today>.md` is the day's digest and
 `data/queue/pending/` holds one task per paper that still needs reading. See
@@ -66,16 +76,16 @@ changing nothing else.
 A topic is `config/topics/<slug>.yaml`. The parts that matter:
 
 ```yaml
-slug: vision-language-action
-name: Vision-Language-Action Models
+slug: causal-inference
+name: Causal Inference
 description: >-
-  End-to-end policies that map visual observation and language instruction
-  directly to robot action.
+  Estimating the effect of a treatment from observational data, and the
+  assumptions each estimator needs to be credible.
 
 keywords:
   any:                      # at least one must appear
-    - vision-language-action
-    - VLA policy
+    - causal inference
+    - instrumental variable
   all: []                   # every one must appear
   none:                     # any hit rejects the item
     - survey
@@ -87,6 +97,9 @@ min_score: 0.35             # below this: recorded, not read
 
 Copy [`config/topics/_template.yaml`](config/topics/_template.yaml), or run
 `scripts/new_topic.sh "Name"`. Files starting with `_` are ignored.
+
+Deciding what belongs in `keywords` is the one editorial act the system cannot
+do for you, and it is where a group's judgement actually goes.
 
 ## What it produces
 
@@ -101,7 +114,8 @@ Copy [`config/topics/_template.yaml`](config/topics/_template.yaml), or run
 | `outputs/reports/<slug>/index.html` | Self-contained report with contents, activity view and full index |
 
 Both HTML artifacts are single files with no external requests, so they open
-from disk, from an attachment, or from a USB stick in a room with no network.
+from disk, from an attachment, or from a USB stick in a room with no network —
+which is what makes them usable for a group meeting or a lecture.
 
 ## The self-extending wiki
 
@@ -115,7 +129,7 @@ asking for it.
 Notes are half generated and half yours:
 
 ```markdown
-# Latent Action Model
+# Instrumental Variable
 <!-- auto:begin -->
 ... rebuilt on every render: definition, sources, backlinks ...
 <!-- auto:end -->
@@ -123,6 +137,9 @@ Notes are half generated and half yours:
 ## Notes
 Anything here is never touched.
 ```
+
+That preserved section is where a group's own reading goes — the objection
+someone raised in seminar, the trick that only works on your data.
 
 ## Configuration
 
@@ -132,6 +149,10 @@ Anything here is never touched.
 | `config/sources.yaml` | arXiv categories, tracked venues, YouTube channels |
 | `config/topics/*.yaml` | The subjects themselves |
 
+The defaults in `config/sources.yaml` are a general-purpose starting point. Swap
+the arXiv categories and the venue list for your field's before the first run —
+collecting from the wrong indexes is the most common reason a topic stays empty.
+
 ## Commands
 
 ```bash
@@ -139,7 +160,7 @@ python3 -m pipelines.run_daily [--days N] [--topic slug] [--source arxiv] [--dry
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
 python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
 scripts/daily.sh               # collect, then render
-python3 -m unittest discover -s tests
+python3 -m unittest discover -s tests -t .
 ```
 
 ## Further reading

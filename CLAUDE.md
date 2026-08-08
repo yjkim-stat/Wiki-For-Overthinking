@@ -1,8 +1,9 @@
 # Working in this repository
 
-A research archive that maintains itself: it collects papers and seminar
-recordings for a set of tracked topics, reads them, keeps a wiki that extends
-itself as concepts recur, and generates lecture notes, slide decks and reports.
+This repository runs a research group's literature workflow: it collects papers
+and seminar recordings for a set of tracked topics, reads them, keeps a wiki
+that extends itself as concepts recur, and generates lecture notes, slide decks
+and reports. The topics are the group's own; nothing here assumes a field.
 
 The pipeline is deterministic Python. The reading is yours. Those two halves
 meet at a file-backed work queue, and the whole contract is below.
@@ -71,6 +72,9 @@ ephemeral, so anything uncommitted is lost.
 git add -A && git commit -m "archive: <date> digest"
 ```
 
+A routine digest commit needs no commit note. Any commit that changes code,
+config, templates or documentation does — see the rule below.
+
 ## Rules
 
 - **Never hand-edit anything under `archive/`, `outputs/`, `data/index/` or a
@@ -79,12 +83,18 @@ git add -A && git commit -m "archive: <date> digest"
   that is where analysis belongs.
 - **`data/` is the source of truth.** Everything else is derived and can be
   deleted and rebuilt with `python3 -m pipelines.render`.
-- **Do not add topics on your own initiative.** Topics are the user's editorial
-  decision. When asked, use `scripts/new_topic.sh "Name"` and fill in the
-  keywords.
+- **Do not add topics on your own initiative.** What the group tracks is its
+  own editorial decision. When asked, use `scripts/new_topic.sh "Name"` and fill
+  in the keywords.
 - **Do not invent sources.** Every paper and video in the archive arrived from
   a collector. If something belongs in the archive that a collector missed, say
   so rather than writing a record by hand.
+- **No change to the system lands without a commit note.** Before committing
+  anything other than a routine archive digest, follow the `commit-notes` skill
+  in `.claude/skills/commit-notes/`: split the work into commits that each carry
+  one idea, and write `docs/commit/NNNN-slug.md` for each, staged in the same
+  commit. This repository is deployed into other projects and its history is
+  read as documentation.
 
 ## Layout
 
@@ -107,5 +117,5 @@ python3 -m pipelines.run_daily --days 30          # backfill a wider window
 python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 scripts/daily.sh                                  # collect + render
-python3 -m unittest discover -s tests -v          # tests
+python3 -m unittest discover -s tests -t . -v      # tests
 ```
