@@ -173,6 +173,12 @@ class SeenStore:
 class RecordStore:
     """Reads and writes the normalized records under ``data/``."""
 
+    # Transcripts live beside the video records they belong to, so their names
+    # match the same `*.json` glob. The suffix is defined once and both
+    # `transcript_path` and `iter_videos` are derived from it, so the writer
+    # and the reader cannot drift apart.
+    TRANSCRIPT_SUFFIX = ".transcript.json"
+
     def __init__(self, layout: Layout) -> None:
         self.layout = layout
 
@@ -210,13 +216,17 @@ class RecordStore:
 
     def iter_videos(self) -> Iterator[Video]:
         for path in sorted(self.layout.videos.glob("*.json")):
+            if path.name.endswith(self.TRANSCRIPT_SUFFIX):
+                continue
             data = read_json(path)
-            if data:
+            # A record is an object. Anything else in this directory is not one
+            # of ours, and skipping it beats taking down every entry point.
+            if isinstance(data, dict) and data:
                 yield Video.from_dict(data)
 
     # -- transcripts --------------------------------------------------------
     def transcript_path(self, video_id: str) -> Path:
-        return self.layout.videos / f"{fs_id(video_id)}.transcript.json"
+        return self.layout.videos / f"{fs_id(video_id)}{self.TRANSCRIPT_SUFFIX}"
 
     def save_transcript(self, video_id: str, segments: list[dict]) -> Path:
         path = self.transcript_path(video_id)
