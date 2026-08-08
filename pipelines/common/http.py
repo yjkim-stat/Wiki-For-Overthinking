@@ -8,6 +8,7 @@ clients hard).
 
 from __future__ import annotations
 
+import http.client
 import json
 import time
 import urllib.error
@@ -89,7 +90,16 @@ class Client:
                 # 4xx other than rate limiting will not fix itself.
                 if exc.code not in (408, 429) and 400 <= exc.code < 500:
                     raise HTTPError(f"GET {url} -> HTTP {exc.code}") from exc
-            except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            except (
+                urllib.error.URLError,
+                TimeoutError,
+                OSError,
+                # A response that ends early raises IncompleteRead, which
+                # descends from HTTPException and *not* from OSError. Without
+                # this arm a truncated read — the transient condition the retry
+                # loop exists for — escapes the loop uncaught.
+                http.client.HTTPException,
+            ) as exc:
                 last_error = exc
 
             if attempt < self.retries - 1:

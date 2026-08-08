@@ -30,3 +30,4 @@ reference for everything built before the practice existed.
 | 0007 | [A map of the repository in the README](0007-readme-layout.md) | docs | Three kinds of directory: yours, the source of truth, and derived |
 | 0008 | [The layout table in `CLAUDE.md`, rewritten as write permissions](0008-claude-md-layout.md) | docs | An agent asks "may I write here", not "where do I look" |
 | 0009 | [Collect from the venues' own programme pages](0009-venue-programme-pages.md) | feature | The venue is the authority on what it accepted; a title is scored before an abstract is fetched |
+| 0010 | [Retry a truncated response](0010-retry-truncated-responses.md) | fix | A transient truncation costs a retry, not a topic's results |
