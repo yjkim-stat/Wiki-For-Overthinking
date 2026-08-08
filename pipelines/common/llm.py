@@ -104,14 +104,38 @@ Rules:
 """.strip()
 
 
-def paper_instructions(topics: list[dict], language: str = "en") -> str:
-    """Prompt for reading a paper through the lens of the matched topics."""
+def paper_instructions(
+    topics: list[dict], language: str = "en", *, has_pdf: bool = False
+) -> str:
+    """Prompt for reading a paper through the lens of the matched topics.
+
+    When the document itself was fetched, the prompt says so and points at the
+    experiments rather than the abstract. An abstract is a claim about a paper:
+    it reports the headline and rarely the conditions under which the headline
+    fails, and often carries no numbers at all.
+    """
     lens = "\n".join(
         f"- {t['slug']}: {t['name']} — {t.get('description', '') or 'no description'}"
         for t in topics
     ) or "- (no topic context)"
+    document = (
+        "The full document is attached at `attachments.pdf_path`. Open it and "
+        "read it — the payload's abstract is a summary of the paper's claims, "
+        "not of its findings.\n\n"
+        "Read it as a document, not as text: the result tables and figures "
+        "settle what was actually achieved faster than the prose does. Take "
+        "`results` and `limitations` from the experiments section rather than "
+        "from the abstract's framing, and say which numbers come from "
+        "simulation and which from hardware or real data where the paper "
+        "distinguishes them. If a headline holds only under a condition — a "
+        "scale, a threshold, a subset of tasks — that condition belongs in "
+        "`results`.\n\n"
+        if has_pdf
+        else ""
+    )
     return (
         "Read the paper below and produce a structured summary.\n\n"
+        f"{document}"
         "It matched these tracked topics; `relevance` must contain one entry "
         "per slug, stating what this paper changes for that topic:\n"
         f"{lens}\n\n" + _SHARED_RULES.format(language=language)
@@ -240,14 +264,21 @@ class QueueSummarizer:
             instructions=(
                 local_pdf_instructions(topics, language)
                 if local
-                else paper_instructions(topics, language)
+                else paper_instructions(
+                    topics, language, has_pdf=bool(paper.local_path)
+                )
             ),
             output_schema=(
                 {**PAPER_OUTPUT_SCHEMA, **PDF_EXTRA_SCHEMA}
                 if local
                 else PAPER_OUTPUT_SCHEMA
             ),
-            attachments={"pdf_path": paper.local_path} if local else None,
+            # Whatever a paper's provenance, if a document is on disk the
+            # reader is told where it is. A fetched PDF and a hand-filed one
+            # are the same thing to whoever has to read it.
+            attachments=(
+                {"pdf_path": paper.local_path} if paper.local_path else None
+            ),
             payload={
                 "title": paper.title,
                 "authors": paper.authors,

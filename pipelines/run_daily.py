@@ -21,7 +21,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .collect import arxiv, conferences, local_pdf, youtube
+from .collect import arxiv, conferences, local_pdf, pdf_fetch, youtube
 from .common import config as config_mod
 from .common import log
 from .common.config import Config, Topic
@@ -240,6 +240,18 @@ def run(
                 new_papers.append(record)
 
             if not store.paper_summary_path(record.id).exists():
+                # Fetch the document before filing the task, so the reader is
+                # handed the paper rather than a claim about it. Failure is
+                # ordinary: the task is filed either way, with an abstract.
+                try:
+                    pdf_fetch.fetch_for(cfg, [record], errors=errors)
+                except Exception as exc:  # noqa: BLE001 - never block a reading
+                    _LOG.exception("pdf fetch failed for %s", record.id)
+                    errors.append(f"pdf[{record.id}]: {exc}")
+                else:
+                    if record.local_path:
+                        store.save_paper(record)
+
                 # A hand-filed PDF has not been read yet, so which topics it
                 # belongs to is the reader's question. Show them all of them.
                 slugs = record.topics

@@ -68,15 +68,25 @@ refuses it, which is the right answer: re-deriving a record against a conclusion
 you have already been told tends to satisfy the conclusion rather than the
 evidence. Fix the record or re-collect the item instead.
 
-For a paper task, read the abstract supplied in the task. If the paper's
-contribution cannot be established from it, fetch the linked PDF or abstract
-page rather than guessing. **Leave a field empty rather than inventing
-content** — an empty `results` field is a true statement about what you know; a
-plausible invented one corrupts everything built on top of it, including the
-lecture notes and the wiki.
+For a paper task, **open `attachments.pdf_path` when the task has one** — the
+run fetches the document for papers it is about to queue, and the abstract in
+the payload is a summary of the paper's claims rather than of its findings.
+Take `results` and `limitations` from the experiments section. An abstract
+reports the headline and rarely the condition under which the headline fails.
 
-A task with an `attachments.pdf_path` is a PDF somebody filed by hand, and it
-needs more from you than the others:
+When there is no attachment the PDF was unreachable, paywalled or never
+offered, which is ordinary. Work from the abstract, and fetch the linked PDF or
+abstract page yourself if the contribution cannot be established from it.
+
+**Leave a field empty rather than inventing content** — an empty `results`
+field is a true statement about what you know; a plausible invented one
+corrupts everything built on top of it, including the lecture notes and the
+wiki.
+
+A task whose schema asks for `bibliography` is a PDF somebody filed by hand.
+Both kinds of task carry `attachments.pdf_path` now, so the schema is what tells
+them apart — and this kind needs more from you than the others, because nothing
+has read the document yet:
 
 - **Open the file and look at it.** Read it as a document, not as text: the
   figures and tables usually settle what the paper achieved faster than the
@@ -166,7 +176,7 @@ A tour of the same tree, for a human arriving at the repository, is in the
 | `data/papers/`, `data/videos/`, `data/summaries/`, `data/concepts/` | pipeline only | The source of truth: one record per paper and seminar, the readings, and the wiki entities with their evidence. Things enter through a collector, never through an editor. |
 | `data/queue/` | through the CLI | `pending/` → `done/` → `archive/`, one JSON task per unread item. Answer with `queue complete`; do not edit the files. |
 | `data/index/` | never | `papers.jsonl`, `videos.jsonl`, `rejected.jsonl`, and `seen.sqlite` — the dedup alias map, committed on purpose because a scheduled run starts from a fresh clone. |
-| `data/pdfs/`, `data/raw/`, `data/logs/` | pipeline only | Ingested PDFs, raw collector responses, run logs. Not committed. |
+| `data/pdfs/`, `data/raw/`, `data/logs/` | pipeline only | PDFs — both hand-filed and fetched for papers about to be read — raw collector responses, run logs. Not committed: a PDF is re-fetchable input, and it is not ours to redistribute. |
 | `archive/` | **never** | A generated page per paper and seminar. Rewritten from `data/` on every render, and now cleared first, so an edit here is deleted rather than merely overwritten. `archive/daily/<date>.md` is the one exception: a dated record of a run, never regenerated. |
 | `outputs/` | **never** | Lecture notes, decks and reports, per topic. Regenerated wholesale. |
 | `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. |

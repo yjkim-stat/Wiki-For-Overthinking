@@ -21,6 +21,19 @@ collect:
   request_timeout_s: 30
   retries: 3
   retry_backoff_s: 2
+  # Fetching the document a reader is about to summarize. An abstract reports a
+  # paper's claims; the experiments section reports its findings, and the two
+  # are not the same paper often enough to matter.
+  pdfs:
+    enabled: true
+    # PDF hosts are the same hosts the metadata APIs throttle, and a body is a
+    # far larger ask than a query -- so fetching documents gets its own, slower
+    # floor rather than spending the budget the queries need.
+    min_request_interval_s: 5.0
+    # Bounded per run. A paper that is skipped keeps its abstract-only task and
+    # is fetched on a later run.
+    max_per_run: 40
+
   # Stop asking a host after this many consecutive whole-request failures.
   # Each of those is already `retries` attempts, so this is sustained failure,
   # not a bad minute. A source that is down for the whole run would otherwise
