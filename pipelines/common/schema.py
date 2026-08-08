@@ -60,7 +60,7 @@ class Paper(_Record):
 
     id: str  # canonical: "arxiv:2401.12345" | "doi:10.../x" | "title:<fp>" | "local:<fp>"
     title: str
-    source: str  # arxiv | openreview | semanticscholar | dblp | seed | local
+    source: str  # arxiv | openreview | semanticscholar | dblp | virtualsite | seed | local
     source_id: str = ""
     authors: list[str] = field(default_factory=list)
     abstract: str = ""

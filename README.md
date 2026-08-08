@@ -68,7 +68,7 @@ records are, so a fresh clone has the whole archive without the weight.
 ## How it works
 
 ```
-arXiv · OpenReview · Semantic Scholar · DBLP · YouTube · inbox/
+arXiv · OpenReview · Semantic Scholar · DBLP · venue programmes · YouTube · inbox/
                       │
                 collect ─► score ─► deduplicate ─► data/
                                                     │
@@ -143,7 +143,7 @@ understanding the repository:
 │
 ├── pipelines/                  the code
 │   ├── common/                   config, records, storage, HTTP, Markdown, the summarizer contract
-│   ├── collect/                  arxiv · conferences · youtube · local_pdf
+│   ├── collect/                  arxiv · conferences (+ virtual_site) · youtube · local_pdf
 │   ├── enrich/                   score · dedupe · queue
 │   ├── publish/                  archive · wiki · lecture_note · slides · report
 │   ├── run_daily.py              collect and queue

@@ -37,24 +37,47 @@ conferences:
   dblp:
     enabled: true
     api_url: "https://dblp.org/search/publ/api"
+  # The venues' own programme pages, e.g. https://icml.cc/virtual/2026/papers.html.
+  # Authoritative on what was accepted, and available the day the programme goes
+  # up rather than when an index gets round to it. Only venues carrying a
+  # `virtual_host` below are fetched.
+  virtual_site:
+    enabled: true
+    # The programme page is per year, so this is also how many pages are
+    # fetched per venue per run. Two covers the current cycle and the one
+    # before it; raise it to sweep further back.
+    years_back: 2
+    # The listing gives titles only. A title is scored first and only papers
+    # matching something a topic tracks cost a second request for the abstract
+    # and authors. Turning this off keeps the titles and skips the fetches.
+    fetch_details: true
+    max_details_per_run: 40
 
-  # Venues tracked by default. `dblp_key` and `openreview_prefix` are used by
-  # the matching collector; leave them blank to skip that collector for the
-  # venue. `name` is what ends up in the archive, so use the short form your
-  # field says out loud.
+  # Venues tracked by default. `dblp_key`, `openreview_prefix` and
+  # `virtual_host` are used by the matching collector; leave one blank to skip
+  # that collector for the venue. `name` is what ends up in the archive, so use
+  # the short form your field says out loud.
   #
   # Replace this list with your own. A venue that only Semantic Scholar knows
-  # about still works: give it a `name` and leave both keys blank.
+  # about still works: give it a `name` and leave the keys blank.
   venues:
     - name: NeurIPS
       openreview_prefix: "NeurIPS.cc"
       dblp_key: "NeurIPS"
+      virtual_host: "neurips.cc"
+      # A year whose programme is split across locations lists each one
+      # separately. Keyed by year; a year that is absent uses the plain
+      # /virtual/<year>/papers.html page.
+      virtual_locations:
+        "2025": ["san-diego"]
     - name: ICLR
       openreview_prefix: "ICLR.cc"
       dblp_key: "ICLR"
+      virtual_host: "iclr.cc"
     - name: ICML
       openreview_prefix: "ICML.cc"
       dblp_key: "ICML"
+      virtual_host: "icml.cc"
     - name: AISTATS
       openreview_prefix: ""
       dblp_key: "AISTATS"

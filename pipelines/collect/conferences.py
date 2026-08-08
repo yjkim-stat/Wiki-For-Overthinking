@@ -1,11 +1,15 @@
 """Conference collector.
 
-Top-tier venues have no single API, so this queries three indexes and lets
+Top-tier venues have no single API, so this queries four indexes and lets
 deduplication merge the overlap:
 
 * Semantic Scholar — broadest coverage, abstracts included, no key required.
 * OpenReview — the review-bearing venues, often months before proceedings.
 * DBLP — authoritative bibliographic fallback, but no abstracts.
+* The venue's own virtual site — authoritative on the accepted programme the
+  day it goes up, and the only one of the four that cannot be wrong about
+  whether a paper was accepted. Lives in ``virtual_site.py`` because it is
+  fetched per venue-year rather than per query.
 
 Every query is best-effort. These are third-party services with shifting
 conventions (OpenReview's venue ids in particular change between years), so a
@@ -17,6 +21,7 @@ from __future__ import annotations
 import os
 from datetime import date
 
+from . import virtual_site
 from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError, from_settings
 from ..common.log import get
@@ -366,6 +371,31 @@ def collect(
                 if errors is not None:
                     errors.append(f"{gather.__name__}[{topic.slug}]: {exc}")
                 continue
+            for paper in found:
+                collected.setdefault(paper.id, paper)
+
+    # The virtual sites are fetched once for all topics rather than once per
+    # topic: a programme page is the same page whoever is asking, and with
+    # several topics tracked the per-topic loop would re-fetch it every time.
+    # The venue list is the union of what the topics ask for, so narrowing by
+    # one topic never hides a venue from another.
+    wanted: list[dict] = []
+    for topic in topics:
+        if not topic.source_enabled("conferences"):
+            continue
+        for venue in _venues_for(topic, all_venues):
+            if venue not in wanted:
+                wanted.append(venue)
+    if wanted:
+        try:
+            found = virtual_site.collect(cfg, topics, wanted, since, client, errors)
+        except Exception as exc:  # noqa: BLE001 - one index must not sink the run
+            _LOG.exception("virtual site collector raised")
+            if errors is not None:
+                errors.append(f"virtual_site: {exc}")
+        else:
+            # Last, so a record that already carries an abstract from one of
+            # the indexes above keeps it.
             for paper in found:
                 collected.setdefault(paper.id, paper)
 
