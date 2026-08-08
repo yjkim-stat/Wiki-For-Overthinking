@@ -51,7 +51,7 @@ VIDEO_OUTPUT_SCHEMA: dict[str, Any] = {
     "abstract": "string - a paragraph covering the argument of the talk",
     "chapters": [
         {
-            "start_s": "integer - start time in seconds",
+            "start_s": "integer - required, start time in seconds",
             "title": "string - short chapter title",
             "summary": "string - what is covered in this stretch",
         }
@@ -160,7 +160,10 @@ def video_instructions(topics: list[dict], language: str = "en") -> str:
         "Summarize the seminar recording below.\n\n"
         "Derive `chapters` from the transcript timestamps so a reader can jump "
         "to the part they need; if no transcript is supplied, return an empty "
-        "chapters list and work from the title and description only.\n\n"
+        "chapters list and work from the title and description only. Every "
+        "chapter needs a real `start_s` taken from the transcript — omit the "
+        "chapter rather than guess, because a wrong timestamp is worse than a "
+        "missing one.\n\n"
         "It matched these tracked topics:\n"
         f"{lens}\n\n" + _SHARED_RULES.format(language=language)
     )

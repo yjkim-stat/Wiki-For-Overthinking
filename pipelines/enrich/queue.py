@@ -107,7 +107,15 @@ def validate_result(kind: str, result: Any) -> list[str]:
             if not isinstance(chapter, dict):
                 errors.append(f"chapters[{index}] must be an object")
                 continue
-            if not isinstance(chapter.get("start_s", 0), (int, float)):
+            # Required, not defaulted: a chapter exists so a reader can jump to
+            # it, and a missing timestamp rendered as 0:00 is indistinguishable
+            # from a legitimate first chapter. Wrong is worse than absent here.
+            # `bool` is a subclass of `int`, so it is excluded explicitly.
+            if "start_s" not in chapter:
+                errors.append(f"chapters[{index}].start_s is required")
+            elif not isinstance(chapter["start_s"], (int, float)) or isinstance(
+                chapter["start_s"], bool
+            ):
                 errors.append(f"chapters[{index}].start_s must be a number")
 
     return errors

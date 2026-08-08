@@ -45,15 +45,31 @@ class ValidationTests(unittest.TestCase):
     def test_unknown_kind(self):
         self.assertTrue(validate_result("mystery", {}))
 
+    @staticmethod
+    def _video(chapters):
+        return {"one_liner": "x", "abstract": "y", "key_points": ["z"],
+                "chapters": chapters}
+
     def test_video_chapter_timestamps_must_be_numeric(self):
-        bad = {
-            "one_liner": "x",
-            "abstract": "y",
-            "key_points": ["z"],
-            "chapters": [{"start_s": "00:12", "title": "t"}],
-        }
-        errors = validate_result("video", bad)
+        errors = validate_result("video", self._video([{"start_s": "00:12", "title": "t"}]))
         self.assertTrue(any("start_s" in e for e in errors))
+
+    def test_a_chapter_without_a_timestamp_is_rejected(self):
+        """It used to default to 0 and render as a plausible 0:00."""
+        errors = validate_result("video", self._video([{"title": "no timestamp"}]))
+        self.assertTrue(any("start_s" in e for e in errors))
+
+    def test_a_boolean_timestamp_is_rejected(self):
+        """bool is a subclass of int, so isinstance alone lets True through."""
+        errors = validate_result("video", self._video([{"start_s": True, "title": "t"}]))
+        self.assertTrue(any("start_s" in e for e in errors))
+
+    def test_zero_is_a_legitimate_first_chapter(self):
+        self.assertEqual(validate_result("video", self._video([{"start_s": 0, "title": "t"}])), [])
+
+    def test_no_chapters_at_all_is_valid(self):
+        """The documented answer for a video with no transcript."""
+        self.assertEqual(validate_result("video", self._video([])), [])
 
     def test_concept_kind_is_constrained(self):
         errors = validate_result("concept", {"definition": "d", "kind": "widget"})

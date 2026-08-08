@@ -34,3 +34,4 @@ reference for everything built before the practice existed.
 | 0011 | [`get_json` collided with its own Accept header](0011-get-json-header-collision.md) | fix | A collector that had never sent a request; and the stub that hid it |
 | 0012 | [The Semantic Scholar venue filter is opt-in](0012-venue-filter-is-opt-in.md) | fix · breaking | A default whose failure mode is silent absence is not a safe default |
 | 0013 | [A stored transcript is not a video record](0013-transcripts-are-not-records.md) | fix | One unreadable file cost every entry point; an optional dependency hid it |
+| 0014 | [A chapter timestamp is required, not defaulted](0014-chapter-timestamps-are-required.md) | fix · breaking | A missing value that renders as a plausible 0:00 is worse than a rejection |
