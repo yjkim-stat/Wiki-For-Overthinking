@@ -1,10 +1,10 @@
 """Virtual-site collector tests.
 
 The parsers are exercised against fixtures rather than the live sites, so the
-fixtures below are what the tests actually assert about. They are modelled on
-the URL shape the sites have used for years — ``/virtual/<year>/poster/<id>``
-and Highwire ``citation_*`` meta tags — and are the file to correct first if a
-site changes underneath the collector.
+fixtures below are what the tests actually assert about. The listing fixture
+carries the two things that matter about the real page: the programme lives in
+a ``<noscript>`` fallback, and the navigation bar links to a poster path that
+is not a paper.
 """
 
 from __future__ import annotations
@@ -19,20 +19,20 @@ from .sandbox import Sandbox
 
 LISTING = """
 <html><body>
-  <div class="track-schedule-card">
-    <a href="/virtual/2026/poster/31415">
-      <h5>Causal Inference from Panel Data</h5>
-    </a>
-    <a href="/virtual/2026/poster/31415"><i class="fa fa-star"></i></a>
-  </div>
-  <div class="track-schedule-card">
-    <a href="/virtual/2026/oral/27182">Instrumental Variable Bounds</a>
-  </div>
-  <div class="track-schedule-card">
-    <a href="/virtual/2026/poster/16180">A Paper About Nothing Tracked</a>
-  </div>
-  <a href="/virtual/2026/session/99">Poster Session 3</a>
-  <a href="/virtual/2026/workshop/12">Workshop on Something</a>
+  <nav class="navbar">
+    <!-- The login link points at a poster path too. It is not a paper, and it
+         is the reason only the noscript block is parsed. -->
+    <a href="/virtual/2026/poster/00000">Login</a>
+  </nav>
+  <div id="root"><!-- everything real is rendered by JavaScript --></div>
+  <noscript class="noscript">Enable Javascript in your browser to see the papers page.
+  <ul>
+    <li><a href="/virtual/2026/poster/31415">Causal Inference from Panel Data</a></li>
+    <li><a href="/virtual/2026/oral/27182">Instrumental Variable Bounds</a></li>
+    <li><a href="/virtual/2026/poster/16180">A Paper About Nothing Tracked</a></li>
+    <li><a href="/virtual/2026/poster/31415">Causal Inference from Panel Data</a></li>
+  </ul>
+  </noscript>
 </body></html>
 """
 
@@ -100,15 +100,16 @@ class ParseListingTests(unittest.TestCase):
     def test_unrecognized_markup_yields_nothing_rather_than_junk(self):
         self.assertEqual(virtual_site.parse_listing("<html></html>", "https://x"), [])
 
-    def test_embedded_json_is_preferred_when_present(self):
-        page = """
-        <script>var cards = [{"id": 7, "name": "Causal Inference at Scale",
-        "authors": ["Grace Hopper"], "abstract": "An abstract."}];</script>
-        """
-        entries = virtual_site.parse_listing(page, "https://iclr.cc")
-        self.assertEqual(len(entries), 1)
-        self.assertEqual(entries[0].authors, ["Grace Hopper"])
-        self.assertEqual(entries[0].abstract, "An abstract.")
+    def test_the_navbar_login_link_is_not_a_paper(self):
+        """It points at a poster path. Only the noscript block is parsed."""
+        entries = virtual_site.parse_listing(LISTING, "https://icml.cc")
+        self.assertNotIn("00000", [e.site_id for e in entries])
+        self.assertNotIn("Login", [e.title for e in entries])
+
+    def test_a_page_without_the_fallback_block_yields_nothing(self):
+        """Not the shape we understand -- guessing at the rest invents papers."""
+        page = '<html><body><li><a href="/virtual/2026/poster/1">X</a></li></body></html>'
+        self.assertEqual(virtual_site.parse_listing(page, "https://x"), [])
 
 
 class ParseDetailTests(unittest.TestCase):
@@ -152,6 +153,18 @@ class YearSweepTests(unittest.TestCase):
 
     def test_a_venue_without_a_host_is_skipped(self):
         self.assertEqual(virtual_site._listing_urls({"name": "JMLR"}, [2026]), [])
+
+    def test_a_venue_may_pin_its_own_years(self):
+        """The venues are not on the same cycle; a shared window misses pages."""
+        venue = {"virtual_host": "neurips.cc", "virtual_years": [2025, 2024]}
+        urls = [url for _, url, _ in virtual_site._listing_urls(venue, [2026, 2025])]
+        self.assertEqual(
+            urls,
+            [
+                "https://neurips.cc/virtual/2025/papers.html",
+                "https://neurips.cc/virtual/2024/papers.html",
+            ],
+        )
 
 
 class CollectTests(unittest.TestCase):
@@ -211,7 +224,8 @@ class CollectTests(unittest.TestCase):
         papers = self._collect(StubClient(self._pages()))
         paper = next(p for p in papers if p.title == "Instrumental Variable Bounds")
         self.assertEqual(paper.source, "virtualsite")
-        self.assertEqual(paper.venue, "ICML")
+        # The venue carries the year: "accepted at ICML 2026" is the fact.
+        self.assertEqual(paper.venue, f"ICML {self.today.year}")
         self.assertEqual(paper.year, self.today.year)
         self.assertTrue(paper.id.startswith("title:"))
 

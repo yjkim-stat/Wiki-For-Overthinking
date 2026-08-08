@@ -23,11 +23,24 @@ cleared a threshold is dropped by the gate. What the gate cannot see is a paper
 whose keywords appear only in its abstract — that one is left to the other three
 indexes, which do search abstracts.
 
-The parsers below are written against the URL shape rather than the markup,
-because ``/virtual/<year>/poster/<id>`` has outlived several redesigns of the
-page around it. A structural change still shows up: a page that fetches but
-yields nothing is logged as a warning rather than passed off as an empty
-programme.
+*The listing is read out of the page's ``<noscript>`` block.* The page renders
+through JavaScript, but it carries the complete list as plain HTML inside a
+no-JavaScript fallback — which is the most stable part of it, because it exists
+to be read without a browser. Nothing else on the page is parsed, and that is
+load-bearing rather than merely tidy: the navigation bar's login link also
+points at a ``/virtual/<year>/poster/<id>`` path, so a parser that swept the
+whole document for that shape would mint a paper out of a login button.
+
+A structural change still shows up. A page that fetches but yields nothing is
+logged as a warning rather than passed off as an empty programme — a silent
+zero is the failure mode to fear here.
+
+The record is minted with a title-fingerprint id, and that is the point of the
+collector rather than an implementation detail. Most of these papers appeared
+as preprints first, so the fingerprint makes deduplication *merge* the listing
+onto a record the archive already holds, filling its empty venue and year. The
+value is not that the archive gains papers; it is that the archive learns which
+of its papers were accepted where.
 """
 
 from __future__ import annotations
@@ -50,10 +63,16 @@ _LOG = get(__name__)
 # (sessions, workshops, socials) is programme furniture, not a paper.
 _PAPER_KINDS = ("poster", "oral", "spotlight", "paper")
 
-_ENTRY_RE = re.compile(
-    r"href=[\"'](?P<href>/virtual/(?P<year>\d{4})/"
-    r"(?P<kind>" + "|".join(_PAPER_KINDS) + r")/(?P<site_id>\d+))[\"']"
-    r"(?P<attrs>[^>]*)>(?P<label>.*?)</a>",
+# The no-JavaScript fallback, which holds the whole programme as a plain list.
+_NOSCRIPT_RE = re.compile(
+    r"<noscript\b[^>]*>(?P<body>.*?)</noscript>", re.IGNORECASE | re.DOTALL
+)
+# One paper: a list item wrapping a link to its page. Anchored on `<li>` so that
+# a stray link inside the fallback text cannot pass for an entry.
+_ITEM_RE = re.compile(
+    r"<li\b[^>]*>\s*<a\b[^>]*href=[\"'](?P<href>/virtual/(?P<year>\d{4})/"
+    r"(?P<kind>" + "|".join(_PAPER_KINDS) + r")/(?P<site_id>\d+))[\"'][^>]*>"
+    r"(?P<label>.*?)</a>",
     re.IGNORECASE | re.DOTALL,
 )
 
@@ -98,77 +117,36 @@ class Listing:
 # ---------------------------------------------------------------------------
 
 
-def _parse_embedded_json(page: str, base: str) -> list[Listing]:
-    """Some builds ship the programme as a JSON blob inside a script tag.
-
-    Matched structurally — an array of objects carrying a title and an id —
-    rather than by variable name, which is theme-specific and changes.
-    """
-    found: list[Listing] = []
-    for blob in re.findall(r"\[\s*\{.*?\}\s*\]", page, re.DOTALL):
-        try:
-            rows = json.loads(blob)
-        except (json.JSONDecodeError, ValueError):
-            continue
-        if not isinstance(rows, list):
-            continue
-        for row in rows:
-            if not isinstance(row, dict):
-                continue
-            title = str(row.get("name") or row.get("title") or "").strip()
-            site_id = str(row.get("id") or row.get("paper_id") or "").strip()
-            if not title or not site_id:
-                continue
-            authors = row.get("authors") or row.get("speakers") or []
-            if isinstance(authors, str):
-                authors = [a.strip() for a in authors.split(";") if a.strip()]
-            found.append(
-                Listing(
-                    title=title,
-                    url=f"{base}/virtual/paper/{site_id}",
-                    site_id=site_id,
-                    kind=str(row.get("eventtype") or row.get("type") or "").lower(),
-                    abstract=str(row.get("abstract") or "").strip(),
-                    authors=[str(a) for a in authors if str(a).strip()],
-                )
-            )
-        if found:
-            break
-    return found
-
-
-def _parse_anchors(page: str, base: str) -> list[Listing]:
-    """The durable shape: links to ``/virtual/<year>/<kind>/<id>``."""
-    found: list[Listing] = []
-    for match in _ENTRY_RE.finditer(page):
-        title = _text(match.group("label"))
-        if not title:
-            # An icon-only link to the same paper; the titled one is elsewhere
-            # in the page and will be picked up on its own.
-            continue
-        found.append(
-            Listing(
-                title=title,
-                url=f"{base}{match.group('href')}",
-                site_id=match.group("site_id"),
-                kind=match.group("kind").lower(),
-                year=int(match.group("year")),
-            )
-        )
-    return found
-
-
 def parse_listing(page: str, base: str) -> list[Listing]:
     """Extract the papers from a programme page.
 
-    Tries the embedded programme data first because it carries authors, and
-    falls back to the anchors. Duplicates are collapsed on the site id: a paper
-    is routinely linked more than once from the same page.
+    Only the ``<noscript>`` fallback is read. Everything outside it is rendered
+    by JavaScript and is not there to be parsed — and the navigation bar links
+    to a poster path of its own, so widening the search would invent a paper.
+
+    A page with no fallback block yields nothing, deliberately: that means the
+    page is not the shape this collector understands, and guessing at the rest
+    of it is how a scraper starts producing plausible rubbish.
     """
-    entries = _parse_embedded_json(page, base) or _parse_anchors(page, base)
+    block = _NOSCRIPT_RE.search(page)
+    if block is None:
+        return []
+
     unique: dict[str, Listing] = {}
-    for entry in entries:
-        unique.setdefault(entry.site_id or entry.title.lower(), entry)
+    for match in _ITEM_RE.finditer(block.group("body")):
+        title = _text(match.group("label"))
+        if not title:
+            continue
+        entry = Listing(
+            title=title,
+            url=f"{base}{match.group('href')}",
+            site_id=match.group("site_id"),
+            kind=match.group("kind").lower(),
+            year=int(match.group("year")),
+        )
+        # A paper can be listed more than once — under a track and again in a
+        # session — and the site id is what says they are the same paper.
+        unique.setdefault(entry.site_id, entry)
     return list(unique.values())
 
 
@@ -235,6 +213,11 @@ def _years(block: dict, since: date, today: date) -> list[int]:
 def _listing_urls(venue: dict, years: list[int]) -> list[tuple[str, str, int]]:
     """``(base, url, year)`` for every programme page of one venue.
 
+    A venue may set its own ``virtual_years``, because the venues are not on the
+    same cycle: in the second half of a year ICML's current programme is that
+    year's while NeurIPS's is still the previous one, and sweeping a shared
+    window asks each of them for a page that does not exist.
+
     A venue that splits a year across locations lists them under
     ``/virtual/<year>/loc/<city>/``; NeurIPS 2025 is the first to need it.
     """
@@ -243,6 +226,10 @@ def _listing_urls(venue: dict, years: list[int]) -> list[tuple[str, str, int]]:
         return []
     base = host if host.startswith("http") else f"https://{host}"
     base = base.rstrip("/")
+
+    own = venue.get("virtual_years")
+    if isinstance(own, list) and own:
+        years = [int(y) for y in own]
 
     locations = venue.get("virtual_locations") or {}
     urls: list[tuple[str, str, int]] = []
@@ -260,6 +247,11 @@ def _listing_urls(venue: dict, years: list[int]) -> list[tuple[str, str, int]]:
 
 
 def _to_paper(entry: Listing) -> Paper:
+    # The venue carries the year, because "ICML 2026" is the fact this
+    # collector exists to record: the paper cleared review at that edition.
+    # Merged onto a preprint record by the title fingerprint, that string is
+    # the whole of what the archive learns.
+    venue = f"{entry.venue} {entry.year}".strip() if entry.venue else str(entry.year)
     return Paper(
         id=canonical_paper_id(title=entry.title),
         title=entry.title,
@@ -268,7 +260,7 @@ def _to_paper(entry: Listing) -> Paper:
         authors=list(entry.authors),
         abstract=entry.abstract,
         url=entry.url,
-        venue=entry.venue,
+        venue=venue,
         year=entry.year,
         published=f"{entry.year}-01-01" if entry.year else "",
         first_seen=utcnow(),

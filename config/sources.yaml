@@ -48,15 +48,21 @@ conferences:
   # `virtual_host` below are fetched.
   virtual_site:
     enabled: true
-    # The programme page is per year, so this is also how many pages are
-    # fetched per venue per run. Two covers the current cycle and the one
-    # before it; raise it to sweep further back.
+    # Default sweep, used by any venue that does not pin its own
+    # `virtual_years`. The programme page is per year, so this is also how many
+    # pages are fetched per venue per run.
     years_back: 2
     # The listing gives titles only. A title is scored first and only papers
     # matching something a topic tracks cost a second request for the abstract
     # and authors. Turning this off keeps the titles and skips the fetches.
+    #
+    # For scale: one measured ICML programme listed 6,628 accepted papers, of
+    # which 153 matched a three-topic deployment. Scoring on the listing is what
+    # turns several thousand potential requests into a few dozen — but a busy
+    # archive can still exceed the cap below, and what it drops keeps its title
+    # and loses only its abstract. The run logs how many.
     fetch_details: true
-    max_details_per_run: 40
+    max_details_per_run: 60
 
   # Venues tracked by default. `dblp_key`, `openreview_prefix` and
   # `virtual_host` are used by the matching collector; leave one blank to skip
@@ -70,6 +76,10 @@ conferences:
       openreview_prefix: "NeurIPS.cc"
       dblp_key: "NeurIPS"
       virtual_host: "neurips.cc"
+      # The venues are not on the same cycle: in the second half of a year
+      # NeurIPS's current programme is still the previous year's, so a shared
+      # sweep asks it for a page that does not exist. Pin the years that do.
+      virtual_years: [2025, 2024]
       # A year whose programme is split across locations lists each one
       # separately. Keyed by year; a year that is absent uses the plain
       # /virtual/<year>/papers.html page.
@@ -79,10 +89,12 @@ conferences:
       openreview_prefix: "ICLR.cc"
       dblp_key: "ICLR"
       virtual_host: "iclr.cc"
+      virtual_years: [2026, 2025]
     - name: ICML
       openreview_prefix: "ICML.cc"
       dblp_key: "ICML"
       virtual_host: "icml.cc"
+      virtual_years: [2026, 2025]
     - name: AISTATS
       openreview_prefix: ""
       dblp_key: "AISTATS"
