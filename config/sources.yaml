@@ -29,6 +29,11 @@ conferences:
     api_url: "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
     # Optional. Read from the SEMANTIC_SCHOLAR_API_KEY env var when set.
     api_key_env: SEMANTIC_SCHOLAR_API_KEY
+    # Restrict results to the `venues` list below. Leave false: a preprint's
+    # venue is recorded as "arXiv.org", so the filter drops every one of them —
+    # including, for a topic whose literature is mostly preprints, all of it.
+    # Set true only if your group genuinely reads proceedings versions only.
+    restrict_to_venues: false
   # OpenReview covers the review-bearing venues before they hit proceedings.
   openreview:
     enabled: true

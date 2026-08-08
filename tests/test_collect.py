@@ -310,8 +310,19 @@ class ConferenceTests(unittest.TestCase):
         conferences.collect(self.cfg, self.cfg.topics, date(2025, 1, 1), client=client)
         params = client.calls[0][1]
         self.assertIn("|", params["query"])
-        self.assertEqual(params["venue"], "ICLR")
         self.assertEqual(params["year"], "2025-")
+
+    def test_the_venue_filter_is_off_by_default(self):
+        """A preprint's venue is "arXiv.org", so the filter would drop them all."""
+        client = StubClient(payload=SEMANTIC_SCHOLAR)
+        conferences.collect(self.cfg, self.cfg.topics, date(2025, 1, 1), client=client)
+        self.assertNotIn("venue", client.calls[0][1])
+
+    def test_the_venue_filter_can_be_opted_into(self):
+        self.cfg.sources["conferences"]["semantic_scholar"]["restrict_to_venues"] = True
+        client = StubClient(payload=SEMANTIC_SCHOLAR)
+        conferences.collect(self.cfg, self.cfg.topics, date(2025, 1, 1), client=client)
+        self.assertEqual(client.calls[0][1]["venue"], "ICLR")
 
     def test_an_api_key_reaches_the_request(self):
         """End to end: the env var is read and arrives as a header."""

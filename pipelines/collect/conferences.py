@@ -116,8 +116,15 @@ def _collect_semantic_scholar(
         "year": f"{since.year}-",
         "limit": min(limit, 1000),
     }
+    # Opt-in, and off by default. Semantic Scholar records a preprint's venue
+    # as "arXiv.org", so filtering by a list of conference names excludes every
+    # preprint unconditionally — and for a fast-moving field the preprints are
+    # not a supplement to the literature, they are the literature. Off is the
+    # right default because the failure mode of `false` is noise, which scoring
+    # already filters, while the failure mode of `true` is silent absence,
+    # which nothing detects.
     venue_names = [v.get("name", "") for v in venues if v.get("name")]
-    if venue_names:
+    if venue_names and block.get("restrict_to_venues", False):
         params["venue"] = ",".join(venue_names)
 
     try:
