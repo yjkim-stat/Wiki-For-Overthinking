@@ -93,6 +93,80 @@ daily Claude Code session, which is why the system runs with no API key at all.
 must satisfy — pointing it at an API instead means implementing two methods and
 changing nothing else.
 
+## Where things live
+
+Every directory here is one of three kinds, and telling them apart is most of
+understanding the repository:
+
+| Kind | Which | Rule |
+| --- | --- | --- |
+| **Yours** | `config/`, `templates/`, `inbox/`, the manual half of `wiki/` | Edit freely. Nothing overwrites them. |
+| **The truth** | `data/` | Written by the pipeline, never by hand. Everything else derives from it. |
+| **Derived** | `archive/`, `wiki/`, `outputs/` | Delete them, run render, they come back identical. Never edit them. |
+
+```
+.
+├── config/                     ← yours: what gets collected, and how
+│   ├── settings.yaml             language, lookback window, scoring weights, wiki thresholds
+│   ├── sources.yaml              arXiv categories, venues, YouTube channels, the inbox switch
+│   └── topics/<slug>.yaml        one file per tracked subject — the whole editorial decision
+│
+├── inbox/                      ← yours: drop a PDF here, it drains on the next run
+│
+├── data/                       ← the source of truth. Committed.
+│   ├── papers/<id>.json          one record per paper
+│   ├── videos/<id>.json          one per seminar, plus <id>.transcript.json
+│   ├── summaries/                the readings: papers/<id>.json, videos/<id>.json
+│   ├── concepts/<slug>.json      wiki entities and the evidence behind each one
+│   ├── queue/                    pending/ → done/ → archive/, one JSON task per unread item
+│   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, seen.sqlite
+│   ├── pdfs/                     hand-filed PDFs, content-addressed        (not committed)
+│   ├── raw/                      collector responses, for replaying a parse bug (not committed)
+│   └── logs/                     run logs                                  (not committed)
+│
+├── archive/                    ← derived: the human-readable record
+│   ├── papers/<year>/<id>/       one page per paper
+│   ├── seminars/<id>/            talk summary and transcript
+│   ├── daily/<date>.md           what arrived that day — a record of a run, not a rendering,
+│   │                             so it is the one thing here that is never regenerated
+│   └── index.md
+│
+├── wiki/                       ← derived, except the manual tail of every note
+│   ├── topics/ concepts/ methods/ datasets/
+│   ├── _meta/graph.json          the backlink graph
+│   └── index.md
+│
+├── outputs/                    ← derived, one set per topic
+│   ├── lecture-notes/<slug>/
+│   ├── slides/<slug>/index.html
+│   └── reports/<slug>/index.html
+│
+├── pipelines/                  the code
+│   ├── common/                   config, records, storage, HTTP, Markdown, the summarizer contract
+│   ├── collect/                  arxiv · conferences · youtube · local_pdf
+│   ├── enrich/                   score · dedupe · queue
+│   ├── publish/                  archive · wiki · lecture_note · slides · report
+│   ├── run_daily.py              collect and queue
+│   └── render.py                 apply and rebuild
+│
+├── templates/                  ← yours: how the generated artifacts look
+├── scripts/                    daily.sh, new_topic.sh
+├── tests/
+└── docs/
+    ├── daily-routine.md          each stage in detail, and troubleshooting
+    └── commit/                   one note per commit: what changed, why, what it costs
+```
+
+`data/`, `archive/`, `wiki/` and `outputs/` do not exist until the first run.
+What each generated artifact actually contains is in
+[What it produces](#what-it-produces) below.
+
+Almost everything is committed, including the generated trees — a scheduled run
+starts from a fresh clone, so anything uncommitted is lost. The exceptions are
+the heavy and the reproducible: raw responses, logs, and PDFs. Note that
+`data/index/seen.sqlite` **is** committed despite being a binary; deduplication
+state that does not survive the clone is not deduplication state.
+
 ## Topics
 
 A topic is `config/topics/<slug>.yaml`. The parts that matter:
