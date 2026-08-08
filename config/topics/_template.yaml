@@ -1,0 +1,80 @@
+# Topic definition template.
+#
+# Copy this file to config/topics/<slug>.yaml, or run:
+#     scripts/new_topic.sh "My Topic Name"
+#
+# Files whose name starts with "_" are ignored by the loader, so this
+# template never takes part in a run.
+
+# Stable identifier. Must match the filename and stay unchanged once the
+# topic has archived material, since paths are derived from it.
+slug: my-topic
+
+# Human-readable name, used in headings and generated documents.
+name: My Topic
+
+# One or two sentences. This is handed to the summarizer as the lens through
+# which every paper is read, so make it specific.
+description: >-
+  What this topic covers, and what question the archive is meant to answer.
+
+# ---------------------------------------------------------------------------
+# Matching
+# ---------------------------------------------------------------------------
+
+keywords:
+  # At least one of these must appear for an item to be considered at all.
+  any:
+    - example keyword
+    - another phrase
+  # Every one of these must appear. Usually empty; use it to force a
+  # narrow intersection such as ["world model", "manipulation"].
+  all: []
+  # Any hit here rejects the item outright, whatever else it matched.
+  none:
+    - unrelated phrase
+
+# Authors worth tracking. A match adds `score.author_bonus`.
+authors: []
+
+# Anchor papers for the topic. They are archived on the first run and give
+# the summarizer a reference frame. Use arXiv IDs, DOIs or plain titles.
+seed_papers: []
+
+# Items scoring below this are recorded in the index but never summarized.
+# Omit to use `score.default_min_score` from settings.yaml.
+min_score: 0.35
+
+# ---------------------------------------------------------------------------
+# Sources
+# ---------------------------------------------------------------------------
+
+sources:
+  arxiv:
+    enabled: true
+    # Narrows the global category list from config/sources.yaml. Omit or
+    # leave empty to use all of them.
+    categories:
+      - cs.RO
+      - cs.LG
+  conferences:
+    enabled: true
+    # Narrows the global venue list. Omit or leave empty to track all.
+    venues: []
+  youtube:
+    enabled: true
+    # Extra channels tracked only for this topic, same shape as in
+    # config/sources.yaml.
+    channels: []
+
+# ---------------------------------------------------------------------------
+# Outputs
+# ---------------------------------------------------------------------------
+
+outputs:
+  # Generate a lecture note for this topic.
+  lecture_note: true
+  # Generate a self-contained slide deck.
+  slides: true
+  # Generate a self-contained HTML report.
+  report: true

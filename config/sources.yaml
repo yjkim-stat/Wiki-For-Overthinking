@@ -1,0 +1,87 @@
+# Where papers and seminars are collected from.
+# A topic may narrow these, but never widen them.
+
+arxiv:
+  enabled: true
+  # HTTPS, not the plain-HTTP endpoint arXiv also serves: sandboxed and
+  # proxied environments routinely allow only HTTPS egress.
+  api_url: "https://export.arxiv.org/api/query"
+  # Default categories. A topic can override with its own `categories` list.
+  categories:
+    - cs.RO
+    - cs.LG
+    - cs.CV
+    - cs.AI
+    - cs.CL
+  # arXiv asks for at least 3 seconds between requests.
+  min_request_interval_s: 3.0
+
+conferences:
+  enabled: true
+  # Semantic Scholar bulk search: broad venue coverage, no API key required
+  # (rate limited without one).
+  semantic_scholar:
+    enabled: true
+    api_url: "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
+    # Optional. Read from the SEMANTIC_SCHOLAR_API_KEY env var when set.
+    api_key_env: SEMANTIC_SCHOLAR_API_KEY
+  # OpenReview covers the review-bearing venues before they hit proceedings.
+  openreview:
+    enabled: true
+    api_url: "https://api2.openreview.net/notes"
+  # DBLP is the fallback index when the two above miss a venue.
+  dblp:
+    enabled: true
+    api_url: "https://dblp.org/search/publ/api"
+
+  # Venues tracked by default. `dblp_key` and `openreview_prefix` are used by
+  # the matching collector; leave them blank to skip that collector for the
+  # venue.
+  venues:
+    - name: NeurIPS
+      openreview_prefix: "NeurIPS.cc"
+      dblp_key: "NeurIPS"
+    - name: ICLR
+      openreview_prefix: "ICLR.cc"
+      dblp_key: "ICLR"
+    - name: ICML
+      openreview_prefix: "ICML.cc"
+      dblp_key: "ICML"
+    - name: CoRL
+      openreview_prefix: "robot-learning.org"
+      dblp_key: "CoRL"
+    - name: RSS
+      openreview_prefix: ""
+      dblp_key: "Robotics: Science and Systems"
+    - name: CVPR
+      openreview_prefix: "thecvf.com"
+      dblp_key: "CVPR"
+    - name: ICCV
+      openreview_prefix: "thecvf.com"
+      dblp_key: "ICCV"
+    - name: ECCV
+      openreview_prefix: ""
+      dblp_key: "ECCV"
+    - name: ICRA
+      openreview_prefix: ""
+      dblp_key: "ICRA"
+    - name: ACL
+      openreview_prefix: ""
+      dblp_key: "ACL"
+
+youtube:
+  enabled: true
+  # Channel RSS needs no API key. Add channels as {name, channel_id}.
+  # Find a channel_id from the channel page source (`"channelId":"UC..."`).
+  feed_url: "https://www.youtube.com/feeds/videos.xml"
+  channels: []
+  # Example:
+  # channels:
+  #   - name: "Example Robotics Seminar"
+  #     channel_id: "UCxxxxxxxxxxxxxxxxxxxxxx"
+
+  # Transcripts need the optional `youtube-transcript-api` package. Without
+  # it, videos are still archived and flagged as transcript-less.
+  fetch_transcripts: true
+  # Skip anything shorter than this: shorts and teasers are not seminars.
+  min_duration_s: 600

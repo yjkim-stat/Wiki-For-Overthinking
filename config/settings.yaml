@@ -1,0 +1,51 @@
+# Global settings for the research automation pipeline.
+# Topic-specific knobs live in config/topics/<slug>.yaml.
+
+# Language for every generated artifact: summaries, wiki notes, lecture
+# notes, slides and reports.
+language: en
+
+paths:
+  data: data
+  archive: archive
+  wiki: wiki
+  outputs: outputs
+  templates: templates
+
+collect:
+  # How many days back each run looks. Raise it for a one-off backfill.
+  lookback_days: 2
+  # Hard cap per source per topic per run. Keeps a run bounded even when a
+  # query is too broad.
+  max_items_per_source: 60
+  request_timeout_s: 30
+  retries: 3
+  retry_backoff_s: 2
+  user_agent: "recipe-for-world-action-model/0.1 (research archiving bot)"
+
+score:
+  # A keyword hit is worth more in the title than in the abstract.
+  title_weight: 3.0
+  abstract_weight: 1.0
+  # Bonus when one of the topic's tracked authors appears.
+  author_bonus: 2.0
+  # Used when a topic does not set its own `min_score`.
+  default_min_score: 0.35
+
+summarize:
+  # queue     -> defer to the daily Claude Code session (default, no API key)
+  # anthropic -> direct Claude API calls (interface only, not configured)
+  # ollama    -> local model endpoint (interface only, not configured)
+  backend: queue
+  # Upper bound on tasks queued per run, so a busy day cannot produce an
+  # unreviewable backlog.
+  max_pending_tasks: 40
+
+wiki:
+  # A concept needs this many independent mentions before it is promoted to
+  # its own note.
+  promote_after_mentions: 2
+  # Everything between these markers is regenerated on every run. Anything
+  # outside them is hand-written and never touched.
+  auto_block_begin: "<!-- auto:begin -->"
+  auto_block_end: "<!-- auto:end -->"
