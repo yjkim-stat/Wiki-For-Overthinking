@@ -276,6 +276,35 @@ class RenderPipelineTests(unittest.TestCase):
         )
         self.assertEqual(before, after)
 
+    def test_a_corrected_year_leaves_no_stale_page_behind(self):
+        # A paper's page path contains its year, and a year can arrive after
+        # the page does — a deduplication merge fills one in, and a hand-filed
+        # PDF has none until it has been read. The page written under the old
+        # year must not survive as a second copy.
+        paper = self.papers[0]
+        paper.year = 0
+        paper.published = ""
+        self.store.save_paper(paper)
+        render.rebuild_archive(self.cfg)
+        stale = paper_dir(self.cfg.layout, paper)
+        self.assertTrue(stale.exists())
+
+        paper.year = 2024
+        self.store.save_paper(paper)
+        render.rebuild_archive(self.cfg)
+
+        self.assertFalse(stale.exists(), "archive/ must be a pure function of data/")
+        self.assertTrue(paper_dir(self.cfg.layout, paper).exists())
+
+    def test_rebuilding_does_not_touch_the_daily_digests(self):
+        # Digests are dated records of a run, not derived from the store, so
+        # nothing regenerates them and clearing them would lose them.
+        digest = self.cfg.layout.archive_daily / "2024-01-01.md"
+        digest.parent.mkdir(parents=True, exist_ok=True)
+        digest.write_text("# a day", encoding="utf-8")
+        render.rebuild_archive(self.cfg)
+        self.assertTrue(digest.exists())
+
     def test_only_flag_limits_the_stage(self):
         result = render.run(self.cfg, only="wiki")
         self.assertIn("wiki", result)

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import shutil
 from pathlib import Path
 
 from .common import config as config_mod
@@ -151,6 +152,17 @@ def apply_completed(cfg: Config) -> dict[str, int]:
 def rebuild_archive(cfg: Config) -> dict[str, int]:
     store = RecordStore(cfg.layout)
     papers = videos = 0
+
+    # Clear before regenerating, so the claim that `archive/` is a pure
+    # function of `data/` is actually true. A paper's page path contains its
+    # year, and a year can arrive after the page does — from a deduplication
+    # merge, or from a record corrected by hand. Without this the old path
+    # survives as a second, stale copy that nothing ever looks at again.
+    # `archive/daily/` is left alone: digests are dated records of a run, not
+    # derived from the store, and nothing regenerates them.
+    for directory in (cfg.layout.archive_papers, cfg.layout.archive_seminars):
+        shutil.rmtree(directory, ignore_errors=True)
+        directory.mkdir(parents=True, exist_ok=True)
 
     for paper in store.iter_papers():
         archive_mod.write_paper_page(

@@ -25,3 +25,4 @@ reference for everything built before the practice existed.
 | 0002 | [Retire the subject-specific defaults and identifiers](0002-field-neutral-defaults.md) | refactor | Defaults are what people run; none of them name a field any more |
 | 0003 | [Field-neutral fixtures and examples](0003-field-neutral-fixtures.md) | refactor | A test should be readable by someone who does not know the field |
 | 0004 | [Reframe as a recipe for research team management](0004-reframe-as-a-team-recipe.md) | docs | The repository states the job it does, not the subject it was first used on |
+| 0005 | [Make `rebuild_archive` actually rebuild](0005-rebuild-archive-from-scratch.md) | fix | `archive/` really is a pure function of `data/`, stale pages and all |
