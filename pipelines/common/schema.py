@@ -58,14 +58,17 @@ class _Record:
 class Paper(_Record):
     """A paper, normalized across arXiv, OpenReview, Semantic Scholar and DBLP."""
 
-    id: str  # canonical: "arxiv:2401.12345" | "doi:10.../x" | "title:<fp>"
+    id: str  # canonical: "arxiv:2401.12345" | "doi:10.../x" | "title:<fp>" | "local:<fp>"
     title: str
-    source: str  # arxiv | openreview | semanticscholar | dblp | seed
+    source: str  # arxiv | openreview | semanticscholar | dblp | seed | local
     source_id: str = ""
     authors: list[str] = field(default_factory=list)
     abstract: str = ""
     url: str = ""
     pdf_url: str = ""
+    # Repository-relative path to a PDF held on disk. Set only by the local
+    # collector; a remote paper is referenced by `pdf_url` and never copied.
+    local_path: str = ""
     published: str = ""  # ISO date, best effort
     updated: str = ""
     venue: str = ""
@@ -86,12 +89,26 @@ class Paper(_Record):
     def best_score(self) -> float:
         return max(self.scores.values(), default=0.0)
 
+    @property
+    def is_local(self) -> bool:
+        """True when this paper was filed by hand from the inbox.
+
+        Membership, not equality: deduplication joins the sources a record has
+        been seen from with ``+``, so a paper that arrived both by hand and
+        from arXiv reads as ``local+arxiv`` and is still local.
+        """
+        return "local" in (self.source or "").split("+")
+
     def citation(self) -> str:
         """Short human-readable reference line."""
         who = ", ".join(self.authors[:3])
         if len(self.authors) > 3:
             who += " et al."
-        where = self.venue or (self.categories[0] if self.categories else "arXiv")
+        # "arXiv" is only a sensible fallback for something that came from
+        # arXiv. A hand-filed PDF with no venue yet says nothing rather than
+        # claiming a venue it never had.
+        fallback = "arXiv" if (self.arxiv_id or "arxiv" in self.source) else ""
+        where = self.venue or (self.categories[0] if self.categories else fallback)
         when = self.year or (self.published[:4] if self.published else "")
         parts = [p for p in (who, f"*{self.title}*", where, str(when)) if p]
         return ". ".join(parts)

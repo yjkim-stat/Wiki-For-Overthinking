@@ -34,12 +34,66 @@ _LOG = log.get(__name__)
 # ---------------------------------------------------------------------------
 
 
-def _apply_paper(store: RecordStore, task: dict) -> bool:
+def _apply_bibliography(cfg: Config, store: RecordStore, paper, result: dict) -> None:
+    """Fold a reader-supplied bibliography into a hand-filed paper.
+
+    Only a local PDF reaches this: it arrives knowing nothing but its filename,
+    so the reading step is the only thing that can say what the document is.
+
+    Whether the reading wins depends on what else the record has been seen
+    from. While the inbox is its *only* source, everything it holds is a guess
+    from a filename — including the title — so the reading replaces it
+    outright. Once the same work has also arrived from an index, that metadata
+    is better evidence than a reading, and the reading may only fill blanks.
+    """
+    biblio = result.get("bibliography") or {}
+    if not isinstance(biblio, dict):
+        return
+
+    guessed = paper.source == "local"
+
+    def take(field_name: str, value) -> bool:
+        return bool(value) and (guessed or not getattr(paper, field_name, None))
+
+    for field_name in ("title", "venue", "doi", "arxiv_id", "abstract"):
+        value = str(biblio.get(field_name) or "").strip()
+        if take(field_name, value):
+            setattr(paper, field_name, value)
+
+    authors = [str(a).strip() for a in (biblio.get("authors") or []) if str(a).strip()]
+    if take("authors", authors):
+        paper.authors = authors
+
+    year = biblio.get("year") or 0
+    if isinstance(year, int) and not isinstance(year, bool) and take("year", year):
+        paper.year = year
+        if take("published", year):
+            paper.published = f"{year}-01-01"
+
+    # Topic assignment is the reader's judgement for a hand-filed PDF, but an
+    # unknown slug would silently vanish from every output, so it is dropped
+    # loudly instead.
+    known = {topic.slug for topic in cfg.topics}
+    claimed = [str(s).strip() for s in (result.get("topics") or []) if str(s).strip()]
+    for slug in claimed:
+        if slug not in known:
+            _LOG.warning("result for %s claims unknown topic '%s'", paper.id, slug)
+        elif slug not in paper.topics:
+            paper.topics.append(slug)
+
+    store.save_paper(paper)
+
+
+def _apply_paper(cfg: Config, store: RecordStore, task: dict) -> bool:
     result = task.get("result") or {}
     paper_id = task["item_id"]
-    if store.load_paper(paper_id) is None:
+    paper = store.load_paper(paper_id)
+    if paper is None:
         _LOG.warning("result for unknown paper %s; skipping", paper_id)
         return False
+
+    if paper.is_local:
+        _apply_bibliography(cfg, store, paper, result)
 
     summary = PaperSummary(
         paper_id=paper_id,
@@ -61,7 +115,7 @@ def _apply_paper(store: RecordStore, task: dict) -> bool:
     return True
 
 
-def _apply_video(store: RecordStore, task: dict) -> bool:
+def _apply_video(cfg: Config, store: RecordStore, task: dict) -> bool:
     result = task.get("result") or {}
     video_id = task["item_id"]
     if store.load_video(video_id) is None:
@@ -86,7 +140,7 @@ def _apply_video(store: RecordStore, task: dict) -> bool:
     return True
 
 
-def _apply_concept(store: RecordStore, task: dict) -> bool:
+def _apply_concept(cfg: Config, store: RecordStore, task: dict) -> bool:
     from .publish.wiki import slug_for
 
     result = task.get("result") or {}
@@ -128,7 +182,7 @@ def apply_completed(cfg: Config) -> dict[str, int]:
             applied["skipped"] += 1
             continue
         try:
-            ok = applier(store, task)
+            ok = applier(cfg, store, task)
         except Exception:  # noqa: BLE001 - one bad result must not block the rest
             _LOG.exception("failed to apply %s", task.get("task_id"))
             applied["skipped"] += 1
@@ -156,8 +210,8 @@ def rebuild_archive(cfg: Config) -> dict[str, int]:
     # Clear before regenerating, so the claim that `archive/` is a pure
     # function of `data/` is actually true. A paper's page path contains its
     # year, and a year can arrive after the page does — from a deduplication
-    # merge, or from a record corrected by hand. Without this the old path
-    # survives as a second, stale copy that nothing ever looks at again.
+    # merge, or from reading a hand-filed PDF that had no metadata at all.
+    # Without this the old path survives as a second, stale copy.
     # `archive/daily/` is left alone: digests are dated records of a run, not
     # derived from the store, and nothing regenerates them.
     for directory in (cfg.layout.archive_papers, cfg.layout.archive_seminars):
@@ -210,11 +264,19 @@ def queue_missing_summaries(cfg: Config) -> int:
     queued = 0
 
     for paper in store.iter_papers():
-        if not paper.topics or store.paper_summary_path(paper.id).exists():
+        if store.paper_summary_path(paper.id).exists():
             continue
-        if summarizer.summarize_paper(
-            paper, cfg.topic_context(paper.topics), cfg.language
-        ) is None:
+        # A collected paper with no topic matched nothing and is not worth
+        # reading. A hand-filed one has not been read yet, so it has no topics
+        # *because* nobody has looked at it — that is the task, not a reason to
+        # skip it, and the reader is shown every topic to choose from.
+        if paper.is_local:
+            context = cfg.topic_context(paper.topics or [t.slug for t in cfg.topics])
+        elif paper.topics:
+            context = cfg.topic_context(paper.topics)
+        else:
+            continue
+        if summarizer.summarize_paper(paper, context, cfg.language) is None:
             queued += 1
 
     for video in store.iter_videos():

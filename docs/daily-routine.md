@@ -58,6 +58,7 @@ until someone drains it.
 
 | Source | How | Failure mode |
 | --- | --- | --- |
+| `inbox/` | Any PDF in the folder, hashed and moved to `data/pdfs/` | none worth speaking of; a file it cannot move is logged and left in place |
 | arXiv | Atom API, one query per topic per keyword chunk | 3s minimum between requests; long queries are rejected, hence the chunking |
 | Semantic Scholar | bulk search, optional API key | anonymous requests are rate limited; set `SEMANTIC_SCHOLAR_API_KEY` if it bites |
 | OpenReview | `content.venueid` lookup per venue per year | venue ids change between cycles; a miss is silent by design |
@@ -72,6 +73,10 @@ resurface; if it reaches the archive through another index, the merge in
 
 `enrich/score.py` is a keyword rule, on purpose — you can read it, disagree with
 it, and fix it in the topic's YAML.
+
+A PDF from `inbox/` is exempt: it is scored, so the topics it happens to match
+are recorded, but it is never rejected. Filing it by hand is the decision that
+scoring approximates, and the reader assigns its topics afterwards.
 
 For each topic: any `keywords.none` hit rejects the item; every `keywords.all`
 term must appear; at least one `keywords.any` term must appear. Surviving hits
@@ -138,6 +143,8 @@ the manual section, in which case it stays.
 | `no topics to run` | no topic files, or all are `_`-prefixed | `scripts/new_topic.sh "Name"` |
 | Collection returns nothing | keywords too narrow, wrong arXiv categories or venues, or window too short | `--dry-run --days 30` to check, then widen `config/sources.yaml` |
 | `queue is at its cap` | more matches than `max_pending_tasks` | drain the queue, or raise the cap |
+| A dropped PDF never appeared | it is still in `inbox/`; collection has not run | `--source local`, or check `local.enabled` in `config/sources.yaml` |
+| A dropped PDF is titled like a filename | it has been ingested but not read yet | drain the queue: the reading supplies the real title |
 | Result rejected on submit | a required field is empty | the error names the field |
 | Wiki note lost its text | it was written inside the auto block | put it after `<!-- auto:end -->` |
 | Everything looks stale | records fine, renders old | `python3 -m pipelines.render` |

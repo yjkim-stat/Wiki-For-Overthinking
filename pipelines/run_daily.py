@@ -21,7 +21,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .collect import arxiv, conferences, youtube
+from .collect import arxiv, conferences, local_pdf, youtube
 from .common import config as config_mod
 from .common import log
 from .common.config import Config, Topic
@@ -124,7 +124,7 @@ def run(
         )
         return {"papers": 0, "videos": 0, "queued": 0, "errors": ["no topics defined"]}
 
-    sources = sources or ["arxiv", "conferences", "youtube"]
+    sources = sources or ["arxiv", "conferences", "youtube", "local"]
     today = date.today()
     since = today - timedelta(days=max(1, days))
     errors: list[str] = []
@@ -162,6 +162,17 @@ def run(
             _LOG.exception("youtube collection failed")
             errors.append(f"youtube: {exc}")
 
+    if "local" in sources:
+        try:
+            found = local_pdf.collect(
+                cfg, topics, since, dry_run=dry_run, errors=errors
+            )
+            _snapshot(cfg, today, "local", found)
+            papers += found
+        except Exception as exc:  # noqa: BLE001
+            _LOG.exception("local pdf ingestion failed")
+            errors.append(f"local: {exc}")
+
     try:
         papers += _seed_papers(cfg, topics, store, errors)
     except Exception as exc:  # noqa: BLE001
@@ -171,7 +182,9 @@ def run(
     _LOG.info("collected %d paper(s), %d video(s)", len(papers), len(videos))
 
     if dry_run:
-        accepted_papers = [p for p in papers if _score_paper(cfg, p, topics)]
+        accepted_papers = [
+            p for p in papers if _score_paper(cfg, p, topics) or p.is_local
+        ]
         accepted_videos = [v for v in videos if _score_video(cfg, v, topics)]
         _LOG.info(
             "dry run: %d paper(s) and %d video(s) would be archived",
@@ -205,7 +218,11 @@ def run(
         deduper = Deduplicator(seen, store)
 
         for paper in papers:
-            if not _score_paper(cfg, paper, topics):
+            # Filing a PDF by hand *is* the editorial decision that scoring
+            # exists to approximate, so a local paper is kept whatever its
+            # keywords say. Scoring still runs: the topics it happens to match
+            # are worth recording, and the reader can add the ones it missed.
+            if not _score_paper(cfg, paper, topics) and not paper.is_local:
                 rejected.append(
                     {
                         "id": paper.id,
@@ -223,8 +240,13 @@ def run(
                 new_papers.append(record)
 
             if not store.paper_summary_path(record.id).exists():
+                # A hand-filed PDF has not been read yet, so which topics it
+                # belongs to is the reader's question. Show them all of them.
+                slugs = record.topics
+                if record.is_local and not slugs:
+                    slugs = [t.slug for t in cfg.topics]
                 if summarizer.summarize_paper(
-                    record, cfg.topic_context(record.topics), cfg.language
+                    record, cfg.topic_context(slugs), cfg.language
                 ) is None:
                     queued += 1
 
@@ -317,7 +339,7 @@ def main(argv: list[str] | None = None) -> int:
         "--source",
         action="append",
         dest="sources",
-        choices=["arxiv", "conferences", "youtube"],
+        choices=["arxiv", "conferences", "youtube", "local"],
         help="restrict to one or more sources",
     )
     parser.add_argument(

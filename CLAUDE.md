@@ -19,10 +19,13 @@ up to date.
 python3 -m pipelines.run_daily
 ```
 
-Fetches from arXiv, the conference indexes and YouTube, scores everything
-against every topic, stores what cleared the bar, and files a task per item
-that still needs reading. A source that is unreachable is logged and skipped —
-that is not a failure of the run.
+Fetches from arXiv, the conference indexes and YouTube, ingests any PDF waiting
+in `inbox/`, scores everything against every topic, stores what cleared the bar,
+and files a task per item that still needs reading. A source that is unreachable
+is logged and skipped — that is not a failure of the run.
+
+A PDF in `inbox/` is kept whatever its keywords say: somebody filing it by hand
+is the editorial decision that scoring exists to approximate.
 
 **2. Drain the queue.** This is the part only you can do.
 
@@ -53,6 +56,19 @@ page rather than guessing. **Leave a field empty rather than inventing
 content** — an empty `results` field is a true statement about what you know; a
 plausible invented one corrupts everything built on top of it, including the
 lecture notes and the wiki.
+
+A task with an `attachments.pdf_path` is a PDF somebody filed by hand, and it
+needs more from you than the others:
+
+- **Open the file and look at it.** Read it as a document, not as text: the
+  figures and tables usually settle what the paper achieved faster than the
+  prose does. Read the abstract, introduction, method and results in full.
+- **Fill `bibliography` from the document itself** — title page, header,
+  footer. The record currently holds a title guessed from the filename, and
+  your answer is what replaces it. The filename is not evidence.
+- **Fill `topics` yourself.** The task lists every tracked topic; name the
+  slugs the paper genuinely belongs to. An empty list is a valid answer and
+  better than a forced fit — the paper stays in the archive either way.
 
 **3. Render.**
 
@@ -101,6 +117,7 @@ config, templates or documentation does — see the rule below.
 | Path | What it is |
 | --- | --- |
 | `config/topics/*.yaml` | The tracked subjects. Adding a file is all it takes. |
+| `inbox/` | Drop a PDF here to have it read and archived. Drains on the next run. |
 | `pipelines/` | The code. `run_daily.py` collects, `render.py` rebuilds. |
 | `data/` | Source of truth: records, summaries, the queue, dedup state. |
 | `archive/` | Generated page per paper and seminar, plus dated digests. |
@@ -114,6 +131,7 @@ config, templates or documentation does — see the rule below.
 python3 -m pipelines.run_daily --dry-run          # see what would be collected
 python3 -m pipelines.run_daily --topic <slug>     # one topic only
 python3 -m pipelines.run_daily --days 30          # backfill a wider window
+python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing else
 python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 scripts/daily.sh                                  # collect + render

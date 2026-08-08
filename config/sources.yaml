@@ -76,6 +76,15 @@ conferences:
     #   openreview_prefix: ""
     #   dblp_key: ""
 
+local:
+  # PDFs filed by hand. Drop a file into the inbox and the next run ingests it:
+  # the file moves to `data/pdfs/` under a content-addressed name, and a task is
+  # queued asking whoever drains the queue to read the document and supply the
+  # bibliography. A hand-filed PDF is never rejected by keyword scoring.
+  enabled: true
+  # Relative to the repository root. Also settable as `paths.inbox` in
+  # settings.yaml; this flag only decides whether the folder is looked at.
+
 youtube:
   enabled: true
   # Channel RSS needs no API key. Add channels as {name, channel_id}.

@@ -43,7 +43,9 @@ _REQUIRED_FIELDS = {
 }
 
 _LIST_FIELDS = {
-    "paper": ["contributions", "concepts", "methods", "datasets", "tags"],
+    # `topics` is optional and only honoured for a hand-filed PDF, where the
+    # reader decides which tracked topics the document belongs to.
+    "paper": ["contributions", "concepts", "methods", "datasets", "tags", "topics"],
     "video": [
         "chapters",
         "key_points",
@@ -81,6 +83,17 @@ def validate_result(kind: str, result: Any) -> list[str]:
         relevance = result.get("relevance", {})
         if relevance and not isinstance(relevance, dict):
             errors.append("field `relevance` must be an object keyed by topic slug")
+
+        bibliography = result.get("bibliography")
+        if bibliography is not None:
+            if not isinstance(bibliography, dict):
+                errors.append("field `bibliography` must be an object")
+            else:
+                if not isinstance(bibliography.get("authors", []), list):
+                    errors.append("field `bibliography.authors` must be a list")
+                year = bibliography.get("year", 0)
+                if not isinstance(year, int) or isinstance(year, bool):
+                    errors.append("field `bibliography.year` must be an integer")
 
     if kind == "concept":
         declared = result.get("kind")

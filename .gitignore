@@ -226,6 +226,15 @@ data/raw/
 # Run logs (also covered by *.log above).
 data/logs/
 
+# PDFs filed by hand: the inbox they are dropped into, and the store they are
+# moved to. Heavy, rarely ours to redistribute, and always obtainable again
+# from wherever they came from. The RECORD of each one is tracked in
+# data/papers/, so the archive stays complete in a fresh clone even though the
+# bytes do not travel with it.
+inbox/*.pdf
+inbox/**/*.pdf
+data/pdfs/
+
 # NOTE: data/index/seen.sqlite is intentionally NOT ignored. Scheduled runs
 # start from a fresh clone, so the deduplication state has to be committed or
 # every run re-processes everything it has already seen.

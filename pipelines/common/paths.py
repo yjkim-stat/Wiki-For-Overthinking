@@ -47,11 +47,19 @@ class Layout:
         self.wiki = self.root / paths.get("wiki", "wiki")
         self.outputs = self.root / paths.get("outputs", "outputs")
         self.templates = self.root / paths.get("templates", "templates")
+        # Drop folder for PDFs filed by hand. Outside `data/` because it is an
+        # inbox, not a record: everything in it is on its way somewhere else.
+        self.inbox = self.root / paths.get("inbox", "inbox")
 
     # -- data ---------------------------------------------------------------
     @property
     def raw(self) -> Path:
         return self.data / "raw"
+
+    @property
+    def pdfs(self) -> Path:
+        """Where a filed PDF is kept once it has been ingested."""
+        return self.data / "pdfs"
 
     @property
     def papers(self) -> Path:
@@ -135,6 +143,8 @@ class Layout:
         """Create every directory the pipeline writes to."""
         for directory in (
             self.raw,
+            self.pdfs,
+            self.inbox,
             self.papers,
             self.videos,
             self.summaries / "papers",

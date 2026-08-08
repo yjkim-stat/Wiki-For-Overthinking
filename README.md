@@ -43,10 +43,32 @@ Only `PyYAML` is required; everything else is the standard library.
 `youtube-transcript-api` is optional and only affects whether seminar
 transcripts are captured.
 
+## Filing a paper by hand
+
+Not everything a group reads is on arXiv. Drop a PDF into `inbox/` and the next
+run ingests it:
+
+```bash
+cp ~/Downloads/some-paper.pdf inbox/
+python3 -m pipelines.run_daily --source local
+```
+
+The file moves to `data/pdfs/` under a content-addressed name — so the same
+paper filed twice under two names is one record — and a reading task is queued.
+Whoever answers it opens the document, reads it figures and all, and supplies
+both the summary and the bibliography, because nothing in the pipeline opens a
+PDF. From there it is an ordinary paper: archive page, wiki entities, topic
+outputs.
+
+A PDF filed this way is never rejected by keyword scoring. Putting it in the
+inbox *is* the editorial decision scoring exists to approximate; which topics it
+belongs to is the reader's call. PDFs themselves are not tracked by git — the
+records are, so a fresh clone has the whole archive without the weight.
+
 ## How it works
 
 ```
-arXiv · OpenReview · Semantic Scholar · DBLP · YouTube
+arXiv · OpenReview · Semantic Scholar · DBLP · YouTube · inbox/
                       │
                 collect ─► score ─► deduplicate ─► data/
                                                     │

@@ -64,6 +64,26 @@ VIDEO_OUTPUT_SCHEMA: dict[str, Any] = {
     "tags": ["string - short lowercase keywords"],
 }
 
+# A hand-filed PDF arrives with no metadata at all — the collector only knows a
+# filename and a hash. Whoever reads the document supplies the bibliography and
+# says which tracked topics it belongs to, so these fields extend, rather than
+# replace, the ordinary paper contract.
+PDF_EXTRA_SCHEMA: dict[str, Any] = {
+    "bibliography": {
+        "title": "string - the paper's own title, exactly as printed",
+        "authors": ["string - author name, in the order printed"],
+        "year": "integer - publication year, 0 if the document does not say",
+        "venue": "string - journal, conference or 'preprint'; empty if unclear",
+        "doi": "string - DOI if printed on the document, else empty",
+        "arxiv_id": "string - arXiv id if printed on the document, else empty",
+        "abstract": "string - the paper's own abstract, verbatim",
+    },
+    "topics": [
+        "string - slug of a tracked topic this paper belongs to; omit any that "
+        "do not genuinely apply"
+    ],
+}
+
 CONCEPT_OUTPUT_SCHEMA: dict[str, Any] = {
     "definition": (
         "string - two to four sentences defining the entity as the cited "
@@ -95,6 +115,38 @@ def paper_instructions(topics: list[dict], language: str = "en") -> str:
         "It matched these tracked topics; `relevance` must contain one entry "
         "per slug, stating what this paper changes for that topic:\n"
         f"{lens}\n\n" + _SHARED_RULES.format(language=language)
+    )
+
+
+def local_pdf_instructions(topics: list[dict], language: str = "en") -> str:
+    """Prompt for reading a PDF that was filed by hand.
+
+    Differs from ``paper_instructions`` in three ways, all forced by the fact
+    that nothing has read the document yet: the source material is a file
+    rather than an abstract, the bibliography has to be recovered from the
+    document itself, and the topics are a question rather than an answer.
+    """
+    lens = "\n".join(
+        f"- {t['slug']}: {t['name']} — {t.get('description', '') or 'no description'}"
+        for t in topics
+    ) or "- (no topics are defined)"
+    return (
+        "A PDF was filed by hand. Open the file at `attachments.pdf_path` and "
+        "read it, then produce a structured summary.\n\n"
+        "Read it as a document, not as text: look at the figures, tables and "
+        "plots. A result table usually settles what the paper actually "
+        "achieved faster than the prose does, and a figure often carries the "
+        "method. If the document is long, read the abstract, introduction, "
+        "method and results sections in full and skim the rest.\n\n"
+        "`bibliography` must come from the document itself — its title page, "
+        "header or footer. The filename is not evidence; it is whatever the "
+        "person who saved the file happened to type.\n\n"
+        "`topics` is your judgement. These are the topics this archive tracks; "
+        "list the slugs this paper genuinely belongs to, and leave the list "
+        "empty rather than forcing a fit:\n"
+        f"{lens}\n\n"
+        "`relevance` must have one entry per slug you listed in `topics`.\n\n"
+        + _SHARED_RULES.format(language=language)
     )
 
 
@@ -173,13 +225,26 @@ class QueueSummarizer:
     def summarize_paper(
         self, paper: Paper, topics: list[dict], language: str
     ) -> PaperSummary | None:
+        # A hand-filed PDF is still a paper task — same kind, same appliers,
+        # same archive page. Only the prompt, the extra schema fields and the
+        # attached file differ, because the record has no abstract to read.
+        local = paper.is_local
         self._enqueue(
             kind="paper",
             item_id=paper.id,
             topics=[t["slug"] for t in topics],
             language=language,
-            instructions=paper_instructions(topics, language),
-            output_schema=PAPER_OUTPUT_SCHEMA,
+            instructions=(
+                local_pdf_instructions(topics, language)
+                if local
+                else paper_instructions(topics, language)
+            ),
+            output_schema=(
+                {**PAPER_OUTPUT_SCHEMA, **PDF_EXTRA_SCHEMA}
+                if local
+                else PAPER_OUTPUT_SCHEMA
+            ),
+            attachments={"pdf_path": paper.local_path} if local else None,
             payload={
                 "title": paper.title,
                 "authors": paper.authors,
