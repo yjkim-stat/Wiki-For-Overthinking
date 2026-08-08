@@ -1,7 +1,7 @@
 import unittest
 
 from pipelines.common.config import Topic
-from pipelines.enrich.score import score_against_topics, score_item
+from pipelines.enrich.score import _pattern, score_against_topics, score_item
 
 SETTINGS = {
     "score": {
@@ -131,3 +131,50 @@ class MultiTopicTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PluralMatchingTests(unittest.TestCase):
+    """Regular plurals match, and the boundaries that made them fail still hold.
+
+    Plural blindness cuts both ways: a `keywords.any` miss keeps a wanted paper
+    out, and a `keywords.none` miss lets an unwanted one through. Neither is
+    logged, because a non-match is not an event.
+    """
+
+    def assertMatches(self, term, text):
+        self.assertTrue(_pattern(term).search(text), f"{term!r} should match {text!r}")
+
+    def assertNoMatch(self, term, text):
+        self.assertIsNone(_pattern(term).search(text), f"{term!r} should not match {text!r}")
+
+    def test_the_observed_failures_now_match(self):
+        self.assertMatches("action chunk", "large action chunks (sequences of actions)")
+        self.assertMatches("robot policy", "parameterizations of robot policies")
+        self.assertMatches("conversational agent", "Multimodal Conversational Agents")
+        self.assertMatches("VLA", "VLAs are everywhere")
+
+    def test_the_singular_still_matches(self):
+        self.assertMatches("action chunk", "one action chunk")
+        self.assertMatches("robot policy", "a robot policy")
+
+    def test_the_vowel_y_carve_out(self):
+        self.assertMatches("survey", "two surveys")
+        self.assertNoMatch("survey", "survies")
+
+    def test_sibilant_endings_take_es(self):
+        self.assertMatches("bias", "known biases")
+        self.assertMatches("benchmark", "benchmarks")
+
+    def test_only_the_last_word_inflects(self):
+        self.assertMatches("latent action model", "latent action models")
+        self.assertNoMatch("latent action model", "latent actions model")
+
+    def test_word_boundaries_still_hold(self):
+        self.assertNoMatch("VLA", "Vlasov")
+        self.assertNoMatch("world model", "worldly models")
+        self.assertNoMatch("action chunk", "a chunk of actions")
+        self.assertNoMatch("ATE", "Water")
+
+    def test_hyphen_and_whitespace_tolerance_survives(self):
+        self.assertMatches("causal inference", "causal-inference")
+        self.assertMatches("causal inference", "causal\n  inferences")
