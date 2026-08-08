@@ -78,5 +78,57 @@ class RetryTests(unittest.TestCase):
         self.assertEqual(len(attempts), 2)
 
 
+class HeaderTests(unittest.TestCase):
+    """``get_json`` supplies an Accept header and must still accept the caller's."""
+
+    def _capture(self):
+        """Run the real client against a recorded request."""
+        seen: dict = {}
+
+        def urlopen(request, timeout=None):
+            seen["url"] = request.full_url
+            seen["headers"] = dict(request.header_items())
+            return _Response(b'{"ok": true}')
+
+        return seen, urlopen
+
+    def test_caller_headers_are_merged_with_accept(self):
+        seen, urlopen = self._capture()
+        with mock.patch("urllib.request.urlopen", urlopen):
+            Client().get_json("https://example.org", {}, headers={"x-api-key": "k"})
+        # urllib title-cases header names on the way in.
+        lowered = {k.lower(): v for k, v in seen["headers"].items()}
+        self.assertEqual(lowered["accept"], "application/json")
+        self.assertEqual(lowered["x-api-key"], "k")
+
+    def test_empty_headers_do_not_raise(self):
+        """The no-API-key path: `headers={}` was enough to trigger the collision."""
+        seen, urlopen = self._capture()
+        with mock.patch("urllib.request.urlopen", urlopen):
+            result = Client().get_json("https://example.org", {}, headers={})
+        self.assertEqual(result, {"ok": True})
+        lowered = {k.lower(): v for k, v in seen["headers"].items()}
+        self.assertEqual(lowered["accept"], "application/json")
+
+    def test_a_caller_may_override_accept(self):
+        seen, urlopen = self._capture()
+        with mock.patch("urllib.request.urlopen", urlopen):
+            Client().get_json("https://x.org", {}, headers={"Accept": "text/plain"})
+        lowered = {k.lower(): v for k, v in seen["headers"].items()}
+        self.assertEqual(lowered["accept"], "text/plain")
+
+    def test_get_xml_takes_headers_too(self):
+        seen = {}
+
+        def urlopen(request, timeout=None):
+            seen["headers"] = dict(request.header_items())
+            return _Response(b"<feed/>")
+
+        with mock.patch("urllib.request.urlopen", urlopen):
+            Client().get_xml("https://example.org", {}, headers={"x-token": "t"})
+        lowered = {k.lower(): v for k, v in seen["headers"].items()}
+        self.assertEqual(lowered["x-token"], "t")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -111,15 +111,33 @@ class Client:
 
         raise HTTPError(f"GET {url} failed after {self.retries} attempts: {last_error}")
 
-    def get_json(self, url: str, params: dict[str, Any] | None = None, **kw) -> Any:
-        raw = self.get(url, params, headers={"Accept": "application/json"}, **kw)
+    def get_json(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        **kw,
+    ) -> Any:
+        # `headers` is named rather than left to arrive through **kw: this
+        # method supplies an Accept header of its own, so a caller passing one
+        # through **kw would reach `get` as a duplicate keyword argument and
+        # raise TypeError before a request was ever made.
+        merged = {"Accept": "application/json"}
+        merged.update(headers or {})
+        raw = self.get(url, params, headers=merged, **kw)
         try:
             return json.loads(raw.decode("utf-8", errors="replace"))
         except json.JSONDecodeError as exc:
             raise HTTPError(f"GET {url} returned invalid JSON: {exc}") from exc
 
-    def get_xml(self, url: str, params: dict[str, Any] | None = None, **kw) -> ET.Element:
-        raw = self.get(url, params, **kw)
+    def get_xml(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        **kw,
+    ) -> ET.Element:
+        raw = self.get(url, params, headers=headers, **kw)
         try:
             return ET.fromstring(raw)
         except ET.ParseError as exc:

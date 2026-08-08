@@ -8,9 +8,11 @@ and check that it lands in the normalized schema correctly.
 from __future__ import annotations
 
 import json
+import os
 import unittest
 import xml.etree.ElementTree as ET
 from datetime import date
+from unittest import mock
 
 from pipelines.collect import arxiv, conferences, youtube
 from pipelines.common.http import HTTPError
@@ -118,24 +120,34 @@ DBLP = {
 
 
 class StubClient:
-    """Returns canned payloads, or raises to simulate an unreachable host."""
+    """Returns canned payloads, or raises to simulate an unreachable host.
+
+    The signatures mirror the real ``Client`` exactly, including the named
+    ``headers`` parameter. An earlier version absorbed it through ``**kw``, and
+    that permissiveness is what let a `TypeError` in ``Client.get_json`` — one
+    that disabled the Semantic Scholar collector outright — pass the whole
+    suite. A stub looser than the thing it stands in for tests nothing.
+    """
 
     def __init__(self, xml: str = "", payload=None, fail: bool = False) -> None:
         self.xml = xml
         self.payload = payload
         self.fail = fail
         self.calls: list[tuple[str, dict]] = []
+        self.headers: list[dict] = []
 
-    def get_xml(self, url, params=None, **kw):
+    def _record(self, url, params, headers):
         self.calls.append((url, params or {}))
+        self.headers.append(dict(headers or {}))
         if self.fail:
             raise HTTPError("simulated outage")
+
+    def get_xml(self, url, params=None, headers=None):
+        self._record(url, params, headers)
         return ET.fromstring(self.xml)
 
-    def get_json(self, url, params=None, **kw):
-        self.calls.append((url, params or {}))
-        if self.fail:
-            raise HTTPError("simulated outage")
+    def get_json(self, url, params=None, headers=None):
+        self._record(url, params, headers)
         return json.loads(json.dumps(self.payload))
 
 
@@ -300,6 +312,25 @@ class ConferenceTests(unittest.TestCase):
         self.assertIn("|", params["query"])
         self.assertEqual(params["venue"], "ICLR")
         self.assertEqual(params["year"], "2025-")
+
+    def test_an_api_key_reaches_the_request(self):
+        """End to end: the env var is read and arrives as a header."""
+        client = StubClient(payload=SEMANTIC_SCHOLAR)
+        with mock.patch.dict(os.environ, {"SEMANTIC_SCHOLAR_API_KEY": "secret"}):
+            conferences.collect(
+                self.cfg, self.cfg.topics, date(2025, 1, 1), client=client
+            )
+        self.assertEqual(client.headers[0].get("x-api-key"), "secret")
+
+    def test_no_api_key_still_queries(self):
+        """The header dict is empty here, which is what used to raise."""
+        client = StubClient(payload=SEMANTIC_SCHOLAR)
+        with mock.patch.dict(os.environ, {}, clear=True):
+            papers = conferences.collect(
+                self.cfg, self.cfg.topics, date(2025, 1, 1), client=client
+            )
+        self.assertEqual(len(papers), 1)
+        self.assertNotIn("x-api-key", client.headers[0])
 
     def test_openreview_mapping(self):
         self.cfg.sources["conferences"]["semantic_scholar"]["enabled"] = False

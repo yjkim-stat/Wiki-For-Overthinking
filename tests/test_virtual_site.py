@@ -61,7 +61,9 @@ class StubClient:
         self.fail = fail
         self.calls: list[str] = []
 
-    def get(self, url, params=None, **kw):
+    def get(self, url, params=None, headers=None):
+        # Mirrors the real Client.get signature exactly; see the note on
+        # StubClient in test_collect.py for why that matters.
         self.calls.append(url)
         if self.fail:
             raise HTTPError("simulated outage")
