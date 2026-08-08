@@ -5,7 +5,7 @@ from __future__ import annotations
 import unittest
 
 from pipelines import render
-from pipelines.common.schema import Paper, Video
+from pipelines.common.schema import Concept, Paper, PaperSummary, Video
 from pipelines.common.store import RecordStore
 from pipelines.enrich.queue import Queue
 from pipelines.publish import wiki
@@ -313,3 +313,70 @@ class RenderPipelineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RuledKindTests(unittest.TestCase):
+    """A definition task's `kind` is a ruling; harvest must not overrule it.
+
+    `harvest` derives kind from which of a summary's three lists a name landed
+    in, taking the highest rank across every summary. That is a side effect of
+    field placement; the definition task's kind is a deliberate judgement made
+    once over the whole evidence set. Before this was fixed the side effect won
+    on every render, and the note moved directory each time -- which also lost
+    the hand-written section, because the prose does not follow the note.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.cfg = self.sandbox.config()
+        self.store = RecordStore(self.cfg.layout)
+        paper = Paper(
+            id="arxiv:2401.09999",
+            title="A paper about a family of models",
+            source="arxiv",
+            topics=[SLUG],
+            scores={SLUG: 0.9},
+        )
+        self.store.save_paper(paper)
+        self.store.save_paper_summary(
+            PaperSummary(
+                paper_id=paper.id,
+                one_liner="It surveys a family.",
+                methods=["Vision Language Action Model"],
+                concepts=["Undecided Thing"],
+            )
+        )
+
+    def tearDown(self):
+        self.sandbox.close()
+
+    def _harvest_kind(self, slug: str) -> str:
+        return wiki.harvest(self.cfg)[slug].kind
+
+    def test_a_ruled_kind_survives_a_further_render(self):
+        self.store.save_concept(
+            Concept(
+                slug="vision-language-action-model",
+                name="Vision Language Action Model",
+                kind="concept",
+                definition="A family whose instances are the methods.",
+            )
+        )
+        self.assertEqual(self._harvest_kind("vision-language-action-model"), "concept")
+        # The revert was observed on the *second* render, so harvest twice.
+        self.store.save_concept(wiki.harvest(self.cfg)["vision-language-action-model"])
+        self.assertEqual(self._harvest_kind("vision-language-action-model"), "concept")
+
+    def test_an_entity_without_a_definition_still_takes_the_harvested_kind(self):
+        self.store.save_concept(
+            Concept(
+                slug="vision-language-action-model",
+                name="Vision Language Action Model",
+                kind="concept",
+                definition="",
+            )
+        )
+        self.assertEqual(self._harvest_kind("vision-language-action-model"), "method")
+
+    def test_an_unseen_entity_is_unaffected(self):
+        self.assertEqual(self._harvest_kind("undecided-thing"), "concept")

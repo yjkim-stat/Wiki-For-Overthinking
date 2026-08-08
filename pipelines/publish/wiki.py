@@ -79,6 +79,10 @@ def harvest(cfg: Config) -> dict[str, Concept]:
 
     previous = {c.slug: c for c in store.iter_concepts()}
     concepts: dict[str, Concept] = {}
+    # Slugs whose kind was adjudicated by a definition task. A local set rather
+    # than a field on Concept: the dataclass is serialized, and a bookkeeping
+    # attribute would leak into the stored JSON.
+    ruled: set[str] = set()
 
     def entity(name: str, kind: str) -> Concept | None:
         name = (name or "").strip()
@@ -99,7 +103,15 @@ def harvest(cfg: Config) -> dict[str, Concept]:
                 first_seen=old.first_seen if old else utcnow(),
             )
             concepts[slug] = concept
-        concept.kind = _upgrade_kind(concept.kind, kind)
+            # A stored definition means somebody ruled on what this entity is,
+            # over the whole evidence set. The harvested kind is a side effect
+            # of which list each summary happened to put the name in, so it
+            # must not overrule that judgement on the next render.
+            if old and old.definition:
+                concept.kind = old.kind
+                ruled.add(slug)
+        if slug not in ruled:
+            concept.kind = _upgrade_kind(concept.kind, kind)
         if name != concept.name and name not in concept.aliases:
             concept.aliases.append(name)
         concept.last_seen = utcnow()
