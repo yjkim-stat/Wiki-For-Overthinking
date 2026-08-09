@@ -44,3 +44,4 @@ reference for everything built before the practice existed.
 | 0021 | [Report what has gone stale](0021-report-what-has-gone-stale.md) | feature | An empty queue means nothing is unwritten, not that nothing is out of date |
 | 0022 | [Fetch the document before asking anyone to read it](0022-fetch-the-document-before-reading-it.md) | feature | An abstract is a claim about a paper; the experiments section is a record of it |
 | 0023 | [One place for reading a page nobody gave us an API for](0023-shared-html-reading.md) | refactor | Two collectors ask a page for the same three things |
+| 0024 | [Read arXiv's listing pages when the API will not answer](0024-arxiv-listing-fallback.md) | feature | The API and the website are different hosts; a block on one is not a block on both |

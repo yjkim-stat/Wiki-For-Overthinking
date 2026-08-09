@@ -15,6 +15,7 @@ from __future__ import annotations
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta
 
+from . import arxiv_listing
 from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError, from_settings
 from ..common.log import get
@@ -144,6 +145,11 @@ def collect(
         _LOG.info("arxiv collector disabled in config/sources.yaml")
         return []
 
+    # Remembered before the default is filled in: when a caller injects a
+    # client it is standing in for the network, so the fallback must use it
+    # too. Left to itself the listing builds its own, because it talks to a
+    # different host and is held to a slower interval than the API.
+    injected = client
     until = until or date.today() + timedelta(days=1)
     api_url = block.get("api_url", "https://export.arxiv.org/api/query")
     default_categories = list(block.get("categories") or [])
@@ -191,6 +197,26 @@ def collect(
                 paper = _parse_entry(entry)
                 if paper is not None:
                     collected.setdefault(paper.id, paper)
+
+    # The website is a different host from the API, and a host blocked from one
+    # is not always blocked from the other. `auto` reaches for the listing only
+    # when the API produced nothing, because the listing cannot search abstracts
+    # and so sees strictly less.
+    mode = str((block.get("listing", {}) or {}).get("mode", "auto")).lower()
+    if mode == "always" or (mode == "auto" and not collected):
+        if mode == "auto":
+            _LOG.info("arxiv API returned nothing; falling back to the listing pages")
+        try:
+            found = arxiv_listing.collect(
+                cfg, topics, since, client=injected, errors=errors
+            )
+        except Exception as exc:  # noqa: BLE001 - a fallback must not sink the run
+            _LOG.exception("arxiv listing collection failed")
+            if errors is not None:
+                errors.append(f"arxiv_listing: {exc}")
+        else:
+            for paper in found:
+                collected.setdefault(paper.id, paper)
 
     return list(collected.values())
 

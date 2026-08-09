@@ -106,7 +106,7 @@ def parse_listing(page: str, base: str) -> list[Listing]:
     page is not the shape this collector understands, and guessing at the rest
     of it is how a scraper starts producing plausible rubbish.
     """
-    block = _NOSCRIPT_RE.search(page)
+    block = _NOSCRIPT_RE.search(html_util.strip_comments(page))
     if block is None:
         return []
 

@@ -16,6 +16,7 @@ from __future__ import annotations
 import html as _html
 import re
 
+_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
 _TAG_RE = re.compile(r"<[^>]+>")
 _SCRIPT_RE = re.compile(r"<(script|style)\b.*?</\1>", re.IGNORECASE | re.DOTALL)
 _META_RE = re.compile(r"<meta\b(?P<attrs>[^>]*)>", re.IGNORECASE)
@@ -35,9 +36,20 @@ _DESCRIPTOR_RE = re.compile(
 )
 
 
+def strip_comments(page: str) -> str:
+    """Remove HTML comments before matching on structure.
+
+    A comment may contain anything, including markup identical to the structure
+    being searched for — a note reading "this block carries no <dt>" is enough
+    to hand a pattern a false entry, and a page's commented-out template is
+    worse. Every structural parse in this repository starts here.
+    """
+    return _COMMENT_RE.sub(" ", page or "")
+
+
 def text(fragment: str) -> str:
     """The readable text of an HTML fragment, whitespace collapsed."""
-    without_code = _SCRIPT_RE.sub(" ", fragment or "")
+    without_code = _SCRIPT_RE.sub(" ", strip_comments(fragment))
     return " ".join(_html.unescape(_TAG_RE.sub(" ", without_code)).split())
 
 

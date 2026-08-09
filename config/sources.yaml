@@ -20,6 +20,28 @@ arxiv:
   # arXiv asks for at least 3 seconds between requests.
   min_request_interval_s: 3.0
 
+  # The listing pages at arxiv.org/list/<category>/recent, as a way in when the
+  # API is not available to you. They are a different host from the API, so a
+  # policy or rate limit that blocks export.arxiv.org may leave these readable.
+  #
+  # The listing carries no abstracts, so it can only score titles -- it sees
+  # strictly less than the API does. That is why `auto` is the default: use it
+  # when the API gave us nothing, not instead of it.
+  listing:
+    # auto -> only when the API returned nothing | always -> instead of the API
+    # never -> off
+    mode: auto
+    base_url: "https://arxiv.org/list"
+    # /recent is a few days of announcements, a few hundred to a few thousand
+    # entries. These bound one category's crawl; arXiv asks not to be crawled
+    # hard, and scoring titles locally is what keeps this to a few requests.
+    page_size: 250
+    max_pages: 8
+    min_request_interval_s: 5.0
+    # One extra request per match, for the abstract the listing omits.
+    fetch_abstracts: true
+    max_abstracts_per_run: 60
+
 conferences:
   enabled: true
   # Semantic Scholar bulk search: broad venue coverage, no API key required
