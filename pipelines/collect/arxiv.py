@@ -226,8 +226,16 @@ def fetch_by_id(
     arxiv_ids: list[str],
     client: Client | None = None,
     errors: list[str] | None = None,
+    source: str = "seed",
 ) -> list[Paper]:
-    """Fetch specific arXiv papers, used for a topic's seed papers."""
+    """Fetch specific arXiv papers by id.
+
+    Used wherever something already knows which paper it wants and needs the
+    bibliography: a topic's seed papers, and a curated list that gives a link
+    and a nickname. ``source`` is what the resulting records are attributed to,
+    since how a paper came to our attention is not the same fact as which
+    endpoint answered for it.
+    """
     block = cfg.sources.get("arxiv", {}) or {}
     api_url = block.get("api_url", "https://export.arxiv.org/api/query")
     client = client or from_settings(
@@ -249,12 +257,12 @@ def fetch_by_id(
         except HTTPError as exc:
             _LOG.error("arxiv id lookup failed: %s", exc)
             if errors is not None:
-                errors.append(f"arxiv seeds: {exc}")
+                errors.append(f"arxiv[{source}]: {exc}")
             continue
         for entry in root.findall("atom:entry", _NS):
             paper = _parse_entry(entry)
             if paper is not None:
-                paper.source = "seed"
+                paper.source = source
                 papers.append(paper)
     return papers
 

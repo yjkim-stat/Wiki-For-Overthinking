@@ -165,6 +165,43 @@ conferences:
     #   openreview_prefix: ""
     #   dblp_key: ""
 
+curated:
+  # Weekly editor's picks: somebody reads a field's whole output and publishes
+  # the handful worth reading. That filter is judgement applied before any
+  # keyword sees the paper, which is exactly what a keyword cannot do.
+  #
+  # A list is read for POINTERS ONLY. Entries name a paper the way people say
+  # it out loud -- an acronym plus a paragraph of commentary -- so the title,
+  # authors and abstract are fetched from the arXiv id the entry links to. An
+  # entry linking to a blog post or a journal page has no bibliography to read
+  # and is skipped BY NAME in the log; file it through `inbox/` if you want it.
+  #
+  # Picks are scored like anything else. A hand-filed PDF skips scoring because
+  # filing it is the group's own editorial decision; a curated list is somebody
+  # else's, taken over a whole field rather than over your topics. Expect most
+  # of a general list to be rejected against a narrow archive -- that is the
+  # filter working, not failing.
+  enabled: true
+  # Issues to read per list, newest first. Weekly lists, so 4 is about a month:
+  # enough that a few missed runs lose nothing. Raise it to backfill.
+  max_issues: 4
+  # The link label that means "the paper itself". The commentary in an issue
+  # often names other work in passing, and following that would archive what
+  # the editor mentioned rather than what they picked. A list that uses no such
+  # label falls back to any arXiv link in the issue.
+  link_label: "Paper"
+  min_request_interval_s: 1.0
+  lists:
+    # The markdown mirror of DAIR.AI's weekly list. The LinkedIn and Substack
+    # editions are the same papers behind a login wall; this one is fetchable.
+    # The file is an index of issues, each linking into a per-year page.
+    - name: "DAIR.AI ML Papers of the Week"
+      url: "https://raw.githubusercontent.com/dair-ai/ML-Papers-of-the-Week/main/README.md"
+    # A single-page list works too: with no per-issue index, the page itself is
+    # read as one issue.
+    # - name: "Some Awesome List"
+    #   url: "https://raw.githubusercontent.com/user/repo/main/README.md"
+
 local:
   # PDFs filed by hand. Drop a file into the inbox and the next run ingests it:
   # the file moves to `data/pdfs/` under a content-addressed name, and a task is

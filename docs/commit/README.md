@@ -52,3 +52,4 @@ reference for everything built before the practice existed.
 | 0029 | [The wiki, drawn](0029-the-wiki-drawn.md) | feature | Colour computed, not chosen — and the computation changed the encoding |
 | 0030 | [What the group settled](0030-what-the-group-settled.md) | feature | The one record the group authors itself — filed where it cannot be mistaken for evidence |
 | 0031 | [Fetch before you start](0031-fetch-before-you-start.md) | docs | A long-lived session holds a `main` that has moved underneath it |
+| 0032 | [Following somebody else's reading](0032-following-somebody-elses-reading.md) | feature | A curated list gives pointers, never metadata — a nickname is not a title |

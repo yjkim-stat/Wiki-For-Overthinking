@@ -42,13 +42,17 @@ branch later.
 python3 -m pipelines.run_daily
 ```
 
-Fetches from arXiv, the conference indexes and YouTube, ingests any PDF waiting
-in `inbox/`, scores everything against every topic, stores what cleared the bar,
-and files a task per item that still needs reading. A source that is unreachable
-is logged and skipped — that is not a failure of the run.
+Fetches from arXiv, the conference indexes, the curated weekly lists and
+YouTube, ingests any PDF waiting in `inbox/`, scores everything against every
+topic, stores what cleared the bar, and files a task per item that still needs
+reading. A source that is unreachable is logged and skipped — that is not a
+failure of the run.
 
 A PDF in `inbox/` is kept whatever its keywords say: somebody filing it by hand
-is the editorial decision that scoring exists to approximate.
+is the editorial decision that scoring exists to approximate. A curated list is
+not that — it is somebody else's editorial decision, over a whole field rather
+than over the group's topics — so its picks are scored like anything else, and
+a general list being mostly rejected is the filter working.
 
 **2. Drain the queue.** This is the part only you can do.
 
@@ -248,8 +252,8 @@ A tour of the same tree, for a human arriving at the repository, is in the
 | `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. `wiki/index.md` and `wiki/graph.html` — the map of the whole wiki — are generated whole. |
 | `inbox/` | drop PDFs here | Drains on the next run: the file moves to `data/pdfs/` and a reading task is queued. |
 | `config/topics/*.yaml` | when asked | The tracked subjects. Adding a file is all it takes — but see the rule above about whose decision that is. |
-| `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, YouTube channels, the inbox switch. |
-| `pipelines/` | yes | The code. `common/` config and records, `collect/` the four sources, `enrich/` scoring, dedup and the queue, `publish/` the renderers. `run_daily.py` collects, `render.py` rebuilds. |
+| `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, curated lists, YouTube channels, the inbox switch. |
+| `pipelines/` | yes | The code. `common/` config and records, `collect/` the sources, `enrich/` scoring, dedup and the queue, `publish/` the renderers. `run_daily.py` collects, `render.py` rebuilds. |
 | `templates/` | yes | How the generated artifacts look. Editing one never requires re-collecting anything — just render again. |
 | `scripts/`, `tests/` | yes | `daily.sh`, `new_topic.sh`; and the suite, which touches neither the network nor the real `data/`. |
 | `docs/commit/` | **required** | One note per commit, staged with the commit it explains. See the rule above. |

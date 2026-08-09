@@ -166,7 +166,7 @@
   a day of collection.
 </p>
 
-<p>Three kinds of source feed it, and they answer different questions:</p>
+<p>Four kinds of source feed it, and they answer different questions:</p>
 
 <div class="scroll">
 <table>
@@ -185,9 +185,14 @@
       <td>“What is there?” — the whole set comes back and filtering happens locally.</td>
     </tr>
     <tr>
+      <td><strong>Follow</strong></td>
+      <td>curated weekly lists</td>
+      <td>“What did somebody outside the group decide mattered?” — a handful of pointers, chosen by judgement rather than by query.</td>
+    </tr>
+    <tr>
       <td><strong>Hand</strong></td>
       <td><code>inbox/</code></td>
-      <td>“What did a person decide mattered?” — no network at all.</td>
+      <td>“What did someone in the group decide mattered?” — no network at all.</td>
     </tr>
   </tbody>
 </table>
@@ -200,6 +205,14 @@
   costs more bandwidth but makes a <em>completeness check</em> possible — and the
   count it reports is the only number in this pipeline that the pipeline did not
   compute itself.
+</p>
+<p>
+  The two judgement sources are not interchangeable either, and the difference
+  decides whether scoring applies. A PDF in <code>inbox/</code> bypasses scoring
+  because filing it <em>is</em> the group's editorial decision. A curated list is
+  somebody else's decision, taken over a whole field rather than over the
+  group's topics, so its picks are scored like anything else — being followed is
+  not the same as being wanted.
 </p>
 
 <h2 id="http"><span class="num">02</span>The shared HTTP layer</h2>
@@ -484,6 +497,58 @@ GET https://neurips.cc/virtual/2025/loc/san-diego/papers.html   ← split-locati
   venue can pin its own <code>virtual_years</code>.
 </p>
 
+<h3>Curated weekly lists</h3>
+<p class="src">pipelines/collect/curated.py</p>
+
+<pre><code>GET &lt;curated.lists[].url&gt;                 # an index of issues, or one page
+GET &lt;each .md the index links to&gt;          # only for the newest issues
+GET https://export.arxiv.org/api/query?id_list=…   # the bibliography</code></pre>
+
+<p>
+  The only source whose selection is a person's judgement rather than a query.
+  An editor reads a field's whole weekly output and publishes ten papers; that
+  is a filter no keyword can reproduce, applied before any keyword sees the
+  paper. The shipped list is
+  <a href="https://github.com/dair-ai/ML-Papers-of-the-Week">DAIR.AI's</a>, whose
+  LinkedIn and Substack editions carry the same papers behind a login wall — the
+  markdown mirror is the fetchable one.
+</p>
+<div class="note">
+  <span class="label">Pointers only, never metadata</span>
+  <p>
+    A list entry names a paper the way people say it out loud: an acronym, then
+    a paragraph of what the editor found interesting. <code>NOOA</code> is not a
+    title and the commentary is not an abstract, so nothing in the entry becomes
+    a record. Only the linked arXiv id is taken, and the bibliography is fetched
+    from arXiv — the same lookup that resolves a topic's seed papers.
+  </p>
+  <p>
+    The consequence is a real gap and it is reported rather than papered over: a
+    pick linking to a blog post, a journal page or a project site has no
+    bibliography to read, so it is <strong>skipped and named in the log</strong>.
+    Measured over 25 issues of the shipped list, 237 of 250 picks carried an
+    arXiv id and 13 did not. File one through <code>inbox/</code> to archive it.
+  </p>
+</div>
+<p>
+  Which issues count as recent comes from the index's own order, matched to the
+  page by the anchor each entry links to — not from assuming the page is sorted
+  newest first. If no heading matches, the collector falls back to page order
+  <em>and warns</em>: the quiet version of that failure reads the same issues
+  forever while looking healthy.
+</p>
+<p>
+  Only the labelled link is followed (<code>curated.link_label</code>, default
+  <code>Paper</code>). An issue's commentary often cites work the editor did not
+  pick, and following those would archive what was mentioned rather than what
+  was chosen.
+</p>
+<ul>
+  <li><strong>A pick already in the archive is re-emitted, not looked up again.</strong> Deduplication joins sources with <code>+</code>, so the stored record becomes <code>arxiv+curated</code> and the fact that somebody chose it stops being invisible.</li>
+  <li><strong>Picks are scored like anything else.</strong> A hand-filed PDF skips scoring because filing it is the group's own decision; a curated list is somebody else's, taken over a whole field. A general list mostly rejected against a narrow archive is the filter working.</li>
+  <li><strong>A list that parses to zero papers warns.</strong> The format is one editor's markdown and can change without notice, and a silent zero looks exactly like a quiet week.</li>
+</ul>
+
 <h3>YouTube</h3>
 <p class="src">pipelines/collect/youtube.py</p>
 
@@ -716,6 +781,9 @@ title:&lt;fingerprint&gt;       ← last resort</code></pre>
     <tr><td><code>conferences.semantic_scholar.restrict_to_venues</code></td><td>sources</td><td>false</td><td>Leave false — true drops every preprint.</td></tr>
     <tr><td><code>conferences.venues[].virtual_host</code></td><td>sources</td><td>set for ICML/ICLR/NeurIPS</td><td>Programme page host; blank skips the venue.</td></tr>
     <tr><td><code>conferences.venues[].virtual_years</code></td><td>sources</td><td>per venue</td><td>Which programme years exist for that venue.</td></tr>
+    <tr><td><code>curated.lists</code></td><td>sources</td><td>DAIR.AI weekly</td><td><code>{name, url}</code> per curated list, as markdown.</td></tr>
+    <tr><td><code>curated.max_issues</code></td><td>sources</td><td>4</td><td>Issues read per list, newest first.</td></tr>
+    <tr><td><code>curated.link_label</code></td><td>sources</td><td><code>Paper</code></td><td>The link label that means the paper itself.</td></tr>
     <tr><td><code>youtube.channels</code></td><td>sources</td><td>empty</td><td><code>{name, channel_id}</code> per tracked channel.</td></tr>
     <tr><td><code>youtube.min_duration_s</code></td><td>sources</td><td>600</td><td>Below this is not a seminar.</td></tr>
     <tr><td><code>local.enabled</code></td><td>sources</td><td>true</td><td>Whether <code>inbox/</code> is drained.</td></tr>

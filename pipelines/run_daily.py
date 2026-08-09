@@ -21,7 +21,15 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .collect import arxiv, arxiv_listing, conferences, local_pdf, pdf_fetch, youtube
+from .collect import (
+    arxiv,
+    arxiv_listing,
+    conferences,
+    curated,
+    local_pdf,
+    pdf_fetch,
+    youtube,
+)
 from .common import config as config_mod
 from .common import log
 from .common.config import Config, Topic
@@ -125,7 +133,7 @@ def run(
         )
         return {"papers": 0, "videos": 0, "queued": 0, "errors": ["no topics defined"]}
 
-    sources = sources or ["arxiv", "conferences", "youtube", "local"]
+    sources = sources or ["arxiv", "conferences", "curated", "youtube", "local"]
     today = date.today()
     since = today - timedelta(days=max(1, days))
     errors: list[str] = []
@@ -153,6 +161,15 @@ def run(
         except Exception as exc:  # noqa: BLE001
             _LOG.exception("conference collection failed")
             errors.append(f"conferences: {exc}")
+
+    if "curated" in sources:
+        try:
+            found = curated.collect(cfg, topics, since, store=store, errors=errors)
+            _snapshot(cfg, today, "curated", found)
+            papers += found
+        except Exception as exc:  # noqa: BLE001
+            _LOG.exception("curated list collection failed")
+            errors.append(f"curated: {exc}")
 
     if "youtube" in sources:
         try:
@@ -365,7 +382,7 @@ def main(argv: list[str] | None = None) -> int:
         "--source",
         action="append",
         dest="sources",
-        choices=["arxiv", "conferences", "youtube", "local"],
+        choices=["arxiv", "conferences", "curated", "youtube", "local"],
         help="restrict to one or more sources",
     )
     parser.add_argument(

@@ -10,8 +10,9 @@ The system splits cleanly at the work queue.
                         deterministic                    judgement
                  ┌──────────────────────────┐   ┌──────────────────────┐
 
-  arXiv ─┐
-  venues ─┼─► collect ─► score ─► dedupe ─► store ─► queue ─► read ─► complete
+  arXiv ──┐
+  venues ─┤
+  curated ┼─► collect ─► score ─► dedupe ─► store ─► queue ─► read ─► complete
   YouTube ┘                                   │                          │
                                               ▼                          ▼
                                             data/                  data/queue/done/
@@ -63,6 +64,7 @@ until someone drains it.
 | Semantic Scholar | bulk search, optional API key | anonymous requests are rate limited; set `SEMANTIC_SCHOLAR_API_KEY` if it bites |
 | OpenReview | `content.venueid` lookup per venue per year | venue ids change between cycles; a miss is silent by design |
 | DBLP | keyword + venue search | no abstracts, so scoring sees the title only |
+| curated lists | a weekly editor's picks, read as markdown; the arXiv id it links to is looked up for the bibliography | the page is one editor's markdown and can be reshaped without notice, so a parse of zero warns |
 | YouTube | channel Atom feed, no key | feeds carry no duration, so short videos cannot be filtered out |
 
 The date filter is on submission, not revision. A v2 of an older paper does not
@@ -77,6 +79,11 @@ it, and fix it in the topic's YAML.
 A PDF from `inbox/` is exempt: it is scored, so the topics it happens to match
 are recorded, but it is never rejected. Filing it by hand is the decision that
 scoring approximates, and the reader assigns its topics afterwards.
+
+A curated pick is **not** exempt. Filing a PDF is the group's own editorial
+decision; a weekly list is somebody else's, taken over a whole field rather than
+over the group's topics. Most of a general list being rejected is the filter
+working as intended.
 
 For each topic: any `keywords.none` hit rejects the item; every `keywords.all`
 term must appear; at least one `keywords.any` term must appear. Surviving hits

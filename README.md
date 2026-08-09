@@ -65,10 +65,30 @@ inbox *is* the editorial decision scoring exists to approximate; which topics it
 belongs to is the reader's call. PDFs themselves are not tracked by git — the
 records are, so a fresh clone has the whole archive without the weight.
 
+## Following somebody else's reading
+
+A weekly "papers of the week" list is a filter no keyword can reproduce: one
+editor reads a field's whole output and picks ten. `config/sources.yaml` takes
+any such list that is published as markdown — `curated.lists` ships with
+[DAIR.AI's](https://github.com/dair-ai/ML-Papers-of-the-Week), whose LinkedIn
+and Substack editions are the same papers behind a login wall.
+
+The list is read for **pointers only**. Its entries name papers the way people
+say them out loud — an acronym and a paragraph of commentary — so the title,
+authors and abstract come from the arXiv id the entry links to, and a pick that
+links to a blog post instead is skipped by name in the log. A pick the archive
+already holds is stamped `+curated` rather than duplicated.
+
+Picks are scored like anything else. A PDF you file skips scoring because
+filing it is your decision; a curated list is somebody else's, taken over a
+whole field rather than over your topics. Expect a general list to be mostly
+rejected against a narrow archive — that is the filter working.
+
 ## How it works
 
 ```
-arXiv (API · listing) · OpenReview · Semantic Scholar · DBLP · venue programmes · YouTube · inbox/
+arXiv (API · listing) · OpenReview · Semantic Scholar · DBLP · venue programmes
+                      · curated weekly lists · YouTube · inbox/
                       │
                 collect ─► score ─► deduplicate ─► data/
                                                     │
@@ -108,7 +128,7 @@ understanding the repository:
 .
 ├── config/                     ← yours: what gets collected, and how
 │   ├── settings.yaml             language, lookback window, scoring weights, wiki thresholds
-│   ├── sources.yaml              arXiv categories, venues, YouTube channels, the inbox switch
+│   ├── sources.yaml              arXiv categories, venues, curated lists, YouTube, inbox
 │   └── topics/<slug>.yaml        one file per tracked subject — the whole editorial decision
 │
 ├── inbox/                      ← yours: drop a PDF here, it drains on the next run
@@ -250,7 +270,7 @@ someone raised in seminar, the trick that only works on your data.
 | File | Purpose |
 | --- | --- |
 | `config/settings.yaml` | Language, lookback window, scoring weights, summarizer backend, wiki thresholds |
-| `config/sources.yaml` | arXiv categories, tracked venues, YouTube channels |
+| `config/sources.yaml` | arXiv categories, tracked venues, curated lists, YouTube channels |
 | `config/topics/*.yaml` | The subjects themselves |
 
 The defaults in `config/sources.yaml` are a general-purpose starting point. Swap
