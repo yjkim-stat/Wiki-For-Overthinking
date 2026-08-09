@@ -233,6 +233,9 @@ data/logs/
 # bytes do not travel with it.
 inbox/*.pdf
 inbox/**/*.pdf
+# Covers data/pdfs/read/ too -- documents whose reading is done are shelved
+# there rather than in a directory of their own, precisely so that no
+# deployment can ignore one and forget the other.
 data/pdfs/
 
 # Announced-paper abstracts. This deployment takes the trade the sweep offers:

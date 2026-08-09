@@ -10,7 +10,7 @@ from __future__ import annotations
 import unittest
 
 from pipelines import render
-from pipelines.common.schema import Video, canonical_video_id
+from pipelines.common.schema import Paper, PaperSummary, Video, canonical_video_id
 from pipelines.common.store import RecordStore
 
 from .sandbox import Sandbox
@@ -85,3 +85,97 @@ class TranscriptsBesideRecordsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ShelvingTests(unittest.TestCase):
+    """`data/pdfs/` is the backlog; `data/pdfs/read/` is what is done.
+
+    Before this, both sat in one directory and the only way to tell them apart
+    was to consult the queue. The pass is self-healing rather than
+    transactional: a move and a record update cannot be made atomic together,
+    so every render re-derives where a file belongs and corrects what it finds.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.cfg = self.sandbox.config()
+        self.store = RecordStore(self.cfg.layout)
+        self.paper = Paper(
+            id="local:abc123",
+            title="A Filed Paper",
+            source="local",
+            local_path="data/pdfs/local-abc123.pdf",
+        )
+        self.store.save_paper(self.paper)
+        self.pending = self.cfg.layout.pdfs / "local-abc123.pdf"
+        self.shelved = self.cfg.layout.pdfs_read / "local-abc123.pdf"
+        self.pending.parent.mkdir(parents=True, exist_ok=True)
+        self.pending.write_bytes(b"%PDF-1.4 pretend")
+
+    def tearDown(self):
+        self.sandbox.close()
+
+    def _read(self):
+        self.store.save_paper_summary(
+            PaperSummary(paper_id=self.paper.id, one_liner="Read.")
+        )
+
+    def _reload(self):
+        return self.store.load_paper(self.paper.id)
+
+    def test_an_unread_document_stays_in_the_backlog(self):
+        render.shelve_documents(self.cfg)
+        self.assertTrue(self.pending.exists())
+        self.assertFalse(self.shelved.exists())
+
+    def test_a_read_document_moves_and_the_record_follows(self):
+        self._read()
+        counts = render.shelve_documents(self.cfg)
+        self.assertEqual(counts["shelved"], 1)
+        self.assertTrue(self.shelved.exists())
+        self.assertFalse(self.pending.exists())
+        self.assertEqual(self._reload().local_path, "data/pdfs/read/local-abc123.pdf")
+
+    def test_the_pass_is_idempotent(self):
+        self._read()
+        render.shelve_documents(self.cfg)
+        self.assertEqual(render.shelve_documents(self.cfg),
+                         {"shelved": 0, "returned": 0, "repaired": 0})
+
+    def test_a_stale_pointer_is_repaired(self):
+        """The crash case: the file moved, the record never got saved."""
+        self._read()
+        self.shelved.parent.mkdir(parents=True, exist_ok=True)
+        self.pending.replace(self.shelved)          # move happened
+        # record still says data/pdfs/... — as it would after a crash
+        counts = render.shelve_documents(self.cfg)
+        self.assertEqual(counts["repaired"], 1)
+        self.assertEqual(self._reload().local_path, "data/pdfs/read/local-abc123.pdf")
+
+    def test_withdrawing_a_reading_returns_the_document(self):
+        """Clearing a summary re-queues the paper, so the file comes back."""
+        self._read()
+        render.shelve_documents(self.cfg)
+        self.store.paper_summary_path(self.paper.id).unlink()
+        counts = render.shelve_documents(self.cfg)
+        self.assertEqual(counts["returned"], 1)
+        self.assertTrue(self.pending.exists())
+        self.assertEqual(self._reload().local_path, "data/pdfs/local-abc123.pdf")
+
+    def test_a_missing_document_leaves_the_record_alone(self):
+        """A fresh clone has records whose PDFs were never committed."""
+        self._read()
+        self.pending.unlink()
+        counts = render.shelve_documents(self.cfg)
+        self.assertEqual(counts, {"shelved": 0, "returned": 0, "repaired": 0})
+        self.assertEqual(self._reload().local_path, "data/pdfs/local-abc123.pdf")
+
+    def test_a_paper_with_no_document_is_untouched(self):
+        remote = Paper(id="arxiv:2401.1", title="Remote", source="arxiv")
+        self.store.save_paper(remote)
+        render.shelve_documents(self.cfg)
+        self.assertEqual(self.store.load_paper("arxiv:2401.1").local_path, "")
+
+    def test_the_shelf_lives_inside_the_ignored_directory(self):
+        """So no deployment can forget to ignore it separately."""
+        self.assertEqual(self.cfg.layout.pdfs_read.parent, self.cfg.layout.pdfs)

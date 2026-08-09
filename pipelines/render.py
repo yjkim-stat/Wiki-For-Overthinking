@@ -328,6 +328,72 @@ def queue_missing_definitions(cfg: Config) -> int:
     return queued
 
 
+def _relative(cfg: Config, path: Path) -> str:
+    try:
+        return path.relative_to(cfg.layout.root).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
+def shelve_documents(cfg: Config) -> dict[str, int]:
+    """File each paper's document by whether its reading is done.
+
+    ``data/pdfs/`` holds what is still waiting to be read and
+    ``data/pdfs/read/`` holds what has been. The point is that the backlog
+    becomes visible on disk: before this, both populations sat in one directory
+    and the only way to tell them apart was to consult the queue.
+
+    The pass is **self-healing rather than transactional**, which matters
+    because a move and a record update cannot be made atomic together. Every run
+    re-derives where each file belongs from the one fact that decides it — does
+    a summary exist — and corrects whatever it finds. A crash between the move
+    and the save leaves a record pointing at the old path; the next render
+    notices the file at the other path and repairs the pointer. Nothing has to
+    be rolled back.
+
+    A missing file is left alone. PDFs are not committed, so a fresh clone has
+    records whose documents are simply not here yet, and rewriting their paths
+    would turn an absence into corruption.
+    """
+    store = RecordStore(cfg.layout)
+    counts = {"shelved": 0, "returned": 0, "repaired": 0}
+
+    for paper in store.iter_papers():
+        if not paper.local_path:
+            continue
+        name = Path(paper.local_path).name
+        read = store.paper_summary_path(paper.id).exists()
+        belongs = (cfg.layout.pdfs_read if read else cfg.layout.pdfs) / name
+        elsewhere = (cfg.layout.pdfs if read else cfg.layout.pdfs_read) / name
+        current = cfg.layout.root / paper.local_path
+
+        if belongs.exists():
+            wanted = _relative(cfg, belongs)
+            if paper.local_path != wanted:
+                paper.local_path = wanted
+                store.save_paper(paper)
+                counts["repaired"] += 1
+            continue
+
+        source = current if current.exists() else (
+            elsewhere if elsewhere.exists() else None
+        )
+        if source is None:
+            continue
+
+        belongs.parent.mkdir(parents=True, exist_ok=True)
+        source.replace(belongs)
+        paper.local_path = _relative(cfg, belongs)
+        store.save_paper(paper)
+        # A reading can be withdrawn by clearing its summary, so the move runs
+        # both ways: what is in `pdfs/` is exactly what is unread.
+        counts["shelved" if read else "returned"] += 1
+
+    if any(counts.values()):
+        _LOG.info("documents filed: %s", counts)
+    return counts
+
+
 # A hand-written section may declare how many sources it was written against.
 _ANALYSIS_SOURCES_RE = re.compile(r"<!--\s*analysis-sources:\s*(\d+)\s*-->")
 
@@ -492,6 +558,8 @@ def run(
 
     if only in (None, "archive"):
         result["applied"] = apply_completed(cfg)
+        # After applying, so a reading finished this run files its document too.
+        result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)
         if not skip_queueing:
             result["summaries_queued"] = queue_missing_summaries(cfg)

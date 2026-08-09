@@ -122,7 +122,8 @@ understanding the repository:
 │   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, coverage.jsonl, seen.sqlite
 │   ├── abstracts/<cat>/<day>.jsonl  every announced paper, not only the tracked
 │   │                             ones — the ledger above is committed, this is not
-│   ├── pdfs/                     hand-filed PDFs, content-addressed        (not committed)
+│   ├── pdfs/                     documents still to be read              (not committed)
+│   │   └── read/                 …and those whose reading is done
 │   ├── raw/                      collector responses, for replaying a parse bug (not committed)
 │   └── logs/                     run logs                                  (not committed)
 │

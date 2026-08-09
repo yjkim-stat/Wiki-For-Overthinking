@@ -538,7 +538,11 @@ GET https://neurips.cc/virtual/2025/loc/san-diego/papers.html   ← split-locati
 <p>
   The one collector whose source is a person, and the only one that touches no
   network. A PDF dropped into <code>inbox/</code> is hashed, moved into
-  <code>data/pdfs/</code> under a content-addressed name, and recorded.
+  <code>data/pdfs/</code> under a content-addressed name, and recorded. The
+  inbox drains on ingest — a move, not a copy, or the next run would ingest the
+  same file again. Once the reading has been applied, <code>render</code> moves
+  the document on to <code>data/pdfs/read/</code>, so what remains in
+  <code>data/pdfs/</code> is exactly the backlog.
 </p>
 <ul>
   <li><strong>Identity is the file's content</strong>, not its name. The same PDF filed twice under two names is one record.</li>

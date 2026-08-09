@@ -58,8 +58,25 @@ class Layout:
 
     @property
     def pdfs(self) -> Path:
-        """Where a filed PDF is kept once it has been ingested."""
+        """Documents waiting to be read.
+
+        A PDF lands here on ingest — hand-filed from the inbox, or fetched for a
+        paper about to be queued — and leaves for `pdfs_read` once its reading
+        has been applied. What is in this directory is the backlog, visible
+        without consulting the queue.
+        """
         return self.data / "pdfs"
+
+    @property
+    def pdfs_read(self) -> Path:
+        """Documents whose reading is done.
+
+        A subdirectory of `pdfs` rather than a sibling, so it inherits that
+        directory's gitignore entry. These files are the heaviest thing the
+        pipeline touches and the cost of one deployment forgetting to ignore a
+        new top-level directory is a repository nobody can clone.
+        """
+        return self.pdfs / "read"
 
     @property
     def papers(self) -> Path:
@@ -154,6 +171,7 @@ class Layout:
         for directory in (
             self.raw,
             self.pdfs,
+            self.pdfs_read,
             self.inbox,
             self.papers,
             self.videos,
