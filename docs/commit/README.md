@@ -51,3 +51,4 @@ reference for everything built before the practice existed.
 | 0028 | [The backlog is what is left in `data/pdfs/`](0028-shelve-documents-once-read.md) | feature | A read document moves on, so the directory answers what is still owed |
 | 0029 | [The wiki, drawn](0029-the-wiki-drawn.md) | feature | Colour computed, not chosen — and the computation changed the encoding |
 | 0030 | [What the group settled](0030-what-the-group-settled.md) | feature | The one record the group authors itself — filed where it cannot be mistaken for evidence |
+| 0031 | [Fetch before you start](0031-fetch-before-you-start.md) | docs | A long-lived session holds a `main` that has moved underneath it |

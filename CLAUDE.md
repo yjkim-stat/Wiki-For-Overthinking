@@ -13,6 +13,29 @@ meet at a file-backed work queue, and the whole contract is below.
 Run this when a scheduled session wakes you, or when asked to bring the archive
 up to date.
 
+**0. Start from what is already on `main`.**
+
+```bash
+git fetch origin main
+git log --oneline HEAD..origin/main    # anything here means you are behind
+```
+
+Do this before the first edit of a session, and again before merging. More than
+one session commits to this repository, so a container that has been alive for a
+while can be holding a `main` that has moved underneath it — and the two ways
+that goes wrong are both quiet:
+
+- **A commit note is numbered by what already exists.** Two sessions each
+  reading a stale `docs/commit/` will both write `NNNN`, and the collision only
+  surfaces at merge.
+- **Work gets built on a decision that has since been reversed.** A change
+  landed upstream can invert an assumption yours depends on, and nothing in the
+  code will say so.
+
+Both happened in this repository. If you are behind, rebase onto `origin/main`
+before going further — resolving one collision now is cheaper than unpicking a
+branch later.
+
 **1. Collect.**
 
 ```bash
@@ -201,7 +224,10 @@ config, templates or documentation does — see the rule below.
   in `.claude/skills/commit-notes/`: split the work into commits that each carry
   one idea, and write `docs/commit/NNNN-slug.md` for each, staged in the same
   commit. This repository is deployed into other projects and its history is
-  read as documentation.
+  read as documentation. **Pick `NNNN` against a fetched `origin/main`, not
+  against whatever your checkout happens to hold** — see step 0. A number is
+  fixed once pushed, so the session that duplicates one is the session that has
+  to renumber.
 
 ## Layout
 
