@@ -235,6 +235,12 @@ inbox/*.pdf
 inbox/**/*.pdf
 data/pdfs/
 
+# NOTE: data/abstracts/ is intentionally NOT ignored either. It is the record
+# of what was published, against which data/papers/ is the record of what the
+# group tracks -- and re-fetching it means one request per paper, so losing it
+# on a fresh clone would cost days of crawling. Ignore it if the weight matters
+# more than that; the coverage ledger will then report the gap honestly.
+
 # NOTE: data/index/seen.sqlite is intentionally NOT ignored. Scheduled runs
 # start from a fresh clone, so the deduplication state has to be committed or
 # every run re-processes everything it has already seen.

@@ -224,6 +224,43 @@ class RecordStore:
             if isinstance(data, dict) and data:
                 yield Video.from_dict(data)
 
+    # -- abstracts ----------------------------------------------------------
+    def abstracts_path(self, category: str, day: str) -> Path:
+        """One file per category-day, so a gap can be filled without a rewrite."""
+        safe_day = fs_id(day or "undated")
+        return self.layout.abstracts / fs_id(category) / f"{safe_day}.jsonl"
+
+    def load_abstracts(self, category: str, day: str) -> dict[str, dict]:
+        return {
+            str(row.get("id", "")): row
+            for row in read_jsonl(self.abstracts_path(category, day))
+            if row.get("id")
+        }
+
+    def save_abstracts(self, category: str, day: str, rows: Iterable[dict]) -> int:
+        """Merge ``rows`` into the day's file. Returns how many are held after.
+
+        A row is only replaced by one that carries an abstract it lacked. The
+        listing pass files every announced identifier with an empty abstract --
+        that is what makes the file the day's identifier list as well as its
+        abstract store -- and the backfill pass fills them in later.
+        """
+        held = self.load_abstracts(category, day)
+        for row in rows:
+            identifier = str(row.get("id", ""))
+            if not identifier:
+                continue
+            existing = held.get(identifier)
+            if existing is None:
+                held[identifier] = row
+            elif not str(existing.get("abstract", "")).strip():
+                held[identifier] = {**existing, **row}
+        rewrite_jsonl(
+            self.abstracts_path(category, day),
+            [held[k] for k in sorted(held)],
+        )
+        return len(held)
+
     # -- transcripts --------------------------------------------------------
     def transcript_path(self, video_id: str) -> Path:
         return self.layout.videos / f"{fs_id(video_id)}{self.TRANSCRIPT_SUFFIX}"

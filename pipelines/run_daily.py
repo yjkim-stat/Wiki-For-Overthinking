@@ -21,13 +21,14 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from .collect import arxiv, conferences, local_pdf, pdf_fetch, youtube
+from .collect import arxiv, arxiv_listing, conferences, local_pdf, pdf_fetch, youtube
 from .common import config as config_mod
 from .common import log
 from .common.config import Config, Topic
 from .common.llm import get_summarizer
 from .common.schema import Paper, Video, strip_arxiv_version
 from .common.store import RecordStore, SeenStore, append_jsonl, write_json
+from .enrich import coverage
 from .enrich.dedupe import Deduplicator
 from .enrich.queue import Queue
 from .enrich.score import score_against_topics
@@ -172,6 +173,16 @@ def run(
         except Exception as exc:  # noqa: BLE001
             _LOG.exception("local pdf ingestion failed")
             errors.append(f"local: {exc}")
+
+    # Independent of collection: the sweep records what each announcement day
+    # held and keeps an abstract for all of it, so a threshold can be revisited
+    # later without re-collecting. It files nothing and queues nothing.
+    if "arxiv" in sources and not dry_run:
+        try:
+            arxiv_listing.sweep(cfg, topics, store, errors=errors)
+        except Exception as exc:  # noqa: BLE001 - bookkeeping must not sink a run
+            _LOG.exception("arxiv sweep failed")
+            errors.append(f"arxiv_sweep: {exc}")
 
     try:
         papers += _seed_papers(cfg, topics, store, errors)
@@ -330,6 +341,9 @@ def run(
         "videos": len(new_videos),
         "rejected": len(rejected),
         "queued": queued,
+        # What each announcement day held, against what we hold of it. A short
+        # day is a debt to pay down, not a quiet day.
+        "coverage": coverage.summarize(cfg.layout),
         "errors": errors,
     }
     _LOG.info("run complete: %s", result)

@@ -119,7 +119,8 @@ understanding the repository:
 │   ├── summaries/                the readings: papers/<id>.json, videos/<id>.json
 │   ├── concepts/<slug>.json      wiki entities and the evidence behind each one
 │   ├── queue/                    pending/ → done/ → archive/, one JSON task per unread item
-│   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, seen.sqlite
+│   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, coverage.jsonl, seen.sqlite
+│   ├── abstracts/<cat>/<day>.jsonl  every announced paper, not only the tracked ones
 │   ├── pdfs/                     hand-filed PDFs, content-addressed        (not committed)
 │   ├── raw/                      collector responses, for replaying a parse bug (not committed)
 │   └── logs/                     run logs                                  (not committed)
@@ -144,7 +145,7 @@ understanding the repository:
 ├── pipelines/                  the code
 │   ├── common/                   config, records, storage, HTTP, Markdown, the summarizer contract
 │   ├── collect/                  arxiv (+ arxiv_listing) · conferences (+ virtual_site) · youtube · local_pdf · pdf_fetch
-│   ├── enrich/                   score · dedupe · queue
+│   ├── enrich/                   score · dedupe · queue · coverage
 │   ├── publish/                  archive · wiki · lecture_note · slides · report
 │   ├── run_daily.py              collect and queue
 │   └── render.py                 apply and rebuild

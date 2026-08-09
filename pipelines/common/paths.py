@@ -82,6 +82,16 @@ class Layout:
         return self.data / "index"
 
     @property
+    def abstracts(self) -> Path:
+        """Every announced paper's abstract, whether or not a topic wanted it.
+
+        Separate from `papers/` on purpose: `papers/` is what the group tracks,
+        and this is what was published. Keeping the second out of the first is
+        what lets a threshold be revisited later without re-collecting.
+        """
+        return self.data / "abstracts"
+
+    @property
     def logs(self) -> Path:
         return self.data / "logs"
 
@@ -150,6 +160,7 @@ class Layout:
             self.summaries / "papers",
             self.summaries / "videos",
             self.concepts,
+            self.abstracts,
             self.index,
             self.logs,
             self.queue_pending,

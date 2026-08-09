@@ -37,13 +37,14 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime
 
 from ..common import html as html_util
 from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError, from_settings
 from ..common.log import get
 from ..common.schema import Paper, canonical_paper_id, strip_arxiv_version, utcnow
+from ..enrich import coverage
 from ..enrich.score import score_against_topics
 
 _LOG = get(__name__)
@@ -64,7 +65,24 @@ _FIELD_RE = {
 # "total of 1,234 entries" — the only thing on the page that says how far the
 # pagination goes.
 _TOTAL_RE = re.compile(r"total of\s+([\d,]+)\s+entries", re.IGNORECASE)
+# "Fri, 8 Aug 2025 (showing 50 of 213 entries )" — the announcement day, and
+# arXiv's own count of what that day holds. The count is the whole point: it is
+# the only number in the system that does not come from our own parsing.
+_DAY_RE = re.compile(
+    r"<h3\b[^>]*>\s*(?P<day>[A-Za-z]{3},\s*\d{1,2}\s+[A-Za-z]{3}\s+\d{4})"
+    r"[^<]*?(?:showing\s+[\d,]+\s+of\s+)?(?P<total>[\d,]+)\s+entries",
+    re.IGNORECASE | re.DOTALL,
+)
 _CATEGORY_RE = re.compile(r"\(([a-z-]+\.[A-Z]{2}|[a-z-]{3,})\)")
+
+
+@dataclass
+class Day:
+    """One announcement day on a listing page."""
+
+    day: str  # ISO date, or "" when the page did not label the section
+    announced: int
+    entries: list["Entry"] = field(default_factory=list)
 
 
 @dataclass
@@ -86,6 +104,47 @@ def parse_total(page: str) -> int:
     """How many entries the category's listing holds, or 0 if it does not say."""
     match = _TOTAL_RE.search(page or "")
     return int(match.group(1).replace(",", "")) if match else 0
+
+
+def _iso_day(label: str) -> str:
+    for fmt in ("%a, %d %b %Y", "%A, %d %B %Y"):
+        try:
+            return datetime.strptime(" ".join(label.split()), fmt).date().isoformat()
+        except ValueError:
+            continue
+    return ""
+
+
+def parse_days(page: str) -> list[Day]:
+    """Split a listing page into its announcement days.
+
+    arXiv heads each day with its date and its own entry count. That count is
+    the only number in this pipeline that does not come from our own parsing,
+    which makes it the one thing that can tell "nothing was announced" apart
+    from "we failed to read what was announced".
+
+    A page with no day headings is returned as a single undated day, so a
+    redesign that drops them degrades to what this collector did before rather
+    than to nothing.
+    """
+    clean = html_util.strip_comments(page)
+    headings = list(_DAY_RE.finditer(clean))
+    if not headings:
+        entries = parse_listing(page)
+        return [Day(day="", announced=parse_total(page) or len(entries), entries=entries)]
+
+    days: list[Day] = []
+    for index, heading in enumerate(headings):
+        start = heading.end()
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(clean)
+        days.append(
+            Day(
+                day=_iso_day(heading.group("day")),
+                announced=int(heading.group("total").replace(",", "")),
+                entries=parse_listing(clean[start:end]),
+            )
+        )
+    return days
 
 
 def parse_listing(page: str) -> list[Entry]:
@@ -288,3 +347,165 @@ def _fill_abstracts(
             _LOG.debug("arxiv abs %s unavailable: %s", entry.arxiv_id, exc)
             continue
         entry.abstract = parse_abstract(raw.decode("utf-8", errors="replace"))
+
+
+# ---------------------------------------------------------------------------
+# The sweep: know what a day held, and close the gap over time
+# ---------------------------------------------------------------------------
+
+
+def _sweep_settings(cfg: Config) -> dict:
+    return (_settings(cfg).get("sweep", {}) or {})
+
+
+def _row(entry: Entry) -> dict:
+    return {
+        "id": entry.arxiv_id,
+        "title": entry.title,
+        "authors": list(entry.authors),
+        "categories": list(entry.categories),
+        "abstract": entry.abstract,
+    }
+
+
+def sweep(
+    cfg: Config,
+    topics: list[Topic],
+    store,
+    client: Client | None = None,
+    errors: list[str] | None = None,
+) -> dict[str, int]:
+    """Record what each announcement day held, and pay down what is missing.
+
+    Two passes, and they are separate because they cost different amounts.
+
+    The **listing pass** walks each category's recent days and files every
+    announced identifier — title, authors, subjects, and an empty abstract. It
+    costs a handful of requests and it is what turns arXiv's own per-day count
+    into something we can be measured against.
+
+    The **backfill pass** fetches the abstracts those rows are missing, ordered
+    by how well the title scores against the tracked topics and bounded by a
+    per-run budget. Ordering matters more than it looks: it means a run spends
+    its budget on what the group is likely to want while still, given enough
+    runs, capturing everything. A day's debt is carried in the ledger rather
+    than being paid off in one enormous run.
+    """
+    block = _sweep_settings(cfg)
+    counts = {"days": 0, "listed": 0, "captured": 0, "fetched": 0}
+    if not block.get("enabled", True):
+        return counts
+
+    categories = _categories_for(cfg, topics)
+    if not categories:
+        return counts
+
+    listing_block = _settings(cfg)
+    base_url = str(listing_block.get("base_url", "https://arxiv.org/list")).rstrip("/")
+    page_size = max(1, int(listing_block.get("page_size", 250)))
+    max_pages = max(1, int(listing_block.get("max_pages", 8)))
+    client = client or from_settings(
+        cfg.settings,
+        min_interval_s=float(listing_block.get("min_request_interval_s", 5.0)),
+    )
+
+    ledger: list[coverage.DayCoverage] = []
+    pending: list[tuple[str, str, Entry, float]] = []
+
+    for category in categories:
+        seen_days: dict[str, coverage.DayCoverage] = {}
+        for page_index in range(max_pages):
+            url = f"{base_url}/{category}/recent"
+            try:
+                raw = client.get(url, {"skip": page_index * page_size, "show": page_size})
+            except HTTPError as exc:
+                _LOG.debug("arxiv sweep %s failed: %s", url, exc)
+                if errors is not None:
+                    errors.append(f"arxiv_sweep[{category}]: {exc}")
+                break
+
+            days = parse_days(raw.decode("utf-8", errors="replace"))
+            if not any(day.entries for day in days):
+                if page_index == 0:
+                    _LOG.warning(
+                        "arxiv sweep for %s parsed no entries; the page shape may "
+                        "have changed", category
+                    )
+                break
+
+            for day in days:
+                if not day.entries:
+                    continue
+                held = store.load_abstracts(category, day.day)
+                store.save_abstracts(category, day.day, [_row(e) for e in day.entries])
+                held = store.load_abstracts(category, day.day)
+
+                row = seen_days.get(day.day) or coverage.DayCoverage(
+                    category=category, day=day.day
+                )
+                row.announced = max(row.announced, day.announced)
+                row.listed = len(held)
+                row.captured = sum(
+                    1 for r in held.values() if str(r.get("abstract", "")).strip()
+                )
+                seen_days[day.day] = row
+
+                for entry in day.entries:
+                    stored = held.get(entry.arxiv_id) or {}
+                    if str(stored.get("abstract", "")).strip():
+                        continue
+                    scores, _, _ = score_against_topics(
+                        topics, title=entry.title, authors=entry.authors,
+                        settings=cfg.settings,
+                    )
+                    pending.append(
+                        (category, day.day, entry, max(scores.values(), default=0.0))
+                    )
+
+            if sum(len(d.entries) for d in days) < page_size:
+                break
+
+        ledger.extend(seen_days.values())
+        counts["days"] += len(seen_days)
+
+    # Relevance first, then everything else. Both halves matter: the group gets
+    # what it wants soonest, and nothing is permanently skipped.
+    pending.sort(key=lambda item: -item[3])
+    budget = int(block.get("max_abstracts_per_run", 120))
+    filled: dict[tuple[str, str], list[dict]] = {}
+    for category, day, entry, _score in pending[:budget]:
+        url = f"https://arxiv.org/abs/{entry.arxiv_id}"
+        try:
+            raw = client.get(url)
+        except HTTPError as exc:
+            _LOG.debug("arxiv abs %s unavailable: %s", entry.arxiv_id, exc)
+            continue
+        abstract = parse_abstract(raw.decode("utf-8", errors="replace"))
+        if not abstract:
+            continue
+        entry.abstract = abstract
+        filled.setdefault((category, day), []).append(_row(entry))
+        counts["fetched"] += 1
+
+    for (category, day), rows in filled.items():
+        store.save_abstracts(category, day, rows)
+
+    # Re-count after the backfill so the ledger reflects this run's work.
+    for row in ledger:
+        held = store.load_abstracts(row.category, row.day)
+        row.listed = max(row.listed, len(held))
+        row.captured = sum(
+            1 for r in held.values() if str(r.get("abstract", "")).strip()
+        )
+        counts["listed"] += row.listed
+        counts["captured"] += row.captured
+
+    if ledger:
+        coverage.record(cfg.layout, ledger)
+    if len(pending) > budget:
+        _LOG.info(
+            "arxiv sweep: %d abstract(s) still owed; a later run will pay them",
+            len(pending) - budget,
+        )
+    _LOG.info("arxiv sweep: %s", counts)
+    return counts

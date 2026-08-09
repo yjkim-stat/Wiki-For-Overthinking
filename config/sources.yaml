@@ -42,6 +42,28 @@ arxiv:
     fetch_abstracts: true
     max_abstracts_per_run: 60
 
+    # The sweep: read every announcement day, record what arXiv says it held,
+    # and keep an abstract for every announced paper -- not only the ones a
+    # topic currently wants.
+    #
+    # The point is the per-day count. It is the only number in the pipeline
+    # that does not come from our own parsing, so it is the only thing that can
+    # tell "nothing was announced" apart from "we failed to read what was".
+    # What is short is recorded in data/index/coverage.jsonl as a debt and paid
+    # down over later runs, worst day first.
+    #
+    # Cost, stated plainly: an abstract is one request. A busy category
+    # announces a few hundred papers a day, so a full capture takes several
+    # runs at the budget below. Abstracts are stored under data/abstracts/ --
+    # roughly 1.5 KB each, so a four-category year is on the order of 100 MB
+    # before git compresses it. Gitignore that directory if the weight matters
+    # more than surviving a fresh clone.
+    sweep:
+      enabled: true
+      # Abstract fetches per run. Ordered by title relevance, so the group gets
+      # what it wants soonest while the tail still drains.
+      max_abstracts_per_run: 120
+
 conferences:
   enabled: true
   # Semantic Scholar bulk search: broad venue coverage, no API key required
