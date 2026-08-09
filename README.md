@@ -118,6 +118,8 @@ understanding the repository:
 │   ├── videos/<id>.json          one per seminar, plus <id>.transcript.json
 │   ├── summaries/                the readings: papers/<id>.json, videos/<id>.json
 │   ├── concepts/<slug>.json      wiki entities and the evidence behind each one
+│   ├── findings/<id>.json        what the group settled in conversation — the one
+│   │                             record it authors itself
 │   ├── queue/                    pending/ → done/ → archive/, one JSON task per unread item
 │   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, coverage.jsonl, seen.sqlite
 │   ├── abstracts/<cat>/<day>.jsonl  every announced paper, not only the tracked
@@ -138,6 +140,7 @@ understanding the repository:
 │   ├── topics/ concepts/ methods/ datasets/
 │   ├── _meta/graph.json          the backlink graph
 │   ├── graph.html                the same graph, drawn — open it in a browser
+│   ├── findings.md               the picture the group has drawn for itself
 │   └── index.md
 │
 ├── outputs/                    ← derived, one set per topic
@@ -148,7 +151,7 @@ understanding the repository:
 ├── pipelines/                  the code
 │   ├── common/                   config, records, storage, HTTP, Markdown, the summarizer contract
 │   ├── collect/                  arxiv (+ arxiv_listing) · conferences (+ virtual_site) · youtube · local_pdf · pdf_fetch
-│   ├── enrich/                   score · dedupe · queue · coverage
+│   ├── enrich/                   score · dedupe · queue · coverage · findings
 │   ├── publish/                  archive · wiki (+ graph_page) · lecture_note · slides · report
 │   ├── run_daily.py              collect and queue
 │   └── render.py                 apply and rebuild

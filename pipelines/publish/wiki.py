@@ -20,6 +20,7 @@ from ..common.log import get
 from ..common.paths import Layout, slugify
 from ..common.schema import Concept, utcnow
 from ..common.store import RecordStore, write_json, write_text
+from ..enrich import findings
 from . import graph_page, load_template, rel_link, render_template
 from .archive import paper_dir, seminar_dir
 
@@ -265,8 +266,16 @@ def _evidence_lines(
     return lines or ["_No sources recorded yet._"]
 
 
+def _findings_for(slug, index):
+    return index.get(slug, []) if index else []
+
+
 def write_concept_note(
-    cfg: Config, concept: Concept, store: RecordStore, all_concepts: dict[str, Concept]
+    cfg: Config,
+    concept: Concept,
+    store: RecordStore,
+    all_concepts: dict[str, Concept],
+    findings_by_concept: dict[str, list] | None = None,
 ) -> Path:
     page = note_path(cfg.layout, concept.kind, concept.slug)
 
@@ -306,6 +315,19 @@ def write_concept_note(
                 else other.name
             )
         body += ["**Related**: " + ", ".join(links), ""]
+
+    settled = _findings_for(concept.slug, findings_by_concept)
+    if settled:
+        # Above the source list on purpose: what the group concluded outranks
+        # what any one paper said, and a reader arriving at the note should
+        # meet the position before the evidence for it.
+        body += ["## What we have settled", ""]
+        for finding in settled:
+            label = "Decision" if finding.kind == "decision" else "Established"
+            body.append(f"- **{label}** — {finding.statement}")
+            if finding.rationale:
+                body.append(f"  - {finding.rationale}")
+        body.append("")
 
     body += ["## Appears in", ""] + _evidence_lines(cfg, page, concept, store)
     return _write_note(cfg, page, concept.name, "\n".join(body))
@@ -409,7 +431,11 @@ def write_index(cfg: Config, concepts: dict[str, Concept], live: dict[str, Conce
 # ---------------------------------------------------------------------------
 
 
-def build_graph(cfg: Config, live: dict[str, Concept]) -> Path:
+def build_graph(
+    cfg: Config,
+    live: dict[str, Concept],
+    settled: dict[str, list] | None = None,
+) -> Path:
     """Emit the note graph for external viewers."""
     nodes = []
     edges = []
@@ -426,6 +452,10 @@ def build_graph(cfg: Config, live: dict[str, Concept]) -> Path:
                 "label": concept.name,
                 "kind": concept.kind,
                 "sources": concept.mention_count,
+                # A flag, not a fourth category: the palette validates three
+                # hues and no more, so "the group has settled something here"
+                # is drawn as a mark on the mark rather than a new colour.
+                "settled": bool((settled or {}).get(concept.slug)),
             }
         )
         for slug in concept.topics:
@@ -463,6 +493,80 @@ def build_graph(cfg: Config, live: dict[str, Concept]) -> Path:
     return path
 
 
+def write_findings_page(cfg: Config, store: RecordStore) -> Path:
+    """The picture the group has drawn for itself, in one place.
+
+    Grouped by topic rather than by date. A chronological log answers "what did
+    we say last Tuesday", which nobody asks; grouping by topic answers "where
+    have we got to on this", which is the question the page exists for.
+
+    Retired findings are kept, at the bottom, marked. A record of what the
+    group used to think is most of what a newcomer needs in order to trust what
+    it thinks now.
+    """
+    rows = sorted(
+        store.iter_findings(), key=lambda f: f.established_at, reverse=True
+    )
+    current = [f for f in rows if f.live]
+    retired = [f for f in rows if not f.live]
+
+    names = {topic.slug: topic.name for topic in cfg.topics}
+    by_topic: dict[str, list] = {}
+    for finding in current:
+        for slug in finding.topics or ["(no topic)"]:
+            by_topic.setdefault(slug, []).append(finding)
+
+    lines = ["# What we have settled", ""]
+    if not rows:
+        lines += [
+            "_Nothing recorded yet. Findings are added with "
+            "`python3 -m pipelines.enrich.findings add`._",
+            "",
+        ]
+
+    def render(finding) -> list[str]:
+        label = "Decision" if finding.kind == "decision" else "Established"
+        out = [f"- **{label}** — {finding.statement}"]
+        if finding.rationale:
+            out.append(f"  - _{finding.rationale}_")
+        links = []
+        for name in finding.concepts:
+            slug = slug_for(name)
+            concept = store.load_concept(slug)
+            target = note_path(cfg.layout, concept.kind, slug) if concept else None
+            links.append(
+                f"[{name}]({rel_link(page, target)})"
+                if target is not None and target.exists()
+                else name
+            )
+        if links:
+            out.append("  - Bears on: " + ", ".join(links))
+        if finding.papers:
+            out.append(f"  - From: {', '.join(finding.papers)}")
+        return out
+
+    page = cfg.layout.wiki / "findings.md"
+    for slug in sorted(by_topic, key=lambda s: names.get(s, s)):
+        lines += [f"## {names.get(slug, slug)}", ""]
+        for finding in by_topic[slug]:
+            lines += render(finding)
+        lines.append("")
+
+    if retired:
+        lines += ["## Superseded", "",
+                  "_Kept because why the group used to think otherwise is part of "
+                  "understanding where it got to._", ""]
+        for finding in retired:
+            lines.append(f"- ~~{finding.statement}~~")
+            replacement = store.load_finding(finding.superseded_by)
+            if replacement is not None:
+                lines.append(f"  - Replaced by: {replacement.statement}")
+        lines.append("")
+
+    write_text(page, "\n".join(lines))
+    return page
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
@@ -475,6 +579,13 @@ def update(cfg: Config) -> dict[str, int]:
 
     concepts = harvest(cfg)
     live = promoted(cfg, concepts)
+    # What the group settled, indexed by the entity it bears on. Retired
+    # findings are left out: a note should show the current position, and the
+    # superseded one stays readable in `wiki/findings.md` and on disk.
+    settled: dict[str, list] = {}
+    for finding in findings.live(store):
+        for name in finding.concepts:
+            settled.setdefault(slug_for(name), []).append(finding)
 
     # Two passes: the first creates the files so the second can link to them
     # (links are only emitted for notes that exist).
@@ -482,10 +593,11 @@ def update(cfg: Config) -> dict[str, int]:
         for topic in cfg.topics:
             write_topic_note(cfg, topic, store)
         for concept in live.values():
-            write_concept_note(cfg, concept, store, live)
+            write_concept_note(cfg, concept, store, live, settled)
 
     write_index(cfg, concepts, live)
-    build_graph(cfg, live)
+    write_findings_page(cfg, store)
+    build_graph(cfg, live, settled)
     # The same graph, drawn. Reads the JSON just written, so the picture
     # cannot disagree with the data behind it.
     graph_page.build(cfg)
@@ -511,6 +623,7 @@ def update(cfg: Config) -> dict[str, int]:
         "notes": len(live),
         "removed": removed,
         "topics": len(cfg.topics),
+        "settled": len(findings.live(store)),
     }
     _LOG.info("wiki updated: %s", stats)
     return stats

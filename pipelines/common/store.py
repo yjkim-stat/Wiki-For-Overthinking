@@ -15,7 +15,15 @@ from pathlib import Path
 from typing import Any, Iterable, Iterator
 
 from .paths import Layout, fs_id
-from .schema import Concept, Paper, PaperSummary, Video, VideoSummary, utcnow
+from .schema import (
+    Concept,
+    Finding,
+    Paper,
+    PaperSummary,
+    Video,
+    VideoSummary,
+    utcnow,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -223,6 +231,25 @@ class RecordStore:
             # of ours, and skipping it beats taking down every entry point.
             if isinstance(data, dict) and data:
                 yield Video.from_dict(data)
+
+    # -- findings -----------------------------------------------------------
+    def finding_path(self, finding_id: str) -> Path:
+        return self.layout.findings / f"{fs_id(finding_id)}.json"
+
+    def save_finding(self, finding: Finding) -> Path:
+        path = self.finding_path(finding.id)
+        write_json(path, finding.to_dict())
+        return path
+
+    def load_finding(self, finding_id: str) -> Finding | None:
+        data = read_json(self.finding_path(finding_id))
+        return Finding.from_dict(data) if isinstance(data, dict) and data else None
+
+    def iter_findings(self) -> Iterator[Finding]:
+        for path in sorted(self.layout.findings.glob("*.json")):
+            data = read_json(path)
+            if isinstance(data, dict) and data:
+                yield Finding.from_dict(data)
 
     # -- abstracts ----------------------------------------------------------
     def abstracts_path(self, category: str, day: str) -> Path:

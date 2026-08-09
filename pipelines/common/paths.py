@@ -95,6 +95,11 @@ class Layout:
         return self.data / "concepts"
 
     @property
+    def findings(self) -> Path:
+        """What the group settled, as against what its sources said."""
+        return self.data / "findings"
+
+    @property
     def index(self) -> Path:
         return self.data / "index"
 
@@ -178,6 +183,7 @@ class Layout:
             self.summaries / "papers",
             self.summaries / "videos",
             self.concepts,
+            self.findings,
             self.abstracts,
             self.index,
             self.logs,

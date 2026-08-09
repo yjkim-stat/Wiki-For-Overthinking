@@ -217,6 +217,12 @@ def _svg(nodes: list[dict], edges: list[dict], placed: dict) -> str:
                 f'<text class="anchor-lbl" x="{x:.1f}" y="{y + r + 14:.1f}">{label}</text>'
             )
         else:
+            if node.get("settled"):
+                # Where the group has taken a position. A dot on the mark, not
+                # a fourth hue: three categorical steps are what validated.
+                parts.append(
+                    f'<circle class="settled {css}" cx="{x:.1f}" cy="{y:.1f}" r="3.2"/>'
+                )
             parts.append(
                 f'<circle class="hit" cx="{x:.1f}" cy="{y:.1f}" r="{r + 9:.1f}"/>'
             )
@@ -244,6 +250,11 @@ def _legend(present: set[str]) -> str:
     out = [
         f"<span>{marks[k]}{_KINDS[k][2]}</span>" for k in order if k in present
     ]
+    out.append(
+        '<span><svg width="13" height="13"><circle cx="6.5" cy="6.5" r="5" '
+        'class="mark k0"/><circle cx="6.5" cy="6.5" r="2.4" class="settled k0"/>'
+        "</svg>settled</span>"
+    )
     out.append('<span style="color:var(--faint)">size = sources</span>')
     return "\n".join(out)
 

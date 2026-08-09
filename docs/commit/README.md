@@ -50,3 +50,4 @@ reference for everything built before the practice existed.
 | 0027 | [A reference for every external request the pipeline makes](0027-external-source-reference.md) | docs | Each source says what it cannot tell you, not only what it can |
 | 0028 | [The backlog is what is left in `data/pdfs/`](0028-shelve-documents-once-read.md) | feature | A read document moves on, so the directory answers what is still owed |
 | 0029 | [The wiki, drawn](0029-the-wiki-drawn.md) | feature | Colour computed, not chosen — and the computation changed the encoding |
+| 0030 | [What the group settled](0030-what-the-group-settled.md) | feature | The one record the group authors itself — filed where it cannot be mistaken for evidence |

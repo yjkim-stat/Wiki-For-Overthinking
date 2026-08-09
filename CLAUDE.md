@@ -133,6 +133,44 @@ ending with a declared source count:
 Update the number when you revise the section. Prose that does not depend on the
 evidence count should leave the marker out.
 
+**Record what gets settled.** When a conversation establishes something — a
+decision the group takes, or a judgement reached across several sources — write
+it down as it happens:
+
+```bash
+python3 -m pipelines.enrich.findings add --file /tmp/finding.json
+python3 -m pipelines.enrich.findings list
+```
+
+```json
+{"kind": "decision",
+ "statement": "One sentence somebody could disagree with.",
+ "rationale": "What settled it.",
+ "concepts": ["Partial Interference"],
+ "papers": ["arxiv:2401.12345"],
+ "topics": ["<slug>"]}
+```
+
+`kind` is `decision` (the group chose) or `fact` (the group established).
+Findings land in the concept notes they name, in `wiki/findings.md`, and as a
+mark on `wiki/graph.html` — so the picture the group is drawing accumulates in
+the same place as the literature it is drawn from.
+
+Submission is validated for the same reason the queue is. A topic slug that
+does not exist and a paper that was never collected are both rejected, because
+a record of what the group settled is only worth having if it cannot be quietly
+wrong about what it attaches to.
+
+**A decision that changes does not get edited.** Record the new one with
+`supersedes` set to the old id. The old statement stays, marked, at the bottom
+of `wiki/findings.md`: why the group used to think otherwise is most of what a
+newcomer needs in order to trust what it thinks now.
+
+**This is the one record you author.** Everything else in `data/` arrived from a
+collector, and the rule against inventing sources still holds — a finding is not
+a source, it is the group's own position, and it is stored apart from the
+literature for exactly that reason.
+
 **4. Commit.** Generated files are tracked on purpose: the container is
 ephemeral, so anything uncommitted is lost.
 
@@ -173,6 +211,7 @@ A tour of the same tree, for a human arriving at the repository, is in the
 
 | Path | Write? | What it is |
 | --- | --- | --- |
+| `data/findings/` | through the CLI | What the group settled in conversation — decisions and established facts. The one record type whose author is the group rather than a collector. Answer with `findings add`; superseding never deletes. |
 | `data/papers/`, `data/videos/`, `data/summaries/`, `data/concepts/` | pipeline only | The source of truth: one record per paper and seminar, the readings, and the wiki entities with their evidence. Things enter through a collector, never through an editor. |
 | `data/queue/` | through the CLI | `pending/` → `done/` → `archive/`, one JSON task per unread item. Answer with `queue complete`; do not edit the files. |
 | `data/index/` | never | `papers.jsonl`, `videos.jsonl`, `rejected.jsonl`, `coverage.jsonl` and `seen.sqlite` — the dedup alias map and the per-day coverage ledger, committed on purpose because a scheduled run starts from a fresh clone. |
@@ -199,6 +238,7 @@ python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing el
 python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
+python3 -m pipelines.enrich.findings list        # what the group has settled
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
 ```

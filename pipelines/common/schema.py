@@ -209,6 +209,46 @@ class Concept(_Record):
         return len({(e.get("kind"), e.get("id")) for e in self.evidence})
 
 
+@dataclass
+class Finding(_Record):
+    """Something the group settled, rather than something a paper said.
+
+    Every other record here arrives from a collector. This one arrives from a
+    conversation — a decision taken, or a judgement reached across several
+    sources — and it is the only record whose author is the group itself.
+
+    ``supersedes`` is what keeps that honest. A group's decisions change, and a
+    log that only ever appends becomes a pile in which the current answer
+    cannot be found. A new finding may retire an older one; the older one stays
+    on disk, marked, because why the group used to think otherwise is part of
+    what a newcomer needs.
+    """
+
+    id: str  # "finding:<fingerprint>"
+    kind: str  # decision | fact
+    statement: str
+    rationale: str = ""
+    # Names, not slugs, for the same reason summaries carry names: the wiki
+    # slugifies on the way in, so a finding can name an entity the wiki has not
+    # harvested yet without inventing a link that resolves to nothing.
+    concepts: list[str] = field(default_factory=list)
+    papers: list[str] = field(default_factory=list)  # canonical paper ids
+    topics: list[str] = field(default_factory=list)
+    supersedes: str = ""
+    superseded_by: str = ""
+    established_at: str = field(default_factory=utcnow)
+    schema_version: int = SCHEMA_VERSION
+
+    @property
+    def live(self) -> bool:
+        return not self.superseded_by
+
+
+def finding_id(statement: str) -> str:
+    """Content-addressed, so recording the same sentence twice is one finding."""
+    return f"finding:{title_fingerprint(statement)}"
+
+
 def canonical_paper_id(
     *, arxiv_id: str = "", doi: str = "", title: str = ""
 ) -> str:

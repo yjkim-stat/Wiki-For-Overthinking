@@ -70,6 +70,10 @@
   .k2 { stroke: var(--c2); fill: var(--c2); fill-opacity: var(--tint); }
   .k3 { stroke: var(--c3); fill: var(--c3); fill-opacity: var(--tint); }
   .k0 { stroke: var(--anchor); fill: var(--anchor); fill-opacity: 0.14; }
+  /* The group has settled something here. A second channel on an existing mark,
+     because the palette validates three hues and no more. Declared after the
+     kind classes so its opaque fill wins -- same specificity, later rule. */
+  .settled { stroke: none; fill-opacity: 1; }
 
   .node { cursor: default; }
   .node .hit { fill: transparent; stroke: none; }
