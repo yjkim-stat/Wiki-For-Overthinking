@@ -45,12 +45,11 @@ of its papers were accepted where.
 
 from __future__ import annotations
 
-import html as html_mod
-import json
 import re
 from dataclasses import dataclass, field
 from datetime import date
 
+from ..common import html as html_util
 from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError
 from ..common.log import get
@@ -75,27 +74,6 @@ _ITEM_RE = re.compile(
     r"(?P<label>.*?)</a>",
     re.IGNORECASE | re.DOTALL,
 )
-
-_TAG_RE = re.compile(r"<[^>]+>")
-_META_RE = re.compile(r"<meta\b(?P<attrs>[^>]*)>", re.IGNORECASE)
-_ATTR_RE = re.compile(
-    r"(?P<key>[a-zA-Z_:][-\w:.]*)\s*=\s*(\"(?P<dq>[^\"]*)\"|'(?P<sq>[^']*)')"
-)
-
-
-def _text(fragment: str) -> str:
-    """Anchor labels wrap the title in whatever markup the theme uses."""
-    return " ".join(html_mod.unescape(_TAG_RE.sub(" ", fragment)).split())
-
-
-def _attrs(blob: str) -> dict[str, str]:
-    out: dict[str, str] = {}
-    for match in _ATTR_RE.finditer(blob):
-        value = match.group("dq")
-        if value is None:
-            value = match.group("sq") or ""
-        out[match.group("key").lower()] = html_mod.unescape(value)
-    return out
 
 
 @dataclass
@@ -134,7 +112,7 @@ def parse_listing(page: str, base: str) -> list[Listing]:
 
     unique: dict[str, Listing] = {}
     for match in _ITEM_RE.finditer(block.group("body")):
-        title = _text(match.group("label"))
+        title = html_util.text(match.group("label"))
         if not title:
             continue
         entry = Listing(
@@ -162,32 +140,17 @@ def parse_detail(page: str) -> tuple[str, list[str]]:
     Google Scholar, which makes them the one part of these pages under outside
     pressure to stay put.
     """
+    tags = html_util.meta(page)
+    authors = list(dict.fromkeys(tags.get("citation_author", [])))
+
     abstract = ""
-    authors: list[str] = []
-
-    for match in _META_RE.finditer(page):
-        attrs = _attrs(match.group("attrs"))
-        name = (attrs.get("name") or attrs.get("property") or "").lower()
-        content = (attrs.get("content") or "").strip()
-        if not content:
-            continue
-        if name in ("citation_abstract", "og:description", "description"):
-            if len(content) > len(abstract):
-                abstract = content
-        elif name == "citation_author":
-            if content not in authors:
-                authors.append(content)
-
+    for name in ("citation_abstract", "og:description", "description"):
+        for value in tags.get(name, []):
+            if len(value) > len(abstract):
+                abstract = value
     if not abstract:
         # Fall back to a block that announces itself as the abstract.
-        block = re.search(
-            r"<(?P<tag>div|section|p)\b[^>]*\b(?:id|class)=[\"'][^\"']*abstract"
-            r"[^\"']*[\"'][^>]*>(?P<body>.*?)</(?P=tag)>",
-            page,
-            re.IGNORECASE | re.DOTALL,
-        )
-        if block:
-            abstract = _text(block.group("body"))
+        abstract = html_util.abstract_block(page)
 
     return abstract, authors
 

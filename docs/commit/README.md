@@ -43,3 +43,4 @@ reference for everything built before the practice existed.
 | 0020 | [Read the programme out of the `<noscript>` block](0020-programme-listings-read-the-noscript-block.md) | fix | The navbar's login link points at a poster path; only the fallback holds papers |
 | 0021 | [Report what has gone stale](0021-report-what-has-gone-stale.md) | feature | An empty queue means nothing is unwritten, not that nothing is out of date |
 | 0022 | [Fetch the document before asking anyone to read it](0022-fetch-the-document-before-reading-it.md) | feature | An abstract is a claim about a paper; the experiments section is a record of it |
+| 0023 | [One place for reading a page nobody gave us an API for](0023-shared-html-reading.md) | refactor | Two collectors ask a page for the same three things |
