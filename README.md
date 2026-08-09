@@ -137,6 +137,7 @@ understanding the repository:
 ├── wiki/                       ← derived, except the manual tail of every note
 │   ├── topics/ concepts/ methods/ datasets/
 │   ├── _meta/graph.json          the backlink graph
+│   ├── graph.html                the same graph, drawn — open it in a browser
 │   └── index.md
 │
 ├── outputs/                    ← derived, one set per topic
@@ -148,7 +149,7 @@ understanding the repository:
 │   ├── common/                   config, records, storage, HTTP, Markdown, the summarizer contract
 │   ├── collect/                  arxiv (+ arxiv_listing) · conferences (+ virtual_site) · youtube · local_pdf · pdf_fetch
 │   ├── enrich/                   score · dedupe · queue · coverage
-│   ├── publish/                  archive · wiki · lecture_note · slides · report
+│   ├── publish/                  archive · wiki (+ graph_page) · lecture_note · slides · report
 │   ├── run_daily.py              collect and queue
 │   └── render.py                 apply and rebuild
 │

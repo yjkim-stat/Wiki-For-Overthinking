@@ -20,7 +20,7 @@ from ..common.log import get
 from ..common.paths import Layout, slugify
 from ..common.schema import Concept, utcnow
 from ..common.store import RecordStore, write_json, write_text
-from . import load_template, rel_link, render_template
+from . import graph_page, load_template, rel_link, render_template
 from .archive import paper_dir, seminar_dir
 
 _LOG = get(__name__)
@@ -486,6 +486,9 @@ def update(cfg: Config) -> dict[str, int]:
 
     write_index(cfg, concepts, live)
     build_graph(cfg, live)
+    # The same graph, drawn. Reads the JSON just written, so the picture
+    # cannot disagree with the data behind it.
+    graph_page.build(cfg)
 
     # Remove notes for entities that are no longer promoted, unless a human
     # left content in them.

@@ -49,3 +49,4 @@ reference for everything built before the practice existed.
 | 0026 | [Keep the ledger, not the abstracts](0026-abstracts-are-not-committed.md) | chore | The audit survives a fresh clone; the text it audits is re-fetched against it |
 | 0027 | [A reference for every external request the pipeline makes](0027-external-source-reference.md) | docs | Each source says what it cannot tell you, not only what it can |
 | 0028 | [The backlog is what is left in `data/pdfs/`](0028-shelve-documents-once-read.md) | feature | A read document moves on, so the directory answers what is still owed |
+| 0029 | [The wiki, drawn](0029-the-wiki-drawn.md) | feature | Colour computed, not chosen — and the computation changed the encoding |

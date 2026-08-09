@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+  /* Categorical steps are validated, not chosen by eye: three slots, all-pairs,
+     both modes. Dark is its own re-stepping of the same hues, never a flip.
+     Light  #f7958d #4a9a5e #797dcd — CVD ΔE 8.0, normal-vision 21.8
+     Dark   #de6f68 #0a7e3a #6c6ecb — CVD ΔE 7.0, normal-vision 24.0
+     Both land in the 6–8 CVD band, which is legal only with a second channel:
+     every kind also carries its own shape. Coral sits under 3:1 on the light
+     surface, so the relief rule applies — hence the table view below. */
+  :root {
+    color-scheme: light dark;
+    --surface: #fcfcfb;
+    --panel: #ffffff;
+    --ink: #22201e;
+    --muted: #605c57;
+    --faint: #8d8880;
+    --rule: #e5e1da;
+    --edge: #cfcac2;
+    --anchor: #6f6a63;
+    --c1: #f7958d;
+    --c2: #4a9a5e;
+    --c3: #797dcd;
+    --tint: 0.26;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --surface: #1a1a19; --panel: #232220; --ink: #ece8e1; --muted: #a9a49b;
+      --faint: #7c776f; --rule: #35332e; --edge: #3f3c37; --anchor: #9b958c;
+      --c1: #de6f68; --c2: #0a7e3a; --c3: #6c6ecb; --tint: 0.34;
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface: #1a1a19; --panel: #232220; --ink: #ece8e1; --muted: #a9a49b;
+    --faint: #7c776f; --rule: #35332e; --edge: #3f3c37; --anchor: #9b958c;
+    --c1: #de6f68; --c2: #0a7e3a; --c3: #6c6ecb; --tint: 0.34;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--surface); color: var(--ink);
+    font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .wrap { max-width: 66rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  header { margin-bottom: 1.2rem; }
+  h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.25rem; }
+  .count { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 1.1rem; margin: 1.1rem 0 0.9rem;
+            font-size: 0.83rem; color: var(--muted); align-items: center; }
+  .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--rule);
+           border-radius: 10px; padding: 0.5rem; overflow: hidden; }
+  svg { display: block; width: 100%; height: auto; }
+
+  .edge { stroke: var(--edge); fill: none; stroke-width: 1.4; }
+  .edge.co { stroke-dasharray: 3 4; stroke-width: 1; opacity: 0.55; }
+
+  /* Opaque backing, not just a ring: the tinted fills are translucent, so
+     without this the edges beneath read as marks inside the nodes. */
+  .halo { stroke: var(--panel); stroke-width: 5; fill: var(--panel); }
+  .mark { stroke-width: 2; }
+  .k1 { stroke: var(--c1); fill: var(--c1); fill-opacity: var(--tint); }
+  .k2 { stroke: var(--c2); fill: var(--c2); fill-opacity: var(--tint); }
+  .k3 { stroke: var(--c3); fill: var(--c3); fill-opacity: var(--tint); }
+  .k0 { stroke: var(--anchor); fill: var(--anchor); fill-opacity: 0.14; }
+
+  .node { cursor: default; }
+  .node .hit { fill: transparent; stroke: none; }
+  .lbl { font-size: 11px; fill: var(--ink); paint-order: stroke;
+         stroke: var(--panel); stroke-width: 3.5; opacity: 0; pointer-events: none;
+         text-anchor: middle; }
+  .node:hover .lbl, .node:focus .lbl { opacity: 1; }
+  .node:focus { outline: none; }
+  .node:focus .mark { stroke-width: 3.5; }
+  .anchor-lbl { font-size: 11.5px; font-weight: 600; fill: var(--muted);
+                paint-order: stroke; stroke: var(--panel); stroke-width: 3.5;
+                text-anchor: middle; pointer-events: none; }
+
+  details { margin-top: 1.4rem; border: 1px solid var(--rule); border-radius: 10px;
+            background: var(--panel); }
+  summary { cursor: pointer; padding: 0.7rem 1rem; font-size: 0.85rem; color: var(--muted); }
+  .scroll { overflow-x: auto; padding: 0 1rem 1rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.83rem; }
+  th, td { text-align: left; padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--rule); }
+  th { color: var(--muted); font-weight: 600; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+            margin-right: 0.45rem; vertical-align: -1px; border: 1.5px solid; }
+  .s1 { border-color: var(--c1); background: var(--c1); }
+  .s2 { border-color: var(--c2); background: var(--c2); }
+  .s3 { border-color: var(--c3); background: var(--c3); }
+  .s0 { border-color: var(--anchor); background: var(--anchor); }
+
+  footer { margin-top: 1.6rem; color: var(--faint); font-size: 0.78rem; }
+  @media (forced-colors: active) {
+    .mark, .edge { forced-color-adjust: none; stroke: CanvasText; }
+    .lbl { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <p class="count">{{COUNTS}}</p>
+  </header>
+
+  <div class="legend">{{LEGEND}}</div>
+
+  <figure>
+{{SVG}}
+  </figure>
+
+  <details>
+    <summary>{{TABLE_SUMMARY}}</summary>
+    <div class="scroll">
+{{TABLE}}
+    </div>
+  </details>
+
+  <footer>{{GENERATED}}</footer>
+</div>
+</body>
+</html>

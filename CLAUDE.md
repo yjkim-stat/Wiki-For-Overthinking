@@ -180,7 +180,7 @@ A tour of the same tree, for a human arriving at the repository, is in the
 | `data/pdfs/`, `data/raw/`, `data/logs/` | pipeline only | PDFs — both hand-filed and fetched — raw collector responses, run logs. Not committed: a PDF is re-fetchable input, and it is not ours to redistribute. `data/pdfs/` holds what is **still to be read**; render moves each document to `data/pdfs/read/` once its reading is applied, so the backlog is visible on disk. |
 | `archive/` | **never** | A generated page per paper and seminar. Rewritten from `data/` on every render, and now cleared first, so an edit here is deleted rather than merely overwritten. `archive/daily/<date>.md` is the one exception: a dated record of a run, never regenerated. |
 | `outputs/` | **never** | Lecture notes, decks and reports, per topic. Regenerated wholesale. |
-| `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. |
+| `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. `wiki/index.md` and `wiki/graph.html` — the map of the whole wiki — are generated whole. |
 | `inbox/` | drop PDFs here | Drains on the next run: the file moves to `data/pdfs/` and a reading task is queued. |
 | `config/topics/*.yaml` | when asked | The tracked subjects. Adding a file is all it takes — but see the rule above about whose decision that is. |
 | `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, YouTube channels, the inbox switch. |
