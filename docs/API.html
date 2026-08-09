@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>External sources — how this repository collects</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfaf8;
+    --panel: #ffffff;
+    --ink: #1c1b19;
+    --muted: #5f5c56;
+    --faint: #8a867e;
+    --rule: #e2ded6;
+    --accent: #7a4c1e;
+    --accent-soft: #f3ece2;
+    --code-bg: #f4f1ec;
+    --warn: #8a3a12;
+    --warn-soft: #fbf0e8;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161513;
+      --panel: #1e1d1a;
+      --ink: #ece8e0;
+      --muted: #a8a29a;
+      --faint: #7d786f;
+      --rule: #333029;
+      --accent: #d9a066;
+      --accent-soft: #2a241c;
+      --code-bg: #232119;
+      --warn: #e0a077;
+      --warn-soft: #2c2018;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161513;
+    --panel: #1e1d1a;
+    --ink: #ece8e0;
+    --muted: #a8a29a;
+    --faint: #7d786f;
+    --rule: #333029;
+    --accent: #d9a066;
+    --accent-soft: #2a241c;
+    --code-bg: #232119;
+    --warn: #e0a077;
+    --warn-soft: #2c2018;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 3rem 1.25rem 6rem; }
+
+  header.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2.5rem; }
+  .kicker {
+    font: 600 0.72rem/1 var(--mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.12; margin: 0 0 0.8rem; font-weight: 600; }
+  .standfirst { font-size: 1.1rem; color: var(--muted); margin: 0; max-width: 46rem; }
+
+  h2 {
+    font-size: 1.5rem; font-weight: 600; margin: 3.5rem 0 0.4rem;
+    padding-top: 1.6rem; border-top: 1px solid var(--rule);
+  }
+  h2 .num { font: 600 0.85rem var(--mono); color: var(--accent); display: block; margin-bottom: 0.35rem; }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 2.2rem 0 0.5rem; }
+  h4 { font-size: 0.95rem; font-weight: 600; margin: 1.4rem 0 0.4rem; color: var(--muted); }
+  p { margin: 0.8rem 0; }
+  ul, ol { margin: 0.8rem 0; padding-left: 1.3rem; }
+  li { margin: 0.35rem 0; }
+
+  code, kbd { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); padding: 0.12em 0.36em; border-radius: 3px; }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 0.9rem 1rem; overflow-x: auto; font-family: var(--mono);
+    font-size: 0.82rem; line-height: 1.55; margin: 1rem 0;
+  }
+  pre code { background: none; padding: 0; font-size: inherit; }
+
+  .scroll { overflow-x: auto; margin: 1.2rem 0; border: 1px solid var(--rule); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-family: system-ui, -apple-system, sans-serif; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { background: var(--accent-soft); font-weight: 600; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td code { white-space: nowrap; }
+
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1.4rem 0; }
+  .card > :first-child { margin-top: 0; }
+  .card > :last-child { margin-bottom: 0; }
+
+  .note {
+    border-left: 3px solid var(--accent); background: var(--accent-soft);
+    padding: 0.85rem 1.1rem; margin: 1.3rem 0; border-radius: 0 5px 5px 0;
+  }
+  .note > :first-child { margin-top: 0; }
+  .note > :last-child { margin-bottom: 0; }
+  .note .label { font: 600 0.7rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem; }
+
+  .warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .warn .label { color: var(--warn); }
+
+  .pill {
+    display: inline-block; font: 600 0.68rem/1 var(--mono); letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.28em 0.6em; border-radius: 3px;
+    background: var(--accent-soft); color: var(--accent); border: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+
+  .toc { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 1.1rem 1.4rem; margin: 2rem 0 0; }
+  .toc h2 { font-size: 0.75rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--faint); margin: 0 0 0.7rem; padding: 0; border: none; }
+  .toc ol { margin: 0; padding-left: 1.2rem; font-family: system-ui, -apple-system, sans-serif; font-size: 0.9rem; }
+  .toc a { color: var(--ink); text-decoration: none; }
+  .toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  a { color: var(--accent); }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--faint); font-size: 0.82rem; }
+  .src { font: 0.78rem/1.5 var(--mono); color: var(--faint); margin: 0.3rem 0 1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">Recipe for Research Team Management</p>
+  <h1>External sources: how this repository collects</h1>
+  <p class="standfirst">
+    Every request this pipeline makes to the outside world — what it asks, what
+    it gets back, what each source is authoritative about, and what happens when
+    one of them stops answering.
+  </p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#shape">The shape of collection</a></li>
+    <li><a href="#http">The shared HTTP layer</a></li>
+    <li><a href="#sources">Source reference</a></li>
+    <li><a href="#after">What happens to what comes back</a></li>
+    <li><a href="#coverage">Knowing what was missed</a></li>
+    <li><a href="#failure">Failure semantics</a></li>
+    <li><a href="#config">Configuration index</a></li>
+  </ol>
+</nav>
+
+<h2 id="shape"><span class="num">01</span>The shape of collection</h2>
+
+<p>
+  Collection is deterministic Python and calls no model. It fetches, normalizes,
+  scores against the tracked topics, deduplicates, and files a task for anything
+  that still needs reading. The reading itself happens elsewhere, against a
+  file-backed queue. That split is why a slow or failed reading step never costs
+  a day of collection.
+</p>
+
+<p>Three kinds of source feed it, and they answer different questions:</p>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Kind</th><th>Sources</th><th>Answers</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Search</strong></td>
+      <td>arXiv API, Semantic Scholar, DBLP</td>
+      <td>“What matches these keywords?” — a query goes out, a filtered set comes back.</td>
+    </tr>
+    <tr>
+      <td><strong>Browse</strong></td>
+      <td>arXiv listing pages, conference programme pages, YouTube channel feeds</td>
+      <td>“What is there?” — the whole set comes back and filtering happens locally.</td>
+    </tr>
+    <tr>
+      <td><strong>Hand</strong></td>
+      <td><code>inbox/</code></td>
+      <td>“What did a person decide mattered?” — no network at all.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  The distinction is load-bearing. A search source can be asked a narrow question
+  and answers cheaply, but it can only return what its index already knows and
+  what its query language can express. A browse source returns everything, which
+  costs more bandwidth but makes a <em>completeness check</em> possible — and the
+  count it reports is the only number in this pipeline that the pipeline did not
+  compute itself.
+</p>
+
+<h2 id="http"><span class="num">02</span>The shared HTTP layer</h2>
+<p class="src">pipelines/common/http.py</p>
+
+<p>
+  Every collector goes through one small client. Nothing reimplements retries or
+  rate limiting, so politeness is a property of the system rather than of
+  whichever collector was written most carefully.
+</p>
+
+<h3>Request defaults</h3>
+<div class="scroll">
+<table>
+  <thead><tr><th>Behaviour</th><th>Setting</th><th>Default</th></tr></thead>
+  <tbody>
+    <tr><td>User-Agent</td><td><code>collect.user_agent</code></td><td><code>recipe-for-research-team-management/0.1 (research archiving bot)</code></td></tr>
+    <tr><td>Timeout</td><td><code>collect.request_timeout_s</code></td><td>30 s</td></tr>
+    <tr><td>Attempts per request</td><td><code>collect.retries</code></td><td>3</td></tr>
+    <tr><td>Backoff</td><td><code>collect.retry_backoff_s</code></td><td>2 s, doubling (2 s, 4 s, 8 s…)</td></tr>
+    <tr><td>Per-host minimum interval</td><td>per collector</td><td>0–5 s (see each source)</td></tr>
+    <tr><td>Give up on a host after</td><td><code>collect.give_up_after_failures</code></td><td>5 consecutive whole-request failures</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  A real User-Agent is not decoration: arXiv and DBLP throttle anonymous clients
+  hard. The interval is enforced per <em>host</em> and shared across collectors,
+  so two collectors touching the same host cannot each spend the full budget.
+</p>
+
+<h3>What counts as retryable</h3>
+<p>
+  Connection errors, timeouts, <code>OSError</code>, and the whole
+  <code>http.client.HTTPException</code> family — the last of which includes
+  <code>IncompleteRead</code>, raised when a chunked response ends early. That
+  one descends from <code>HTTPException</code> rather than <code>OSError</code>,
+  so it used to escape the retry loop entirely and cost a topic its results
+  mid-run.
+</p>
+<p>
+  A 4xx other than 408 or 429 fails immediately and is <em>not</em> retried: it
+  will not fix itself. A 429 or 408 is retried like a transient error.
+</p>
+
+<h3>The circuit breaker</h3>
+<p>
+  Retries are scoped to one request, but a run makes hundreds. When a host is
+  down for the whole run, per-request retry turns one dead source into the run's
+  dominant cost and still returns nothing. So the client counts consecutive
+  whole-request failures per host, and after the threshold raises
+  <code>HostUnavailable</code> without attempting a connection.
+</p>
+<div class="note">
+  <span class="label">Design note</span>
+  <p>
+    <code>HostUnavailable</code> subclasses <code>HTTPError</code>. Every
+    collector already treats that as “this source gave me nothing”, so giving up
+    needed no changes anywhere — and a collector written later inherits the
+    behaviour for free.
+  </p>
+  <p>
+    A hard 4xx counts toward the breaker deliberately. A 403 to every venue
+    lookup will not resolve inside a run, which makes it a <em>stronger</em>
+    signal than a timeout, not a weaker one. A success resets the counter, so a
+    host that merely blips never trips.
+  </p>
+</div>
+
+<h2 id="sources"><span class="num">03</span>Source reference</h2>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Source</th><th>Host</th><th>Format</th><th>Auth</th><th>Interval</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>arXiv API</td><td><code>export.arxiv.org</code></td><td>Atom XML</td><td>none</td><td>3 s</td></tr>
+    <tr><td>arXiv listing</td><td><code>arxiv.org</code></td><td>HTML</td><td>none</td><td>5 s</td></tr>
+    <tr><td>Semantic Scholar</td><td><code>api.semanticscholar.org</code></td><td>JSON</td><td>optional key</td><td>1 s</td></tr>
+    <tr><td>OpenReview</td><td><code>api2.openreview.net</code></td><td>JSON</td><td>none</td><td>1 s</td></tr>
+    <tr><td>DBLP</td><td><code>dblp.org</code></td><td>JSON</td><td>none</td><td>1 s</td></tr>
+    <tr><td>Venue programmes</td><td><code>icml.cc</code>, <code>neurips.cc</code>, <code>iclr.cc</code></td><td>HTML</td><td>none</td><td>1 s</td></tr>
+    <tr><td>YouTube</td><td><code>youtube.com</code></td><td>Atom XML</td><td>none</td><td>1 s</td></tr>
+    <tr><td>PDF fetch</td><td>wherever <code>pdf_url</code> points</td><td>binary</td><td>none</td><td>5 s</td></tr>
+    <tr><td>Inbox</td><td>—</td><td>local file</td><td>—</td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>arXiv — the API</h3>
+<p class="src">pipelines/collect/arxiv.py</p>
+
+<pre><code>GET https://export.arxiv.org/api/query
+    ?search_query=(cat:cs.LG OR cat:stat.ML) AND ("causal inference" OR "instrumental variable")
+                   AND submittedDate:[202608060000 TO 202608102359]
+    &amp;start=0
+    &amp;max_results=60
+    &amp;sortBy=submittedDate
+    &amp;sortOrder=descending</code></pre>
+
+<p>
+  One request per topic, split into several when a topic has many keywords —
+  arXiv rejects very long query strings, so <code>keywords.any</code> is chunked
+  eight terms at a time. Each <code>keywords.all</code> term is ANDed onto every
+  chunk, and multi-word terms are quoted so arXiv treats them as phrases.
+</p>
+<p>
+  The date filter is on <strong>submission, not revision</strong>. A v2 of an
+  older paper does not resurface here — deliberately, because the archive tracks
+  new work, and revisions of papers it already holds are picked up by the merge
+  in deduplication when they appear through another source.
+</p>
+<p>
+  <span class="pill">Authoritative on</span> arXiv identity, abstracts,
+  categories, submission dates.
+  <span class="pill">Cannot tell you</span> whether a paper cleared review
+  anywhere.
+</p>
+
+<h3>arXiv — the listing pages</h3>
+<p class="src">pipelines/collect/arxiv_listing.py</p>
+
+<pre><code>GET https://arxiv.org/list/cs.CL/recent?skip=0&amp;show=250</code></pre>
+
+<p>
+  A second way in, for when the API will not answer. The API and the website are
+  <em>different hosts</em>, and a network policy, a corporate proxy or a
+  rate limit can block one while leaving the other readable.
+</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th><code>listing.mode</code></th><th>Behaviour</th></tr></thead>
+  <tbody>
+    <tr><td><code>auto</code> <em>(default)</em></td><td>Used only when the API returned nothing.</td></tr>
+    <tr><td><code>always</code></td><td>Used instead of the API.</td></tr>
+    <tr><td><code>never</code></td><td>Off.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="note warn">
+  <span class="label">Recall cost</span>
+  <p>
+    The listing carries titles, authors and subjects — <strong>no
+    abstracts</strong>. So it can only score titles, and a paper whose keywords
+    appear only in its abstract is invisible to it, where the API's
+    <code>all:</code> search would have found it. That is a real loss of recall,
+    and it is why <code>auto</code> is the default: use it when the alternative
+    is nothing at all, not instead of a working API.
+  </p>
+</div>
+
+<p>
+  Parsing keys on the definition list: a <code>&lt;dt&gt;</code> carrying the
+  <code>/abs/</code> identifier paired with a <code>&lt;dd&gt;</code> carrying
+  <code>list-title</code>, <code>list-authors</code> and
+  <code>list-subjects</code>. The browse-context sidebar links to
+  <code>/abs/</code> as well, so matching bare links would invent papers —
+  entries must be a <code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> pair.
+  HTML comments are stripped before any structural match, because a comment can
+  contain markup identical to the structure being searched for.
+</p>
+
+<p>Abstracts for matched titles come from one more request each:</p>
+<pre><code>GET https://arxiv.org/abs/2501.00001
+→ &lt;meta name="citation_abstract" content="…"&gt;
+→ fallback: &lt;blockquote class="abstract"&gt;…&lt;/blockquote&gt;</code></pre>
+
+<h3>Semantic Scholar</h3>
+<p class="src">pipelines/collect/conferences.py</p>
+
+<pre><code>GET https://api.semanticscholar.org/graph/v1/paper/search/bulk
+    ?query=("causal inference" | "instrumental variable")
+    &amp;fields=paperId,title,abstract,venue,year,authors,externalIds,url,publicationDate,openAccessPdf
+    &amp;year=2025-
+    &amp;limit=60
+    [&amp;venue=NeurIPS,ICLR,ICML]        ← only when restrict_to_venues is true
+Header: x-api-key: $SEMANTIC_SCHOLAR_API_KEY   ← optional</code></pre>
+
+<p>
+  The broadest of the conference indexes. Its query language uses <code>|</code>
+  for alternation and <code>+</code> for a required term, so
+  <code>keywords.all</code> becomes <code>(a | b) + c</code>.
+</p>
+
+<div class="note warn">
+  <span class="label">Why the venue filter is off by default</span>
+  <p>
+    Semantic Scholar records a preprint's venue as <code>arXiv.org</code>.
+    Filtering by a list of conference names therefore excludes <strong>every
+    preprint, unconditionally</strong> — and the result looks like a complete
+    answer: source alive, logs clean, no errors. For a topic whose literature is
+    mostly preprints, that is the whole literature gone.
+  </p>
+  <p>
+    Off is the right default because the failure mode of <code>false</code> is
+    noise, which scoring already discards, while the failure mode of
+    <code>true</code> is silent absence, which nothing detects. Set
+    <code>restrict_to_venues: true</code> only if the group genuinely reads
+    proceedings versions only.
+  </p>
+</div>
+
+<h3>OpenReview</h3>
+<p class="src">pipelines/collect/conferences.py</p>
+
+<pre><code>GET https://api2.openreview.net/notes
+    ?content.venueid=ICLR.cc/2026/Conference
+    &amp;limit=60
+    &amp;offset=0</code></pre>
+
+<p>
+  The review-bearing venues, often months before proceedings. Venue ids drift
+  between cycles, so each venue is tried under both the current year and the
+  backfill window's year — a single miss is expected and logged at debug level.
+  Only when <em>every</em> lookup fails is it reported as a source error.
+</p>
+<p>
+  The API wraps every field as <code>{"value": …}</code> in api2 where api1 did
+  not, so the reader tolerates both shapes.
+</p>
+<p>
+  <span class="pill">Authoritative on</span> acceptance and review status.
+  <span class="pill">Often unavailable</span> answers 403 from many hosts.
+</p>
+
+<h3>DBLP</h3>
+<p class="src">pipelines/collect/conferences.py</p>
+
+<pre><code>GET https://dblp.org/search/publ/api
+    ?q=causal inference venue:ICLR: year:2025:
+    &amp;format=json
+    &amp;h=60</code></pre>
+
+<p>
+  The bibliographic fallback when the two above miss a venue. DBLP matches on
+  title words only and has no abstract field, so records from here arrive
+  abstract-less and are queried one venue and one term at a time — at most four
+  terms per venue, to keep a run bounded.
+</p>
+
+<h3>Conference programme pages</h3>
+<p class="src">pipelines/collect/virtual_site.py</p>
+
+<pre><code>GET https://icml.cc/virtual/2026/papers.html
+GET https://neurips.cc/virtual/2025/loc/san-diego/papers.html   ← split-location years</code></pre>
+
+<p>
+  The venue's own answer to “what did we accept”, available the day the
+  programme goes up rather than when an index gets round to it. The page renders
+  through JavaScript but carries the complete list as plain HTML inside its
+  <code>&lt;noscript&gt;</code> block — a no-JavaScript fallback, and therefore
+  the most stable region of the page.
+</p>
+
+<div class="note">
+  <span class="label">Only the fallback block is parsed</span>
+  <p>
+    This is correctness, not tidiness. The navigation bar's login link points at
+    a <code>/virtual/&lt;year&gt;/poster/&lt;id&gt;</code> path too, so a parser
+    sweeping the whole document for that shape would mint a paper titled
+    “Login” from every venue on every run — and it would look like an ordinary
+    record.
+  </p>
+</div>
+
+<p>
+  Records are minted with a <strong>title-fingerprint id</strong>, and that is
+  the point of the collector rather than an implementation detail. Most of these
+  papers appeared as preprints first, so the fingerprint makes deduplication
+  <em>merge</em> the listing onto a record the archive already holds. The value
+  is not that the archive gains papers; it is that existing papers learn where
+  they were accepted. Expect <code>data/papers/</code> records to change without
+  new papers appearing — that is the merge working.
+</p>
+<p>
+  Venues are not on the same cycle: in the second half of a year ICML's current
+  programme is that year's while NeurIPS's is still the previous one, so each
+  venue can pin its own <code>virtual_years</code>.
+</p>
+
+<h3>YouTube</h3>
+<p class="src">pipelines/collect/youtube.py</p>
+
+<pre><code>GET https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx</code></pre>
+
+<p>
+  Channel RSS, no API key. Videos shorter than
+  <code>youtube.min_duration_s</code> (600 s in the shipped config) are skipped — shorts and
+  teasers are not seminars. The feed carries no duration, so that filter only
+  rejects videos whose duration is known from elsewhere.
+</p>
+<p>
+  Transcripts need the optional <code>youtube-transcript-api</code> package.
+  Without it the <code>ImportError</code> is caught and videos are archived and
+  flagged as transcript-less rather than failing.
+</p>
+
+<h3>PDF fetch</h3>
+<p class="src">pipelines/collect/pdf_fetch.py</p>
+
+<p>
+  Not a discovery source. Once a paper has cleared scoring and is about to be
+  queued for reading, its PDF is fetched so the reader gets the paper rather
+  than a claim about it.
+</p>
+<div class="note">
+  <span class="label">Why the document, not extracted text</span>
+  <p>
+    Nothing here opens or parses the PDF. This repository's reader reads
+    documents — figures, tables and all — and a result table settles what a
+    paper achieved faster than the prose does. Running the file through a text
+    extractor would discard exactly the part that carries the answer, in
+    exchange for an external binary dependency.
+  </p>
+  <p>
+    Measured in a field archive: <strong>38% of records built from abstracts had
+    an empty <code>results</code> field</strong>, because the abstract carried no
+    numbers.
+  </p>
+</div>
+<p>
+  A body served with HTTP 200 is checked for the <code>%PDF-</code> magic
+  bytes — a paywall answers with a login page and a success status. Failure is
+  ordinary: no <code>pdf_url</code>, an unreachable host or a paywalled venue
+  leaves an abstract-only task, and roughly one paper in twelve has no
+  obtainable PDF.
+</p>
+
+<h3>The inbox</h3>
+<p class="src">pipelines/collect/local_pdf.py</p>
+
+<p>
+  The one collector whose source is a person, and the only one that touches no
+  network. A PDF dropped into <code>inbox/</code> is hashed, moved into
+  <code>data/pdfs/</code> under a content-addressed name, and recorded.
+</p>
+<ul>
+  <li><strong>Identity is the file's content</strong>, not its name. The same PDF filed twice under two names is one record.</li>
+  <li><strong>A dropped PDF is never rejected by scoring.</strong> Filing it by hand <em>is</em> the editorial decision scoring exists to approximate.</li>
+  <li><strong>Nothing reads it at ingest.</strong> The task asks whoever answers it to supply the bibliography from the document itself — the filename is not evidence.</li>
+</ul>
+
+<h2 id="after"><span class="num">04</span>What happens to what comes back</h2>
+
+<h3>Scoring</h3>
+<p class="src">pipelines/enrich/score.py</p>
+<p>
+  Deliberately transparent: a keyword rule you can read and correct beats an
+  opaque score you cannot argue with. A title hit is worth
+  <code>score.title_weight</code> (3.0) and a body hit
+  <code>score.abstract_weight</code> (1.0), because a term in the title is what
+  the work is <em>about</em> while a term in an abstract may be a passing
+  reference. A tracked author adds <code>score.author_bonus</code>. The raw sum
+  is normalized as <code>raw / (raw + title_weight)</code>, so one title hit
+  lands at 0.5 and further hits add progressively less — which keeps thresholds
+  comparable across topics with very different keyword-list sizes.
+</p>
+<p>
+  Matching uses word boundaries, so <code>ATE</code> does not match inside
+  <em>Water</em>. The final word of a term also matches its regular English
+  plural (<code>action chunk</code> → “action chunks”, <code>robot policy</code>
+  → “robot policies”), because a keyword list one letter off produces “this
+  topic has nothing to collect”, which is indistinguishable from a quiet week.
+  Only the head word inflects, so <code>latent action model</code> matches
+  “latent action models” but not “latent actions model”.
+</p>
+<p>
+  Items below a topic's threshold are still recorded in
+  <code>data/index/rejected.jsonl</code> — the archive keeps a record of what was
+  considered and rejected, so a threshold can be revisited without re-collecting.
+</p>
+
+<h3>Deduplication</h3>
+<p class="src">pipelines/enrich/dedupe.py</p>
+<p>Each paper is looked up under every identifier it could also be known by:</p>
+<pre><code>arxiv:2501.00001          ← version suffix stripped
+doi:10.1000/example       ← lowercased
+title:&lt;fingerprint&gt;       ← last resort</code></pre>
+<p>
+  A match merges rather than replaces. A venue from a proceedings entry and an
+  abstract from arXiv both matter, so fields are <em>filled in</em>: the stored
+  record wins on identity, and the newcomer wins only where the stored record is
+  empty or thinner. The alias map lives in SQLite at
+  <code>data/index/seen.sqlite</code> and is committed, because a scheduled run
+  starts from a fresh clone and would otherwise re-process everything.
+</p>
+
+<h2 id="coverage"><span class="num">05</span>Knowing what was missed</h2>
+<p class="src">pipelines/enrich/coverage.py</p>
+
+<p>
+  Every counter described so far reports what a collector <em>found</em>. None of
+  them can distinguish “the source announced nothing today” from “we failed to
+  read what the source announced today” — and those look identical in a log: a
+  small number, no error.
+</p>
+<p>
+  arXiv heads each announcement day with its own entry count. That is the only
+  number in this pipeline that the pipeline did not compute, which makes it the
+  one thing that can tell the two apart. The sweep records three counts per
+  category-day:
+</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Count</th><th>Question</th><th>Short means</th></tr></thead>
+  <tbody>
+    <tr><td><code>announced</code></td><td>What arXiv says the day held</td><td>—</td></tr>
+    <tr><td><code>listed</code></td><td>How many identifiers we paginated through</td><td>We stopped early. Costs more listing requests.</td></tr>
+    <tr><td><code>captured</code></td><td>How many we hold an abstract for</td><td>We know exactly which to fetch. The cheap repair.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  The two gaps are kept apart because they cost different amounts to close.
+  A shortfall is recorded in <code>data/index/coverage.jsonl</code> as a
+  <strong>debt, not an error</strong>: a bounded budget of it is paid each run,
+  ordered by title relevance so the group gets what it wants soonest while the
+  tail still drains. Counts only ever go up, so a run that paginated one page
+  cannot erase the knowledge that an earlier run walked ten.
+</p>
+<p>
+  Abstracts land in <code>data/abstracts/&lt;category&gt;/&lt;day&gt;.jsonl</code>,
+  separate from <code>data/papers/</code>. The first is what was
+  <em>published</em>; the second is what the group <em>tracks</em>. Keeping them
+  apart is what lets a threshold or a keyword list be revisited later against the
+  real record rather than against whatever an old threshold happened to admit.
+</p>
+<div class="note">
+  <span class="label">The ledger is committed; the abstracts are not</span>
+  <p>
+    This repository gitignores <code>data/abstracts/</code> and commits
+    <code>data/index/coverage.jsonl</code>. The split is the point: at roughly
+    1.5&nbsp;KB per paper the text would grow the repository by around 100&nbsp;MB
+    a year across four categories, while the audit of what is missing costs one
+    line per category-day.
+  </p>
+  <p>
+    So a fresh clone starts with a large <em>recorded</em> debt and re-fetches
+    against it, worst day first. That is the ledger working rather than failing —
+    the one thing a clone must not lose is the knowledge of what it is missing.
+    A deployment that would rather crawl less than carry the weight un-ignores
+    the directory.
+  </p>
+</div>
+
+<h2 id="failure"><span class="num">06</span>Failure semantics</h2>
+
+<p>
+  The governing rule: <strong>an unreachable source is logged and skipped, and
+  that is not a failure of the run.</strong> A run completes with whatever the
+  other sources returned, and the failure is recorded in the day's digest rather
+  than being swallowed.
+</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Condition</th><th>What happens</th></tr></thead>
+  <tbody>
+    <tr><td>Connection error, timeout, truncated response</td><td>Retried up to <code>collect.retries</code> times with doubling backoff.</td></tr>
+    <tr><td>HTTP 429 / 408</td><td>Retried like a transient error.</td></tr>
+    <tr><td>HTTP 4xx (other)</td><td>Fails immediately, counts toward the circuit breaker.</td></tr>
+    <tr><td>Host fails N requests in a row</td><td>Dropped for the rest of the process; further calls raise <code>HostUnavailable</code> with no network attempt.</td></tr>
+    <tr><td>One index of a multi-index collector fails</td><td>Logged, recorded in <code>errors</code>, the others still run.</td></tr>
+    <tr><td>A collector raises unexpectedly</td><td>Caught at the run level; the other sources still run.</td></tr>
+    <tr><td>A scraped page parses to zero entries</td><td><strong>Logged as a warning.</strong> A silent zero is the failure mode to fear.</td></tr>
+    <tr><td>PDF unreachable or paywalled</td><td>Abstract-only reading task. Ordinary, not an error.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="note">
+  <span class="label">The failure this repository keeps guarding against</span>
+  <p>
+    Not the loud one. The dangerous shape is a source that is alive, logs that
+    are clean, and output that is a <em>wrong subset looking like a complete
+    one</em> — a venue filter that quietly excluded every preprint, a keyword
+    that missed its own plural, a parser that read a login link as a paper.
+    Every warning above exists because one of those happened.
+  </p>
+</div>
+
+<h2 id="config"><span class="num">07</span>Configuration index</h2>
+
+<p>
+  <code>config/sources.yaml</code> decides <em>where</em> to look;
+  <code>config/settings.yaml</code> decides <em>how hard</em>. A topic may narrow
+  a source but never widen it.
+</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Key</th><th>File</th><th>Default</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td><code>collect.lookback_days</code></td><td>settings</td><td>2</td><td>How far back each run looks.</td></tr>
+    <tr><td><code>collect.max_items_per_source</code></td><td>settings</td><td>60</td><td>Hard cap per source per topic per run.</td></tr>
+    <tr><td><code>collect.give_up_after_failures</code></td><td>settings</td><td>5</td><td>Circuit breaker threshold. <code>0</code> disables.</td></tr>
+    <tr><td><code>collect.pdfs.enabled</code></td><td>settings</td><td>true</td><td>Fetch the document before queueing a reading.</td></tr>
+    <tr><td><code>collect.pdfs.max_per_run</code></td><td>settings</td><td>40</td><td>Bounds document fetching.</td></tr>
+    <tr><td><code>arxiv.categories</code></td><td>sources</td><td>cs.LG, cs.AI, stat.ML, stat.ME</td><td>Which arXiv categories are searched.</td></tr>
+    <tr><td><code>arxiv.listing.mode</code></td><td>sources</td><td><code>auto</code></td><td>When to use the listing pages instead of the API.</td></tr>
+    <tr><td><code>arxiv.listing.max_pages</code></td><td>sources</td><td>8</td><td>Bounds one category's crawl.</td></tr>
+    <tr><td><code>arxiv.listing.sweep.enabled</code></td><td>sources</td><td>true</td><td>Record every announcement day and its abstracts.</td></tr>
+    <tr><td><code>arxiv.listing.sweep.max_abstracts_per_run</code></td><td>sources</td><td>120</td><td>Abstract fetches per run, relevance first.</td></tr>
+    <tr><td><code>conferences.semantic_scholar.restrict_to_venues</code></td><td>sources</td><td>false</td><td>Leave false — true drops every preprint.</td></tr>
+    <tr><td><code>conferences.venues[].virtual_host</code></td><td>sources</td><td>set for ICML/ICLR/NeurIPS</td><td>Programme page host; blank skips the venue.</td></tr>
+    <tr><td><code>conferences.venues[].virtual_years</code></td><td>sources</td><td>per venue</td><td>Which programme years exist for that venue.</td></tr>
+    <tr><td><code>youtube.channels</code></td><td>sources</td><td>empty</td><td><code>{name, channel_id}</code> per tracked channel.</td></tr>
+    <tr><td><code>youtube.min_duration_s</code></td><td>sources</td><td>600</td><td>Below this is not a seminar.</td></tr>
+    <tr><td><code>local.enabled</code></td><td>sources</td><td>true</td><td>Whether <code>inbox/</code> is drained.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Turning a source off</h3>
+<p>
+  Every source block has an <code>enabled</code> flag, and a run can be narrowed
+  from the command line:
+</p>
+<pre><code>python3 -m pipelines.run_daily --source local    # ingest inbox/ and nothing else
+python3 -m pipelines.run_daily --topic &lt;slug&gt;    # one topic only
+python3 -m pipelines.run_daily --days 30         # backfill a wider window
+python3 -m pipelines.run_daily --dry-run         # what would be collected?</code></pre>
+
+<footer>
+  <p>
+    Generated from the collectors themselves. Where this document and
+    <code>pipelines/collect/</code> disagree, the code is right — and the
+    disagreement is a bug in this page.
+  </p>
+  <p>
+    Reasoning behind each decision described here is in
+    <code>docs/commit/</code>, one note per change.
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

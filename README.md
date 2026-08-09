@@ -156,6 +156,7 @@ understanding the repository:
 ├── tests/
 └── docs/
     ├── daily-routine.md          each stage in detail, and troubleshooting
+    ├── API.html                  every external request the pipeline makes, and why
     └── commit/                   one note per commit: what changed, why, what it costs
 ```
 
