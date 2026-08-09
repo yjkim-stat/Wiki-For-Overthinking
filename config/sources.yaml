@@ -56,8 +56,13 @@ arxiv:
     # announces a few hundred papers a day, so a full capture takes several
     # runs at the budget below. Abstracts are stored under data/abstracts/ --
     # roughly 1.5 KB each, so a four-category year is on the order of 100 MB
-    # before git compresses it. Gitignore that directory if the weight matters
-    # more than surviving a fresh clone.
+    # before git compresses it.
+    #
+    # This repository takes the middle option: data/abstracts/ is gitignored
+    # and the ledger is not, so the audit survives a fresh clone and the text
+    # is re-fetched against it. A deployment that would rather crawl less than
+    # carry the weight un-ignores the directory; one that wants neither sets
+    # `enabled: false` below and gives up the per-day count.
     sweep:
       enabled: true
       # Abstract fetches per run. Ordered by title relevance, so the group gets

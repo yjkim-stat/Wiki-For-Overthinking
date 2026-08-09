@@ -46,3 +46,4 @@ reference for everything built before the practice existed.
 | 0023 | [One place for reading a page nobody gave us an API for](0023-shared-html-reading.md) | refactor | Two collectors ask a page for the same three things |
 | 0024 | [Read arXiv's listing pages when the API will not answer](0024-arxiv-listing-fallback.md) | feature | The API and the website are different hosts; a block on one is not a block on both |
 | 0025 | [Know what a day held, not just what we found](0025-coverage-ledger-and-the-sweep.md) | feature | The source's own count is the only number we did not compute |
+| 0026 | [Keep the ledger, not the abstracts](0026-abstracts-are-not-committed.md) | chore | The audit survives a fresh clone; the text it audits is re-fetched against it |

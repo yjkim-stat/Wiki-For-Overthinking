@@ -235,11 +235,17 @@ inbox/*.pdf
 inbox/**/*.pdf
 data/pdfs/
 
-# NOTE: data/abstracts/ is intentionally NOT ignored either. It is the record
-# of what was published, against which data/papers/ is the record of what the
-# group tracks -- and re-fetching it means one request per paper, so losing it
-# on a fresh clone would cost days of crawling. Ignore it if the weight matters
-# more than that; the coverage ledger will then report the gap honestly.
+# Announced-paper abstracts. This deployment takes the trade the sweep offers:
+# the coverage ledger in data/index/ IS committed, so the per-day audit of what
+# arXiv announced against what we hold survives a fresh clone, but the abstract
+# text itself does not -- it is roughly 1.5 KB per paper and would grow the
+# repository by ~100 MB a year across four categories.
+#
+# The consequence is stated plainly: a fresh clone starts with a large recorded
+# debt and re-fetches abstracts at one request per paper, worst day first. That
+# is the ledger working, not failing. Un-ignore this if the crawling cost ever
+# matters more than the weight.
+data/abstracts/
 
 # NOTE: data/index/seen.sqlite is intentionally NOT ignored. Scheduled runs
 # start from a fresh clone, so the deduplication state has to be committed or
