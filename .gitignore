@@ -253,3 +253,12 @@ data/abstracts/
 # NOTE: data/index/seen.sqlite is intentionally NOT ignored. Scheduled runs
 # start from a fresh clone, so the deduplication state has to be committed or
 # every run re-processes everything it has already seen.
+
+# --- migration -------------------------------------------------------------
+# The staging folder for a move between environments. Its payload is the
+# gitignored half of the archive -- PDFs, abstracts, raw responses, logs -- so
+# committing it here would defeat every reason those are ignored in the first
+# place. The instructions are tracked, because the environment that has to read
+# them is the one that has only just cloned this repository.
+/migration/*
+!/migration/README.md

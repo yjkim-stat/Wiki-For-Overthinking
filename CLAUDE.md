@@ -251,6 +251,7 @@ A tour of the same tree, for a human arriving at the repository, is in the
 | `outputs/` | **never** | Lecture notes, decks and reports, per topic. Regenerated wholesale. |
 | `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. `wiki/index.md` and `wiki/graph.html` — the map of the whole wiki — are generated whole. |
 | `inbox/` | drop PDFs here | Drains on the next run: the file moves to `data/pdfs/` and a reading task is queued. |
+| `migration/` | staging only | Where a move to a new environment is packed. Payload gitignored, [instructions](migration/README.md) tracked — the environment that has to read them is the one that has only just cloned. `python3 -m pipelines.migrate status`. |
 | `config/topics/*.yaml` | when asked | The tracked subjects. Adding a file is all it takes — but see the rule above about whose decision that is. |
 | `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, curated lists, YouTube channels, the inbox switch. |
 | `pipelines/` | yes | The code. `common/` config and records, `collect/` the sources, `enrich/` scoring, dedup and the queue, `publish/` the renderers. `run_daily.py` collects, `render.py` rebuilds. |
@@ -269,6 +270,7 @@ python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
+python3 -m pipelines.migrate status               # moving environments? read migration/README.md
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
 ```

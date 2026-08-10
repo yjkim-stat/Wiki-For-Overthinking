@@ -133,6 +133,9 @@ understanding the repository:
 │
 ├── inbox/                      ← yours: drop a PDF here, it drains on the next run
 │
+├── migration/                  ← staging for a move to a new environment; payload
+│   └── README.md                 gitignored, instructions tracked
+│
 ├── data/                       ← the source of truth. Committed.
 │   ├── papers/<id>.json          one record per paper
 │   ├── videos/<id>.json          one per seminar, plus <id>.transcript.json
