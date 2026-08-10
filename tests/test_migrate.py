@@ -8,6 +8,7 @@ fresh clone. The second gets `data/` copied into it directly, which is what a
 
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import unittest
@@ -220,6 +221,214 @@ class RoundTripTests(unittest.TestCase):
         documents = migrate.check_documents(self.dest_cfg)
         self.assertEqual(documents["missing"], 1)
         self.assertIn("arxiv:2401.00001", documents["examples"][0])
+
+
+class PackVerificationTests(unittest.TestCase):
+    """Did pack actually carry what its manifest says it carried?
+
+    A bundle is only worth the claim it makes about itself, and that claim is
+    checked here against the filesystem rather than against the manifest's own
+    arithmetic.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.addCleanup(self.sandbox.close)
+        self.cfg = _archive(self.sandbox)
+        self.root = self.cfg.layout.root
+        self.dest = self.root / "migration"
+        self.payload = self.dest / "payload"
+
+    def test_every_packed_file_is_byte_identical_to_its_original(self):
+        manifest = migrate.pack(self.cfg, self.dest)
+        for entry in manifest["files"]:
+            self.assertEqual(
+                (self.payload / entry["path"]).read_bytes(),
+                (self.root / entry["path"]).read_bytes(),
+                entry["path"],
+            )
+
+    def test_the_recorded_checksum_is_the_files_real_checksum(self):
+        """Recomputed independently, so the manifest cannot vouch for itself."""
+        manifest = migrate.pack(self.cfg, self.dest)
+        for entry in manifest["files"]:
+            digest = hashlib.sha256(
+                (self.payload / entry["path"]).read_bytes()
+            ).hexdigest()
+            self.assertEqual(digest, entry["sha256"], entry["path"])
+
+    def test_the_totals_describe_the_bytes_actually_written(self):
+        manifest = migrate.pack(self.cfg, self.dest)
+        on_disk = [p for p in self.payload.rglob("*") if p.is_file()]
+        self.assertEqual(len(on_disk), len(manifest["files"]))
+        self.assertEqual(
+            sum(p.stat().st_size for p in on_disk),
+            sum(totals["bytes"] for totals in manifest["totals"].values()),
+        )
+
+    def test_files_and_skipped_together_account_for_every_source_file(self):
+        """The completeness guarantee, stated as an assertion."""
+        manifest = migrate.pack(self.cfg, self.dest, tier="irreplaceable")
+        accounted = {entry["path"] for entry in manifest["files"]} | {
+            entry["path"] for entry in manifest["skipped"]
+        }
+        present = {
+            path.relative_to(self.root).as_posix()
+            for directory in ("data/pdfs", "data/abstracts", "data/raw", "data/logs", "inbox")
+            for path in (self.root / directory).rglob("*")
+            if path.is_file()
+        }
+        self.assertEqual(present - accounted, set())
+
+    def test_a_freshly_packed_bundle_verifies(self):
+        migrate.pack(self.cfg, self.dest)
+        self.assertTrue(migrate.verify(self.dest)["ok"])
+
+    def test_verify_rejects_a_bundle_carrying_what_its_manifest_omits(self):
+        migrate.pack(self.cfg, self.dest)
+        (self.payload / "data/pdfs/stowaway.pdf").write_bytes(PDF)
+        result = migrate.verify(self.dest)
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["unlisted"], ["data/pdfs/stowaway.pdf"])
+
+    def test_repacking_over_an_earlier_bundle_is_refused(self):
+        """Silently clearing it would delete the only copy after a --move."""
+        migrate.pack(self.cfg, self.dest)
+        with self.assertRaises(FileExistsError) as caught:
+            migrate.pack(self.cfg, self.dest, tier="irreplaceable")
+        self.assertIn("--replace", str(caught.exception))
+
+    def test_replace_leaves_a_bundle_that_matches_its_manifest(self):
+        migrate.pack(self.cfg, self.dest)
+        manifest = migrate.pack(
+            self.cfg, self.dest, tier="irreplaceable", replace=True
+        )
+        result = migrate.verify(self.dest)
+        self.assertTrue(result["ok"], result)
+        self.assertEqual(result["unlisted"], [])
+        self.assertEqual(len(manifest["files"]), 3)
+
+    def test_an_archive_with_nothing_untracked_packs_and_verifies(self):
+        """Nothing to carry is a valid answer, not a failure."""
+        empty = Sandbox()
+        self.addCleanup(empty.close)
+        cfg = empty.config()
+        manifest = migrate.pack(cfg, cfg.layout.root / "migration")
+        self.assertEqual(manifest["files"], [])
+        self.assertTrue(migrate.verify(cfg.layout.root / "migration")["ok"])
+
+    def test_no_checksum_still_catches_a_size_change_but_not_a_same_size_edit(self):
+        """The cost of --no-checksum, asserted rather than described."""
+        migrate.pack(self.cfg, self.dest, checksum=False)
+        target = self.payload / "data/pdfs/hand-filed.pdf"
+        original = target.read_bytes()
+        target.unlink()
+        target.write_bytes(original + b"longer")
+        self.assertFalse(migrate.verify(self.dest, checksum=False)["ok"])
+
+        target.unlink()
+        target.write_bytes(b"X" * len(original))
+        self.assertTrue(migrate.verify(self.dest, checksum=False)["ok"])
+
+
+class UnpackVerificationTests(unittest.TestCase):
+    """Did unpack put back what the bundle held, and say so honestly?"""
+
+    def setUp(self):
+        self.source = Sandbox()
+        self.addCleanup(self.source.close)
+        self.destination = Sandbox()
+        self.addCleanup(self.destination.close)
+
+        self.source_cfg = _archive(self.source)
+        self.bundle = self.source_cfg.layout.root / "migration"
+        migrate.pack(self.source_cfg, self.bundle)
+
+        self.dest_cfg = self.destination.config()
+        shutil.copytree(
+            self.source_cfg.layout.papers,
+            self.dest_cfg.layout.papers,
+            dirs_exist_ok=True,
+        )
+        self.dest_root = self.dest_cfg.layout.root
+
+    def test_every_restored_file_is_byte_identical_to_the_original(self):
+        migrate.unpack(self.dest_cfg, self.bundle)
+        manifest = migrate.load_manifest(self.bundle)
+        for entry in manifest["files"]:
+            self.assertEqual(
+                (self.dest_root / entry["path"]).read_bytes(),
+                (self.source_cfg.layout.root / entry["path"]).read_bytes(),
+                entry["path"],
+            )
+
+    def test_the_backlog_and_the_read_shelf_land_where_they_belong(self):
+        """`data/pdfs/` is what is still owed; `read/` is what is done."""
+        migrate.unpack(self.dest_cfg, self.bundle)
+        self.assertTrue((self.dest_root / "data/pdfs/hand-filed.pdf").exists())
+        self.assertTrue((self.dest_root / "data/pdfs/read/fetched.pdf").exists())
+        self.assertFalse((self.dest_root / "data/pdfs/fetched.pdf").exists())
+
+    def test_a_corrupt_file_is_refused_and_what_was_there_is_left_alone(self):
+        migrate.unpack(self.dest_cfg, self.bundle)
+        good = (self.dest_root / "data/pdfs/hand-filed.pdf").read_bytes()
+
+        target = self.bundle / "payload/data/pdfs/hand-filed.pdf"
+        target.unlink()
+        target.write_bytes(PDF + b"tampered in transit")
+
+        result = migrate.unpack(self.dest_cfg, self.bundle)
+        self.assertEqual(result["checksum_failed"], ["data/pdfs/hand-filed.pdf"])
+        self.assertEqual(
+            (self.dest_root / "data/pdfs/hand-filed.pdf").read_bytes(), good
+        )
+
+    def test_a_file_missing_from_the_payload_does_not_stop_the_rest(self):
+        (self.bundle / "payload/data/pdfs/hand-filed.pdf").unlink()
+        result = migrate.unpack(self.dest_cfg, self.bundle)
+        self.assertEqual(result["missing_from_bundle"], ["data/pdfs/hand-filed.pdf"])
+        self.assertEqual(result["restored"], 6)
+        self.assertTrue((self.dest_root / "data/pdfs/read/fetched.pdf").exists())
+
+    def test_a_partial_restore_is_reported_rather_than_passed_off_as_success(self):
+        (self.bundle / "payload/data/pdfs/hand-filed.pdf").unlink()
+        result = migrate.unpack(self.dest_cfg, self.bundle)
+        self.assertEqual(result["documents"]["missing"], 1)
+        self.assertIn("local:abc", result["documents"]["examples"][0])
+
+    def test_unpacking_twice_changes_nothing(self):
+        first = migrate.unpack(self.dest_cfg, self.bundle)
+        before = (self.dest_root / "data/pdfs/hand-filed.pdf").read_bytes()
+        second = migrate.unpack(self.dest_cfg, self.bundle)
+        self.assertEqual(second["restored"], first["restored"])
+        self.assertEqual(second["documents"]["missing"], 0)
+        self.assertEqual(
+            (self.dest_root / "data/pdfs/hand-filed.pdf").read_bytes(), before
+        )
+
+    def test_the_document_check_reads_the_records_not_the_bundle(self):
+        """A record added after the move is still answered for."""
+        migrate.unpack(self.dest_cfg, self.bundle)
+        RecordStore(self.dest_cfg.layout).save_paper(
+            Paper(
+                id="local:never-arrived",
+                title="Filed On The Old Container",
+                source="local",
+                local_path="data/pdfs/never-arrived.pdf",
+            )
+        )
+        documents = migrate.check_documents(self.dest_cfg)
+        self.assertEqual(documents["expected"], 3)
+        self.assertEqual(documents["missing"], 1)
+        self.assertIn("never-arrived", documents["examples"][0])
+
+    def test_a_dry_run_reports_what_it_would_do_and_touches_nothing(self):
+        result = migrate.unpack(self.dest_cfg, self.bundle, dry_run=True)
+        self.assertTrue(result["dry_run"])
+        self.assertEqual(result["restored"], 7)
+        self.assertEqual(
+            [p for p in (self.dest_root / "data/pdfs").rglob("*") if p.is_file()], []
+        )
 
 
 class ManifestTests(unittest.TestCase):

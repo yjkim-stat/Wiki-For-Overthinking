@@ -311,6 +311,7 @@ def pack(
     tier: str = "all",
     move: bool = False,
     checksum: bool = True,
+    replace: bool = False,
 ) -> dict:
     """Copy the untracked half of the archive into ``dest`` with a manifest."""
     root = cfg.layout.root
@@ -326,6 +327,24 @@ def pack(
     dropped = [i for i in plan.items if i.tier not in wanted]
 
     payload = dest / PAYLOAD_DIR
+    # A second pack into the same folder must not leave the first one's files
+    # lying underneath: the manifest would then describe less than the bundle
+    # carries, and a narrowed `--tier` would ship the very files it claims to
+    # have dropped. Clearing it silently is the worse answer -- a previous run
+    # with `--move` left the ONLY copy of those files here -- so refuse, and
+    # make the caller say which they meant.
+    leftover = (
+        [p for p in payload.rglob("*") if p.is_file()] if payload.exists() else []
+    )
+    if leftover:
+        if not replace:
+            raise FileExistsError(
+                f"{payload} already holds {len(leftover)} file(s) from an earlier "
+                "pack. Use a different --dest, or --replace to delete them first "
+                "-- but check that no earlier pack used --move, which would make "
+                "these the only copy."
+            )
+        shutil.rmtree(payload)
     payload.mkdir(parents=True, exist_ok=True)
 
     for item in items:
@@ -399,7 +418,11 @@ def verify(src: Path, *, checksum: bool = True) -> dict:
         "missing": missing,
         "corrupt": corrupt,
         "unlisted": extra,
-        "ok": not missing and not corrupt,
+        # An unlisted file fails the check even though it breaks no restore.
+        # The bundle's whole claim is that its manifest accounts for what it
+        # carries, and a file nothing describes is a bundle that cannot be
+        # vouched for -- most often the residue of an earlier, wider pack.
+        "ok": not missing and not corrupt and not extra,
     }
     level = _LOG.info if result["ok"] else _LOG.error
     level(
@@ -555,6 +578,11 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="move rather than link/copy; destroys the originals",
     )
+    packer.add_argument(
+        "--replace",
+        action="store_true",
+        help="delete an earlier pack's payload first (check it was not --move'd)",
+    )
 
     checker = sub.add_parser("verify", help="check a bundle against its manifest")
     checker.add_argument("--src", type=Path, default=Path("migration"))
@@ -573,9 +601,18 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "pack":
         dest = args.dest if args.dest.is_absolute() else cfg.layout.root / args.dest
-        manifest = pack(
-            cfg, dest, tier=args.tier, move=args.move, checksum=checksum
-        )
+        try:
+            manifest = pack(
+                cfg,
+                dest,
+                tier=args.tier,
+                move=args.move,
+                checksum=checksum,
+                replace=args.replace,
+            )
+        except FileExistsError as exc:
+            print(f"refusing to pack: {exc}")
+            return 1
         totals = manifest["totals"]
         for tier in TIERS:
             print(

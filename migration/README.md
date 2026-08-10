@@ -124,6 +124,20 @@ exactly the thing that fills it. Originals are left in place. Use `--move` only
 if you are certain, because a transfer that fails after a move has destroyed
 the only copy.
 
+Packing into a folder that already holds a payload is **refused**:
+
+```
+refusing to pack: …/migration/payload already holds 1542 file(s) from an earlier
+pack. Use a different --dest, or --replace to delete them first -- but check that
+no earlier pack used --move, which would make these the only copy.
+```
+
+An earlier pack's files left underneath would make the bundle carry more than
+its manifest describes — a narrowed `--tier` would ship the very files it claims
+to have dropped. Clearing it automatically is the worse answer: if that pack used
+`--move`, the payload is the only copy of those documents. `--replace` deletes
+it, and is yours to choose.
+
 ### Packing less than everything
 
 Every file has a tier, and the tier says **what it costs you to lose it** —
@@ -184,6 +198,11 @@ This reads only the bundle — every file's size and sha256 against the manifest
 — and reports `missing`, `corrupt` and `unlisted`. A truncated upload shows up
 here, not three weeks later as an unreadable paper.
 
+**All three fail the check, `unlisted` included.** A file the manifest does not
+describe breaks no restore, but the bundle's whole claim is that its inventory
+accounts for what it carries, and one that cannot be vouched for is not
+verified. In practice it is the residue of an earlier, wider pack.
+
 Restore:
 
 ```bash
@@ -240,7 +259,8 @@ re-collect everything it has already seen.
 | Symptom | What it means | What to do |
 | --- | --- | --- |
 | `verify` reports `missing` | The transfer was truncated | Re-transfer. The manifest names every file, so you can move only the gap. |
-| `verify` reports `corrupt` | Bytes changed in transit | Re-transfer those files. Never unpack over a corrupt payload — unpack refuses each file whose checksum fails, and says which. |
+| `verify` reports `corrupt` | Bytes changed in transit | Re-transfer those files. Unpack refuses each file whose checksum fails, names it, and leaves whatever was already at that path alone. |
+| `verify` reports `unlisted` | The payload holds files the manifest does not describe — almost always an earlier, wider pack left underneath | Re-pack with `--replace`, or transfer a fresh bundle. Restoring works either way; the inventory is what is untrustworthy. |
 | `documents: N missing` after unpack, and the bundle was `--tier irreplaceable` | Expected. Fetched PDFs were deliberately left behind | Nothing automatic re-fetches them. Re-collect the paper, or fetch its `pdf_url` and drop the file in `inbox/`. |
 | `documents: N missing` after a full unpack | A real loss | Check `MANIFEST.json` → `skipped`. If the document is not listed there either, it was already missing before the migration. |
 | `record count differs: papers 1284 -> 1190` | **A git problem, never a bundle problem** | The bundle cannot carry records. Something was not pushed, or you cloned the wrong branch. Go back to step 2 on the old container if it still exists. |
@@ -253,7 +273,7 @@ re-collect everything it has already seen.
 
 ```bash
 python3 -m pipelines.migrate status                     # what each channel carries
-python3 -m pipelines.migrate pack   [--dest migration] [--tier all] [--move]
+python3 -m pipelines.migrate pack   [--dest migration] [--tier all] [--move] [--replace]
 python3 -m pipelines.migrate verify [--src  migration]
 python3 -m pipelines.migrate unpack [--src  migration] [--dry-run]
 ```
@@ -267,8 +287,8 @@ Exit codes, so a script can rely on them:
 | Command | `0` | `1` |
 | --- | --- | --- |
 | `status` | always | — |
-| `pack` | the git half was clean and pushed | it was not — the bundle was still written, and `git_warnings` says why |
-| `verify` | every listed file present and intact | anything missing or corrupt |
+| `pack` | the git half was clean and pushed | it was not — the bundle was still written, and `git_warnings` says why. Also `1` when the destination already held a payload, in which case **nothing** was written |
+| `verify` | every listed file present and intact, and nothing else in the payload | anything missing, corrupt or unlisted |
 | `unpack` | every file restored | anything missing from the bundle or failing its checksum |
 
 A file that fails its checksum is **not** written: unpack names it and leaves
