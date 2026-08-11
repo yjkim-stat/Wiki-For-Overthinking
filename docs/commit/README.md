@@ -57,3 +57,4 @@ reference for everything built before the practice existed.
 | 0034 | [A bundle must match its manifest](0034-a-bundle-must-match-its-manifest.md) | fix | A narrowed re-pack shipped what it claimed to have dropped, and `verify` said ok |
 | 0035 | [Rendering does not write to `data/`](0035-rendering-does-not-write-to-data.md) | refactor · breaking | The renderer derived the records it drew; the code is replaced, the archive is not |
 | 0036 | [A render is not an edit](0036-a-render-is-not-an-edit.md) | fix | Every pass restamped every entity, so an unchanged archive still produced a diff |
+| 0037 | [The rules a deployment lives under](0037-the-rules-a-deployment-lives-under.md) | docs | One premise — the code is replaced, the archive is not — and what follows from it |

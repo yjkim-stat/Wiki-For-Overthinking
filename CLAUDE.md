@@ -233,6 +233,30 @@ config, templates or documentation does — see the rule below.
   fixed once pushed, so the session that duplicates one is the session that has
   to renumber.
 
+## Working on the code
+
+**The code is replaced; the archive is not.** A deployment pulls a new version
+every so often and keeps running against the `data/` it has been accumulating
+for months. Every rule here follows from that.
+
+- **Only `collect/` and `enrich/` write to `data/`.** `collect/` for what
+  arrives from outside, `enrich/` for what is derived from it. `publish/` is a
+  pure function of the archive and never writes to it —
+  `tests/test_layering.py` fails if that stops being true.
+- **A render is not an edit.** Running the pipeline over an unchanged archive
+  must change no record. A field that restamps itself every pass buries the real
+  changes in a diff nobody can read.
+- **Derived and authored live in the same record; only derived may be
+  rebuilt.** A concept's evidence is re-derived every pass, its definition and
+  aliases are carried across untouched. Anything a person wrote survives every
+  regeneration — that is the same promise `<!-- auto:end -->` makes in a note.
+- **Adding a record field is safe; renaming or removing one destroys data.**
+  `from_dict` keeps only fields it knows and defaults the rest, so an old record
+  loads fine against a new field — and a renamed one has its value dropped on
+  load and gone at the next write, with no error anywhere.
+- **Tests touch neither the network nor the real `data/`.** A collector is
+  tested against a fixture; a run is tested in a sandbox.
+
 ## Layout
 
 The question this table answers is *may I write here, and what happens if I do*.
