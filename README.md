@@ -133,6 +133,8 @@ understanding the repository:
 │
 ├── inbox/                      ← yours: drop a PDF here, it drains on the next run
 │
+├── workflows/                  ← one folder per task: the procedure, and what checks it
+│
 ├── migration/                  ← staging for a move to a new environment; payload
 │   └── README.md                 gitignored, instructions tracked
 │

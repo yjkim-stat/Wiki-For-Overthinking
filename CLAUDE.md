@@ -275,6 +275,7 @@ A tour of the same tree, for a human arriving at the repository, is in the
 | `outputs/` | **never** | Lecture notes, decks and reports, per topic. Regenerated wholesale. |
 | `wiki/` | after `<!-- auto:end -->` | Generated notes. Everything after that marker is preserved forever and is where analysis belongs. Anything before it is overwritten. `wiki/index.md` and `wiki/graph.html` — the map of the whole wiki — are generated whole. |
 | `inbox/` | drop PDFs here | Drains on the next run: the file moves to `data/pdfs/` and a reading task is queued. |
+| `workflows/` | yes | One folder per task — the procedure, and the harness that checks it. Links to whichever file is authoritative rather than restating it; a disagreement is a bug here, not there. |
 | `migration/` | staging only | Where a move to a new environment is packed. Payload gitignored, [instructions](migration/README.md) tracked — the environment that has to read them is the one that has only just cloned. `python3 -m pipelines.migrate status`. |
 | `config/topics/*.yaml` | when asked | The tracked subjects. Adding a file is all it takes — but see the rule above about whose decision that is. |
 | `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, curated lists, YouTube channels, the inbox switch. |
