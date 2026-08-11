@@ -56,3 +56,4 @@ reference for everything built before the practice existed.
 | 0033 | [Carrying an archive between environments](0033-carrying-an-archive-between-environments.md) | feature | Git carries the knowledge; the bundle carries what git refuses, tiered by what losing it costs |
 | 0034 | [A bundle must match its manifest](0034-a-bundle-must-match-its-manifest.md) | fix | A narrowed re-pack shipped what it claimed to have dropped, and `verify` said ok |
 | 0035 | [Rendering does not write to `data/`](0035-rendering-does-not-write-to-data.md) | refactor · breaking | The renderer derived the records it drew; the code is replaced, the archive is not |
+| 0036 | [A render is not an edit](0036-a-render-is-not-an-edit.md) | fix | Every pass restamped every entity, so an unchanged archive still produced a diff |

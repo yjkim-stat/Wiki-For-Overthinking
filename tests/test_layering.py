@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+import time
 import unittest
 from pathlib import Path
 
@@ -99,6 +100,38 @@ class RenderingDoesNotWriteToData(unittest.TestCase):
         before = _snapshot(self.data)
         render.rebuild_outputs(self.cfg)
         self.assertEqual(_snapshot(self.data), before)
+
+    def test_a_full_render_over_an_unchanged_archive_changes_no_record(self):
+        """A render is not an edit. Deleting every derived tree costs no record.
+
+        Deliberately slept through, because the failure this guards against is
+        a timestamp: `harvest` used to stamp `last_seen` on every entity every
+        pass, so an untouched archive still produced a diff across every
+        concept file -- recording when the code last ran, not when anything was
+        last seen.
+        """
+        before = _snapshot(self.data)
+        for tree in (self.cfg.layout.archive, self.cfg.layout.wiki, self.cfg.layout.outputs):
+            for path in sorted(tree.rglob("*"), reverse=True):
+                path.unlink() if path.is_file() else path.rmdir()
+        time.sleep(1.1)
+        render.run(self.cfg, skip_queueing=True)
+        self.assertEqual(_snapshot(self.data), before)
+
+    def test_a_new_mention_does_move_the_record(self):
+        """The other half: a quiet render must not mean a deaf one."""
+        store = RecordStore(self.cfg.layout)
+        store.save_paper(
+            Paper(id="arxiv:2401.00003", title="Paper 3", source="arxiv",
+                  published="2024-02-01", year=2024, topics=[SLUG])
+        )
+        store.save_paper_summary(_summary("arxiv:2401.00003"))
+        before = _snapshot(self.data)
+        time.sleep(1.1)
+        render.run(self.cfg, skip_queueing=True)
+        after = _snapshot(self.data)
+        self.assertNotEqual(after["concepts/instrumental-variable.json"],
+                            before["concepts/instrumental-variable.json"])
 
     def test_a_wiki_note_is_rebuilt_from_nothing(self):
         note = wiki.note_path(self.cfg.layout, "concept", "instrumental-variable")

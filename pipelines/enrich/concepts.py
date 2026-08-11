@@ -51,6 +51,19 @@ def _add_evidence(concept: Concept, kind: str, item_id: str, title: str, note: s
     )
 
 
+def _same(old: Concept, new: Concept) -> bool:
+    """Do these describe the same entity, ignoring when it was last written?
+
+    `last_seen` is the one field that would differ on every pass by
+    construction, so comparing without it is what turns "the harvest ran" into
+    "something actually changed".
+    """
+    before, after = old.to_dict(), new.to_dict()
+    before.pop("last_seen", None)
+    after.pop("last_seen", None)
+    return before == after
+
+
 def harvest(cfg: Config) -> dict[str, Concept]:
     """Rebuild the concept records from every stored summary.
 
@@ -99,7 +112,6 @@ def harvest(cfg: Config) -> dict[str, Concept]:
             concept.kind = _upgrade_kind(concept.kind, kind)
         if name != concept.name and name not in concept.aliases:
             concept.aliases.append(name)
-        concept.last_seen = utcnow()
         return concept
 
     def link(names: list[str]) -> None:
@@ -162,14 +174,28 @@ def harvest(cfg: Config) -> dict[str, Concept]:
         if slug not in concepts and old.definition:
             concepts[slug] = old
 
+    written = 0
     for concept in concepts.values():
+        old = previous.get(concept.slug)
+        if old is not None and _same(old, concept):
+            # Nothing about this entity moved, so nothing about its record
+            # should. Writing a fresh `last_seen` here would mean every render
+            # rewrote every concept file -- a whole archive's worth of diff
+            # that records when the code last ran, not when anything was seen.
+            continue
+        concept.last_seen = utcnow()
         store.save_concept(concept)
+        written += 1
 
     stale = set(previous) - set(concepts)
     for slug in stale:
         store.concept_path(slug).unlink(missing_ok=True)
 
-    _LOG.info("harvested %d entities from summaries", len(concepts))
+    _LOG.info(
+        "harvested %d entities from summaries; %d record(s) changed",
+        len(concepts),
+        written,
+    )
     return concepts
 
 
