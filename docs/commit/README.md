@@ -55,3 +55,4 @@ reference for everything built before the practice existed.
 | 0032 | [Following somebody else's reading](0032-following-somebody-elses-reading.md) | feature | A curated list gives pointers, never metadata — a nickname is not a title |
 | 0033 | [Carrying an archive between environments](0033-carrying-an-archive-between-environments.md) | feature | Git carries the knowledge; the bundle carries what git refuses, tiered by what losing it costs |
 | 0034 | [A bundle must match its manifest](0034-a-bundle-must-match-its-manifest.md) | fix | A narrowed re-pack shipped what it claimed to have dropped, and `verify` said ok |
+| 0035 | [Rendering does not write to `data/`](0035-rendering-does-not-write-to-data.md) | refactor · breaking | The renderer derived the records it drew; the code is replaced, the archive is not |

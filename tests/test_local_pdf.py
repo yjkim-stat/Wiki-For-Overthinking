@@ -10,6 +10,7 @@ from __future__ import annotations
 import unittest
 
 from pipelines import render
+from pipelines.enrich import apply as apply_mod
 from pipelines.collect import local_pdf
 from pipelines.common.schema import Paper
 from pipelines.common.store import RecordStore
@@ -182,7 +183,7 @@ class ApplyBibliographyTests(unittest.TestCase):
         )
         task_id = Queue.task_id("paper", self.paper.id)
         self.queue.complete(task_id, result)
-        render.apply_completed(self.cfg)
+        apply_mod.completed(self.cfg)
         return self.store.load_paper(self.paper.id)
 
     def test_reader_supplies_the_bibliography(self):
@@ -258,7 +259,7 @@ class ApplyBibliographyTests(unittest.TestCase):
                 "topics": ["not-a-real-topic"],
             },
         )
-        render.apply_completed(self.cfg)
+        apply_mod.completed(self.cfg)
         after = self.store.load_paper(remote.id)
         self.assertEqual(after.title, "Real Title", "bibliography is for local PDFs only")
         self.assertEqual(after.topics, [SLUG])

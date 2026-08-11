@@ -2,7 +2,14 @@
 
 Everything here is a pure function of ``data/``: delete ``archive/``, ``wiki/``
 and ``outputs/`` and a single ``render.py`` run rebuilds them. Nothing in this
-package fetches anything or calls a model.
+package fetches anything, calls a model, or writes to ``data/``.
+
+That last clause is the one worth stating, because it used to be false: the
+wiki renderer also derived the concept records it drew, so rendering could
+delete a record from the source of truth. Deriving entities now lives in
+``enrich.concepts`` and this package is handed the result. The boundary is
+checked by ``tests/test_layering.py`` rather than trusted, so a later change
+cannot quietly cross it again.
 """
 
 from __future__ import annotations

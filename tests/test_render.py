@@ -9,6 +9,7 @@ from pipelines import render
 from pipelines.common.schema import Concept, Paper, PaperSummary, Video
 from pipelines.common.store import RecordStore
 from pipelines.enrich.queue import Queue
+from pipelines.enrich import concepts as concepts_mod
 from pipelines.publish import wiki
 from pipelines.publish.archive import paper_dir
 
@@ -352,7 +353,7 @@ class RuledKindTests(unittest.TestCase):
         self.sandbox.close()
 
     def _harvest_kind(self, slug: str) -> str:
-        return wiki.harvest(self.cfg)[slug].kind
+        return concepts_mod.harvest(self.cfg)[slug].kind
 
     def test_a_ruled_kind_survives_a_further_render(self):
         self.store.save_concept(
@@ -365,7 +366,7 @@ class RuledKindTests(unittest.TestCase):
         )
         self.assertEqual(self._harvest_kind("vision-language-action-model"), "concept")
         # The revert was observed on the *second* render, so harvest twice.
-        self.store.save_concept(wiki.harvest(self.cfg)["vision-language-action-model"])
+        self.store.save_concept(concepts_mod.harvest(self.cfg)["vision-language-action-model"])
         self.assertEqual(self._harvest_kind("vision-language-action-model"), "concept")
 
     def test_an_entity_without_a_definition_still_takes_the_harvested_kind(self):
