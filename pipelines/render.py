@@ -26,6 +26,7 @@ from .common.store import RecordStore, read_json
 from .enrich import apply as apply_mod
 from .enrich import concepts as concepts_mod
 from .enrich.queue import Queue
+from .local import queue_share
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
 
@@ -73,18 +74,19 @@ def rebuild_archive(cfg: Config) -> dict[str, int]:
     return {"papers": papers, "videos": videos}
 
 
-def _queue_and_summarizer(cfg: Config):
-    queue = Queue(
-        cfg.layout,
-        max_pending=int(
-            (cfg.settings.get("summarize", {}) or {}).get("max_pending_tasks", 0)
-        )
-        or None,
-    )
+_UNSET = object()
+
+
+def _queue_and_summarizer(cfg: Config, max_pending=_UNSET):
+    # LOCAL: `max_pending` is overridable so summaries can be held to a share of
+    # the cap on the first pass — see pipelines/local/queue_share.py.
+    if max_pending is _UNSET:
+        max_pending = queue_share.pending_cap(cfg)
+    queue = Queue(cfg.layout, max_pending=max_pending)
     return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
 
 
-def queue_missing_summaries(cfg: Config) -> int:
+def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
     """File a task for any stored record that still has no summary.
 
     Collection queues a task when it first sees an item, but a task can be lost
@@ -94,7 +96,7 @@ def queue_missing_summaries(cfg: Config) -> int:
     queue heals itself.
     """
     store = RecordStore(cfg.layout)
-    queue, summarizer = _queue_and_summarizer(cfg)
+    queue, summarizer = _queue_and_summarizer(cfg, max_pending)  # LOCAL
     queued = 0
 
     for paper in store.iter_papers():
@@ -395,7 +397,13 @@ def run(
         result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)
         if not skip_queueing:
-            result["summaries_queued"] = queue_missing_summaries(cfg)
+            # LOCAL: hold back part of the cap so definition tasks are not
+            # crowded out; the remainder is released below. Counted from the
+            # queue rather than from the return value, which reports records
+            # lacking a summary and so double-counts across the two passes.
+            _before = queue_share.pending_count(cfg)
+            queue_missing_summaries(cfg, queue_share.summary_cap(cfg))
+            result["summaries_queued"] = queue_share.pending_count(cfg) - _before
 
     if only in (None, "wiki"):
         # Derive first, draw second. The renderer is handed the entities rather
@@ -405,6 +413,16 @@ def run(
         result["wiki"] = wiki.update(cfg, concepts, live)
         if not skip_queueing:
             result["definitions_queued"] = queue_missing_definitions(cfg)
+            # LOCAL: give any unused reserve back to the reading queue. Only
+            # when the archive stage ran — under `--only wiki` nothing was held.
+            # `_before` is taken after the definition tasks above, so the delta
+            # is summaries alone.
+            if "summaries_queued" in result:
+                _before = queue_share.pending_count(cfg)
+                queue_missing_summaries(cfg)
+                result["summaries_queued"] += (
+                    queue_share.pending_count(cfg) - _before
+                )
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)
