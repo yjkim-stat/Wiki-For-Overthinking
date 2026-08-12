@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How much of what actually decided an answer a trace states out loud, treated by both sources as a separate axis from whether what it states is true. One defines it directly — whether the trace lists every factor needed to solve the task, measured by having judge models enumerate those factors and checking the trace against the pooled list — and combines it with faithfulness into a single monitorability score, finding difficulty inversely related to it. The other reaches it from the reader's side: at matched word count, the final ninety words of a trace carry higher densities of uncertainty, self-correction and answer markers than a model-written summary of the same run, with all three differences excluding zero. Both therefore treat length as load-bearing rather than incidental, and the archive separately records that verbosity improves performance only up to a point before degrading.
 
 - **Kind**: concept
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An instruction-tuned checkpoint used in both sources as the base policy a method is applied to rather than as something being characterized. One reinforcement-fine-tunes it and reports a GRPO baseline of 16.88 Avg@32 and 50.00 Pass@32 on AIME24, against 19.69 and 56.67 for its own variant — numbers low enough that the benchmark is near its floor for this model. The other uses it as one of the models whose hidden-state trajectories are scored for progress and stability. Its presence marks the scale most of this archive's reinforcement-learning work is actually done at.
 
 - **Kind**: model
+- **Also called**: Qwen2.5-7B-Instruct
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large distilled reasoning model, and in all three sources the biggest checkpoint in the sweep — the one that tests whether a finding survives scale. It survives in two of them: the L2-norm signal and the mutual-information account of thinking tokens both hold here alongside smaller models. In the third it is the counter-example that limits a claim, appearing among the off-the-shelf models where a superposed input collapses to a single token within a few layers, so continuous chain-of-thought behaves no differently from discrete decoding. The archive uses it, in other words, as the check that an interpretability result is not an artefact of small models.
 
 - **Kind**: model
+- **Also called**: DeepSeek-R1-Distill-Llama-70b, R1-Distill-Llama-70B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

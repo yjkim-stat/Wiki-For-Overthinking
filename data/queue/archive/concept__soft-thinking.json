@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T23:47:30Z",
   "created_at": "2026-08-12T23:30:57Z",
   "instructions": "Write the wiki definition for 'soft thinking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "soft thinking",
@@ -41,6 +42,15 @@
   "payload": {
     "name": "soft thinking",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Soft Thinking",
+      "soft tokens"
+    ],
+    "definition": "Feeding a probability-weighted mixture of token embeddings back into the model instead of a sampled discrete token, so a step can carry a distribution rather than a choice. The two sources use it at opposite ends of the same question. One builds on it deliberately, injecting Gumbel noise into the logits before the mixture so that latent thoughts differ across rollouts and can be credited separately. The other tests whether it does anything at all on models not trained for it, and finds it does not: on three off-the-shelf checkpoints the layer-wise entropy profiles of soft and discrete decoding coincide and the KL divergence between their states reaches about 1e-4, because a superposed input collapses to a single token within a few layers. Whether the technique is a mechanism or a no-op therefore depends on whether the model was trained to use it.",
+    "kind": "method",
+    "related": []
   },
   "task_id": "concept__soft-thinking",
   "task_version": 1,

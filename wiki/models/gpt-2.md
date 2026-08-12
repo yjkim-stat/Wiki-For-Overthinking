@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small autoregressive language model, used in both sources as the scale at which latent chain-of-thought is trained from scratch rather than as a subject of study. That role matters for how their results should be read: one validates its whole theory of latent reasoning at 124M parameters with six latent steps, which is far below any deployed reasoning model and gives correspondingly low absolute accuracies (42.9% for explicit chain of thought on GSM8K). The other uses it as one of four checkpoints in the fine-tuned regime, where deleting every latent token changes accuracy by at most 1.0 point — 99.0 to 99.0 here. It appears in this archive because latent-reasoning curricula are cheap enough to train at this size and not at any other.
 
 - **Kind**: model
+- **Also called**: GPT2
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

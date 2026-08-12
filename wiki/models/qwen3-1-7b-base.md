@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small base checkpoint, used by both sources as the lower end of a two-scale comparison and, in both, the scale at which method differences nearly vanish. One reports that most alternative reinforcement-learning objectives yield marginal or no gains over GRPO here and attributes it to limited reasoning capacity leaving little room for objective design — its own margin is 0.8 points against 2.6 at 4B. The other uses it among the base models where suppressing epistemic verbalization cuts AIME24 pass@1 from 16.7 to 3.3. Its function in the archive is as evidence about where a result comes from: a method that only separates at the larger scale is telling you something about capacity rather than about the method.
 
 - **Kind**: model
+- **Also called**: Qwen3-1.7B, Qwen3-1.7b-Base
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

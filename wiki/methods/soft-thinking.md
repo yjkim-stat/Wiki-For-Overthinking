@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Feeding a probability-weighted mixture of token embeddings back into the model instead of a sampled discrete token, so a step can carry a distribution rather than a choice. The two sources use it at opposite ends of the same question. One builds on it deliberately, injecting Gumbel noise into the logits before the mixture so that latent thoughts differ across rollouts and can be credited separately. The other tests whether it does anything at all on models not trained for it, and finds it does not: on three off-the-shelf checkpoints the layer-wise entropy profiles of soft and discrete decoding coincide and the KL divergence between their states reaches about 1e-4, because a superposed input collapses to a single token within a few layers. Whether the technique is a mechanism or a no-op therefore depends on whether the model was trained to use it.
 
 - **Kind**: method
-- **Also called**: Soft Thinking
+- **Also called**: Soft Thinking, soft tokens
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
