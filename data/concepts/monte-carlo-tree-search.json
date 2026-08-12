@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "MCTS"
+    "MCTS",
+    "Monte Carlo Tree Search"
   ],
   "definition": "Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than a contribution: one source runs it against chain-of-thought, least-to-most and tree-of-thought on the same problems and finds it lower in accuracy (75.8% against 84.4% for CoT on AQuA), and another treats it as one of four algorithm archetypes its scheduling metric must cover, using the reward model's mean output as the certainty signal.",
   "evidence": [
@@ -27,11 +28,17 @@
       "kind": "paper",
       "note": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
       "title": "Free Process Rewards without Process Labels"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "Monte Carlo tree search",
   "related": [
     "certaindex",
@@ -118,12 +125,40 @@
     "ultrainteract",
     "ultrafeedback",
     "mistral-7b-instruct-v0-2",
-    "llama-3-1-70b-instruct"
+    "llama-3-1-70b-instruct",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "test-time-scaling",
+    "a-search",
+    "supervised-fine-tuning",
+    "grpo",
+    "reinforcement-learning-with-verifiable-rewards",
+    "llm-modulo",
+    "process-reward-models",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "gpt-oss",
+    "llama",
+    "qwen",
+    "searchformer",
+    "dualformer"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "monte-carlo-tree-search",
   "topics": [
     "test-time-scaling",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

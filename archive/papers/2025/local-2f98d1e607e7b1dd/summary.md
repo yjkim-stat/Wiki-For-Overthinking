@@ -45,7 +45,7 @@ The paper's own: the design favours tractability over exhaustiveness — single-
 
 - **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), verbosity, causal factors, cue acknowledgement, working memory analogy, [sycophancy](../../../../wiki/concepts/sycophancy.md), steganography, sandbagging, [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [inverse scaling](../../../../wiki/concepts/inverse-scaling.md)
 - **Methods**: cue injection, [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md), causal factor extraction, monitorability scoring, Inspect evaluation library
-- **Datasets**: BBH, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU](../../../../wiki/datasets/mmlu.md)
+- **Datasets**: [BBH](../../../../wiki/datasets/bbh.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `monitorability`, `faithfulness`, `verbosity`, `cot monitoring`, `ai safety`, `cue injection`, `benchmark`
 

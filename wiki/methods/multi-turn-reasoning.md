@@ -9,7 +9,7 @@ Reasoning that unfolds across several exchanges with a user or an environment ra
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [alignment](../concepts/alignment.md), [construct validity](../concepts/construct-validity.md), [controllability](../concepts/controllability.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [instruction following](../concepts/instruction-following.md), [monitorability](../concepts/monitorability.md), [reward hacking](../concepts/reward-hacking.md), [state tracking](../concepts/state-tracking.md), [synthetic data generation](synthetic-data-generation.md)
+**Related**: [alignment](../concepts/alignment.md), [construct validity](../concepts/construct-validity.md), [controllability](../concepts/controllability.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPT-OSS](../models/gpt-oss.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [instruction following](../concepts/instruction-following.md), [monitorability](../concepts/monitorability.md), [reward hacking](../concepts/reward-hacking.md), [state tracking](../concepts/state-tracking.md), [synthetic data generation](synthetic-data-generation.md)
 
 ## Appears in
 

@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Reasoning Interpretability</h1>
 <p class="subtitle">What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model&#x27;s internal reasoning the available intervention methods can actually support, and at what granularity.</p>
-<p>2026-08-12 · 26 archived source(s)</p>
+<p>2026-08-12 · 31 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -115,7 +115,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Where the field stands</h2>
 <ul>
-<li><strong>2026</strong> — 20 paper(s)</li>
+<li><strong>2026</strong> — 25 paper(s)</li>
 <li><strong>2025</strong> — 4 paper(s)</li>
 <li><strong>2024</strong> — 1 paper(s)</li>
 <li><strong>2023</strong> — 1 paper(s)</li>
@@ -250,18 +250,18 @@ th { background: var(--surface); }
 <li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
 <li><strong>localization</strong> — Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing q...</li>
 <li><strong>prompt difficulty</strong> — How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Ele...</li>
-<li><strong>meta-evaluation</strong> — Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurri...</li>
+<li><strong>entropy collapse</strong> — The failure mode in which a policy&#x27;s output distribution becomes progressively more deterministic during reinforcement learning, eliminat...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Methods</h2>
 <ul>
+<li><strong>GRPO</strong> — Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own gro...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
 <li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
 <li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
-<li><strong>supervised finetuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is...</li>
-<li><strong>reasoning distillation</strong> — Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use i...</li>
+<li><strong>supervised fine-tuning</strong> — Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unsta...</li>
 </ul>
 </section>
 <section class="slide">
@@ -294,7 +294,7 @@ th { background: var(--surface); }
 <li><strong>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</strong> — No quantitative results in the abstract. Scope is Stable Diffusion, so architecture generality is untested. Single-word removal changes the prompt distributi...</li>
 <li><strong>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</strong> — No numbers in the abstract and no named models. Counting is a narrow task, chosen because the depth argument is clean there, so generalization of the System-...</li>
 <li><strong>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</strong> — No empirical contribution, and no stated selection criteria or coverage for the surveyed work, so it is not a systematic review. Organizing by interpretable...</li>
-<li><strong>A Sharper Picture of Generalization in Transformers</strong> — The learner is idealized: it minimizes loss, norm and Hessian trace directly rather than being SGD, so the result abstracts away training dynamics. The const...</li>
+<li><strong>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</strong> — The authors name three: other latent-reasoning families are untested, including RL-trained continuous chains and recurrent or looped-layer architectures; the...</li>
 </ul>
 </section>
 <section class="slide">
@@ -316,20 +316,24 @@ th { background: var(--surface); }
 <li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
 <li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 <li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
+<li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
 <li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
 <li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
+<li>Xinyan Jiang, Ninghao Liu, Di Wang et al.. <em>Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability</em>. ICML. 2026</li>
 <li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
-<li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
-<li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
+<li>Jinyang Zhang, Hongxin Ding, Yue Fang et al.. <em>The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models</em>. preprint. 2026</li>
+<li>Lihao Sun, Hang Dong, Bo Qiao et al.. <em>LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals</em>. preprint. 2026</li>
+<li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
+<li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 <li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
 <li>Yu Huang, Zixin Wen, Aarti Singh et al.. <em>Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization</em>. NeurIPS. 2025</li>
 <li>Fred Zhang, Neel Nanda. <em>Towards Best Practices of Activation Patching in Language Models: Metrics and Methods</em>. preprint. 2024</li>
-<li>Hoagy Cunningham, Aidan Ewart, Logan Riggs et al.. <em>Sparse Autoencoders Find Highly Interpretable Features in Language Models</em>. preprint. 2023</li>
 </ul>
 </section>
 <section class="slide title-slide">

@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
       "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning"
+    },
+    {
+      "id": "local:85a70e78b4a93190",
+      "kind": "paper",
+      "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+      "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "Qwen2.5-1.5B",
   "related": [
     "test-time-compute",
@@ -64,12 +70,44 @@
     "gpqa",
     "aime23",
     "qwen2-5-0-5b",
-    "qwen2-5-7b"
+    "qwen2-5-7b",
+    "normalized-net-displacement",
+    "average-trajectory-curvature",
+    "topological-divergence-of-reasoning-quality",
+    "hesitation-loop",
+    "certainty-accumulation",
+    "kinematic-scaling-law-of-reasoning",
+    "semantic-whitening",
+    "induced-metric-tensor",
+    "reasoning-quality-subspace",
+    "cognitive-state-transition",
+    "traced",
+    "traced-grpo",
+    "gaussian-discriminant-analysis",
+    "linear-probe",
+    "saplma",
+    "chain-of-embedding",
+    "cot-kinetics",
+    "lora",
+    "bootstrap-confidence-interval",
+    "math",
+    "theoremqa",
+    "social-iqa",
+    "understanding-fables",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-4b-thinking-2507",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "llama-3-70b-instruct",
+    "gpt-4o"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen2-5-1-5b",
   "topics": [
     "test-time-scaling",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }

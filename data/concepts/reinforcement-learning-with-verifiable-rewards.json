@@ -2,7 +2,8 @@
   "aliases": [
     "RLVR",
     "verifiable reward RL",
-    "outcome-verified RL"
+    "outcome-verified RL",
+    "Reinforcement Learning with Verifiable Rewards"
   ],
   "definition": "Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a failure mode and restricts the method to domains where correctness can be checked. The archive's anchor source uses it to elicit long chain-of-thought reasoning without supervised reasoning traces. The second shows the recipe travelling outside reasoning entirely, using RLVR to train an attack planner against cyber defences, with over 13,000 interaction trajectories collected for the purpose. The gap between those two uses is a fair picture of the term's current breadth: a specific training signal that is being applied wherever an automatic checker exists.",
   "evidence": [
@@ -17,11 +18,17 @@
       "kind": "paper",
       "note": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
       "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "reinforcement learning with verifiable rewards",
   "related": [
     "emergent-reasoning-patterns",
@@ -40,12 +47,42 @@
     "log-summarization",
     "cyborg-cage-4",
     "cyberwheel",
-    "trident-red-blue-interaction-dataset-13-000-trajectories"
+    "trident-red-blue-interaction-dataset-13-000-trajectories",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "test-time-scaling",
+    "a-search",
+    "supervised-fine-tuning",
+    "grpo",
+    "llm-modulo",
+    "self-consistency",
+    "monte-carlo-tree-search",
+    "process-reward-models",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "gpt-oss",
+    "llama",
+    "qwen",
+    "searchformer",
+    "dualformer"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "reinforcement-learning-with-verifiable-rewards",
   "topics": [
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

@@ -1,17 +1,26 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "LLaMA",
+    "Llama 3.1"
+  ],
+  "definition": "Meta's open-weight model family, used across the archive as the base on which reasoning behaviour is studied, and named loosely: the sources say 'Llama' both for the pretrained family and for particular checkpoints and their reasoning-distilled variants. It matters here because open weights make internal analysis possible -- the sycophancy work localizes trace sentences with probes and counterfactual rollouts on it, and the position paper fine-tunes members of the family to test whether trace correctness governs answer correctness. Where a claim depends on which member was used, prefer the specific checkpoint over this entry.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-srw.20",
       "kind": "paper",
       "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
       "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
     }
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "Llama",
   "related": [
     "sycophancy",
@@ -24,11 +33,44 @@
     "counterfactual-rollout-analysis",
     "regression-on-activations",
     "qwen",
-    "falcon-hybrid"
+    "falcon-hybrid",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "test-time-scaling",
+    "a-search",
+    "supervised-fine-tuning",
+    "grpo",
+    "reinforcement-learning-with-verifiable-rewards",
+    "llm-modulo",
+    "self-consistency",
+    "monte-carlo-tree-search",
+    "process-reward-models",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "gpt-oss",
+    "searchformer",
+    "dualformer"
+  ],
+  "related_authored": [
+    "qwen",
+    "deepseek-r1-distill-llama-8b"
   ],
   "schema_version": 1,
   "slug": "llama",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

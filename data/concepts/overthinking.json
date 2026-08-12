@@ -3,7 +3,8 @@
     "self-doubt",
     "overlong reasoning",
     "redundant reasoning",
-    "invalid thinking"
+    "invalid thinking",
+    "Overthinking"
   ],
   "definition": "Generating more reasoning than a problem needs, and the archive's largest cluster at 25 sources. The sources agree on the symptom and split on the cause, which is what keeps the term loose. One account locates it after the answer, where double-checking continues once the correct result is derived. One locates it before the problem starts, since models cannot recognize difficulty in advance — and a reasoning model's eventual token count is linearly decodable from the question's activations before a single reasoning token is emitted, which makes the length a decision rather than an outcome. One locates it in the reward, where a sequence-level efficiency penalty implicitly punishes long but correct trajectories so that training against length damages the reasoning it was meant to trim. Reported reductions run from roughly 40% to 87%, occasionally with accuracy gains, which suggests a substantial share of a long chain does no work. Three results added since sharpen the picture. Redundancy turns out not to sit in an identifiable class of step: pruning that targets reflective statements is reported to do no better than pruning that ignores them, because the reasoning skeleton is repeated and rephrased throughout. Cutting by structure is nonetheless not the same as cutting by length — removing the same token count by position rather than by graph role costs twenty points of accuracy. And the decision of when to stop is proved harder than the field has assumed: a fixed threshold on the probability that the current prefix is already correct can be arbitrarily far from optimal even when that probability is known exactly, because the comparison that matters is against the value of continuing.",
   "evidence": [
@@ -156,11 +157,17 @@
       "kind": "paper",
       "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
       "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping"
+    },
+    {
+      "id": "local:f92e5f936a3c7422",
+      "kind": "paper",
+      "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+      "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "overthinking",
   "related": [
     "process-reward",
@@ -430,8 +437,41 @@
     "reinforcement-learning",
     "omni-math",
     "deepscaler-preview-dataset",
-    "drpo-7b"
+    "drpo-7b",
+    "reasoning-intensity",
+    "layer-wise-reasoning-dynamics",
+    "hidden-state-l2-norm",
+    "differential-feature-activation",
+    "norm-peak-detection",
+    "endogenous-reasoning-signal",
+    "representational-energy",
+    "sparse-autoencoder",
+    "adaptive-layer-wise-reasoning-recursion",
+    "endogenous-reasoning-state-steering",
+    "l2-guided-response-selection",
+    "spearman-correlation",
+    "interquartile-range-outlier-detection",
+    "deepconf",
+    "aime-2024",
+    "aime-2025",
+    "gsm-plus",
+    "bbh",
+    "gpqa",
+    "hellaswag",
+    "ifeval",
+    "nq-open",
+    "pubmedqa",
+    "truthfulqa",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "phi-4-reasoning",
+    "gemma-3-4b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "overthinking",
   "topics": [

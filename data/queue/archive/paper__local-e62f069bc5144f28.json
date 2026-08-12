@@ -1,0 +1,169 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-e62f069bc5144f28.pdf"
+  },
+  "completed_at": "2026-08-12T11:18:09Z",
+  "created_at": "2026-08-12T11:12:23Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:e62f069bc5144f28",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "2.Stop Anthropomorphizing",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Intermediate token generation (ITG), where a model produces output before the solution, has become a standard method to improve the performance of language models on reasoning tasks. These intermediate tokens have been called \"reasoning traces\" or even \"thinking traces\" -- implicitly anthropomorphizing the traces, and implying that these traces resemble steps a human might take when solving a challenging problem, and as such can provide an interpretable window into the operation of the model's thinking process to the end user. In this position paper, we present evidence that this anthropomorphization isn't a harmless metaphor, and instead is quite dangerous -- it confuses the nature of these models and how to use them effectively, and leads to questionable research. We call on the community to avoid such anthropomorphization of intermediate tokens.",
+      "arxiv_id": "2504.09762",
+      "authors": [
+        "Subbarao Kambhampati",
+        "Karthik Valmeekam",
+        "Siddhant Bhambri",
+        "Vardhan Palod",
+        "Lucas Saldyt",
+        "Kaya Stechly",
+        "Soumya Rani Samineni",
+        "Durgesh Kalwar",
+        "Upasana Biswas"
+      ],
+      "doi": "",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!",
+      "venue": "ICML",
+      "year": 2026
+    },
+    "concepts": [
+      "Intermediate Token Generation",
+      "Derivational Trace",
+      "Anthropomorphization of Intermediate Tokens",
+      "Trace Validity",
+      "False Trust",
+      "Learned Prompt Augmentation",
+      "Chain of Thought Monitorability",
+      "Generate-Test Paradigm",
+      "Test-Time Scaling"
+    ],
+    "contributions": [
+      "States and defends the position that anthropomorphizing intermediate tokens is wishful, has little concrete supporting evidence, engenders false confidence, and pushes the community into fruitless research directions.",
+      "Collates causal-intervention evidence from formally verifiable domains: transformers trained on A* search traces over mazes retain or improve solution accuracy when trained on nonsensical traces swapped between problem instances.",
+      "Reports that in a question-answering setting, supervised fine-tuning on incorrect intermediate traces paired with correct solutions can outperform fine-tuning on correct intermediate traces.",
+      "Argues that trace length is not a measure of thinking effort, showing the length/complexity correlation breaks down out of distribution.",
+      "Documents a false-trust hazard: showing intermediate tokens or their summaries raises user trust in the answer regardless of whether the answer is correct.",
+      "Offers a non-anthropomorphic reframing -- intermediate tokens as learned prompt augmentations that need not be human-interpretable -- and issues a call to stop treating human interpretation of traces as a proxy for solution trustworthiness."
+    ],
+    "datasets": [
+      "Wilson maze instances",
+      "NoMaze instances"
+    ],
+    "limitations": "No new experiments are run here; the evidence is collated, and the load-bearing studies are the authors' own group's. The strongest causal results come from format-constrained models trained to imitate A* on mazes -- a setting chosen precisely because a trace can be formally verified -- and the extension to general reasoning models on open-ended tasks is argued rather than demonstrated. The authors state a position weaker than the title: not that intermediate tokens can never carry interpretable meaning, but that such meaning may be accidental and cannot be relied on, which leaves open how often it is accidental. The proposed alternative framing is labelled speculative and comes with no method for learning the prompt-augmentation function it posits. The false-trust and interpretability results rest on human-subject studies whose sample and task scope are not given in this paper. And the central negative claim -- that no theory draws a causal connection between trace semantics and the solution -- is an argument from the absence of evidence, which the paper acknowledges by framing the whole as a position rather than a result.",
+    "method": "A position paper rather than a new experimental study. It first separates the two families of technique that produced reasoning models -- test-time scaling (generate-and-test, self-consistency, search, verifier feedback) and post-training on <problem, intermediate tokens, solution> triples by supervised fine-tuning or outcome-based RL -- and introduces 'derivational trace' as a neutral stand-in for 'chain of thought'. It then assembles evidence from settings where a trace can be checked mechanically rather than read: transformers trained to imitate A* search on maze path-finding, where the emitted trace can be replayed against A* to test whether it actually leads to the produced plan. The central move is causal: models are trained on traces deliberately corrupted or swapped between instances, and the resulting solution accuracy is compared against models trained on correct traces. Supporting evidence comes from a QA fine-tuning intervention with deliberately incorrect traces, from human-subject studies comparing traces that help the model against traces users find comprehensible, and from a study of what showing traces does to user trust. Scope is stated explicitly: the argument concerns unfiltered intermediate tokens, not post-hoc rationalizations and not tool-call tokens in agentic settings, which must have external semantics.",
+    "methods": [
+      "A* Search",
+      "Supervised Fine-Tuning",
+      "GRPO",
+      "Reinforcement Learning with Verifiable Rewards",
+      "LLM-Modulo",
+      "Self-Consistency",
+      "Monte Carlo Tree Search",
+      "Process Reward Models"
+    ],
+    "models": [
+      "DeepSeek-R1",
+      "DeepSeek-R1-Zero",
+      "OpenAI o1",
+      "GPT-OSS",
+      "Llama",
+      "Qwen",
+      "Searchformer",
+      "Dualformer"
+    ],
+    "one_liner": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+    "problem": "Intermediate token generation reliably improves accuracy on reasoning tasks, and the field has taken that as licence to read the tokens as human-like thought: an interpretable window onto the model's process, a measure of its effort, and a surface a safety monitor can watch. The paper's claim is that no theory connects the semantics of those tokens to the final solution beyond the fact that they change the conditional distribution over solution tokens, and that no evaluation practice establishes the connection either, because few evaluations check the pre-answer tokens for correctness at all. The problem is open because the interpretation is very hard to disprove directly: the traces are fluent English that reads like a person working, so a reader supplies the reasoning the tokens are assumed to contain.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-evaluation": "Attacks two measurements the archive would otherwise build claims on. Trace length is used as a proxy for thinking effort and problem difficulty, and the paper shows the correlation breaking down out of distribution, where a trivial instance draws an enormous derivation. Trace inspection is used as a proxy for solution quality, and the paper notes that few reasoning-model evaluations check pre-answer token correctness at all, so the proxy is rarely tested. Its practical instruction for the archive is to treat any number derived from trace content or trace length as unsupported unless the study verified the trace mechanically.",
+      "reasoning-faithfulness": "This is the topic's own question stated as a thesis: when is a visible trace evidence about the model, and when is it only text. The paper's answer is that a trace is only text unless something outside it verifies the connection, and its causal intervention -- training on traces swapped between instances without losing accuracy -- is the strongest form that argument can take, because it shows the model's competence does not depend on the trace meaning anything. It also supplies the direct warning for trace-based safety monitoring: the authors argue that depending on intermediate tokens for monitoring in safety-critical domains is unwise until there is non-circumstantial evidence that the tokens correspond to internal computation.",
+      "reasoning-interpretability": "Bears on which claims about internal reasoning the available methods can support, from the opposite direction to circuit-level work: it argues that reading the trace -- the cheapest and most widely used interpretability move -- supports almost none of them, and that the 'aha moment' reading in particular ascribes an internal state change to a model that has no such state and whose next forward pass differs only by that token being in context. Useful in the archive as the boundary case for what counts as an intervention: swapping training traces is a causal manipulation, but of the training data rather than of a component.",
+      "reasoning-training": "The training-signal evidence is the empirical core. If a model fine-tuned on traces swapped between instances matches one trained on correct traces, then what the trace supervision contributes is not its content, and the paper suggests it is a consistent pattern for the model to fit itself to. It also argues that RL's apparent teaching of longer reasoning follows from the MDP formulation -- distributing terminal reward uniformly across intermediate tokens short-circuits credit assignment and incentivizes longer sequences -- so lengthening under RL is not evidence of improved reasoning. Both are direct constraints on which training signal can be claimed to produce reasoning that generalizes.",
+      "test-time-scaling": "Speaks to the chain length as a compute knob. The finding that a model trained on complex mazes emits context-exhausting derivations on trivial instances says the tokens spent are not tracking the compute the problem requires, which undercuts the assumption that spending more tokens is buying proportionate search. It also frames the efficient-reasoning line of work -- shortening traces while preserving accuracy -- as better explained by the base model having been over-trained for a particular distribution of problem instances than by the model learning to reason more efficiently."
+    },
+    "results": "The paper argues from figures and reported studies rather than from a numeric results table, and the two central findings are shapes rather than headline numbers. In the maze experiments the relationship between the percentage of swapped training traces and inference-time plan accuracy is U-shaped: accuracy is high both with fully correct traces and with fully swapped ones, dipping only when the training mix is partly corrupted -- while trace validity among valid plans falls away sharply as the swapped fraction rises. Correlation between trace validity and solution correctness is reported as loose in distribution and worse out of it. Post-training with GRPO improves solution accuracy without necessarily improving the semantic validity of the traces, which the paper notes should be unsurprising because outcome-based rewards score only the answer. In the QA setting, fine-tuning on incorrect intermediate traces outperformed fine-tuning on correct ones, and correct final solutions frequently followed incorrect traces. On length, a transformer trained on complex Wilson mazes fails on trivial 'no-maze' instances that require almost no search, and emits extremely long derivations there, in many cases exhausting the context window. Human-subject work is reported as a decoupling: DeepSeek R1's long meandering traces produced the best distilled solution accuracy while scoring lowest on user preference for interpretability, faithfulness and predictability, and the verifiable traces users found most comprehensible did not yield comparable accuracy. Showing traces or their summaries increased user trust regardless of correctness, making users more likely to accept incorrect answers. Finally, retraining R1-Zero into R1 to suppress mixed English/Chinese traces cost solution accuracy without any measured improvement in trace validity.",
+    "tags": [
+      "position paper",
+      "intermediate tokens",
+      "chain of thought",
+      "anthropomorphism",
+      "trace validity",
+      "false trust",
+      "monitorability",
+      "maze planning"
+    ],
+    "topics": [
+      "reasoning-faithfulness",
+      "reasoning-interpretability",
+      "reasoning-training",
+      "reasoning-evaluation",
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__local-e62f069bc5144f28",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

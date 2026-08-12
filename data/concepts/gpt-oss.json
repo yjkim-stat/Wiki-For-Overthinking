@@ -1,17 +1,27 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "gpt-oss",
+    "gpt-oss-120b",
+    "gpt-oss-20b"
+  ],
+  "definition": "OpenAI's open-weight reasoning models, used in the archive as an object of study rather than as a tool. Both sources treat it as evidence about how vendors expose reasoning: its model card describes a response format with separate analysis, commentary and final channels, where the analysis channel corresponds to the intermediate tokens and the production models surface only a summary, which the position paper reads as frontier labs in practice declining to show unfiltered intermediate tokens. ReasonIF evaluates it behaviourally and finds it, like the other reasoning models tested, largely failing to follow instructions that apply inside its own reasoning trace.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1456",
       "kind": "paper",
       "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
       "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
     }
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "GPT-OSS",
   "related": [
     "instruction-following",
@@ -27,11 +37,44 @@
     "synthetic-data-generation",
     "gpt-oss-20b",
     "qwen3",
-    "deepseek-r1"
+    "deepseek-r1",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "test-time-scaling",
+    "a-search",
+    "supervised-fine-tuning",
+    "grpo",
+    "reinforcement-learning-with-verifiable-rewards",
+    "llm-modulo",
+    "self-consistency",
+    "monte-carlo-tree-search",
+    "process-reward-models",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "llama",
+    "qwen",
+    "searchformer",
+    "dualformer"
+  ],
+  "related_authored": [
+    "deepseek-r1",
+    "chain-of-thought-monitorability"
   ],
   "schema_version": 1,
   "slug": "gpt-oss",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

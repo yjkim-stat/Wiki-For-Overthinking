@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
       "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation"
+    },
+    {
+      "id": "local:85a70e78b4a93190",
+      "kind": "paper",
+      "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+      "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability"
     }
   ],
   "first_seen": "2026-08-09T06:51:53Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "LoRA",
   "related": [
     "reasoning-redundancy",
@@ -43,12 +49,46 @@
     "natural-reasoning",
     "llama-3-1-8b-instruct",
     "qwen2-5",
-    "gemini-2-5-flash"
+    "gemini-2-5-flash",
+    "normalized-net-displacement",
+    "average-trajectory-curvature",
+    "topological-divergence-of-reasoning-quality",
+    "hesitation-loop",
+    "certainty-accumulation",
+    "kinematic-scaling-law-of-reasoning",
+    "semantic-whitening",
+    "induced-metric-tensor",
+    "reasoning-quality-subspace",
+    "cognitive-state-transition",
+    "traced",
+    "traced-grpo",
+    "grpo",
+    "gaussian-discriminant-analysis",
+    "linear-probe",
+    "saplma",
+    "chain-of-embedding",
+    "cot-kinetics",
+    "bootstrap-confidence-interval",
+    "math",
+    "theoremqa",
+    "gpqa",
+    "social-iqa",
+    "understanding-fables",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-4b-thinking-2507",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-0-5b",
+    "qwen2-5-1-5b",
+    "llama-3-70b-instruct",
+    "gpt-4o"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "lora",
   "topics": [
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }

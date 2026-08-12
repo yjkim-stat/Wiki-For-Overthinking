@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Reasoning Faithfulness</h1>
 <p class="subtitle">The gap between a model&#x27;s stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.</p>
-<p>2026-08-12 · 25 archived source(s)</p>
+<p>2026-08-12 · 27 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -115,7 +115,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Where the field stands</h2>
 <ul>
-<li><strong>2026</strong> — 16 paper(s)</li>
+<li><strong>2026</strong> — 18 paper(s)</li>
 <li><strong>2025</strong> — 6 paper(s)</li>
 <li><strong>2024</strong> — 1 paper(s)</li>
 <li><strong>2023</strong> — 2 paper(s)</li>
@@ -227,19 +227,19 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The methodological complement to the biasing-based test in this archive: instead of adding a cue to the input and watching the explanation omit it, this intervenes on the trace itself and watches the answer fail to move. That makes faithfulness a measurable quantity per task rather than a binary property, and the finding that it varies from heavy reliance to near-disregard is the reason this topic asks &#x27;when is the trace evidence&#x27; rather than &#x27;is the trace evidence&#x27;. The inverse-scaling result is the most consequential claim for the group: if faithfulness degrades as capability grows, monitoring approaches that depend on readable traces get weaker exactly where they matter most. It also directly rules out the deflationary explanation that CoT works purely as extra computation, which matters for the test-time-scaling literature next door.</p>
 </section>
 <section class="slide">
-<h2>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</h2>
-<p class="subtitle">Benjamin Shih, John Winnicki, Eric Darve · preprint · 2026</p>
+<h2>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</h2>
+<p class="subtitle">Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach · COLM · 2026</p>
 <blockquote>
-<p>Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning &#x27;does the model use its scratchpad?&#x27; into a causal test with a single correct answer.</p>
+<p>Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.</p>
 </blockquote>
 <ul>
-<li>A causal target with a known right answer: because the task&#x27;s transition rule is fully specified, editing the represented state has exactly one rule-consistent downstream consequence, so the patch is scored on whether the next state follows the edited value rather than on whether anything changed.</li>
-<li>A controlled state-tracking task built so the discriminating variable is order-sensitive and invisible: states are a visible grid coordinate plus a phase bit that the coordinate does not determine, letting an edit change only the order-sensitive part while the printed prefix stays identical.</li>
-<li>A three-condition comparison isolating the training signal — pretrained base, final-answer-only fine-tuned, and running-state fine-tuned — showing causal usability is created by supervision rather than present by default.</li>
-<li>Two selectivity controls that rule out the cheap explanations: a move-swap control testing whether the model combines the edited state with the supplied move rather than emitting a fixed answer, and a conflicting-continuation control testing whether it recomputes rather than copying another example&#x27;s future.</li>
+<li>Gives superposition a testable definition -- a hidden state encoding a distribution over multiple candidate continuations -- and separates forced superposition, built at the input as a convex combination of embeddings, from learned superposition that emerges from training on a task rewarding parallel exploration.</li>
+<li>Shows that off-the-shelf models process superposed inputs almost exactly as they process the discrete argmax token: entropy profiles across layers coincide, KL divergence between the two falls to about 1e-4 in the middle layers, and representations have cosine similarity above 0.99.</li>
+<li>Shows by causal intervention that a fine-tuned latent reasoner does not need its latent tokens at all, and by entity probing that it has found a shortcut: the target entity dominates its belief from the first latent step, with no step-by-step progression.</li>
+<li>Shows that models trained from scratch with latent thoughts do use them -- removing the latents costs up to 80 accuracy points -- and that their belief distributions retain probability on alternative next entities, which is the signature the hypothesis predicts.</li>
 </ul>
-<p><strong>Results.</strong> In Qwen2.5-Coder-7B, the running-state model&#x27;s next phase bit follows the edited state on 80% of held-out Q8 examples and 91% of D8, while pretrained and final-answer-only controls stay near baseline and same-rank random or orthogonal-complement patches give about 0.02 agreement. The selectivity controls hold: the move-specific gap is +0.57 (Q8) and +0.68 (D8), so the model combines the edited state with the supplied move rather than emitting a fixed answer; the conflicting-continuation gap is +0.59 and +0.81, with the model following the current move on 80% of Q8 items and the injected future on 20%, so it recomputes rather than copying. Overall use, against random and orthogonal alternatives, is +0.78 and +0.89. Replacing the whole residual stream at the site has a comparable effect to the low-rank patch, indicating the causal information sits in a compact subspace. When the model generates its own prefix rather than receiving one, the evidence weakens and splits by task: in D8 one-step use is 0.90, the edited branch persists across the next three phase bits at about 0.86, and the final answer agrees with the edited branch on 0.84, while in Q8 one-step use falls to 0.66 with final-answer agreement 0.72 — and the prefix filter retains only 0.46 of Q8 rollouts against 0.77 of D8. The pattern replicates in Mistral-7B-v0.3, where the running-state condition reaches 0.93 and 0.94 edited-state agreement with move-specific selectivity 0.85 and 0.84 and conflicting-continuation selectivity 0.85 and 0.89, and the two control conditions remain near chance. Mechanism: the effect reaches full strength at rank 1 in Q8 and rank 2 in D8. In Q8 most of it flows through a single attention connection from the current phase-bit token to the position predicting the next phase bit at layer 22 — ablating it removes 94% of counterfactual-update selectivity (0.59 to 0.04) and restoring it recovers the full value, while ablating a matched connection from the visible-coordinate token does not. In D8 no single connection explains the update; the strongest removes about 24%, and a pre-registered four-connection route removes a mean of 68.7% (95% CI 66.9-70.4).</p>
-<p><strong>Why it matters.</strong> The paper this archive was missing, and it raises the topic&#x27;s standard of evidence. Every other faithfulness result here asks whether the trace reports an influence (cue injection), whether the answer depends on the trace at all (perturbation), or where the answer forms (truncation and probing). This asks the strictest version — is the written value a variable the model computes from — and it can ask that because the transition rule fixes exactly one correct downstream consequence, so a patch either produces the rule-implied next state or it does not. That converts the usual &#x27;did the output change&#x27; patching criterion into a test that generic steering cannot pass, which is exactly the methodological gap the archive&#x27;s activation-patching sensitivity paper warns about. It also separates three things this topic keeps conflating: written, represented, and used. The archive&#x27;s step-level probing result establishes that step correctness is represented; this establishes that a represented state can additionally be used, and that whether it is depends on supervision. The honest boundary is that it holds on a synthetic one-bit state, so it is a proof of possibility rather than a claim about chain-of-thought in the wild.</p>
+<p><strong>Results.</strong> For off-the-shelf models -- QwQ-32B, Qwen2-1.5B and DeepSeek-R1-Distill-Llama-70B on MATH500, AIME2024 and a GSM8K subset -- Soft Thinking is functionally indistinguishable from discrete decoding: layer-wise entropy profiles coincide, KL divergence between soft and discrete states reaches about 1e-4 in middle layers and at most 1e-1 at the extremes, and cosine similarity between the two representations is 0.998 plus or minus 0.013 on Qwen2-1.5B and 0.996 plus or minus 0.025 on QwQ-32B. The mixing weights are themselves near-degenerate, at 0.10 and 0.18 nats of entropy, so there is little superposition in the input to begin with. In the fine-tuned regime on ProsQA, deleting every latent token changes accuracy by at most 1.0 point across GPT-2 and three SmolLM2 sizes -- 99.0 to 99.0 for GPT-2, 93.3 to 92.3 for SmolLM2-135M -- and entity probing shows why: under Coconut the final target entity dominates the belief distribution from step 0 with no progression, whereas the discrete CoT baseline shows correct-next dominating early and the target taking over only at the last step. The model obtains the answer in one forward pass and copies it through the latent positions. This happens on a task explicitly constructed to require parallel exploration. From-scratch models behave oppositely: removing latents drops a 2-layer model from 94.5 to 13.8 and an 8-layer model from 95.2 to 53.0, and their belief distributions keep substantial mass on wrong-neighbour entities during intermediate steps, which is the predicted signature. On mechanism, Pythia-1B collapses the entropy of a uniform k-token mixture in its final layers for every k tested, while the same architecture with random weights holds entropy near maximum, and the collapse deepens monotonically over pretraining checkpoints from 10M to 100B tokens; fine-tuning does not undo it. At matched parameter count near 15M, a 2-layer 768-dimensional model reaches 96.0 plus or minus 0.9 with latents against 30.9 without, while a 12-layer 320-dimensional model reaches only 72.4 with latents and 70.0 without -- depth barely separates the two conditions. Below a critical embedding width, adding depth tops out at 68.3 percent where wider models exceed 90.</p>
+<p><strong>Why it matters.</strong> The archive&#x27;s faithfulness question is when a visible trace is evidence about the model rather than only text; this is its exact counterpart for reasoning that is latent rather than written, and the answer is sharper because the latents can be deleted. A fine-tuned latent reasoner whose accuracy is unchanged when every latent token is removed has a reasoning trace that is not doing the reasoning -- the strongest form of unfaithfulness available, since it is established causally rather than by correlation. The entity-belief signature is the transferable instrument: a genuine multi-hop computation moves belief from correct-next to target across steps, while a shortcut shows the target dominant from step 0, which distinguishes computing from copying in any setting where intermediate states can be probed.</p>
 </section>
 <section class="slide">
 <h2>Recurring ideas</h2>
@@ -255,8 +255,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Methods</h2>
 <ul>
-<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>GRPO</strong> — Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own gro...</li>
+<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
 <li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
@@ -281,19 +281,19 @@ th { background: var(--surface); }
 <li><strong>Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?</strong> — No quantitative results in the abstract. Hint-reliance is one proxy target, and a negative result about reasoning mode on this target need not transfer to ot...</li>
 <li><strong>Reasoning Traces Shape Outputs but Models Won&amp;apos;t Say So</strong> — Three models, unnamed in the abstract. Injected snippets are synthetic, so the influence is not one the model generated itself and non-disclosure of an exter...</li>
 <li><strong>SeLaR: Selective Latent Reasoning in Large Language Models</strong> — No quantitative results, benchmarks or models in the abstract. The entropy gate introduces a threshold whose sensitivity is unreported, and the archive&#x27;s ent...</li>
+<li><strong>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</strong> — The authors name three: other latent-reasoning families are untested, including RL-trained continuous chains and recurrent or looped-layer architectures; the...</li>
 <li><strong>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</strong> — The paper has no limitations section, though its conclusion is explicit that the next step is richer domains and names program states, theorem-prover goals,...</li>
-<li><strong>Local Causal Attribution of Chain-of-Thought Reasoning</strong> — The paper&#x27;s stated limitations are the limited expressiveness of linear structural equations and the simplicity of the default leave-one-out intervention, wi...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Local Causal Attribution of Chain-of-Thought Reasoning</strong> — The paper&#x27;s stated limitations are the limited expressiveness of linear structural equations and the simplicity of the default leave-one-out intervention, wi...</li>
 <li><strong>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</strong> — The paper&#x27;s own: analysis is mainly on mathematical reasoning where correctness is verifiable, with extension to other closed-world tasks and the open-world...</li>
 <li><strong>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</strong> — The paper&#x27;s limitations section is unusually complete and worth reading in full. Attribution relies on greedy decoding from each truncated prefix plus an ans...</li>
 <li><strong>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</strong> — The paper has no limitations section. Several things a reader should weigh. The claim that token-level SAE features are no better than naive baselines is con...</li>
+<li><strong>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</strong> — No new experiments are run here; the evidence is collated, and the load-bearing studies are the authors&#x27; own group&#x27;s. The strongest causal results come from...</li>
 <li><strong>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</strong> — The paper&#x27;s own: the design favours tractability over exhaustiveness — single-turn, temperature-0 question answering, lightweight judge models for grading, a...</li>
-<li><strong>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</strong> — No limitations section appears in the material read. Points a reader should weigh: the task is basic arithmetic on small operands, which is the setting most...</li>
-<li><strong>Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning</strong> — The paper has no limitations section; it goes from conclusion to references. Points a reader should weigh. Mutual information is estimated with HSIC against...</li>
 </ul>
 </section>
 <section class="slide">
@@ -306,25 +306,27 @@ th { background: var(--surface); }
 <li>Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. <em>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</em>. preprint. 2025</li>
 <li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
-<li>Benjamin Shih, John Winnicki, Eric Darve. <em>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</em>. preprint. 2026</li>
+<li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Benjamin Shih, John Winnicki, Eric Darve. <em>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</em>. preprint. 2026</li>
 <li>Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. <em>Local Causal Attribution of Chain-of-Thought Reasoning</em>. Mechanistic Interpretability Workshop at ICML 2026. 2026</li>
 <li>Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. <em>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</em>. preprint. 2026</li>
 <li>Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. <em>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</em>. preprint. 2026</li>
 <li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
+<li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 <li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
 <li>Chen Qian, Dongrui Liu, Haochen Wen et al.. <em>Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning</em>. preprint. 2025</li>
-<li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
-<li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
+<li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
 <li>Xumeng Wen, Zihan Liu, Shun Zheng et al.. <em>Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs</em>. preprint. 2025</li>
 <li><em>Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization</em>. NeurIPS 2024. 2024</li>
 </ul>

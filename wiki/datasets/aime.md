@@ -9,7 +9,7 @@ The American Invitational Mathematics Examination, used in the archive as a comp
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [GSM8K](gsm8k.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [reasoning distillation](../methods/reasoning-distillation.md), [reasoning redundancy](../concepts/reasoning-redundancy.md), [routing](../concepts/routing.md), [self-verification](../concepts/self-verification.md), [token selection](../concepts/token-selection.md), [verification](../concepts/verification.md)
+**Related**: [chain of thought](../methods/chain-of-thought.md), [chain of thought distillation](../methods/chain-of-thought-distillation.md), [GSM8K](gsm8k.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [reasoning distillation](../methods/reasoning-distillation.md), [reasoning redundancy](../concepts/reasoning-redundancy.md), [routing](../concepts/routing.md), [self-verification](../concepts/self-verification.md), [token selection](../concepts/token-selection.md), [verification](../concepts/verification.md)
 
 ## Appears in
 

@@ -1,0 +1,161 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-fc7e2641eda52776.pdf"
+  },
+  "completed_at": "2026-08-12T11:22:54Z",
+  "created_at": "2026-08-12T11:12:23Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:fc7e2641eda52776",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "LLM Reasoning as Trajectories, Step Specific Representation Geometry and Correctness Signals",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "This work characterizes large language models' chain-of-thought generation as a structured trajectory through representation space. We show that mathematical reasoning traverses functionally ordered, step-specific subspaces that become increasingly separable with layer depth. This structure already exists in base models, while reasoning training primarily accelerates convergence toward termination-related subspaces rather than introducing new representational structure. While early reasoning steps follow similar trajectories, correct and incorrect solutions diverge systematically at late stages. This late-stage divergence enables mid-reasoning prediction of final-answer correctness with ROC-AUC up to 0.87. Furthermore, we introduce trajectory-based steering, an inference-time intervention framework that enables reasoning correction and length control based on derived ideal trajectories. Together, these results establish reasoning trajectories as a geometric lens for interpreting, predicting, and controlling LLM reasoning behavior.",
+      "arxiv_id": "2604.05655",
+      "authors": [
+        "Lihao Sun",
+        "Hang Dong",
+        "Bo Qiao",
+        "Qingwei Lin",
+        "Dongmei Zhang",
+        "Saravan Rajmohan"
+      ],
+      "doi": "",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "Step-Specific Subspace",
+      "Reasoning Trajectory",
+      "Termination Subspace",
+      "Ideal Reasoning Trajectory",
+      "Trajectory Divergence",
+      "Mid-Reasoning Correctness Prediction",
+      "Error-Targeted Intervention",
+      "Trajectory-Based Steering",
+      "Reasoning Length Control",
+      "Linear Representation Hypothesis"
+    ],
+    "contributions": [
+      "Shows that activations immediately preceding each explicit step marker occupy step-specific, linearly separable regions of representation space, with separability increasing with layer depth, and that the separation is by step index rather than by the imminence of a marker.",
+      "Compares three training regimes on one model family and finds the step structure already present in the base model, with reasoning distillation accelerating the layer depth at which termination-related structure becomes linearly salient rather than creating new structure.",
+      "Establishes that early-step transitions are correctness-invariant while late-step transitions diverge systematically, and turns the late-step geometry into a mid-reasoning correctness predictor that fires before the answer is emitted.",
+      "Demonstrates that unconditional test-time scaling by token injection is actively harmful on GSM8K, and that gating the same interventions on the correctness predictor converts large losses into small gains.",
+      "Introduces trajectory-based steering: an ideal trajectory estimated as the step-wise mean of correct chains, with a low-rank correction applied whenever the running chain's deviation exceeds a per-step threshold.",
+      "Uses the termination-related subspace as a continuous control axis for reasoning length, in both directions, and reports where that control breaks down."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH-500",
+      "MMLU"
+    ],
+    "limitations": "The authors name three: only math and multiple-choice benchmarks, so whether the same geometry appears in open-ended reasoning, multi-hop QA or program synthesis is open; everything is one model family at one scale, Llama 3.1 8B, so cross-family and cross-scale behaviour is unverified; and the ideal trajectory is estimated from correct training examples, which assumes correctness is well specified. Three more follow from the numbers. The two-level split they report is the sharpest caveat on their own framing -- structural geometry transfers, correctness geometry does not, and a predictor that falls to 0.60 on the same dataset in freeform format is not deployable as-is, which limits the gating story to settings where a calibration set exists. The intervention gains are modest and bought against a low bar: the comparison is against unconditional injection, which is strongly negative, so \"up to +35.41 relative to always-on\" is mostly the cost of not intervening; against baseline the gated gains are around a point. And the correction mechanism is weak in absolute terms, repairing under a third of flagged errors while breaking a sixth as many correct chains, which the authors state plainly. Generation is greedy throughout, so reported variance comes only from classifier training, and the step-count stratification that carries the steering result has few problems in the eight-step bin, where the effect reverses.",
+    "method": "A fixed zero-shot prompt forces each reasoning step to begin with an explicit marker and the answer to follow a termination marker, so step boundaries are readable from the text. Hidden states are extracted at the token immediately preceding each step marker and immediately preceding the answer marker, giving an ordered sequence of snapshots of the chain. Extraction is a two-pass procedure: generate with KV caching, then re-run one forward pass over prompt plus generation with hidden states on, which causal masking makes identical to the states seen during generation. Structure is tested with per-step one-versus-rest logistic probes at every layer, with t-SNE for visualization and shuffled step labels as a control, and with cross-model probe transfer to ask whether the organization is shared across training regimes. Correctness is analysed by grouping chains on final-answer correctness and measuring Euclidean and cosine distances between consecutive step activations, then training an L2-regularized logistic classifier on late-step trajectory features to predict correctness before the answer is emitted. Two intervention families are then gated on that predictor: token injection to prolong reasoning, and activation steering along a direction computed in-sample as the mean difference between termination-preceding and step-preceding activations. Trajectory-based steering estimates an ideal path as the step-wise mean of correct-chain activations in a 128-dimensional PCA space with a dispersion statistic per step, and applies a rank-32 update toward that mean whenever local or cumulative deviation crosses a threshold tuned on held-out data.",
+    "methods": [
+      "Linear Probe",
+      "Activation Steering",
+      "Logit Lens",
+      "Principal Component Analysis",
+      "t-SNE",
+      "Low-Rank Steering Update",
+      "Centered Kernel Alignment",
+      "Chain-of-Thought Distillation",
+      "Test-Time Scaling"
+    ],
+    "models": [
+      "Llama-3.1-8B",
+      "Llama-3.1-8B-Instruct",
+      "DeepSeek-R1-Distill-Llama-8B"
+    ],
+    "one_liner": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+    "problem": "Chain-of-thought is usually studied behaviourally -- accuracy gains, faithfulness tests -- or through static probes on a single hidden state. Neither says whether the sequence of reasoning steps is organized in representation space, so there is no account of where a model is in its own reasoning, no signal for whether a chain is going wrong while it is still running, and no principled place to intervene. Inference-time interventions inherit that gap: applied unconditionally they damage chains that were already correct, because nothing tells them which chains need help.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-evaluation": "Two measurements to trust and one not to. Step count alone predicts correctness at 0.649, so chain length carries real but weak signal and any claim resting on length should be read against that floor; logit-level features reach 0.765; trajectory features 0.852, and the gap survives length-balanced resampling, which is the control that matters. Against that, the correctness predictor's collapse across tasks and formats -- 0.87 in distribution to 0.60 on the same dataset in freeform -- is a direct warning that an internal-signal detector validated on one benchmark says little about another, and should be applied to every hidden-state correctness result the archive holds.",
+      "reasoning-interpretability": "A trajectory-level account that is unusually careful about the artifact objection, and that is the part worth carrying. Step-index separability could trivially mean \"a marker is about to be emitted\"; the paper rules that out with shuffled-label controls at 0.59, with separation by step number rather than by marker proximity, and with transfer to freeform text containing no markers at all. It also gives a clean answer to what reasoning distillation changes representationally -- the depth at which termination structure becomes linearly accessible, not the existence of step structure -- which is a more specific claim than most training-regime comparisons support. The authors are explicit that this is representation-level and that connecting it to circuits remains open.",
+      "reasoning-training": "Bears on what distillation of reasoning traces actually installs. Holding dataset, prompt and decoding fixed across Base, Instruct and R1-Distill, the step-specific structure is already in the base model and transfers across regimes at above 0.90, so distillation is not creating the representational organization that reasoning uses. What it does is move termination-related structure earlier in depth, and it does so while making intermediate steps somewhat *less* separable. Read against the training question -- which signal produces reasoning that generalizes -- this is evidence that trace distillation reshapes when the model commits rather than teaching a new decomposition.",
+      "test-time-scaling": "The strongest result in the archive so far against unconditional test-time scaling: injecting reflection tokens into every chain costs up to 36 points on GSM8K, because it perturbs chains that were already correct. That reframes the accuracy-versus-tokens curve as conditional -- more thinking is not a knob with a monotone effect but an intervention with collateral damage, and the question becomes which chains to spend it on. The paper's answer, gate on a mid-reasoning correctness signal and intervene on about 12 percent, is a template the archive should compare other efficient-reasoning work against. The separate length-control result gives a continuous knob with a stated breakdown point where the model degenerates into loops."
+    },
+    "results": "On Llama 3.1 8B in three regimes -- Base, Instruct, and an R1 chain-of-thought-distilled variant -- with GSM8K, MATH-500 and MMLU. Step identity is almost perfectly linearly decodable: Step 1 above 0.99 at every layer for all models, Step 2 reaching that by layer 2, while Step 5 climbs from 0.58 (Base) to 0.77 (R1-Distill) at layer 0 and passes 0.90 only after layer 6. Probes trained on shuffled step labels reach 0.59, and cross-model transfer stays above 0.90 for nearly every pair, so the organization is shared across training regimes. The distillation effect is specific: final-answer-marker probes hit 0.99 at layer 0 for R1-Distill against 0.80 for Instruct and 0.93 for Base, while R1-Distill is consistently *less* separable on intermediate steps 3 to 5 -- reasoning training accelerates termination structure rather than strengthening step structure uniformly. Structure is not a formatting artifact: under a minimal prompt the Instruct model adopts step formatting unprompted in 64.5 percent of responses, and fixed-form probes transfer to freeform activations at 0.83 to 0.93 across steps, including above 0.84 on responses with no step markers at all, despite activation similarity of only about 0.41 cosine. On correctness, the Step 1 to Step 2 transition shows no significant difference between correct and incorrect chains (Euclidean delta -0.28), while the second-last to last transition differs by -4.26 and the last to answer-marker transition by -13.39. Late-step trajectory features predict correctness at average AUC 0.83 with a peak of 0.87 at layer 29, against 0.63 for early-step features; against baselines, step count alone reaches 0.649, logit-lens features 0.765, and trajectory features 0.852, holding at 0.847 under length-balanced resampling. Unconditional intervention is damaging -- injecting \"Hmm\" costs 36.00 points of accuracy, \"Wait\" 30.50, \"Check\" 11.70, and even a style-native \"Step\" 1.59 -- whereas gating on the predictor fires on 12.3 percent of examples and turns those into +0.91 for Step and roughly break-even for the others, a swing of up to +35.41 relative to always-on. The correction is real but partial: step injection fixes 26 of 90 flagged incorrect chains while flipping 14 correct ones. Trajectory steering helps exactly where the analysis predicts, on long chains: +7.60 points on six-step problems and +7.69 on seven-step, with preservation rates at or above 97 percent, near-zero change at five steps or fewer, and -3.23 at eight steps. Structural geometry transfers across tasks -- GSM8K-trained step probes score at or above 0.85 on MATH-500 and MMLU, and GSM8K steering vectors lift MATH-500 from 36.40 to 38.20 without retuning -- but the correctness predictor does not, falling from 0.87 in distribution to 0.73 on MATH-500, 0.64 on MMLU and 0.60 on freeform GSM8K. Length is continuously controllable up to a steering strength of about 0.8, with roughly 1 percent accuracy change below 0.4, beyond which the model collapses into repetitive loops. Steering at step boundaries costs about 105 microseconds per problem against 3,371 for per-token injection.",
+    "tags": [
+      "representation geometry",
+      "step boundaries",
+      "linear probe",
+      "activation steering",
+      "correctness prediction",
+      "overthinking",
+      "length control"
+    ],
+    "topics": [
+      "reasoning-interpretability",
+      "test-time-scaling",
+      "reasoning-training",
+      "reasoning-evaluation"
+    ]
+  },
+  "task_id": "paper__local-fc7e2641eda52776",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -9,7 +9,7 @@ Whether a model does what it is told, treated by both sources as a property dist
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [alignment](alignment.md), [alignment tax](alignment-tax.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [instruction following](instruction-following.md), [monitorability](monitorability.md), [multi-turn reasoning](../methods/multi-turn-reasoning.md), [reinforcement learning post-training](../methods/reinforcement-learning-post-training.md), [reward hacking](reward-hacking.md), [synthetic data generation](../methods/synthetic-data-generation.md)
+**Related**: [alignment](alignment.md), [alignment tax](alignment-tax.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPT-OSS](../models/gpt-oss.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [instruction following](instruction-following.md), [monitorability](monitorability.md), [multi-turn reasoning](../methods/multi-turn-reasoning.md), [reinforcement learning post-training](../methods/reinforcement-learning-post-training.md), [reward hacking](reward-hacking.md), [synthetic data generation](../methods/synthetic-data-generation.md)
 
 ## Appears in
 

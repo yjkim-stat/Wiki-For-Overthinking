@@ -28,11 +28,17 @@
       "kind": "paper",
       "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
       "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "Llama-3.1-8B",
   "related": [
     "reasoning-trajectory",
@@ -131,8 +137,27 @@
     "mathvista",
     "mathvision",
     "qwen2-5-7b",
-    "qwen2-5-vl-7b"
+    "qwen2-5-vl-7b",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "linear-probe",
+    "activation-steering",
+    "logit-lens",
+    "principal-component-analysis",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "math-500",
+    "llama-3-1-8b-instruct"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "llama-3-1-8b",
   "topics": [

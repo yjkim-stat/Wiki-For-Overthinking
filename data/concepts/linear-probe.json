@@ -2,7 +2,8 @@
   "aliases": [
     "probe",
     "linear probing",
-    "probing classifier"
+    "probing classifier",
+    "Linear Probe"
   ],
   "definition": "A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five sources. The sources agree it works and disagree about what it measures. Two argue that probing static single-layer activations lets the probe learn surface lexical patterns rather than reasoning structure, and use cross-layer displacement instead; one restores restricted location information because displacement discards the originating state. One detects sycophantic commitment at 74-85% balanced accuracy, beating text-only baselines only at high commitment. One separates recoverability from influence — a concept can be linearly recoverable without affecting the output — and finds sparse autoencoders improve the first while attenuating the second.",
   "evidence": [
@@ -35,11 +36,23 @@
       "kind": "paper",
       "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
       "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models"
+    },
+    {
+      "id": "local:85a70e78b4a93190",
+      "kind": "paper",
+      "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+      "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "linear probe",
   "related": [
     "monitorability",
@@ -83,14 +96,69 @@
     "regression-on-activations",
     "llama",
     "qwen",
-    "falcon-hybrid"
+    "falcon-hybrid",
+    "normalized-net-displacement",
+    "average-trajectory-curvature",
+    "topological-divergence-of-reasoning-quality",
+    "hesitation-loop",
+    "certainty-accumulation",
+    "kinematic-scaling-law-of-reasoning",
+    "semantic-whitening",
+    "induced-metric-tensor",
+    "reasoning-quality-subspace",
+    "cognitive-state-transition",
+    "traced",
+    "traced-grpo",
+    "grpo",
+    "gaussian-discriminant-analysis",
+    "saplma",
+    "chain-of-embedding",
+    "cot-kinetics",
+    "lora",
+    "bootstrap-confidence-interval",
+    "gsm8k",
+    "math",
+    "theoremqa",
+    "gpqa",
+    "social-iqa",
+    "understanding-fables",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-4b-thinking-2507",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-0-5b",
+    "qwen2-5-1-5b",
+    "llama-3-70b-instruct",
+    "gpt-4o",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "activation-steering",
+    "logit-lens",
+    "principal-component-analysis",
+    "t-sne",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "test-time-scaling",
+    "math-500",
+    "mmlu",
+    "llama-3-1-8b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "linear-probe",
   "topics": [
     "reasoning-faithfulness",
     "reasoning-evaluation",
     "reasoning-interpretability",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

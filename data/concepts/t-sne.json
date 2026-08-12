@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
       "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "t-SNE",
   "related": [
     "reasoning-trajectory",
@@ -39,11 +45,36 @@
     "llama-3-2-3b",
     "llama-3-1-8b",
     "llama-3-1-70b",
-    "qwq-32b"
+    "qwq-32b",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "linear-probe",
+    "activation-steering",
+    "logit-lens",
+    "principal-component-analysis",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "test-time-scaling",
+    "gsm8k",
+    "math-500",
+    "llama-3-1-8b-instruct",
+    "deepseek-r1-distill-llama-8b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "t-sne",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

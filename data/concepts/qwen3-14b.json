@@ -33,11 +33,17 @@
       "kind": "paper",
       "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
       "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models"
+    },
+    {
+      "id": "local:f92e5f936a3c7422",
+      "kind": "paper",
+      "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+      "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "Qwen3-14B",
   "related": [
     "predictive-entropy",
@@ -150,14 +156,48 @@
     "fixed-percentage-truncation",
     "zebralogic",
     "gpt-oss-20b",
-    "gemma-4-26b-a4b-it"
+    "gemma-4-26b-a4b-it",
+    "reasoning-intensity",
+    "layer-wise-reasoning-dynamics",
+    "hidden-state-l2-norm",
+    "differential-feature-activation",
+    "norm-peak-detection",
+    "endogenous-reasoning-signal",
+    "representational-energy",
+    "sparse-autoencoder",
+    "adaptive-layer-wise-reasoning-recursion",
+    "endogenous-reasoning-state-steering",
+    "l2-guided-response-selection",
+    "activation-steering",
+    "spearman-correlation",
+    "interquartile-range-outlier-detection",
+    "deepconf",
+    "aime-2024",
+    "aime-2025",
+    "gsm-plus",
+    "bbh",
+    "gpqa",
+    "mmlu-pro",
+    "hellaswag",
+    "ifeval",
+    "nq-open",
+    "pubmedqa",
+    "truthfulqa",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "phi-4-reasoning",
+    "gemma-3-4b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-14b",
   "topics": [
     "reasoning-training",
     "test-time-scaling",
     "reasoning-faithfulness",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }

@@ -31,11 +31,17 @@
       "kind": "paper",
       "note": "Routes each query to a {model, reasoning budget} configuration by fitting an item response theory model over an evaluation matrix, yielding interpretable query difficulties and configuration abilities, and sending harder queries to higher-ability configurations.",
       "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "MMLU",
   "related": [
     "reasoning-trajectory",
@@ -130,8 +136,29 @@
     "calibration",
     "radar",
     "adaptive-query-selection",
-    "livecodebench"
+    "livecodebench",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "linear-probe",
+    "logit-lens",
+    "principal-component-analysis",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "test-time-scaling",
+    "gsm8k",
+    "math-500",
+    "llama-3-1-8b-instruct",
+    "deepseek-r1-distill-llama-8b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "mmlu",
   "topics": [

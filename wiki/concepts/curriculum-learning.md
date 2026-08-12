@@ -9,7 +9,7 @@ Ordering training so that a target is approached in stages, which both sources f
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [compounding error](compounding-error.md), [effective depth](effective-depth.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [information bottleneck](information-bottleneck.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [parity](../datasets/parity.md), [sample complexity](sample-complexity.md), [self-consistency](../methods/self-consistency.md), [test-time compute](test-time-compute.md)
+**Related**: [chain of thought](../methods/chain-of-thought.md), [Coconut](../methods/coconut.md), [compounding error](compounding-error.md), [effective depth](effective-depth.md), [GPT-2](../models/gpt-2.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [information bottleneck](information-bottleneck.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [parity](../datasets/parity.md), [ProntoQA](../datasets/prontoqa.md), [ProsQA](../datasets/prosqa.md), [sample complexity](sample-complexity.md), [self-consistency](../methods/self-consistency.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

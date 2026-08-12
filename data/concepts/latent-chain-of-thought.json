@@ -3,7 +3,8 @@
     "latent chain-of-thought",
     "latent CoT",
     "continuous chain of thought",
-    "soft chain of thought"
+    "soft chain of thought",
+    "Latent Chain-of-Thought"
   ],
   "definition": "Replacing the discrete tokens of a reasoning trace with continuous states — soft embeddings or hidden states — to cut inference cost or escape the expressiveness limits of token sampling. The sources disagree about what it costs. One asks whether it destroys monitorability and finds task properties and internals access matter more than reasoning mode. Another reports two concrete failure modes, global activation perturbing high-confidence steps and soft embeddings collapsing toward the top token, and gates latent reasoning to low-confidence steps only. A third explains the pattern by identifying decisional certainty as the governing variable, formalized as a Symbolic Index: latent reasoning helps exploration and hurts computation.",
   "evidence": [
@@ -20,6 +21,12 @@
       "title": "SeLaR: Selective Latent Reasoning in Large Language Models"
     },
     {
+      "id": "local:043e84b0b0ae0a39",
+      "kind": "paper",
+      "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
+      "title": "The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models"
+    },
+    {
       "id": "local:6b66615b7bf3ef86",
       "kind": "paper",
       "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
@@ -28,7 +35,7 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "latent chain of thought",
   "related": [
     "monitorability",
@@ -49,6 +56,34 @@
     "entropy-gating",
     "contrastive-regularization",
     "chain-of-thought",
+    "superposition-in-latent-reasoning",
+    "forced-superposition",
+    "learned-superposition",
+    "continuous-thought",
+    "shortcut-solution",
+    "width-bottleneck",
+    "entity-belief-evolution",
+    "discretization-bottleneck",
+    "logit-lens",
+    "soft-thinking",
+    "coconut",
+    "entity-level-probing",
+    "causal-intervention",
+    "staged-curriculum-training",
+    "chain-of-thought-prompting",
+    "prosqa",
+    "prontoqa",
+    "math-500",
+    "aime-2024",
+    "gsm8k",
+    "qwq-32b",
+    "qwen2-1-5b",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-2",
+    "smollm2-135m",
+    "smollm2-360m",
+    "smollm2-1-7b",
+    "pythia-1b",
     "symbolic-index",
     "decisional-certainty",
     "exploration-execution-trade-off",
@@ -61,19 +96,16 @@
     "logit-decision-margin",
     "distributional-mismatch",
     "effective-depth",
-    "coconut",
     "self-consistency",
     "imitation-learning",
-    "noise-injection-analysis",
-    "gsm8k",
-    "prosqa",
-    "prontoqa",
-    "gpt-2"
+    "noise-injection-analysis"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "latent-chain-of-thought",
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

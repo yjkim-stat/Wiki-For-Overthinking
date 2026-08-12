@@ -3,7 +3,8 @@
     "reasoning trace",
     "reasoning path",
     "internal trajectory",
-    "trajectory analysis"
+    "trajectory analysis",
+    "Reasoning Trajectory"
   ],
   "definition": "The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.",
   "evidence": [
@@ -54,11 +55,17 @@
       "kind": "paper",
       "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
       "title": "Local Causal Attribution of Chain-of-Thought Reasoning"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "reasoning trajectory",
   "related": [
     "residual-stream",
@@ -176,8 +183,26 @@
     "mmlu-pro",
     "gpqa-diamond",
     "zebralogic",
-    "qwen3-8b"
+    "qwen3-8b",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "activation-steering",
+    "logit-lens",
+    "principal-component-analysis",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "math-500",
+    "llama-3-1-8b-instruct"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "reasoning-trajectory",
   "topics": [

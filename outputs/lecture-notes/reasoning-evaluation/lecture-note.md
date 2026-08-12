@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-12 from 38 archived source(s).
+> Generated on 2026-08-12 from 41 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.
 
-Built from 38 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-06. 34 of the papers have been read in full.
+Built from 41 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-06. 37 of the papers have been read in full.
 
 Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reasoning`, `logical reasoning`, `competition math`, `math word problem`, `GSM8K`, `AIME`, `benchmark contamination`, `data contamination`, `LLM as a judge`, `reasoning evaluation`, `evaluating reasoning`, `ARC AGI`.
 
@@ -29,7 +29,7 @@ Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reas
 - **Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning** _(not yet summarized)_
 - **Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks** — Separates perception from reasoning in ARC-style benchmarks with a two-stage pipeline, and finds about 80% of vision-language model failures are perception errors, not reasoning errors.
 - **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** — Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.
-- _...and 17 more._
+- _...and 20 more._
 
 ### 2025
 
@@ -96,6 +96,12 @@ The tension this archive's entropy literature is organized around: a policy that
 
 Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representation-Based Exploration for Language Models: From Test-Time to Post-Training; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
 
+### entropy collapse
+
+The failure mode in which a policy's output distribution becomes progressively more deterministic during reinforcement learning, eliminating exploration and saturating performance. At nine sources it has moved from a constraint the methods cite to an object several of them study, and they explain it differently. One attributes it to a covariance between log-probability and probability-weighted advantage that stays positive throughout training. One recasts it as an imbalance of flow, with entropy-decreasing tokens persistently outweighing entropy-increasing ones inside each update. One derives a bifurcation in second-order Renyi entropy at the policy's collision probability, so updating dominant tokens collapses entropy while updating long-tail tokens inflates it. One reduces the direction of change to the sign of a single scalar per token, and to that scalar's deviation from a policy-weighted baseline once a GRPO step is substituted in. A theoretical entry ties the remedies together, proving the classical entropy bonus relocates the optimum while covariance-targeted control is asymptotically unbiased once its coefficient is annealed. Two findings cut against the consensus: one source reports training entropy falling while accuracy improves, and another finds entropy tracks response diversity far more reliably than accuracy.
+
+Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
+
 ### meta-evaluation
 
 Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
@@ -114,36 +120,30 @@ The point during generation after which a model's answer stops changing, and the
 
 Seen in: Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models; Optimizing Length Compression in Large Reasoning Models; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience.
 
-### credit assignment
-
-Deciding which part of a trajectory deserves the reward, and the problem RLVR's sparse sequence-level signal creates. Nine sources attack it and the interesting split is where they place the unit. At token level: the roughly 20% highest-entropy tokens act as decision forks and restricting gradient to them matches or beats full-gradient training; a token's signed marginal utility for the correct answer marks harmful tokens as well as useful ones. At segment or turn level: token-level teacher-student log-probability gaps are aggregated into turn-level evidence by a recursive Bayesian belief update, or concentrated on reasoning pivots identified counterfactually. At reward-design level: attaching an efficiency signal to the whole sequence implicitly penalizes long-but-correct trajectories, so the fix is to attach it to a single mode-selection token instead. One theoretical result cuts across all of them, showing a per-step Q value can be recovered from an outcome reward alone under the right parameterization — so dense credit does not always require dense labels.
-
-Seen in: Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic); AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning; DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models; RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
+| GRPO | 22 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 20 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| GRPO | 20 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
 | LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
+| self-consistency | 10 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | best-of-n | 9 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| self-consistency | 9 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| supervised fine-tuning | 9 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
 | calibration | 8 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
-| supervised fine-tuning | 8 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| test-time scaling | 8 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| linear probe | 7 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
 | majority voting | 7 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | PPO | 7 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
+| activation steering | 6 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
 | clip-higher | 6 | Raising the upper clipping bound of the importance ratio in a PPO-style objective, so low-probability tokens with positive advantages are not clipped away and can grow. Introduc... |
 | DAPO | 6 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | early exit | 6 | Terminating generation before the model would stop on its own. The four sources differ mainly in what signal triggers the exit: confidence in a trial answer induced at a reasoni... |
-| entropy regularization | 6 | Adding a term rewarding high policy entropy to the RL objective, the standard remedy for collapse inherited from classical RL. Every empirical source that tests it here reports... |
-| reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
-| test-time scaling | 6 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 
 ## Benchmarks and datasets
 
@@ -151,24 +151,24 @@ Seen in: Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agen
 | --- | ---: | --- |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
-| GSM8K | 18 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 22 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
 | GPQA-Diamond | 9 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | LiveCodeBench | 7 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
+| MATH | 7 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
-| MMLU | 5 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
-| GPQA | 3 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
-| MMLU-PRO | 3 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
+| MMLU | 6 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
+| GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
+| MATH-500 | 4 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
+| MMLU-PRO | 4 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
+| AIME 2024 | 3 | _pending_ |
 | AIME | 2 | The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checka... |
+| AIME 2025 | 2 | _pending_ |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | HumanEval | 2 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
-| MATH-500 | 2 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | MT-Bench | 2 | A pairwise judge-evaluation benchmark of 2,391 comparisons with expert human judgments, and the most widely used basis for validating LLM judges. Two archived sources make it th... |
-| 11 real-world rating tasks | 1 | _pending_ |
-| 9 commercial LLM judges | 1 | _pending_ |
-| ACRE | 1 | _pending_ |
 
 ## Reading path
 
@@ -239,31 +239,34 @@ Drawn from the limitations each paper states about itself, so this is what the f
 8. Jiayi Yuan, Hao Li, Xinheng Ding et al.. *Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference*. NeurIPS 2025. 2025
 9. Luke Guerdan, Solon Barocas, Kenneth Holstein et al.. *Validating LLM-as-a-Judge Systems under Rating Indeterminacy*. NeurIPS 2025. 2025
 10. Lisa Alazraki, Lihu Chen, Ana Brassard et al.. *AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.380>
-11. Jun Gao, Yun Peng, Qian Qiao et al.. *CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.460>
-12. Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. *DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.196>
-13. Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. *ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1217>
-14. Yehua Lin, Liping Zheng, Yin Chen. *MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.233>
-15. Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. *MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.984>
-16. Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. *MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2198>
-17. *On The Fragility of Benchmark Contamination Detection in Reasoning Models*. ICLR 2026. 2026
-18. Atharva Naik, Prakam, Yash Mathur et al.. *PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.432>
-19. Justin D. Norman, Michael U. Rivera, D. Alex Hughes. *Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias*. preprint. 2026
-20. Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. *Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.210>
-21. Yujie Hou, Mei Wang, Yaoyao Zhong et al.. *SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1638>
-22. Longteng Guo, Xuanxu Lin, Dongze Hao et al.. *SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.28>
-23. Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. *The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2142>
-24. Huimin Xu, Shuai Zhao, Xiaobao Wu et al.. *Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization*. preprint. 2026
-25. Jian Yao, Bowen Zheng, Ran Cheng et al.. *VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks*. preprint. 2026
-26. Jingkun Ma, Runzhe Zhan, Yang Li et al.. *VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1719>
-27. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1118>
-28. Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. *Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.826>
-29. Yuzhou Liu, Xiyang Hu. *Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.01014>
-30. Yijun Zhang, Yule Xie, Jiaxin Ding et al.. *Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.02149>
-31. Fangxu Yu, Tao Feng, Dehai Min et al.. *Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning*. cs.SD. 2026 <https://arxiv.org/abs/2608.02831>
-32. Shijie Ren, Xiting Wang, Meng Li et al.. *Self-Improving Large Language Models via Progressive Experience Evolution*. cs.CL. 2026 <https://arxiv.org/abs/2608.02139>
-33. Hongbo Ma, Bangji Yang, Yunqian Selina Cheng et al.. *Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving*. cs.CL. 2026 <https://arxiv.org/abs/2608.05254>
-34. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
-35. Chang Shi, Tim Pearce, Manan Tomar et al.. *Hierarchical Latent Prediction for Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.05806>
-36. Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. *Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation*. cs.CL. 2026 <https://arxiv.org/abs/2608.05726>
-37. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
-38. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+11. Xinyan Jiang, Ninghao Liu, Di Wang et al.. *Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability*. ICML. 2026
+12. Jun Gao, Yun Peng, Qian Qiao et al.. *CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.460>
+13. Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. *DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.196>
+14. Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. *ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1217>
+15. Lihao Sun, Hang Dong, Bo Qiao et al.. *LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals*. preprint. 2026
+16. Yehua Lin, Liping Zheng, Yin Chen. *MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.233>
+17. Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. *MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.984>
+18. Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. *MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2198>
+19. *On The Fragility of Benchmark Contamination Detection in Reasoning Models*. ICLR 2026. 2026
+20. Atharva Naik, Prakam, Yash Mathur et al.. *PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.432>
+21. Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. *Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!*. ICML. 2026
+22. Justin D. Norman, Michael U. Rivera, D. Alex Hughes. *Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias*. preprint. 2026
+23. Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. *Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.210>
+24. Yujie Hou, Mei Wang, Yaoyao Zhong et al.. *SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1638>
+25. Longteng Guo, Xuanxu Lin, Dongze Hao et al.. *SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.28>
+26. Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. *The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2142>
+27. Huimin Xu, Shuai Zhao, Xiaobao Wu et al.. *Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization*. preprint. 2026
+28. Jian Yao, Bowen Zheng, Ran Cheng et al.. *VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks*. preprint. 2026
+29. Jingkun Ma, Runzhe Zhan, Yang Li et al.. *VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1719>
+30. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1118>
+31. Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. *Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.826>
+32. Yuzhou Liu, Xiyang Hu. *Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.01014>
+33. Yijun Zhang, Yule Xie, Jiaxin Ding et al.. *Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.02149>
+34. Fangxu Yu, Tao Feng, Dehai Min et al.. *Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning*. cs.SD. 2026 <https://arxiv.org/abs/2608.02831>
+35. Shijie Ren, Xiting Wang, Meng Li et al.. *Self-Improving Large Language Models via Progressive Experience Evolution*. cs.CL. 2026 <https://arxiv.org/abs/2608.02139>
+36. Hongbo Ma, Bangji Yang, Yunqian Selina Cheng et al.. *Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving*. cs.CL. 2026 <https://arxiv.org/abs/2608.05254>
+37. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
+38. Chang Shi, Tim Pearce, Manan Tomar et al.. *Hierarchical Latent Prediction for Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.05806>
+39. Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. *Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation*. cs.CL. 2026 <https://arxiv.org/abs/2608.05726>
+40. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
+41. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>

@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
       "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models"
+    },
+    {
+      "id": "local:85a70e78b4a93190",
+      "kind": "paper",
+      "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+      "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability"
     }
   ],
   "first_seen": "2026-08-09T06:17:44Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "Qwen2.5-7B-Instruct",
   "related": [
     "token-level-entropy",
@@ -42,11 +48,47 @@
     "dapo500",
     "qwen2-5-14b-instruct",
     "qwen3-4b-base",
-    "internlm3-8b"
+    "internlm3-8b",
+    "normalized-net-displacement",
+    "average-trajectory-curvature",
+    "topological-divergence-of-reasoning-quality",
+    "hesitation-loop",
+    "certainty-accumulation",
+    "kinematic-scaling-law-of-reasoning",
+    "semantic-whitening",
+    "induced-metric-tensor",
+    "reasoning-quality-subspace",
+    "cognitive-state-transition",
+    "traced",
+    "traced-grpo",
+    "gaussian-discriminant-analysis",
+    "linear-probe",
+    "saplma",
+    "chain-of-embedding",
+    "cot-kinetics",
+    "lora",
+    "bootstrap-confidence-interval",
+    "gsm8k",
+    "math",
+    "theoremqa",
+    "gpqa",
+    "social-iqa",
+    "understanding-fables",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-4b-thinking-2507",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-0-5b",
+    "qwen2-5-1-5b",
+    "llama-3-70b-instruct",
+    "gpt-4o"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen2-5-7b-instruct",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

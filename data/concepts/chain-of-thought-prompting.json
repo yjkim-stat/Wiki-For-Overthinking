@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "CoT prompting"
+    "CoT prompting",
+    "Chain-of-Thought Prompting"
   ],
   "definition": "Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but always the baseline everything is measured against: it is what Tree of Thoughts generalizes by allowing branching and backtracking, what the faithfulness papers intervene on to test whether the stated steps are load-bearing, and what the theory paper explains by showing that the intermediate tokens loop back into the input and so raise the model's effective circuit depth. That last source is careful to separate the two things the phrase can mean, noting it studies why a model equipped with CoT succeeds rather than which prompt triggers the process — a question it lists as unresolved.",
   "evidence": [
@@ -23,6 +24,12 @@
       "title": "Measuring Faithfulness in Chain-of-Thought Reasoning"
     },
     {
+      "id": "local:043e84b0b0ae0a39",
+      "kind": "paper",
+      "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
+      "title": "The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models"
+    },
+    {
       "id": "local:6252abed1b134f57",
       "kind": "paper",
       "note": "Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.",
@@ -37,7 +44,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "chain-of-thought prompting",
   "related": [
     "chain-of-thought-faithfulness",
@@ -70,6 +77,35 @@
     "cot-perturbation",
     "mistake-injection",
     "paraphrasing-intervention",
+    "superposition-in-latent-reasoning",
+    "forced-superposition",
+    "learned-superposition",
+    "latent-chain-of-thought",
+    "continuous-thought",
+    "shortcut-solution",
+    "entropy-collapse",
+    "width-bottleneck",
+    "entity-belief-evolution",
+    "discretization-bottleneck",
+    "logit-lens",
+    "soft-thinking",
+    "coconut",
+    "entity-level-probing",
+    "causal-intervention",
+    "staged-curriculum-training",
+    "prosqa",
+    "prontoqa",
+    "math-500",
+    "aime-2024",
+    "gsm8k",
+    "qwq-32b",
+    "qwen2-1-5b",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-2",
+    "smollm2-135m",
+    "smollm2-360m",
+    "smollm2-1-7b",
+    "pythia-1b",
     "grokking",
     "implicit-reasoning",
     "parametric-memory",
@@ -107,11 +143,13 @@
     "edit-distance",
     "context-free-grammar-membership-testing"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "chain-of-thought-prompting",
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

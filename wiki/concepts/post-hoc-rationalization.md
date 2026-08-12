@@ -9,7 +9,7 @@ Producing an explanation that justifies an answer already determined by somethin
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 5
 
-**Related**: [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [DeepSeek-R1](../models/deepseek-r1.md), [epistemic verbalization](epistemic-verbalization.md), [few-shot prompting](../methods/few-shot-prompting.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [inverse scaling](inverse-scaling.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MMLU](../datasets/mmlu.md), [monitorability](monitorability.md), [QwQ-32B](../models/qwq-32b.md), [sycophancy](sycophancy.md), [test-time compute](test-time-compute.md)
+**Related**: [BBH](../datasets/bbh.md), [causal intervention](../methods/causal-intervention.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [DeepSeek-R1](../models/deepseek-r1.md), [epistemic verbalization](epistemic-verbalization.md), [few-shot prompting](../methods/few-shot-prompting.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [inverse scaling](inverse-scaling.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MMLU](../datasets/mmlu.md), [monitorability](monitorability.md), [QwQ-32B](../models/qwq-32b.md), [sycophancy](sycophancy.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

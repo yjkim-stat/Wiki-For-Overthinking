@@ -9,7 +9,7 @@ The accumulation of small per-step inaccuracies over a multi-step rollout, which
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [belief state](belief-state.md), [chain of thought](../methods/chain-of-thought.md), [curriculum learning](curriculum-learning.md), [effective depth](effective-depth.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [information bottleneck](information-bottleneck.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [self-consistency](../methods/self-consistency.md), [speculative decoding](../methods/speculative-decoding.md), [teacher forcing](../methods/teacher-forcing.md)
+**Related**: [belief state](belief-state.md), [chain of thought](../methods/chain-of-thought.md), [Coconut](../methods/coconut.md), [curriculum learning](curriculum-learning.md), [effective depth](effective-depth.md), [GPT-2](../models/gpt-2.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [information bottleneck](information-bottleneck.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [ProntoQA](../datasets/prontoqa.md), [ProsQA](../datasets/prosqa.md), [self-consistency](../methods/self-consistency.md), [speculative decoding](../methods/speculative-decoding.md), [teacher forcing](../methods/teacher-forcing.md)
 
 ## Appears in
 

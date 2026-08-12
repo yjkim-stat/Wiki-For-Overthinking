@@ -1,7 +1,8 @@
 {
   "aliases": [
     "SAE",
-    "sparse dictionary learning"
+    "sparse dictionary learning",
+    "Sparse Autoencoder"
   ],
   "definition": "An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any activation is a sparse combination of them; the motivation is that features are believed to be in superposition and therefore not aligned with neurons. The sources apply the idea at different granularities. The original works token-wise on the residual stream and shows the learned directions score higher on automated interpretability than PCA, ICA or the neuron basis. A later one argues token granularity is the wrong unit for reasoning and encodes whole reasoning steps, conditioning encoder and decoder on the preceding trajectory so the code carries only what the step adds. A third uses the features as the basis for multi-layer steering vectors selected by co-activation and decoder-direction alignment. Two entries qualify the method rather than extend it: run-to-run feature consistency is not guaranteed and is argued to belong alongside reconstruction and sparsity as an evaluation axis, and in a bias-analysis setting the technique improves how recoverable a concept is while attenuating its measured influence, so a better dictionary is not automatically a better causal account. Reconstruction is lossy throughout — replacing a layer with its reconstruction raises perplexity from 25 to 40 in the token-level work.",
   "evidence": [
@@ -34,11 +35,17 @@
       "kind": "paper",
       "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
       "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
+    },
+    {
+      "id": "local:f92e5f936a3c7422",
+      "kind": "paper",
+      "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+      "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "sparse autoencoder",
   "related": [
     "monosemanticity",
@@ -112,8 +119,43 @@
     "the-pile",
     "indirect-object-identification-ioi",
     "pythia-70m",
-    "pythia-410m"
+    "pythia-410m",
+    "reasoning-intensity",
+    "layer-wise-reasoning-dynamics",
+    "hidden-state-l2-norm",
+    "differential-feature-activation",
+    "norm-peak-detection",
+    "endogenous-reasoning-signal",
+    "overthinking",
+    "representational-energy",
+    "adaptive-layer-wise-reasoning-recursion",
+    "endogenous-reasoning-state-steering",
+    "l2-guided-response-selection",
+    "spearman-correlation",
+    "interquartile-range-outlier-detection",
+    "deepconf",
+    "aime-2024",
+    "aime-2025",
+    "gsm-plus",
+    "bbh",
+    "gpqa",
+    "mmlu-pro",
+    "hellaswag",
+    "ifeval",
+    "nq-open",
+    "pubmedqa",
+    "truthfulqa",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "phi-4-reasoning",
+    "gemma-3-4b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "sparse-autoencoder",
   "topics": [

@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
       "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference"
+    },
+    {
+      "id": "local:f92e5f936a3c7422",
+      "kind": "paper",
+      "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+      "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "Qwen3-32B",
   "related": [
     "token-level-entropy",
@@ -68,13 +74,48 @@
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-llama-8b",
     "qwen2-5-7b",
-    "llama-3-1-8b-instruct"
+    "llama-3-1-8b-instruct",
+    "reasoning-intensity",
+    "layer-wise-reasoning-dynamics",
+    "hidden-state-l2-norm",
+    "differential-feature-activation",
+    "norm-peak-detection",
+    "endogenous-reasoning-signal",
+    "overthinking",
+    "representational-energy",
+    "sparse-autoencoder",
+    "adaptive-layer-wise-reasoning-recursion",
+    "endogenous-reasoning-state-steering",
+    "l2-guided-response-selection",
+    "activation-steering",
+    "spearman-correlation",
+    "interquartile-range-outlier-detection",
+    "deepconf",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "gsm-plus",
+    "bbh",
+    "gpqa",
+    "mmlu-pro",
+    "hellaswag",
+    "ifeval",
+    "nq-open",
+    "pubmedqa",
+    "truthfulqa",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "deepseek-r1-distill-llama-70b",
+    "phi-4-reasoning",
+    "gemma-3-4b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-32b",
   "topics": [
     "reasoning-training",
     "reasoning-evaluation",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

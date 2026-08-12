@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Entropy Collapse"
+  ],
   "definition": "The failure mode in which a policy's output distribution becomes progressively more deterministic during reinforcement learning, eliminating exploration and saturating performance. At nine sources it has moved from a constraint the methods cite to an object several of them study, and they explain it differently. One attributes it to a covariance between log-probability and probability-weighted advantage that stays positive throughout training. One recasts it as an imbalance of flow, with entropy-decreasing tokens persistently outweighing entropy-increasing ones inside each update. One derives a bifurcation in second-order Renyi entropy at the policy's collision probability, so updating dominant tokens collapses entropy while updating long-tail tokens inflates it. One reduces the direction of change to the sign of a single scalar per token, and to that scalar's deviation from a policy-weighted baseline once a GRPO step is substituted in. A theoretical entry ties the remedies together, proving the classical entropy bonus relocates the optimum while covariance-targeted control is asymptotically unbiased once its coefficient is annealed. Two findings cut against the consensus: one source reports training entropy falling while accuracy improves, and another finds entropy tracks response diversity far more reliably than accuracy.",
   "evidence": [
     {
@@ -7,6 +9,12 @@
       "kind": "paper",
       "note": "Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.",
       "title": "SeLaR: Selective Latent Reasoning in Large Language Models"
+    },
+    {
+      "id": "local:043e84b0b0ae0a39",
+      "kind": "paper",
+      "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
+      "title": "The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models"
     },
     {
       "id": "local:2175408b166d313f",
@@ -59,7 +67,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:28:30Z",
   "name": "entropy collapse",
   "related": [
     "latent-reasoning",
@@ -73,6 +81,34 @@
     "entropy-gating",
     "contrastive-regularization",
     "chain-of-thought",
+    "superposition-in-latent-reasoning",
+    "forced-superposition",
+    "learned-superposition",
+    "continuous-thought",
+    "shortcut-solution",
+    "width-bottleneck",
+    "entity-belief-evolution",
+    "discretization-bottleneck",
+    "logit-lens",
+    "soft-thinking",
+    "coconut",
+    "entity-level-probing",
+    "causal-intervention",
+    "staged-curriculum-training",
+    "chain-of-thought-prompting",
+    "prosqa",
+    "prontoqa",
+    "math-500",
+    "aime-2024",
+    "gsm8k",
+    "qwq-32b",
+    "qwen2-1-5b",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-2",
+    "smollm2-135m",
+    "smollm2-360m",
+    "smollm2-1-7b",
+    "pythia-1b",
     "second-order-renyi-entropy",
     "collision-probability",
     "strategy-purity",
@@ -88,7 +124,6 @@
     "20-entropy",
     "stapo",
     "verl",
-    "gsm8k",
     "math500",
     "mmlu-stem",
     "gpqa",
@@ -213,10 +248,12 @@
     "amc",
     "eurus-2-rl-code"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "entropy-collapse",
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "reasoning-evaluation",
     "test-time-scaling"

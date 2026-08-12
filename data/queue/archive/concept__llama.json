@@ -1,0 +1,71 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
+        "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+        "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-12T11:29:54Z",
+  "created_at": "2026-08-12T11:23:07Z",
+  "instructions": "Write the wiki definition for 'Llama'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Llama",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "LLaMA",
+      "Llama 3.1"
+    ],
+    "definition": "Meta's open-weight model family, used across the archive as the base on which reasoning behaviour is studied, and named loosely: the sources say 'Llama' both for the pretrained family and for particular checkpoints and their reasoning-distilled variants. It matters here because open weights make internal analysis possible -- the sycophancy work localizes trace sentences with probes and counterfactual rollouts on it, and the position paper fine-tunes members of the family to test whether trace correctness governs answer correctness. Where a claim depends on which member was used, prefer the specific checkpoint over this entry.",
+    "kind": "model",
+    "related": [
+      "Qwen",
+      "DeepSeek-R1-Distill-Llama-8B"
+    ]
+  },
+  "task_id": "concept__llama",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

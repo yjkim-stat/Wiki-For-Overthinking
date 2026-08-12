@@ -1,0 +1,26 @@
+{
+  "concepts": [
+    "Mid-Reasoning Correctness Prediction",
+    "Reasoning Intensity",
+    "Norm Peak Detection",
+    "Topological Divergence of Reasoning Quality"
+  ],
+  "established_at": "2026-08-12T11:30:46Z",
+  "id": "finding:e6173c8ab6c62e0c",
+  "kind": "fact",
+  "papers": [
+    "local:fc7e2641eda52776",
+    "local:85a70e78b4a93190",
+    "local:f92e5f936a3c7422"
+  ],
+  "rationale": "Three independently formulated late-layer signals agree on the shape. Step-specific representation structure transfers across datasets at probe accuracy above 0.85, while the correctness predictor built on the same activations falls from 0.87 in distribution to 0.73 on MATH-500, 0.64 on MMLU and 0.60 on the same dataset in a freeform prompt format. A trajectory-geometry classifier needs a per-domain reference set and recovers cross-domain performance only after centroid alignment. A hidden-state norm signal has no universal cutoff at all -- a high norm on GSM8K is a low norm on GPQA -- and replacing its adaptive per-decode threshold with a fixed one collapses AIME24 accuracy from 70.0 to 23.3. The practical rule for the archive: treat any reported AUROC for an internal correctness signal as in-distribution until shown otherwise, and require calibration data per task.",
+  "schema_version": 1,
+  "statement": "Internal signals that predict answer correctness do not transfer across tasks, even when the structural geometry they are computed from does, so a correctness detector validated on one benchmark says little about another.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

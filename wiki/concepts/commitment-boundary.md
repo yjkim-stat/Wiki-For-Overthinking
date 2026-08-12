@@ -9,7 +9,7 @@ The point in a reasoning trace after which the answer is effectively fixed, so t
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [AIME25](../datasets/aime25.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [localization](localization.md), [MATH500](../datasets/math500.md), [monitorability](monitorability.md), [overthinking](overthinking.md), [Qwen3-14B](../models/qwen3-14b.md), [reasoning redundancy](reasoning-redundancy.md), [reasoning trajectory](reasoning-trajectory.md), [sycophancy](sycophancy.md), [ZebraLogic](../datasets/zebralogic.md)
+**Related**: [AIME25](../datasets/aime25.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [Llama](../models/llama.md), [localization](localization.md), [MATH500](../datasets/math500.md), [monitorability](monitorability.md), [overthinking](overthinking.md), [Qwen](../models/qwen.md), [Qwen3-14B](../models/qwen3-14b.md), [reasoning redundancy](reasoning-redundancy.md), [reasoning trajectory](reasoning-trajectory.md), [sycophancy](sycophancy.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## Appears in
 

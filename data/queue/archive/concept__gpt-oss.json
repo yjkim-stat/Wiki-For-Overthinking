@@ -1,0 +1,72 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+        "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-12T11:29:54Z",
+  "created_at": "2026-08-12T11:23:07Z",
+  "instructions": "Write the wiki definition for 'GPT-OSS'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPT-OSS",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GPT-OSS",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "gpt-oss",
+      "gpt-oss-120b",
+      "gpt-oss-20b"
+    ],
+    "definition": "OpenAI's open-weight reasoning models, used in the archive as an object of study rather than as a tool. Both sources treat it as evidence about how vendors expose reasoning: its model card describes a response format with separate analysis, commentary and final channels, where the analysis channel corresponds to the intermediate tokens and the production models surface only a summary, which the position paper reads as frontier labs in practice declining to show unfiltered intermediate tokens. ReasonIF evaluates it behaviourally and finds it, like the other reasoning models tested, largely failing to follow instructions that apply inside its own reasoning trace.",
+    "kind": "model",
+    "related": [
+      "DeepSeek-R1",
+      "Chain of Thought Monitorability"
+    ]
+  },
+  "task_id": "concept__gpt-oss",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "inference-time scaling"
+    "inference-time scaling",
+    "Test-Time Scaling"
   ],
   "definition": "Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a token, sampling-and-selection methods draw many paths and choose among them, and one entry shows evaluator accuracy rising monotonically with reasoning tokens, so compute bought at evaluation time can substitute for compute bought at generation time. Spending less: early exit and adaptive scheduling cut generation once the answer has stabilized, and one source finds a reasoning model's first solution is usually its best with later alternatives actively harmful. The unifying empirical observation is that the accuracy-versus-tokens curve flattens well before generation ends, so both directions attack the same measured fact from opposite sides. One theoretical entry changes what a flattening curve means: with an aggregation whose failure probability provably decays to zero as compute grows, a flattening curve is evidence about the aggregation rather than a ceiling on the model.",
   "evidence": [
@@ -39,11 +40,23 @@
       "kind": "paper",
       "note": "Gives two aggregation algorithms whose failure probability provably decays to zero as inference compute grows, assuming only that the model can sometimes be right and can compare two solutions better than chance.",
       "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
+    },
+    {
+      "id": "local:fc7e2641eda52776",
+      "kind": "paper",
+      "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+      "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T11:23:06Z",
   "name": "test-time scaling",
   "related": [
     "budget-forcing",
@@ -128,14 +141,60 @@
     "math-500",
     "llama3-1",
     "qwen2-5",
-    "gpt-4o"
+    "gpt-4o",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "a-search",
+    "supervised-fine-tuning",
+    "grpo",
+    "reinforcement-learning-with-verifiable-rewards",
+    "llm-modulo",
+    "monte-carlo-tree-search",
+    "process-reward-models",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "gpt-oss",
+    "llama",
+    "qwen",
+    "searchformer",
+    "dualformer",
+    "step-specific-subspace",
+    "termination-subspace",
+    "ideal-reasoning-trajectory",
+    "trajectory-divergence",
+    "mid-reasoning-correctness-prediction",
+    "error-targeted-intervention",
+    "trajectory-based-steering",
+    "reasoning-length-control",
+    "linear-representation-hypothesis",
+    "linear-probe",
+    "activation-steering",
+    "logit-lens",
+    "principal-component-analysis",
+    "t-sne",
+    "low-rank-steering-update",
+    "centered-kernel-alignment",
+    "chain-of-thought-distillation",
+    "mmlu",
+    "llama-3-1-8b-instruct"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "test-time-scaling",
   "topics": [
     "test-time-scaling",
     "reasoning-training",
     "reasoning-faithfulness",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }
