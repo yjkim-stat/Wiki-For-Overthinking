@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Interleaving generation with calls to an external retriever, so the model decides what to query, when to query again, and when it has enough to answer. Both sources treat it as a sequential decision process trained with reinforcement learning rather than as prompting, and both attack the same weakness: an outcome reward cannot say which retrieval mattered. One measures each step's contribution directly, by how much it raised the likelihood of the correct answer and how necessary it looks in hindsight; the other re-scores the agent's own tokens under a teacher shown the instance's supporting evidence. They also share an evaluation shape — three single-hop and four multi-hop QA sets, split into in-domain and held-out — and a common secondary claim, that better credit produces fewer and less redundant searches rather than more.
 
 - **Kind**: concept
+- **Also called**: agentic search, search agent, search-augmented QA
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

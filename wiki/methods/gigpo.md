@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A group-based policy optimization variant for agent training that compares actions taken from similar intermediate states across rollouts, rather than assigning one trajectory-level reward uniformly to every step. Both sources cite it as the strongest or near-strongest baseline they face and neither beats it everywhere: one reports 47.2 average F1 against its own 52.1 while losing Bamboogle to it by nearly ten points, and the other's single outright per-benchmark win is Bamboogle at 74.6 against its 68.9. Its position in these papers is as the credible alternative account of where localized credit should come from — rollout structure and state similarity, rather than an explicitly measured per-step signal.
 
 - **Kind**: method
+- **Also called**: Group-in-Group Policy Optimization
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

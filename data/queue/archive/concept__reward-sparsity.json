@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T23:30:44Z",
   "created_at": "2026-08-12T23:15:53Z",
   "instructions": "Write the wiki definition for 'reward sparsity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "reward sparsity",
@@ -39,6 +40,17 @@
   "payload": {
     "name": "reward sparsity",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "sparse reward",
+      "sparse supervision"
+    ],
+    "definition": "Having too few informative reward signals for the policy gradient to say much, and in both sources the named cause of a specific failure rather than a general complaint. One locates it along a trajectory: a multi-step search agent receives one scalar for ten retrievals, so the query that found the decisive document and the one that repeated an earlier query inherit the same credit, and it reports that removing the terminal reward while keeping dense per-step signals is nonetheless its largest single loss. The other locates it across a group: when all eight sampled responses to a problem are wrong they share a reward, the group-relative advantage is zero, and the update carries no gradient at all — which it addresses by distilling extracted experience into the policy first, cutting the all-incorrect rate by 4.95 points before reinforcement learning begins. The two readings are complementary: sparsity is about how much of the reward varies, and it can fail to vary either within a trajectory or within a group.",
+    "kind": "concept",
+    "related": [
+      "exploration"
+    ]
   },
   "task_id": "concept__reward-sparsity",
   "task_version": 1,

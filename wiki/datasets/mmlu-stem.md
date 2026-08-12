@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The science, technology, engineering and mathematics subset of a broad multiple-choice knowledge benchmark, used by both sources as the transfer check in a suite otherwise built from mathematics — the test of whether a method tuned on mathematical reasoning carries to knowledge-heavy multiple choice. Neither studies it. One reports it among the five sets where its latent-thought credit scheme wins at 3B (64.86%) and at 7B (70.10%); the other includes it in a seven-benchmark sweep across three model scales. Its role is negative evidence: a method that improves mathematics while moving this set backwards would be overfitting the training domain, and in both papers it does not.
 
 - **Kind**: dataset
 - **Also called**: MMLU-Stem

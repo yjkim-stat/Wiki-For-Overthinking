@@ -13,6 +13,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.02149",
+      "kind": "paper",
+      "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+      "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning"
+    },
+    {
       "id": "local:5175928072823010",
       "kind": "paper",
       "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
@@ -33,7 +39,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "method",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:30:56Z",
   "name": "REINFORCE",
   "related": [
     "latent-reasoning",
@@ -53,6 +59,26 @@
     "math-500",
     "mmlu-stem",
     "arc-challenge",
+    "failure-probability-distribution",
+    "moment-based-objective",
+    "reasoning-boundary",
+    "schur-convexity",
+    "problem-difficulty",
+    "first-success-time",
+    "gini-coefficient",
+    "mmpo",
+    "pass-k-training",
+    "maxrl",
+    "dmpo",
+    "ppo",
+    "leave-one-out-advantage-estimation",
+    "olymmath",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "math7-5k",
+    "qwen3-1-7b-base",
+    "qwen3-4b-base",
     "policy-entropy",
     "entropy-collapse",
     "exploration-exploitation-trade-off",
@@ -68,7 +94,6 @@
     "kl-cov",
     "rloo",
     "prime",
-    "ppo",
     "rlvr",
     "verl",
     "entropy-regularization",
@@ -76,7 +101,6 @@
     "math500",
     "aime24",
     "aime25",
-    "amc23",
     "omni-math",
     "olympiadbench",
     "minerva",
@@ -107,7 +131,6 @@
     "actor-critic",
     "trpo",
     "pass-k",
-    "reasoning-boundary",
     "sampling-efficiency",
     "reasoning-distillation",
     "coverage",
@@ -132,8 +155,8 @@
   "slug": "reinforce",
   "topics": [
     "reasoning-faithfulness",
-    "reasoning-training",
     "reasoning-evaluation",
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

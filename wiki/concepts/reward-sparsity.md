@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Having too few informative reward signals for the policy gradient to say much, and in both sources the named cause of a specific failure rather than a general complaint. One locates it along a trajectory: a multi-step search agent receives one scalar for ten retrievals, so the query that found the decisive document and the one that repeated an earlier query inherit the same credit, and it reports that removing the terminal reward while keeping dense per-step signals is nonetheless its largest single loss. The other locates it across a group: when all eight sampled responses to a problem are wrong they share a reward, the group-relative advantage is zero, and the update carries no gradient at all — which it addresses by distilling extracted experience into the policy first, cutting the all-incorrect rate by 4.95 points before reinforcement learning begins. The two readings are complementary: sparsity is about how much of the reward varies, and it can fail to vary either within a trajectory or within a group.
 
 - **Kind**: concept
+- **Also called**: sparse reward, sparse supervision
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

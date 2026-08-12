@@ -17,6 +17,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.02149",
+      "kind": "paper",
+      "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+      "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning"
+    },
+    {
       "id": "local:1fadd9f07b138261",
       "kind": "paper",
       "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
@@ -55,7 +61,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:30:56Z",
   "name": "MATH",
   "related": [
     "test-time-scaling",
@@ -86,6 +92,26 @@
     "math-500",
     "mmlu-stem",
     "arc-challenge",
+    "failure-probability-distribution",
+    "moment-based-objective",
+    "reasoning-boundary",
+    "schur-convexity",
+    "problem-difficulty",
+    "first-success-time",
+    "gini-coefficient",
+    "mmpo",
+    "pass-k-training",
+    "maxrl",
+    "dmpo",
+    "ppo",
+    "leave-one-out-advantage-estimation",
+    "olymmath",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "math7-5k",
+    "qwen3-1-7b-base",
+    "qwen3-4b-base",
     "deliberate-exploration",
     "elliptical-bonus",
     "diversity-bonus",
@@ -158,7 +184,6 @@
     "multi-task-fine-tuning",
     "tokenskip",
     "simcse",
-    "amc23",
     "deepseek-r1-distill-qwen-1-5b",
     "normalized-net-displacement",
     "average-trajectory-curvature",
@@ -227,8 +252,8 @@
   "topics": [
     "test-time-scaling",
     "reasoning-faithfulness",
+    "reasoning-evaluation",
     "reasoning-training",
-    "reasoning-interpretability",
-    "reasoning-evaluation"
+    "reasoning-interpretability"
   ]
 }
