@@ -94,6 +94,11 @@ class Entry:
     authors: list[str] = field(default_factory=list)
     categories: list[str] = field(default_factory=list)
     abstract: str = ""
+    # LOCAL: the announcement day this entry was listed under, ISO, or "" when
+    # the page carried no day heading. `parse_listing` cannot know it — the day
+    # is a property of the section an entry sits in, not of the entry's own
+    # markup — so `parse_days` fills it in and `parse_listing` leaves it empty.
+    announced: str = ""
 
 
 def _settings(cfg: Config) -> dict:
@@ -137,11 +142,15 @@ def parse_days(page: str) -> list[Day]:
     for index, heading in enumerate(headings):
         start = heading.end()
         end = headings[index + 1].start() if index + 1 < len(headings) else len(clean)
+        iso = _iso_day(heading.group("day"))  # LOCAL
+        entries = parse_listing(clean[start:end])
+        for entry in entries:
+            entry.announced = iso
         days.append(
             Day(
-                day=_iso_day(heading.group("day")),
+                day=iso,
                 announced=int(heading.group("total").replace(",", "")),
-                entries=parse_listing(clean[start:end]),
+                entries=entries,
             )
         )
     return days
@@ -211,6 +220,15 @@ def parse_abstract(page: str) -> str:
 
 
 def _to_paper(entry: Entry) -> Paper:
+    # LOCAL: the announcement day is the only date a listing page offers, and it
+    # is close enough to the submission date to be the right value for
+    # `published` — arXiv announces the evening after the cutoff. Leaving it
+    # empty is not a neutral choice: `publish/archive.py` files a dateless paper
+    # under `archive/papers/unknown/` and the flat index sorts it below
+    # everything, so a fallback record would be second-class purely because of
+    # where it came from. When the page carried no day heading this stays empty,
+    # which is the honest answer rather than a guessed one.
+    published = entry.announced
     return Paper(
         id=canonical_paper_id(arxiv_id=entry.arxiv_id),
         title=entry.title,
@@ -220,6 +238,8 @@ def _to_paper(entry: Entry) -> Paper:
         abstract=entry.abstract,
         url=f"https://arxiv.org/abs/{entry.arxiv_id}",
         pdf_url=f"https://arxiv.org/pdf/{entry.arxiv_id}",
+        published=published,  # LOCAL
+        year=int(published[:4]) if published[:4].isdigit() else 0,  # LOCAL
         categories=list(entry.categories),
         arxiv_id=entry.arxiv_id,
         first_seen=utcnow(),
@@ -285,7 +305,12 @@ def collect(
                 break
 
             page = raw.decode("utf-8", errors="replace")
-            entries = parse_listing(page)
+            # LOCAL: `parse_days` rather than `parse_listing` — the day heading
+            # is what dates an entry, and an entry that arrives without a date is
+            # filed under an unknown year for the rest of its life. On a page
+            # with no headings this degrades to one undated day holding
+            # everything, which is what `parse_listing` returned on its own.
+            entries = [e for day in parse_days(page) for e in day.entries]
             if not entries:
                 if page_index == 0:
                     _LOG.warning(
@@ -467,6 +492,18 @@ def sweep(
 
         ledger.extend(seen_days.values())
         counts["days"] += len(seen_days)
+
+    # LOCAL: record before the backfill, not only after it. The listing pass
+    # above is a handful of requests and it is what produces the per-day count —
+    # the one number here that is arXiv's rather than ours. The backfill below is
+    # up to `max_abstracts_per_run` fetches at the listing's request interval,
+    # which is minutes. Holding the ledger until that finishes means an
+    # interrupted run records nothing at all, and a run that is always
+    # interrupted looks exactly like a sweep that was never enabled.
+    # `coverage.record` merges on a high-water mark, so writing twice costs one
+    # rewrite and cannot regress.
+    if ledger:
+        coverage.record(cfg.layout, ledger)
 
     # Relevance first, then everything else. Both halves matter: the group gets
     # what it wants soonest, and nothing is permanently skipped.
