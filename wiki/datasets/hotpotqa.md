@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A multi-hop question-answering set whose questions need evidence combined from several documents, used by both sources as an in-domain benchmark for search agents trained with reinforcement learning. It is the set on which their methods separate most, in both directions: one reports its largest margin over retrieval-augmented prompting there (57.7 F1, 20.6 points above CoT+RAG) and finds that removing its forward-looking step reward costs 5.9 points on it against 0.9 on single-hop Natural Questions; the other posts its sharpest defeat there, 46.6 EM against a skill-conditioned baseline's 64.5, while still winning the seven-benchmark average. Both also use it as a source of supervision rather than only of questions — its annotated supporting sentences serve as privileged training context in one, whose distractor field additionally supplies substitute documents for a sensitivity test.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

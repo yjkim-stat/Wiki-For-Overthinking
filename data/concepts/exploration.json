@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Deliberately injected stochasticity that lets policy optimization sample outside what the current policy would produce deterministically. Neither source treats it as free, and both make the form and placement of the noise the design problem rather than its amount. One injects Gumbel noise into the logits that form a continuous latent thought, so exploration is the mechanism by which two latent thoughts for the same prompt differ at all, and reports that removing it costs 2.12 points on GSM8K and 1.70 on MATH. The other observes that a flow model is sampled by a deterministic ODE at deployment while online RL needs stochastic rollouts, so the usual remedy of swapping in an SDE during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as the exploration noise rises. Exploration in these sources is therefore something bought at the cost of agreement between training and inference.",
   "evidence": [
     {
       "id": "arxiv:2608.01593",
@@ -50,7 +50,9 @@
     "flux-1-dev",
     "hunyuanvideo"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "entropy-collapse"
+  ],
   "schema_version": 1,
   "slug": "exploration",
   "topics": [

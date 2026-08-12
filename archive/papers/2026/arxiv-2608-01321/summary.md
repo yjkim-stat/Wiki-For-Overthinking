@@ -44,9 +44,9 @@ The paper has no limitations section. What a reader should weigh: both signals c
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), process reward, outcome reward, hindsight credit assignment, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), reward sparsity, multi-hop reasoning, search-augmented reasoning, redundant search
-- **Methods**: BiCAA, forward solvability gain, hindsight success criticality, [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), Search-R1, IGPO, GiGPO, HCAPO, [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md)
-- **Datasets**: Natural Questions, TriviaQA, HotpotQA, 2WikiMultiHopQA, MuSiQue, Bamboogle, PopQA
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), hindsight credit assignment, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), reward sparsity, [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), [search-augmented reasoning](../../../../wiki/concepts/search-augmented-reasoning.md), redundant search
+- **Methods**: BiCAA, forward solvability gain, hindsight success criticality, [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), [Search-R1](../../../../wiki/methods/search-r1.md), IGPO, [GiGPO](../../../../wiki/methods/gigpo.md), HCAPO, [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md)
+- **Datasets**: [Natural Questions](../../../../wiki/datasets/natural-questions.md), [TriviaQA](../../../../wiki/datasets/triviaqa.md), [HotpotQA](../../../../wiki/datasets/hotpotqa.md), [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), [MuSiQue](../../../../wiki/datasets/musique.md), [Bamboogle](../../../../wiki/datasets/bamboogle.md), [PopQA](../../../../wiki/datasets/popqa.md)
 
 Tags: `credit assignment`, `agentic search`, `process reward`, `reinforcement learning`, `multi-hop qa`
 

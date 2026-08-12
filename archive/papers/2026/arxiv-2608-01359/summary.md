@@ -45,9 +45,9 @@ The paper has no limitations section, and one thing it does state deserves to be
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [privileged information](../../../../wiki/concepts/privileged-information.md), on-policy self-distillation, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), outcome reward, supporting evidence, search-augmented reasoning, multi-hop reasoning, teacher-student gap
-- **Methods**: EviSD, [GRPO](../../../../wiki/methods/grpo.md), Search-R1, SD-Search, Search-E1, Skill-SD, SDAR, GiGPO, dense retrieval
-- **Datasets**: Natural Questions, TriviaQA, PopQA, HotpotQA, 2WikiMultiHopQA, MuSiQue, Bamboogle
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [privileged information](../../../../wiki/concepts/privileged-information.md), on-policy self-distillation, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), supporting evidence, [search-augmented reasoning](../../../../wiki/concepts/search-augmented-reasoning.md), [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), teacher-student gap
+- **Methods**: EviSD, [GRPO](../../../../wiki/methods/grpo.md), [Search-R1](../../../../wiki/methods/search-r1.md), SD-Search, Search-E1, Skill-SD, SDAR, [GiGPO](../../../../wiki/methods/gigpo.md), dense retrieval
+- **Datasets**: [Natural Questions](../../../../wiki/datasets/natural-questions.md), [TriviaQA](../../../../wiki/datasets/triviaqa.md), [PopQA](../../../../wiki/datasets/popqa.md), [HotpotQA](../../../../wiki/datasets/hotpotqa.md), [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), [MuSiQue](../../../../wiki/datasets/musique.md), [Bamboogle](../../../../wiki/datasets/bamboogle.md)
 
 Tags: `self-distillation`, `credit assignment`, `agentic search`, `reinforcement learning`, `privileged information`
 

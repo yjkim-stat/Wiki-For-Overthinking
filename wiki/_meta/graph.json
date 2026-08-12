@@ -452,11 +452,6 @@
     },
     {
       "source": "concept:answer-stabilization",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:answer-stabilization",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -586,6 +581,46 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:auditability",
+      "target": "concept:causal-intervention",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "concept:mechanistic-interpretability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "concept:meta-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "concept:reproducibility",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "method:llm-as-a-judge",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:belief-state",
       "target": "concept:compounding-error",
       "type": "co-occurs"
@@ -627,22 +662,7 @@
     },
     {
       "source": "concept:benchmark-contamination",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:benchmark-contamination",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:benchmark-contamination",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:benchmark-contamination",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -712,7 +732,32 @@
     },
     {
       "source": "concept:causal-intervention",
+      "target": "concept:epistemic-verbalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
+      "target": "concept:monitorability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
+      "target": "concept:sycophancy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
       "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
+      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -747,6 +792,11 @@
     },
     {
       "source": "concept:causal-intervention",
+      "target": "method:latent-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
       "target": "method:logit-lens",
       "type": "co-occurs"
     },
@@ -768,6 +818,11 @@
     {
       "source": "concept:chain-of-thought-faithfulness",
       "target": "concept:abstention",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:chain-of-thought-faithfulness",
+      "target": "concept:auditability",
       "type": "co-occurs"
     },
     {
@@ -823,6 +878,11 @@
     {
       "source": "concept:chain-of-thought-faithfulness",
       "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:chain-of-thought-faithfulness",
+      "target": "concept:kv-cache-compression",
       "type": "co-occurs"
     },
     {
@@ -1137,11 +1197,6 @@
     },
     {
       "source": "concept:commitment-boundary",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:commitment-boundary",
       "target": "dataset:zebralogic",
       "type": "co-occurs"
     },
@@ -1312,11 +1367,6 @@
     },
     {
       "source": "concept:construct-validity",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:construct-validity",
       "target": "dataset:math500",
       "type": "co-occurs"
     },
@@ -1338,11 +1388,6 @@
     {
       "source": "concept:construct-validity",
       "target": "method:importance-sampling",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:construct-validity",
-      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -2072,11 +2117,6 @@
     },
     {
       "source": "concept:entropy-collapse",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
       "target": "dataset:amc23",
       "type": "co-occurs"
     },
@@ -2267,11 +2307,6 @@
     },
     {
       "source": "concept:epistemic-verbalization",
-      "target": "concept:causal-intervention",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:epistemic-verbalization",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -2358,6 +2393,11 @@
     {
       "source": "concept:error-detection",
       "target": "model:gpt-4o",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
+      "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
     {
@@ -3047,16 +3087,6 @@
     },
     {
       "source": "concept:judge-reliability",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:judge-reliability",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:judge-reliability",
       "target": "dataset:amc23",
       "type": "co-occurs"
     },
@@ -3098,6 +3128,56 @@
     {
       "source": "concept:judge-reliability",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "concept:adaptive-compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "concept:auditability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "concept:causal-intervention",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "concept:reasoning-redundancy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "method:early-exit",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache-compression",
+      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -3537,11 +3617,6 @@
     },
     {
       "source": "concept:memorization",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:memorization",
       "target": "dataset:math500",
       "type": "co-occurs"
     },
@@ -3772,11 +3847,6 @@
     },
     {
       "source": "concept:monitorability",
-      "target": "concept:causal-intervention",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:monitorability",
       "target": "concept:commitment-boundary",
       "type": "co-occurs"
     },
@@ -3833,11 +3903,6 @@
     {
       "source": "concept:monitorability",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:monitorability",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -4127,11 +4192,6 @@
     },
     {
       "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:out-of-distribution-generalization",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -4372,16 +4432,6 @@
     },
     {
       "source": "concept:overthinking",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:overthinking",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:overthinking",
       "target": "dataset:aime25",
       "type": "co-occurs"
     },
@@ -4408,11 +4458,6 @@
     {
       "source": "concept:overthinking",
       "target": "dataset:gpqa",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:overthinking",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -4877,6 +4922,11 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "concept:auditability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "concept:causal-intervention",
       "type": "co-occurs"
     },
@@ -4892,6 +4942,11 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "concept:kv-cache-compression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "concept:monitorability",
       "type": "co-occurs"
     },
@@ -4903,6 +4958,16 @@
     {
       "source": "concept:post-hoc-rationalization",
       "target": "concept:test-time-compute",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -4993,6 +5058,11 @@
     {
       "source": "concept:process-reward",
       "target": "concept:advantage-estimation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-reward",
+      "target": "concept:kv-cache-compression",
       "type": "co-occurs"
     },
     {
@@ -5467,11 +5537,6 @@
     },
     {
       "source": "concept:reasoning-boundary",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:reasoning-boundary",
       "target": "model:dapo-qwen-32b",
       "type": "co-occurs"
     },
@@ -5548,11 +5613,6 @@
     {
       "source": "concept:reasoning-redundancy",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:reasoning-redundancy",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -6083,11 +6143,6 @@
     {
       "source": "concept:reinforcement-learning-with-verifiable-rewards",
       "target": "model:qwen",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:reproducibility",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -7112,11 +7167,6 @@
     },
     {
       "source": "concept:sycophancy",
-      "target": "concept:causal-intervention",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:sycophancy",
       "target": "concept:commitment-boundary",
       "type": "co-occurs"
     },
@@ -7142,11 +7192,6 @@
     },
     {
       "source": "concept:sycophancy",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:sycophancy",
       "target": "dataset:mmlu",
       "type": "co-occurs"
     },
@@ -7163,11 +7208,6 @@
     {
       "source": "concept:sycophancy",
       "target": "method:linear-probe",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:sycophancy",
-      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -7742,11 +7782,6 @@
     },
     {
       "source": "concept:token-level-entropy",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
       "target": "dataset:kodcode",
       "type": "co-occurs"
     },
@@ -7913,16 +7948,6 @@
     {
       "source": "concept:training-dynamics",
       "target": "concept:reasoning-boundary",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:training-dynamics",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:training-dynamics",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -8422,7 +8447,32 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:entropy-collapse",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -8442,6 +8492,16 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -8457,7 +8517,57 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "dataset:prontoqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "dataset:prosqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:latent-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:logit-lens",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:sparse-autoencoder",
       "type": "co-occurs"
     },
     {
@@ -8473,6 +8583,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "model:deepseek-r1-distill-qwen-7b",
       "type": "co-occurs"
     },
     {
@@ -8497,7 +8612,142 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "model:qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:bbh",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:sparse-autoencoder",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:dapo-qwen-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:deepseek-r1-distill-llama-70b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen3-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen3-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -9367,11 +9617,6 @@
     },
     {
       "source": "dataset:aime25",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
       "target": "dataset:kodcode",
       "type": "co-occurs"
     },
@@ -9742,17 +9987,7 @@
     },
     {
       "source": "dataset:amc23",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:amc23",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:amc23",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -9932,16 +10167,6 @@
     },
     {
       "source": "dataset:bbh",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:bbh",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:bbh",
       "target": "dataset:mmlu-pro",
       "type": "co-occurs"
     },
@@ -10102,16 +10327,6 @@
     },
     {
       "source": "dataset:gpqa",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:gpqa",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:gpqa",
       "target": "dataset:bbh",
       "type": "co-occurs"
     },
@@ -10187,7 +10402,52 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:commitment-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "concept:entropy-trajectory",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:memorization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:monitorability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:out-of-distribution-generalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:reasoning-redundancy",
       "type": "co-occurs"
     },
     {
@@ -10197,7 +10457,52 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "concept:reproducibility",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "concept:restructuring-level",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:sycophancy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:bbh",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:math500",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:mmlu",
       "type": "co-occurs"
     },
     {
@@ -10207,7 +10512,17 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "dataset:zebralogic",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:calibration",
       "type": "co-occurs"
     },
     {
@@ -10222,7 +10537,22 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "method:dynasor",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:early-exit",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "method:generative-rewriting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:greedy-decoding",
       "type": "co-occurs"
     },
     {
@@ -10242,12 +10572,67 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "method:membership-inference",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "method:vllm",
       "type": "co-occurs"
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:deepseek-r1-distill-qwen-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:gemini-2-5-flash",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:gpt-oss-20b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "model:qwen2-5",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:qwen2-5-7b",
       "type": "co-occurs"
     },
     {
@@ -10263,6 +10648,16 @@
     {
       "source": "dataset:gpqa-diamond",
       "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:qwq-32b",
       "type": "co-occurs"
     },
     {
@@ -11202,17 +11597,7 @@
     },
     {
       "source": "dataset:livecodebench",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -12062,11 +12447,6 @@
     },
     {
       "source": "dataset:math500",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
       "target": "dataset:kodcode",
       "type": "co-occurs"
     },
@@ -12427,11 +12807,6 @@
     },
     {
       "source": "dataset:minerva",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:minerva",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -12477,11 +12852,6 @@
     },
     {
       "source": "dataset:mmlu",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:mmlu",
       "target": "dataset:mt-bench",
       "type": "co-occurs"
     },
@@ -12518,11 +12888,6 @@
     {
       "source": "dataset:mmlu",
       "target": "model:llama-3-2-1b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:mmlu-pro",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -12773,11 +13138,6 @@
     {
       "source": "dataset:olympiadbench",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:olympiadbench",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -13312,11 +13672,6 @@
     },
     {
       "source": "dataset:prontoqa",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:prontoqa",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -13338,11 +13693,6 @@
     {
       "source": "dataset:prosqa",
       "target": "concept:information-bottleneck",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:prosqa",
-      "target": "dataset:aime-2024",
       "type": "co-occurs"
     },
     {
@@ -13602,16 +13952,6 @@
     },
     {
       "source": "method:activation-steering",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:activation-steering",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:activation-steering",
       "target": "dataset:alpacaeval",
       "type": "co-occurs"
     },
@@ -13668,11 +14008,6 @@
     {
       "source": "method:activation-steering",
       "target": "method:literature-survey",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:activation-steering",
-      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -14312,11 +14647,6 @@
     },
     {
       "source": "method:calibration",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -14363,11 +14693,6 @@
     {
       "source": "method:calibration",
       "target": "method:kl-cov",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
-      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -15337,11 +15662,6 @@
     },
     {
       "source": "method:coconut",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:coconut",
       "target": "dataset:prontoqa",
       "type": "co-occurs"
     },
@@ -15373,11 +15693,6 @@
     {
       "source": "method:dapo",
       "target": "concept:reasoning-boundary",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:dapo",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -15542,11 +15857,6 @@
     },
     {
       "source": "method:dynasor",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:dynasor",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -15613,11 +15923,6 @@
     {
       "source": "method:early-exit",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:early-exit",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -15883,11 +16188,6 @@
     {
       "source": "method:greedy-decoding",
       "target": "dataset:amc",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:greedy-decoding",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -16617,11 +16917,6 @@
     },
     {
       "source": "method:latent-chain-of-thought",
-      "target": "concept:causal-intervention",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:latent-chain-of-thought",
       "target": "concept:compounding-error",
       "type": "co-occurs"
     },
@@ -16653,11 +16948,6 @@
     {
       "source": "method:latent-chain-of-thought",
       "target": "concept:token-level-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:latent-chain-of-thought",
-      "target": "dataset:aime-2024",
       "type": "co-occurs"
     },
     {
@@ -16897,6 +17187,16 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "concept:causal-intervention",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "concept:epistemic-verbalization",
       "type": "co-occurs"
     },
@@ -16953,6 +17253,11 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "concept:superposition",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "concept:sycophancy",
       "type": "co-occurs"
     },
     {
@@ -17057,6 +17362,16 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "method:calibration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "method:dapo",
       "type": "co-occurs"
     },
@@ -17077,7 +17392,17 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "method:sparse-autoencoder",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "method:synthetic-data-generation",
       "type": "co-occurs"
     },
     {
@@ -17163,11 +17488,6 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "model:qwq-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:logit-lens",
-      "target": "dataset:aime-2024",
       "type": "co-occurs"
     },
     {
@@ -17442,11 +17762,6 @@
     },
     {
       "source": "method:membership-inference",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:membership-inference",
       "target": "method:importance-sampling",
       "type": "co-occurs"
     },
@@ -17582,16 +17897,6 @@
     },
     {
       "source": "method:pass-k",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
       "target": "dataset:aime-24",
       "type": "co-occurs"
     },
@@ -17613,11 +17918,6 @@
     {
       "source": "method:pass-k",
       "target": "dataset:gpqa",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -18292,16 +18592,6 @@
     },
     {
       "source": "method:process-evaluation",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-evaluation",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-evaluation",
       "target": "dataset:amc23",
       "type": "co-occurs"
     },
@@ -18353,6 +18643,11 @@
     {
       "source": "method:process-reward-model",
       "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "concept:kv-cache-compression",
       "type": "co-occurs"
     },
     {
@@ -19212,16 +19507,6 @@
     },
     {
       "source": "method:rlvr",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
       "target": "dataset:aime-24",
       "type": "co-occurs"
     },
@@ -19248,11 +19533,6 @@
     {
       "source": "method:rlvr",
       "target": "dataset:gpqa",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -19313,11 +19593,6 @@
     {
       "source": "method:rlvr",
       "target": "method:kl-cov",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
-      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -20008,16 +20283,6 @@
     {
       "source": "method:sparse-autoencoder",
       "target": "concept:superposition",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:sparse-autoencoder",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:sparse-autoencoder",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -20722,11 +20987,6 @@
     },
     {
       "source": "method:synthetic-data-generation",
-      "target": "method:llm-as-a-judge",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:synthetic-data-generation",
       "target": "method:multi-turn-reasoning",
       "type": "co-occurs"
     },
@@ -21191,11 +21451,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "model:dapo-qwen-32b",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
       "source": "model:deepseek-r1",
       "target": "dataset:amc23",
       "type": "co-occurs"
@@ -21203,11 +21458,6 @@
     {
       "source": "model:deepseek-r1",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -21243,11 +21493,6 @@
     {
       "source": "model:deepseek-r1-distill-llama-70b",
       "target": "concept:information-bottleneck",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-70b",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -21312,17 +21557,7 @@
     },
     {
       "source": "model:deepseek-r1-distill-llama-8b",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-8b",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-8b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -21453,11 +21688,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-14b",
       "target": "dataset:alpacaeval",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-14b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -21607,16 +21837,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "dataset:alpacaeval",
       "type": "co-occurs"
     },
@@ -21628,11 +21848,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -21817,11 +22032,6 @@
     },
     {
       "source": "model:gemini-2-5-flash",
-      "target": "dataset:gpqa-diamond",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gemini-2-5-flash",
       "target": "dataset:mmlu-pro",
       "type": "co-occurs"
     },
@@ -21953,11 +22163,6 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "concept:optimal-stopping",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gpt-oss-20b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -22128,11 +22333,6 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b-instruct",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -22508,11 +22708,6 @@
     {
       "source": "model:qwen2-5-32b",
       "target": "concept:tabular-softmax-parameterization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-32b",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -22763,11 +22958,6 @@
     {
       "source": "model:qwen2-5-7b",
       "target": "dataset:gpqa",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-7b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -23092,11 +23282,6 @@
     },
     {
       "source": "model:qwen3-14b",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-14b",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -23147,11 +23332,6 @@
     },
     {
       "source": "model:qwen3-32b",
-      "target": "dataset:aime-2025",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-32b",
       "target": "method:vllm",
       "type": "co-occurs"
     },
@@ -23173,16 +23353,6 @@
     {
       "source": "model:qwen3-8b",
       "target": "concept:entropy-bonus",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
-      "target": "dataset:aime-2024",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
-      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -23213,11 +23383,6 @@
     {
       "source": "model:qwen3-8b",
       "target": "dataset:gpqa",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -23333,11 +23498,6 @@
     {
       "source": "model:qwq-32b",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwq-32b",
-      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -24832,6 +24992,11 @@
     },
     {
       "source": "topic:reasoning-interpretability",
+      "target": "concept:auditability",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
       "target": "concept:causal-intervention",
       "type": "covers"
     },
@@ -25472,6 +25637,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "concept:auditability",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "concept:belief-state",
       "type": "covers"
     },
@@ -25653,6 +25823,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:judge-reliability",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:kv-cache-compression",
       "type": "covers"
     },
     {
@@ -26863,6 +27038,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "concept:judge-reliability",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "concept:kv-cache-compression",
       "type": "covers"
     },
     {
@@ -27666,7 +27846,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-12T22:31:16Z",
+  "generated_at": "2026-08-12T22:46:43Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -27739,6 +27919,13 @@
       "sources": 3
     },
     {
+      "id": "concept:auditability",
+      "kind": "concept",
+      "label": "auditability",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "concept:belief-state",
       "kind": "concept",
       "label": "belief state",
@@ -27764,14 +27951,14 @@
       "kind": "concept",
       "label": "causal intervention",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:chain-of-thought-faithfulness",
       "kind": "concept",
       "label": "chain of thought faithfulness",
       "settled": false,
-      "sources": 15
+      "sources": 16
     },
     {
       "id": "concept:circuit-complexity",
@@ -27998,6 +28185,13 @@
       "sources": 3
     },
     {
+      "id": "concept:kv-cache-compression",
+      "kind": "concept",
+      "label": "KV cache compression",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "concept:latent-reasoning",
       "kind": "concept",
       "label": "latent reasoning",
@@ -28163,7 +28357,7 @@
       "kind": "concept",
       "label": "post-hoc rationalization",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "concept:privileged-information",
@@ -28450,14 +28644,14 @@
       "kind": "dataset",
       "label": "AIME 2024",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "dataset:aime-2025",
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:aime-24",
@@ -28555,7 +28749,7 @@
       "kind": "dataset",
       "label": "GPQA-Diamond",
       "settled": false,
-      "sources": 9
+      "sources": 10
     },
     {
       "id": "dataset:gsm8k",
@@ -29038,7 +29232,7 @@
       "kind": "method",
       "label": "LLM-as-a-judge",
       "settled": false,
-      "sources": 13
+      "sources": 14
     },
     {
       "id": "method:logit-lens",

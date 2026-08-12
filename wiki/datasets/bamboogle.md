@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A multi-hop question-answering set used by both sources as held-out evaluation rather than training data, to test whether a search policy trained elsewhere transfers. It produces the widest disagreement of any benchmark they share: in one, the proposed method reaches 59.0 F1 while two baselines reach 69.0 and 68.9, so it is lost by about ten points; in the other, the proposed method's 74.6 EM is its only outright per-benchmark win, ahead of the same family of baselines at 68.9. Both papers nonetheless report a higher overall average than those baselines, which makes this set the clearest case in the archive of a macro-average concealing where a method actually stands.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

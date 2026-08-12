@@ -63,17 +63,17 @@ Computation spent at inference rather than in training, and the resource this ar
 
 Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments.
 
+### chain of thought faithfulness
+
+Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.
+
+Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark.
+
 ### verification
 
 Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
 
 Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
-
-### chain of thought faithfulness
-
-Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.
-
-Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark; Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings.
 
 ### reasoning redundancy
 
@@ -130,7 +130,7 @@ Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction 
 | GRPO | 25 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
-| LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| LLM-as-a-judge | 14 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | self-consistency | 12 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
@@ -158,15 +158,15 @@ Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction 
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
-| GPQA-Diamond | 9 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| GPQA-Diamond | 10 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | MATH | 8 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | LiveCodeBench | 7 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MATH-500 | 6 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU | 6 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
+| AIME 2024 | 4 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
 | MMLU-PRO | 4 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
-| AIME 2024 | 3 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
-| AIME 2025 | 2 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
+| AIME 2025 | 3 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | BBH | 2 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
 | MMLU-STEM | 2 | _pending_ |

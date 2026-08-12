@@ -2,7 +2,8 @@
   "aliases": [
     "CoT faithfulness",
     "faithfulness",
-    "trace faithfulness"
+    "trace faithfulness",
+    "chain-of-thought faithfulness"
   ],
   "definition": "Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.",
   "evidence": [
@@ -17,6 +18,12 @@
       "kind": "paper",
       "note": "Measures how much a model's answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.",
       "title": "Measuring Faithfulness in Chain-of-Thought Reasoning"
+    },
+    {
+      "id": "arxiv:2608.01631",
+      "kind": "paper",
+      "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+      "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
     },
     {
       "id": "arxiv:2608.04670",
@@ -99,7 +106,7 @@
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T22:46:42Z",
   "name": "chain of thought faithfulness",
   "related": [
     "post-hoc-rationalization",
@@ -120,6 +127,28 @@
     "cot-perturbation",
     "mistake-injection",
     "paraphrasing-intervention",
+    "answer-evidence-gap",
+    "kv-cache-compression",
+    "auditability",
+    "perturbation-faithfulness",
+    "answer-chain-consistency",
+    "llm-as-a-judge",
+    "causal-intervention",
+    "fixed-trace-replay",
+    "snapkv",
+    "streamingllm",
+    "kivi",
+    "adakv",
+    "headkv",
+    "lagkv",
+    "pyramidkv",
+    "tova",
+    "aime-2024",
+    "aime-2025",
+    "aime-2026",
+    "gpqa-diamond",
+    "medcalc-bench",
+    "ruler",
     "memorization",
     "cultural-knowledge",
     "figurative-language",
@@ -149,7 +178,6 @@
     "sycophancy",
     "deception",
     "epistemic-verbalization",
-    "causal-intervention",
     "thought-injection",
     "activation-analysis",
     "counterfactual-intervention",
@@ -201,12 +229,10 @@
     "steganography",
     "sandbagging",
     "cue-injection",
-    "llm-as-a-judge",
     "causal-factor-extraction",
     "monitorability-scoring",
     "inspect-evaluation-library",
     "bbh",
-    "gpqa-diamond",
     "mmlu",
     "deepseek-v3",
     "deepseek-r1",
@@ -280,8 +306,6 @@
     "grpo",
     "dapo",
     "supervised-fine-tuning",
-    "aime-2024",
-    "aime-2025",
     "math-500",
     "amc23",
     "minerva",
@@ -293,6 +317,7 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "chain-of-thought-faithfulness",
   "topics": [

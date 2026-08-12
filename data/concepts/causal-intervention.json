@@ -7,6 +7,12 @@
   "definition": "Changing something inside a model or its context and measuring the effect, as against reading a correlation off unmodified runs — in both sources the standard of evidence that separates a claim about mechanism from a claim about association. One injects synthetic reasoning into a trace to establish that the trace content shapes the answer, which it states plainly requires an intervention rather than an observation, and only then asks the model to account for the change. The other organizes its whole analysis into three regimes each carrying an intervention rather than a correlational read, and shows what makes one clean: on a task whose queries are binary, deleting the latent tokens is a do-operation whose counterfactual is read directly off the log probabilities assigned to the two answers. The sources therefore use the term for the design property, not for any particular technique.",
   "evidence": [
     {
+      "id": "arxiv:2608.01631",
+      "kind": "paper",
+      "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+      "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1986",
       "kind": "paper",
       "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
@@ -21,11 +27,32 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T11:28:30Z",
+  "last_seen": "2026-08-12T22:46:42Z",
   "name": "causal intervention",
   "related": [
+    "answer-evidence-gap",
     "chain-of-thought-faithfulness",
     "post-hoc-rationalization",
+    "kv-cache-compression",
+    "auditability",
+    "perturbation-faithfulness",
+    "answer-chain-consistency",
+    "llm-as-a-judge",
+    "fixed-trace-replay",
+    "snapkv",
+    "streamingllm",
+    "kivi",
+    "adakv",
+    "headkv",
+    "lagkv",
+    "pyramidkv",
+    "tova",
+    "aime-2024",
+    "aime-2025",
+    "aime-2026",
+    "gpqa-diamond",
+    "medcalc-bench",
+    "ruler",
     "monitorability",
     "sycophancy",
     "deception",
@@ -53,7 +80,6 @@
     "prosqa",
     "prontoqa",
     "math-500",
-    "aime-2024",
     "gsm8k",
     "qwq-32b",
     "qwen2-1-5b",
@@ -71,8 +97,8 @@
   "schema_version": 1,
   "slug": "causal-intervention",
   "topics": [
-    "reasoning-faithfulness",
     "reasoning-training",
+    "reasoning-faithfulness",
     "reasoning-interpretability"
   ]
 }
