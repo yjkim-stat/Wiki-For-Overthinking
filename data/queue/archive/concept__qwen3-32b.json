@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
+        "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
+        "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T05:50:35Z",
+  "created_at": "2026-08-08T05:49:58Z",
+  "instructions": "Write the wiki definition for 'Qwen3-32B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-32B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-32B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3-32B"
+    ],
+    "definition": "The 32B member of the Qwen3 family. It appears in these sources as a scale check rather than a primary subject — used to verify that numerical-precision reproducibility findings established at 7-8B also hold at larger scale, and as a large model in entropy-mechanism experiments. Results for it are generally deferred to appendices in the sources that use it. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "Qwen3-14B",
+      "Qwen3-8B",
+      "Qwen2.5-32B",
+      "QwQ-32B"
+    ]
+  },
+  "task_id": "concept__qwen3-32b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

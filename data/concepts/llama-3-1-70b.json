@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "Llama-3.1-70B",
+    "Llama-3.3-70B-Instruct"
+  ],
+  "definition": "A 70B Llama model, the largest non-reasoning system measured in these sources. It anchors the scale end of two analyses: reasoning trajectories that converge fastest with the highest consistency and lowest uncertainty among the models compared (84.4% on AQuA), and a mutual-information profile that still shows weaker peaks than reasoning-trained models of smaller size, which is the evidence that the phenomenon comes from training rather than capacity.",
+  "evidence": [
+    {
+      "id": "local:0c24c3c0e4729108",
+      "kind": "paper",
+      "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+      "title": "Efficiently Scaling LLM Reasoning with Certaindex"
+    },
+    {
+      "id": "local:1b977d02353e100b",
+      "kind": "paper",
+      "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
+      "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Llama-3.1-70B",
+  "related": [
+    "certaindex",
+    "answer-stabilization",
+    "self-doubt",
+    "overthinking",
+    "probe-in-the-middle",
+    "semantic-entropy",
+    "early-exit",
+    "adaptive-compute-allocation",
+    "gang-scheduling",
+    "test-time-compute",
+    "reasoning-programs",
+    "dynasor",
+    "self-consistency",
+    "monte-carlo-tree-search",
+    "rebase",
+    "chain-of-thought",
+    "sglang",
+    "math500",
+    "aime24",
+    "amc23",
+    "gsm8k",
+    "livecodebench",
+    "asdiv",
+    "deepseek-r1",
+    "qwen2-5-7b",
+    "qwq-32b",
+    "reasoning-trajectory",
+    "intermediate-state",
+    "answer-space-distance-features",
+    "trajectory-convergence",
+    "consistency",
+    "uncertainty",
+    "thought-level-perplexity",
+    "verifier-weighted-voting",
+    "self-correction",
+    "post-hoc-analysis",
+    "landscape-of-thoughts-lot",
+    "t-sne",
+    "least-to-most-prompting",
+    "tree-of-thought",
+    "random-forest",
+    "weighted-majority-voting",
+    "aqua",
+    "mmlu",
+    "strategyqa",
+    "commonsenseqa",
+    "llama-3-2-1b",
+    "llama-3-2-3b",
+    "llama-3-1-8b"
+  ],
+  "schema_version": 1,
+  "slug": "llama-3-1-70b",
+  "topics": [
+    "test-time-scaling"
+  ]
+}

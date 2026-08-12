@@ -1,0 +1,151 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+        "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.",
+        "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.",
+        "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Improves factuality by reweighting reasoning segments according to state-transition probabilities along the thinking process, targeting a gap where correct facts appear in reasoning but not in the answer.",
+        "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.",
+        "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
+        "title": "Free Process Rewards without Process Labels",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes 'spend test-time compute well' as a meta-reinforcement-learning problem — treating one long output stream as a sequence of episodes and scoring it by cumulative regret over tokens — and trains against a dense progress bonus that outcome-only reward cannot express.",
+        "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.",
+        "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves via circuit complexity that bounded-depth Transformers cannot directly solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive Transformers can solve all of them by generating chain-of-thought derivations.",
+        "title": "Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:33:54Z",
+  "created_at": "2026-08-09T03:28:55Z",
+  "instructions": "Write the wiki definition for 'process supervision'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "process supervision",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "process supervision",
+    "source_count": 9
+  },
+  "result": {
+    "aliases": [
+      "process reward",
+      "step-level supervision",
+      "step supervision"
+    ],
+    "definition": "Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.",
+    "kind": "concept",
+    "related": [
+      "process evaluation",
+      "outcome reward",
+      "credit assignment",
+      "privileged information",
+      "on-policy self-distillation",
+      "token selection",
+      "verification"
+    ]
+  },
+  "task_id": "concept__process-supervision",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

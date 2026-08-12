@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
+        "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Converts AMC23 and AIME24/25 into symbolic templates whose constants are replaced by sampled variables, requires a model to solve several instantiations of each problem, and finds RL-finetuned models lose most of their reported accuracy under that consistency requirement.",
+        "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:50Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'PRIME'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "PRIME",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "PRIME",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "PRIME"
+    ],
+    "definition": "An RLVR algorithm using implicit process rewards. It appears here only as a comparison point, and informatively so: one source fits its entropy-performance exchange curve alongside GRPO, RLOO and REINFORCE++ and finds the same two coefficients describe all of them, which is the basis for calling the exchange law algorithm-irrelevant. Another re-evaluates a PRIME-trained 7B model on symbolically variabilized benchmarks and reports a 50.4% drop on AMC23.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "RLOO",
+      "PPO",
+      "RLVR",
+      "process-supervision",
+      "policy entropy"
+    ]
+  },
+  "task_id": "concept__prime",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

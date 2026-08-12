@@ -1,0 +1,85 @@
+{
+  "aliases": [
+    "stopping rule",
+    "early stopping theory",
+    "sequential stopping"
+  ],
+  "definition": "The classical theory of when to stop sampling, which both sources import to decide how many generations an LLM should produce. They pick different classical problems and so optimize different things. One maps generation onto Pandora's Box, where each sample opens a costly box with random reward and the optimal rule under a known distribution is Weitzman's fair-cap threshold; since the reward distribution is unknown it learns an upper confidence bound on that threshold online. The other poses self-consistency stopping as sequential hypothesis testing for mode identification, stopping once the posterior that the leading answer is the true mode exceeds a confidence level. The distinction matters: the first maximizes a reward model's score, the second maximizes agreement, and neither targets correctness directly.",
+  "evidence": [
+    {
+      "id": "local:5c4c22504406a6aa",
+      "kind": "paper",
+      "note": "Stops self-consistency sampling by Bayesian posterior over which answer is the mode, and proves that tracking only the top two answer counts plus an aggregate is enough for asymptotic optimality.",
+      "title": "Optimal Bayesian Stopping for Efficient Inference of Consistent LLM Answers"
+    },
+    {
+      "id": "local:dbfa51b5159a1a77",
+      "kind": "paper",
+      "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+      "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping"
+    },
+    {
+      "id": "local:f424beba20f4aecf",
+      "kind": "paper",
+      "note": "Casts each generation as opening a costly box in Weitzman's Pandora's Box problem and learns the optimal stopping threshold online, matching best-of-N quality with 15-35% fewer generations.",
+      "title": "Optimal Stopping vs Best-Of-N for Inference Time Optimization"
+    }
+  ],
+  "first_seen": "2026-08-09T03:21:53Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "optimal stopping",
+  "related": [
+    "self-consistency",
+    "answer-stabilization",
+    "sequential-hypothesis-testing",
+    "mode-identification",
+    "test-time-compute",
+    "adaptive-compute-allocation",
+    "prompt-difficulty",
+    "bayesian-prior",
+    "adaptive-self-consistency",
+    "l-aggregated-posterior-approximation",
+    "majority-voting",
+    "beta-posterior-updating",
+    "overthinking",
+    "reasoning-redundancy",
+    "continuation-value",
+    "bellman-equation",
+    "early-exit",
+    "accuracy-efficiency-trade-off",
+    "threshold-classification",
+    "optimal-stopping-policy",
+    "classification-probe",
+    "reinforcement-learning",
+    "length-penalty",
+    "chain-of-thought-compression",
+    "gsm8k",
+    "math500",
+    "aime24",
+    "aime25",
+    "omni-math",
+    "deepscaler-preview-dataset",
+    "deepseek-r1-distill-qwen-7b",
+    "gpt-oss-20b",
+    "drpo-7b",
+    "pandora-s-box",
+    "fair-cap-value",
+    "regret",
+    "best-of-n",
+    "reward-model-calibration",
+    "exploration-exploitation-trade-off",
+    "ucb-pandora-s-box",
+    "weitzman-s-algorithm",
+    "bradley-terry-transformation",
+    "anytime-valid-confidence-sequences",
+    "alpacafarm",
+    "hh-rlhf"
+  ],
+  "schema_version": 1,
+  "slug": "optimal-stopping",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

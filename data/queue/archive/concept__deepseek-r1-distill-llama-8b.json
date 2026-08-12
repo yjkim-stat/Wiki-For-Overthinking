@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.",
+        "title": "Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
+        "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:51:39Z",
+  "created_at": "2026-08-08T04:51:03Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Llama-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepSeek-R1-Distill-Llama-8B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "DeepSeek-R1-Distill-Llama-8B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "DS-Llama-8B"
+    ],
+    "definition": "The 8B Llama-based member of the R1 distillation series. It carries two of this archive's clearer single-model results: recycling its high-mutual-information representations through the same layer yields a 20% relative accuracy improvement on AIME24, and its causal-attribution score density is among the highest measured, meaning its CoT steps depend on each other more strongly than in the Qwen3-based models compared alongside it. Its mutual-information trajectory also shows the sharpest contrast against its non-reasoning base. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "Llama-3.1-8B",
+      "thinking tokens"
+    ]
+  },
+  "task_id": "concept__deepseek-r1-distill-llama-8b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

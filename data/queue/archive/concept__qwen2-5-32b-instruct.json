@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Reaches test-time scaling with two simple ingredients: supervised finetuning on 1,000 curated reasoning traces, and 'budget forcing', which controls thinking length by cutting generation off or appending 'Wait' to extend it.",
+        "title": "s1: Simple test-time scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
+        "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:14:28Z",
+  "created_at": "2026-08-08T04:13:00Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-32B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen2.5-32B-Instruct",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Qwen2.5-32B-Instruct",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen2.5-32B-Instruct"
+    ],
+    "definition": "The 32B instruction-tuned Qwen2.5 model, appearing in both sources as a base to be modified rather than studied. One finetunes it on 1,000 curated reasoning traces and adds budget forcing to produce a model exceeding o1-preview on competition math by up to 27%, and extrapolating from 50% to 57% on AIME24 under forced-longer thinking. The other includes it among the standard LLMs whose self-corrections are almost entirely reactive, with proactive correction essentially absent — the contrast that separates instruction-tuned models from reasoning-trained ones there. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "Qwen2.5-7B",
+      "Qwen3-14B",
+      "budget forcing",
+      "MATH",
+      "AIME24"
+    ]
+  },
+  "task_id": "concept__qwen2-5-32b-instruct",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

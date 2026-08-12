@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+        "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:48Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'DEER'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DEER",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "DEER",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "DEER",
+      "DEER-PRo"
+    ],
+    "definition": "Dynamic Early Exit in Reasoning: monitor for reasoning transition points, induce a trial answer there, and stop if the answer's confidence exceeds a threshold. Its two monitor designs matter for this archive — one matches linguistic markers such as 'Wait', the other flags steps whose initial-token entropy exceeds 0.672, a threshold taken directly from the high-entropy-minority-tokens work on RLVR training. It is also the main baseline in the archive's CUSUM early-exit paper, which reports it lower in accuracy at comparable token savings.",
+    "kind": "method",
+    "related": [
+      "early exit",
+      "overthinking",
+      "Dynasor",
+      "token-level entropy",
+      "answer stabilization"
+    ]
+  },
+  "task_id": "concept__deer",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

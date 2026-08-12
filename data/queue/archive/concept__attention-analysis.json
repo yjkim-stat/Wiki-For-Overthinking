@@ -1,0 +1,74 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
+        "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
+        "title": "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects reasoning hallucinations by measuring how strongly cross-step attention routing aligns with hidden-state semantic proximity, finding that higher alignment means higher hallucination risk.",
+        "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:30Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'attention analysis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "attention analysis",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "attention analysis",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "attention inspection",
+      "attention-based analysis"
+    ],
+    "definition": "Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes the term loose: to time an inference-time intervention by locating key points in a reasoning path, to diagnose a compositional performance drop alongside neuron patterns and membership inference, and to detect hallucination by measuring how well cross-step attention routing aligns with hidden-state semantic proximity. The third yields the least intuitive claim in the group — higher alignment predicts higher hallucination risk, read as a self-confirmation loop that suppresses self-auditing.",
+    "kind": "method",
+    "related": [
+      "attention pattern",
+      "attention head",
+      "localization",
+      "mechanistic interpretability",
+      "routing collapse"
+    ]
+  },
+  "task_id": "concept__attention-analysis",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

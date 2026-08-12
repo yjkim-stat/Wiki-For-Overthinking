@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free two-stage prompting protocol that extracts a problem's answer-space constraints first and then checks its own intermediate and final results against them, routed on by a regex detector.",
+        "title": "Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Has a teacher decompose and prune a student's reasoning by mathematical skill, then distills the pruned paths back, on the argument that CoT structure must match student capacity.",
+        "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:29Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'AIME'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AIME",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "AIME",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "American Invitational Mathematics Examination"
+    ],
+    "definition": "The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checkable. The sources use it as a hard reference point rather than an object of study: one measures a training-free constraint-extraction protocol on it, another reports a 43% token reduction on it with no accuracy drop. Because problems are released by year, AIME appears in the archive both as an undated pool and as year-specific splits, and the year matters for contamination.",
+    "kind": "dataset",
+    "related": [
+      "AIME 24",
+      "AIME 25",
+      "MATH500",
+      "benchmark contamination",
+      "mathematical reasoning"
+    ]
+  },
+  "task_id": "concept__aime",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

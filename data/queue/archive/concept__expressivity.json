@@ -1,0 +1,84 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Characterizes exactly how much computational power a chain of thought buys as a function of its length, sandwiching the class of languages a decoder recognizes with t(n) decoding steps between two standard complexity classes.",
+        "title": "The Expressive Power of Transformers with Chain of Thought",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that no computable length-generalization bound exists for transformers of depth two or beyond, and gives a matching exponential bound for the positive fragment that corresponds to fixed-precision transformers.",
+        "title": "Length Generalization Bounds for Transformers",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves a tighter no-CoT upper bound of AC^0 for constant-precision transformers, and shows T steps of chain of thought let a constant-depth model compute anything a size-T boolean circuit can.",
+        "title": "Chain of Thought Empowers Transformers to Solve Inherently Serial Problems",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves via circuit complexity that bounded-depth Transformers cannot directly solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive Transformers can solve all of them by generating chain-of-thought derivations.",
+        "title": "Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:49Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'expressivity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "expressivity",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "expressivity",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "expressive power",
+      "representational capacity"
+    ],
+    "definition": "What a model can represent in principle, independent of whether training finds it. The archived sources use it to establish that chain of thought changes a transformer's computational class rather than merely helping it, and they converge on the same regime boundaries from different directions: a logarithmic number of intermediate steps buys essentially nothing, a linear number buys the ability to simulate recurrence and recognize all regular languages, and a polynomial number reaches P exactly. Two of the sources reach these conclusions independently under different precision assumptions. The sources are also explicit about the limit of the notion: one names in its own limitations that it explains why CoT increases expressivity and not why scaling improves it, nor whether anything expressible is learnable.",
+    "kind": "concept",
+    "related": [
+      "circuit complexity",
+      "expressivity-learnability gap",
+      "effective depth",
+      "chain of thought",
+      "length generalization",
+      "sample complexity"
+    ]
+  },
+  "task_id": "concept__expressivity",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

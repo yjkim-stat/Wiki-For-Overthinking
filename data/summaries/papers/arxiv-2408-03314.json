@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "test-time compute",
+    "compute-optimal scaling",
+    "prompt difficulty",
+    "process reward model",
+    "best-of-n",
+    "pretraining vs inference trade-off",
+    "FLOPs-matched comparison"
+  ],
+  "contributions": [
+    "An analysis of two distinct mechanisms for scaling test-time computation: search against dense, process-based verifier reward models, and adaptively updating the model's distribution over a response given the prompt.",
+    "The finding that which mechanism works depends critically on prompt difficulty, which is why single-strategy studies produce mixed results.",
+    "A 'compute-optimal' strategy that allocates test-time compute adaptively per prompt.",
+    "A FLOPs-matched comparison against pretraining a larger model."
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T04:12:50Z",
+  "generated_by": "paper",
+  "limitations": "Not discussed in the abstract, though one boundary is stated inside the headline result and is easy to miss: the 14x claim holds on problems where the smaller model already has non-trivial success rates. Test-time compute is shown to amplify existing competence, not to supply competence the base model lacks, which bounds how far this topic's central strategy can go.",
+  "method": "Two families are compared. The first searches against a process-based verifier reward model that scores intermediate steps densely. The second revises the model's own distribution over a response at test time given the prompt. Both are evaluated across prompt difficulty levels, and the compute-optimal strategy selects the allocation per prompt on that basis. The abstract does not state the model, benchmark or difficulty estimator.",
+  "methods": [
+    "verifier-guided search",
+    "adaptive distribution update",
+    "best-of-N",
+    "process-based verifier reward model"
+  ],
+  "one_liner": "Studies how far a fixed model improves when given more inference compute, and shows that allocating that compute adaptively per prompt by difficulty beats a uniform best-of-N budget by more than 4x.",
+  "paper_id": "arxiv:2408.03314",
+  "problem": "Whether and how much extra inference compute helps a fixed model was largely unanswered, with prior work reporting mostly negative results for individual strategies. The question matters beyond inference, since it sets the trade-off between spending compute at pretraining and spending it at test time.",
+  "relevance": {
+    "test-time-scaling": "The paper that named this topic's central question and gave it a unit of measurement. Two results are load-bearing. First, difficulty-conditioned allocation: the right way to spend inference compute depends on the prompt, so a single fixed strategy is leaving most of the gain unclaimed and the mixed prior results were an artefact of not conditioning. Every archived method that scores or filters trajectories is implicitly doing a version of this, and none of them condition on difficulty explicitly — an open gap this paper identifies but the archive has not closed. Second, the FLOPs-matched comparison makes the pretraining-versus-inference trade-off concrete, which is the framing that turned test-time scaling from a decoding trick into a compute-allocation question. The stated caveat, that the advantage holds where the smaller model already has non-trivial success, is the honest boundary and should travel with the claim."
+  },
+  "results": "The compute-optimal strategy improves the efficiency of test-time compute scaling by more than 4x compared with a best-of-N baseline. In a FLOPs-matched evaluation, on problems where a smaller base model already attains somewhat non-trivial success rates, test-time compute lets it outperform a 14x larger model. The abstract gives no benchmark-level accuracies. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+  "schema_version": 1,
+  "tags": [
+    "test-time scaling",
+    "inference compute",
+    "compute-optimal",
+    "verifier",
+    "scaling"
+  ],
+  "models": []
+}

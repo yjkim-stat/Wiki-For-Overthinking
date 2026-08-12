@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+        "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?",
+        "topics": [
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.",
+        "title": "PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics",
+        "topics": [
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:47:17Z",
+  "created_at": "2026-08-08T12:46:29Z",
+  "instructions": "Write the wiki definition for 'GPT-5'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPT-5",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "GPT-5",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "GPT5"
+    ],
+    "definition": "An OpenAI frontier model, present in the archive as the ceiling that benchmarks are calibrated against — and beaten in both appearances. On a university-level multimodal math benchmark it is surpassed by Qwen3-VL given no image at all, which the source reads as evidence that visual input contributes little and can interfere. On a contamination-resistant inductive reasoning benchmark it stays below 5% on hard long-cascade instances even under expensive test-time scaling. Both results are used to argue that the benchmark is measuring something real rather than saturating, so GPT-5's presence here marks headroom rather than progress.",
+    "kind": "model",
+    "related": [
+      "performance ceiling",
+      "perception bottleneck",
+      "inductive reasoning",
+      "test-time compute",
+      "construct validity"
+    ]
+  },
+  "task_id": "concept__gpt-5",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

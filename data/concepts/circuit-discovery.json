@@ -1,0 +1,79 @@
+{
+  "aliases": [
+    "circuit identification"
+  ],
+  "definition": "Finding the subset of components that accounts for a behaviour, usually by intervening on candidates and keeping those whose ablation changes the output. The archived sources apply it at three scales — indirect object identification, propositional logic, arithmetic — and one of them is a warning about the other two: which components a study reports depends on the corruption method, the evaluation metric and whether layers are patched singly or in windows, with window methods inflating apparent localization by at least 20%. Any circuit result in this archive should be read with the settings that produced it in view.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05732",
+      "kind": "paper",
+      "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+      "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits"
+    },
+    {
+      "id": "local:26fdb25b9d157d04",
+      "kind": "paper",
+      "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
+      "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics"
+    },
+    {
+      "id": "local:99a25b62fd9ad86c",
+      "kind": "paper",
+      "note": "Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.",
+      "title": "A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T05:49:58Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "circuit discovery",
+  "related": [
+    "sparse-autoencoder",
+    "monosemanticity",
+    "circuit",
+    "superposition",
+    "steering",
+    "feature-co-activation",
+    "geometric-alignment",
+    "localization",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "multi-point-intervention",
+    "bag-of-heuristics",
+    "circuit-analysis",
+    "memorization",
+    "generalization",
+    "heuristic-neurons",
+    "causal-analysis",
+    "arithmetic-reasoning",
+    "modularity",
+    "neuron-interpretability",
+    "activation-patching",
+    "neuron-ablation",
+    "logit-attribution",
+    "synthetic-arithmetic-prompts",
+    "llama-3-1-8b",
+    "pythia-410m",
+    "gpt-j-6b",
+    "causal-mediation-analysis",
+    "attention-head-specialization",
+    "lazy-reasoning",
+    "sub-circuit-reuse",
+    "propositional-logic",
+    "implicit-reasoning",
+    "indirect-effect",
+    "key-value-query-intervention",
+    "counterfactual-prompting",
+    "synthetic-propositional-logic-task",
+    "mistral-7b",
+    "gemma-2-9b",
+    "gemma-2-27b"
+  ],
+  "schema_version": 1,
+  "slug": "circuit-discovery",
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
+  ]
+}

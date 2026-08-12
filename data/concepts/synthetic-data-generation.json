@@ -1,0 +1,79 @@
+{
+  "aliases": [
+    "data synthesis",
+    "synthetic corpora"
+  ],
+  "definition": "Producing training data with a model instead of collecting or annotating it, used by all three sources to obtain supervision that does not otherwise exist. One generates therapy dialogues with a structured CoT strategy plus a resistance orchestrator, specifically to avoid the uniformly compliant patients that make naive synthesis unrealistic. One generates instruction-following data for reasoning traces, raising one model's compliance score from 0.11 to 0.27. One derives a domain-agnostic dataset from a web corpus and synthesizes paired grounded and hallucinated claims, which is what makes its guardrail domain-agnostic. All three synthesize the negative or difficult case specifically, since that is the part real data lacks.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04524",
+      "kind": "paper",
+      "note": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
+      "title": "ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1456",
+      "kind": "paper",
+      "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+      "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.835",
+      "kind": "paper",
+      "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
+      "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "synthetic data generation",
+  "related": [
+    "sycophancy",
+    "structured-chain-of-thought",
+    "behavioural-fidelity",
+    "chain-of-thought",
+    "activation-steering",
+    "supervised-fine-tuning",
+    "multi-agent-dialogue-simulation",
+    "llm-as-a-judge",
+    "odra-synthetic-cbt-session-dataset",
+    "instruction-following",
+    "controllability",
+    "monitorability",
+    "reward-hacking",
+    "alignment",
+    "reasoning-trace",
+    "difficulty-scaling",
+    "reasonif",
+    "reasoning-instruction-finetuning",
+    "multi-turn-reasoning",
+    "gpt-oss",
+    "gpt-oss-20b",
+    "qwen3",
+    "deepseek-r1",
+    "hallucination",
+    "retrieval-augmented-generation",
+    "groundedness",
+    "verification",
+    "reasoning-distillation",
+    "guardrail",
+    "balanced-accuracy",
+    "odds-ratio-preference-optimization",
+    "preference-based-fine-tuning",
+    "synthetic-claim-generation",
+    "ragtruth",
+    "llm-aggrefact",
+    "fineweb",
+    "halluguard",
+    "minicheck",
+    "granite-guardian-3-3",
+    "gpt-4o"
+  ],
+  "schema_version": 1,
+  "slug": "synthetic-data-generation",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

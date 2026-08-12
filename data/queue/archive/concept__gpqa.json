@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+        "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+        "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:33Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'GPQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPQA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "GPQA",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Graduate-Level Google-Proof Q&A"
+    ],
+    "definition": "A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method generalizes past math rather than to study the benchmark: one for a training-free hidden-state verifier applied to selection and reranking, the other for selecting RLVR training tokens by the divergence of their logit distribution from a reference. Its presence in the archive is thin — two sources, both incidental — which is itself informative given how dominated the collection is by math benchmarks.",
+    "kind": "dataset",
+    "related": [
+      "AIME",
+      "MATH500",
+      "scientific reasoning",
+      "benchmark contamination",
+      "verification"
+    ]
+  },
+  "task_id": "concept__gpqa",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

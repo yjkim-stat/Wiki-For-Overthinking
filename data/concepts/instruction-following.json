@@ -1,0 +1,74 @@
+{
+  "aliases": [
+    "instruction adherence",
+    "directive compliance",
+    "IFS"
+  ],
+  "definition": "Doing what the prompt specifies, measured by the sources in three places and found weak in all of them. In the model's main response it degrades as reasoning capacity grows and as generation length increases. Inside the reasoning trace it is worse: the best instruction-following score stays below 0.25, and degrades further with task difficulty, though targeted finetuning raises one model from 0.11 to 0.27. As a judged quantity it is unreliable in a different way, since LLM-judge preference scores do not correlate with concrete instruction-following measures because judges respond to style. So the capability is weak and the standard way of measuring it is also weak.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1878",
+      "kind": "paper",
+      "note": "A benchmark showing that as reasoning capacity grows, instruction adherence falls, and that recovering obedience costs reasoning performance.",
+      "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1456",
+      "kind": "paper",
+      "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+      "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    },
+    {
+      "id": "local:503d1e9598036375",
+      "kind": "paper",
+      "note": "Builds a large standardized meta-benchmark and finds that LLM-judge preference scores do not correlate with concrete measures of safety, world knowledge or instruction following, because judges systematically prioritize style over factuality and safety.",
+      "title": "Style Outweighs Substance: Failure Modes of LLM Judges in Alignment Benchmarking"
+    }
+  ],
+  "first_seen": "2026-08-08T06:13:28Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "instruction following",
+  "related": [
+    "controllability",
+    "alignment-tax",
+    "reasoning-capability",
+    "generation-length",
+    "trade-off",
+    "mathif",
+    "distillation",
+    "reinforcement-learning-post-training",
+    "prompt-intervention",
+    "monitorability",
+    "reward-hacking",
+    "alignment",
+    "reasoning-trace",
+    "difficulty-scaling",
+    "reasonif",
+    "reasoning-instruction-finetuning",
+    "multi-turn-reasoning",
+    "synthetic-data-generation",
+    "gpt-oss",
+    "gpt-oss-20b",
+    "qwen3",
+    "deepseek-r1",
+    "llm-as-a-judge",
+    "construct-validity",
+    "style-bias",
+    "preference-optimization",
+    "meta-evaluation",
+    "supervised-finetuning",
+    "sos-bench",
+    "bradley-terry-model",
+    "mt-bench",
+    "alpacaeval",
+    "arena-hard-auto",
+    "mmlu"
+  ],
+  "schema_version": 1,
+  "slug": "instruction-following",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation"
+  ]
+}

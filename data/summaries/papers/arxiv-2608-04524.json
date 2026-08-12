@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "sycophancy",
+    "structured chain of thought",
+    "synthetic data generation",
+    "behavioural fidelity"
+  ],
+  "contributions": [
+    "The ODRA framework for CBT session synthesis with a guideline-grounded CoT strategy",
+    "A resistance orchestrator that uses steering to control simulated-patient resistance level and remove sycophancy",
+    "A synthetic CBT dataset whose fine-tuned models are evaluated against both cooperative and resistant patients"
+  ],
+  "datasets": [
+    "ODRA synthetic CBT session dataset"
+  ],
+  "generated_at": "2026-08-08T12:09:47Z",
+  "generated_by": "paper",
+  "limitations": "No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported with inter-rater agreement or the number of psychologists. Downstream validation is against simulated patients, not human ones, so the claim that explicit resistance modelling transfers to clinical robustness is established only within simulation.",
+  "method": "ODRA generates therapy dialogues through a Chain-of-Thought strategy grounded in published CBT guidelines (Beck, 2020), which supplies the sequential structure. A separate resistance orchestrator addresses patient sycophancy by applying steering techniques to elicit behaviour matched to a specified resistance level.",
+  "methods": [
+    "chain of thought",
+    "activation steering",
+    "supervised fine-tuning",
+    "multi-agent dialogue simulation",
+    "LLM-as-a-judge"
+  ],
+  "models": [],
+  "one_liner": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
+  "paper_id": "arxiv:2608.04524",
+  "problem": "Synthetic CBT session generation must satisfy two competing demands: adherence to a strict sequential therapeutic structure, and modelling of resistant, unpredictable patient behaviour. Script-based methods miss the dynamics; multi-agent methods break the structure; both produce sycophantic, overly compliant patients that misrepresent clinical reality.",
+  "relevance": {
+    "reasoning-training": "Peripheral. CoT is used here as a scaffold for controllable data generation, not as an object of study, and no reasoning benchmark is reported. The one point of contact is that structured CoT is doing a role-fidelity job rather than a problem-solving one, which is a use of the same mechanism this topic tracks for a different purpose.",
+    "test-time-scaling": "Peripheral. The resistance orchestrator is an inference-time steering intervention, but the quantity being controlled is simulated-patient behaviour, not reasoning length or accuracy, so nothing here bears on compute allocation."
+  },
+  "results": "Automated and expert evaluation report that ODRA outperforms existing methods on therapeutic skills, CBT alignment and patient behavioural fidelity, with licensed psychologists preferring ODRA sessions on 12 of 13 clinical metrics. Models fine-tuned on the generated dataset perform better against both cooperative and resistant simulated patients.",
+  "schema_version": 1,
+  "tags": [
+    "cbt",
+    "synthetic dialogue",
+    "steering",
+    "sycophancy",
+    "off-topic-candidate"
+  ]
+}

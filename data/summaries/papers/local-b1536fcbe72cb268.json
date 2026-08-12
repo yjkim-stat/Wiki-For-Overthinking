@@ -1,0 +1,66 @@
+{
+  "concepts": [
+    "process reward model",
+    "outcome reward model",
+    "implicit reward",
+    "Q value",
+    "reward parameterization",
+    "log-likelihood ratio",
+    "process supervision",
+    "best-of-n",
+    "credit assignment",
+    "step-level annotation",
+    "verification"
+  ],
+  "contributions": [
+    "Proposition 3.1: if the outcome reward is parameterized as beta times the log-likelihood ratio of policy to reference model, then the running sum of per-token log-ratios is an exact expectation of the outcome reward at each step — that is, the Q value — so training an ORM this way implicitly trains a PRM.",
+    "The resulting process reward is the per-step log-ratio itself, computable with no extra machinery, and the result holds at token granularity as well as step granularity.",
+    "Proposition 3.2: this implicit Q value is bounded between the soft- and hard-estimated Q values that MCTS annotation produces, attaining each bound in the limits of beta, so it sits between the known over- and under-estimates.",
+    "Objective-agnosticism: the derivation constrains only the reward parameterization, so DPO, KTO, NCA and plain cross-entropy all yield implicit PRMs — and cross-entropy in particular works on unpaired, imbalanced data, down to one response per instruction.",
+    "A finding that undercuts the premise of the field it belongs to: adding genuine step labels on top of the implicit PRM brings no further improvement."
+  ],
+  "datasets": [
+    "MATH500",
+    "UltraInteract",
+    "UltraFeedback"
+  ],
+  "generated_at": "2026-08-08T05:26:41Z",
+  "generated_by": "paper",
+  "limitations": "No limitations section, but the paper self-caveats on its most provocative claim: it warns against concluding step labels are generally unhelpful, because the MCTS-based annotation supplying those labels is itself noisy, so the null result may reflect label quality rather than label irrelevance. A reader should add that all evaluation is best-of-N on MATH-500 with mathematics-only training data, so the claim that instructions must be task-relevant is established only for that pairing; that the reward parameterization requires serving a reference model unless the base has undergone preference learning, which is a real constraint for models that have not; that beta = 0.05 is set empirically without a sensitivity study, despite Proposition 3.2 showing the estimate slides between the soft and hard MCTS bounds as a function of beta — so where it lands is a tuning choice with a stated interpretation but no reported exploration; and that the disconnect between best-of-N performance and policy performance is reported without explanation, which matters because the two uses are what a PRM is for.",
+  "method": "An outcome reward model is trained normally on response-level correctness labels, with one change: instead of a linear head on hidden states or a generative good/bad token, the reward is defined as beta times the log-ratio of the policy's sequence likelihood to a reference model's. Under that parameterization the partial sum of per-token log-ratios up to step t equals the expected outcome reward conditioned on the prefix — the Q value — so the process reward for step t is the difference of consecutive partial sums, which is just the step's own log-ratio term. Nothing is annotated and nothing extra is trained. The parameterization is the one already used by DPO and its variants, so many existing preference-learning pipelines already satisfy the assumption without knowing it. Instantiations are trained with DPO and NCA on paired data, and with KTO and cross-entropy directly on unpaired, imbalanced rollouts; two data-balancing variants of cross-entropy are compared. Training uses 33K mathematics instructions from UltraInteract with eight rollouts each sampled from Llama-3.1-8B-Instruct and labelled by ground-truth answer correctness, with the PRM initialized from Llama-3.1-8B-Instruct and beta = 0.05. Evaluation is best-of-N on MATH-500 with three generators of differing strength (Mistral-7B-Instruct-v0.2, Llama-3.1-8B-Instruct, Llama-3.1-70B-Instruct); each completion is scored by taking the minimum step reward. Baselines are reimplementations of Math-Shepherd and AutoPSV trained on the identical data, plus six off-the-shelf reward models. Development overhead is measured in FLOPs covering both data collection and training. A separate test adds a second-stage step-level KTO objective using Math-Shepherd labels to see whether real process labels help.",
+  "methods": [
+    "Implicit PRM",
+    "DPO",
+    "KTO",
+    "NCA",
+    "cross-entropy reward modelling",
+    "Math-Shepherd",
+    "AutoPSV",
+    "Monte Carlo tree search",
+    "best-of-N",
+    "majority voting"
+  ],
+  "one_liner": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
+  "paper_id": "local:b1536fcbe72cb268",
+  "problem": "Process reward models give denser and better-behaved training and inference signal than outcome reward models, but they require a label at every intermediate step. Manual annotation is impractical, and the standard automatic route — sampling look-ahead trajectories from each prefix and labelling a step by how often it leads to a correct answer — is expensive: roughly 80 trajectories per instruction for a 10-step response with 8 rollouts each, which the paper measures at 38.8 times the FLOPs of training an outcome model. The automatic labels are also noisy in a structured way: hard estimation (a step is good if any rollout succeeds) overestimates the Q value, while soft estimation (proportion of successful rollouts) underestimates it because the policy often cannot solve difficult instructions at all.",
+  "relevance": {
+    "reasoning-training": "The paper that turns the archive's most promising open direction from an aspiration into an existing result. Two archived papers name label-free step-level feedback as future work — one proposing to segment trajectories by entropy instability, the other showing step correctness is linearly decodable from internal representations — and this shows a third route that needs neither: the process reward is already latent in an outcome-trained model under one parameterization choice. It also reframes what process supervision costs. The archive's cleanest process-versus-outcome comparison establishes that step supervision succeeds where answer-only supervision fails, and reads that as a claim about what the training signal must contain; this paper shows that under the right reward parameterization the two are not even separate objects, since the outcome model's partial sums are the step values. The finding that adding real step labels yields nothing on top is the one to interrogate rather than accept — the authors say so themselves — but if it survives better labels it would mean the field's expensive annotation effort is buying something already obtainable for free. For this group the practical hook is Proposition 3.2: the implicit Q value is sandwiched between the known over- and under-estimates of MCTS annotation, with beta controlling the position, which is a rare case of an estimator in this literature coming with stated bounds.",
+    "test-time-scaling": "Process reward models are the machinery behind one of the two mechanisms this topic's foundational paper identifies for spending inference compute — searching against dense, process-based verifiers — and their cost has been the reason that mechanism is less used than repeated sampling. A 21-146x reduction in development overhead changes that calculus directly. The evaluation is entirely best-of-N, so the paper is measured in exactly this topic's currency, and the majority-voting result is the interesting one for the archive's running theme: every variant improves when combined with majority voting, and the two that lose to majority voting on their own beat it once integrated — another instance of aggregation rather than scoring being where the gain sits. The caution to carry is the reported gap between best-of-N ranking and policy-model performance: a verifier that reranks well is not thereby a good training signal, and the archive's methods should not assume the two transfer."
+  },
+  "results": "Best-of-N on MATH-500 averaged over the three generators: implicit PRM with DPO reaches 50.4, NCA 49.4, cross-entropy 48.4 and KTO 45.7, against reimplemented Math-Shepherd at 47.8 and AutoPSV at 45.7 on the same data, and off-the-shelf models EurusRM-7B 46.9, SkyworkRM-Llama3.1-8B 46.8, ArmoRM-Llama3-8B 46.6, Math-Shepherd-7B 45.6, and the two RLHFlow PRMs at 49.1. The base generators score 9.6, 44.6 and 63.2 pass@1. Cost: Math-Shepherd requires 38.6-38.8 times the FLOPs of the cross-entropy implicit PRM across dataset scales, and 146.5, 49.9 and 21.3 times the DPO variant depending on rollouts per instruction. Combined with majority voting, all variants improve and cross-entropy becomes the strongest at 51.9, with KTO gaining most in relative terms (45.7 to 51.8) — the two objectives that fail to beat majority voting alone both surpass it once integrated. Scaling: more instructions and more responses both help, with responses the more influential axis; DPO is data-hungry because two responses may not form a usable pair, while cross-entropy keeps improving even at one response per instruction, the extreme unpaired case. The factor ablation is uniformly negative — none of adding out-of-domain instructions (UltraFeedback, coding), deduplicating responses, substituting base-model responses, or adding step labels produces a consistent gain, and the first three actively hurt. Adding Math-Shepherd step labels via a second-stage step-level objective yields 49.2 against the 49.3 baseline. The reference model can be dropped entirely when the implicit PRM is built from a model that has already undergone preference learning, halving inference cost with little or no accuracy loss. One asymmetry the paper flags: the ranking of these PRMs for best-of-N does not carry over to their use as policy models, where only the weakest best-of-N variant (KTO) improved policy performance.",
+  "schema_version": 1,
+  "tags": [
+    "process reward model",
+    "implicit prm",
+    "label-free",
+    "dpo",
+    "best-of-n",
+    "reward modelling",
+    "process supervision"
+  ],
+  "models": [
+    "Mistral-7B-Instruct-v0.2",
+    "Llama-3.1-8B-Instruct",
+    "Llama-3.1-70B-Instruct"
+  ]
+}

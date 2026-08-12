@@ -1,0 +1,49 @@
+{
+  "aliases": [
+    "safety tax",
+    "capability cost",
+    "alignment cost"
+  ],
+  "definition": "The capability cost paid for making a model behave as intended. The sources establish it in both directions and disagree on its size. One measures a genuine tension: models that reason better comply less with user directives, and interventions that restore obedience cost reasoning performance, so the trade-off is Pareto rather than a fixable defect. The other reports the opposite, claiming safety alignment from 1K supervised examples with reasoning, QA, summarization and multilingual ability preserved, though without numbers. A third archived source supplies the mechanism the first would predict, finding that prolonged RLVR degrades perception and faithfulness unless replay is added.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1878",
+      "kind": "paper",
+      "note": "A benchmark showing that as reasoning capacity grows, instruction adherence falls, and that recovering obedience costs reasoning performance.",
+      "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.240",
+      "kind": "paper",
+      "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+      "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "alignment tax",
+  "related": [
+    "instruction-following",
+    "controllability",
+    "reasoning-capability",
+    "generation-length",
+    "trade-off",
+    "mathif",
+    "distillation",
+    "reinforcement-learning-post-training",
+    "prompt-intervention",
+    "safety-alignment",
+    "reasoning-structure",
+    "data-efficiency",
+    "generalization",
+    "alttrain",
+    "supervised-fine-tuning",
+    "post-training"
+  ],
+  "schema_version": 1,
+  "slug": "alignment-tax",
+  "topics": [
+    "reasoning-training"
+  ]
+}

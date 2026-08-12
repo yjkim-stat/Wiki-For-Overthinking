@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.",
+        "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
+        "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T06:00:23Z",
+  "created_at": "2026-08-08T05:59:49Z",
+  "instructions": "Write the wiki definition for 'Game of 24'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Game of 24",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Game of 24",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Game of 24",
+      "Game-of-24"
+    ],
+    "definition": "A puzzle requiring four numbers to be combined with arithmetic operations to reach 24, used as the search-shaped task in this archive. It is where tree search shows its most dramatic result — 4% for chain-of-thought against 74% for Tree of Thoughts with GPT-4 — and where representation-based diversity selection shows its largest gain, a 3x improvement in verifier efficiency on the hardest questions. Both are cases where the benefit comes from covering a solution space rather than from computing more carefully, which is what makes the task useful as a contrast to mathematics benchmarks.",
+    "kind": "dataset",
+    "related": [
+      "tree of thought",
+      "MATH500",
+      "GSM8K",
+      "best-of-n",
+      "prompt difficulty"
+    ]
+  },
+  "task_id": "concept__game-of-24",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

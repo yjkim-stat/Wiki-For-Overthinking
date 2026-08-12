@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Merges a reasoning model into a domain-specialized one after finding that reasoning ability resides in low-gradient-sensitivity parameter regions rather than high-magnitude ones.",
+        "title": "ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+        "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:31Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'catastrophic forgetting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "catastrophic forgetting",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "catastrophic forgetting",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "capability regression",
+      "general-capability forgetting",
+      "capability collapse"
+    ],
+    "definition": "Loss of previously held capability when a model is trained further, which both sources treat as a routine consequence of reasoning post-training rather than an edge case. One measures it: prolonged RLVR degrades foundational skills including perception and faithfulness, and KL regularization does not prevent it because the penalty is computed on the current task. The other locates it in parameter space, reporting that reasoning ability sits in regions of low gradient sensitivity — not in high-magnitude parameters as usually assumed — which would explain why merging and pruning damage reasoning disproportionately. That faithfulness is among the capabilities lost would mean some of the archive's faithfulness findings are a consequence of reasoning training rather than a property of models.",
+    "kind": "concept",
+    "related": [
+      "alignment tax",
+      "model merging",
+      "localization",
+      "modularity",
+      "chain of thought faithfulness",
+      "generalization"
+    ]
+  },
+  "task_id": "concept__catastrophic-forgetting",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

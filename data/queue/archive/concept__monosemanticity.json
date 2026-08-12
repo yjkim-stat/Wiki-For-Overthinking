@@ -1,0 +1,92 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+        "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.",
+        "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+        "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+        "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+        "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:32:57Z",
+  "created_at": "2026-08-09T06:27:51Z",
+  "instructions": "Write the wiki definition for 'monosemanticity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "monosemanticity",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "monosemanticity",
+    "source_count": 5
+  },
+  "result": {
+    "definition": "The property of a direction in activation space responding to exactly one human-recognizable thing, as opposed to a polysemantic neuron firing across unrelated contexts. It is the target the archived sources optimize toward and the axis on which they claim success, but none measures it directly — the proxies are having a language model describe a feature and then predict its activations elsewhere, checking that a step's sparse code does not leak inherited context, and co-activation together with decoder-direction alignment used to select features for steering. Since several proxies are themselves judged by language models, a monosemanticity claim here should be read as 'a consistent description was found' rather than as an established property of the direction. Two entries complicate it from opposite sides: one shows run-to-run feature consistency is not guaranteed and argues it belongs alongside reconstruction and sparsity as a standard evaluation axis, and one finds sparse autoencoders can improve how recoverable a concept is while attenuating how much influence it actually exerts — so interpretability and causal relevance come apart."
+  },
+  "task_id": "concept__monosemanticity",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

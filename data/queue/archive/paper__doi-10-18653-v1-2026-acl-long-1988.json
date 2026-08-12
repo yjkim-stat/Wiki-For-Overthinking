@@ -1,0 +1,116 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:22:34Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1988",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Jiacheng Liang",
+      "Tanqiu Jiang",
+      "Yuhui Wang 0003",
+      "Rongyi Zhu",
+      "Fenglong Ma",
+      "Ting Wang 0006"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.1988",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "jailbreak",
+      "safety reasoning",
+      "attack surface",
+      "transparency trade-off",
+      "refusal leakage",
+      "monitorability"
+    ],
+    "contributions": [
+      "AutoRAN, an automated framework for hijacking internal safety reasoning in reasoning models",
+      "An execution simulation paradigm using a weaker, less-aligned model to generate initial hijacking attempts",
+      "Iterative attack refinement that exploits reasoning patterns leaked through the target's refusals",
+      "Approaching 100% success within one or few turns against GPT-o3/o4-mini and Gemini-2.5-Flash on AdvBench, HarmBench and StrongReject",
+      "The argument that reasoning transparency is itself an exploitable attack surface"
+    ],
+    "datasets": [
+      "AdvBench",
+      "HarmBench",
+      "StrongReject"
+    ],
+    "limitations": "Only three target models. Success is measured by benchmark judges, and 'approaching 100%' is not broken out per benchmark or model. The attack presupposes access to refusal text, so a model that refuses without explanation exposes less. No defence is proposed; the contribution is the attack surface and the argument that traces need protecting.",
+    "method": "AutoRAN introduces an execution simulation paradigm: a weaker but less-aligned model simulates execution reasoning to produce initial hijacking attempts, and attacks are iteratively refined by exploiting reasoning patterns that the target leaks through its own refusals. Refusals are the signal — a refusal explains why it refused, and that explanation is exploitable. The result steers the target into bypassing its own guardrails and elaborating on harmful instructions.",
+    "methods": [
+      "AutoRAN",
+      "execution simulation",
+      "iterative attack refinement",
+      "automated red teaming"
+    ],
+    "models": [
+      "GPT-o3",
+      "GPT-o4-mini",
+      "Gemini-2.5-Flash"
+    ],
+    "one_liner": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
+    "problem": "Reasoning models perform internal safety reasoning, and no framework existed to automate attacks against that reasoning specifically rather than against final outputs.",
+    "relevance": {
+      "reasoning-training": "Its consequence for this topic is a genuine tension rather than a defect: the same readable trace that makes CoT monitoring possible also tells an attacker how the model's safety reasoning works, and refusals leak that structure for free. The archive holds monitorability as an argument for keeping reasoning explicit; this is the argument against, and it is not answerable by better training alone. It sits with arxiv:2608.04928 in this archive, which asks whether latent reasoning destroys monitorability — if transparency is also an attack surface, the cost of moving to latent reasoning is lower than the monitoring literature assumes."
+    },
+    "results": "Against GPT-o3/o4-mini and Gemini-2.5-Flash across AdvBench, HarmBench and StrongReject, AutoRAN reaches approaching 100% success within one or a few turns, neutralizing reasoning-based defences even when judged by robustly aligned external models.",
+    "tags": [
+      "jailbreak",
+      "red teaming",
+      "safety reasoning",
+      "attack",
+      "transparency"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1988",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "aliases": [
+    "commitment point",
+    "sycophantic anchor",
+    "point of no return"
+  ],
+  "definition": "The point in a reasoning trace after which the answer is effectively fixed, so that continued reasoning no longer changes it. One source establishes it by truncating the trace at each step and forcing an answer, finding the transition is sharp and single-step rather than gradual. The other applies the same logic to sycophancy, using counterfactual rollouts to locate the sentences that commit a model to agreeing with an incorrect user suggestion, and shows those positions are detectable from activations at 74-85% balanced accuracy — beating text-only baselines specifically at high commitment, meaning strong commitments are the ones not visible in the words. The concept matters because it separates reasoning that determines the answer from reasoning that follows it.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-srw.20",
+      "kind": "paper",
+      "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
+      "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models"
+    },
+    {
+      "id": "local:d6e266929de37684",
+      "kind": "paper",
+      "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+      "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T04:37:57Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "commitment boundary",
+  "related": [
+    "sycophancy",
+    "localization",
+    "linear-probe",
+    "counterfactual-analysis",
+    "chain-of-thought-faithfulness",
+    "reasoning-trajectory",
+    "counterfactual-rollout-analysis",
+    "regression-on-activations",
+    "llama",
+    "qwen",
+    "falcon-hybrid",
+    "epiphenomenal-reasoning",
+    "performative-reasoning",
+    "step-level-causal-attribution",
+    "answer-formation",
+    "mid-guess",
+    "early-exit",
+    "linear-probing",
+    "reasoning-redundancy",
+    "overthinking",
+    "monitorability",
+    "truncation-based-causal-attribution",
+    "answer-forcing",
+    "causal-attention-probe",
+    "numeric-perturbation-stress-test",
+    "fixed-percentage-truncation",
+    "math500",
+    "aime25",
+    "zebralogic",
+    "gpqa-diamond",
+    "gpt-oss-20b",
+    "qwen3-14b",
+    "gemma-4-26b-a4b-it"
+  ],
+  "schema_version": 1,
+  "slug": "commitment-boundary",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+        "title": "Transformers Provably Learn to Internalize Chain-of-Thought",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+        "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:49Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'gradient descent analysis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "gradient descent analysis",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "gradient descent analysis",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "optimization analysis",
+      "training dynamics analysis",
+      "convergence analysis"
+    ],
+    "definition": "Proving what training actually converges to, rather than what an architecture could represent or how many samples would suffice. Both sources use a deliberately minimal setting to keep the dynamics tractable — a one-layer transformer block with softmax attention trained without positional encoding — and both study synthetic tasks whose structure is known exactly. This is what lets them make claims no expressivity result can: that gradient descent reaches NC^1-complete problems with chain of thought, and that a staged curriculum provably internalizes reasoning into hidden states. The cost of tractability is the setting: one layer, synthetic targets, and conclusions that are about the reachability of a solution rather than about a deployed model.",
+    "kind": "method",
+    "related": [
+      "expressivity-learnability gap",
+      "training dynamics",
+      "attention concentration",
+      "curriculum learning",
+      "optimization guarantee"
+    ]
+  },
+  "task_id": "concept__gradient-descent-analysis",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

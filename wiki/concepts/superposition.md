@@ -1,0 +1,26 @@
+# superposition
+
+<!-- auto:begin -->
+
+The hypothesis that a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is workable only when features activate sparsely, since otherwise interference between them cancels the gain. It is the reason the archived sources reach for sparse dictionary learning at all: if it holds, features are recoverable as directions but not as neurons. All six treat it as a premise rather than something they test — stated as the hypothesized cause of polysemanticity and the motivation for a sparsity penalty, or inherited as the standard justification in this literature. Two of the newer entries put the premise to work indirectly: one argues that if features are directions in superposition then run-to-run consistency of a recovered dictionary is a meaningful thing to demand of a method, and one relaxes the search over which components to intervene on into a continuous one, which is coherent with features being distributed across components rather than located in any single one.
+
+- **Kind**: concept
+- **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 6
+
+**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [activation steering](../methods/activation-steering.md), [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [attention head](attention-head.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [causal tracing](../methods/causal-tracing.md), [circuit discovery](../methods/circuit-discovery.md), [effective depth](effective-depth.md), [GSM8K](../datasets/gsm8k.md), [Indirect Object Identification (IOI)](../datasets/indirect-object-identification-ioi.md), [information bottleneck](information-bottleneck.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [localization](localization.md), [MATH500](../datasets/math500.md), [modularity](modularity.md), [monosemanticity](monosemanticity.md), [polysemanticity](polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-0.5B](../models/qwen2-5-0-5b.md), [reasoning trajectory](reasoning-trajectory.md), [reproducibility](reproducibility.md), [residual stream](residual-stream.md), [self-consistency](../methods/self-consistency.md), [self-verification](self-verification.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [steering](steering.md)
+
+## Appears in
+
+- [CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits](../../archive/papers/2026/arxiv-2608-05732/summary.md) — Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.
+- [Multi-component Causal Tracing in Large Language Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-154/summary.md) — Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.
+- [Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-2073/summary.md) — Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.
+- [Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-99/summary.md) — Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.
+- [Step-Level Sparse Autoencoder for Reasoning Process Interpretation](../../archive/papers/2026/local-d9699040f5220b4c/summary.md) — Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.
+- [Sparse Autoencoders Find Highly Interpretable Features in Language Models](../../archive/papers/2023/local-e33ecf791dfdfa8a/summary.md) — Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

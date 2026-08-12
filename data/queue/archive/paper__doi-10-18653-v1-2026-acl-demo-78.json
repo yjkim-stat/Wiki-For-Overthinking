@@ -1,0 +1,107 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:15:49Z",
+  "created_at": "2026-08-08T07:57:42Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-demo.78",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Clement Neo",
+      "Yongsen Zheng",
+      "Kwok-Yan Lam",
+      "Luke Ong"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mechanistic interpretability"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-interpretability": 0.5
+    },
+    "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
+    "url": "https://doi.org/10.18653/v1/2026.acl-demo.78",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "mechanistic interpretability",
+      "activation patching",
+      "attention pattern",
+      "tooling",
+      "reproducibility"
+    ],
+    "contributions": [
+      "Spectra, a mechanistic interpretability library for VLMs with unified activation-patching and attention-analysis abstractions",
+      "Per-checkpoint configuration handling of architecture-specific differences behind one high-level interface",
+      "Support for Qwen2.5-VL, Qwen3-VL, LLaVA 1.5 and SmolVLM with an extensible design",
+      "A demonstration on a counting task"
+    ],
+    "datasets": [
+      "counting task (unnamed in abstract)"
+    ],
+    "limitations": "A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and per-checkpoint configuration means each new architecture needs manual work rather than being handled generically. No performance or fidelity comparison against TransformerLens or other libraries is reported.",
+    "method": "Spectra provides unified abstractions for activation patching, attention pattern analysis and meta-functions across diverse VLM architectures. It is built on HuggingFace Transformers and handles architecture-specific differences through per-checkpoint configurations, keeping a single high-level interface. Per-checkpoint configuration is the design choice that lets one API span architectures without a common internal structure.",
+    "methods": [
+      "activation patching",
+      "attention pattern analysis",
+      "TransformerLens"
+    ],
+    "models": [
+      "Qwen2.5-VL",
+      "Qwen3-VL",
+      "LLaVA 1.5",
+      "SmolVLM"
+    ],
+    "one_liner": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+    "problem": "Interpretability tooling for VLMs lags behind text-only models. TransformerLens enabled progress on language models, but existing VLM tools are limited to basic activation probing and saving, so experiments that are routine on LLMs are cumbersome on VLMs.",
+    "relevance": {
+      "reasoning-interpretability": "Infrastructure, not a finding, and multimodal rather than reasoning-specific. It matters to this topic for one reason: the archive already holds a case where two interpretability papers reached opposite conclusions about the same behaviour with no shared model or tooling, and shared instrumentation is the precondition for that class of disagreement to be resolvable at all. Spectra is the multimodal instance of that argument, and it pairs directly with doi:10.18653/v1/2026.acl-long.159 in this same batch, which argues the field needs auditable protocols."
+    },
+    "results": "Capabilities are demonstrated with interpretability experiments on a counting task, presented as experiments that were previously cumbersome. Supported checkpoints are Qwen2.5-VL, Qwen3-VL, LLaVA 1.5 and SmolVLM.",
+    "tags": [
+      "interpretability",
+      "tooling",
+      "vision-language models",
+      "activation patching",
+      "library"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-demo-78",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

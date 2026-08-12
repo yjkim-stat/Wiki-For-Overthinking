@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+        "title": "Hierarchical Latent Prediction for Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+        "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:31Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'compounding error'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "compounding error",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "compounding error",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "error accumulation",
+      "error propagation",
+      "drift"
+    ],
+    "definition": "The accumulation of small per-step inaccuracies over a multi-step rollout, which both sources identify as the limit on reasoning in latent space specifically. One introduces a higher-level abstract latent so that a coarser prediction over a longer span replaces a chain of fine-grained ones, on the argument that existing multi-token and next-latent objectives either have too short a horizon or accumulate error. The other explains the same limitation by identifying decisional certainty as the governing variable, formalized as a Symbolic Index, and concludes that latent reasoning is good at exploration and bad at computation. Both treat the error as structural to the latent rollout rather than a shortfall of scale.",
+    "kind": "concept",
+    "related": [
+      "latent reasoning",
+      "latent chain of thought",
+      "belief state",
+      "reasoning trajectory",
+      "effective depth"
+    ]
+  },
+  "task_id": "concept__compounding-error",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

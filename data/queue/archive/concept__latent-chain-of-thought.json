@@ -1,0 +1,80 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+        "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.",
+        "title": "SeLaR: Selective Latent Reasoning in Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+        "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:34Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'latent chain of thought'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "latent chain of thought",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "latent chain of thought",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "latent CoT",
+      "continuous chain of thought",
+      "soft chain of thought"
+    ],
+    "definition": "Replacing the discrete tokens of a reasoning trace with continuous states — soft embeddings or hidden states — to cut inference cost or escape the expressiveness limits of token sampling. The sources disagree about what it costs. One asks whether it destroys monitorability and finds task properties and internals access matter more than reasoning mode. Another reports two concrete failure modes, global activation perturbing high-confidence steps and soft embeddings collapsing toward the top token, and gates latent reasoning to low-confidence steps only. A third explains the pattern by identifying decisional certainty as the governing variable, formalized as a Symbolic Index: latent reasoning helps exploration and hurts computation.",
+    "kind": "method",
+    "related": [
+      "latent reasoning",
+      "implicit reasoning",
+      "monitorability",
+      "token-level entropy",
+      "compounding error",
+      "chain of thought"
+    ]
+  },
+  "task_id": "concept__latent-chain-of-thought",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

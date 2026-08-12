@@ -1,0 +1,59 @@
+{
+  "aliases": [
+    "American Invitational Mathematics Examination"
+  ],
+  "definition": "The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checkable. The sources use it as a hard reference point rather than an object of study: one measures a training-free constraint-extraction protocol on it, another reports a 43% token reduction on it with no accuracy drop. Because problems are released by year, AIME appears in the archive both as an undated pool and as year-specific splits, and the year matters for contamination.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05254",
+      "kind": "paper",
+      "note": "A training-free two-stage prompting protocol that extracts a problem's answer-space constraints first and then checks its own intermediate and final results against them, routed on by a regex detector.",
+      "title": "Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.196",
+      "kind": "paper",
+      "note": "Has a teacher decompose and prune a student's reasoning by mathematical skill, then distills the pruned paths back, on the argument that CoT structure must match student capacity.",
+      "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "AIME",
+  "related": [
+    "answer-space-constraint",
+    "verification",
+    "test-time-intervention",
+    "routing",
+    "self-verification",
+    "constraint-compliance",
+    "constraint-first-reasoning",
+    "routed-cfr",
+    "chain-of-thought",
+    "regex-routing",
+    "paired-significance-testing",
+    "cmimc",
+    "brumo",
+    "aimo-amc",
+    "olympiadbench",
+    "reasoning-distillation",
+    "reasoning-redundancy",
+    "overthinking",
+    "skill-decomposition",
+    "capacity-matching",
+    "knowledge-transfer",
+    "token-selection",
+    "drp",
+    "chain-of-thought-distillation",
+    "step-decomposition",
+    "inference-time-pruning",
+    "gsm8k"
+  ],
+  "schema_version": 1,
+  "slug": "aime",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

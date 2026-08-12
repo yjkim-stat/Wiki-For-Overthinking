@@ -1,0 +1,252 @@
+# Reasoning Interpretability
+
+_Lecture note assembled from the research archive_
+
+> Generated on 2026-08-12 from 26 archived source(s).
+> Regenerated on every render — put your own material in a separate file.
+
+## Scope
+
+What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.
+
+Built from 26 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-06. 20 of the papers have been read in full.
+
+Tracked terms: `mechanistic interpretability`, `activation patching`, `causal mediation`, `causal tracing`, `causal analysis`, `circuit analysis`, `circuit discovery`, `reasoning circuit`, `attention head`, `sparse autoencoder`, `superposition`, `polysemantic`, `monosemantic`, `residual stream`, `activation steering`, `steering vector`, `linear probe`, `linear probing`, `internal representation`, `structural causal model`, `difference-in-means`, `representation editing`, `logit lens`, `interchange intervention`.
+
+## Where the field stands
+
+### 2026
+
+- **CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits** — Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.
+- **Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors** — Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.
+- **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
+- **A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation** _(not yet summarized)_
+- **Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model** _(not yet summarized)_
+- **Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition** _(not yet summarized)_
+- **Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs** _(not yet summarized)_
+- **Inverted Detection and Control in Steering Vectors** _(not yet summarized)_
+- **Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes** _(not yet summarized)_
+- **Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders** — Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.
+- **Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning** — Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.
+- **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** — An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.
+- _...and 8 more._
+
+### 2025
+
+- **Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics** — Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.
+- **On Reasoning Strength Planning in Large Reasoning Models** — Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.
+- **A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning** — Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.
+- **Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization** — Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.
+
+### 2024
+
+- **Towards Best Practices of Activation Patching in Language Models: Metrics and Methods** — Systematically varies the methodological choices in activation patching — how prompts are corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — and shows each choice can change which model components a study concludes are important.
+
+### 2023
+
+- **Sparse Autoencoders Find Highly Interpretable Features in Language Models** — Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.
+
+## Core ideas
+
+### overthinking
+
+Generating more reasoning than a problem needs, and the archive's largest cluster at 25 sources. The sources agree on the symptom and split on the cause, which is what keeps the term loose. One account locates it after the answer, where double-checking continues once the correct result is derived. One locates it before the problem starts, since models cannot recognize difficulty in advance — and a reasoning model's eventual token count is linearly decodable from the question's activations before a single reasoning token is emitted, which makes the length a decision rather than an outcome. One locates it in the reward, where a sequence-level efficiency penalty implicitly punishes long but correct trajectories so that training against length damages the reasoning it was meant to trim. Reported reductions run from roughly 40% to 87%, occasionally with accuracy gains, which suggests a substantial share of a long chain does no work. Three results added since sharpen the picture. Redundancy turns out not to sit in an identifiable class of step: pruning that targets reflective statements is reported to do no better than pruning that ignores them, because the reasoning skeleton is repeated and rephrased throughout. Cutting by structure is nonetheless not the same as cutting by length — removing the same token count by position rather than by graph role costs twenty points of accuracy. And the decision of when to stop is proved harder than the field has assumed: a fixed threshold on the probability that the current prefix is already correct can be arbitrarily far from optimal even when that probability is known exactly, because the comparison that matters is against the value of continuing.
+
+Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Red Teaming Large Reasoning Models; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models.
+
+### test-time compute
+
+Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
+
+Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments.
+
+### reasoning redundancy
+
+The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen sources locate it differently — after the answer is derived, where double-checking continues; in tokens with negative marginal log-probability contribution to the correct answer; in segments the model's own likelihood landscape marks as extraneous; in the low-entropy convergence region after a sharp two-phase transition; in review nodes of a dependency graph that have too few descendants or sit too late; in steps receiving little attention from the reasoning-termination token; in later alternative solutions, argued to be actively harmful rather than merely wasteful; and in structure inherited from a teacher whose capacity did not match the student's. **This note previously recorded that no source compared these criteria on the same trace. One now does**, and the answer reframes the disagreement rather than settling it: at step granularity three importance criteria overlap 70-80% on which steps to *preserve* while diverging on which to *delete*, so the criteria converge on a shared reasoning backbone and differ only over interchangeable filler; at token granularity the agreement collapses, and only symbol-aware scoring avoids deleting operators and numbers. That study also refutes the premise several archived methods rest on, reporting that pruning which deliberately targets reflective statements performs no better than pruning that ignores them, because redundancy in long traces is diffuse — the skeleton is repeated and rephrased throughout rather than concentrated in a nameable class of step. Two caveats keep the question open: the comparison covers three generic scoring functions in a distillation setting, so the reasoning-specific criteria above are still untested against each other, and the 70-80% figure is a light-compression number that falls by half at aggressive ratios. Reported reductions run from roughly 40% to 87%, sometimes with accuracy gains.
+
+Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models; Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models; Optimizing Length Compression in Large Reasoning Models.
+
+### localization
+
+Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing question of this archive's interpretability work at fourteen sources. The sources agree it is possible and disagree about what a located component means. Granularity changes the answer: on propositional logic, four families of attention heads execute a sequential circuit, while on arithmetic the mechanism is an unordered bag of heuristic neurons, and no source tests whether a computation modular at head level is heuristic inside each head. Method choices change the answer too — how prompts are corrupted, which metric scores the effect and whether layers are patched singly or in windows all shift what activation patching reports, and single-component tracing cannot see components that matter only jointly. Two cautions recur. Being encoded is not being used: a concept can be linearly recoverable while having no influence on the output, and sparse autoencoders improve the first while attenuating the second. And what is located may be a state rather than a property, since memorizing and generalizing circuits compete during training.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
+
+### prompt difficulty
+
+How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.
+
+Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
+
+### meta-evaluation
+
+Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
+
+Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
+
+### effective depth
+
+The idea that autoregressive generation raises a fixed-depth model's usable computational depth, because each emitted token re-enters the input and buys another pass — so depth grows with steps generated rather than with layers. The archive now holds this as a proved mechanism rather than an analogy. Bounded-depth transformers cannot directly solve arithmetic or linear equations, while constant-size autoregressive ones can with a chain of thought; the classes reachable are characterized exactly by the number of steps; and the same argument explains counting failures as a depth limit, repaired by decomposing a large count into independently solvable parts whose mechanism is then traced. Two sources qualify it. The discretization is load-bearing: the argmax at each step acts as an error-correcting reset discarding sub-decisional noise, so removing it makes perturbations compound. And depth can be relocated rather than gained — internalizing a chain into hidden states costs layers growing logarithmically with the chain absorbed.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy; The Expressive Power of Transformers with Chain of Thought.
+
+### reasoning trajectory
+
+The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience; Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models.
+
+### implicit reasoning
+
+Multi-step inference carried inside the forward pass or in continuous latent states, without emitting the intermediate steps as tokens. The six sources agree it is real and disagree about what it costs. Mechanistically, transformers acquire it only through grokking — training far past overfitting — and the resulting circuit generalizes out of distribution for comparison but not for composition; at scale a sparse modular circuit is recoverable for propositional logic. Practically, latent variants switch to soft embeddings at low-confidence steps or add an abstract latent as a pretraining target, and both have to fight the tendency of soft embeddings to collapse toward the top token. Theoretically, one entry proves internalization need not cost sample efficiency: a curriculum deleting thinking tokens in geometric chunks learns k-parity with polynomially many samples and only logarithmically many stages — though the layers required grow with the chain being absorbed, so inference compute is relocated into the architecture rather than removed. On monitorability the archive's finding is that what a monitor can catch depends more on the task and on access to internals than on whether the reasoning was written down at all.
+
+Seen in: Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?; Hierarchical Latent Prediction for Language Models; SeLaR: Selective Latent Reasoning in Large Language Models; Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization.
+
+### mechanistic interpretability
+
+Explaining a model's behaviour in terms of its internal computation rather than its input-output mapping, the archive's largest interpretability entity at five sources. Three of the five are about the field's condition rather than any model: one calls for auditable protocols after documenting two papers that reached conflicting conclusions on the same behaviour with a third finding both partially correct and incomparable; one surveys the area by object of study; one surveys it by intervention as a Locate-Steer-Improve pipeline. The remaining two are instrumentation, a VLM library and a diffusion-model framework. That the majority of sources under this term are meta-scientific is itself a description of where the field is.
+
+Seen in: Spectra: A Mechanistic Interpretability Library for Vision-Language Models; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures; Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions.
+
+### memorization
+
+Storing input-output pairs rather than a procedure that generalizes. The archive approaches it from three directions. Mechanistically, arithmetic turns out to be neither memorization nor algorithm — a sparse set of neurons recognizes numerical patterns and votes for matching answers, generalizing across inputs that share a pattern without storing individual pairs — and the grokking result adds that memorizing and generalizing circuits compete for the same task, with the memorizing one found first. Behaviourally, re-instantiating benchmark problems with different constants collapses RL-trained models by 20-95% on a strict metric and by 2.6-7.2% even on a loose one, the loose drop being the part attributable to memorized numerical form rather than to inconsistency. A third line treats it as something to intervene on, reframing unlearning in reasoning models as an intervention on the chain of thought itself and preference-tuning toward counterfactual traces. A fourth records a subtler variant: a model completes a proverb correctly but cannot notice when the correct ending is absent from the options — recall without the discrimination that would show comprehension.
+
+Seen in: Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark; CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization; Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics; On The Fragility of Benchmark Contamination Detection in Reasoning Models.
+
+### superposition
+
+The hypothesis that a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is workable only when features activate sparsely, since otherwise interference between them cancels the gain. It is the reason the archived sources reach for sparse dictionary learning at all: if it holds, features are recoverable as directions but not as neurons. All six treat it as a premise rather than something they test — stated as the hypothesized cause of polysemanticity and the motivation for a sparsity penalty, or inherited as the standard justification in this literature. Two of the newer entries put the premise to work indirectly: one argues that if features are directions in superposition then run-to-run consistency of a recovered dictionary is a meaningful thing to demand of a method, and one relaxes the search over which components to intervene on into a continuous one, which is coherent with features being distributed across components rather than located in any single one.
+
+Seen in: CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Multi-component Causal Tracing in Large Language Models; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders.
+
+## Methods
+
+| Method | Sources | Summary |
+| --- | ---: | --- |
+| chain of thought | 20 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
+| self-consistency | 9 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
+| reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
+| attention analysis | 5 | Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes... |
+| causal mediation analysis | 5 | Measuring a component's causal contribution to an outcome by intervening on it while holding the rest of the computation fixed — the framework activation patching instantiates.... |
+| linear probe | 5 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
+| sparse autoencoder | 5 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
+| activation probing | 4 | Reading a property of a model's computation off its internal activations with a small auxiliary predictor, rather than from its output. The sources use it as a monitoring and ve... |
+| activation steering | 4 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
+| chain-of-thought compression | 4 | Shortening a reasoning trace while trying to keep what the answer depends on, pursued in this archive in two families that the sources treat as distinct. Selective pruning score... |
+| circuit analysis | 4 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
+| linear probing | 4 | Training a small classifier on frozen internal activations to test whether a property is linearly represented. Both sources use it to establish that information exists internall... |
+| budget forcing | 3 | Controlling how long a model thinks by cutting the thinking block short, or extending it by suppressing the end-of-thinking token and appending 'Wait'. Its originating source re... |
+| circuit discovery | 3 | Finding the subset of components that accounts for a behaviour, usually by intervening on candidates and keeping those whose ablation changes the output. The archived sources ap... |
+| causal analysis | 2 | The family of intervention-based methods used across this archive to establish that a component or a written state matters, rather than merely correlates. The archived instances... |
+| causal tracing | 2 | Intervening on internal representations to measure which components a behaviour causally depends on, as opposed to which merely correlate with it. The sources address complement... |
+| counterfactual intervention | 2 | Changing one input or internal element while holding everything else fixed, so that a difference in output is attributable to that element. Both sources treat the holding-fixed... |
+
+## Benchmarks and datasets
+
+| Dataset / benchmark | Sources | Summary |
+| --- | ---: | --- |
+| AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
+| GSM8K | 18 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
+| AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
+| OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| MATH | 6 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
+| MMLU | 5 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
+| AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
+| Indirect Object Identification (IOI) | 2 | A synthetic task in which a model must complete a sentence such as 'When John and Mary went to the office, John gave a book to ___' with the indirect object, chosen because it i... |
+| parity | 2 | The k-parity task — whether an odd number of k relevant bits among n are set — used by both sources as the canonical testbed for what intermediate supervision buys, because the... |
+| basic arithmetic | 1 | _pending_ |
+| greater-than task | 1 | _pending_ |
+| GSM8K-Aug | 1 | _pending_ |
+| LEGO | 1 | _pending_ |
+| MultiArith | 1 | _pending_ |
+| NuminaMath-CoT | 1 | _pending_ |
+| OpenCodeInstruct | 1 | _pending_ |
+| PairedFacts | 1 | _pending_ |
+| Python docstring completion | 1 | _pending_ |
+
+## Reading path
+
+**Then, in order of relevance:**
+
+1. **Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders** (2026)
+   - Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.
+   - <https://doi.org/10.18653/v1/2026.acl-long.99>
+2. **CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits** (2026)
+   - Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.
+   - <https://arxiv.org/abs/2608.05732>
+3. **Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning** (2026)
+   - Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.
+   - <https://doi.org/10.18653/v1/2026.acl-long.2073>
+4. **Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors** (2026)
+   - Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.
+   - <https://arxiv.org/abs/2608.06300>
+5. **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** (2026)
+   - Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
+   - <https://arxiv.org/abs/2608.05660>
+6. **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** (2026)
+   - An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.
+   - <https://doi.org/10.18653/v1/2026.acl-demo.78>
+7. **Multi-component Causal Tracing in Large Language Models** (2026)
+   - Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.
+   - <https://doi.org/10.18653/v1/2026.acl-long.154>
+8. **Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing** (2026)
+   - A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.
+   - <https://doi.org/10.18653/v1/2026.acl-long.159>
+9. **Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions** (2026)
+   - Traces how individual prompt tokens ground into image regions during diffusion denoising, using fixed-seed single-word removal for causal faithfulness and a head-resolved spike score for attribution.
+   - <https://doi.org/10.18653/v1/2026.findings-acl.1265>
+10. **Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy** (2026)
+   - Explains LLM counting failures as a depth limit, since counting is computed across layers, and fixes it with a System-2 decomposition whose mechanism is then traced.
+   - <https://doi.org/10.18653/v1/2026.findings-acl.2031>
+
+## Open problems
+
+Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
+
+- **CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits** — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is shown about steering a reasoning process. Requires a trained SAE for every layer involved, which bounds applicability to models with available SAEs. Fluency preservation is reported as a comparative claim without a stated metric.
+- **Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors** — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The gradient-based sensitivity metric is a local measure and need not capture influence realized through nonlinear paths. The SAE finding is a trade-off without a resolution: the sparse space gives cleaner directions but a distorted influence estimate, and which to trust is left open.
+- **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Improvements are stated as 'up to', so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks supports a correctness signal but leaves open whether the signal is correctness or a correlate such as fluency or confidence. The detector needs white-box access to multi-layer activations, so it cannot monitor an API model.
+- **Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders** — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a fifth of the dictionary still differs between runs and which features those are is not characterized. Synthetic validation uses a model organism whose relationship to real activation structure is an assumption. Correlation with automatically generated explanations inherits the reliability of the auto-interpretation pipeline.
+- **Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning** — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identifies and tries to repair by adding restricted location information — so this paper takes the position that paper argues is incomplete. Whether the residual signal is reasoning structure or a different confound is not established beyond the lexical case.
+- **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and per-checkpoint configuration means each new architecture needs manual work rather than being handled generically. No performance or fidelity comparison against TransformerLens or other libraries is reported.
+- **Multi-component Causal Tracing in Large Language Models** — No quantitative results, models or baselines in the abstract. Soft interventions are a relaxation, so a subset selected in the continuous problem is not guaranteed optimal for the discrete one; the constraints under which the relaxation is tight are unstated. The metric transformation is described as carefully designed, which suggests it must be constructed per metric. Selection is relative to a chosen target metric, so 'critical' is metric-relative rather than a property of the component.
+- **Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing** — No empirical evaluation; the proposals are untested. The diagnosis rests on one documented case of conflicting conclusions rather than a survey of how often the problem occurs. Continuous reviewing platforms depend on sustained community participation, which the paper cannot demonstrate. Expert-verified guidelines require an authority to verify them, and who does so is not settled.
+- **Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions** — No quantitative results in the abstract. Scope is Stable Diffusion, so architecture generality is untested. Single-word removal changes the prompt distribution as well as the target semantics, so the counterfactual is not perfectly isolated. Diffusion models, not language reasoning models, so nothing here bears on reasoning traces.
+- **Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy** — No numbers in the abstract and no named models. Counting is a narrow task, chosen because the depth argument is clean there, so generalization of the System-2 claim beyond it is asserted rather than shown. The mechanistic account is obtained on the decomposed strategy, so it describes how the fix works rather than how unaided counting fails. Causal mediation analysis identifies components relative to the chosen metric.
+- **Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models** — No empirical contribution, and no stated selection criteria or coverage for the surveyed work, so it is not a systematic review. Organizing by interpretable object presumes those objects are well defined, which is contested — the run-to-run inconsistency in doi:10.18653/v1/2026.acl-long.99 in this same drain shows SAE features are not stable across seeds. Claims that the framework enables improvements in alignment, capability and efficiency are organizational rather than measured.
+- **A Sharper Picture of Generalization in Transformers** — The learner is idealized: it minimizes loss, norm and Hessian trace directly rather than being SGD, so the result abstracts away training dynamics. The construction assumes all Fourier components share the same degree and positive coefficients, with the general mixed-degree signed case said to follow by adding heads but not carried out. The dominating-construction assumption is validated empirically rather than proved. Scope is boolean domains and sparsity no greater than the context length. The mechanistic study supports realism of the construction rather than establishing that trained transformers implement it.
+
+## References
+
+1. Hoagy Cunningham, Aidan Ewart, Logan Riggs et al.. *Sparse Autoencoders Find Highly Interpretable Features in Language Models*. preprint. 2023
+2. Fred Zhang, Neel Nanda. *Towards Best Practices of Activation Patching in Language Models: Metrics and Methods*. preprint. 2024
+3. Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. *A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning*. NeurIPS 2025. 2025
+4. Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. *Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics*. ICLR 2025. 2025
+5. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
+6. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
+7. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
+8. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
+9. Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. *Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.502>
+10. Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. *Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.159>
+11. Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al.. *Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.99>
+12. Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. *Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2031>
+13. Maisha Maliha, Dean F. Hougen. *Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1265>
+14. Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. *Multi-component Causal Tracing in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.154>
+15. Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. *Spectra: A Mechanistic Interpretability Library for Vision-Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-demo.78>
+16. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+17. Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. *Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2073>
+18. Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. *Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs*. cs.CL. 2026 <https://arxiv.org/abs/2608.02486>
+19. Max Torop, Aria Masoomi, Jennifer Dy. *Inverted Detection and Control in Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2608.02957>
+20. Nan Chen, Zhouhao Yang, Soufiane Hayou. *Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes*. cs.CL. 2026 <https://arxiv.org/abs/2608.02415>
+21. Abdallah Khemais. *A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation*. cs.LG. 2026 <https://arxiv.org/abs/2608.03620>
+22. Abdallah Khemais. *Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model*. cs.AI. 2026 <https://arxiv.org/abs/2608.03629>
+23. Michal Mráz, Justin Shenk. *Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition*. cs.AI. 2026 <https://arxiv.org/abs/2608.03892>
+24. Arya Labroo, Mengjie Qian, Kate Knill. *Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors*. cs.AI. 2026 <https://arxiv.org/abs/2608.06300>
+25. Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. *CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits*. cs.LG. 2026 <https://arxiv.org/abs/2608.05732>
+26. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>

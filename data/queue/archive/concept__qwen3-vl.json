@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+        "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+        "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:47:17Z",
+  "created_at": "2026-08-08T12:46:29Z",
+  "instructions": "Write the wiki definition for 'Qwen3-VL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-VL",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-VL",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3VL",
+      "Qwen3-VL-Instruct"
+    ],
+    "definition": "A Qwen vision-language model, and the subject of the archive's sharpest modality-ablation result: on a university-level multimodal math benchmark it scores higher with no image input than either of its own multimodal variants or GPT-5. It is also one of four checkpoints supported by an open mechanistic-interpretability library for VLMs. The pairing is useful — one source shows the visual pathway contributing little or interfering on a reasoning benchmark, the other supplies the activation-patching and attention tooling that could say why, and no source in the archive has yet done that.",
+    "kind": "model",
+    "related": [
+      "multimodal reasoning",
+      "perception bottleneck",
+      "modality ablation",
+      "mechanistic interpretability",
+      "activation patching"
+    ]
+  },
+  "task_id": "concept__qwen3-vl",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

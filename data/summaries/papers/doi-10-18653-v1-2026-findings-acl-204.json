@@ -1,0 +1,46 @@
+{
+  "concepts": [
+    "factuality",
+    "reasoning-answer gap",
+    "process supervision",
+    "credit assignment",
+    "state transition",
+    "truthfulness",
+    "chain of thought faithfulness",
+    "segment scoring"
+  ],
+  "contributions": [
+    "Identification of the reasoning-answer hit gap: correct facts found during reasoning but not incorporated into the final response",
+    "MR-ALIGN, a meta-reasoning informed factuality alignment framework requiring no external verifier",
+    "A transition-aware implicit reward from state-transition probabilities along the thinking process",
+    "Reshaping of token-level signals into probability-aware segment scores at atomic thinking segments",
+    "Consistent accuracy and truthfulness gains across four factual QA datasets and one long-form factuality benchmark"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:29:49Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results, dataset names or models in the abstract. The implicit reward is derived from the model's own transition statistics, so it reinforces patterns that correlate with correctness in the training distribution rather than correctness itself. Atomic thinking segments require a segmentation whose definition is unstated. 'Reducing misleading reasoning' is claimed without a stated measure.",
+  "method": "MR-ALIGN is a meta-reasoning informed alignment framework needing no external verifier. It quantifies state-transition probabilities along the model's thinking process and builds a transition-aware implicit reward that reinforces beneficial reasoning patterns and suppresses defective ones at the level of atomic thinking segments. That reweighting reshapes token-level signals into probability-aware segment scores, favouring coherent trajectories more likely to end in a correct answer. Deriving the reward from transition statistics is what removes the need for an external verifier.",
+  "methods": [
+    "MR-ALIGN",
+    "implicit reward modelling",
+    "meta-reasoning",
+    "segment-level reweighting"
+  ],
+  "models": [],
+  "one_liner": "Improves factuality by reweighting reasoning segments according to state-transition probabilities along the thinking process, targeting a gap where correct facts appear in reasoning but not in the answer.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.204",
+  "problem": "Reasoning models gain little on evidence-dependent factual questions. The paper attributes this partly to a reasoning-answer hit gap: the model identifies the correct facts during reasoning yet fails to carry them into the final response, so factual fidelity drops for reasons that have nothing to do with knowledge.",
+  "relevance": {
+    "reasoning-training": "The reasoning-answer hit gap it names is the same dissociation this drain reports three other times — harm recognized then overridden (findings-acl.1118), safety cues perceived then lost to narrative (acl-long.1821), the correct proverb ending stated then not selected (arxiv:2608.04670). Here it is factual content found and dropped. Four independent papers, four domains, one structure: the information is present in the trace and fails to reach the answer. That converges on a claim the archive can hold as its own — the trace-to-answer step is a distinct failure site — and it means outcome-only rewards cannot fix these cases, because the outcome is wrong while the reasoning was right. MR-ALIGN's transition-based implicit reward is one answer that needs no verifier, which matters where facts cannot be checked automatically."
+  },
+  "results": "Across four factual QA datasets and one long-form factuality benchmark, MR-ALIGN consistently improves accuracy and truthfulness while reducing misleading reasoning. No numbers, datasets or models are named in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "factuality",
+    "reasoning-answer gap",
+    "implicit reward",
+    "process supervision",
+    "alignment"
+  ]
+}

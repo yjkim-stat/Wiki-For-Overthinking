@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
+        "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
+        "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:47:17Z",
+  "created_at": "2026-08-08T12:46:29Z",
+  "instructions": "Write the wiki definition for 'Gemini-2.5-Flash'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Gemini-2.5-Flash",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Gemini-2.5-Flash",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Gemini 2.5 Flash"
+    ],
+    "definition": "A frontier reasoning model from Google, appearing in the archive only as a subject of evaluation. One source uses it as an attack target and reports approaching 100% jailbreak success within one or a few turns against its safety reasoning, by refining attempts from patterns leaked in its own refusals. The other includes it in a large-scale evaluation of LLM judges, where the finding is that judge reliability and validity come apart. Neither studies the model itself, so what the archive holds about it is how it behaves under attack and as an evaluator.",
+    "kind": "model",
+    "related": [
+      "jailbreak",
+      "LLM-as-a-judge",
+      "judge reliability",
+      "safety alignment",
+      "monitorability"
+    ]
+  },
+  "task_id": "concept__gemini-2-5-flash",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

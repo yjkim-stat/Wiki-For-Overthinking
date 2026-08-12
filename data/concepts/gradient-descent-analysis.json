@@ -1,0 +1,59 @@
+{
+  "aliases": [
+    "optimization analysis",
+    "training dynamics analysis",
+    "convergence analysis"
+  ],
+  "definition": "Proving what training actually converges to, rather than what an architecture could represent or how many samples would suffice. Both sources use a deliberately minimal setting to keep the dynamics tractable — a one-layer transformer block with softmax attention trained without positional encoding — and both study synthetic tasks whose structure is known exactly. This is what lets them make claims no expressivity result can: that gradient descent reaches NC^1-complete problems with chain of thought, and that a staged curriculum provably internalizes reasoning into hidden states. The cost of tractability is the setting: one layer, synthetic targets, and conclusions that are about the reachability of a solution rather than about a deployed model.",
+  "evidence": [
+    {
+      "id": "local:ee30f023d9f2d8fb",
+      "kind": "paper",
+      "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+      "title": "Transformers Provably Learn to Internalize Chain-of-Thought"
+    },
+    {
+      "id": "local:fe69869b0e362891",
+      "kind": "paper",
+      "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+      "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization"
+    }
+  ],
+  "first_seen": "2026-08-09T03:21:53Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "gradient descent analysis",
+  "related": [
+    "latent-reasoning",
+    "implicit-reasoning",
+    "curriculum-learning",
+    "sample-complexity",
+    "parity",
+    "effective-depth",
+    "internalization",
+    "test-time-compute",
+    "chain-of-thought",
+    "log-icot",
+    "implicit-chain-of-thought",
+    "length-generalization",
+    "state-tracking",
+    "optimization-guarantee",
+    "attention-concentration",
+    "expressivity-learnability-gap",
+    "self-training",
+    "circuit-complexity",
+    "training-dynamics",
+    "context-rot",
+    "recursive-self-training",
+    "attention-analysis",
+    "lego-state-tracking",
+    "lego"
+  ],
+  "schema_version": 1,
+  "slug": "gradient-descent-analysis",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-interpretability"
+  ]
+}

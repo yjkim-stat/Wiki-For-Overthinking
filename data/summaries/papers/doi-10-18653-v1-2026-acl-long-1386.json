@@ -1,0 +1,47 @@
+{
+  "concepts": [
+    "overthinking",
+    "reasoning redundancy",
+    "token selection",
+    "marginal utility",
+    "Pareto frontier",
+    "credit assignment",
+    "length-normalized accuracy"
+  ],
+  "contributions": [
+    "Token-level Marginal Utility: per-token log-probability gain of the ground-truth answer as a dense supervision signal",
+    "MUTO, a training framework that penalizes negative-utility reasoning tokens rather than controlling length at the trajectory level",
+    "87.1% token reduction with +2.3% accuracy at 1.5B and 80.2% reduction with -0.1% accuracy at 7B",
+    "Best length-normalized accuracy among compared baselines"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:15:49Z",
+  "generated_by": "paper",
+  "limitations": "Both scales are DeepSeek-R1-Distill-Qwen, so generality across model families is untested, and distilled models may carry more removable redundancy than RL-trained ones. An 87.1% token reduction with an accuracy gain is large enough to raise the question of how much of the original chain was doing any work in these backbones. Benchmarks are unnamed. The signal requires ground-truth answers, so it does not extend to unverifiable domains.",
+  "method": "Token-level Marginal Utility quantifies the per-token log-probability gain of the ground-truth answer, giving a dense per-token signal. MUTO uses it to identify tokens that reduce the model's likelihood of the correct answer and penalizes such negative-utility reasoning, producing concise chains. The signal is defined against the known answer, so it is a training-time quantity and cannot be computed at inference.",
+  "methods": [
+    "MUTO",
+    "token-level marginal utility",
+    "reinforcement learning post-training",
+    "length control"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1-Distill-Qwen-7B"
+  ],
+  "one_liner": "Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.1386",
+  "problem": "Reasoning models overthink. Length control at the trajectory level is coarse: it decides how long a chain may be without saying which parts of it are worth keeping.",
+  "relevance": {
+    "reasoning-training": "Adds a criterion to the archive's token-selection dispute, and a distinctive one: utility is signed, so a token can be identified as actively harmful rather than merely uninformative. Every other criterion tracked here — entropy, advantage magnitude, teacher-student gap, reference-shift — is unsigned and selects tokens to weight up. That means the overlap question the archive has been measuring for the unsigned criteria does not directly apply, and the interesting measurement is whether negative-utility tokens are the complement of high-entropy tokens or a different set entirely. The 87.1% reduction with a positive accuracy delta is also the strongest evidence in the archive that distilled reasoning chains contain a large fraction of tokens that do no work."
+  },
+  "results": "On DeepSeek-R1-Distill-Qwen backbones at 1.5B and 7B across six math reasoning benchmarks, MUTO improves the efficiency-accuracy Pareto frontier: average token usage falls 87.1% at 1.5B while accuracy rises 2.3%, and falls 80.2% at 7B with -0.1% accuracy change. It attains the best length-normalized accuracy among baselines.",
+  "schema_version": 1,
+  "tags": [
+    "token selection",
+    "overthinking",
+    "marginal utility",
+    "length compression",
+    "math reasoning"
+  ]
+}

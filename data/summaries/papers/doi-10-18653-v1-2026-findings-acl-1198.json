@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "domain knowledge",
+    "construct validity",
+    "capability decomposition",
+    "benchmark contamination",
+    "applied evaluation"
+  ],
+  "contributions": [
+    "BizCompass, a dual-axis business benchmark spanning finance, economics, statistics and operations management",
+    "A role-structured application level covering analyst, trader and consultant tasks",
+    "A design intended to diagnose which foundational capabilities enable or constrain application performance",
+    "Systematic evaluation of open-source and commercial LLMs, with datasets and evaluation code released"
+  ],
+  "datasets": [
+    "BizCompass"
+  ],
+  "generated_at": "2026-08-08T12:18:04Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results or named models in the abstract. The dual-axis diagnosis is correlational: a role task failing while the corresponding knowledge task succeeds indicates a gap but does not establish that the knowledge is what the role task needs. Contamination is a live risk for finance, economics and statistics material, and no check is mentioned. Whether a role-based task decomposition matches real practitioner work is asserted.",
+  "method": "BizCompass connects theoretical foundations to practical applications on two axes. At the knowledge level it covers finance, economics, statistics and operations management. At the application level it structures tasks around three roles: analyst, trader, consultant. The dual-axis design is meant to expose performance differences across realistic scenarios and to diagnose which foundational capabilities enable or constrain success — the diagnosis, rather than the ranking, is the intended contribution. Open-source and commercial LLMs are evaluated systematically.",
+  "methods": [
+    "BizCompass",
+    "dual-axis benchmark design",
+    "role-based task construction"
+  ],
+  "models": [],
+  "one_liner": "A business-domain benchmark pairing four knowledge areas with three practitioner roles, designed to trace application performance back to the theoretical capability it depends on.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1198",
+  "problem": "Business analysis demands rigorous reasoning and integration of diverse knowledge sources. Existing benchmarks target narrow tasks, leaving unanswered how LLMs can be reliably applied in business and how those applications are grounded in underlying theoretical capabilities.",
+  "relevance": {
+    "reasoning-training": "A weak fit for this topic, which it reached on the phrase 'reasoning capabilities' alone; it trains nothing and reports no training signal. The one idea worth keeping is the attempt to tie applied task performance back to a specific foundational capability, which is the same question this topic asks of training signals and here is asked of knowledge domains. As evidence it is thin — no numbers in the abstract and no contamination check on material that is heavily represented in pretraining data."
+  },
+  "results": "Results reveal how theoretical knowledge translates into practical performance in business, and are offered as actionable input for model selection and training optimization. No numbers or model names are given in the abstract. Datasets and evaluation code are released.",
+  "schema_version": 1,
+  "tags": [
+    "benchmark",
+    "business",
+    "domain knowledge",
+    "applied evaluation",
+    "thin-evidence"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
+        "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:51Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'reward hacking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reward hacking",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "reward hacking",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "reward gaming",
+      "specification gaming"
+    ],
+    "definition": "Obtaining reward without producing the behaviour the reward was meant to elicit, which both sources locate in the measurement rather than the policy. One finds it in hybrid reasoning training, where a model that does think is judged as not thinking and rewarded incorrectly; its per-query token budgets keep the residual hacking probability below 10%, which is a rate rather than an elimination. The other names it as one of the risks that reasoning-level instruction following is supposed to reduce, on the argument that a trace nobody can constrain is a trace in which shortcuts are invisible. Both imply the classifier or monitor defining the reward is itself a component that can fail.",
+    "kind": "concept",
+    "related": [
+      "reward shaping",
+      "verification",
+      "judge reliability",
+      "monitorability",
+      "instruction following",
+      "advantage estimation"
+    ]
+  },
+  "task_id": "concept__reward-hacking",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

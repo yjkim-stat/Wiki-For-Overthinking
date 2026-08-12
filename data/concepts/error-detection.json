@@ -1,0 +1,56 @@
+{
+  "aliases": [
+    "error identification",
+    "mistake detection",
+    "error localization"
+  ],
+  "definition": "Judging whether a reasoning step or a solution is wrong, treated by the sources as a competence separable from producing correct work. They approach it from opposite sides. One reads it off internal state, detecting flawed reasoning from residual-stream trajectory motion combined with restricted region and direction information, and improving selection accuracy by up to 12% over displacement-only methods on unseen benchmarks. The other makes it the task itself, benchmarking error step identification and categorization on 2,500 multimodal K-12 problems drawn from real student interactions, where the best model sits about 10% behind expert human evaluators. Between them the archive gets both a cheap internal signal and an external reference for what it should be measured against.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05660",
+      "kind": "paper",
+      "note": "Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.",
+      "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1217",
+      "kind": "paper",
+      "note": "Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.",
+      "title": "ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "error detection",
+  "related": [
+    "residual-stream",
+    "reasoning-trajectory",
+    "localization",
+    "shortcut-learning",
+    "out-of-distribution-generalization",
+    "effective-depth",
+    "linear-probe",
+    "vector-quantization",
+    "trajectory-based-detection",
+    "activation-probing",
+    "multi-layer-state-normalization",
+    "process-evaluation",
+    "multimodal-reasoning",
+    "verification",
+    "construct-validity",
+    "human-baseline",
+    "errorradar",
+    "error-step-identification",
+    "error-categorization",
+    "expert-annotation",
+    "gpt-4o"
+  ],
+  "schema_version": 1,
+  "slug": "error-detection",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:2175408b166d313f",
+      "kind": "paper",
+      "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+      "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "sparse policy gradient",
+  "related": [
+    "token-level-entropy",
+    "second-order-renyi-entropy",
+    "collision-probability",
+    "strategy-purity",
+    "entropy-collapse",
+    "entropy-explosion",
+    "jensen-shannon-divergence",
+    "distributional-uniqueness",
+    "exploration-exploitation-trade-off",
+    "pass-k",
+    "ict-independent-combinatorial-tokens",
+    "sparse-grpo",
+    "grpo",
+    "rlvr",
+    "20-entropy",
+    "stapo",
+    "verl",
+    "gsm8k",
+    "math500",
+    "mmlu-stem",
+    "gpqa",
+    "aime23",
+    "aime24",
+    "aime25",
+    "qwen2-5-0-5b",
+    "qwen2-5-1-5b",
+    "qwen2-5-7b"
+  ],
+  "schema_version": 1,
+  "slug": "sparse-policy-gradient",
+  "topics": [
+    "reasoning-training"
+  ]
+}

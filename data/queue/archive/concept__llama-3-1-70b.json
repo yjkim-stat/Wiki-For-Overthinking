@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+        "title": "Efficiently Scaling LLM Reasoning with Certaindex",
+        "topics": [
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
+        "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models",
+        "topics": [
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:49Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'Llama-3.1-70B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama-3.1-70B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Llama-3.1-70B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama-3.1-70B",
+      "Llama-3.3-70B-Instruct"
+    ],
+    "definition": "A 70B Llama model, the largest non-reasoning system measured in these sources. It anchors the scale end of two analyses: reasoning trajectories that converge fastest with the highest consistency and lowest uncertainty among the models compared (84.4% on AQuA), and a mutual-information profile that still shows weaker peaks than reasoning-trained models of smaller size, which is the evidence that the phenomenon comes from training rather than capacity. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "Llama-3.1-8B",
+      "Llama-3.2-1B",
+      "QwQ-32B",
+      "reasoning trajectory"
+    ]
+  },
+  "task_id": "concept__llama-3-1-70b",
+  "task_version": 1,
+  "topics": [
+    "test-time-scaling"
+  ]
+}

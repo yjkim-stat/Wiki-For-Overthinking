@@ -1,0 +1,75 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that reasoning ability can be incentivized in an LLM by pure reinforcement learning on verifiable tasks, with no human-annotated reasoning trajectories, and that the resulting reasoning patterns can be transferred to smaller models.",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Has a teacher decompose and prune a student's reasoning by mathematical skill, then distills the pruned paths back, on the argument that CoT structure must match student capacity.",
+        "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
+        "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:50Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'reasoning distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning distillation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "reasoning distillation",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "chain of thought distillation",
+      "trace distillation",
+      "CoT distillation"
+    ],
+    "definition": "Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revises how it should be done. The original demonstration distils long chain-of-thought from an RL-trained reasoning model into smaller checkpoints. One distils verification rather than problem-solving, producing a 4B guardrail that beats 7B and 8B specialists and GPT-4o at judging groundedness. One argues the transferred structure must match the student's capacity rather than the teacher's, pruning by mathematical skill before distilling, and cuts GSM8K tokens from 917 to 328 while raising accuracy from 91.7% to 94.1%.",
+    "kind": "method",
+    "related": [
+      "supervised fine-tuning",
+      "privileged information",
+      "on-policy self-distillation",
+      "reasoning redundancy",
+      "token selection"
+    ]
+  },
+  "task_id": "concept__reasoning-distillation",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

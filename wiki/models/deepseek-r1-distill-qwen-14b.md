@@ -1,0 +1,25 @@
+# DeepSeek-R1-Distill-Qwen-14B
+
+<!-- auto:begin -->
+
+The 14B Qwen-based member of the R1 distillation series, used across these sources as the mid-scale reasoning subject. Its mutual-information peaks are sparse (3.59% of steps) yet its step-to-step causal attribution scores are among the densest measured, which is a useful pairing: few steps carry a spike of information about the answer, while many steps still influence the steps that follow them. It is also the model on which the token-budget sweeps for early exit are run.
+
+- **Kind**: model
+- **Also called**: DS-Qwen-14B
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 4
+
+**Related**: [activation steering](../methods/activation-steering.md), [AIME24](../datasets/aime24.md), [AlpacaEval](../datasets/alpacaeval.md), [AMC23](../datasets/amc23.md), [budget forcing](../methods/budget-forcing.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [DAPO](../methods/dapo.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [entropy collapse](../concepts/entropy-collapse.md), [epistemic verbalization](../concepts/epistemic-verbalization.md), [exploration-exploitation trade-off](../concepts/exploration-exploitation-trade-off.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [information bottleneck](../concepts/information-bottleneck.md), [linear probing](../methods/linear-probing.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-8B](llama-3-1-8b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [MMLU-PRO](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [pass-k](../methods/pass-k.md), [PPO](../methods/ppo.md), [prompt difficulty](../concepts/prompt-difficulty.md), [Qwen2.5-14B](qwen2-5-14b.md), [Qwen2.5-32B](qwen2-5-32b.md), [Qwen2.5-7B](qwen2-5-7b.md), [Qwen2.5-Math-7B](qwen2-5-math-7b.md), [Qwen2.5-VL-7B](qwen2-5-vl-7b.md), [Qwen3-8B](qwen3-8b.md), [QwQ-32B](qwq-32b.md), [reasoning boundary](../concepts/reasoning-boundary.md), [reasoning distillation](../methods/reasoning-distillation.md), [reasoning trajectory](../concepts/reasoning-trajectory.md), [REINFORCE++](../methods/reinforce.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md), [self-correction](../concepts/self-correction.md), [test-time compute](../concepts/test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md), [verification](../concepts/verification.md), [ZebraLogic](../datasets/zebralogic.md)
+
+## Appears in
+
+- [Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning](../../archive/papers/2025/local-2c3407071e27c9d6/summary.md) — Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.
+- [Local Causal Attribution of Chain-of-Thought Reasoning](../../archive/papers/2026/local-6db01f05462cef8e/summary.md) — Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.
+- [On Reasoning Strength Planning in Large Reasoning Models](../../archive/papers/2025/local-77b3413236375923/summary.md) — Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.
+- [Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?](../../archive/papers/2025/local-b050d2841cbb4959/summary.md) — Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

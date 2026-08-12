@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+        "title": "Efficiently Scaling LLM Reasoning with Certaindex",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
+        "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:48Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepSeek-R1",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "DeepSeek-R1",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "DeepSeek R1"
+    ],
+    "definition": "The reasoning model trained by pure reinforcement learning on verifiable outcomes, without human reasoning trajectories, and the reference point for most of this archive. Beyond originating the setting, it appears here as a measured subject: it is the most monitorable of eight models tested, at 78.3% average monitorability, and it is among the frontier systems that hold up best under symbolic variation of benchmark problems, losing 3.6% on a variabilized AMC23 where 7B RL-tuned models lose 20-95%. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "QwQ-32B",
+      "RLVR",
+      "verification",
+      "monitorability"
+    ]
+  },
+  "task_id": "concept__deepseek-r1",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

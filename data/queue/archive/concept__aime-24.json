@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+        "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
+        "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:29Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'AIME 24'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AIME 24",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "AIME 24",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "AIME 2024",
+      "AIME'24"
+    ],
+    "definition": "The 2024 American Invitational Mathematics Examination problems, used as a small, hard, automatically checkable math benchmark. The sources use it for selection and token-attribution experiments rather than to characterize the benchmark: one reports accuracy rising from 56.7% under majority@64 to 70.0% under a hidden-state verifier at top-maj@16, the other restricts RLVR gradient updates to the highest-entropy 20% of tokens. Its size is the caveat the archive attaches to it — 30 problems means a single item is worth over three percentage points, and one archived source shows AIME'24 accuracy shifting by up to 9 percentage points from GPU type, GPU count or batch size alone.",
+    "kind": "dataset",
+    "related": [
+      "AIME",
+      "AIME 25",
+      "pass@k",
+      "greedy decoding",
+      "benchmark contamination"
+    ]
+  },
+  "task_id": "concept__aime-24",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "aliases": [
+    "causal trace",
+    "causal mediation",
+    "interchange intervention"
+  ],
+  "definition": "Intervening on internal representations to measure which components a behaviour causally depends on, as opposed to which merely correlate with it. The sources address complementary weaknesses. One extends tracing from single components or layers to joint subsets, converting the combinatorial search into a continuous problem over soft interventions, because components that matter only together are invisible to one-at-a-time search. The other shows the method's conclusions depend on choices usually left implicit — how prompts are corrupted, which metric scores the effect, and whether layers are patched singly or in sliding windows. Read together: tracing is sensitive both to what it can search over and to how the search is scored.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.154",
+      "kind": "paper",
+      "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
+      "title": "Multi-component Causal Tracing in Large Language Models"
+    },
+    {
+      "id": "local:956614b275995bc4",
+      "kind": "paper",
+      "note": "Systematically varies the methodological choices in activation patching — how prompts are corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — and shows each choice can change which model components a study concludes are important.",
+      "title": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "causal tracing",
+  "related": [
+    "localization",
+    "modularity",
+    "attention-head",
+    "superposition",
+    "combinatorial-search",
+    "soft-intervention",
+    "continuous-relaxation",
+    "causal-mediation-analysis",
+    "activation-patching",
+    "interchange-intervention",
+    "circuit-analysis",
+    "out-of-distribution-intervention",
+    "logit-difference",
+    "negative-model-components",
+    "sliding-window-patching",
+    "gaussian-noising-corruption",
+    "symmetric-token-replacement",
+    "path-patching",
+    "kl-divergence-metric",
+    "logit-difference-metric",
+    "pairedfacts",
+    "indirect-object-identification-ioi",
+    "greater-than-task",
+    "python-docstring-completion",
+    "basic-arithmetic",
+    "gpt-2-small",
+    "gpt-2-xl",
+    "gpt-j-6b"
+  ],
+  "schema_version": 1,
+  "slug": "causal-tracing",
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

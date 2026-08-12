@@ -1,0 +1,38 @@
+{
+  "abstract": "Existing explainability methods for Large Language Models (LLMs) typically treat hidden states as static points in activation space, assuming that correct and incorrect inferences can be separated using representations from an individual layer. However, these activations are saturated with polysemantic features, leading to linear probes learning surface-level lexical patterns rather than underlying reasoning structures. We introduce Truth as a Trajectory (TaT), which models the transformer inference as an unfolded trajectory of iterative refinements, shifting analysis from static activations to layer-wise geometric displacement. By analyzing displacement of representations across layers, TaT captures structural patterns in the evolution of inference that distinguish valid reasoning from spurious behavior. We evaluate TaT across dense and Mixture-of-Experts (MoE) architectures on benchmarks spanning commonsense reasoning, question answering, and toxicity detection. Without access to the activations themselves and using only changes in activations across layers, we show that TaT effectively mitigates reliance on static lexical confounds, outperforming conventional probing, and establishes trajectory analysis as a complementary perspective on LLM explainability.",
+  "arxiv_id": "",
+  "authors": [
+    "Hamed Damirchi",
+    "Imezadelajara",
+    "Ehsan Abbasnejad",
+    "Afshar Shamsi",
+    "Zhen Zhang 0008",
+    "Javen Qinfeng Shi"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.ACL-LONG.2073",
+  "first_seen": "2026-08-08T07:30:09Z",
+  "id": "doi:10.18653/v1/2026.acl-long.2073",
+  "last_seen": "2026-08-08T07:30:09Z",
+  "local_path": "",
+  "matched_keywords": [
+    "internal representation",
+    "internal representations"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-interpretability": 0.6667
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/DamirchiIASZS26",
+  "title": "Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning",
+  "topics": [
+    "reasoning-interpretability"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.acl-long.2073",
+  "venue": "ACL",
+  "year": 2026
+}

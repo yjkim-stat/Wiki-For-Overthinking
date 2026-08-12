@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reasoning Interpretability — research review</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title-slide">
+<h1>Reasoning Interpretability</h1>
+<p class="subtitle">What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model&#x27;s internal reasoning the available intervention methods can actually support, and at what granularity.</p>
+<p>2026-08-12 · 26 archived source(s)</p>
+</section>
+<section class="slide">
+<h2>Agenda</h2>
+<ul>
+<li>Where the field stands</li>
+<li>Key papers</li>
+<li>Recurring ideas</li>
+<li>Benchmarks</li>
+<li>Open problems</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Where the field stands</h2>
+<ul>
+<li><strong>2026</strong> — 20 paper(s)</li>
+<li><strong>2025</strong> — 4 paper(s)</li>
+<li><strong>2024</strong> — 1 paper(s)</li>
+<li><strong>2023</strong> — 1 paper(s)</li>
+</ul>
+<p>9 arrived in the last 30 days.</p>
+</section>
+<section class="slide">
+<h2>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</h2>
+<p class="subtitle">Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al. · ACL · 2026</p>
+<blockquote>
+<p>Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.</p>
+</blockquote>
+<ul>
+<li>The argument that run-to-run feature consistency belongs alongside reconstruction and sparsity as a standard SAE evaluation axis</li>
+<li>PW-MCC, an assignment-based metric for dictionary consistency across runs</li>
+<li>Theoretical grounding for strong consistency in the idealized TopK SAE setting</li>
+<li>Synthetic validation on a model organism verifying PW-MCC as a proxy for ground-truth recovery</li>
+</ul>
+<p><strong>Results.</strong> High consistency is achievable with appropriate architectural choices, with PW-MCC around 0.80 for TopK SAEs on LLM activations. In the synthetic setting PW-MCC is verified as a reliable proxy for ground-truth feature recovery. On LLM activations PW-MCC correlates with the similarity of automatically generated natural-language feature explanations.</p>
+<p><strong>Why it matters.</strong> Directly conditions how much weight this archive&#x27;s SAE results can carry. Every claim here that a particular feature does a particular thing was read off one training run, and if a fifth of the dictionary is run-dependent then some fraction of those claims are artefacts of a seed. PW-MCC makes that checkable and the paper shows ~0.80 is reachable, so the fix is architectural rather than hopeless. It is also the most concrete instance of what doi:10.18653/v1/2026.acl-long.159 in this drain calls for — an auditing axis the field should report as standard — and it pairs with arxiv:2608.06300&#x27;s finding that SAEs improve recoverability while attenuating measured influence: consistency and validity are separate properties, and an SAE can now be shown to have the first without the second.</p>
+</section>
+<section class="slide">
+<h2>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</h2>
+<p class="subtitle">Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al. · 2026</p>
+<blockquote>
+<p>Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.</p>
+</blockquote>
+<ul>
+<li>CircuitSteer: identification of multi-layer semantic subcircuits from SAE features</li>
+<li>A feature flow circuit built from feature co-activation plus geometric alignment of decoder directions</li>
+<li>Synthesis of dense steering vectors from sparse features, applied as multi-point interventions</li>
+<li>Evidence that multi-layer circuit steering preserves fluency where single-point methods do not, including on sycophancy and refusal where baselines fail entirely</li>
+</ul>
+<p><strong>Results.</strong> Evaluated with contrastive examples on toxicity, emotion-intensity, sycophancy and refusal across two model families. CircuitSteer is the only method to consistently produce fluency-preserving interventions; competing methods either sacrifice text quality or lack coverage, failing entirely on sycophancy and refusal.</p>
+<p><strong>Why it matters.</strong> Extends the archive&#x27;s SAE line from reading features to acting on them across layers, and supplies a selection criterion — decoder-direction alignment plus co-activation — for deciding which features form a circuit. The reported failure of single-layer baselines on sycophancy and refusal is the substantive finding: those are the behaviours that do not localize to one layer, which is indirect evidence about which computations are distributed. Nothing here is tested on reasoning, so whether a reasoning circuit is steerable the same way is open, and that gap is the obvious follow-up given the Step-Level SAE work already in the archive.</p>
+</section>
+<section class="slide">
+<h2>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</h2>
+<p class="subtitle">Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al. · ACL · 2026</p>
+<blockquote>
+<p>Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.</p>
+</blockquote>
+<ul>
+<li>The argument that static-activation probing learns lexical surface patterns because activations are polysemantic</li>
+<li>Truth as a Trajectory: modelling inference as an unfolded trajectory and analyzing layer-wise geometric displacement</li>
+<li>A probe that uses only cross-layer changes, never the activations themselves</li>
+<li>Evaluation across dense and MoE architectures on commonsense reasoning, QA and toxicity detection</li>
+</ul>
+<p><strong>Results.</strong> Evaluated across dense and Mixture-of-Experts architectures on benchmarks spanning commonsense reasoning, question answering and toxicity detection. Using only changes in activations across layers and no access to the activations themselves, TaT mitigates reliance on static lexical confounds and outperforms conventional probing.</p>
+<p><strong>Why it matters.</strong> Lands directly on a dispute this drain has now populated from both sides. This paper argues displacement is the right representation because it strips lexical confounds; arxiv:2608.05660, collected in the same drain, argues displacement alone is insufficient because it discards the originating state, and adds a quantized region plus a normalized direction to restore location without shortcuts. Both report gains over the same single-layer probing baseline, on different benchmarks, with no shared model — which is precisely the incomparability that doi:10.18653/v1/2026.acl-long.159 in this drain calls the field&#x27;s auditing failure. The resolvable question is whether the location information the one paper adds is the lexical confound the other removes.</p>
+</section>
+<section class="slide">
+<h2>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</h2>
+<p class="subtitle">Arya Labroo, Mengjie Qian, Kate Knill · 2026</p>
+<blockquote>
+<p>Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.</p>
+</blockquote>
+<ul>
+<li>Extension of CAV-based bias analysis to a BERT text grader and a Whisper-based multimodal speaking grader</li>
+<li>An explicit separation of concept recoverability from concept influence, the latter via a gradient-based sensitivity metric</li>
+<li>Learning CAVs in an SAE latent space and mapping them back to activation space</li>
+<li>The finding that SAEs improve linear recoverability while attenuating activation-space sensitivity, especially in low-dimensional layers</li>
+</ul>
+<p><strong>Results.</strong> Concept recoverability depends strongly on the representation and architecture being probed rather than on the concept alone. Sensitivity to concepts is also architecture-dependent. SAEs make concepts more linearly recoverable but attenuate the original activation-space sensitivity, especially in low-dimensional layers.</p>
+<p><strong>Why it matters.</strong> Not a reasoning paper — the task is L2 speaking assessment and no reasoning model appears. It earns its place in this topic on one methodological result the archive should hold: probing shows a concept is encoded, which is not the same as showing it is used, and SAEs improve the first measurement while degrading the second. Every SAE result in this archive that reads a feature and infers a role inherits that gap, and this paper is the cleanest statement of it, on an application where the distinction has legal consequences. The finding that attenuation is worst in low-dimensional layers is a concrete caution for layer selection.</p>
+</section>
+<section class="slide">
+<h2>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</h2>
+<p class="subtitle">Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al. · 2026</p>
+<blockquote>
+<p>Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.</p>
+</blockquote>
+<ul>
+<li>Identification of the displacement-versus-full-state trade-off in trajectory-based reasoning-error detection</li>
+<li>A three-stream detector combining motion, a vector-quantized coarse region reader, and a fine direction reader over normalized multi-layer states</li>
+<li>Up to 12% and 21% selection-accuracy gains over displacement-only and single-layer probing baselines on unseen reasoning benchmarks</li>
+<li>Transfer to factual completion and fact verification, evidence that the signal tracks correctness rather than a reasoning type</li>
+</ul>
+<p><strong>Results.</strong> On reasoning benchmarks unseen during training, selection accuracy improves by up to 12% over the displacement-only state of the art and 21% over single-layer probing baselines. Though trained only on reasoning benchmarks, the detector also reads factual completion and fact verification ahead of every compared detector, which the authors take to place the signal on correctness rather than on a kind of reasoning. Ablations show motion, region and direction contribute complementary signals.</p>
+<p><strong>Why it matters.</strong> A concrete answer to where reasoning errors live: a region and a direction in residual-stream trajectory space, with the two carrying complementary information and neither sufficient alone. The methodological contribution is the deliberate restriction of state information — quantized region plus normalized direction — as a way to get state context without shortcut features, which is a middle path between displacement-only trajectories and full-state probing that the archive&#x27;s probing thread has not held before.</p>
+</section>
+<section class="slide">
+<h2>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</h2>
+<p class="subtitle">Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al. · ACL · 2026</p>
+<blockquote>
+<p>An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.</p>
+</blockquote>
+<ul>
+<li>Spectra, a mechanistic interpretability library for VLMs with unified activation-patching and attention-analysis abstractions</li>
+<li>Per-checkpoint configuration handling of architecture-specific differences behind one high-level interface</li>
+<li>Support for Qwen2.5-VL, Qwen3-VL, LLaVA 1.5 and SmolVLM with an extensible design</li>
+<li>A demonstration on a counting task</li>
+</ul>
+<p><strong>Results.</strong> Capabilities are demonstrated with interpretability experiments on a counting task, presented as experiments that were previously cumbersome. Supported checkpoints are Qwen2.5-VL, Qwen3-VL, LLaVA 1.5 and SmolVLM.</p>
+<p><strong>Why it matters.</strong> Infrastructure, not a finding, and multimodal rather than reasoning-specific. It matters to this topic for one reason: the archive already holds a case where two interpretability papers reached opposite conclusions about the same behaviour with no shared model or tooling, and shared instrumentation is the precondition for that class of disagreement to be resolvable at all. Spectra is the multimodal instance of that argument, and it pairs directly with doi:10.18653/v1/2026.acl-long.159 in this same batch, which argues the field needs auditable protocols.</p>
+</section>
+<section class="slide">
+<h2>Multi-component Causal Tracing in Large Language Models</h2>
+<p class="subtitle">Zirui Yan, Dennis Wei, Dmitriy A. Katz et al. · ACL · 2026</p>
+<blockquote>
+<p>Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.</p>
+</blockquote>
+<ul>
+<li>A unified framework for causally tracing multiple components simultaneously against a target metric</li>
+<li>Support for flexible interventions over a range of metrics including accuracy and fairness</li>
+<li>An efficient algorithm using soft interventions and a metric transformation that relaxes the combinatorial subset search into a continuous one while yielding binary selections</li>
+<li>Reported gains over existing causal-tracing baselines</li>
+</ul>
+<p><strong>Results.</strong> The method efficiently identifies subsets of components with high impact on the target metric, outperforming existing baselines. No numbers, models or baselines are named in the abstract.</p>
+<p><strong>Why it matters.</strong> Addresses a limitation that undercuts much of the archive&#x27;s circuit work directly: single-component tracing can miss components that only matter together, and redundant components can each look unimportant in isolation. A joint-subset method is what the archive&#x27;s modularity dispute needs, since claims that a capability is or is not localized depend on whether the search could see distributed sets at all. The catch is that criticality remains defined relative to a chosen target metric, so this makes the search tractable without making &#x27;important&#x27; model-intrinsic. No reasoning-specific result is reported, so the application to reasoning circuits is open.</p>
+</section>
+<section class="slide">
+<h2>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</h2>
+<p class="subtitle">Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al. · ACL · 2026</p>
+<blockquote>
+<p>A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.</p>
+</blockquote>
+<ul>
+<li>A diagnosis that mechanistic interpretability lacks auditability and that this blocks safety-critical adoption</li>
+<li>A documented case where two papers conflicted on one behaviour and a third found both partially correct but incomparable</li>
+<li>A proposal for continuous reviewing on a collaborative platform hosting critiques, negative results, reproductions and partial results</li>
+<li>A proposal to generalize platform practice into expert-verified guidelines and protocols</li>
+</ul>
+<p><strong>Results.</strong> A position paper. It provides early concrete examples to catalyze discussion rather than empirical results.</p>
+<p><strong>Why it matters.</strong> Names the exact failure this archive has already recorded independently: two interpretability papers reaching opposite conclusions about the same behaviour, incomparable because they shared no model or method. The archive holds its own instance in the MI-Peaks versus commitment-boundary collision, where the two agree on which discourse markers matter and disagree on what that means, with no shared model between them. So this paper&#x27;s premise is confirmed by evidence collected here, which raises it above the usual position paper. Its source-based claim tracking is also close to what this archive&#x27;s wiki does — evidence counts per concept, claims traceable to the summaries that support them — which makes it a useful external check on that design.</p>
+</section>
+<section class="slide">
+<h2>Recurring ideas</h2>
+<ul>
+<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
+<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
+<li><strong>localization</strong> — Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing q...</li>
+<li><strong>prompt difficulty</strong> — How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Ele...</li>
+<li><strong>meta-evaluation</strong> — Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurri...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Methods</h2>
+<ul>
+<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
+<li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
+<li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
+<li><strong>supervised finetuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is...</li>
+<li><strong>reasoning distillation</strong> — Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use i...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Benchmarks and datasets</h2>
+<ul>
+<li><strong>AIME24</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 28 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
+<li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
+<li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
+<li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
+<li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems</h2>
+<ul>
+<li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
+<li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
+<li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
+<li><strong>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</strong> — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a f...</li>
+<li><strong>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</strong> — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identif...</li>
+<li><strong>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</strong> — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and pe...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems (cont.)</h2>
+<ul>
+<li><strong>Multi-component Causal Tracing in Large Language Models</strong> — No quantitative results, models or baselines in the abstract. Soft interventions are a relaxation, so a subset selected in the continuous problem is not guar...</li>
+<li><strong>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</strong> — No empirical evaluation; the proposals are untested. The diagnosis rests on one documented case of conflicting conclusions rather than a survey of how often...</li>
+<li><strong>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</strong> — No quantitative results in the abstract. Scope is Stable Diffusion, so architecture generality is untested. Single-word removal changes the prompt distributi...</li>
+<li><strong>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</strong> — No numbers in the abstract and no named models. Counting is a narrow task, chosen because the depth argument is clean there, so generalization of the System-...</li>
+<li><strong>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</strong> — No empirical contribution, and no stated selection criteria or coverage for the surveyed work, so it is not a systematic review. Organizing by interpretable...</li>
+<li><strong>A Sharper Picture of Generalization in Transformers</strong> — The learner is idealized: it minimizes loss, norm and Hessian trace directly rather than being SGD, so the result abstracts away training dynamics. The const...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References</h2>
+<ul>
+<li>Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al.. <em>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</em>. ACL. 2026</li>
+<li>Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. <em>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</em>. cs.LG. 2026</li>
+<li>Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. <em>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</em>. ACL. 2026</li>
+<li>Arya Labroo, Mengjie Qian, Kate Knill. <em>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</em>. cs.AI. 2026</li>
+<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
+<li>Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. <em>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</em>. ACL. 2026</li>
+<li>Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. <em>Multi-component Causal Tracing in Large Language Models</em>. ACL. 2026</li>
+<li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
+<li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
+<li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
+<li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
+<li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
+<li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
+<li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
+<li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
+<li>Yu Huang, Zixin Wen, Aarti Singh et al.. <em>Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization</em>. NeurIPS. 2025</li>
+<li>Fred Zhang, Neel Nanda. <em>Towards Best Practices of Activation Patching in Language Models: Metrics and Methods</em>. preprint. 2024</li>
+<li>Hoagy Cunningham, Aidan Ewart, Logan Riggs et al.. <em>Sparse Autoencoders Find Highly Interpretable Features in Language Models</em>. preprint. 2023</li>
+</ul>
+</section>
+<section class="slide title-slide">
+<h2>Sources</h2>
+<p>Every claim in this deck traces to a page under <code>archive/</code>. Regenerate with <code>python -m pipelines.render</code>.</p>
+</section>
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

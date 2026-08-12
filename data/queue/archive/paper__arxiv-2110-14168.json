@@ -1,0 +1,111 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T04:12:49Z",
+  "created_at": "2026-08-08T03:54:22Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2110.14168",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+    "authors": [
+      "Karl Cobbe",
+      "Vineet Kosaraju",
+      "Mohammad Bavarian",
+      "Mark Chen",
+      "Heewoo Jun",
+      "Lukasz Kaiser",
+      "Matthias Plappert",
+      "Jerry Tworek",
+      "Jacob Hilton",
+      "Reiichiro Nakano",
+      "Christopher Hesse",
+      "John Schulman"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "matched_keywords": [
+      "mathematical reasoning",
+      "math word problems",
+      "GSM8K"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2110.14168v2",
+    "published": "2021-10-27",
+    "scores": {
+      "reasoning-evaluation": 0.625
+    },
+    "title": "Training Verifiers to Solve Math Word Problems",
+    "url": "https://arxiv.org/abs/2110.14168",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "multi-step mathematical reasoning",
+      "verification",
+      "generative vs discriminative scaling",
+      "sampling and reranking",
+      "benchmark design"
+    ],
+    "contributions": [
+      "GSM8K: 8.5K high-quality, linguistically diverse grade school math word problems, built to diagnose multi-step reasoning failure.",
+      "The finding that model size alone does not solve this distribution.",
+      "Training verifiers to judge the correctness of completions, and using them at test time to rank many sampled candidates.",
+      "Evidence that verification scales better with additional data than a finetuning baseline."
+    ],
+    "datasets": [
+      "GSM8K"
+    ],
+    "limitations": "Not discussed in the abstract. What a reader of this archive should note is downstream rather than internal: GSM8K has since become a saturated benchmark, and later archived work uses it as the easy rung of a suite and raises contamination concerns about publicly available math benchmarks in general.",
+    "method": "Many candidate solutions are sampled at test time and a separately trained verifier judges the correctness of each; the highest-ranked candidate is returned. This is contrasted against finetuning the generator to produce the answer directly. The abstract does not give the verifier's architecture, training data construction, or sample count.",
+    "methods": [
+      "verifier training",
+      "test-time reranking",
+      "supervised finetuning"
+    ],
+    "one_liner": "Introduces GSM8K, 8.5K grade-school math word problems, and shows that training a verifier to rank many sampled solutions beats finetuning the generator directly.",
+    "problem": "Language models matched human performance on many tasks yet failed at robust multi-step mathematical reasoning, and the abstract notes that even the largest transformers of the time scored poorly on a problem distribution that is conceptually simple. There was no diagnostic dataset isolating that failure.",
+    "relevance": {
+      "reasoning-evaluation": "The origin of the benchmark that nearly every archived paper reports on, which makes it the reference point for what those numbers mean. Two things matter for this topic. First, its framing: the dataset was built as a diagnostic for a specific failure, not as a leaderboard, and it was designed around problems whose conceptual simplicity makes a low score informative. Second, its fate: a benchmark introduced because large models could not solve it is now the easy end of every suite in this archive, so it is a concrete case study in benchmark saturation and in why a claim resting on GSM8K gains needs a harder companion set. This is also the first paper filed under this topic."
+    },
+    "results": "The abstract states that verification significantly improves performance on GSM8K and that it scales more effectively with increased data than the finetuning baseline, but gives no accuracy figures, model sizes or sample counts. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+    "tags": [
+      "gsm8k",
+      "verifier",
+      "math word problems",
+      "benchmark",
+      "reranking"
+    ]
+  },
+  "task_id": "paper__arxiv-2110-14168",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

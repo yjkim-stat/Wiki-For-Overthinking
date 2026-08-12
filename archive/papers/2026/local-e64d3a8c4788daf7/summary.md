@@ -1,0 +1,57 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# EDIS: Diagnosing LLM Reasoning via Entropy Dynamics
+
+- **Authors**: Chenghua Zhu, Siyan Wu, Xiangkang Zeng, Zishan Xu, Zhaolu Kang, Yifu Guo, Yuquan Lu, Junduan Huang, Guojing Zhou
+- **Venue**: preprint
+- **Published**: 2026-01-01
+- **Source**: local
+- **Topics**: test-time-scaling, reasoning-training
+
+## In one line
+
+Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.
+
+## Problem
+
+Entropy and token probabilities are widely used as confidence signals for LLM reasoning, but existing methods collapse generation into a static summary statistic — mean entropy, sequence entropy, self-certainty — or look only at the final answer. That discards the temporal structure of how uncertainty unfolds during autoregressive generation. Distinguishing correct reasoning from plausible-sounding errors without an external verifier remains open, and aggregate confidence measures separate the two poorly.
+
+## Contributions
+
+- An empirical analysis of token-level entropy trajectories showing that incorrect solutions carry two characteristic instability patterns — burst spikes (sustained entropy growth) and peak-valley spikes (entropy drops to a running minimum then sharply rebounds) — which persist across models, temperatures and training checkpoints.
+- EDIS, a trajectory-level metric combining burst-spike and rebound-spike counts with entropy variance, requiring no verifier, no external annotation and no additional training.
+- Inference-time best-k-of-N selection driven by EDIS, evaluated across three models, four math benchmarks and three temperatures.
+- A preliminary demonstration that EDIS can serve as a training-time signal in GRPO, through sequence filtering and sequence weighting of rollouts.
+
+## Method
+
+For each generation step t the token entropy H_t is computed over the vocabulary distribution, giving an entropy trajectory H = (H_1, ..., H_T) rather than a single scalar. Two spike detectors run over that trajectory: S_burst counts positions where cumulative entropy growth across a window of w tokens exceeds a threshold tau_b, capturing progressive deterioration of confidence; S_rebound counts positions where the current entropy exceeds the running minimum min_{s<t} H_s by more than tau_r, capturing false confidence followed by renewed uncertainty. The score is EDIS(H) = S(H) * (1 + Var(H)) with S(H) = (S_burst + S_rebound)/2, so instability only scores high when spike events co-occur with high overall variance; EDIS near 0 means smooth, confident generation. For inference-time use, m*n candidates are oversampled per prompt, ranked by EDIS, and the k most stable (lowest EDIS) are retained; answers are aggregated by score-weighted Borda voting. For RL, raw EDIS is log-transformed and standardized to z-scores z_i, then signed by correctness (s_i = -z_i if correct, +z_i if incorrect) so that stable correct and unstable incorrect trajectories are up-weighted; weights are w_i = softmax(s_i / alpha) * n, normalized separately within the correct and incorrect groups to preserve gradient balance, and multiplied into the GRPO advantage. A simpler filtering variant instead keeps only the lowest-EDIS correct and highest-EDIS incorrect rollouts and discards ambiguous ones.
+
+## Results
+
+Incorrect responses show 1.7-3.6x more entropy fluctuations than correct ones (Cohen's d approx 1.0). Inference-time selection: aggregating over four benchmarks and three temperatures, Qwen2.5-Math-1.5B rises from 29.9% to 54.5% average accuracy as the oversampling multiplier m goes from 1 to 16 (+24.6 pp, reported as an 82% relative gain), Qwen2.5-Math-7B from 40.9% to 61.9% (+21.0 pp), and Qwen3-4B-Instruct from 58.8% to 62.2% (+3.4 pp). Against other selection methods on Qwen2.5-Math-1.5B at m=16, EDIS reaches 60.6% overall versus 51.7% for self-certainty, 50.9% for sequence entropy, 46.2% for majority voting and 30.4% for the unweighted mean; at m=4 and m=8 it scores 57.0% and 59.5%. As a correctness predictor EDIS achieves ROC-AUC 0.804 versus 0.673 for mean entropy, and at 10% retention 91.1% accuracy versus 61.0% for entropy. Rank correlation with correctness is Spearman rho = -0.52 for EDIS versus -0.30 for mean entropy, while linear correlation favours mean entropy (Pearson -0.19 vs -0.10). For RL on Qwen2.5-Math-1.5B trained on NuminaMath-20K for 500 GRPO steps and validated on AMC23: at T=0.6 EDIS-informed training reaches 66.2% maj@8 versus 60.8% baseline (+5.4 pp) and 61.9% mean@8 versus 53.8% (+8.1 pp). The T=0.2 ablation attributes +3.0 pp maj@8 to oversampling alone, +3.5 pp to filtering and +7.7 pp to weighting, with filtering plus weighting at +7.4 pp maj@8 and +7.8 pp mean@8. EDIS-informed training also produces lower entropy (0.07-0.09 vs 0.16-0.18) and shorter responses (453-525 vs 620-646 tokens).
+
+## Limitations
+
+The paper states three: the study covers only mathematical reasoning, where correctness is objectively verifiable, so transfer to code generation, scientific reasoning and logical deduction is unvalidated; the RL experiments are a proof-of-concept rather than an optimized integration; and window sizes, rebound thresholds and spike weightings must be recalibrated per model family because entropy dynamics depend on vocabulary size and training distribution, which limits the metric's generality. Two further limits a reader should notice: the head-to-head comparison against other selection methods (Table 1) uses only Qwen2.5-Math-1.5B, so the margin over self-certainty and sequence entropy is established on one model; and the benchmarks with the largest reported swings, AMC23 and AIME24, are 40 and 30 problems, which the paper itself flags as reducing statistical power on AMC23.
+
+## Why it matters here
+
+- **reasoning-training**: Shows the same signal reused as a training-time curation mechanism inside GRPO, with an ablation separating oversampling, filtering and weighting. The finding that weighting (+7.7 pp) beats filtering (+3.5 pp) is an argument about training signal design: discarding ambiguous rollouts throws away gradient that differential weighting can still use. It also connects to the entropy-collapse literature, since EDIS-informed training drives training entropy down (0.07-0.09 vs 0.16-0.18) while improving accuracy.
+- **test-time-scaling**: A concrete answer to what to do with oversampled candidates: rank them by the shape of their entropy trajectory rather than by aggregate confidence. It is directly comparable to majority voting, sequence entropy and self-certainty on the same budget, and the accuracy-versus-multiplier curves in Figure 4 are exactly the compute-versus-accuracy trade-off this topic tracks, including where the curve flattens as m approaches 16. The verifier-free framing matters: the gain costs sampling only, with no reward model to train.
+
+## Entities
+
+- **Concepts**: [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), [entropy trajectory](../../../../wiki/concepts/entropy-trajectory.md), burst spike, peak-valley (rebound) spike, trajectory-level confidence metric, [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), verifier-free response selection, training-time sample curation, [process supervision](../../../../wiki/concepts/process-supervision.md)
+- **Methods**: EDIS (Entropy Dynamics Instability Score), [GRPO](../../../../wiki/methods/grpo.md), best-k-of-N selection, [majority voting](../../../../wiki/methods/majority-voting.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [self-certainty](../../../../wiki/methods/self-certainty.md), sequence entropy, score-weighted Borda aggregation, sequence filtering, sequence weighting
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime24.md), NuminaMath-20K
+
+Tags: `entropy`, `uncertainty`, `confidence`, `test-time selection`, `best-of-n`, `grpo`, `rl`, `mathematical reasoning`
+
+## Abstract
+
+Entropy-based confidence signals are increasingly leveraged to improve reasoning in large language models (LLMs), yet existing approaches treat confidence as a static quantity—typically aggregated over tokens. We show that the temporal evolution of confidence during generation carries richer information than aggregate statistics alone. Analyzing token-level entropy trajectories, we identify characteristic patterns distinguishing correct from incorrect reasoning: erroneous solutions exhibit unstable dynamics, including burst spikes (sustained uncertainty growth) and peak-valley spikes (sharp rebounds following transient confidence). These patterns persist across models and training stages, suggesting they reflect intrinsic properties of reasoning failure rather than superficial noise. To formalize this observation, we introduce the Entropy Dynamics Instability Score (EDIS), a trajectory-level metric quantifying instability in entropy evolution. EDIS serves as an effective diagnostic signal for inference-time selection, substantially improving reasoning accuracy, and offers a promising direction for training-time sample curation. Our findings establish entropy dynamics as an underexplored yet informative lens for understanding and improving LLM reasoning.
+
+---
+
+Record id: `local:e64d3a8c4788daf7`

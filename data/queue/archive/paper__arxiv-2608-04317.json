@@ -1,0 +1,119 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:09:47Z",
+  "created_at": "2026-08-08T07:35:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.04317",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Autonomous cyber defense systems based on Deep Reinforcement Learning (DRL) have attracted significant research attention, yet remain evaluated almost exclusively against static, heuristic red agents, leaving their robustness against adaptive threats critically understudied. Meanwhile, recent advances in Reinforcement Learning with Verifiable Rewards (RLVR) have improved LLM reasoning, but their integration into cybersecurity remains elusive due to the absence of suitable benchmark environments and interaction datasets. To bridge this gap, we introduce Trident, an agentic LLM red teaming framework comprising three components: a dynamic benchmark with isolated sandbox servers spanning CybORG CAGE 4 and CyberWheel, a dataset comprises over 13,000 high-fidelity red-blue interaction trajectories for RLVR, and a ``Code-as-Policy'' RLVR agentic architecture Trident Agentic). The latter reformulates red agent training as a contextual bandit via a tripartite Log Summarizer--Planner--Coder design, where a trainable Planner generates complete attack strategies from compressed execution logs, which a frozen Coder translates into executable Python policies deployed against live DRL defenders. Empirical evaluations reveal a fundamental brittleness in existing defenses: with a single trainable 7B planner, Trident reduces blue agent defensive performance by an average of 522% compared to static red agent baselines while autonomously discovering emergent behaviors such as decoy avoidance and adaptive state prioritization that static heuristics entirely fail to uncover.",
+    "authors": [
+      "Ryozo Masukawa",
+      "Ian Bryant",
+      "Armita Kazeminajafabadi",
+      "Sanggeon Yun",
+      "Hyunwoo Oh",
+      "SungHeon Jeong",
+      "Nathaniel D. Bastian",
+      "Mahdi Imani",
+      "Mohsen Imani"
+    ],
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.LG",
+      "cs.MA"
+    ],
+    "matched_keywords": [
+      "verifiable reward",
+      "verifiable rewards",
+      "RLVR"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.04317v1",
+    "published": "2026-08-05",
+    "scores": {
+      "reasoning-training": 0.5
+    },
+    "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)",
+    "url": "https://arxiv.org/abs/2608.04317",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "reinforcement learning with verifiable rewards",
+      "contextual bandit",
+      "credit assignment",
+      "adaptive adversary",
+      "emergent behaviour"
+    ],
+    "contributions": [
+      "A dynamic red-teaming benchmark with isolated sandbox servers over CybORG CAGE 4 and CyberWheel",
+      "A dataset of over 13,000 red-blue interaction trajectories intended for RLVR training",
+      "The Trident Agentic Code-as-Policy architecture, which casts red-agent training as a contextual bandit over a Summarizer/Planner/Coder decomposition",
+      "An empirical demonstration that existing DRL cyber defences are brittle against an adaptive LLM attacker"
+    ],
+    "datasets": [
+      "CybORG CAGE 4",
+      "CyberWheel",
+      "Trident red-blue interaction dataset (13,000+ trajectories)"
+    ],
+    "limitations": "Evaluated only in two simulators, so transfer to real networks is unestablished. The 522% average degradation is reported without a per-environment breakdown or variance, and a percentage change above 100% implies a signed reward whose scale is not given. The Coder is frozen, so the search is over strategies expressible in its code vocabulary. No accuracy or reasoning-benchmark evaluation of the planner is reported, so the effect of RLVR on the planner's general reasoning is unknown.",
+    "method": "Three components. A dynamic benchmark of isolated sandbox servers spanning CybORG CAGE 4 and CyberWheel; a dataset of over 13,000 red-blue interaction trajectories for RLVR; and a 'Code-as-Policy' architecture that reformulates red-agent training as a contextual bandit through a Log Summarizer / Planner / Coder split. The trainable Planner reads compressed execution logs and emits a complete attack strategy; a frozen Coder translates it into executable Python deployed against a live DRL defender. Only the Planner is trained, which is what makes the single-step bandit formulation possible.",
+    "methods": [
+      "RLVR",
+      "Code-as-Policy",
+      "contextual bandit formulation",
+      "log summarization"
+    ],
+    "models": [
+      "7B planner (unnamed base checkpoint)"
+    ],
+    "one_liner": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
+    "problem": "Deep-RL autonomous cyber defences are evaluated almost exclusively against static heuristic red agents, so their robustness against an adaptive attacker is unmeasured. Separately, RLVR has improved LLM reasoning but has no benchmark environment or interaction dataset in cybersecurity.",
+    "relevance": {
+      "reasoning-training": "Peripheral. It uses RLVR as an off-the-shelf training signal for a security task rather than studying what that signal does to reasoning, and reports no reasoning-benchmark result. Its one transferable point for this topic is the architectural choice of training only a planner over compressed state while freezing the executor, which turns a long-horizon credit-assignment problem into a single-step bandit — the opposite bet from AgentOPSD (arxiv:2608.05987), which keeps the horizon and works on turn-level credit instead."
+    },
+    "results": "With a single trainable 7B planner, blue-agent defensive performance falls by an average of 522% relative to static red-agent baselines. The trained attacker discovers decoy avoidance and adaptive state prioritization, behaviours static heuristics never produce.",
+    "tags": [
+      "rlvr",
+      "cybersecurity",
+      "red teaming",
+      "agentic",
+      "off-topic-candidate"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-04317",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

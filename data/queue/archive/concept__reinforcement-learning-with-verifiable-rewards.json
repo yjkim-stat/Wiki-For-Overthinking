@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that reasoning ability can be incentivized in an LLM by pure reinforcement learning on verifiable tasks, with no human-annotated reasoning trajectories, and that the resulting reasoning patterns can be transferred to smaller models.",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
+        "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:50Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'reinforcement learning with verifiable rewards'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reinforcement learning with verifiable rewards",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "reinforcement learning with verifiable rewards",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "RLVR",
+      "verifiable reward RL",
+      "outcome-verified RL"
+    ],
+    "definition": "Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a failure mode and restricts the method to domains where correctness can be checked. The archive's anchor source uses it to elicit long chain-of-thought reasoning without supervised reasoning traces. The second shows the recipe travelling outside reasoning entirely, using RLVR to train an attack planner against cyber defences, with over 13,000 interaction trajectories collected for the purpose. The gap between those two uses is a fair picture of the term's current breadth: a specific training signal that is being applied wherever an automatic checker exists.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "outcome reward",
+      "process supervision",
+      "reward hacking",
+      "advantage estimation",
+      "reinforcement learning post-training"
+    ]
+  },
+  "task_id": "concept__reinforcement-learning-with-verifiable-rewards",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "abstract": "Diffusion large language models (DLLMs) have emerged as a promising alternative to autoregressive (AR) generation, uniquely offering token-level probabilities under bidirectional context. However, the semantics of their native uncertainty estimates remain underexplored. In this work, we uncover a calibration paradox inherent to the bidirectional generation mechanism of state-of-the-art DLLMs. Concretely, we demonstrate that diffusion confidence is structurally distinct from AR likelihood. Notably, LLaDA-8B is highly miscalibrated (31.2% ECE) on mathematical reasoning benchmarks, yet possesses superior discriminative power (0.826 AUROC), significantly outperforming comparable AR baselines in single-pass settings (0.611 AUROC). We diagnose that this paradox arises because diffusion confidence functions less like a probability of correctness and more like a proxy for structural consistency enabled by the model’s bidirectional access to the entire solution path. We further show that lightweight post-hoc calibration can reconcile this gap, reducing ECE by over 60% while preserving the strong ranking signal. Our findings suggest that DLLMs offer a unique, cost-efficient uncertainty signal for reasoning tasks that complements expensive AR approaches.",
+  "arxiv_id": "",
+  "authors": [
+    "Yansi Li",
+    "Gongshen Liu",
+    "Zhuosheng Zhang 0001"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.2142",
+  "first_seen": "2026-08-08T07:29:54Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.2142",
+  "last_seen": "2026-08-08T07:29:54Z",
+  "local_path": "",
+  "matched_keywords": [
+    "mathematical reasoning"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.5
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/LiLZ26",
+  "title": "The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning",
+  "topics": [
+    "reasoning-evaluation"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.2142",
+  "venue": "ACL",
+  "year": 2026
+}

@@ -1,0 +1,68 @@
+{
+  "concepts": [
+    "token-level entropy",
+    "entropy collapse",
+    "entropy dynamics",
+    "entropy discriminator",
+    "dynamic baseline",
+    "policy entropy",
+    "exploration-exploitation trade-off",
+    "low-probability tokens",
+    "learning dynamics",
+    "pass@k",
+    "importance sampling ratio",
+    "advantage function"
+  ],
+  "contributions": [
+    "The entropy discriminator S_i = p_i*(H + log p_i), reducing the question of whether a single-token update raises or lowers policy entropy to the sign of one scalar, with the equivalent and more interpretable form sign(S_*) = sign(p_k - exp(-H)) comparing a token's probability against the exponential of the negative entropy.",
+    "Theorem 3.3, extending the analysis from an abstract logit perturbation to a GRPO optimization step and showing the governing quantity changes: entropy change tracks the discriminator's deviation from its policy-weighted expectation, not the discriminator itself, so the expectation acts as a dynamic baseline.",
+    "Corollaries 3.4 and 3.5, that this deviation has zero expectation over the vocabulary and over a training batch -- a centring property that makes thresholding on it well posed and that is confirmed to three orders of magnitude empirically.",
+    "A unified re-reading of three families of published entropy methods through one expression: clipping mechanisms including clip-higher, high-entropy token selection, and probability-weighted updating, each explained by which side of the baseline the tokens it touches fall on.",
+    "Two clipping algorithms derived from the corollaries rather than tuned into existence, Clip_B and Clip_V, which mask outlier tokens by a normalized discriminator and add no term to the objective.",
+    "A stated objection to the covariance account of entropy collapse: it depends on the advantage of unsampled tokens, which most reinforcement fine-tuning algorithms cannot estimate, which is why this framework is built on quantities available from the sampled trajectory."
+  ],
+  "datasets": [
+    "DAPO-Math-17k",
+    "AIME24",
+    "AIME25",
+    "DAPO500"
+  ],
+  "generated_at": "2026-08-09T06:13:01Z",
+  "generated_by": "paper",
+  "limitations": "There is no limitations section. On the theory, the framework is the same first-order logit-level expansion the rest of this literature uses -- Lemma 3.1 is a first-order Taylor step and Theorems 3.2 and 3.3 inherit it -- so the results describe the direction of one update and not a trajectory over training. The argument that the neglected term is small is made from typical hyperparameter magnitudes rather than bounded. One standing assumption sits awkwardly with a later section: clipped tokens are excluded from the analysis on the grounds that their gradients vanish, and Section 4.2 then explains clipping mechanisms through the same framework, so the interpretation of clip-higher is about which tokens escape clipping rather than about clipped tokens themselves. On the experiments, only two base models are used in the main study and both are Qwen2.5-Instruct, with other families and PPO deferred to an appendix. AIME24 and AIME25 hold 30 problems each, so a Pass@32 improvement of 6.67 points is two problems and the reported gains there should be read at that resolution; on the 14B model the AIME24 improvements are 0.83 and 0.94 Avg@K against 0.34 Pass@K, which is close to flat, and the headline gains come from DAPO500, a held-out split of the training distribution rather than an independent benchmark. The clipping thresholds are not derived from the theory: the sweep uses mu in 2.0 to 3.0 for the batch-normalized variant and 7.5 to 8.5 for the vocabulary-normalized one, two very different scales with no stated selection procedure. Clip_V additionally requires a full-vocabulary expectation per token, which the paper acknowledges as overhead.",
+  "method": "The analysis works at the level of a single decoding step, with the policy a softmax over a vocabulary of size V and the model updated by perturbing one token's logit, delta_z = epsilon * e_k. Three standing assumptions are stated: all probabilities are non-zero, auxiliary terms such as KL penalties and entropy bonuses are inactive unless named, and tokens whose logits trigger clipping are ignored because their gradients are zero. Lemma 3.1 propagates the logit perturbation to the probabilities through the softmax Jacobian, giving delta_p_k = epsilon*p_k*(1-p_k) for the touched token and delta_p_i = -epsilon*p_i*p_k for the rest, so probability mass is redistributed proportionally from every other token. Substituting this into the first-order Taylor expansion of Shannon entropy collapses everything into one scalar per token, the discriminator score S_i = p_i*(H + log p_i), and yields Theorem 3.2: the entropy change is -epsilon*S_* to first order. Because sign(S_*) = sign(p_k - exp(-H)), the criterion is a comparison of the token's probability against the exponential of the negative entropy, so rewarding a relatively low-probability token raises entropy and rewarding a relatively high-probability one lowers it, with the relation reversed for a penalty. The framework is then carried to a real optimizer. A GRPO step contributes a per-token surrogate whose gradient gives an effective step size alpha = eta*r*A, the learning rate times the importance ratio times the group-standardized advantage, and Theorem 3.3 shows the entropy change becomes -alpha*(S_* - E_{i~p}[S_i]): under GRPO the absolute discriminator no longer governs, only its deviation from the policy-weighted expectation, which acts as a dynamic baseline. Two corollaries establish that this deviation is centred -- its expectation is zero over the vocabulary and, in Corollary 3.5, over a training batch. The paper argues the first-order truncation is safe here by pricing the neglected term: with a learning rate around 1e-6, an importance ratio clipped near 1 and a standardized advantage of order 1, alpha is far below 1. Two clipping algorithms follow from the corollaries, both of which mask the loss for outlier tokens rather than adding any objective term: Clip_B normalizes the discriminator by the batch mean and standard deviation, and Clip_V centres each token's score on its own vocabulary expectation, which costs an extra expectation over the full vocabulary but is computable from logits the forward pass already produces. Section 4.2 then re-reads three families of published methods -- clipping mechanisms, high-entropy token selection, and probability-weighted updating -- through the same expression. Experiments fine-tune Qwen2.5-7B-Instruct and Qwen2.5-14B-Instruct on DAPO-Math-17k with 500 held-out questions as validation, filtering training items whose pass rate is at or above 15/16 or at or below 1/16.",
+  "methods": [
+    "GRPO",
+    "DAPO",
+    "clip-higher",
+    "entropy-discriminator clipping",
+    "entropy regularization",
+    "probability weighted updating",
+    "PPO",
+    "GSPO",
+    "CE-GPPO",
+    "policy gradient masking"
+  ],
+  "models": [
+    "Qwen2.5-7B-Instruct",
+    "Qwen2.5-14B-Instruct",
+    "Qwen3-4B-Base",
+    "InternLM3-8B"
+  ],
+  "one_liner": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
+  "paper_id": "local:837612b527cb427c",
+  "problem": "Entropy is now routinely monitored and adjusted during reinforcement fine-tuning, but the methods that do so were built from heuristics and disagree with each other on the basic question of whether entropy should be encouraged or suppressed. Without an account of what actually moves entropy, the field is left tuning coefficients without guidance. The paper also identifies a specific gap in the closest prior account: the covariance formulation of entropy collapse depends on the advantage of tokens that were never sampled, which most reinforcement fine-tuning algorithms cannot estimate, so it is hard to act on.",
+  "relevance": {
+    "reasoning-training": "Enters this archive's entropy dispute as a third position and, unlike the others, gives a reason to prefer its own quantity that is about computability rather than fit. Its objection to the covariance account already held here is concrete: that account needs the advantage of tokens that were never sampled, which the algorithms in use cannot estimate, so it explains more than it can act on. Theorem 3.3 is the sharper technical claim and it is a genuine refinement rather than a restatement -- under GRPO the driver is not a token's discriminator but its deviation from a policy-weighted baseline, and Corollary 3.5 says that deviation is centred at zero across a batch. That reframes several of the archive's disagreements: a criterion measured in absolute terms and one measured against a baseline will select different tokens even when both are computed from the same distribution, which is one concrete way two papers can both be right about their own statistic and disagree about which matters. It also lands on the archive's open question of whether entropy is mechanism or correlate, on the mechanism side, by intervening directly on the sign of the predicted quantity and getting the four predicted outcomes. The standing caution is the one this whole cluster shares and this paper does not escape: it is a first-order expansion about a single update, and the accuracy argument is made from typical learning-rate magnitudes rather than proved."
+  },
+  "results": "The predicted sign relation holds under direct intervention. Retaining gradients only for tokens with a positive discriminator on positive samples drives entropy down, retaining only negative-discriminator tokens drives it up, and masking each set produces the mirror image on negative samples -- four conditions, all matching Theorem 3.2. Corollary 3.5 is confirmed numerically: the batch-averaged deviation is three orders of magnitude smaller than the batch-averaged discriminator itself and approaches zero over training. The re-reading of existing methods is where the framework earns its keep. Clipped tokens are reported to have a maximum probability around 0.15, so they sit on the low-probability side where the deviation is negative; this makes updates on positive samples entropy-increasing and updates on negative samples entropy-decreasing, and DAPO's clip-higher works because relaxing the upper clip for positive samples preserves exactly the entropy-increasing updates. The same expression explains why selecting the highest-entropy 20 percent of tokens has a non-monotone effect, and why upweighting low-probability positive samples alleviates collapse. On accuracy, both clipping methods beat GRPO on every reported cell. For Qwen2.5-7B-Instruct against a GRPO baseline of 16.88 Avg@32 and 50.00 Pass@32 on AIME24, Clip_B reaches 19.69 and 56.67; on the in-distribution DAPO500 validation set the 14B model improves from 52.95 to 60.35 with Clip_B and 61.92 with Clip_V on Avg@8. Pass@K rises alongside Avg@K throughout, which the authors read as broader exploration rather than sharper exploitation, and the pass-rate histogram supports it: standard GRPO produces more problems that are either solved by every rollout or by none, while Clip_B concentrates the distribution in the middle range.",
+  "schema_version": 1,
+  "tags": [
+    "entropy",
+    "rlvr",
+    "grpo",
+    "theory",
+    "clipping",
+    "exploration"
+  ]
+}

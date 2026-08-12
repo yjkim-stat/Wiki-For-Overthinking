@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.",
+        "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.",
+        "title": "ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:32Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'error detection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "error detection",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "error detection",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "error identification",
+      "mistake detection",
+      "error localization"
+    ],
+    "definition": "Judging whether a reasoning step or a solution is wrong, treated by the sources as a competence separable from producing correct work. They approach it from opposite sides. One reads it off internal state, detecting flawed reasoning from residual-stream trajectory motion combined with restricted region and direction information, and improving selection accuracy by up to 12% over displacement-only methods on unseen benchmarks. The other makes it the task itself, benchmarking error step identification and categorization on 2,500 multimodal K-12 problems drawn from real student interactions, where the best model sits about 10% behind expert human evaluators. Between them the archive gets both a cheap internal signal and an external reference for what it should be measured against.",
+    "kind": "concept",
+    "related": [
+      "verification",
+      "process supervision",
+      "reasoning hallucination",
+      "residual stream",
+      "meta-evaluation",
+      "judge reliability"
+    ]
+  },
+  "task_id": "concept__error-detection",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

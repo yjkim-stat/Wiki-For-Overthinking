@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free two-stage prompting protocol that extracts a problem's answer-space constraints first and then checks its own intermediate and final results against them, routed on by a regex detector.",
+        "title": "Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Routes each generation step among a fast path, a perception re-examination path and a self-reflection path, trained on 790k samples of teacher-attributed perception-versus-reasoning failures.",
+        "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:51Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'routing'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "routing",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "routing",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "dispatch",
+      "path selection",
+      "gating"
+    ],
+    "definition": "Deciding per input which of several processing paths to take, rather than applying one procedure uniformly. One source routes on a text-only regex detector of restrictive cues, activating a two-stage constraint-extraction protocol only where constraints exist to exploit and falling back to direct chain-of-thought otherwise. The other routes at every generation step among a fast path, a slow perception path and a slow reasoning path, with the router trained by multi-objective RL on roughly 790k samples of teacher-attributed perception-versus-reasoning failures. The pair spans the design range: a hand-written detector applied once per problem, and a learned controller applied at each step.",
+    "kind": "method",
+    "related": [
+      "adaptive compute allocation",
+      "meta-reasoning",
+      "perception bottleneck",
+      "prompt difficulty",
+      "test-time compute"
+    ]
+  },
+  "task_id": "concept__routing",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "test-time-scaling"
+  ]
+}

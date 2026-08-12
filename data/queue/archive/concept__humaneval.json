@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
+        "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:49Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'HumanEval'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "HumanEval",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "HumanEval",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "HumanEval+"
+    ],
+    "definition": "A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification is why it matters here: the archive's sources note that guessing inflates pass@k on short-answer mathematics and that code tasks are the control where it does not, since a compiler and predefined tests decide correctness. One source uses it in exactly that role while probing reasoning boundaries; another uses it alongside early-exit evaluation.",
+    "kind": "dataset",
+    "related": [
+      "LiveCodeBench",
+      "pass-k",
+      "verification",
+      "reasoning boundary",
+      "code reasoning"
+    ]
+  },
+  "task_id": "concept__humaneval",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+        "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.",
+        "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+        "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+        "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+        "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:32:58Z",
+  "created_at": "2026-08-09T06:27:51Z",
+  "instructions": "Write the wiki definition for 'sparse autoencoder'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "sparse autoencoder",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "sparse autoencoder",
+    "source_count": 5
+  },
+  "result": {
+    "definition": "An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any activation is a sparse combination of them; the motivation is that features are believed to be in superposition and therefore not aligned with neurons. The sources apply the idea at different granularities. The original works token-wise on the residual stream and shows the learned directions score higher on automated interpretability than PCA, ICA or the neuron basis. A later one argues token granularity is the wrong unit for reasoning and encodes whole reasoning steps, conditioning encoder and decoder on the preceding trajectory so the code carries only what the step adds. A third uses the features as the basis for multi-layer steering vectors selected by co-activation and decoder-direction alignment. Two entries qualify the method rather than extend it: run-to-run feature consistency is not guaranteed and is argued to belong alongside reconstruction and sparsity as an evaluation axis, and in a bias-analysis setting the technique improves how recoverable a concept is while attenuating its measured influence, so a better dictionary is not automatically a better causal account. Reconstruction is lossy throughout — replacing a layer with its reconstruction raises perplexity from 25 to 40 in the token-level work."
+  },
+  "task_id": "concept__sparse-autoencoder",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

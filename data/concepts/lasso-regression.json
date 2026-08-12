@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:77b3413236375923",
+      "kind": "paper",
+      "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T06:13:28Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Lasso regression",
+  "related": [
+    "reasoning-strength",
+    "pre-planning",
+    "prompt-difficulty",
+    "linear-probing",
+    "difference-in-means",
+    "activation-steering",
+    "steering-vector",
+    "end-of-thinking-token",
+    "overthinking",
+    "test-time-compute",
+    "latent-plan",
+    "overthink-attack",
+    "budget-forcing",
+    "math500",
+    "aime24",
+    "olympiadbench",
+    "mmlu",
+    "alpacaeval",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwq-32b"
+  ],
+  "schema_version": 1,
+  "slug": "lasso-regression",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
+  ]
+}

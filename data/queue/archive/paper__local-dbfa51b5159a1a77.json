@@ -1,0 +1,154 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-dbfa51b5159a1a77.pdf"
+  },
+  "completed_at": "2026-08-09T06:51:53Z",
+  "created_at": "2026-08-09T06:44:04Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:dbfa51b5159a1a77",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "os pruner optimal stopping cot pruning",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Large Language Models (LLMs) have achieved remarkable success in complex reasoning tasks through Chain-of-Thought (CoT) prompting. However, these models often exhibit \"computational overthinking,\" generating redundant reasoning steps that increase latency and cost without improving accuracy. Recent studies suggest that CoT trajectories can be significantly pruned, yet existing methods often rely on forcing a static thinking budget, heuristic filtering, sub-optimal early exit via classification, or expensive re-training. In this paper, we introduce OS-Pruner, a lightweight plug-in framework that formulates chain-of-thought pruning as an optimal stopping problem. Given a reasoning prefix, OS-Pruner learns whether further reasoning is worth its token cost by optimizing an explicit utility that trades off final-answer accuracy against generated length. Our novel formulation enables the model to dynamically assess the sufficient point of termination for a reasoning chain. OS-Pruner is designed to be lightweight during both training and inference, and to provide users with fine-grained control over the reasoning-effort vs. accuracy trade-off. On diverse reasoning benchmarks and base models, OS-Pruner achieves 20-60% reduction in generation length with minimal accuracy sacrifice.",
+      "arxiv_id": "2607.11089",
+      "authors": [
+        "Mohammed Ehab",
+        "Aymane El Gadarri",
+        "Vivek Farias",
+        "Adam Jozefiak",
+        "Ciamac C. Moallemi"
+      ],
+      "doi": "",
+      "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "optimal stopping",
+      "answer stabilization",
+      "overthinking",
+      "reasoning redundancy",
+      "continuation value",
+      "Bellman equation",
+      "adaptive compute allocation",
+      "early exit",
+      "accuracy-efficiency trade-off",
+      "prompt difficulty",
+      "threshold classification"
+    ],
+    "contributions": [
+      "A formulation of chain-of-thought pruning as optimal stopping, with an explicit utility trading final-answer accuracy against generated length and a single interpretable coefficient — the confidence gain required to justify one more token — whose sweep traces an accuracy-efficiency frontier instead of fixing an operating point.",
+      "Theorem 1: a fixed-threshold correctness classifier can be arbitrarily worse than the optimal stopping policy even when the probability of correctness is known exactly, because the correct comparison is against the state-dependent continuation value rather than against a constant.",
+      "A training scheme that needs no on-policy rollouts: with the base model frozen, prefix rewards are precomputed once by truncating each trace at every step and forcing an immediate boxed answer, then reused across policy updates.",
+      "A deployment-cheap architecture — a linear head on the last hidden state with two attention layers lightly tuned, invoked only at paragraph boundaries, with each paragraph pre-filled and two layers of KV cache recomputed — plus a parallel training pass exploiting causality to score all prefixes at once.",
+      "Evidence that redundancy survives model-side compression: applied on top of a model already trained with a heavy length penalty, the stopping policy still removes a substantial fraction of the remaining length.",
+      "The practical finding that low cost coefficients collapse training into a never-stop policy, with progressive annealing as the remedy."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "AIME24",
+      "AIME25",
+      "OMNI-MATH",
+      "DeepScaleR-Preview-Dataset"
+    ],
+    "limitations": "There is no limitations section. The theorem is an existence result — it constructs a problem instance where threshold classification is arbitrarily bad — and does not bound the gap on the distribution of real chains of thought, so it establishes that the classification framing can fail rather than how much it costs in practice. The method is supervised in a way the framing understates: computing the reward requires the ground-truth answer at every prefix, so it needs labelled data and a verifier, and the preprocessing takes one to four days on four A100s per base model. Evaluation is mathematics only. The policy reads the last hidden state through a linear head, so it inherits whatever that state encodes about correctness, which is the same signal the classification baselines use — the improvement is attributed to the decision rule rather than to a better estimate, and the paper does not separate the two empirically. Training requires annealing the cost coefficient because low values collapse to a policy that never stops, which is a stability caveat on the frontier's low-cost end. The summary metric weights accuracy preservation by a coefficient the authors raise from its usual value, and the baselines include a reimplementation fine-tuned far more lightly than its original. Finally, the forced-answer intervention that makes reward computation possible is itself an intervention on the model's behaviour, and its ablation is deferred to an appendix.",
+    "method": "A parametric stopping policy maps the current prefix to a probability of halting, inducing a distribution over stopping times, and is trained to maximize a reward that is the accuracy of the answer produced from that prefix minus a coefficient times the tokens spent. That single coefficient is the control knob and has an operational reading — the gain in confidence of correctness needed to justify one more token — so sweeping it traces a frontier of policies rather than fixing an operating point. The value-function view is where the argument lands: the Bellman equation makes the optimal rule stop exactly when the accuracy achievable now is at least the continuation value, whereas a classifier stops when accuracy alone exceeds a fixed threshold. Since the continuation value is state dependent, two prefixes with identical correctness can warrant opposite decisions if one has promising future paths and the other does not. Implementation is deliberately cheap on both sides. During preprocessing, traces are generated once with a frozen base model and then truncated after every reasoning step, with the model forced to emit a boxed final answer immediately — a detail the paper flags, since without it models keep reasoning inside the answer section — and graded against ground truth. Because the base model is fixed these rewards are precomputed and reused, so training the policy needs no on-policy rollouts, and branching is done with SGLang's fork to compute the answer and the continuation from each paragraph. The policy itself is a linear head on the last hidden state plus light fine-tuning of the final two attention layers, with the base model frozen; at inference it is invoked only at paragraph boundaries, each paragraph is processed as a pre-fill, and only two layers of KV cache are recomputed. Training exploits causality to score every prefix in one forward pass in parallel. One practical finding is that at low coefficient values training from scratch collapses into the trivial policy of never stopping, so the coefficient is started high and annealed. Experiments cover DeepSeek-R1-Distill-Qwen-7B, GPT-OSS-20B and DRPO-7B, the last already optimized for brevity by a model-side method, trained on roughly 40,000 problems and evaluated on GSM8K, MATH-500 and aggregated AIME24/25 with Pass@1 over 16 samples.",
+    "methods": [
+      "optimal stopping policy",
+      "early exit",
+      "classification probe",
+      "reinforcement learning",
+      "length penalty",
+      "chain-of-thought compression"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "GPT-OSS-20B",
+      "DRPO-7B"
+    ],
+    "one_liner": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+    "problem": "Every training-based early-exit method the paper surveys reduces stopping to classification: a model predicts whether the current prefix is already sufficient, and generation halts once that confidence crosses a manually chosen threshold. The paper's argument is that this is the wrong decision problem. After each reasoning step the system faces a genuine sequential choice — stop and answer, or pay for more tokens in the hope of a better answer — so a prefix should be extended exactly when the expected improvement from continuing outweighs its cost. Framing it as correctness classification discards the comparison that actually matters.",
+    "relevance": {
+      "reasoning-training": "Relevant to this topic through one finding rather than its method, since the base model stays frozen throughout. Applied on top of a model already trained with a heavy length penalty, the stopping policy still removes a large share of the remaining generation — so model-side length training and inference-side stopping are not substitutes, and a training method that reports having solved overthinking has not exhausted it. That bears directly on the archive's efficiency-training entries, which generally measure their reductions against an untrained baseline and cannot say how much slack remains. It also connects to the companion finding here that training-time compression does not fully translate into inference-time savings: both point at a residue that survives whatever the training objective did.",
+      "test-time-scaling": "Supplies the result this archive's stopping literature was missing and sharpens its standing caveat into a theorem. The archive records that every stopping signal here — certaindex, CUSUM change-point detection, dynamic early exit, confidence probes — is an independently invented estimator of when to quit, and that these target agreement or stability rather than correctness. This paper shows the problem is deeper than picking the right target: even a perfect estimate of correctness is insufficient, because a fixed threshold on it can be arbitrarily far from optimal when the value of continuing varies by state. That reframes the archive's entire early-exit cluster as solving the easier half of the problem, and it explains an observation the archive has recorded without explanation, that threshold methods degrade sharply once the budget tightens. It also completes the optimal-stopping pair already held here: where the Pandora's Box entry maximizes a reward model's score and the Bayesian entry maximizes agreement, this one optimizes accuracy against length directly and is the first in the archive whose objective is the quantity practitioners actually want. The AIME behaviour is worth carrying too — the same policy cuts 59.3% on GSM8K and 6.9% on AIME, which is difficulty-adaptive allocation emerging from the objective rather than from a difficulty estimator."
+    },
+    "results": "Theorem 1 is the paper's central claim and it is a negative one about the alternative: for any cost coefficient and any constant K, there exists a finite-horizon stopping problem in which the optimal policy's value exceeds K times that of the best fixed-threshold correctness classifier — and this holds even when the probability of correctness is known exactly. Knowing how likely the current prefix is to be right is therefore not sufficient information for the decision, however good the estimate. Empirically the policy sits on or near the Pareto frontier across all three models and all benchmarks while the fixed-threshold baselines fall away more sharply as the length budget tightens. In the regime where accuracy is sacrificed by under two points, length falls by roughly 20 to 60% on most model-dataset pairs. On DeepSeek-R1-Distill-Qwen-7B at the best operating point, length drops 59.3% on GSM8K and 52.8% on MATH-500 while accuracy moves by only -0.7 and +2.7 points respectively. On AIME the same policy becomes conservative and cuts only 6.9%, which the authors read as correct behaviour rather than failure, since additional computation is genuinely valuable on harder problems. The result that matters most for placing the method is on DRPO-7B: a model already trained with a heavy length penalty still yields substantial further reduction, so model-side compression does not exhaust the available redundancy.",
+    "tags": [
+      "optimal stopping",
+      "early exit",
+      "overthinking",
+      "efficiency",
+      "theory",
+      "pareto frontier"
+    ],
+    "topics": [
+      "test-time-scaling",
+      "reasoning-training"
+    ]
+  },
+  "task_id": "paper__local-dbfa51b5159a1a77",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

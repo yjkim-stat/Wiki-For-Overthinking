@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# What If We Allocate Test-Time Compute Adaptively?
+
+- **Authors**: Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer, Ali Subhan, Hassan Rizwan, Ayesha Mohsin, Dean F. Hougen
+- **Venue**: ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306)
+- **Published**: 2026-01-01
+- **Source**: local
+- **Topics**: test-time-scaling
+- **Relevance score**: test-time-scaling 0.50
+
+## In one line
+
+Replaces uniform test-time compute allocation with a training-free agent that picks reasoning tools, a search strategy and an exploration parameter per problem, using a process reward model both to prune within a trajectory and to select across iterations.
+
+## Problem
+
+Test-time compute scaling applies expensive reasoning procedures uniformly across all inputs, wasting computation on easy problems while under-allocating exploration to genuinely hard ones. Inference strategies are also fixed a priori — the number of Best-of-N samples or the depth of a search is set in advance regardless of whether early reasoning steps are clearly correct or already flawed. And while several methods use intermediate verification to guide search, they do so inside a predetermined search algorithm, so verification signals never influence which reasoning procedure is invoked or how much compute a given problem receives; verification is used to rerank finished candidates rather than to steer allocation while reasoning is still in progress.
+
+## Contributions
+
+- A trajectory-level formulation of adaptive inference: reasoning is treated as iterative generation and selection rather than one-shot generation, with a process reward model supplying local correctness signals during generation and enabling online pruning.
+- A modular agent with four prompt-conditioned components — planning, tool selection, compute-strategy selection and answer extraction — all implemented as role-specific prompts to the same base model, so adaptivity requires no pretraining, finetuning or parameter updates.
+- Joint per-problem selection of both the search strategy (Best-of-N, beam search, lookahead) and its exploration parameter, rather than fixing either.
+- Two compute metrics accounting for all model invocations including controller calls and verification — theoretical FLOPs, and a compute intensity score that penalizes redundant generation and auxiliary overhead — enabling accuracy-at-matched-budget comparison.
+- A 36-configuration ablation grid over tools, strategies, exploration parameters and iteration counts, which is what makes the adaptive claim checkable rather than asserted.
+
+## Method
+
+For each problem the agent runs K independent iterations. Within an iteration, a planning agent optionally produces a high-level plan; a tool-selection agent chooses a subset from a toolkit of chain-of-thought, self-reflection, a general verifier, a numeric verifier, a reframer and a summarizer; and a compute-selection agent jointly picks an inference strategy and an exploration parameter — N for Best-of-N, beam width for beam search, or lookahead depth. Every component is a structured role-conditioned prompt to the same base LLM, so the controller is heuristic rather than learned. A pretrained math-specialized PRM (Qwen2.5-Math-PRM-7B) acts as a local step validator: each tool emits step-delimited transitions, and the PRM scores each transition on local correctness while deliberately ignoring global strategy, with identical inputs regardless of which tool produced the step. Those step scores serve two roles. Within an iteration they guide compute allocation online — retaining the highest-scoring candidate prefix or continuation at each step boundary, with pruning deferred until all candidates reach the same boundary so partial generations are never cut mid-step. Across iterations, each completed trajectory is scored by the mean of its step validity scores, and the final answer comes from the highest-scoring trajectory. Four configurations progressively isolate the contributions: Direct single-pass, Direct plus PRM selection over K independent generations (which isolates multi-iteration selection alone), Dynamic configuration within a single iteration (which isolates adaptive configuration alone), and both combined. Experiments use Llama-3.1-8B-Instruct and Qwen-2.5-7B-Instruct on MATH-500, AIME24 and AMO-Bench with K = 10, temperature 0.7, top-p 0.9 and 1024 max generation length, on a single GPU, reporting hardware-agnostic compute metrics rather than wall-clock time.
+
+## Results
+
+On MATH-500, accuracy rises from 43.8% to 65.4% for Llama-3.1-8B-Instruct (+21.6) and 71.2% to 81.4% for Qwen-2.5-7B-Instruct (+10.2); on AIME24 from 3.3% to 10.0% and 6.67% to 13.3%; on AMO-Bench both models double from 2.0% to 4.0%. The decomposition is informative: PRM-based selection alone over fixed-strategy generations yields only marginal gains (44.6% and 72.0% on MATH-500), and dynamic configuration alone yields moderate gains (47.2% and 74.2%) — the large improvement requires both. Gains are difficulty-dependent in a specific way: on MATH-500's five difficulty levels, adaptive methods improve strongly on Levels 1-4 but weakly on Level 5, which the authors attribute to verification signals becoming less reliable at the highest difficulty. The 36-configuration ablation shows no single fixed configuration dominates: a carefully tuned fixed setup reaches about 81.4% on MATH-500, matching the adaptive method — but only with prior knowledge of the optimal tool, strategy and parameter, and at 1.31e14 FLOPs with compute intensity 7.97e-3, whereas the adaptive method reaches the same accuracy automatically with substantially lower compute intensity. On AIME24 no fixed configuration exceeds 10.0% against the adaptive method's 13.3%, so trajectory diversity from adaptive multi-tool selection rather than uniform repetition is what helps on the hardest problems. The controller's selections are model-dependent rather than task-uniform: Llama spreads decisions across tools while Qwen concentrates almost entirely on chain-of-thought plus numeric verification, and Llama favours direct generation (~60%) while Qwen allocates more to Best-of-N and lookahead. Exploration parameters show non-monotonic effects — moderate exploration helps, aggressive exploration hurts at low iteration counts.
+
+## Limitations
+
+The paper's own limitations section names PRM quality as the primary constraint: effectiveness drops on the hardest problems where the PRM may misrank plausible but incorrect trajectories, and PRMs can be overconfident or favour locally correct but globally wrong paths — which is exactly the Level 5 result. It also notes the heuristic controller's reliability depends on the base model's instruction-following, so smaller models may fare worse; that multi-branch search increases latency; and that generalization beyond mathematics is open. Most importantly for this archive, the paper states plainly in its setup that the main tables report single-run accuracies and that reporting mean and standard deviation over multiple seeds would strengthen the analysis. That caveat is load-bearing on the small benchmarks: AIME24 has 30 problems, so 3.3% is one problem and 13.3% is four, and the AMO-Bench doubling is 2.0% to 4.0% — differences of one to three problems on a single run. The MATH-500 results, on 500 problems with a 21.6-point gap, are the ones that carry weight.
+
+## Why it matters here
+
+- **test-time-scaling**: The follow-up this archive was missing to its foundational result that difficulty-conditioned allocation beats uniform budgets. It is not a difficulty predictor — the controller conditions on problem characteristics through a prompt rather than estimating difficulty explicitly — but it is the first paper here to make allocation itself the decision variable, and to select the strategy and its parameter jointly per problem rather than sweeping one with the other fixed. Two findings sharpen the archive's picture. First, the decomposition shows that neither multi-iteration PRM selection nor adaptive configuration alone gets most of the gain, which cuts against the archive's other trajectory-scoring methods: they all hold the generation procedure fixed and vary only selection, which this paper's Direct+PRM row shows is the weaker half. Second, the ablation grid answers a question the archive has been unable to settle — a well-chosen fixed configuration can match adaptive allocation on MATH-500, so the benefit is finding the right configuration without prior knowledge rather than exceeding what any fixed configuration can do; on the harder AIME24 no fixed configuration matches it, so the benefit becomes real capability at difficulty. It also inherits the archive's central caution in an unusually explicit form: the authors themselves flag single-run reporting, and on 30-problem benchmarks their AIME and AMO-Bench deltas are one to three problems wide.
+
+## Entities
+
+- **Concepts**: adaptive test-time compute allocation, [test-time compute](../../../../wiki/concepts/test-time-compute.md), process reward model, trajectory-level selection, online pruning, compute intensity, exploration parameter, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), best-of-n, beam search, lookahead search, self-reflection, [verification](../../../../wiki/concepts/verification.md)
+- **Methods**: verifier-guided adaptive inference, [process reward model](../../../../wiki/methods/process-reward-model.md), [best-of-N](../../../../wiki/methods/best-of-n.md), [beam search](../../../../wiki/methods/beam-search.md), lookahead search, [chain-of-thought](../../../../wiki/methods/chain-of-thought.md), [self-reflection](../../../../wiki/methods/self-reflection.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime24.md), AMO-Bench
+
+Tags: `adaptive allocation`, `test-time scaling`, `process reward model`, `difficulty`, `compute efficiency`, `agent`, `training-free`
+
+## Abstract
+
+Test-time compute scaling allocates inference computation uniformly, uses fixed sampling strategies, and applies verification only for reranking. In contrast, we propose a verifier-guided adaptive framework treating reasoning as iterative trajectory generation and selection. For each problem, the agent runs multiple inference iterations. In each iteration, it optionally produces a high-level plan, selects a set of reasoning tools and a compute strategy together with an exploration parameter, and then generates a candidate reasoning trajectory. A process reward model (PRM) serves as a unified control signal: within each iteration, step-level PRM scores are aggregated to guide pruning and expansion during generation, and across iterations, aggregated trajectory rewards are used to select the final response. Across datasets, our dynamic, PRM-guided approach consistently outperforms direct test-time scaling, yielding large gains on MATH-500 and several-fold improvements on harder benchmarks such as AIME24 and AMO-Bench. We characterize efficiency using theoretical FLOPs and a compute intensity metric penalizing wasted generation and tool overhead, demonstrating that verification-guided allocation concentrates computation on high-utility reasoning paths.
+
+---
+
+Record id: `local:80ef8b5ce7217f7c`

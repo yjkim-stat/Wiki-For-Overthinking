@@ -1,0 +1,42 @@
+{
+  "abstract": "Chain-of-thought (CoT) reasoning is the dominant paradigm for inference-time scaling in language models, yet the causal influence of individual steps on the final answer poorly understood. We estimate each step's causal importance via early exit and use this measure to study how answers form across the reasoning traces of several model families. Across diverse tasks, we find that reasoning typically crosses a commitment boundary -- a sharp transition from transient intermediate guesses to a stable, high-confidence answer. This transition often happens in a single step, well before the model's reasoning block ends, and is followed by epiphenomenal CoT steps that leave the final answer probability unaltered. Using attention probes, we show that answer-formation stages can be linearly decoded from intermediate reasoning steps with high accuracy and generalize robustly to unseen reasoning tasks. We exploit this signal to early-exit reasoning blocks at the commitment boundary, reducing the length of CoTs up to 55% on average with negligible impact on model performance.",
+  "arxiv_id": "2606.13603",
+  "authors": [
+    "Daniel Scalena",
+    "Sara Candussio",
+    "Luca Bortolussi",
+    "Elisabetta Fersini",
+    "Malvina Nissim",
+    "Gabriele Sarti"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T04:23:33Z",
+  "id": "local:d6e266929de37684",
+  "last_seen": "2026-08-08T04:23:33Z",
+  "local_path": "data/pdfs/read/local-d6e266929de37684.pdf",
+  "matched_keywords": [
+    "large reasoning models",
+    "reasoning models",
+    "chain of thought"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.75,
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Beyond the Commitment Boundary - Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models.pdf",
+  "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

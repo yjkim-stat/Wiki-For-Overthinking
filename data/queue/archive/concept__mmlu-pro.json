@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
+        "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives two aggregation algorithms whose failure probability provably decays to zero as inference compute grows, assuming only that the model can sometimes be right and can compare two solutions better than chance.",
+        "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:50Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'MMLU-Pro'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "MMLU-Pro",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "MMLU-Pro",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "MMLU Pro"
+    ],
+    "definition": "A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a breadth check rather than studying it: one as a testbed for knockout and league aggregation with provable scaling guarantees, the other for local causal attribution of chain-of-thought reasoning. Its presence marks one of the archive's few non-mathematical evaluation surfaces.",
+    "kind": "dataset",
+    "related": [
+      "GPQA",
+      "MATH-500",
+      "benchmark contamination",
+      "construct validity"
+    ]
+  },
+  "task_id": "concept__mmlu-pro",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

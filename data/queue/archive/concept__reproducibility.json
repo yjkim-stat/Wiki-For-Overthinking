@@ -1,0 +1,90 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+        "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.",
+        "title": "Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+        "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
+        "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:51Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'reproducibility'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reproducibility",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "reproducibility",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "replicability",
+      "run-to-run consistency",
+      "determinism"
+    ],
+    "definition": "Whether a reported result can be obtained again, which four sources treat as unresolved in different layers of the stack. At the hardware layer, greedy decoding is not deterministic across GPU type, GPU count or batch size, shifting AIME'24 accuracy by up to 9 percentage points on one model and benchmark. At the method layer, SAE features differ between training runs, which is proposed as a reported evaluation axis with a metric showing around 0.80 pairwise consistency is achievable. At the field layer, one source documents two papers concluding oppositely on one behaviour and calls for continuous auditing; another supplies shared tooling. The archive's own audit found 1 of 45 papers reporting precision and hardware, and 0 doing a variance decomposition.",
+    "kind": "concept",
+    "related": [
+      "nondeterminism",
+      "feature consistency",
+      "auditability",
+      "mechanistic interpretability",
+      "meta-evaluation",
+      "construct validity"
+    ]
+  },
+  "task_id": "concept__reproducibility",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

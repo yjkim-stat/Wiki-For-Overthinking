@@ -1,0 +1,34 @@
+{
+  "abstract": "Large language model (LLM) generation often requires balancing output quality against inference cost, especially when using multiple generations. We introduce a new framework for inference-time optimization based on the classical Pandora's Box problem. Viewing each generation as opening a costly \"box\" with random reward, we develop algorithms that decide when to stop generating without knowing the underlying reward distribution. Our first contribution is a UCB-style Pandora's Box algorithm, which achieves performance that is provably close to Weitzman's algorithm, the optimal strategy when the distribution is known. We further adapt this method to practical LLM settings by addressing reward scaling across prompts via a Bradley-Terry inspired transformation. This leads to an adaptive inference-time optimization method that normalizes rewards and learns stopping thresholds on the fly. Experiments on the AlpacaFarm and HH-RLHF datasets, using multiple LLM-reward model pairs, show that our adaptive strategy can obtain the same performance as non-adaptive Best-of-N sampling while requiring 15-35% fewer generations on average. Our results establish a principled bridge between optimal stopping theory and inference-time scaling, providing both theoretical performance bounds and practical efficiency gains for LLM deployment.",
+  "arxiv_id": "2510.01394",
+  "authors": [
+    "Yusuf Kalayci",
+    "Vinod Raman",
+    "Shaddin Dughmi"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-09T03:09:11Z",
+  "id": "local:f424beba20f4aecf",
+  "last_seen": "2026-08-09T03:09:11Z",
+  "local_path": "data/pdfs/read/local-f424beba20f4aecf.pdf",
+  "matched_keywords": [
+    "best of n"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Optimal Stopping vs Best-of-N for Inference Time Optimization.pdf",
+  "title": "Optimal Stopping vs Best-Of-N for Inference Time Optimization",
+  "topics": [
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2025
+}

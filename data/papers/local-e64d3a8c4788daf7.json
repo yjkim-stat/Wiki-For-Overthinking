@@ -1,0 +1,37 @@
+{
+  "abstract": "Entropy-based confidence signals are increasingly leveraged to improve reasoning in large language models (LLMs), yet existing approaches treat confidence as a static quantity—typically aggregated over tokens. We show that the temporal evolution of confidence during generation carries richer information than aggregate statistics alone. Analyzing token-level entropy trajectories, we identify characteristic patterns distinguishing correct from incorrect reasoning: erroneous solutions exhibit unstable dynamics, including burst spikes (sustained uncertainty growth) and peak-valley spikes (sharp rebounds following transient confidence). These patterns persist across models and training stages, suggesting they reflect intrinsic properties of reasoning failure rather than superficial noise. To formalize this observation, we introduce the Entropy Dynamics Instability Score (EDIS), a trajectory-level metric quantifying instability in entropy evolution. EDIS serves as an effective diagnostic signal for inference-time selection, substantially improving reasoning accuracy, and offers a promising direction for training-time sample curation. Our findings establish entropy dynamics as an underexplored yet informative lens for understanding and improving LLM reasoning.",
+  "arxiv_id": "2602.01288",
+  "authors": [
+    "Chenghua Zhu",
+    "Siyan Wu",
+    "Xiangkang Zeng",
+    "Zishan Xu",
+    "Zhaolu Kang",
+    "Yifu Guo",
+    "Yuquan Lu",
+    "Junduan Huang",
+    "Guojing Zhou"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T02:26:50Z",
+  "id": "local:e64d3a8c4788daf7",
+  "last_seen": "2026-08-08T02:26:50Z",
+  "local_path": "data/pdfs/read/local-e64d3a8c4788daf7.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "Diagnosing LLM Reasoning via Entropy Dynamics.pdf",
+  "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

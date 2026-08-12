@@ -1,0 +1,106 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:29:50Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.678",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Qiang Huang",
+      "Wei Zhai",
+      "Feng Huang",
+      "Dejing Dou"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.678",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "safety alignment",
+      "self-correction",
+      "self-reflection",
+      "recovery",
+      "helpfulness-safety trade-off",
+      "adversarial robustness",
+      "special token"
+    ],
+    "contributions": [
+      "A reframing of safety alignment from prevention to mid-generation recovery",
+      "A special Self-Reflection token enabling introspection and recovery during generation",
+      "Integration into standard post-training paradigms without targeted adversarial training",
+      "Harmful completion rate reduced from 13.8% to 4.1%, with gains in helpfulness and the safety-helpfulness balance",
+      "Robustness under multiple adversarial attacks including a purpose-built adaptive attack"
+    ],
+    "datasets": [],
+    "limitations": "Base models and benchmarks are not named in the abstract. 4.1% harmful completion remains non-trivial for a safety mechanism. The adaptive attack is designed by the authors, so it bounds robustness against an attack they anticipated rather than against an independent adversary — AutoRAN in this same drain reaches near-100% success against reasoning-based defences. Recovery presupposes the model detects the harm mid-generation, and detection rate is not separated from recovery rate.",
+    "method": "The paper moves beyond treating safety alignment purely as prevention of harmful output. Drawing on human introspection and self-correction, Self-Reflection introduces a special Self-Reflection token enabling the model to reflect during generation and recover from harmful output already begun — recovery rather than prevention is the shift, so a trajectory that has gone wrong can still end safely. It integrates into standard post-training paradigms.",
+    "methods": [
+      "Self-Reflection token",
+      "post-training",
+      "adversarial evaluation"
+    ],
+    "models": [],
+    "one_liner": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+    "problem": "Reasoning models carry greater safety risks than prior language models. Existing alignment methods remain at a shallow protective level, insufficient against deeper risks and strategic attacks that unfold within complex reasoning.",
+    "relevance": {
+      "reasoning-training": "Its design follows from the drain's convergent finding that reasoning models override correct early judgements mid-trajectory: if the failure happens partway through, a mechanism that can re-enter safety reasoning partway through is the matching fix, and a learned token is a cheap way to give the model that entry point. The honest reading of its numbers is bounded, though — 13.8% to 4.1% is measured against the authors' own adaptive attack, while AutoRAN in this same drain reports approaching 100% success against reasoning-based defences on frontier models. Two papers in one drain, one hardening reasoning-level defences and one defeating them, is the state of this subfield rather than a contradiction to resolve."
+    },
+    "results": "Models trained with Self-Reflection reduce the harmful completion rate from 13.8% to 4.1%, nearly a threefold improvement over mainstream approaches, and gain in helpfulness and in the safety-helpfulness balance. Under various adversarial attacks including a specially designed adaptive attack, Self-Reflection significantly improves safety without targeted adversarial training. The paper notes it contains harmful content.",
+    "tags": [
+      "safety",
+      "self-reflection",
+      "special token",
+      "adversarial robustness",
+      "post-training"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-678",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

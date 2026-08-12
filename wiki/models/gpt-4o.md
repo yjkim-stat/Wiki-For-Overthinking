@@ -1,0 +1,25 @@
+# GPT-4o
+
+<!-- auto:begin -->
+
+An OpenAI multimodal model used across the archive as a reference point rather than a research subject, and notable for what it is compared against. On multimodal mathematical error detection it is the best-performing model tested and still sits about 10% behind educational expert evaluators. On groundedness classification it is beaten by a 4B guardrail model at 77.1% against 75.9% balanced accuracy. It also appears in a systematic evaluation of LLM judges. The pattern across the three is that a general frontier model is a weak specialist: smaller purpose-trained models overtake it at verification, and human experts remain ahead at error detection.
+
+- **Kind**: model
+- **Also called**: GPT4o, gpt-4o
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 4
+
+**Related**: [best-of-n](../methods/best-of-n.md), [construct validity](../concepts/construct-validity.md), [error detection](../concepts/error-detection.md), [Gemini-2.5-Flash](gemini-2-5-flash.md), [GPQA](../datasets/gpqa.md), [hallucination](../concepts/hallucination.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [majority voting](../methods/majority-voting.md), [MATH-500](../datasets/math-500.md), [meta-evaluation](../concepts/meta-evaluation.md), [MMLU-PRO](../datasets/mmlu-pro.md), [MT-Bench](../datasets/mt-bench.md), [multimodal reasoning](../concepts/multimodal-reasoning.md), [pass-k](../methods/pass-k.md), [process evaluation](../methods/process-evaluation.md), [Qwen2.5](qwen2-5.md), [Qwen3-8B](qwen3-8b.md), [QwQ-32B](qwq-32b.md), [reasoning distillation](../methods/reasoning-distillation.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [reward hacking](../concepts/reward-hacking.md), [self-consistency](../methods/self-consistency.md), [synthetic data generation](../methods/synthetic-data-generation.md), [test-time compute](../concepts/test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md), [verification](../concepts/verification.md)
+
+## Appears in
+
+- [ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection](../../archive/papers/2026/doi-10-18653-v1-2026-findings-acl-1217/summary.md) — Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.
+- [HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation](../../archive/papers/2026/doi-10-18653-v1-2026-findings-acl-835/summary.md) — A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.
+- [Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias](../../archive/papers/2026/local-504cc53656b06ab4/summary.md) — Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.
+- [Provable Scaling Laws for the Test-Time Compute of Large Language Models](../../archive/papers/2025/local-e5ae26db2daac1d7/summary.md) — Gives two aggregation algorithms whose failure probability provably decays to zero as inference compute grows, assuming only that the model can sometimes be right and can compare two solutions better than chance.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

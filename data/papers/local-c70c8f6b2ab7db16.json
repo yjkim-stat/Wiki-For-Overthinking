@@ -1,0 +1,41 @@
+{
+  "abstract": "Reinforcement learning with verifiable rewards (RLVR) has emerged as a prominent paradigm for enhancing the reasoning capabilities of large language models (LLMs). However, the entropy of LLMs usually collapses during RLVR training, leading to premature convergence to suboptimal local minima and hindering further performance improvement. Although various approaches have been proposed to mitigate entropy collapse, a comprehensive study of entropy in RLVR remains lacking. To bridge this gap, we conduct extensive experiments to investigate the entropy dynamics of LLMs trained with RLVR and analyze how model entropy correlates with response diversity, calibration, and performance across various benchmarks. Our results identify three factors that influence entropy: the clipping thresholds in the optimization objective, the number of off-policy updates, and the diversity of the training data. Furthermore, through both theoretical analysis and empirical validation, we demonstrate that tokens with positive advantages are the primary drivers of entropy collapse. Motivated by this insight, we propose Positive-Advantage Reweighting, a simple yet effective approach that regulates model entropy by adjusting the loss weights assigned to tokens with positive advantages during RLVR training, while maintaining competitive performance.",
+  "arxiv_id": "2511.05993",
+  "authors": [
+    "Renren Jin",
+    "Pengzhi Gao",
+    "Yuqi Ren",
+    "Zhuowen Han",
+    "Tongxuan Zhang",
+    "Wuwei Huang",
+    "Wei Liu",
+    "Jian Luan",
+    "Deyi Xiong"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.1266",
+  "first_seen": "2026-08-08T04:23:33Z",
+  "id": "local:c70c8f6b2ab7db16",
+  "last_seen": "2026-08-08T07:29:54Z",
+  "local_path": "data/pdfs/read/local-c70c8f6b2ab7db16.pdf",
+  "matched_keywords": [
+    "large reasoning models",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.6667
+  },
+  "source": "local+dblp",
+  "source_id": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models.pdf",
+  "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.1266",
+  "venue": "preprint",
+  "year": 2026
+}

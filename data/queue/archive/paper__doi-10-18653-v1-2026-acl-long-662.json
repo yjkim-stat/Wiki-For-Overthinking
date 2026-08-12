@@ -1,0 +1,133 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:24:50Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.662",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Zhuohan Xie",
+      "Daniil Orel",
+      "Rushil Thareja",
+      "Dhruv Sahnan",
+      "Hachem Madmoun",
+      "Fan Zhang 0019",
+      "Debopriyo Banerjee",
+      "Georgi Nenkov Georgiev",
+      "Xueqing Peng",
+      "Lingfei Qian",
+      "Jimin Huang",
+      "Jinyan Su",
+      "Aaryamonvikram Singh",
+      "Rui Xing 0002",
+      "Rania Elbadry",
+      "Chen Xu",
+      "Haonan Li 0002",
+      "Fajri Koto",
+      "Ivan Koychev",
+      "Tanmoy Chakraborty 0002",
+      "Yuxia Wang 0003",
+      "Salem Lahlou",
+      "Veselin Stoyanov",
+      "Sophia Ananiadou",
+      "Preslav Nakov"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "chain of thought"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.5,
+      "test-time-scaling": 0.5
+    },
+    "title": "FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.662",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "symbolic reasoning",
+      "process evaluation",
+      "benchmark contamination",
+      "verification",
+      "step-level consistency",
+      "template generation",
+      "construct validity"
+    ],
+    "contributions": [
+      "FinChain, the first benchmark for verifiable chain-of-thought evaluation in finance, spanning 58 topics across 12 domains",
+      "Parameterized symbolic templates with executable Python enabling machine-verifiable reasoning and contamination-free scalable generation",
+      "ChainEval, a dynamic alignment measure combining final-answer correctness with step-level reasoning consistency",
+      "Evaluation of 26 leading LLMs, with domain-adapted and math-enhanced models narrowing the gap"
+    ],
+    "datasets": [
+      "FinChain",
+      "FinQA",
+      "ConvFinQA"
+    ],
+    "limitations": "No numbers in the abstract and the 26 models are not listed. Template-generated problems are verifiable but constrained to what templates express, so difficulty and diversity are bounded by template design rather than by real financial analysis. The finding that math-enhanced fine-tuning narrows the gap suggests the benchmark measures symbolic manipulation substantially, which may be the intent but limits claims about financial reasoning specifically.",
+    "method": "FinChain spans 58 topics across 12 financial domains, each represented by parameterized symbolic templates with executable Python code. Because each instance is generated from a template with executable ground truth, reasoning is fully machine-verifiable and new contamination-free instances can be generated at will — this is what removes both the human-annotation cost and the contamination exposure that fixed benchmarks carry. ChainEval is a dynamic alignment measure scoring final-answer correctness jointly with step-level reasoning consistency.",
+    "methods": [
+      "FinChain",
+      "ChainEval",
+      "parameterized template generation",
+      "executable verification"
+    ],
+    "models": [
+      "26 leading LLMs (unnamed in abstract)"
+    ],
+    "one_liner": "A financial reasoning benchmark built from parameterized symbolic templates with executable Python, giving machine-verifiable step-level ground truth and contamination-free regeneration.",
+    "problem": "Multi-step symbolic reasoning matters for financial analysis, and existing benchmarks such as FinQA and ConvFinQA emphasize final numerical answers while neglecting the intermediate steps needed for transparency and verification.",
+    "relevance": {
+      "reasoning-training": "Its construction answers a constraint the archive keeps running into: step-level supervision needs step-level ground truth, and expert annotation is what makes that expensive — findings-acl.28 in this drain could afford it for only 46% of items. Executable symbolic templates produce it for free and regenerate contamination-free instances on demand, which makes FinChain a source of verifiable process supervision rather than only an evaluation. That is directly usable by the process-supervision methods this topic tracks, and it is the same trick the archive's code-reasoning entry (findings-acl.460) gets from the interpreter.",
+      "test-time-scaling": "Machine-verifiable step-level ground truth makes this a clean testbed for verifier-based test-time methods, since the oracle verifier is available and the gap between a learned verifier and the oracle can be measured directly rather than assumed."
+    },
+    "results": "Evaluation of 26 leading LLMs shows even frontier models have clear limitations in symbolic financial reasoning, while domain-adapted and math-enhanced fine-tuned models substantially narrow the gap.",
+    "tags": [
+      "benchmark",
+      "financial reasoning",
+      "symbolic",
+      "verifiable",
+      "contamination-free"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-662",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

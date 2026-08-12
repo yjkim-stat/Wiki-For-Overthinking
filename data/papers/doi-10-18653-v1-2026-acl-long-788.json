@@ -1,0 +1,39 @@
+{
+  "abstract": "Assessing the quality of Large Language Model (LLM) outputs becomes especially challenging in high-branching settings, where a single prompt yields many plausible candidates. Existing verifiers typically operate on the surface text (e.g., reward models, LLM judges, majority voting) or on confidence proxies derived from token probabilities, both of which can be brittle: the former can be influenced by stylistic artifacts, while the latter is often miscalibrated. In this paper, we study a third source of information—the model’s hidden states—for binary correctness verification in tasks with a reliable success/failure signal (e.g., deterministic checkers or reference-grounded answers). We find that correct and incorrect solutions exhibit measurable geometric differences in their hidden-state trajectories. To isolate this signal with minimal modeling assumptions, we introduce C LUE (Clustering and Experience-based Verification) , a training-free, non-parametric verifier. C LUE summarizes each reasoning trace by an activation delta —the difference between hidden states at the start and end of the explicit reasoning span— and predicts correctness by comparing this delta to two class centroids computed from labeled experience. Across math (AIME 24/25), scientific QA (GPQA), and a multi-domain benchmark (WebInstruct-verified), C LUE improves selection and reranking",
+  "arxiv_id": "",
+  "authors": [
+    "Zhenwen Liang",
+    "Ruosen Li",
+    "Yujun Zhou 0002",
+    "Linfeng Song",
+    "Dian Yu 0001",
+    "Xinya Du",
+    "Haitao Mi",
+    "Dong Yu 0001"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.ACL-LONG.788",
+  "first_seen": "2026-08-08T07:30:09Z",
+  "id": "doi:10.18653/v1/2026.acl-long.788",
+  "last_seen": "2026-08-08T07:30:09Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning model"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/LiangLZSYDMY26",
+  "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.acl-long.788",
+  "venue": "ACL",
+  "year": 2026
+}

@@ -1,0 +1,46 @@
+{
+  "concepts": [
+    "overthinking",
+    "reasoning redundancy",
+    "token selection",
+    "self-guided pruning",
+    "preference optimization",
+    "semantic unit",
+    "likelihood signal"
+  ],
+  "contributions": [
+    "The argument that external brevity supervision fails because it ignores the model's intrinsic reasoning dependency",
+    "SGP-CoT, a self-guided pruning framework using internal likelihood signals over semantic units",
+    "A necessity measure combining a unit's contribution to the answer with local coherence",
+    "Construction of pruning-based preference pairs enabling self-optimization",
+    "Reported length reduction with maintained or improved accuracy"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:24:50Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results, benchmarks or models in the abstract. Necessity is judged by the model's own likelihood, so a segment the model undervalues but that a correct derivation requires would be pruned — the criterion is self-referential. Semantic-unit segmentation is a preprocessing choice whose method is unstated, and it determines what can be pruned.",
+  "method": "SGP-CoT treats the reasoning trajectory as a sequence of semantic units and assesses each unit's necessity using the model's own internal likelihood signals, measuring its contribution to the answer and to local coherence. Using the model's likelihood landscape rather than an external length rule is what makes the necessity judgement specific to that model's reasoning pattern. Non-essential segments are removed, the removals form pruning-based preference pairs, and the model learns focused reasoning through self-optimization on those pairs.",
+  "methods": [
+    "SGP-CoT",
+    "preference optimization",
+    "chain of thought pruning",
+    "self-optimization"
+  ],
+  "models": [],
+  "one_liner": "Prunes chain-of-thought segments the model's own likelihood landscape marks as extraneous, then trains on the resulting pruning preference pairs.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.25",
+  "problem": "CoT is essential to reasoning-model performance but carries redundant and distracting segments that raise cost and hurt robustness. Existing approaches enforce brevity by external supervision — length penalties, heuristic truncation — which degrades performance because they disregard the model's intrinsic reasoning dependency and cannot tell essential segments from redundant ones.",
+  "relevance": {
+    "reasoning-training": "Another entry in the archive's token-selection dispute, at segment granularity, with the criterion being the model's own likelihood contribution. That places it beside MUTO in this drain, which uses log-probability gain of the ground-truth answer — the difference being that MUTO's signal needs the answer and this one does not, so this one can in principle run without labels. Whether the two select the same segments is measurable and unmeasured, and it is the specific comparison that would tell whether label-free pruning loses anything.",
+    "test-time-scaling": "The pruning criterion is computed from internal likelihood, which is available during generation, so the same signal could gate an inference-time stopping decision rather than a training-time removal. The paper uses it only for training, which leaves that variant open and connects it to the archive's stopping-signal family."
+  },
+  "results": "Across diverse benchmarks, SGP-CoT significantly reduces output length while maintaining or improving accuracy. No numbers, benchmarks or models are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "token selection",
+    "pruning",
+    "preference optimization",
+    "self-guided"
+  ]
+}

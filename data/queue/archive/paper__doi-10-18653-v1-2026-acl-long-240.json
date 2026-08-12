@@ -1,0 +1,101 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:24:50Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.240",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Yeonjun In",
+      "Wonjoong Kim",
+      "Sangwu Park",
+      "Chanyoung Park 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.6667
+    },
+    "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.240",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "safety alignment",
+      "reasoning structure",
+      "data efficiency",
+      "generalization",
+      "alignment tax"
+    ],
+    "contributions": [
+      "The claim that reasoning-model safety risk originates in the reasoning structure rather than in content",
+      "AltTrain, a post-training method that explicitly alters reasoning structure",
+      "An SFT-only recipe needing no RL or reward design and only 1K training examples",
+      "Reported safety alignment across backbones and sizes with generalization to reasoning, QA, summarization and multilingual settings"
+    ],
+    "datasets": [],
+    "limitations": "No quantitative results, named backbones or benchmark names in the abstract, so both the safety gain and the retained capability are unverified from this text. 'Reasoning structure' is not defined here, which is the load-bearing concept. Generalization across four task types is asserted rather than quantified. A 1K-example SFT intervention raises the question of robustness to adaptive attack, which is not addressed.",
+    "method": "AltTrain is a post-training method that explicitly alters the reasoning structure of reasoning models. It requires no reinforcement learning and no reward design, only supervised fine-tuning on a lightweight set of 1K training examples. That 1K examples suffice is itself the evidence for the structural claim: if the fix were knowledge, it would need far more data.",
+    "methods": [
+      "AltTrain",
+      "supervised fine-tuning",
+      "post-training"
+    ],
+    "models": [],
+    "one_liner": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+    "problem": "Reasoning models perform well but generate harmful responses to malicious queries. The paper's claim is that the cause is not missing safety knowledge but the reasoning structure, so interventions on content leave the failure in place.",
+    "relevance": {
+      "reasoning-training": "Makes a structural rather than content-based claim about where reasoning-model behaviour is determined, and offers data efficiency as the evidence — 1K SFT examples changing safety behaviour across backbones would mean the target is a reusable pattern, not knowledge. That is the same kind of claim as doi:10.18653/v1/2026.findings-acl.1981 in this drain, which aligns meta-abilities rather than tasks, and both imply reasoning behaviour has a structural layer that can be trained separately from content. Neither defines the structure precisely enough to compare them, and this abstract reports no numbers, so the claim is recorded rather than credited."
+    },
+    "results": "Across reasoning-model backbones and model sizes, AltTrain achieves strong safety alignment with robust generalization to reasoning, QA, summarization and multilingual settings. No numbers, backbones or benchmarks are given in the abstract.",
+    "tags": [
+      "safety alignment",
+      "reasoning structure",
+      "sft",
+      "data efficiency",
+      "thin-evidence"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-240",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

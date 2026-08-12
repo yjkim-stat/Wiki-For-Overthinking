@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "next-token prediction",
+    "latent reasoning",
+    "implicit reasoning",
+    "belief state",
+    "compounding error",
+    "planning horizon",
+    "teacher forcing"
+  ],
+  "contributions": [
+    "Hierarchical Latent Prediction, an auxiliary objective adding a higher-level abstract latent above next-latent prediction",
+    "An argument that hierarchical abstraction reduces compounding error in latent rollouts relative to MTP and NextLat",
+    "Reported gains on coding and multi-step reasoning benchmarks and in speculative decoding efficiency"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:13:21Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent's construction and supervision is not given at this level of detail. Claims about belief-state coherence are asserted without a stated measurement. Being a pretraining-objective change, cost and any comparison at matched compute are unreported, which is the central question for a pretraining auxiliary loss.",
+  "method": "Hierarchical Latent Prediction introduces an auxiliary higher-level abstract latent, whose role is to reduce error accumulation in latent-space rollouts. The hierarchy is the mechanism: predicting a coarser latent over a longer span is less sensitive to per-step error than chaining fine-grained latent predictions.",
+  "methods": [
+    "Hierarchical Latent Prediction",
+    "Multi-Token Prediction",
+    "Next-Latent prediction",
+    "speculative decoding",
+    "auxiliary pretraining objective"
+  ],
+  "models": [],
+  "one_liner": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+  "paper_id": "arxiv:2608.05806",
+  "problem": "Next-Token Prediction underpins pretraining but its teacher-forced paradigm may not suit long-horizon reasoning and planning. Multi-Token Prediction and Next-Latent prediction were proposed as remedies, but their auxiliary objectives either have a limited horizon or accumulate compounding error over multi-step latent rollouts.",
+  "relevance": {
+    "reasoning-evaluation": "Matched this topic on benchmark vocabulary rather than on evaluation content; it reports multi-step reasoning benchmark results but contributes no evaluation method. Its real bearing is on where reasoning ability comes from: it locates the limitation in the pretraining objective rather than in post-training, which is upstream of everything else this archive tracks. Without numbers the claim cannot be weighed, and the paper would need a full read or a later version before it supports anything."
+  },
+  "results": "Experiments report longer-horizon coherent belief-state representations, effectiveness across coding and multi-step reasoning benchmarks, and improved speculative decoding efficiency. No numbers are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "pretraining objective",
+    "latent prediction",
+    "planning",
+    "speculative decoding",
+    "thin-evidence"
+  ]
+}

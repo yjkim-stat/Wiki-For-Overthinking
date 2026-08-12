@@ -1,0 +1,51 @@
+{
+  "aliases": [
+    "capability regression",
+    "general-capability forgetting",
+    "capability collapse"
+  ],
+  "definition": "Loss of previously held capability when a model is trained further, which both sources treat as a routine consequence of reasoning post-training rather than an edge case. One measures it: prolonged RLVR degrades foundational skills including perception and faithfulness, and KL regularization does not prevent it because the penalty is computed on the current task. The other locates it in parameter space, reporting that reasoning ability sits in regions of low gradient sensitivity — not in high-magnitude parameters as usually assumed — which would explain why merging and pruning damage reasoning disproportionately. That faithfulness is among the capabilities lost would mean some of the archive's faithfulness findings are a consequence of reasoning training rather than a property of models.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2201",
+      "kind": "paper",
+      "note": "Merges a reasoning model into a domain-specialized one after finding that reasoning ability resides in low-gradient-sensitivity parameter regions rather than high-magnitude ones.",
+      "title": "ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1717",
+      "kind": "paper",
+      "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+      "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "catastrophic forgetting",
+  "related": [
+    "model-merging",
+    "localization",
+    "modularity",
+    "gradient-sensitivity",
+    "capability-interference",
+    "reasonany",
+    "capability-regression",
+    "experience-replay",
+    "kl-regularization",
+    "chain-of-thought-faithfulness",
+    "training-dynamics",
+    "objective-reweighting",
+    "recap",
+    "rlvr",
+    "kl-divergence-regularization",
+    "dynamic-objective-reweighting",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b"
+  ],
+  "schema_version": 1,
+  "slug": "catastrophic-forgetting",
+  "topics": [
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "concepts": [
+    "test-time compute",
+    "test-time scaling",
+    "meta-evaluation",
+    "process evaluation",
+    "verification",
+    "best-of-n",
+    "judge reliability",
+    "compute allocation"
+  ],
+  "contributions": [
+    "The question of whether test-time compute scaling improves evaluation as well as problem-solving, and an affirmative answer",
+    "Scaling of evaluation-time compute for both outcome evaluation and step-level process evaluation",
+    "The finding that evaluator performance improves monotonically with reasoning tokens generated",
+    "Demonstration that evaluation-time compute can be as effective as generation-time compute for improving problem-solving via reranking"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:29:50Z",
+  "generated_by": "paper",
+  "limitations": "No numbers, models or benchmarks are named in the abstract. Monotonic improvement is reported without a stated saturation point, so the range over which it holds is unclear. The equivalence between evaluation-time and generation-time compute is an aggregate claim; whether it holds per task type or per difficulty level is not reported. Reranking gains are bounded by the candidate pool, so evaluation compute cannot exceed what generation produced.",
+  "method": "Reasoning models — LMs that natively generate long CoT — are employed as evaluators. Evaluation-time compute is scaled for two targets: the overall candidate response (outcome evaluation) and the individual reasoning steps within it (process evaluation). The resulting more accurate evaluators are then used to rerank multiple generations, which converts an evaluation improvement into a problem-solving improvement and makes the two compute budgets directly comparable.",
+  "methods": [
+    "LLM-as-a-judge",
+    "reranking",
+    "best-of-n",
+    "process evaluation",
+    "outcome evaluation"
+  ],
+  "models": [],
+  "one_liner": "Shows evaluator accuracy improves monotonically with reasoning tokens spent, and that buying compute at evaluation time can substitute for buying it at generation time.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.2102",
+  "problem": "LM evaluators that generate CoT are widely used to assess responses, and scaling test-time compute is known to help solve hard problems. Whether the same scaling improves an LM's evaluation capability, as opposed to its problem-solving, had not been tested.",
+  "relevance": {
+    "reasoning-training": "Reframes a question this archive treats as settled — where inference compute should go. The verifier side has been assumed fixed while generation is scaled, and this shows the verifier scales too, at a comparable exchange rate. That makes the archive's best-of-N and process-reward results potentially compute-mismatched, since a weak verifier over many samples and a strong verifier over few are different points on one budget. It also gives a cheap path to better process supervision without training a reward model: spend more tokens judging. The absence of a saturation point is the gap, because the whole claim is about an exchange rate that must eventually break."
+  },
+  "results": "Evaluator performance improves monotonically with the number of reasoning tokens generated, mirroring trends seen in LM reasoning. Spending more compute at evaluation time is shown to be as effective as increasing compute during generation for improving problem-solving performance.",
+  "schema_version": 1,
+  "tags": [
+    "evaluation-time compute",
+    "llm-as-a-judge",
+    "test-time scaling",
+    "reranking",
+    "process evaluation"
+  ]
+}

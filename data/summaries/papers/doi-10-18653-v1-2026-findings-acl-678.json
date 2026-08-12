@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "safety alignment",
+    "self-correction",
+    "self-reflection",
+    "recovery",
+    "helpfulness-safety trade-off",
+    "adversarial robustness",
+    "special token"
+  ],
+  "contributions": [
+    "A reframing of safety alignment from prevention to mid-generation recovery",
+    "A special Self-Reflection token enabling introspection and recovery during generation",
+    "Integration into standard post-training paradigms without targeted adversarial training",
+    "Harmful completion rate reduced from 13.8% to 4.1%, with gains in helpfulness and the safety-helpfulness balance",
+    "Robustness under multiple adversarial attacks including a purpose-built adaptive attack"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:29:50Z",
+  "generated_by": "paper",
+  "limitations": "Base models and benchmarks are not named in the abstract. 4.1% harmful completion remains non-trivial for a safety mechanism. The adaptive attack is designed by the authors, so it bounds robustness against an attack they anticipated rather than against an independent adversary — AutoRAN in this same drain reaches near-100% success against reasoning-based defences. Recovery presupposes the model detects the harm mid-generation, and detection rate is not separated from recovery rate.",
+  "method": "The paper moves beyond treating safety alignment purely as prevention of harmful output. Drawing on human introspection and self-correction, Self-Reflection introduces a special Self-Reflection token enabling the model to reflect during generation and recover from harmful output already begun — recovery rather than prevention is the shift, so a trajectory that has gone wrong can still end safely. It integrates into standard post-training paradigms.",
+  "methods": [
+    "Self-Reflection token",
+    "post-training",
+    "adversarial evaluation"
+  ],
+  "models": [],
+  "one_liner": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.678",
+  "problem": "Reasoning models carry greater safety risks than prior language models. Existing alignment methods remain at a shallow protective level, insufficient against deeper risks and strategic attacks that unfold within complex reasoning.",
+  "relevance": {
+    "reasoning-training": "Its design follows from the drain's convergent finding that reasoning models override correct early judgements mid-trajectory: if the failure happens partway through, a mechanism that can re-enter safety reasoning partway through is the matching fix, and a learned token is a cheap way to give the model that entry point. The honest reading of its numbers is bounded, though — 13.8% to 4.1% is measured against the authors' own adaptive attack, while AutoRAN in this same drain reports approaching 100% success against reasoning-based defences on frontier models. Two papers in one drain, one hardening reasoning-level defences and one defeating them, is the state of this subfield rather than a contradiction to resolve."
+  },
+  "results": "Models trained with Self-Reflection reduce the harmful completion rate from 13.8% to 4.1%, nearly a threefold improvement over mainstream approaches, and gain in helpfulness and in the safety-helpfulness balance. Under various adversarial attacks including a specially designed adaptive attack, Self-Reflection significantly improves safety without targeted adversarial training. The paper notes it contains harmful content.",
+  "schema_version": 1,
+  "tags": [
+    "safety",
+    "self-reflection",
+    "special token",
+    "adversarial robustness",
+    "post-training"
+  ]
+}

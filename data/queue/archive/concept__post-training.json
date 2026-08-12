@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+        "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+        "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:50Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'post-training'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "post-training",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "post-training",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "post-training stage",
+      "fine-tuning stage"
+    ],
+    "definition": "Any training applied after pretraining to shape behaviour, used by both sources as the stage where a property is installed cheaply. One installs safety by altering the reasoning structure with 1K supervised examples and no RL or reward design. The other adds a special token that lets the model reflect and recover mid-generation, integrating into standard post-training rather than replacing it, and reports the harmful completion rate falling from 13.8% to 4.1%. Both emphasize that the intervention composes with existing recipes, which is the practical claim: the property is added without redesigning the pipeline.",
+    "kind": "concept",
+    "related": [
+      "supervised fine-tuning",
+      "reinforcement learning post-training",
+      "preference optimization",
+      "safety alignment",
+      "data efficiency"
+    ]
+  },
+  "task_id": "concept__post-training",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

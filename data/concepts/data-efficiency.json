@@ -1,0 +1,46 @@
+{
+  "aliases": [
+    "sample efficiency",
+    "rollout efficiency"
+  ],
+  "definition": "Achieving a training effect with few examples or few rollouts, used by the sources as evidence about what is being learned rather than only as a cost argument. One identifies rollouts wasted on prompts where every sample is already correct and the advantage is therefore zero, making efficiency a matter of which prompts are worth sampling. The other reports safety alignment from 1K supervised examples and treats that smallness as support for its claim that the target is a reusable reasoning structure rather than knowledge — if the fix needed knowledge it would need far more data. The inference from few examples to structure is the sources' argument, not a demonstrated mechanism.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.237",
+      "kind": "paper",
+      "note": "Addresses wasted rollouts in critic-free RL on prompts where every sampled rollout is already correct and the advantage estimate is therefore zero.",
+      "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.240",
+      "kind": "paper",
+      "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+      "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "data efficiency",
+  "related": [
+    "advantage-estimation",
+    "group-relative-advantage",
+    "rollout-efficiency",
+    "prompt-difficulty",
+    "zero-variance-group",
+    "critic-free-reinforcement-learning",
+    "grpo",
+    "safety-alignment",
+    "reasoning-structure",
+    "generalization",
+    "alignment-tax",
+    "alttrain",
+    "supervised-fine-tuning",
+    "post-training"
+  ],
+  "schema_version": 1,
+  "slug": "data-efficiency",
+  "topics": [
+    "reasoning-training"
+  ]
+}

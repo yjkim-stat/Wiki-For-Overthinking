@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
+        "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:51:40Z",
+  "created_at": "2026-08-08T04:51:03Z",
+  "instructions": "Write the wiki definition for 'ZebraLogic'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "ZebraLogic",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "ZebraLogic",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "ZebraLogic"
+    ],
+    "definition": "A benchmark of constraint-satisfaction logic puzzles, used in both sources as the non-mathematical reasoning task that stresses long deductive chains. Two findings attach to it: activation probes for the commitment boundary transfer to it from mathematics training with the smallest accuracy cost of any out-of-distribution set (97% to 86%) but also the smallest token savings (6%), and it is the one dataset where the leading causal-attribution method is beaten by its closest competitor. It is also where the model's dependence on the original problem statement peaks latest in the trace, consistent with harder problems delaying verification.",
+    "kind": "dataset",
+    "related": [
+      "GPQA-Diamond",
+      "MMLU-Pro",
+      "MATH500",
+      "GSM8K"
+    ]
+  },
+  "task_id": "concept__zebralogic",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

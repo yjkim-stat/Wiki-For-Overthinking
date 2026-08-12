@@ -1,0 +1,89 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+        "title": "Efficiently Scaling LLM Reasoning with Certaindex",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+        "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:48Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'early exit'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "early exit",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "early exit",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "dynamic early exit",
+      "early stopping"
+    ],
+    "definition": "Terminating generation before the model would stop on its own. The four sources differ mainly in what signal triggers the exit: confidence in a trial answer induced at a reasoning transition, consistency of periodically probed intermediate answers, a CUSUM change-point statistic on predictive entropy, and an activation probe predicting the answer-formation stage. They report conflicting relationships to accuracy — some find it improves over unrestricted generation, one finds it costs a point or two — and the archive has no head-to-head comparison, though the benchmarks overlap enough to permit one. All four agree that fixed-fraction truncation is the wrong baseline because the right exit point varies per problem.",
+    "kind": "method",
+    "related": [
+      "overthinking",
+      "answer stabilization",
+      "DEER",
+      "Dynasor",
+      "reasoning redundancy",
+      "commitment boundary"
+    ]
+  },
+  "task_id": "concept__early-exit",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

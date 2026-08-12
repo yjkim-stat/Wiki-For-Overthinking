@@ -1,0 +1,61 @@
+{
+  "aliases": [
+    "dispatch",
+    "path selection",
+    "gating"
+  ],
+  "definition": "Deciding per input which of several processing paths to take, rather than applying one procedure uniformly. One source routes on a text-only regex detector of restrictive cues, activating a two-stage constraint-extraction protocol only where constraints exist to exploit and falling back to direct chain-of-thought otherwise. The other routes at every generation step among a fast path, a slow perception path and a slow reasoning path, with the router trained by multi-objective RL on roughly 790k samples of teacher-attributed perception-versus-reasoning failures. The pair spans the design range: a hand-written detector applied once per problem, and a learned controller applied at each step.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05254",
+      "kind": "paper",
+      "note": "A training-free two-stage prompting protocol that extracts a problem's answer-space constraints first and then checks its own intermediate and final results against them, routed on by a regex detector.",
+      "title": "Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.215",
+      "kind": "paper",
+      "note": "Routes each generation step among a fast path, a perception re-examination path and a self-reflection path, trained on 790k samples of teacher-attributed perception-versus-reasoning failures.",
+      "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "routing",
+  "related": [
+    "answer-space-constraint",
+    "verification",
+    "test-time-intervention",
+    "self-verification",
+    "constraint-compliance",
+    "constraint-first-reasoning",
+    "routed-cfr",
+    "chain-of-thought",
+    "regex-routing",
+    "paired-significance-testing",
+    "aime",
+    "cmimc",
+    "brumo",
+    "aimo-amc",
+    "olympiadbench",
+    "overthinking",
+    "perception-bottleneck",
+    "adaptive-compute-allocation",
+    "meta-reasoning",
+    "failure-attribution",
+    "test-time-compute",
+    "self-correction",
+    "gpro",
+    "multi-objective-reinforcement-learning",
+    "teacher-based-failure-attribution",
+    "step-level-routing"
+  ],
+  "schema_version": 1,
+  "slug": "routing",
+  "topics": [
+    "reasoning-evaluation",
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "abstract": "The ability to reason lies at the core of artificial intelligence (AI), and challenging problems usually call for deeper and longer reasoning to tackle. A crucial question about AI reasoning is whether models can extrapolate learned reasoning patterns to solve harder tasks with longer chain-of-thought (CoT). In this work, we present a theoretical analysis of transformers learning on synthetic state-tracking tasks with gradient descent. We mathematically prove how the algebraic structure of state-tracking problems governs the degree of extrapolation of the learned CoT. Specifically, our theory characterizes the length generalization of transformers through the mechanism of attention concentration, linking the retrieval robustness of the attention layer to the state-tracking task structure of long-context reasoning. Moreover, for transformers with limited reasoning length, we prove that a recursive self-training scheme can progressively extend the range of solvable problem lengths. To our knowledge, we provide the first optimization guarantee that constant-depth transformers provably learn NC1-complete problems with CoT, significantly going beyond prior art confined in TC0, unless the widely held conjecture TC0 != NC1 fails. Finally, we present a broad set of experiments supporting our theoretical results, confirming the length generalization behaviors and the mechanism of attention concentration.",
+  "arxiv_id": "2511.07378",
+  "authors": [
+    "Yu Huang",
+    "Zixin Wen",
+    "Aarti Singh",
+    "Yuejie Chi",
+    "Yuxin Chen"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-09T03:09:11Z",
+  "id": "local:fe69869b0e362891",
+  "last_seen": "2026-08-09T03:09:11Z",
+  "local_path": "data/pdfs/read/local-fe69869b0e362891.pdf",
+  "matched_keywords": [
+    "chain of thought"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5,
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization.pdf",
+  "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-interpretability"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "NeurIPS",
+  "year": 2025
+}

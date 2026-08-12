@@ -1,0 +1,96 @@
+{
+  "aliases": [
+    "probe",
+    "linear probing",
+    "probing classifier"
+  ],
+  "definition": "A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five sources. The sources agree it works and disagree about what it measures. Two argue that probing static single-layer activations lets the probe learn surface lexical patterns rather than reasoning structure, and use cross-layer displacement instead; one restores restricted location information because displacement discards the originating state. One detects sycophantic commitment at 74-85% balanced accuracy, beating text-only baselines only at high commitment. One separates recoverability from influence — a concept can be linearly recoverable without affecting the output — and finds sparse autoencoders improve the first while attenuating the second.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04928",
+      "kind": "paper",
+      "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+      "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?"
+    },
+    {
+      "id": "arxiv:2608.05660",
+      "kind": "paper",
+      "note": "Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.",
+      "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs"
+    },
+    {
+      "id": "arxiv:2608.06300",
+      "kind": "paper",
+      "note": "Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.",
+      "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2073",
+      "kind": "paper",
+      "note": "Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.",
+      "title": "Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-srw.20",
+      "kind": "paper",
+      "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
+      "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "linear probe",
+  "related": [
+    "monitorability",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "chain-of-thought-faithfulness",
+    "hint-reliance",
+    "latent-chain-of-thought",
+    "activation-probing",
+    "latent-state-verbalization",
+    "hint-based-intervention",
+    "residual-stream",
+    "reasoning-trajectory",
+    "localization",
+    "shortcut-learning",
+    "out-of-distribution-generalization",
+    "error-detection",
+    "effective-depth",
+    "vector-quantization",
+    "trajectory-based-detection",
+    "multi-layer-state-normalization",
+    "concept-activation-vector",
+    "sparse-autoencoder",
+    "monosemanticity",
+    "linear-separability",
+    "fairness-auditing",
+    "recoverability-versus-influence",
+    "concept-activation-vectors",
+    "gradient-based-sensitivity-analysis",
+    "bert",
+    "whisper",
+    "polysemanticity",
+    "superposition",
+    "lexical-confound",
+    "truth-as-a-trajectory",
+    "layer-wise-displacement-analysis",
+    "sycophancy",
+    "commitment-boundary",
+    "counterfactual-analysis",
+    "counterfactual-rollout-analysis",
+    "regression-on-activations",
+    "llama",
+    "qwen",
+    "falcon-hybrid"
+  ],
+  "schema_version": 1,
+  "slug": "linear-probe",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

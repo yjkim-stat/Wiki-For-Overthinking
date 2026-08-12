@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reasoning Evaluation — research review</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title-slide">
+<h1>Reasoning Evaluation</h1>
+<p class="subtitle">Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.</p>
+<p>2026-08-12 · 38 archived source(s)</p>
+</section>
+<section class="slide">
+<h2>Agenda</h2>
+<ul>
+<li>Where the field stands</li>
+<li>Key papers</li>
+<li>Recurring ideas</li>
+<li>Benchmarks</li>
+<li>Open problems</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Where the field stands</h2>
+<ul>
+<li><strong>2026</strong> — 29 paper(s)</li>
+<li><strong>2025</strong> — 8 paper(s)</li>
+<li><strong>2021</strong> — 1 paper(s)</li>
+</ul>
+<p>10 arrived in the last 30 days.</p>
+</section>
+<section class="slide">
+<h2>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</h2>
+<p class="subtitle">Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al. · ACL · 2026</p>
+<blockquote>
+<p>Separates perception from reasoning in ARC-style benchmarks with a two-stage pipeline, and finds about 80% of vision-language model failures are perception errors, not reasoning errors.</p>
+</blockquote>
+<ul>
+<li>The hypothesis that the ARC-style human-model gap is primarily perceptual rather than inductive</li>
+<li>A two-stage pipeline that isolates reasoning from perception while preventing cross-image inductive leakage</li>
+<li>Evidence across Mini-ARC, ACRE and Bongard-LOGO that perception dominates the gap</li>
+<li>A manual trace analysis attributing approximately 80% of failures to perception errors</li>
+</ul>
+<p><strong>Results.</strong> Across Mini-ARC, ACRE and Bongard-LOGO, perception capability is the dominant factor behind the observed performance gap. Manual inspection of VLM reasoning traces finds approximately 80% of model failures stem from perception errors. The authors conclude ARC-style benchmarks conflate perceptual and reasoning challenges and that observed gaps may overstate deficiencies in machine reasoning.</p>
+<p><strong>Why it matters.</strong> Directly attacks the interpretation of the benchmark family most often cited as evidence about machine reasoning. If 80% of failures are perceptual, then ARC-AGI scores are largely a vision measurement, and progress reported on them is not progress on reasoning. The methodological contribution is the leakage control: converting each image independently is what makes the isolation valid, and without it the perception stage could smuggle the induction. This is the fourth paper in one drain arguing a reasoning benchmark measures something else — with SMART on aggregation, VisAidMath on visual aids, CoRE on code execution — which is enough co-occurrence to treat construct validity as the drain&#x27;s dominant theme rather than four separate findings.</p>
+</section>
+<section class="slide">
+<h2>Training Verifiers to Solve Math Word Problems</h2>
+<p class="subtitle">Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al. · 2021</p>
+<blockquote>
+<p>Introduces GSM8K, 8.5K grade-school math word problems, and shows that training a verifier to rank many sampled solutions beats finetuning the generator directly.</p>
+</blockquote>
+<ul>
+<li>GSM8K: 8.5K high-quality, linguistically diverse grade school math word problems, built to diagnose multi-step reasoning failure.</li>
+<li>The finding that model size alone does not solve this distribution.</li>
+<li>Training verifiers to judge the correctness of completions, and using them at test time to rank many sampled candidates.</li>
+<li>Evidence that verification scales better with additional data than a finetuning baseline.</li>
+</ul>
+<p><strong>Results.</strong> The abstract states that verification significantly improves performance on GSM8K and that it scales more effectively with increased data than the finetuning baseline, but gives no accuracy figures, model sizes or sample counts. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> The origin of the benchmark that nearly every archived paper reports on, which makes it the reference point for what those numbers mean. Two things matter for this topic. First, its framing: the dataset was built as a diagnostic for a specific failure, not as a leaderboard, and it was designed around problems whose conceptual simplicity makes a low score informative. Second, its fate: a benchmark introduced because large models could not solve it is now the easy end of every suite in this archive, so it is a concrete case study in benchmark saturation and in why a claim resting on GSM8K gains needs a harder companion set. This is also the first paper filed under this topic.</p>
+</section>
+<section class="slide">
+<h2>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</h2>
+<p class="subtitle">Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn · 2026</p>
+<blockquote>
+<p>Measures an LLM judge&#x27;s latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.</p>
+</blockquote>
+<ul>
+<li>A random-number-generation probe that isolates an LLM&#x27;s latent numerical bias independently of evaluated content</li>
+<li>Task-conditioned bias measurement by adding the downstream task definition to the probe prompt</li>
+<li>A token-probability rectification step applied at judging time</li>
+<li>Evidence that scoring bias varies across models, tasks and score ranges</li>
+</ul>
+<p><strong>Results.</strong> On four tasks — LLM alignment evaluation, summarization evaluation, Semantic Textual Similarity and Semantic Textual Relatedness — the method outperforms an undebiased LLM and previous calibration methods. Scoring bias is confirmed to vary across LLMs, tasks and score ranges.</p>
+<p><strong>Why it matters.</strong> LLM judges are how much reasoning work gets scored once the answer is not a checkable string, so a bias in the judge is a bias in the field&#x27;s measurements. The useful part for this archive is the probe rather than the fix: a random-number request has no correct answer, so deviation from uniform is a content-free estimate of the judge&#x27;s prior, and it is cheap enough to run as a routine control. The finding that bias varies by score range matters most for reasoning evaluation, where scores cluster high and the compressed top of the scale is exactly where discrimination is needed.</p>
+</section>
+<section class="slide">
+<h2>Hierarchical Latent Prediction for Language Models</h2>
+<p class="subtitle">Chang Shi, Tim Pearce, Manan Tomar et al. · 2026</p>
+<blockquote>
+<p>Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.</p>
+</blockquote>
+<ul>
+<li>Hierarchical Latent Prediction, an auxiliary objective adding a higher-level abstract latent above next-latent prediction</li>
+<li>An argument that hierarchical abstraction reduces compounding error in latent rollouts relative to MTP and NextLat</li>
+<li>Reported gains on coding and multi-step reasoning benchmarks and in speculative decoding efficiency</li>
+</ul>
+<p><strong>Results.</strong> Experiments report longer-horizon coherent belief-state representations, effectiveness across coding and multi-step reasoning benchmarks, and improved speculative decoding efficiency. No numbers are given in the abstract.</p>
+<p><strong>Why it matters.</strong> Matched this topic on benchmark vocabulary rather than on evaluation content; it reports multi-step reasoning benchmark results but contributes no evaluation method. Its real bearing is on where reasoning ability comes from: it locates the limitation in the pretraining objective rather than in post-training, which is upstream of everything else this archive tracks. Without numbers the claim cannot be weighed, and the paper would need a full read or a later version before it supports anything.</p>
+</section>
+<section class="slide">
+<h2>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</h2>
+<p class="subtitle">ZhiYan Hou, Xinyu Tang, Hongyan An et al. · 2026</p>
+<blockquote>
+<p>Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.</p>
+</blockquote>
+<ul>
+<li>The observation that standard OPSD ignores the temporal structure of the divergence sequence, weighting equal magnitudes equally regardless of history</li>
+<li>DASH: an adaptive propagation gate from the local-versus-sequence-mean divergence gap</li>
+<li>Gate-controlled backward multi-step aggregation of token-level supervision weights</li>
+<li>Improvement over matched vanilla OPSD on every benchmark at all three scales, with no additional teacher or student forward pass</li>
+</ul>
+<p><strong>Results.</strong> On three mathematical reasoning benchmarks across three model scales, DASH improves over matched vanilla OPSD reruns on every benchmark at all three scales. Effect sizes are not given in the abstract.</p>
+<p><strong>Why it matters.</strong> Matched on benchmark vocabulary; it contributes no evaluation method. The one point for this topic is its baseline discipline — improvements are measured against the authors&#x27; own matched OPSD reruns rather than against published numbers, which is the practice the archive&#x27;s evaluation-noise thread found almost universally absent and which is what makes a same-scale comparison trustworthy.</p>
+</section>
+<section class="slide">
+<h2>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</h2>
+<p class="subtitle">Xinye Wang, Junxiao Liu, Shujian Huang · 2026</p>
+<blockquote>
+<p>Concentrates privileged self-distillation on reasoning pivots identified by the teacher&#x27;s distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.</p>
+</blockquote>
+<ul>
+<li>A characterization of target-language reasoning as surface text plus reasoning pivots</li>
+<li>RP-OPSD: using the teacher&#x27;s distributional shift with and without an English reference solution as an operational pivot proxy</li>
+<li>Concentration of privileged distillation and reference anchoring on those pivots</li>
+<li>Results over 17 languages and multiple difficulty levels against multilingual and OPSD baselines</li>
+</ul>
+<p><strong>Results.</strong> On mathematical reasoning benchmarks covering 17 languages and multiple difficulty levels, RP-OPSD outperforms strong multilingual reasoning baselines and OPSD variants. Analysis shows it concentrates privileged distillation on reasoning-control and problem-conditioned state-update tokens while downweighting tokens that mainly support surface realization.</p>
+<p><strong>Why it matters.</strong> Matched on benchmark vocabulary rather than evaluation content. Its value here is coverage: 17 languages and stratified difficulty is a wider evaluation surface than the English math benchmarks the archive is dominated by, and it separates reasoning content from surface realization, which is a distinction English-only benchmarks cannot make because the two are confounded.</p>
+</section>
+<section class="slide">
+<h2>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</h2>
+<p class="subtitle">Yujie Hou, Mei Wang, Yaoyao Zhong et al. · ACL · 2026</p>
+<blockquote>
+<p>Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.</p>
+</blockquote>
+<ul>
+<li>SMART, a benchmark decomposing mathematical problem-solving into Semantic Understanding, Mathematical Reasoning, Arithmetic Computation and Reflection/Refinement</li>
+<li>Dimension-specific tasks that measure each cognitive process separately rather than through final answers</li>
+<li>Evaluation of 22 open- and closed-source LLMs revealing substantial cross-dimensional capability discrepancies</li>
+<li>The All-Pass Score, a metric requiring success across dimensions rather than on average</li>
+</ul>
+<p><strong>Results.</strong> Applied to 22 state-of-the-art open- and closed-source LLMs, SMART uncovers substantial discrepancies in capability across the four dimensions and reveals genuine weaknesses in current models, motivating the All-Pass Score.</p>
+<p><strong>Why it matters.</strong> A direct construct-validity contribution: it argues a single math accuracy number aggregates over dimensions that can compensate for one another, and the All-Pass Score is a concrete alternative that refuses to average them. That is the same structural criticism the archive already holds from VAR-MATH, which varies problem instances, but arrives from a different direction — decomposing the task rather than perturbing it — and the two are complementary. It joins three other papers in this drain arguing that reasoning benchmarks measure something other than reasoning, alongside long.826 on perception and findings-acl.460 on code.</p>
+</section>
+<section class="slide">
+<h2>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</h2>
+<p class="subtitle">Jingkun Ma, Runzhe Zhan, Yang Li et al. · ACL · 2026</p>
+<blockquote>
+<p>Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.</p>
+</blockquote>
+<ul>
+<li>VisAidMath, a benchmark requiring construction of visual aids for geometric problem-solving</li>
+<li>The Three-Layered Funnel Evaluation Framework separating accuracy (ACCU), valid visual aid generation (PVA) and soundness of subsequent reasoning (SPRS)</li>
+<li>Identification of a &#x27;Reasoning Illusion&#x27; where high accuracy coexists with failure to produce or use valid visual aids</li>
+<li>A public evaluation platform on CodaBench</li>
+</ul>
+<p><strong>Results.</strong> Experiments on state-of-the-art models including Doubao-Seed-1.6 and o4 reveal a &#x27;Reasoning Illusion&#x27;: high surface-level accuracy conceals catastrophic failure in producing valid visual aids or reasoning from them. The authors describe this as a fundamental schism between visual perception and logical deduction in modern LMMs. A public evaluation platform is provided on CodaBench.</p>
+<p><strong>Why it matters.</strong> Another instance of the drain&#x27;s dominant finding, and one of its sharpest: the answer can be right while every intermediate artefact the answer supposedly depends on is wrong. Its layered funnel is a reusable design — score the artefact, then score reasoning from the artefact, then score the answer — and it applies wherever reasoning is supposed to route through an intermediate object. Read with long.826, which finds ARC-style failures are 80% perception rather than reasoning, the two make opposite-facing claims about the same perception/reasoning boundary: one says perception failure is misread as reasoning failure, the other says reasoning failure hides behind accuracy. Both agree the boundary is where the measurement breaks.</p>
+</section>
+<section class="slide">
+<h2>Recurring ideas</h2>
+<ul>
+<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
+<li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
+<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
+<li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Methods</h2>
+<ul>
+<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
+<li><strong>GRPO</strong> — Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own gro...</li>
+<li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
+<li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
+<li><strong>pass-k</strong> — The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on t...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Benchmarks and datasets</h2>
+<ul>
+<li><strong>AIME24</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 28 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
+<li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
+<li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
+<li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
+<li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems</h2>
+<ul>
+<li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
+<li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
+<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
+<li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
+<li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
+<li><strong>Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving</strong> — Effect sizes are not given in the abstract. The benefit is explicitly conditional on the problem having recoverable constraints and on Stage 1 extracting the...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems (cont.)</h2>
+<ul>
+<li><strong>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</strong> — Three ARC-style datasets, so the conclusion is about this benchmark family. The perception stage&#x27;s output is a natural-language description, so reasoning is...</li>
+<li><strong>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</strong> — No numbers in the abstract, so the size of the cross-dimensional discrepancies is unstated and the models are not listed. The four-dimensional decomposition...</li>
+<li><strong>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</strong> — No numbers in the abstract, so &#x27;catastrophic&#x27; is uncalibrated. Geometry with constructed visual aids is a narrow instrument, chosen for precision, and the sc...</li>
+<li><strong>Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models</strong> — No quantitative results and no named models in the abstract. Built by consolidating existing resources, so it inherits their annotation conventions and any c...</li>
+<li><strong>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</strong> — No aggregate numbers in the abstract beyond the ordering of that one comparison, and the full model list is not given. A text-only arm that matches the multi...</li>
+<li><strong>AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios</strong> — Each task is two steps of fixed types, so the finding is about mixed-type composition at depth two rather than composition in general. &#x27;Nearly 30% on average...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References</h2>
+<ul>
+<li>Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. <em>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</em>. ACL. 2026</li>
+<li>Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al.. <em>Training Verifiers to Solve Math Word Problems</em>. cs.LG. 2021</li>
+<li>Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. <em>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</em>. cs.CL. 2026</li>
+<li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
+<li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
+<li>Xinye Wang, Junxiao Liu, Shujian Huang. <em>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</em>. cs.CL. 2026</li>
+<li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
+<li>Jingkun Ma, Runzhe Zhan, Yang Li et al.. <em>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</em>. ACL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. <em>Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models</em>. ACL. 2026</li>
+<li>Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. <em>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</em>. ACL. 2026</li>
+<li>Lisa Alazraki, Lihu Chen, Ana Brassard et al.. <em>AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios</em>. ACL. 2026</li>
+<li>Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. <em>MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation</em>. ACL. 2026</li>
+<li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
+<li>Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. <em>The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning</em>. ACL. 2026</li>
+<li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
+<li>Longteng Guo, Xuanxu Lin, Dongze Hao et al.. <em>SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation</em>. ACL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Atharva Naik, Prakam, Yash Mathur et al.. <em>PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics</em>. ACL. 2026</li>
+<li>Jun Gao, Yun Peng, Qian Qiao et al.. <em>CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction</em>. ACL. 2026</li>
+<li><em>On The Fragility of Benchmark Contamination Detection in Reasoning Models</em>. ICLR 2026. 2026</li>
+<li>Justin D. Norman, Michael U. Rivera, D. Alex Hughes. <em>Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias</em>. preprint. 2026</li>
+<li>Jian Yao, Bowen Zheng, Ran Cheng et al.. <em>VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks</em>. preprint. 2026</li>
+<li>Luke Guerdan, Solon Barocas, Kenneth Holstein et al.. <em>Validating LLM-as-a-Judge Systems under Rating Indeterminacy</em>. NeurIPS 2025. 2025</li>
+<li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
+<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
+</ul>
+</section>
+<section class="slide title-slide">
+<h2>Sources</h2>
+<p>Every claim in this deck traces to a page under <code>archive/</code>. Regenerate with <code>python -m pipelines.render</code>.</p>
+</section>
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

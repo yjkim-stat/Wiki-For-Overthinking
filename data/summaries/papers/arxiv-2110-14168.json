@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "multi-step mathematical reasoning",
+    "verification",
+    "generative vs discriminative scaling",
+    "sampling and reranking",
+    "benchmark design"
+  ],
+  "contributions": [
+    "GSM8K: 8.5K high-quality, linguistically diverse grade school math word problems, built to diagnose multi-step reasoning failure.",
+    "The finding that model size alone does not solve this distribution.",
+    "Training verifiers to judge the correctness of completions, and using them at test time to rank many sampled candidates.",
+    "Evidence that verification scales better with additional data than a finetuning baseline."
+  ],
+  "datasets": [
+    "GSM8K"
+  ],
+  "generated_at": "2026-08-08T04:12:49Z",
+  "generated_by": "paper",
+  "limitations": "Not discussed in the abstract. What a reader of this archive should note is downstream rather than internal: GSM8K has since become a saturated benchmark, and later archived work uses it as the easy rung of a suite and raises contamination concerns about publicly available math benchmarks in general.",
+  "method": "Many candidate solutions are sampled at test time and a separately trained verifier judges the correctness of each; the highest-ranked candidate is returned. This is contrasted against finetuning the generator to produce the answer directly. The abstract does not give the verifier's architecture, training data construction, or sample count.",
+  "methods": [
+    "verifier training",
+    "test-time reranking",
+    "supervised finetuning"
+  ],
+  "one_liner": "Introduces GSM8K, 8.5K grade-school math word problems, and shows that training a verifier to rank many sampled solutions beats finetuning the generator directly.",
+  "paper_id": "arxiv:2110.14168",
+  "problem": "Language models matched human performance on many tasks yet failed at robust multi-step mathematical reasoning, and the abstract notes that even the largest transformers of the time scored poorly on a problem distribution that is conceptually simple. There was no diagnostic dataset isolating that failure.",
+  "relevance": {
+    "reasoning-evaluation": "The origin of the benchmark that nearly every archived paper reports on, which makes it the reference point for what those numbers mean. Two things matter for this topic. First, its framing: the dataset was built as a diagnostic for a specific failure, not as a leaderboard, and it was designed around problems whose conceptual simplicity makes a low score informative. Second, its fate: a benchmark introduced because large models could not solve it is now the easy end of every suite in this archive, so it is a concrete case study in benchmark saturation and in why a claim resting on GSM8K gains needs a harder companion set. This is also the first paper filed under this topic."
+  },
+  "results": "The abstract states that verification significantly improves performance on GSM8K and that it scales more effectively with increased data than the finetuning baseline, but gives no accuracy figures, model sizes or sample counts. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+  "schema_version": 1,
+  "tags": [
+    "gsm8k",
+    "verifier",
+    "math word problems",
+    "benchmark",
+    "reranking"
+  ],
+  "models": []
+}

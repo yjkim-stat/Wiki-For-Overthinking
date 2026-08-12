@@ -1,0 +1,91 @@
+{
+  "aliases": [
+    "vision-language reasoning",
+    "multimodal inference"
+  ],
+  "definition": "Reasoning that must combine visual and textual information, represented in the archive almost entirely by benchmarks that conclude the modality split is mismeasured. One finds high answer accuracy conceals near-total failure at producing or reasoning from visual aids. One runs each problem with and without its image and finds a model with no image beating its own multimodal variants and GPT-5, with visual contribution shrinking as difficulty rises. One benchmarks error detection on real student work and puts the best model about 10% behind expert humans. One covers 54 scientific subfields with expert solutions for 46% of items. One finds risk cues correctly perceived and then overridden during reasoning. The recurring conclusion is that these benchmarks do not measure what their names claim.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1719",
+      "kind": "paper",
+      "note": "Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.",
+      "title": "VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1821",
+      "kind": "paper",
+      "note": "Identifies a multimodal failure where models see the risky visual cue but let narrative coherence override safety as reasoning proceeds, and defends against it by extracting intent before generation.",
+      "title": "Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2198",
+      "kind": "paper",
+      "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+      "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1217",
+      "kind": "paper",
+      "note": "Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.",
+      "title": "ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.28",
+      "kind": "paper",
+      "note": "A multimodal scientific reasoning benchmark over 54 subfields with domain-specific visuals and expert solutions for 46% of items, scoring the reasoning process as well as the answer.",
+      "title": "SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "multimodal reasoning",
+  "related": [
+    "construct-validity",
+    "reasoning-illusion",
+    "visual-perception",
+    "process-evaluation",
+    "meta-evaluation",
+    "visaidmath",
+    "three-layered-funnel-evaluation-framework",
+    "process-level-scoring",
+    "doubao-seed-1-6",
+    "o4",
+    "safety-context-amnesia",
+    "narrative-coherence",
+    "inference-time-intervention",
+    "perception-versus-reasoning",
+    "jailbreak",
+    "intent-guided-safety-reasoning",
+    "perception-decoupling",
+    "chain-of-thought",
+    "linguistic-prior",
+    "modality-ablation",
+    "perception-bottleneck",
+    "mathsight",
+    "visual-variant-perturbation",
+    "qwen3-vl",
+    "gpt-5",
+    "error-detection",
+    "verification",
+    "human-baseline",
+    "errorradar",
+    "error-step-identification",
+    "error-categorization",
+    "expert-annotation",
+    "gpt-4o",
+    "scientific-reasoning",
+    "traceability",
+    "domain-expertise",
+    "multi-step-inference",
+    "scivqr",
+    "process-level-evaluation",
+    "expert-authored-reference-solutions"
+  ],
+  "schema_version": 1,
+  "slug": "multimodal-reasoning",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

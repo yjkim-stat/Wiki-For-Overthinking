@@ -1,0 +1,55 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:d9699040f5220b4c",
+      "kind": "paper",
+      "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+      "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation"
+    }
+  ],
+  "first_seen": "2026-08-08T03:56:57Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "reasoning step segmentation",
+  "related": [
+    "sparse-autoencoder",
+    "step-level-representation",
+    "context-conditioned-encoding",
+    "incremental-versus-background-information",
+    "information-bottleneck",
+    "disentanglement",
+    "monosemanticity",
+    "superposition",
+    "linear-probing",
+    "self-verification",
+    "latent-swap-test",
+    "ssae-step-level-sparse-autoencoder",
+    "dynamic-sparsity-weight-control",
+    "neuron-to-graph-n2g",
+    "probe-guided-decoding",
+    "self-consistency",
+    "llm-as-a-judge",
+    "activation-patching",
+    "gsm8k",
+    "gsm8k-aug",
+    "numinamath-cot",
+    "opencodeinstruct",
+    "math500",
+    "svamp",
+    "multiarith",
+    "aime24",
+    "aime25",
+    "qwen2-5-0-5b",
+    "llama-3-2-1b"
+  ],
+  "schema_version": 1,
+  "slug": "reasoning-step-segmentation",
+  "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling",
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

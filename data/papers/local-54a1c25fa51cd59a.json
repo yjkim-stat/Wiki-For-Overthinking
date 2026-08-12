@@ -1,0 +1,31 @@
+{
+  "abstract": "A central hope behind process supervision is that models can expose intermediate variables that matter for their later behavior. For this to help with alignment, a scratchpad must be tied to the computation: when the model writes a state, later steps should compute from that state. To test this requirement, we use a controlled state-tracking task with a known update rule, comparing models trained to report only the final state with models trained to write intermediate states before giving the final answer. At evaluation, we edit the internal representation of one written state while leaving the visible scratchpad text fixed. Because the transition rule is known, the edit has a single correct downstream consequence. In Qwen2.5-Coder-7B, the state-writing model predicts the next phase bit implied by the edited state on 80% and 91% of held-out examples across the two task variants, while pretrained and final-answer-only controls remain near baseline. Additional controls rule out generic next-token steering and copying another continuation: the prediction depends on both the edited state and the current move. The same causal-use pattern replicates across model families. Together, these results suggest a sharper goal for scratchpad oversight: not just to make intermediate reasoning legible, but to train written states that the model uses as part of its computation.",
+  "arxiv_id": "2606.29522",
+  "authors": [
+    "Benjamin Shih",
+    "John Winnicki",
+    "Eric Darve"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T04:47:33Z",
+  "id": "local:54a1c25fa51cd59a",
+  "last_seen": "2026-08-08T04:47:33Z",
+  "local_path": "data/pdfs/read/local-54a1c25fa51cd59a.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "Do Models Read What They Write - Causal Registers in Scratchpad Reasoning.pdf",
+  "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

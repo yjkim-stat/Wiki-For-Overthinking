@@ -1,0 +1,68 @@
+{
+  "aliases": [
+    "Pythia-410M"
+  ],
+  "definition": "A 410M model from the Pythia suite, chosen in these sources for its open training checkpoints and small size. It is the model in which sparse dictionary features are shown to localize indirect object identification more tightly than PCA components, and it recurs in circuit-level arithmetic analysis. Its size is the standing caveat: interpretability results established here are a long way from the reasoning models the rest of this archive studies.",
+  "evidence": [
+    {
+      "id": "local:26fdb25b9d157d04",
+      "kind": "paper",
+      "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
+      "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics"
+    },
+    {
+      "id": "local:e33ecf791dfdfa8a",
+      "kind": "paper",
+      "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+      "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Pythia-410M",
+  "related": [
+    "bag-of-heuristics",
+    "circuit-analysis",
+    "memorization",
+    "generalization",
+    "heuristic-neurons",
+    "causal-analysis",
+    "localization",
+    "arithmetic-reasoning",
+    "modularity",
+    "neuron-interpretability",
+    "activation-patching",
+    "circuit-discovery",
+    "neuron-ablation",
+    "logit-attribution",
+    "synthetic-arithmetic-prompts",
+    "llama-3-1-8b",
+    "gpt-j-6b",
+    "polysemanticity",
+    "superposition",
+    "sparse-dictionary-learning",
+    "monosemanticity",
+    "feature-dictionary",
+    "residual-stream",
+    "causal-mediation-analysis",
+    "circuit-detection",
+    "enumerative-safety",
+    "automated-interpretability-score",
+    "sparse-autoencoder",
+    "automated-circuit-discovery-acdc",
+    "pca",
+    "ica",
+    "autointerpretability-scoring",
+    "ablation",
+    "the-pile",
+    "indirect-object-identification-ioi",
+    "pythia-70m"
+  ],
+  "schema_version": 1,
+  "slug": "pythia-410m",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.",
+        "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.",
+        "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:52Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'self-certainty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "self-certainty",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "self-certainty",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "self-confidence",
+      "intrinsic confidence",
+      "model certainty"
+    ],
+    "definition": "A model's own estimate of how sure it is, read from its output distribution and used as a control signal rather than reported to a user. One source feeds it into preference optimization so that confident answers are compressed and uncertain ones keep deliberating, making difficulty a quantity read off the model that will do the reasoning rather than predicted for it. The other treats certainty dynamics as diagnostic, using entropy over the course of a trace to characterize how reasoning is going. Both depend on certainty tracking correctness, which neither verifies — and the archive holds a source showing a model can be badly calibrated while still ranking correct above incorrect answers well.",
+    "kind": "concept",
+    "related": [
+      "calibration",
+      "token-level entropy",
+      "adaptive compute allocation",
+      "prompt difficulty",
+      "entropy trajectory",
+      "verification"
+    ]
+  },
+  "task_id": "concept__self-certainty",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

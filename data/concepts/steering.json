@@ -1,0 +1,49 @@
+{
+  "aliases": [
+    "behavioural steering",
+    "representation steering"
+  ],
+  "definition": "Directing a model toward a target behaviour by intervening on its internals at inference. The two sources here differ in scope: one builds multi-layer steering vectors from sparse-autoencoder features selected by co-activation and decoder-direction alignment, reporting it as the only method that consistently preserves fluency where single-point interventions fail entirely on sycophancy and refusal; the other places steering as the intervention half of a Locate-Steer-Improve pipeline categorized by the interpretable object being acted on. Neither tests steering on reasoning itself, so whether a reasoning process is steerable the way an attribute like toxicity is remains open in this archive.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05732",
+      "kind": "paper",
+      "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+      "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.502",
+      "kind": "paper",
+      "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
+      "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "steering",
+  "related": [
+    "sparse-autoencoder",
+    "monosemanticity",
+    "circuit",
+    "superposition",
+    "feature-co-activation",
+    "geometric-alignment",
+    "localization",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "circuit-discovery",
+    "multi-point-intervention",
+    "mechanistic-interpretability",
+    "actionable-interpretability",
+    "intervention-protocol",
+    "interpretable-object",
+    "literature-survey",
+    "localization-methods"
+  ],
+  "schema_version": 1,
+  "slug": "steering",
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

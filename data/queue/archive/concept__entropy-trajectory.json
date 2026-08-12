@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+        "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.",
+        "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T02:49:07Z",
+  "created_at": "2026-08-08T02:45:49Z",
+  "instructions": "Write the wiki definition for 'entropy trajectory'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "entropy trajectory",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "entropy trajectory",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "entropy dynamics"
+    ],
+    "definition": "The ordered sequence of per-step entropies over a single generation, treated as a signal in its own right rather than collapsed into a mean. Both sources argue that this temporal structure carries information that aggregate statistics discard, and both find that correct and incorrect reasoning have different trajectory shapes — but they characterize the shape differently and at different granularity. One works at the token level and identifies instability as the signature of error: incorrect solutions show 1.7-3.6x more entropy fluctuation, with burst spikes of sustained growth and peak-valley spikes where confidence is reached and then lost. The other works at the reasoning-step level and identifies a regime shift instead: a high-entropy Uncertainty Region that transitions abruptly into a low-entropy Confidence Region, with the location of that transition, not its raggedness, predicting correctness. The two are compatible readings of the same object at different scales, but neither source tests the other's characterization.",
+    "kind": "concept",
+    "related": [
+      "token-level entropy",
+      "entropy collapse",
+      "self-consistency",
+      "AIME24",
+      "AIME25",
+      "process supervision"
+    ]
+  },
+  "task_id": "concept__entropy-trajectory",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

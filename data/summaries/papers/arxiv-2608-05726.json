@@ -1,0 +1,46 @@
+{
+  "concepts": [
+    "calibration",
+    "scoring bias",
+    "meta-evaluation",
+    "judge reliability",
+    "token probability rectification"
+  ],
+  "contributions": [
+    "A random-number-generation probe that isolates an LLM's latent numerical bias independently of evaluated content",
+    "Task-conditioned bias measurement by adding the downstream task definition to the probe prompt",
+    "A token-probability rectification step applied at judging time",
+    "Evidence that scoring bias varies across models, tasks and score ranges"
+  ],
+  "datasets": [
+    "Semantic Textual Similarity",
+    "Semantic Textual Relatedness",
+    "summarization evaluation task",
+    "LLM alignment evaluation task"
+  ],
+  "generated_at": "2026-08-08T12:13:21Z",
+  "generated_by": "paper",
+  "limitations": "No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number request, which is a modelling choice rather than a fact about the intended judge behaviour. Rectification needs access to token generation probabilities, so it does not apply to judges behind APIs that do not expose logprobs. Bias varying by score range means a single measured distribution may not correct the tails.",
+  "method": "The LLM is instructed to generate number tokens at random, and its latent numerical bias is identified as the deviation of the observed number distribution from uniform. Because a random-number request has no correct answer, any deviation is attributable to the model rather than to the content — that is what makes the measurement a clean bias probe. A definition of the downstream task the judge will be used for is added to the random-number prompt, yielding a task-specific latent bias. At evaluation time the token generation probabilities for a given input are rectified using the measured bias.",
+  "methods": [
+    "LLM-as-a-judge",
+    "random number generation probe",
+    "probability rectification",
+    "calibration"
+  ],
+  "models": [],
+  "one_liner": "Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.",
+  "paper_id": "arxiv:2608.05726",
+  "problem": "LLM judges tend to produce particular scores regardless of the evaluated text, a scoring bias that corrupts their use as evaluation metrics. Existing calibration methods do not isolate where the bias comes from.",
+  "relevance": {
+    "reasoning-evaluation": "LLM judges are how much reasoning work gets scored once the answer is not a checkable string, so a bias in the judge is a bias in the field's measurements. The useful part for this archive is the probe rather than the fix: a random-number request has no correct answer, so deviation from uniform is a content-free estimate of the judge's prior, and it is cheap enough to run as a routine control. The finding that bias varies by score range matters most for reasoning evaluation, where scores cluster high and the compressed top of the scale is exactly where discrimination is needed."
+  },
+  "results": "On four tasks — LLM alignment evaluation, summarization evaluation, Semantic Textual Similarity and Semantic Textual Relatedness — the method outperforms an undebiased LLM and previous calibration methods. Scoring bias is confirmed to vary across LLMs, tasks and score ranges.",
+  "schema_version": 1,
+  "tags": [
+    "llm-as-a-judge",
+    "calibration",
+    "scoring bias",
+    "evaluation"
+  ]
+}

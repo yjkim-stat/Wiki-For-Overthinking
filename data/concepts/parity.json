@@ -1,0 +1,59 @@
+{
+  "aliases": [
+    "Parity",
+    "k-parity",
+    "parity learning"
+  ],
+  "definition": "The k-parity task — whether an odd number of k relevant bits among n are set — used by both sources as the canonical testbed for what intermediate supervision buys, because the separation is sharp and proved rather than observed. Without intermediate supervision it is hard for finite-precision gradient methods; with explicit chain of thought even a one-layer transformer learns it efficiently. That makes it the cleanest available instrument for studying how CoT turns an expressible solution into a reachable one. In the archive it carries two results: that CoT changes the generalization bound from exponential to linear in reasoning length, and that internalizing the chain into hidden states preserves polynomial sample efficiency.",
+  "evidence": [
+    {
+      "id": "local:03f1eff4f1d40725",
+      "kind": "paper",
+      "note": "Derives a non-vacuous PAC-Bayes generalization bound for transformers on boolean functions in terms of Fourier sparsity and degree, and uses it to show chain of thought turns an exponential dependence on reasoning length into a linear one for Parity.",
+      "title": "A Sharper Picture of Generalization in Transformers"
+    },
+    {
+      "id": "local:ee30f023d9f2d8fb",
+      "kind": "paper",
+      "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+      "title": "Transformers Provably Learn to Internalize Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-09T03:21:53Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "parity",
+  "related": [
+    "generalization",
+    "pac-bayes",
+    "flat-minima",
+    "sharpness",
+    "fourier-spectrum",
+    "expressivity-learnability-gap",
+    "sample-complexity",
+    "low-degree-bias",
+    "chain-of-thought",
+    "pac-bayes-bound",
+    "constructive-pac-bayes",
+    "sharpness-minimization",
+    "property-testing",
+    "fourier-analysis",
+    "mechanistic-interpretability",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "curriculum-learning",
+    "effective-depth",
+    "internalization",
+    "test-time-compute",
+    "log-icot",
+    "implicit-chain-of-thought",
+    "gradient-descent-analysis"
+  ],
+  "schema_version": 1,
+  "slug": "parity",
+  "topics": [
+    "reasoning-training",
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

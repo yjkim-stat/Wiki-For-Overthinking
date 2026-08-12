@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "overthinking",
+    "prompt difficulty",
+    "calibration",
+    "self-certainty",
+    "adaptive compute allocation",
+    "efficient reasoning"
+  ],
+  "contributions": [
+    "CAT: intrinsic self-certainty as a confidence signal inside preference optimization",
+    "Autonomous modulation of reasoning length by problem difficulty without an external difficulty estimator",
+    "Reported accuracy gains over state-of-the-art compression baselines across benchmarks and base models"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:15:49Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results in the abstract, so neither the accuracy gain nor the token saving can be weighed. Benchmarks and base models are unnamed. The approach depends on self-certainty being calibrated with respect to difficulty, which the abstract asserts rather than measures — an overconfident model would compress exactly the problems it is wrong about.",
+  "method": "Confidence-Adaptive Thinking incorporates the model's intrinsic self-certainty signals as confidence into the preference optimization process, letting reasoning length be modulated autonomously by problem difficulty. Using the model's own certainty rather than an external difficulty estimate is the distinguishing choice: difficulty is read off the model that will do the reasoning, not predicted for it.",
+  "methods": [
+    "preference optimization",
+    "Confidence-Adaptive Thinking",
+    "length compression"
+  ],
+  "models": [],
+  "one_liner": "Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.",
+  "paper_id": "doi:10.18653/v1/2026.acl-industry.152",
+  "problem": "Large reasoning models overthink simple queries, costing tokens and latency. Existing compression applies uniform length reduction or relies on coarse-grained difficulty estimation, which degrades performance on genuinely difficult problems — the cost of a uniform policy falls on the hard cases.",
+  "relevance": {
+    "reasoning-training": "Sits in the archive's difficulty-allocation cluster, and takes the position that the difficulty signal should come from the model's own certainty rather than from a separate estimator. That makes calibration the load-bearing assumption, and the archive's calibration line gives reason to doubt it — if confidence and correctness come apart, compressing confident answers compresses the wrong ones. The paper does not report a calibration check, so the claim rests on the accuracy result alone. It is one of four length-compression papers in this ACL batch, alongside long.146, long.1386 and long.1766."
+  },
+  "results": "CAT is reported to consistently outperform state-of-the-art baselines on reasoning accuracy across multiple benchmarks on different base models. No numbers, benchmark names or base models are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "confidence",
+    "preference optimization",
+    "length compression",
+    "thin-evidence"
+  ]
+}

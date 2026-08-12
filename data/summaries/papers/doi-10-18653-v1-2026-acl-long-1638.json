@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "construct validity",
+    "meta-evaluation",
+    "cognitive decomposition",
+    "pattern recognition versus reasoning",
+    "aggregate score compensation",
+    "self-correction"
+  ],
+  "contributions": [
+    "SMART, a benchmark decomposing mathematical problem-solving into Semantic Understanding, Mathematical Reasoning, Arithmetic Computation and Reflection/Refinement",
+    "Dimension-specific tasks that measure each cognitive process separately rather than through final answers",
+    "Evaluation of 22 open- and closed-source LLMs revealing substantial cross-dimensional capability discrepancies",
+    "The All-Pass Score, a metric requiring success across dimensions rather than on average"
+  ],
+  "datasets": [
+    "SMART"
+  ],
+  "generated_at": "2026-08-08T12:18:03Z",
+  "generated_by": "paper",
+  "limitations": "No numbers in the abstract, so the size of the cross-dimensional discrepancies is unstated and the models are not listed. The four-dimensional decomposition follows a theory of human problem-solving, and whether those dimensions carve model computation at its joints is assumed rather than shown. Dimension-specific tasks may themselves be confounded — a semantic-understanding task still requires reading and producing an answer.",
+  "method": "SMART, inspired by Polya's problem-solving theory, decomposes mathematical problem-solving into four cognitive dimensions — Semantic Understanding, Mathematical Reasoning, Arithmetic Computation, and Reflection/Refinement — and introduces dimension-specific tasks that measure each corresponding process separately. Measuring dimensions independently is what exposes compensation, where strength in one dimension masks weakness in another under a single aggregate score. A new All-Pass Score metric requires success across dimensions rather than on average.",
+  "methods": [
+    "SMART",
+    "All-Pass Score",
+    "dimension-specific evaluation",
+    "Polya problem-solving decomposition"
+  ],
+  "models": [],
+  "one_liner": "Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.1638",
+  "problem": "Strong benchmark performance leaves open whether it reflects genuine reasoning or superficial pattern recognition. Existing evaluation focuses either on the final answer or on intermediate steps, reducing mathematical reasoning to a shallow input-output mapping and overlooking that it is inherently multi-stage and multi-dimensional.",
+  "relevance": {
+    "reasoning-evaluation": "A direct construct-validity contribution: it argues a single math accuracy number aggregates over dimensions that can compensate for one another, and the All-Pass Score is a concrete alternative that refuses to average them. That is the same structural criticism the archive already holds from VAR-MATH, which varies problem instances, but arrives from a different direction — decomposing the task rather than perturbing it — and the two are complementary. It joins three other papers in this drain arguing that reasoning benchmarks measure something other than reasoning, alongside long.826 on perception and findings-acl.460 on code."
+  },
+  "results": "Applied to 22 state-of-the-art open- and closed-source LLMs, SMART uncovers substantial discrepancies in capability across the four dimensions and reveals genuine weaknesses in current models, motivating the All-Pass Score.",
+  "schema_version": 1,
+  "tags": [
+    "benchmark",
+    "construct validity",
+    "math reasoning",
+    "cognitive dimensions",
+    "metric design"
+  ]
+}

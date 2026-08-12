@@ -1,0 +1,161 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-4acfffb647c2e41f.pdf"
+  },
+  "completed_at": "2026-08-09T06:46:11Z",
+  "created_at": "2026-08-09T06:44:04Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:4acfffb647c2e41f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "when compression helps and when it hurts",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Chain-of-Thought (CoT) distillation transfers multi-step reasoning from large reasoning models to smaller students, but verbose teacher traces inflate both training and inference cost. Existing CoT compression methods fall into two families, selective pruning and generative rewriting, yet prior studies have left key factors entangled: granularity is confounded with importance criteria in pruning, restructuring level is rarely isolated in rewriting, and compression budgets are not systematically evaluated across domains or regimes. We recast CoT compression along three dimensions: importance criterion, restructuring level, and compression budget. Sweeping these across two model families, Math and General domains, and Long-/Short-CoT regimes, we find that (i) importance criterion utility is strictly governed by granularity: step-level criteria converge on a shared reasoning backbone, while token-level pruning requires symbol-aware signals to preserve the logical core; (ii) restructuring level inverts across domains: Math degrades monotonically with structural disruption, while aggressive rewriting acts as a denoiser on General tasks; (iii) training-time compression does not necessarily translate to inference-time savings: Long-CoT students retain verbose habits despite concise supervision, making the training ratio an optimistic lower bound on deployment cost. These findings yield condition-aware guidelines for matching compression to deployment context.",
+      "arxiv_id": "2606.21704",
+      "authors": [
+        "Siyang Lyu",
+        "Zhijing Sun",
+        "Xinghao Chen",
+        "Tong Liu",
+        "Dawei Zhu",
+        "Xiaoyu Shen"
+      ],
+      "doi": "",
+      "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "reasoning redundancy",
+      "overthinking",
+      "reasoning distillation",
+      "importance criterion",
+      "granularity",
+      "diffuse redundancy",
+      "reasoning skeleton",
+      "restructuring level",
+      "compression budget",
+      "symbolic anchors",
+      "reflective steps",
+      "inference token ratio",
+      "plateau-then-drop"
+    ],
+    "contributions": [
+      "The controlled comparison this literature lacked: three importance criteria run through an identical score-threshold-prune pipeline on the same traces at matched compression ratios, with granularity separated from the criterion so that step-level and token-level effects can be attributed.",
+      "The finding that step-level criteria converge on which steps to preserve while diverging on which to delete, with pairwise Jaccard overlap of preserved sets reported per ratio — which makes criterion choice largely irrelevant at step granularity and reframes the many published criteria as recovering one shared backbone.",
+      "The demonstration that token-level pruning is a different problem: probability-based scores delete twice the fraction of symbol and math tokens that a learned saliency score does, and a controlled ablation forbidding those deletions erases most of the performance gap, identifying symbol preservation rather than score quality as the operative factor.",
+      "A direct refutation of localized redundancy: reflective statements are 30.2% of a Long-CoT trace but targeting them is reported to give no advantage over ignoring them, because redundancy is diffuse — the reasoning skeleton is repeated and rephrased throughout rather than concentrated in a nameable class of step.",
+      "The restructuring-level inversion across domains, with Math degrading monotonically under structural disruption while General tasks benefit from aggressive rewriting, isolated as an independent variable from compression ratio for the first time.",
+      "The separation of target, realized and inference compression ratios, showing Long-CoT students retain verbose habits under concise supervision so that a reported training-side compression ratio is an optimistic lower bound on deployment cost."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "AMC23",
+      "AIME24",
+      "GPQA-Diamond",
+      "MMLU-PRO",
+      "LIMO",
+      "Natural Reasoning"
+    ],
+    "limitations": "The paper's own limitations name two: all fine-tuning is LoRA rather than full-parameter, chosen so that compression effects are not masked by a stronger distillation objective, and the Math/General split is a pragmatic dichotomy that leaves code generation and deep-search reasoning untested. A reader should add several scope facts before treating this as settling the comparison question. The setting is distillation — teacher traces compressed to supervise a student — so the criteria are being compared as sources of training data, not as inference-time stopping or pruning rules; several published criteria operate only at inference and are not in scope here. Only three importance criteria are compared, all of them generic scoring functions, so the reasoning-specific criteria in circulation — marginal utility against the gold answer, process-reward scores, a model's own likelihood landscape over semantic units, a commitment boundary located by truncation, a change-point in predictive entropy, skill-aware step decomposition — are untested by this design. The headline agreement number is regime-dependent: 70-80% overlap is the light-compression figure and the same pairs fall to 0.36-0.38 at a 0.5 ratio, which is the regime where the choice would matter most. The reflective-step measurement is a keyword proxy over terms like 'wait' and 'let me check', and the claim that targeting reflection does not help rests on an appendix ablation rather than the main results. The rewriter is a single closed model, so the restructuring spectrum is confounded with that model's habits. And the primary student is one 8B model, with other families reported in an appendix.",
+    "method": "CoT compression is recast as a controlled design problem with three orthogonal dimensions and swept. The importance criterion is instantiated three ways — LLMLingua2 as a learned saliency score, entropy as uncertainty, and negative log-likelihood as surprisal — each applied through the same score-threshold-prune pipeline so that only the score differs. Granularity is separated from the criterion by running each score at the step level and at the token level. The restructuring level is a four-point spectrum applied by Gemini 2.5 Flash as rewriter, from structural preservation that removes only surface words while keeping the verbatim logical sequence, through step editing and semantic fusion, to framework replacement that discards the original structure for a predefined template. The compression budget is tracked as three distinct quantities that prior work conflates: the target ratio used as the control knob, the realized ratio actually achieved on the trace, and the inference token ratio the student subsequently generates at deployment. Students are fine-tuned with LoRA on the compressed data, primarily LLaMA-3.1-8B-Instruct with the Qwen2.5 series for cross-model checks. Two supervision regimes are built deliberately — a Short-CoT set of 5k instances from Natural Reasoning and a Long-CoT set from LIMO — and evaluated on Math benchmarks (GSM8K and MATH500 for short; MATH500, AMC23 and AIME24 for long) and General ones (GPQA Diamond and MMLU-PRO). To ask whether different criteria pick the same content, pairwise Jaccard overlap between the preserved-step sets is computed at matched target ratios, and deleted tokens are classified into math-like patterns, stopwords and other content. A controlled ablation then prevents entropy and NLL from deleting math tokens, to test whether that single restriction accounts for the learned criterion's advantage.",
+    "methods": [
+      "chain-of-thought compression",
+      "selective pruning",
+      "generative rewriting",
+      "LLMLingua2",
+      "supervised finetuning",
+      "LoRA",
+      "Jaccard overlap analysis",
+      "reasoning distillation"
+    ],
+    "models": [
+      "Llama-3.1-8B-Instruct",
+      "Qwen2.5",
+      "Gemini 2.5 Flash"
+    ],
+    "one_liner": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
+    "problem": "Methods for shortening a chain of thought have multiplied without a controlled comparison, and three factors have stayed entangled. In selective pruning, the unit being deleted is confounded with the score used to decide — so it is unclear whether a reported difference comes from the criterion or from operating on tokens rather than steps. In generative rewriting, how far the trace is restructured is never isolated from how much is removed. And compression budgets are reported at one setting in one domain, with no sweep across domains, reasoning-length regimes or intensities. The consequence the paper names is that the field is tuning by trial and error rather than designing, because nothing establishes what actually drives effective compression.",
+    "relevance": {
+      "reasoning-training": "Answers a question this archive had recorded as open. The redundancy entry here notes that eleven sources locate the useless part of a chain in different places and that none compares those criteria against each other on the same trace, so whether they mark the same tokens is unknown. This runs that comparison for three of them and returns a structured answer rather than a winner: at step granularity the criteria agree on what to keep and disagree on what to cut, which means the archive's methods are probably recovering one backbone and differing only over interchangeable filler — and it explains why so many independently-designed criteria all report large reductions. It also overturns a premise several archived methods are built on. Reflection-targeted pruning, penalties on reflection tokens and stopping at reflection transitions all assume redundancy is concentrated in an identifiable class of step; this reports that assumption buys nothing in a controlled test, because the skeleton is repeated throughout rather than padded at identifiable points. The scope limit matters and should travel with the claim: this compares three generic scoring functions in a distillation setting, so the archive's reasoning-specific criteria are still uncompared, and the strong agreement figure is a light-compression result that decays by half at aggressive ratios.",
+      "test-time-scaling": "Adds a distinction this topic keeps eliding — that a compression ratio measured on training data is not the ratio a deployed model generates. Short-CoT students land on the diagonal where the two agree, while Long-CoT students keep verbose habits despite being trained on concise supervision, so the reported training-side number is an optimistic lower bound on deployment cost. That is directly relevant to the archive's efficiency claims, which usually report token reductions without separating the two, and it predicts that a method validated by compressing supervision will underdeliver at inference precisely in the long-chain regime this topic cares about. The accuracy-versus-compression shape is also worth carrying: not gradual decay but a plateau holding within 90% of baseline over a wide interval and then a sharp collapse past a threshold, which is the same 'flattens then breaks' pattern the topic observes from the spending side."
+    },
+    "results": "At the step level the three criteria largely agree. Pairwise Jaccard overlap between preserved-step sets is 0.75 for entropy against LLMLingua2, 0.76 for NLL against LLMLingua2 and 0.92 for entropy against NLL at a 0.1 ratio, falling to 0.36, 0.38 and 0.78 at 0.5 — so the strong agreement the paper summarizes as 70-80% holds at light compression and decays as more is cut. The asymmetry is the finding: the criteria converge on which steps to preserve and diverge on which to delete, which the paper reads as all of them recovering the same critical reasoning backbone while treating the remainder as peripheral and interchangeable. At the token level that robustness collapses. Entropy and NLL each delete 30% of symbol and math tokens at a realized 0.3 ratio against LLMLingua2's 15%, with the learned criterion shifting its deletions onto stopwords at 54% against roughly 28-29%. The controlled ablation closes the loop: simply forbidding entropy and NLL to delete math tokens makes most of their performance gap to LLMLingua2 disappear, so the advantage is specifically symbol preservation rather than better scoring. The paper also refutes the premise that redundancy sits in a nameable class of step. Reflective steps are 0.57% of a Short-CoT trace and 30.2% of a Long-CoT one, yet pruning methods that deliberately target reflective statements are reported to perform no better than those that ignore them; the stated reason is that redundancy in Long-CoT is diffuse, with the critical reasoning skeleton repeated and rephrased throughout, so moderate compression is robust as long as that skeleton survives regardless of which elaborations go. Two further results are independent of the criterion question. Restructuring inverts by domain: on Math accuracy falls monotonically as structural disruption increases, leaving structure preservation the only reliable choice, while on General tasks aggressive rewriting matches or beats it by acting as a denoiser. And training-time compression does not buy inference-time savings uniformly — Short-CoT students land on the diagonal where inference ratio tracks realized ratio, while Long-CoT students keep verbose habits despite concise supervision, so the training ratio is an optimistic lower bound on deployment cost. Accuracy degrades as a plateau-then-drop, holding within 90% of baseline over a wide interval before collapsing past a threshold.",
+    "tags": [
+      "compression",
+      "distillation",
+      "redundancy",
+      "overthinking",
+      "efficiency",
+      "controlled comparison"
+    ],
+    "topics": [
+      "reasoning-training",
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__local-4acfffb647c2e41f",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+        "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
+        "title": "Multi-component Causal Tracing in Large Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.",
+        "title": "Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+        "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+        "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+        "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:32:58Z",
+  "created_at": "2026-08-09T06:27:51Z",
+  "instructions": "Write the wiki definition for 'superposition'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "superposition",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "superposition",
+    "source_count": 6
+  },
+  "result": {
+    "definition": "The hypothesis that a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is workable only when features activate sparsely, since otherwise interference between them cancels the gain. It is the reason the archived sources reach for sparse dictionary learning at all: if it holds, features are recoverable as directions but not as neurons. All six treat it as a premise rather than something they test — stated as the hypothesized cause of polysemanticity and the motivation for a sparsity penalty, or inherited as the standard justification in this literature. Two of the newer entries put the premise to work indirectly: one argues that if features are directions in superposition then run-to-run consistency of a recovered dictionary is a meaningful thing to demand of a method, and one relaxes the search over which components to intervene on into a continuous one, which is coherent with features being distributed across components rather than located in any single one."
+  },
+  "task_id": "concept__superposition",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

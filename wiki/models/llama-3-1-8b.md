@@ -1,0 +1,25 @@
+# Llama-3.1-8B
+
+<!-- auto:begin -->
+
+An 8B model from the Llama-3.1 family, used here as a non-reasoning baseline and a generalization check. Two roles: its mutual-information trajectory is compared against its R1-distilled counterpart to show that MI peaks are much weaker in models without reasoning training (mean MI 0.0863 against 0.1279), and it is one of the four model families whose entropy-performance exchange curve is fitted to argue the relationship is not Qwen-specific.
+
+- **Kind**: model
+- **Also called**: LLaMA-3.1-8B, Llama-3.1-8B-Instruct
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 4
+
+**Related**: [activation patching](../methods/activation-patching.md), [AIME24](../datasets/aime24.md), [AMC23](../datasets/amc23.md), [budget forcing](../methods/budget-forcing.md), [causal analysis](../methods/causal-analysis.md), [chain of thought](../methods/chain-of-thought.md), [circuit analysis](../methods/circuit-analysis.md), [circuit discovery](../methods/circuit-discovery.md), [CommonsenseQA](../datasets/commonsenseqa.md), [DAPO](../methods/dapo.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [entropy collapse](../concepts/entropy-collapse.md), [epistemic verbalization](../concepts/epistemic-verbalization.md), [exploration-exploitation trade-off](../concepts/exploration-exploitation-trade-off.md), [generalization](../concepts/generalization.md), [GPT-J 6B](gpt-j-6b.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [information bottleneck](../concepts/information-bottleneck.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-70B](llama-3-1-70b.md), [Llama-3.2-1B](llama-3-2-1b.md), [localization](../concepts/localization.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [memorization](../concepts/memorization.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [modularity](../concepts/modularity.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [OlympiadBench](../datasets/olympiadbench.md), [pass-k](../methods/pass-k.md), [PPO](../methods/ppo.md), [Pythia-410M](pythia-410m.md), [Qwen2.5-14B](qwen2-5-14b.md), [Qwen2.5-32B](qwen2-5-32b.md), [Qwen2.5-7B](qwen2-5-7b.md), [Qwen2.5-Math-7B](qwen2-5-math-7b.md), [Qwen2.5-VL-7B](qwen2-5-vl-7b.md), [QwQ-32B](qwq-32b.md), [reasoning boundary](../concepts/reasoning-boundary.md), [reasoning distillation](../methods/reasoning-distillation.md), [reasoning trajectory](../concepts/reasoning-trajectory.md), [REINFORCE++](../methods/reinforce.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md), [self-correction](../concepts/self-correction.md), [test-time scaling](../methods/test-time-scaling.md)
+
+## Appears in
+
+- [Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models](../../archive/papers/2026/local-1b977d02353e100b/summary.md) — Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.
+- [Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics](../../archive/papers/2025/local-26fdb25b9d157d04/summary.md) — Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.
+- [Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning](../../archive/papers/2025/local-2c3407071e27c9d6/summary.md) — Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.
+- [Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?](../../archive/papers/2025/local-b050d2841cbb4959/summary.md) — Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

@@ -1,0 +1,25 @@
+# DAPO-Math-17K
+
+<!-- auto:begin -->
+
+The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would otherwise be, since the training distribution is held fixed while the objective varies. One source complicates its use by showing that a roughly 600-sample subset selected by K-means clustering performs comparably to the full set, so its size is not what is doing the work.
+
+- **Kind**: dataset
+- **Also called**: DAPO-17K, DAPO-Math-17K, DAPO-Math-17k
+- **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 4
+
+**Related**: [advantage function](../concepts/advantage-function.md), [AIME 24](aime-24.md), [AIME 25](aime-25.md), [AIME24](aime24.md), [AIME25](aime25.md), [AMC23](amc23.md), [calibration](../methods/calibration.md), [chain-of-thought compression](../methods/chain-of-thought-compression.md), [Clip-Cov](../methods/clip-cov.md), [clip-higher](../methods/clip-higher.md), [credit assignment](../concepts/credit-assignment.md), [DAPO](../methods/dapo.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [DPO](../methods/dpo.md), [entropy bonus](../concepts/entropy-bonus.md), [entropy collapse](../concepts/entropy-collapse.md), [entropy regularization](../methods/entropy-regularization.md), [exploration-exploitation trade-off](../concepts/exploration-exploitation-trade-off.md), [GRPO](../methods/grpo.md), [KL-Cov](../methods/kl-cov.md), [length penalty](../methods/length-penalty.md), [LiveCodeBench](livecodebench.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MATH500](math500.md), [Minerva](minerva.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [pass-k](../methods/pass-k.md), [policy entropy](../concepts/policy-entropy.md), [policy gradient masking](../methods/policy-gradient-masking.md), [PPO](../methods/ppo.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B](../models/qwen3-8b.md), [reasoning redundancy](../concepts/reasoning-redundancy.md), [reasoning skeleton](../concepts/reasoning-skeleton.md), [RLVR](../methods/rlvr.md), [self-correction](../concepts/self-correction.md), [supervised finetuning](../methods/supervised-finetuning.md), [token-level entropy](../concepts/token-level-entropy.md), [TokenSkip](../methods/tokenskip.md), [VeRL](../methods/verl.md)
+
+## Appears in
+
+- [Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning](../../archive/papers/2025/local-7d5e3edea2d46b92/summary.md) — Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.
+- [On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models](../../archive/papers/2026/local-837612b527cb427c/summary.md) — Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.
+- [Revisiting Entropy in Reinforcement Learning for Large Reasoning Models](../../archive/papers/2026/local-c70c8f6b2ab7db16/summary.md) — A systematic empirical study of entropy in RLVR that finds entropy correlates with response diversity but only weakly and inconsistently with accuracy, identifies clipping thresholds, off-policy updates and data diversity as its drivers, and argues positive-advantage tokens are what collapses it.
+- [Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs](../../archive/papers/2026/local-d3ff7e5088463145/summary.md) — Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

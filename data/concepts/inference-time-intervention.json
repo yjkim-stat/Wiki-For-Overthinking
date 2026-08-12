@@ -1,0 +1,50 @@
+{
+  "aliases": [
+    "inference-time defense",
+    "test-time intervention",
+    "decoding-time intervention"
+  ],
+  "definition": "Changing what a model does at generation time without touching its parameters, which both sources adopt for the same reason: fine-tuning-based defences are costly and do not scale. Both also place the intervention mid-trajectory rather than at the input or the output, because that is where they locate the failure. One reads internal attention to find key points in the reasoning path and injects safety-oriented reflections there, then samples to select a safe path. The other extracts objective visual evidence into a structured intent representation and enforces safety constraints before generation, on the finding that models perceive risk cues correctly and then lose them as narrative coherence takes over. Both need white-box access.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1453",
+      "kind": "paper",
+      "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
+      "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1821",
+      "kind": "paper",
+      "note": "Identifies a multimodal failure where models see the risky visual cue but let narrative coherence override safety as reasoning proceeds, and defends against it by extracting intent before generation.",
+      "title": "Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "inference-time intervention",
+  "related": [
+    "aha-moment",
+    "jailbreak",
+    "attention-pattern",
+    "test-time-compute",
+    "exaggerated-safety",
+    "reasoning-path-selection",
+    "reasoningguard",
+    "attention-analysis",
+    "scaling-sampling",
+    "safety-reflection-injection",
+    "safety-context-amnesia",
+    "multimodal-reasoning",
+    "narrative-coherence",
+    "perception-versus-reasoning",
+    "intent-guided-safety-reasoning",
+    "perception-decoupling",
+    "chain-of-thought"
+  ],
+  "schema_version": 1,
+  "slug": "inference-time-intervention",
+  "topics": [
+    "reasoning-training"
+  ]
+}

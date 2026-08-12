@@ -1,0 +1,97 @@
+{
+  "aliases": [
+    "steering",
+    "steering vector",
+    "activation addition",
+    "representation engineering"
+  ],
+  "definition": "Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive addition as the baseline and find it insufficient: it imposes one intervention across semantically diverse inputs and does not persist across layers, failing entirely on sycophancy and refusal. CircuitSteer instead selects features across multiple layers by co-activation and decoder-direction alignment and intervenes at several points. Steering also appears here as a controllability tool rather than an interpretability one, used to set a simulated patient's resistance level, and one source reports that a reasoning model's eventual token count is linearly decodable from the question's activations before any reasoning token is emitted, which makes reasoning length a steerable quantity.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04524",
+      "kind": "paper",
+      "note": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
+      "title": "ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance"
+    },
+    {
+      "id": "arxiv:2608.05732",
+      "kind": "paper",
+      "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+      "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.502",
+      "kind": "paper",
+      "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
+      "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models"
+    },
+    {
+      "id": "local:77b3413236375923",
+      "kind": "paper",
+      "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T06:13:28Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "activation steering",
+  "related": [
+    "sycophancy",
+    "structured-chain-of-thought",
+    "synthetic-data-generation",
+    "behavioural-fidelity",
+    "chain-of-thought",
+    "supervised-fine-tuning",
+    "multi-agent-dialogue-simulation",
+    "llm-as-a-judge",
+    "odra-synthetic-cbt-session-dataset",
+    "sparse-autoencoder",
+    "monosemanticity",
+    "circuit",
+    "superposition",
+    "steering",
+    "feature-co-activation",
+    "geometric-alignment",
+    "localization",
+    "contrastive-activation-addition",
+    "circuit-discovery",
+    "multi-point-intervention",
+    "mechanistic-interpretability",
+    "actionable-interpretability",
+    "intervention-protocol",
+    "interpretable-object",
+    "literature-survey",
+    "localization-methods",
+    "reasoning-strength",
+    "pre-planning",
+    "prompt-difficulty",
+    "linear-probing",
+    "difference-in-means",
+    "steering-vector",
+    "end-of-thinking-token",
+    "overthinking",
+    "test-time-compute",
+    "latent-plan",
+    "lasso-regression",
+    "overthink-attack",
+    "budget-forcing",
+    "math500",
+    "aime24",
+    "olympiadbench",
+    "mmlu",
+    "alpacaeval",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwq-32b"
+  ],
+  "schema_version": 1,
+  "slug": "activation-steering",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-interpretability",
+    "reasoning-faithfulness"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
+        "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
+        "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:51Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'reasoning boundary'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning boundary",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "reasoning boundary",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "reasoning capability boundary",
+      "capability boundary",
+      "coverage"
+    ],
+    "definition": "The set of problems a model can solve given unlimited attempts, as distinct from what it solves on the first — the archive's two sources use it to ask whether RLVR adds capability or only sharpens sampling. They measure it with pass@k at large k and reach opposite verdicts, and the disagreement is entirely about the metric. Under plain pass@k the base model overtakes its RLVR-trained counterpart as k grows, which supports the boundary narrowing. Under CoT-Pass@K, which requires the reasoning to be correct and not only the answer, the RLVR model leads at every k up to 1024 — because base models produce wrong chains that coincidentally reach right answers, most visibly on short-answer mathematics. The boundary is therefore only as well defined as the correctness criterion used to draw it.",
+    "kind": "concept",
+    "related": [
+      "pass-k",
+      "chain of thought faithfulness",
+      "verification",
+      "benchmark contamination",
+      "reasoning distillation",
+      "exploration-exploitation trade-off"
+    ]
+  },
+  "task_id": "concept__reasoning-boundary",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -13,10 +13,12 @@ arxiv:
   # Default categories. A topic can override with its own `categories` list.
   # Swap in your own: stat.AP, math.ST, econ.EM, q-bio.QM, physics.*, ...
   categories:
+    # LOCAL: this archive is about language-model reasoning, so cs.CL leads and
+    # the statistics categories are dropped. See docs/LOCAL-DELTAS.md.
+    - cs.CL
     - cs.LG
     - cs.AI
     - stat.ML
-    - stat.ME
   # arXiv asks for at least 3 seconds between requests.
   min_request_interval_s: 3.0
 
@@ -85,7 +87,10 @@ conferences:
     restrict_to_venues: false
   # OpenReview covers the review-bearing venues before they hit proceedings.
   openreview:
-    enabled: true
+    # LOCAL: the API answers anonymous clients with HTTP 403
+    # `ChallengeRequiredError`, so every request fails and each failure costs
+    # the run its retry budget. See docs/commit-local/0016-turn-off-openreview.md.
+    enabled: false
     api_url: "https://api2.openreview.net/notes"
   # DBLP is the fallback index when the two above miss a venue.
   dblp:
@@ -113,6 +118,18 @@ conferences:
     fetch_details: true
     max_details_per_run: 60
 
+  # LOCAL: DBLP is bibliographic and carries no abstracts, so a paper only it
+  # knows about arrives with nothing but a title — and scoring weights a title
+  # hit 3.0 against an abstract hit 1.0, so it is judged on strictly less
+  # evidence than the same paper from another index. This fills the gap after
+  # collection. Not superseded by pdf_fetch: that feeds the reader, this feeds
+  # the scorer, and the scorer runs first.
+  # See docs/commit-local/0023-a-title-is-not-enough-to-score-a-paper.md.
+  abstracts:
+    enabled: true
+    max_lookups: 100
+    acl_anthology_url: "https://aclanthology.org"
+
   # Venues tracked by default. `dblp_key`, `openreview_prefix` and
   # `virtual_host` are used by the matching collector; leave one blank to skip
   # that collector for the venue. `name` is what ends up in the archive, so use
@@ -121,17 +138,14 @@ conferences:
   # Replace this list with your own. A venue that only Semantic Scholar knows
   # about still works: give it a `name` and leave the keys blank.
   venues:
+    # LOCAL: the venues this group tracks. See docs/LOCAL-DELTAS.md.
     - name: NeurIPS
       openreview_prefix: "NeurIPS.cc"
       dblp_key: "NeurIPS"
       virtual_host: "neurips.cc"
       # The venues are not on the same cycle: in the second half of a year
-      # NeurIPS's current programme is still the previous year's, so a shared
-      # sweep asks it for a page that does not exist. Pin the years that do.
+      # NeurIPS's current programme is still the previous year's.
       virtual_years: [2025, 2024]
-      # A year whose programme is split across locations lists each one
-      # separately. Keyed by year; a year that is absent uses the plain
-      # /virtual/<year>/papers.html page.
       virtual_locations:
         "2025": ["san-diego"]
     - name: ICLR
@@ -144,72 +158,19 @@ conferences:
       dblp_key: "ICML"
       virtual_host: "icml.cc"
       virtual_years: [2026, 2025]
-    - name: AISTATS
+    - name: ACL
       openreview_prefix: ""
-      dblp_key: "AISTATS"
-    - name: JMLR
+      dblp_key: "ACL"
+    - name: EMNLP
       openreview_prefix: ""
-      dblp_key: "J. Mach. Learn. Res."
-    # Examples of narrower tracks, commented out. Keep only what your group
-    # actually reads — every extra venue is another request per run.
-    # - name: CVPR
-    #   openreview_prefix: "thecvf.com"
-    #   dblp_key: "CVPR"
-    # - name: ACL
-    #   openreview_prefix: ""
-    #   dblp_key: "ACL"
-    # - name: KDD
-    #   openreview_prefix: ""
-    #   dblp_key: "KDD"
-    # - name: "Journal of the American Statistical Association"
-    #   openreview_prefix: ""
-    #   dblp_key: ""
+      dblp_key: "EMNLP"
+    - name: NAACL
+      openreview_prefix: ""
+      dblp_key: "NAACL"
+    - name: COLM
+      openreview_prefix: "colmweb.org"
+      dblp_key: ""
 
-curated:
-  # Weekly editor's picks: somebody reads a field's whole output and publishes
-  # the handful worth reading. That filter is judgement applied before any
-  # keyword sees the paper, which is exactly what a keyword cannot do.
-  #
-  # A list is read for POINTERS ONLY. Entries name a paper the way people say
-  # it out loud -- an acronym plus a paragraph of commentary -- so the title,
-  # authors and abstract are fetched from the arXiv id the entry links to. An
-  # entry linking to a blog post or a journal page has no bibliography to read
-  # and is skipped BY NAME in the log; file it through `inbox/` if you want it.
-  #
-  # Picks are scored like anything else. A hand-filed PDF skips scoring because
-  # filing it is the group's own editorial decision; a curated list is somebody
-  # else's, taken over a whole field rather than over your topics. Expect most
-  # of a general list to be rejected against a narrow archive -- that is the
-  # filter working, not failing.
-  enabled: true
-  # Issues to read per list, newest first. Weekly lists, so 4 is about a month:
-  # enough that a few missed runs lose nothing. Raise it to backfill.
-  max_issues: 4
-  # The link label that means "the paper itself". The commentary in an issue
-  # often names other work in passing, and following that would archive what
-  # the editor mentioned rather than what they picked. A list that uses no such
-  # label falls back to any arXiv link in the issue.
-  link_label: "Paper"
-  min_request_interval_s: 1.0
-  lists:
-    # The markdown mirror of DAIR.AI's weekly list. The LinkedIn and Substack
-    # editions are the same papers behind a login wall; this one is fetchable.
-    # The file is an index of issues, each linking into a per-year page.
-    - name: "DAIR.AI ML Papers of the Week"
-      url: "https://raw.githubusercontent.com/dair-ai/ML-Papers-of-the-Week/main/README.md"
-    # A single-page list works too: with no per-issue index, the page itself is
-    # read as one issue.
-    # - name: "Some Awesome List"
-    #   url: "https://raw.githubusercontent.com/user/repo/main/README.md"
-
-local:
-  # PDFs filed by hand. Drop a file into the inbox and the next run ingests it:
-  # the file moves to `data/pdfs/` under a content-addressed name, and a task is
-  # queued asking whoever drains the queue to read the document and supply the
-  # bibliography. A hand-filed PDF is never rejected by keyword scoring.
-  enabled: true
-  # Relative to the repository root. Also settable as `paths.inbox` in
-  # settings.yaml; this flag only decides whether the folder is looked at.
 
 youtube:
   enabled: true

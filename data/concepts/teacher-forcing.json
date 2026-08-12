@@ -1,0 +1,52 @@
+{
+  "aliases": [
+    "teacher-forced training"
+  ],
+  "definition": "Training a model on ground-truth prefixes rather than on its own generations. The sources treat it from opposite ends. One prices it: selecting a predictor consistent with the entire chain of thought on the training data learns with sample complexity logarithmic in the combined input and reasoning length, with a matching lower bound, so no other rule using chain data does fundamentally better. The other names it as the thing to move away from, arguing that the teacher-forced objective underlying next-token prediction is ill-suited to long-horizon reasoning and planning and proposing latent auxiliary targets instead. Statistically cheap and, by the second account, structurally limited.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05806",
+      "kind": "paper",
+      "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+      "title": "Hierarchical Latent Prediction for Language Models"
+    },
+    {
+      "id": "local:209065fd89f43691",
+      "kind": "paper",
+      "note": "Pins down the VC dimension of transformers as depth times parameters times a logarithm, and shows chain-of-thought learning by teacher forcing costs only logarithmically more as the number of reasoning steps grows.",
+      "title": "Tight Sample Complexity of Transformers"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "teacher forcing",
+  "related": [
+    "next-token-prediction",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "belief-state",
+    "compounding-error",
+    "planning-horizon",
+    "hierarchical-latent-prediction",
+    "multi-token-prediction",
+    "next-latent-prediction",
+    "speculative-decoding",
+    "auxiliary-pretraining-objective",
+    "sample-complexity",
+    "vc-dimension",
+    "generalization",
+    "expressivity-learnability-gap",
+    "inductive-bias",
+    "hard-attention",
+    "chain-of-thought",
+    "vc-dimension-analysis",
+    "pac-learning"
+  ],
+  "schema_version": 1,
+  "slug": "teacher-forcing",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

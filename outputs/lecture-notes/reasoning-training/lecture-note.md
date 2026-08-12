@@ -1,0 +1,366 @@
+# Reasoning Training
+
+_Lecture note assembled from the research archive_
+
+> Generated on 2026-08-12 from 116 archived source(s).
+> Regenerated on every render — put your own material in a separate file.
+
+## Scope
+
+How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
+
+Built from 116 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 100 of the papers have been read in full.
+
+Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
+
+## Where the field stands
+
+### 2026
+
+- **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.
+- **LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction** — A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.
+- **AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning** — Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.
+- **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** — Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.
+- **Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning** — Tests reasoning models on Theory of Mind tasks and argues their gains are increased robustness to prompt and task perturbation rather than a new ToM-specific ability.
+- **Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark** — An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.
+- **Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning** — Couples KV-cache compression and generation-length control under a single process-reward signal, compressing harder at high-reward reasoning steps and stopping early when confidence is high.
+- **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** — The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
+- **Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)** — An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.
+- **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** — Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.
+- **Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO** — A GRPO variant that teaches multimodal models to refuse when a referred object is absent, without losing localization accuracy on cases where it is present.
+- **SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts** — A speculative-decoding rollout engine for RL post-training that keeps the target sampling distribution exact while adapting the drafter at two timescales.
+- _...and 83 more._
+
+### 2025
+
+- **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** — Shows that reasoning ability can be incentivized in an LLM by pure reinforcement learning on verifiable tasks, with no human-annotated reasoning trajectories, and that the resulting reasoning patterns can be transferred to smaller models.
+- **On Reasoning Strength Planning in Large Reasoning Models** — Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.
+- **Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity** — Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.
+- **Dynamic Early Exit in Reasoning Models** — Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.
+- **Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs** — Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.
+- **Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization** — Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.
+- **Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning** — Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.
+- **The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models** — Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.
+- **The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training** — Trains reasoning models to be concise in proportion to difficulty by modulating the token penalty and the target length per problem, and fixes a distortion that naive reward weighting introduces into group-normalized RL.
+- **Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning** — Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.
+- **Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation** — Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.
+- **Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?** — Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.
+- _...and 1 more._
+
+### 2024
+
+- **The Expressive Power of Transformers with Chain of Thought** — Characterizes exactly how much computational power a chain of thought buys as a function of its length, sandwiching the class of languages a decoder recognizes with t(n) decoding steps between two standard complexity classes.
+- **Chain of Thought Empowers Transformers to Solve Inherently Serial Problems** — Proves a tighter no-CoT upper bound of AC^0 for constant-precision transformers, and shows T steps of chain of thought let a constant-depth model compute anything a size-T boolean circuit can.
+- **Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization** — Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.
+- **Free Process Rewards without Process Labels** — Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.
+
+### 2023
+
+- **Measuring Faithfulness in Chain-of-Thought Reasoning** — Measures how much a model's answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.
+- **Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting** — Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.
+- **Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective** — Proves via circuit complexity that bounded-depth Transformers cannot directly solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive Transformers can solve all of them by generating chain-of-thought derivations.
+
+### 2022
+
+- **STaR: Bootstrapping Reasoning With Reasoning** — Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.
+
+## Core ideas
+
+### overthinking
+
+Generating more reasoning than a problem needs, and the archive's largest cluster at 25 sources. The sources agree on the symptom and split on the cause, which is what keeps the term loose. One account locates it after the answer, where double-checking continues once the correct result is derived. One locates it before the problem starts, since models cannot recognize difficulty in advance — and a reasoning model's eventual token count is linearly decodable from the question's activations before a single reasoning token is emitted, which makes the length a decision rather than an outcome. One locates it in the reward, where a sequence-level efficiency penalty implicitly punishes long but correct trajectories so that training against length damages the reasoning it was meant to trim. Reported reductions run from roughly 40% to 87%, occasionally with accuracy gains, which suggests a substantial share of a long chain does no work. Three results added since sharpen the picture. Redundancy turns out not to sit in an identifiable class of step: pruning that targets reflective statements is reported to do no better than pruning that ignores them, because the reasoning skeleton is repeated and rephrased throughout. Cutting by structure is nonetheless not the same as cutting by length — removing the same token count by position rather than by graph role costs twenty points of accuracy. And the decision of when to stop is proved harder than the field has assumed: a fixed threshold on the probability that the current prefix is already correct can be arbitrarily far from optimal even when that probability is known exactly, because the comparison that matters is against the value of continuing.
+
+Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Red Teaming Large Reasoning Models; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models.
+
+### construct validity
+
+Whether a benchmark measures the thing its name claims, and the archive's dominant critical theme at 21 sources. The recurring finding is not that models are worse than reported but that the reported quantity is something else. Perception is misread as reasoning — about 80% of ARC-style failures are perceptual, and on one university-level multimodal benchmark a model scores higher with no image than with it. Format repair is misread as self-correction, with the content margin near zero at frontier scale. Guessing is misread as capability, with base models reaching right answers through wrong chains often enough to invert a headline pass@k result. Composition is misread as competence, with accuracy dropping nearly 30% when two individually solved steps are combined while humans show no such gap. The judges are implicated too: exact-match agreement, the field's standard validation metric, is shown insufficient across ~541,000 judgments, and forcing raters to pick one answer where several are defensible biases validation badly. The constructive responses in the archive are decomposition, ablation of the supposedly load-bearing modality, symbolic regeneration of problems, and scoring the process rather than the answer.
+
+Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning; Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark.
+
+### test-time compute
+
+Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
+
+Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments.
+
+### verification
+
+Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
+
+Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
+
+### chain of thought faithfulness
+
+Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.
+
+Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark; Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings.
+
+### reasoning redundancy
+
+The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen sources locate it differently — after the answer is derived, where double-checking continues; in tokens with negative marginal log-probability contribution to the correct answer; in segments the model's own likelihood landscape marks as extraneous; in the low-entropy convergence region after a sharp two-phase transition; in review nodes of a dependency graph that have too few descendants or sit too late; in steps receiving little attention from the reasoning-termination token; in later alternative solutions, argued to be actively harmful rather than merely wasteful; and in structure inherited from a teacher whose capacity did not match the student's. **This note previously recorded that no source compared these criteria on the same trace. One now does**, and the answer reframes the disagreement rather than settling it: at step granularity three importance criteria overlap 70-80% on which steps to *preserve* while diverging on which to *delete*, so the criteria converge on a shared reasoning backbone and differ only over interchangeable filler; at token granularity the agreement collapses, and only symbol-aware scoring avoids deleting operators and numbers. That study also refutes the premise several archived methods rest on, reporting that pruning which deliberately targets reflective statements performs no better than pruning that ignores them, because redundancy in long traces is diffuse — the skeleton is repeated and rephrased throughout rather than concentrated in a nameable class of step. Two caveats keep the question open: the comparison covers three generic scoring functions in a distillation setting, so the reasoning-specific criteria above are still untested against each other, and the 70-80% figure is a light-compression number that falls by half at aggressive ratios. Reported reductions run from roughly 40% to 87%, sometimes with accuracy gains.
+
+Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models; Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models; Optimizing Length Compression in Large Reasoning Models.
+
+### localization
+
+Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing question of this archive's interpretability work at fourteen sources. The sources agree it is possible and disagree about what a located component means. Granularity changes the answer: on propositional logic, four families of attention heads execute a sequential circuit, while on arithmetic the mechanism is an unordered bag of heuristic neurons, and no source tests whether a computation modular at head level is heuristic inside each head. Method choices change the answer too — how prompts are corrupted, which metric scores the effect and whether layers are patched singly or in windows all shift what activation patching reports, and single-component tracing cannot see components that matter only jointly. Two cautions recur. Being encoded is not being used: a concept can be linearly recoverable while having no influence on the output, and sparse autoencoders improve the first while attenuating the second. And what is located may be a state rather than a property, since memorizing and generalizing circuits compete during training.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
+
+### exploration-exploitation trade-off
+
+The tension this archive's entropy literature is organized around: a policy that concentrates probability mass gains reward on patterns it already has and stops discovering new ones. Twelve sources make it measurable rather than rhetorical, and they disagree about what to measure. The entropy family reads collapse as premature exploitation, supported by plain GRPO reaching the highest training reward at the lowest entropy, and takes pass@k at large k rather than accuracy as the metric that separates the two — which is also what supports the claim that RL sharpens sampling inside the base model's reachable set. Several sources then argue entropy is the wrong handle, replacing it with distributional deviation from the group average, with a diversity bonus over hidden-state representations that removes the pass@k degradation entropy methods leave behind, or with a per-token discriminator's deviation from a policy-weighted baseline. Two entries move the trade-off out of training entirely and pose it as a stopping problem — how many samples to draw before quitting — with classical optimal-stopping theory supplying the rule. A theoretical entry states the cost most sharply: exploration bought with an entropy bonus is paid for permanently in the location of the optimum unless the coefficient is annealed away.
+
+Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representation-Based Exploration for Language Models: From Test-Time to Post-Training; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
+
+### prompt difficulty
+
+How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.
+
+Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
+
+### adaptive compute allocation
+
+Spending different amounts of inference compute on different problems instead of a uniform budget, which is the largest cluster in the archive at seven sources. They agree on the goal and disagree entirely on where the difficulty signal comes from: the model's own self-certainty, difficulty cues injected into an output prefix, per-query token limits derived from the model's own thinking responses, a single mode-selection token carrying the efficiency reward, a process-reward estimator scoring each completed step, a controller routing among fast, re-perceive and self-reflect paths, and an algorithm-agnostic measure of whether the answer has stopped changing. Reported savings are large and asymmetric — over 70% on easy problems against 40% on hard ones in one case. No source compares its signal against another's, so whether these seven mechanisms identify the same easy problems is unmeasured.
+
+Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
+
+### meta-evaluation
+
+Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
+
+Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
+
+### self-correction
+
+A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.
+
+Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; Optimizing Length Compression in Large Reasoning Models; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark.
+
+## Methods
+
+| Method | Sources | Summary |
+| --- | ---: | --- |
+| chain of thought | 20 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| GRPO | 20 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
+| LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
+| pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
+| best-of-n | 9 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
+| self-consistency | 9 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
+| calibration | 8 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| supervised fine-tuning | 8 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| majority voting | 7 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| PPO | 7 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
+| process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
+| clip-higher | 6 | Raising the upper clipping bound of the importance ratio in a PPO-style objective, so low-probability tokens with positive advantages are not clipped away and can grow. Introduc... |
+| DAPO | 6 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
+| early exit | 6 | Terminating generation before the model would stop on its own. The four sources differ mainly in what signal triggers the exit: confidence in a trial answer induced at a reasoni... |
+| entropy regularization | 6 | Adding a term rewarding high policy entropy to the RL objective, the standard remedy for collapse inherited from classical RL. Every empirical source that tests it here reports... |
+| reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
+| reinforcement learning post-training | 6 | Applying RL after pretraining and supervised tuning to shape reasoning, the archive's default recipe and the object of six sources here. Four modify its reward — confining an ef... |
+
+## Benchmarks and datasets
+
+| Dataset / benchmark | Sources | Summary |
+| --- | ---: | --- |
+| AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
+| GSM8K | 18 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
+| AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
+| OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| GPQA-Diamond | 9 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| LiveCodeBench | 7 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
+| MATH | 6 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
+| Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
+| MMLU | 5 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
+| DAPO-Math-17K | 4 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
+| GPQA | 3 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
+| MMLU-PRO | 3 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
+| OMNI-MATH | 3 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
+| AIME | 2 | The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checka... |
+| AIME 24 | 2 | The 2024 American Invitational Mathematics Examination problems, used as a small, hard, automatically checkable math benchmark. The sources use it for selection and token-attrib... |
+| AIME 25 | 2 | The 2025 American Invitational Mathematics Examination problems, used as the more recent companion to AIME 24 and, because of its release date, as the less contamination-exposed... |
+| AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
+| AMC | 2 | A competition mathematics benchmark, used by both sources purely as an evaluation set reported alongside AIME and MATH500. Neither describes its contents, size or construction,... |
+
+## Reading path
+
+**Start here** — the anchor papers for this topic:
+
+1. 2501.12948
+1. 2305.20050
+1. 2203.14465
+
+**Then, in order of relevance:**
+
+1. **CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models** (2026)
+   - Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.
+   - <https://doi.org/10.18653/v1/2026.acl-industry.152>
+2. **Red Teaming Large Reasoning Models** (2026)
+   - A trustworthiness benchmark for reasoning models over truthfulness, safety and efficiency, using training paradigm as an analytical axis, and finding reasoning models more fragile than plain LLMs to reasoning-induced risks.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1034>
+3. **FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models** (2026)
+   - Finds that a reasoning model's first solution is usually its best and that later alternatives are actively harmful, characterizes the errors as a forest structure, and prunes accordingly.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1128>
+4. **Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models** (2026)
+   - Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1386>
+5. **CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization** (2026)
+   - Reframes unlearning in reasoning models as an intervention on the CoT itself, having the model generate logically valid counterfactual traces and iteratively preference-tuning toward them.
+   - <https://doi.org/10.18653/v1/2026.acl-long.143>
+6. **ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments** (2026)
+   - An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1453>
+7. **Optimizing Length Compression in Large Reasoning Models** (2026)
+   - Identifies double-checking after the correct answer is already derived as 'invalid thinking', and trains a GRPO variant with a compress reward that targets exactly that portion.
+   - <https://doi.org/10.18653/v1/2026.acl-long.146>
+8. **Quantifying and Understanding Uncertainty in Large Reasoning Models** (2026)
+   - Applies conformal prediction to the joint reasoning-answer structure of reasoning models, then attributes coverage to specific training examples and reasoning steps with Shapley values.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1511>
+9. **Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models** (2026)
+   - Two-stage fine-tuning that first injects difficulty cues into output prefixes for prospective strategy selection, then injects redundancy cues mid-reasoning for retrospective correction.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1766>
+10. **Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models** (2026)
+   - A benchmark showing that as reasoning capacity grows, instruction adherence falls, and that recovering obedience costs reasoning performance.
+   - <https://doi.org/10.18653/v1/2026.acl-long.1878>
+
+## Open problems
+
+Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
+
+- **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors' own matched OPSD reruns, which is the right comparison but leaves the absolute standing against other dense-supervision methods unstated. Requires a privileged teacher. The sequence-level mean as the reference point makes each token's weight depend on the whole rollout, so weights are not available online during generation.
+- **LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction** — No quantitative results in the abstract. The theoretical guarantees hold 'under suitable conditions' and at a matched randomness level, neither specified here. Evaluation is on image and video generation only; nothing is reported for language models or reasoning. Reward optimization in this setting is measured against learned reward models, whose gaming is a known failure mode not addressed.
+- **AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning** — Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so it is not applicable where none exists. Evaluated on three agentic environments at two scales, all Qwen2.5, so model-family generality is untested. Pivotal-turn identification is validated by downstream reward rather than against any ground truth of which turns mattered.
+- **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes English as the anchor and identifies pivots relative to that anchor rather than intrinsically. Restricted to mathematical reasoning. The claim that the method separates reasoning-control tokens from surface-realization tokens is an analysis of its own weights, not an independent validation.
+- **Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning** — The claim is a reading of the evidence, and the paper states the gains come 'at least partly' from robustness, so it does not exclude a ToM-specific component. Robustness and capability are not fully separated: a model with a genuine ToM mechanism would also be expected to be robust. No numbers are given in the abstract for the size of the robustness gain or the set of models tested.
+- **Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark** — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute accuracies are not given in the abstract. Attribution of the failure to memorized patterns rather than understanding is an interpretation of the pattern, not a controlled test — a contamination check on the proverbs is not reported.
+- **Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning** — 'Largely preserving accuracy' is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are not named. The process-reward estimator is an additional component whose own cost and calibration are not reported, and the claim that deleting tokens at high-reward steps is safer rests on that estimator being right about which steps are high-reward.
+- **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the abstract. Nudges are constructed, and their strength relative to real deployment biases is unknown. Detection depends on the monitor used, so the numbers bound this monitor rather than monitorability in general.
+- **Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)** — Evaluated only in two simulators, so transfer to real networks is unestablished. The 522% average degradation is reported without a per-environment breakdown or variance, and a percentage change above 100% implies a signed reward whose scale is not given. The Coder is frozen, so the search is over strategies expressible in its code vocabulary. No accuracy or reasoning-benchmark evaluation of the planner is reported, so the effect of RLVR on the planner's general reasoning is unknown.
+- **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported with inter-rater agreement or the number of psychologists. Downstream validation is against simulated patients, not human ones, so the claim that explicit resistance modelling transfers to clinical robustness is established only within simulation.
+- **Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO** — No quantitative results in the abstract, so the size of the trade-off improvement is unstated. The benchmarks are not named. The claim that the second reasoning stage consolidates causal understanding and interpretability is asserted without a stated measurement.
+- **SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts** — Datasets and models are not named in the abstract. Gains are in wall-clock time, not in final accuracy, and because the objective is unchanged the method is neutral on reasoning quality by construction. The 1.26-2.15x range is wide and its dependence on model scale is not broken out. The Reflex module's bounded corrections introduce a hyperparameter whose sensitivity is not reported.
+
+## References
+
+1. Eric Zelikman, Yuhuai Wu, Jesse Mu et al.. *STaR: Bootstrapping Reasoning With Reasoning*. cs.LG. 2022 <https://arxiv.org/abs/2203.14465>
+2. Guhao Feng, Bohang Zhang, Yuntian Gu et al.. *Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective*. NeurIPS 2023. 2023
+3. Miles Turpin, Julian Michael, Ethan Perez et al.. *Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting*. cs.CL. 2023 <https://arxiv.org/abs/2305.04388>
+4. Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. *Measuring Faithfulness in Chain-of-Thought Reasoning*. cs.AI. 2023 <https://arxiv.org/abs/2307.13702>
+5. Zhiyuan Li, Hong Liu, Denny Zhou et al.. *Chain of Thought Empowers Transformers to Solve Inherently Serial Problems*. preprint. 2024
+6. Lifan Yuan, Wendi Li, Huayu Chen et al.. *Free Process Rewards without Process Labels*. preprint. 2024
+7. *Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization*. NeurIPS 2024. 2024
+8. William Merrill, Ashish Sabharwal. *The Expressive Power of Transformers with Chain of Thought*. ICLR. 2024
+9. Shenzhi Wang, Le Yu, Chang Gao et al.. *Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning*. NeurIPS 2025. 2025
+10. Chen Qian, Dongrui Liu, Haochen Wen et al.. *Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning*. preprint. 2025
+11. Yang Yue, Zhiqi Chen, Rui Lu et al.. *Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?*. preprint. 2025
+12. Chenxu Yang, Qingyi Si, Yongjie Duan et al.. *Dynamic Early Exit in Reasoning Models*. preprint. 2025
+13. Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. *Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity*. preprint. 2025
+14. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
+15. Yuxiao Qu, Matthew Y. R. Yang, Amrith Setlur et al.. *Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning*. ICML 2025. 2025
+16. Xumeng Wen, Zihan Liu, Shun Zheng et al.. *Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs*. preprint. 2025
+17. Max Qiushi Lin, Jincheng Mei, Matin Aghaei et al.. *Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation*. preprint. 2025
+18. Ganqu Cui, Yuchen Zhang, Jiacheng Chen et al.. *The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models*. preprint. 2025
+19. *The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training*. NeurIPS 2025. 2025
+20. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
+21. DeepSeek-AI, Daya Guo, Dejian Yang et al.. *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning*. Nature volume 645, pages 633-638 (2025). 2025 <https://arxiv.org/abs/2501.12948>
+22. Ming Lei, Christophe Baehr. *A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models*. preprint. 2026
+23. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
+24. Tingyun Li, Zishang Jiang, Jinyi Han et al.. *ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.165>
+25. Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. *Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.215>
+26. Jiacheng Liang, Tanqiu Jiang, Yuhui Wang 0003 et al.. *AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1988>
+27. Zhiyuan Hu, Yibo Wang, Hanze Dong et al.. *Beyond &apos;Aha!&apos;: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1981>
+28. Xuanzhi Feng, Zhengyang Li, Zeyu Liu et al.. *Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning*. preprint. 2026
+29. Hoang Phan, Xianjun Yang, Yuanshun Yao et al.. *Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1717>
+30. Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. *Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models*. preprint. 2026
+31. Jianing Hao, Yuhe Wu, Yuanjian Xu et al.. *BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1198>
+32. Qizhi Jiang, Shuo Wang, Pei Ke et al.. *CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-industry.152>
+33. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
+34. Jiaxuan Zou, Yaozhong Xiong, Yong Liu. *Capabilities and Fundamental Limits of Latent Chain-of-Thought*. preprint. 2026
+35. Jincheng Liu, Sijun He, Jingjing Wu et al.. *ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.360>
+36. Junyi Li, Yongqiang Chen, Ningning Ding. *CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.143>
+37. Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. *DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.196>
+38. Benjamin Shih, John Winnicki, Eric Darve. *Do Models Read What They Write? Causal Registers in Scratchpad Reasoning*. preprint. 2026
+39. Chenghua Zhu, Siyan Wu, Xiangkang Zeng et al.. *EDIS: Diagnosing LLM Reasoning via Entropy Dynamics*. preprint. 2026
+40. Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. *ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1217>
+41. Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. *FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.662>
+42. Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. *FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1128>
+43. Ziyue Chen, David Šiška, Łukasz Szpruch. *Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs*. preprint. 2026
+44. Hongyuan Yuan, Xinran He, Run Shao et al.. *Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs*. ACL 2026 Findings. 2026
+45. Loris Bergeron, Ioana Buhnila, Jérôme François et al.. *HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.835>
+46. Andy Yang, Pascal Bergsträßer, Georg Zetzsche et al.. *Length Generalization Bounds for Transformers*. ICML. 2026
+47. Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. *Local Causal Attribution of Chain-of-Thought Reasoning*. Mechanistic Interpretability Workshop at ICML 2026. 2026
+48. Xinming Wang, Jian Xu 0015, Bin Yu et al.. *MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.204>
+49. Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. *MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.984>
+50. Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. *Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.582>
+51. Shuyang Jiang, Yuhao Wang, Ya Zhang 0002 et al.. *Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.237>
+52. Xiyao Dong, Guangsheng Cheng, YiLong Chen et al.. *Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1821>
+53. Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. *Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1149>
+54. Mohammed Ehab, Aymane El Gadarri, Vivek Farias et al.. *OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping*. preprint. 2026
+55. *On The Fragility of Benchmark Contamination Detection in Reasoning Models*. ICLR 2026. 2026
+56. Shumin Wang, Yuexiang Xie, Wenhao Zhang et al.. *On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models*. preprint. 2026
+57. Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. *Optimizing Length Compression in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.146>
+58. Atharva Naik, Prakam, Yash Mathur et al.. *PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.432>
+59. Yangyi Li, Chenxu Zhao, Mengdi Huai. *Quantifying and Understanding Uncertainty in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1511>
+60. *RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs*. ICLR 2026. 2026
+61. Zihang Liu 0001, Zhouhua Fang, Hui Liu et al.. *RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.885>
+62. Junyao Yang, Chen Qian 0010, Wen Shen et al.. *ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2201>
+63. Yongchan Kwon, Shang Zhu, Federico Bianchi 0001 et al.. *ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1456>
+64. Yeonjun In, Wonjoong Kim, Sangwu Park et al.. *Reasoning Structure Matters for Safety Alignment of Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.240>
+65. Yijie Hao, Lingjie Chen, Ali Emami et al.. *Reasoning Traces Shape Outputs but Models Won&apos;t Say So*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1986>
+66. Yuquan Wang, Mi Zhang 0001, Yining Wang et al.. *ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1453>
+67. Jiawei Chen, Yang Yang, Chao Yu et al.. *Red Teaming Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1034>
+68. Jens Tuyls, Dylan J. Foster, Akshay Krishnamurthy et al.. *Representation-Based Exploration for Language Models: From Test-Time to Post-Training*. ICLR 2026. 2026
+69. Renren Jin, Pengzhi Gao, Yuqi Ren et al.. *Revisiting Entropy in Reinforcement Learning for Large Reasoning Models*. preprint. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1266>
+70. Seungone Kim, Ian Wu, Jinu Lee 0001 et al.. *Scaling Evaluation-Time Compute with Reasoning Models as Evaluators*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2102>
+71. Tingchen Fu, Yafu Li, Jiawei Gu et al.. *Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1878>
+72. Qiang Huang, Wei Zhai, Feng Huang et al.. *Self-Reflection Improves Safety of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.678>
+73. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+74. Jacek Duszenko, Przemyslaw Kazienko, Jan Kocon. *Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-srw.20>
+75. Jiawei Li 0020, Yang Gao 0016, Huashan Sun et al.. *Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1386>
+76. Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. *Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1766>
+77. Siyuan Gan, Jiaheng Liu, Boyan Wang et al.. *Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2122>
+78. Chenxiao Yang, Nathan Srebro, Zhiyuan Li. *Tight Sample Complexity of Transformers*. COLT. 2026
+79. Yi Hu, Jiaqi Gu, Ruxin Wang et al.. *Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.889>
+80. Yixiao Huang, Hanlin Zhu, Zixuan Wang et al.. *Transformers Provably Learn to Internalize Chain-of-Thought*. preprint. 2026
+81. Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. *Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty*. preprint. 2026
+82. Huimin Xu, Shuai Zhao, Xiaobao Wu et al.. *Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization*. preprint. 2026
+83. Ting Xu, Xu He, Yupu Lu et al.. *Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+84. Jian Yao, Bowen Zheng, Ran Cheng et al.. *VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks*. preprint. 2026
+85. Siyang Lyu, Zhijing Sun, Xinghao Chen et al.. *When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation*. preprint. 2026
+86. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1118>
+87. Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. *Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.25>
+88. Zhenwen Liang, Ruosen Li, Yujun Zhou 0002 et al.. *Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.788>
+89. Shigeng Wang, Chao Li, Yangyuxuan Kang et al.. *Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization*. cs.CL. 2026 <https://arxiv.org/abs/2608.01078>
+90. Yibin Huang, Bin Xu, Hailong Cao et al.. *BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent*. cs.CL. 2026 <https://arxiv.org/abs/2608.01321>
+91. Jianan Xie, Xin Sun, Zhongqi Chen et al.. *EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents*. cs.CL. 2026 <https://arxiv.org/abs/2608.01359>
+92. Soumadeep Saha, Krish Sharma, Akshay Chaturvedi et al.. *BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?*. cs.CL. 2026 <https://arxiv.org/abs/2608.02867>
+93. Xuehang Guo, Pingyue Zhang, Ruiyi Zhang et al.. *CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning*. cs.CV. 2026 <https://arxiv.org/abs/2608.02833>
+94. Mengting Ai, Jingrui He, Yue Guo. *Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression*. cs.CL. 2026 <https://arxiv.org/abs/2608.01631>
+95. Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. *Evading Chain-of-Thought Monitoring Through Model Poisoning*. cs.CR. 2026 <https://arxiv.org/abs/2608.02820>
+96. Zhijian Zhou, Long Li, Xuan Zhang et al.. *Start Classifying: Categorical Critics for LLM Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.02181>
+97. Le Xiang, Zhicheng Guan, Hong Chen et al.. *DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.03292>
+98. Yongshi Ye, Liang Zhang, Yidong Chen et al.. *Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.03119>
+99. Yongshi Ye, Biao Fu, Chongxuan Huang et al.. *PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation*. cs.CL. 2026 <https://arxiv.org/abs/2608.03077>
+100. Dominik Meier, Luca Joshua Francis, Marco Bernhard Kaiser et al.. *Risky Business: Measuring The Faithfulness-Safety Tension*. cs.AI. 2026 <https://arxiv.org/abs/2608.03745>
+101. Denys Pushkin, Albert Q. Jiang, Aryo Lotfi et al.. *Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve*. cs.AI. 2026 <https://arxiv.org/abs/2608.03550>
+102. Bhavin Jawade, Cameron R. Wolfe. *TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.02975>
+103. Shashwat Sourav, Aishwarya Balwani. *The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics*. cs.LG. 2026 <https://arxiv.org/abs/2608.03291>
+104. Zhe Cao, Miaowen Wen, Fangjiong Chen. *When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO*. cs.AI. 2026 <https://arxiv.org/abs/2608.03467>
+105. Agatha Duzan, Asa Cooper Stickland. *Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings*. cs.AI. 2026 <https://arxiv.org/abs/2608.04735>
+106. Enrico Mensa, Lorenzo Zane, Calogero Jerik Scozzaro et al.. *Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark*. Proceedings of the Eleventh Italian Conference on Computational Linguistics (CLiC-it 2025), pages 722-734. 2026 <https://arxiv.org/abs/2608.04670>
+107. Ian B. de Haan, Peter van der Putten, Max van Duijn. *Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.04646>
+108. Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. *Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.04771>
+109. Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. *ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance*. cs.CL. 2026 <https://arxiv.org/abs/2608.04524>
+110. Nhat Minh Pham, Duy Tung Doan, Thi Duyen Ngo et al.. *SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts*. cs.LG. 2026 <https://arxiv.org/abs/2608.04962>
+111. Xuzheng Yang, Jun Ling, Tao Huang et al.. *Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO*. cs.CV. 2026 <https://arxiv.org/abs/2608.04698>
+112. Ryozo Masukawa, Ian Bryant, Armita Kazeminajafabadi et al.. *Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)*. cs.CR. 2026 <https://arxiv.org/abs/2608.04317>
+113. Zi-Han Wang, Zhengxi Lu, Zhiyuan Yao et al.. *AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05987>
+114. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
+115. Yingqing Guo, Hui Yuan, Zijian He et al.. *LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction*. cs.LG. 2026 <https://arxiv.org/abs/2608.05600>
+116. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>

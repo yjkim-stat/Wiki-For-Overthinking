@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
+        "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.",
+        "title": "Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T06:14:10Z",
+  "created_at": "2026-08-08T06:13:28Z",
+  "instructions": "Write the wiki definition for 'causal analysis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "causal analysis",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "causal analysis",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The family of intervention-based methods used across this archive to establish that a component or a written state matters, rather than merely correlates. The archived instances span the full range of strictness: unit removal fitted to a structural equation model (cheapest, but off-distribution), activation patching scored by whether the output changed (standard, and shown to be highly sensitive to corruption method and metric), truncation with forced answering (avoids corrupting the trace), and counterfactual state editing scored against the single consequence the transition rule implies (strictest, and the one that generic steering cannot pass). Which criterion a result used determines how much it establishes.",
+    "kind": "method",
+    "related": [
+      "causal mediation analysis",
+      "activation patching",
+      "circuit analysis",
+      "circuit discovery",
+      "localization"
+    ]
+  },
+  "task_id": "concept__causal-analysis",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-54a1c25fa51cd59a.pdf"
+  },
+  "completed_at": "2026-08-08T04:49:13Z",
+  "created_at": "2026-08-08T04:47:33Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:54a1c25fa51cd59a",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "Do Models Read What They Write Causal Registers in Scratchpad Reasoning",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "A central hope behind process supervision is that models can expose intermediate variables that matter for their later behavior. For this to help with alignment, a scratchpad must be tied to the computation: when the model writes a state, later steps should compute from that state. To test this requirement, we use a controlled state-tracking task with a known update rule, comparing models trained to report only the final state with models trained to write intermediate states before giving the final answer. At evaluation, we edit the internal representation of one written state while leaving the visible scratchpad text fixed. Because the transition rule is known, the edit has a single correct downstream consequence. In Qwen2.5-Coder-7B, the state-writing model predicts the next phase bit implied by the edited state on 80% and 91% of held-out examples across the two task variants, while pretrained and final-answer-only controls remain near baseline. Additional controls rule out generic next-token steering and copying another continuation: the prediction depends on both the edited state and the current move. The same causal-use pattern replicates across model families. Together, these results suggest a sharper goal for scratchpad oversight: not just to make intermediate reasoning legible, but to train written states that the model uses as part of its computation.",
+      "arxiv_id": "2606.29522",
+      "authors": [
+        "Benjamin Shih",
+        "John Winnicki",
+        "Eric Darve"
+      ],
+      "doi": "",
+      "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "causal register",
+      "scratchpad oversight",
+      "process supervision",
+      "chain of thought faithfulness",
+      "activation patching",
+      "representation editing",
+      "counterfactual state editing",
+      "causal abstraction",
+      "state tracking",
+      "residual stream",
+      "KV cache",
+      "linear probing",
+      "selectivity control"
+    ],
+    "contributions": [
+      "A causal target with a known right answer: because the task's transition rule is fully specified, editing the represented state has exactly one rule-consistent downstream consequence, so the patch is scored on whether the next state follows the edited value rather than on whether anything changed.",
+      "A controlled state-tracking task built so the discriminating variable is order-sensitive and invisible: states are a visible grid coordinate plus a phase bit that the coordinate does not determine, letting an edit change only the order-sensitive part while the printed prefix stays identical.",
+      "A three-condition comparison isolating the training signal — pretrained base, final-answer-only fine-tuned, and running-state fine-tuned — showing causal usability is created by supervision rather than present by default.",
+      "Two selectivity controls that rule out the cheap explanations: a move-swap control testing whether the model combines the edited state with the supplied move rather than emitting a fixed answer, and a conflicting-continuation control testing whether it recomputes rather than copying another example's future.",
+      "A mechanism analysis showing the phase feature is compact — rank 1 to 2 in a 3584-dimensional residual stream — while the route that uses it is concentrated in one task variant and distributed in the other."
+    ],
+    "datasets": [
+      "synthetic state-tracking task (Q8)",
+      "synthetic state-tracking task (D8)",
+      "Qwen2.5-Coder-7B",
+      "Mistral-7B-v0.3"
+    ],
+    "limitations": "The paper has no limitations section, though its conclusion is explicit that the next step is richer domains and names program states, theorem-prover goals, tool-call arguments, database updates, simulator states and plan variables as candidates. What a reader should weigh: the task is a synthetic finite transition system with a one-bit hidden state, chosen precisely because natural-language intermediate variables are rarely specified enough to audit — so the result establishes that a written state can become a causal register, not that chain-of-thought states in real reasoning are ones. The headline 0.80 and 0.91 are measured with the prefix supplied; under the more realistic condition where the model writes its own trace, Q8 one-step use falls to 0.66 and over half of Q8 rollouts are discarded by the prefix filter, so the effect is strong in one task variant and partial in the other. Models are two families at 7B. The edited subspace is estimated from a calibration split at a layer chosen on validation, so what counts as 'the state representation' is partly defined by the probing procedure, and the rank-16 projection is a design choice even though rank 1-2 suffices. Finally, the intervention is scored one step ahead in the main test; persistence over several steps and to the final answer is measured only in the generated-prefix setting, where it is weaker.",
+    "method": "A finite transition system supplies prompts of the form 'start state, sequence of moves'. A state is written v|p where v is one of four visible cells and each move flips one visible bit, while the phase bit p is printed in the running state but not determined by v, since two move orders can reach the same coordinate with different phase. Two non-commutative systems, Q8 and D8, instantiate this with different phase-bit update rules. For each model family, three variants are compared: pretrained, fine-tuned to emit only the final state, and fine-tuned to write the running state after every move. The intervention is applied at the token position holding the current phase bit. On a calibration split, a phase-bit subspace is estimated at a validation-selected layer by comparing mean activations for phase 0 against phase 1 within the same visible coordinate; the residual stream at that position is then shifted along a rank-16 projection of that subspace toward the opposite phase value. Token ids, printed scratchpad text, visible coordinate, upcoming move and prompt prefix are all held fixed — only an internal component moves. Because generation is KV-cached, the patched key/value entry at that position is what later tokens read, which is why the visible sequence can be identical while downstream logits differ. Success is defined as the next predicted phase bit equalling the rule applied to the edited state, not merely differing from the unedited prediction, and scoring is restricted to examples where the edited and unedited branches disagree. Counterfactual-update selectivity is the difference between agreement with the edited branch and agreement with the original. Controls: random and orthogonal-complement edits of the same rank; holding the edited state fixed while swapping the move; and injecting a counterfactual state drawn from a real context whose future is incompatible. A separate test lets the running-state model generate its own prefix rather than being supplied one. Mechanism analysis sweeps the patch rank and ablates individual attention connections between the current phase-bit token and the position predicting the next phase bit, with matched controls and restoration.",
+    "methods": [
+      "counterfactual state editing",
+      "activation patching",
+      "low-rank subspace projection",
+      "attention edge ablation and restoration",
+      "supervised finetuning",
+      "linear probing"
+    ],
+    "one_liner": "Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.",
+    "problem": "Process supervision assumes a scratchpad exposes intermediate variables that matter for later behaviour, but faithfulness work shows written reasoning can be incomplete, post-hoc or driven by features it never mentions. Three claims are routinely conflated in discussions of scratchpad oversight: that a state is written, that it is internally represented, and that the model actually computes from it. Ordinary accuracy cannot separate them, and the usual activation-patching target — does this component affect behaviour, restore a corrupted answer, or steer toward a class of outputs — is too loose, because any output change counts as success.",
+    "relevance": {
+      "reasoning-faithfulness": "The paper this archive was missing, and it raises the topic's standard of evidence. Every other faithfulness result here asks whether the trace reports an influence (cue injection), whether the answer depends on the trace at all (perturbation), or where the answer forms (truncation and probing). This asks the strictest version — is the written value a variable the model computes from — and it can ask that because the transition rule fixes exactly one correct downstream consequence, so a patch either produces the rule-implied next state or it does not. That converts the usual 'did the output change' patching criterion into a test that generic steering cannot pass, which is exactly the methodological gap the archive's activation-patching sensitivity paper warns about. It also separates three things this topic keeps conflating: written, represented, and used. The archive's step-level probing result establishes that step correctness is represented; this establishes that a represented state can additionally be used, and that whether it is depends on supervision. The honest boundary is that it holds on a synthetic one-bit state, so it is a proof of possibility rather than a claim about chain-of-thought in the wild.",
+      "reasoning-training": "A causal answer to what process supervision buys, on a task where the answer is checkable. The same edit that redirects the next-state computation in a running-state fine-tuned model has almost no effect in the pretrained model or in one fine-tuned on final answers only — so writing intermediate states is not what makes them usable, being trained to write them is. That is the mechanism behind the archive's cleanest process-versus-outcome supervision result, which showed step supervision succeeding where answer-only supervision fails but explained it by circuit depth rather than by what the model does with the written steps. Read together they say process supervision does two separable things: it changes what the model can compute, and it changes whether the trace becomes part of the computation. The paper's closing recommendation is a concrete design rule this topic can use — process supervision should favour intermediates whose consequences can be checked, rather than rewarding plausible reasoning text."
+    },
+    "results": "In Qwen2.5-Coder-7B, the running-state model's next phase bit follows the edited state on 80% of held-out Q8 examples and 91% of D8, while pretrained and final-answer-only controls stay near baseline and same-rank random or orthogonal-complement patches give about 0.02 agreement. The selectivity controls hold: the move-specific gap is +0.57 (Q8) and +0.68 (D8), so the model combines the edited state with the supplied move rather than emitting a fixed answer; the conflicting-continuation gap is +0.59 and +0.81, with the model following the current move on 80% of Q8 items and the injected future on 20%, so it recomputes rather than copying. Overall use, against random and orthogonal alternatives, is +0.78 and +0.89. Replacing the whole residual stream at the site has a comparable effect to the low-rank patch, indicating the causal information sits in a compact subspace. When the model generates its own prefix rather than receiving one, the evidence weakens and splits by task: in D8 one-step use is 0.90, the edited branch persists across the next three phase bits at about 0.86, and the final answer agrees with the edited branch on 0.84, while in Q8 one-step use falls to 0.66 with final-answer agreement 0.72 — and the prefix filter retains only 0.46 of Q8 rollouts against 0.77 of D8. The pattern replicates in Mistral-7B-v0.3, where the running-state condition reaches 0.93 and 0.94 edited-state agreement with move-specific selectivity 0.85 and 0.84 and conflicting-continuation selectivity 0.85 and 0.89, and the two control conditions remain near chance. Mechanism: the effect reaches full strength at rank 1 in Q8 and rank 2 in D8. In Q8 most of it flows through a single attention connection from the current phase-bit token to the position predicting the next phase bit at layer 22 — ablating it removes 94% of counterfactual-update selectivity (0.59 to 0.04) and restoring it recovers the full value, while ablating a matched connection from the visible-coordinate token does not. In D8 no single connection explains the update; the strongest removes about 24%, and a pre-registered four-connection route removes a mean of 68.7% (95% CI 66.9-70.4).",
+    "tags": [
+      "faithfulness",
+      "activation patching",
+      "process supervision",
+      "scratchpad",
+      "causal intervention",
+      "mechanistic interpretability",
+      "state tracking"
+    ],
+    "topics": [
+      "reasoning-faithfulness",
+      "reasoning-training"
+    ]
+  },
+  "task_id": "paper__local-54a1c25fa51cd59a",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "statistical complexity",
+    "example complexity"
+  ],
+  "definition": "How many training examples suffice to learn a target to a given accuracy, and the archive's measure of what reasoning supervision costs statistically. The sources agree the news is good and arrive at it differently. One bounds it parametrically through the VC dimension of transformers, finding chain-of-thought learning by teacher forcing costs O(LW log((T+T')W)) — so input length and the number of reasoning steps enter only inside a logarithm, and only through their sum. One bounds it by the target's Fourier structure via PAC-Bayes, where CoT turns Parity's dependence from exponential to linear in reasoning length. One shows the efficiency survives internalization, with implicit CoT learning k-parity from polynomially many samples. The common conclusion is that long reasoning chains are not statistically expensive; whatever they cost is compute or annotation.",
+  "evidence": [
+    {
+      "id": "local:03f1eff4f1d40725",
+      "kind": "paper",
+      "note": "Derives a non-vacuous PAC-Bayes generalization bound for transformers on boolean functions in terms of Fourier sparsity and degree, and uses it to show chain of thought turns an exponential dependence on reasoning length into a linear one for Parity.",
+      "title": "A Sharper Picture of Generalization in Transformers"
+    },
+    {
+      "id": "local:209065fd89f43691",
+      "kind": "paper",
+      "note": "Pins down the VC dimension of transformers as depth times parameters times a logarithm, and shows chain-of-thought learning by teacher forcing costs only logarithmically more as the number of reasoning steps grows.",
+      "title": "Tight Sample Complexity of Transformers"
+    },
+    {
+      "id": "local:ee30f023d9f2d8fb",
+      "kind": "paper",
+      "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+      "title": "Transformers Provably Learn to Internalize Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-09T03:21:53Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "sample complexity",
+  "related": [
+    "generalization",
+    "pac-bayes",
+    "flat-minima",
+    "sharpness",
+    "fourier-spectrum",
+    "expressivity-learnability-gap",
+    "parity",
+    "low-degree-bias",
+    "chain-of-thought",
+    "pac-bayes-bound",
+    "constructive-pac-bayes",
+    "sharpness-minimization",
+    "property-testing",
+    "fourier-analysis",
+    "mechanistic-interpretability",
+    "vc-dimension",
+    "teacher-forcing",
+    "inductive-bias",
+    "hard-attention",
+    "vc-dimension-analysis",
+    "pac-learning",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "curriculum-learning",
+    "effective-depth",
+    "internalization",
+    "test-time-compute",
+    "log-icot",
+    "implicit-chain-of-thought",
+    "gradient-descent-analysis"
+  ],
+  "schema_version": 1,
+  "slug": "sample-complexity",
+  "topics": [
+    "reasoning-training",
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

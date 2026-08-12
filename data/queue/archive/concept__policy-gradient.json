@@ -1,0 +1,73 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.",
+        "title": "Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that entropy-regularized policy gradient converges to the regularized optimum at an exponential rate for log-linear softmax policies over continuous state and action spaces, by using the KL regularizer as a Lyapunov function to keep the Fisher information matrix from degenerating.",
+        "title": "Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
+        "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:20:24Z",
+  "created_at": "2026-08-09T06:17:45Z",
+  "instructions": "Write the wiki definition for 'policy gradient'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "policy gradient",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "policy gradient",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "PG",
+      "softmax policy gradient"
+    ],
+    "definition": "The gradient of expected return with respect to the parameters of a policy, and in all three sources an object of analysis rather than a tool. They converge on one difficulty: under a softmax parameterization the normalization makes the objective non-concave in the parameters, so convergence cannot be argued from convexity and has to be recovered from a gradient-dominance property instead. What they establish diverges with the setting. In stochastic bandits with unregularized reward the question is which feature representations admit convergence at all; in entropy-regularized Markov decision processes on continuous spaces it is the rate at which an idealized gradient flow converges and what keeps its constant from degenerating; in language-model fine-tuning it is which direction a single update moves the policy's entropy. Only the first two treat convergence; the third works one step at a time.",
+    "kind": "method",
+    "related": [
+      "softmax policy",
+      "log-linear policy",
+      "tabular softmax parameterization",
+      "natural policy gradient",
+      "linear function approximation",
+      "GRPO",
+      "advantage function",
+      "entropy regularization"
+    ]
+  },
+  "task_id": "concept__policy-gradient",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

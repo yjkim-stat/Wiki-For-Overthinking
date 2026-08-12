@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "reasoning hallucination",
+    "attention pattern",
+    "information flow",
+    "self-confirmation",
+    "verification",
+    "localization",
+    "routing collapse"
+  ],
+  "contributions": [
+    "The Routing Focus Score: alignment between cross-step attention routing and hidden-state semantic proximity as a step-level indicator",
+    "RFS-Guard, a hallucination detector needing no external verification and no repeated sampling",
+    "The empirical association of higher reasoning-to-answer RFS with higher hallucination risk",
+    "A routing-collapse account in which self-confirmation loops suppress self-auditing",
+    "Detection and localization of hallucinations across multiple domains and models"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:24:51Z",
+  "generated_by": "paper",
+  "limitations": "No numbers in the abstract; domains and models are unnamed. The direction of the association is counter-intuitive — more alignment between attention routing and semantic proximity predicts more hallucination — and the routing-collapse account is an interpretation, not a demonstrated mechanism. Association is correlational, so RFS may track a correlate of difficulty rather than hallucination. Requires attention and hidden-state access.",
+  "method": "The Routing Focus Score is a step-level indicator measuring how strongly cross-step attention routing aligns with semantic proximity derived from hidden-state cosine similarity. RFS-Guard is a lightweight detection framework built on RFS. It needs no external tool and no repeated sampling, so detection costs one forward pass.",
+  "methods": [
+    "Routing Focus Score",
+    "RFS-Guard",
+    "attention analysis",
+    "cosine similarity over hidden states"
+  ],
+  "models": [],
+  "one_liner": "Detects reasoning hallucinations by measuring how strongly cross-step attention routing aligns with hidden-state semantic proximity, finding that higher alignment means higher hallucination risk.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.885",
+  "problem": "Reasoning models produce hallucinations such as subtle arithmetic slips or constraint violations. Prior detectors rely on external verification or local token-level signals, and overlook whether the cross-phase information flow from reasoning to answering is structurally robust.",
+  "relevance": {
+    "reasoning-training": "The mechanism it proposes — that a model attending to what it already believes is more likely to be wrong — is a concrete, testable account of why self-verification underperforms, and this archive holds two independent findings that it does (near-zero self-revision content margin, and proof self-reflection failing to fix named errors). If self-confirmation is visible as attention-routing collapse, it is detectable in one forward pass, which is cheaper than any sampling-based check and could serve as a training signal rather than only a monitor. The counter-intuitive sign of the effect is the reason to verify this one before relying on it."
+  },
+  "results": "Higher reasoning-to-answer RFS is consistently associated with higher hallucination risk, which the authors interpret as a routing-collapse failure mode where the model prefers self-confirmation loops and suppresses its ability to audit its own generation. Across multiple domains and models, RFS-Guard detects and localizes hallucinations without external tools or repeated sampling.",
+  "schema_version": 1,
+  "tags": [
+    "hallucination detection",
+    "attention routing",
+    "self-confirmation",
+    "interpretability",
+    "verification"
+  ]
+}

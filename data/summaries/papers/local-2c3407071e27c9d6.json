@@ -1,0 +1,72 @@
+{
+  "concepts": [
+    "mutual information",
+    "MI peaks",
+    "thinking tokens",
+    "critical tokens",
+    "information bottleneck",
+    "reasoning trajectory",
+    "prediction error bounds",
+    "self-correction",
+    "epistemic verbalization",
+    "test-time scaling",
+    "representation analysis"
+  ],
+  "contributions": [
+    "The MI peaks phenomenon: mutual information between a step's representation and the gold answer is mostly low and stable but spikes sharply at sparse, non-uniformly distributed steps, accounting for no more than 5% of reasoning steps and as little as 0.51% in one model.",
+    "Two theorems bounding prediction error from above and below by cumulative mutual information between representations and the answer, so higher accumulated MI tightens both bounds.",
+    "The finding that non-reasoning base models show the same pattern far more weakly, with lower mean MI and much lower peak intensity, suggesting MI peaks emerge from reasoning-intensive training.",
+    "Decoding MI-peak representations into token space and finding they correspond predominantly to reflective and transitional markers — 'So', 'Hmm', 'Wait', 'Therefore' — termed thinking tokens.",
+    "A controlled suppression experiment establishing these tokens are functionally necessary rather than incidentally frequent.",
+    "Two training-free applications: Representation Recycling, which re-processes MI-peak representations through the same layer, and Thinking Token based Test-time Scaling, which appends a thinking token to force continued reasoning when budget remains."
+  ],
+  "datasets": [
+    "MATH",
+    "GSM8K",
+    "MATH500",
+    "AIME24"
+  ],
+  "generated_at": "2026-08-08T04:35:01Z",
+  "generated_by": "paper",
+  "limitations": "The paper has no limitations section; it goes from conclusion to references. Points a reader should weigh. Mutual information is estimated with HSIC against a representation of the gold answer, so the entire analysis requires the answer in advance — which is why the applications must first mine thinking tokens offline and then trigger on surface tokens at inference, meaning what is deployed is a token heuristic rather than the MI signal itself. The peak definition is a fixed outlier rule applied per trajectory, so peak counts are relative to each trajectory's own distribution and the reported ratios are not comparable to an absolute threshold. The theorems bound prediction error by cumulative MI, which establishes that more informative representations permit lower error, not that MI peaks cause the improvement; the paper is careful to call this a correlation but the framing throughout leans causal. The suppression experiment's control is randomly chosen tokens, which is the right first control but a weaker one than matching for frequency or discourse function — suppressing frequent connectives may harm generation for reasons unrelated to reflection. Finally, the two applications are demonstrated on two models at 7B-8B scale, and the test-time scaling result is mixed on the one hard benchmark, where it trails the baseline over part of the budget range.",
+  "method": "For a query and its gold answer, the model generates autoregressively and the hidden representation of each generated token is collected at a chosen layer; the gold answer is separately fed through the model to obtain its representation. Mutual information between each step's representation and the gold answer representation is estimated with the Hilbert-Schmidt Independence Criterion, giving an MI sequence over the reasoning trajectory. An MI peak is defined by a standard outlier rule: a step whose MI exceeds the third quartile plus 1.5 times the interquartile range of that trajectory. To interpret what a peak encodes, its representation is projected through the output projection matrix and greedily decoded to the highest-probability token, and the empirical token distribution over all peaks is tabulated. The causal test suppresses generation of a given number of thinking tokens by zeroing their generation probabilities during inference, with the control suppressing the same number of randomly chosen non-thinking tokens. Representation Recycling feeds the hidden state at an MI peak back through the same transformer block once more before continuing the forward pass, with the recycled layer chosen in the middle-to-high range; since gold answers are unavailable at inference, thinking tokens are first identified offline on the MATH training split and recycling is triggered whenever the model emits one. Thinking Token based Test-time Scaling filters the identified thinking tokens down to semantically contentful ones and appends one to the model's initial output to prompt continued generation under a larger budget. Experiments use the 12k-problem MATH training split for analysis and GSM8K, MATH500 and AIME24 for evaluation, across the DeepSeek-R1-Distill series (Qwen-7B/14B/32B, Llama-8B/70B) and QwQ-32B, with Llama-3.1-8B, Qwen2.5-Math-7B, Qwen2.5-14B/32B and Llama-3.3-70B-Instruct as non-reasoning counterparts.",
+  "methods": [
+    "Hilbert-Schmidt Independence Criterion (HSIC)",
+    "Representation Recycling",
+    "Thinking Token based Test-time Scaling",
+    "token suppression intervention",
+    "logit lens decoding",
+    "budget forcing"
+  ],
+  "one_liner": "Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.",
+  "paper_id": "local:2c3407071e27c9d6",
+  "problem": "Large reasoning models solve hard problems but their internal dynamics are a black box: it was not known whether particular intermediate steps or states disproportionately determine the final answer, or what distinguishes such steps from the rest. Existing work on 'critical tokens' identified that small token subsets matter for safety behaviour, but there was no information-theoretic account of which reasoning steps carry information about the answer.",
+  "relevance": {
+    "reasoning-faithfulness": "The information-theoretic counterpart to this archive's intervention-based work on verbalized uncertainty, reaching the same conclusion from an entirely different direction. Where one archived paper shows that injecting a doubt cue recovers failed trajectories and that removing the habit by fine-tuning halves accuracy, this shows that the representations at exactly those tokens carry a spike of mutual information with the correct answer, and that zeroing their generation probability degrades accuracy while zeroing equally many other tokens does not. Two independent methods converging on 'Wait' and 'Hmm' as functionally load-bearing is the strongest evidence in this archive that at least part of a reasoning trace is not decoration. The base-versus-reasoning-model comparison sharpens it further: the peaks are much weaker in non-reasoning models, so this is a property that reasoning training installs, which bears on whether trace legibility should be expected to persist. It sits in productive tension with the archive's commitment-boundary result, which finds the post-commitment tail of hedging and rechecking leaves the answer unchanged — both cannot be fully right about the same tokens, and the likely reconciliation, that position in the trace decides which regime a reflective token falls into, is a concrete open question this archive is now equipped to ask.",
+    "test-time-scaling": "Thinking Token based Test-time Scaling is a minimal and unusually well-motivated version of this topic's central lever: rather than appending a token because it empirically extends thinking, it appends the token whose representation was measured to carry the most information about the answer. It is the mechanistic explanation the archive's budget-forcing work lacks — that paper appends 'Wait' and reports it works, this one shows why that token and not another. The budget curves are the evidence this topic asks for: the unmodified model plateaus past 1024 tokens on GSM8K while the modified one keeps climbing, which is a claim about where the accuracy-versus-tokens curve flattens and how to unflatten it. The honest caveat is that on AIME24 the method trails over part of the budget range before overtaking past 6144 tokens, so the gain is not uniform in difficulty. Representation Recycling is a different kind of contribution for this topic: it spends compute in depth at a chosen step rather than in length, which is a direction almost nothing else archived here explores."
+  },
+  "results": "MI peaks are rare and irregular: their share of reasoning steps is 0.51% for DeepSeek-R1-Distill-Qwen-7B, 1.10% for QwQ-32B, 2.12% for Qwen-32B, 3.24% for Llama-70B, 3.59% for Qwen-14B and 4.80% for Llama-8B, with average gaps between consecutive peaks ranging from about 28 to 87 steps and maximum gaps up to 168, so they are scattered rather than periodic. Reasoning models carry systematically more information than their base counterparts: mean MI rises from 0.0863 to 0.1279 (Llama-3.1-8B), 2.1971 to 3.3016 (Qwen2.5-Math-7B), 1.3128 to 3.3508 (Qwen2.5-14B), 1.7669 to 4.0352 (Qwen2.5-32B) and 0.0400 to 0.0599 (Llama-3.3-70B-Instruct), with standard deviation and peak intensity also higher throughout. Decoded peak tokens are dominated by discourse markers of reflection and transition. The suppression experiment is the paper's causal core: progressively suppressing up to 17 thinking tokens drops accuracy from roughly 85% to 68% on GSM8K, 78% to 48% on MATH500 and 33% to 18% on AIME24, while suppressing the same number of randomly chosen non-thinking tokens leaves accuracy essentially flat on all three. Representation Recycling improves accuracy on all three benchmarks for both DeepSeek-R1-Distill-Llama-8B and DeepSeek-R1-Distill-Qwen-7B, with the largest gain a 20% relative improvement on AIME24 for the Llama-8B model. Thinking Token based Test-time Scaling beats the unmodified model at matched token budgets on GSM8K and MATH500, where the baseline plateaus once the budget exceeds 1024 tokens while the modified version keeps improving; on the harder AIME24 the baseline saturates around 3000 tokens and the modified version, though slightly worse at some intermediate budgets, overtakes it beyond 6144.",
+  "schema_version": 1,
+  "tags": [
+    "mutual information",
+    "information theory",
+    "thinking tokens",
+    "test-time scaling",
+    "interpretability",
+    "reasoning dynamics",
+    "hsic"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Llama-8B",
+    "DeepSeek-R1-Distill-Qwen-14B",
+    "DeepSeek-R1-Distill-Qwen-32B",
+    "DeepSeek-R1-Distill-Llama-70B",
+    "QwQ-32B",
+    "Llama-3.1-8B",
+    "Qwen2.5-Math-7B",
+    "Qwen2.5-14B",
+    "Qwen2.5-32B",
+    "Llama-3.3-70B-Instruct"
+  ]
+}

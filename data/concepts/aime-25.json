@@ -1,0 +1,73 @@
+{
+  "aliases": [
+    "AIME'25",
+    "AIME 2025"
+  ],
+  "definition": "The 2025 American Invitational Mathematics Examination problems, used as the more recent companion to AIME 24 and, because of its release date, as the less contamination-exposed of the pair. The sources use both together without distinguishing their results, one for hidden-state verification and reranking, the other for entropy-based token selection in RLVR. Neither reports the two years separately as a contamination check, which is the comparison the pairing makes available.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.788",
+      "kind": "paper",
+      "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+      "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience"
+    },
+    {
+      "id": "local:7d5e3edea2d46b92",
+      "kind": "paper",
+      "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
+      "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "AIME 25",
+  "related": [
+    "verification",
+    "calibration",
+    "residual-stream",
+    "reasoning-trajectory",
+    "activation-delta",
+    "best-of-n",
+    "answer-stabilization",
+    "pass-k",
+    "clue",
+    "majority-voting",
+    "reward-model",
+    "llm-as-a-judge",
+    "centroid-classification",
+    "activation-probing",
+    "aime-24",
+    "gpqa",
+    "webinstruct-verified",
+    "token-level-entropy",
+    "forking-tokens",
+    "high-entropy-minority-tokens",
+    "entropy-patterns-in-chain-of-thought",
+    "exploration-in-rlvr",
+    "credit-assignment",
+    "entropy-bonus",
+    "clip-higher",
+    "policy-gradient-masking",
+    "rlvr",
+    "dapo",
+    "grpo",
+    "ppo",
+    "high-entropy-token-gradient-masking",
+    "dual-temperature-decoding",
+    "verl",
+    "dapo-math-17k",
+    "amc-23",
+    "math500",
+    "minerva",
+    "olympiadbench",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b"
+  ],
+  "schema_version": 1,
+  "slug": "aime-25",
+  "topics": [
+    "reasoning-training"
+  ]
+}

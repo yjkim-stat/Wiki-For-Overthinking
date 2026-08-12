@@ -1,0 +1,38 @@
+{
+  "abstract": "Understanding the causal structure of a language model's thought process is a problem of significant importance for both transparency and safety. In this work, we take a local approach toward this goal by analyzing the causal relationships among individual components, termed units, of a given, specific chain-of-thought trace. We construct a structural causal model on these units and relate each unit to the log probability of generating (subsequent) output units. Our algorithm, termed AttriCoT, is a black-box method that performs attribution by estimating importance parameters in the structural causal model using O(U) forward passes through the model, where U is the number of units. Evaluation of perturbation curves across 5 datasets and 4 reasoning models shows that AttriCoT produces attributions that are more faithful to the model's behavior than alternative methods. The attribution results also reveal notable differences in thought structure between models and domains.",
+  "arxiv_id": "2606.21821",
+  "authors": [
+    "Dennis Wei",
+    "Yannis Belkhiter",
+    "Erik Miehling",
+    "Radu Marinescu"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T04:47:33Z",
+  "id": "local:6db01f05462cef8e",
+  "last_seen": "2026-08-08T04:47:33Z",
+  "local_path": "data/pdfs/read/local-6db01f05462cef8e.pdf",
+  "matched_keywords": [
+    "chain of thought"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5,
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Local Causal Attribution of Chain-of-Thought Reasoning.pdf",
+  "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "Mechanistic Interpretability Workshop at ICML 2026",
+  "year": 2026
+}

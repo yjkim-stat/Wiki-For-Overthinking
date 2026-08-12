@@ -1,0 +1,64 @@
+{
+  "concepts": [
+    "reproducibility",
+    "numerical precision",
+    "non-associativity of floating-point arithmetic",
+    "greedy decoding",
+    "divergence index",
+    "nondeterminism",
+    "benchmark variance",
+    "pass@k",
+    "evaluation methodology",
+    "response length"
+  ],
+  "contributions": [
+    "The first systematic investigation of how numerical precision affects reproducibility of LLM inference, across controlled combinations of GPU type, GPU count, batch size and precision format.",
+    "Demonstration that greedy decoding does not guarantee deterministic output across system configurations, and that the effect is far larger for reasoning models than for non-reasoning ones.",
+    "Identification of the mechanism: in reasoning models the probability gap between the top-two candidate tokens is often minimal, so BF16's seven mantissa bits are enough to flip the argmax.",
+    "Evidence that random sampling does not escape the problem — reported variance across runs mixes genuine model uncertainty with variance introduced by finite precision, so researchers reporting standard deviations without controlling precision overstate a model's intrinsic uncertainty.",
+    "LayerCast, an inference pipeline that stores weights in 16-bit but upcasts each weight to FP32 just in time for matrix multiplication, recovering FP32-level reproducibility at lower memory cost, released as a vLLM patch."
+  ],
+  "datasets": [
+    "AIME24",
+    "MATH500",
+    "LiveCodeBench",
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-08-08T05:45:44Z",
+  "generated_by": "paper",
+  "limitations": "The paper does not carry a limitations section in the main body. Points a reader should weigh: the models are 7B-8B with a 32B check deferred to the appendix, so behaviour at frontier scale is inferred rather than measured; the 12 configurations span two GPU types, two counts and three batch sizes, which is a deliberate sample of deployment variation rather than an exhaustive one, and other axes such as inference framework version, kernel implementation and tensor-parallel layout are discussed but not swept; and the FP32 result of exactly zero accuracy variance is measured on these tasks and configurations, so it establishes that FP32 removes this source of nondeterminism in the tested range rather than that FP32 is deterministic in general. The authors also note that batch-invariant kernels address only batch-size-induced variation and not tensor-parallel or GPU-type changes. Finally, LayerCast's accuracy and cost trade-off is presented as a remedy without a full accounting of the throughput penalty across model scales.",
+  "method": "Four models are evaluated — two reasoning (DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Llama-8B) and two non-reasoning (Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct) — on AIME'24, MATH500 and three LiveCodeBench splits, with maximum output length 32,768 for reasoning models and 2,048 otherwise, primarily on vLLM with HuggingFace Transformers as a cross-check. Each model-task pair is run under 12 runtime configurations: two GPU types (L40S, A100) x two GPU counts (2, 4) x three batch sizes (8, 16, 32), chosen because these factors are typically outside a user's control and vary with resource availability. Each configuration is run at BF16, FP16 and FP32. Under greedy decoding four quantities are measured: the standard deviation of accuracy across the 12 configurations, the average per-example standard deviation of output length, a divergence index recording the token position at which two runs first produce different tokens, and the average standard deviation of the top-1 token probability before divergence. Under random sampling (temperature 0.7, top-p 0.95) Pass@1 is computed from 16 and 64 independent runs on AIME'24 and 4 on MATH500, and its standard deviation is reported across six system configurations rather than across repeated runs of the same configuration, so the reported spread isolates system-induced rather than sampling-induced variance. LayerCast loads parameters in FP32, casts linear-layer weights and biases to BF16 for storage, and upcasts each back to FP32 one at a time during inference.",
+  "methods": [
+    "LayerCast",
+    "greedy decoding",
+    "random sampling",
+    "batch-invariant operations",
+    "vLLM",
+    "tensor parallelism"
+  ],
+  "one_liner": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
+  "paper_id": "local:de572e138fc98639",
+  "problem": "Progress in the field rests on benchmark scores being accurate and reproducible, and two practices are assumed to secure that: greedy decoding at temperature zero is treated as deterministic, and random sampling with a fixed seed is treated as controlled. Both assumptions fail. Even with an identical prompt, identical weights and a fixed seed, generated output differs across hardware and system configurations, because floating-point arithmetic under limited precision is non-associative — the order in which a reduction is summed changes the result, and GPU kernels change that order when batch size, tensor-parallel size or device type changes. The consequence is worst exactly where the field is most active: reasoning models generate very long chains, so a rounding difference in an early token cascades into a divergent chain of thought.",
+  "relevance": {
+    "reasoning-evaluation": "The mechanism this archive was missing for an anomaly it had already measured. Elsewhere in this archive, two papers report the same vanilla baseline for DeepSeek-R1-Distill-Qwen-7B on AIME24 as 41.7 and 55.63 — a 13.9-point gap at essentially identical token budgets, which ruled out generation-length caps and left sampling configuration, answer extraction and prompt template as unexplained candidates. This paper supplies a fourth candidate and measures it on exactly that model and benchmark: 9.15 percentage points of accuracy standard deviation from GPU type, GPU count and batch size alone, under BF16 with greedy decoding. That does not fully account for 13.9 points, but it is the same order of magnitude and it is a source no paper in this archive reports controlling. Combined with the sampling noise floor derived in this topic's note, the two effects are independent and additive, and together they cover most of the observed gap. The practical upgrade to this group's reading rules is concrete: precision format and hardware configuration belong in the list of things to ask about before accepting a benchmark delta, alongside the sample count k. The paper's own recommendations are directly adoptable — use FP32 if reporting a single greedy run, or random sampling with multiple runs and error bars, and note that 16-bit precision needs more trials for stable results.",
+    "test-time-scaling": "A quiet demolition of how this topic's efficiency claims are measured. The archived early-exit and adaptive-allocation papers report token savings in the range of 5-15% for a given accuracy, and this paper measures the standard deviation of response length on AIME'24 for the very model those papers use at 9,189 tokens under BF16 — arising from GPU count, GPU type and batch size, with the model, prompt, seed and decoding all held fixed. The paper says so explicitly, naming efficient-reasoning and long-to-short research as the work its findings complicate. Token-count reductions of the size this topic reports are therefore not interpretable unless precision and hardware configuration are held fixed and stated, and none of the archived papers does state them. The finding also explains why the effect concentrates here rather than in ordinary generation: reasoning models are uniquely exposed because long chains give early rounding differences room to cascade, and because their top-two token probabilities sit close enough together that seven mantissa bits can flip the choice."
+  },
+  "results": "Accuracy standard deviation across the 12 runtime configurations under greedy decoding, on AIME'24: DeepSeek-R1-Distill-Qwen-7B 9.15% at BF16, 5.74% at FP16, exactly 0 at FP32; DeepSeek-R1-Distill-Llama-8B 4.60%, 6.00%, ~0; and for the non-reasoning models 1.71% and 1.92% at BF16 falling to ~0 at FP32. On MATH500 the BF16 figures are 1.04% and 1.59% for the reasoning models against 0.83% and 0.94% for the others. Output length is affected far more dramatically: the average standard deviation of response length on AIME'24 is 9,189 tokens for DeepSeek-R1-Distill-Qwen-7B and 9,348 for the Llama-8B distill at BF16, against 211 and 119 tokens for the non-reasoning models — and 0 at FP32. On MATH500 the same quantity is 2,774 tokens at BF16 and 138.75 at FP32. Divergence is near-universal at BF16: over 90% of examples diverge, with the divergence index distribution showing divergence occurring early in generation; at FP32 only 2.2% of examples diverge, and when divergence does occur at higher precision it happens much later, limiting its effect on the final answer. The mechanism is confirmed by the top-1 probability variance, which is an order of magnitude larger at BF16 than FP16 and near zero at FP32, combined with a histogram showing the top1-top2 probability gap in reasoning models concentrated near zero. Runtime factors compound: four GPUs give more variance than two, smaller batch sizes give more variance than larger ones (attributed to more sequential accumulation), and A100 gives slightly more than L40S. Random sampling does not escape it — the standard deviation of Pass@1 across six system configurations is generally higher at BF16 than FP32, with one noted exception on AIME'24 at n=64 that the authors attribute to the benchmark having only 30 problems, where a single answer shifts Pass@1 by 3.33% and amplifies statistical noise.",
+  "schema_version": 1,
+  "tags": [
+    "reproducibility",
+    "numerical precision",
+    "bfloat16",
+    "evaluation",
+    "nondeterminism",
+    "benchmark variance",
+    "inference"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Llama-8B",
+    "Qwen2.5-7B",
+    "Llama-3.1-8B-Instruct",
+    "Qwen3-32B"
+  ]
+}

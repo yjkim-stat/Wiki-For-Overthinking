@@ -1,0 +1,118 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:24:51Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.788",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Zhenwen Liang",
+      "Ruosen Li",
+      "Yujun Zhou 0002",
+      "Linfeng Song",
+      "Dian Yu 0001",
+      "Xinya Du",
+      "Haitao Mi",
+      "Dong Yu 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.5
+    },
+    "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.788",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "verification",
+      "calibration",
+      "residual stream",
+      "reasoning trajectory",
+      "activation delta",
+      "best-of-n",
+      "answer stabilization",
+      "pass-k"
+    ],
+    "contributions": [
+      "Hidden states as a third verification signal, distinct from surface text and token-probability confidence",
+      "The finding that correct and incorrect solutions differ geometrically in hidden-state trajectories",
+      "Clue, a training-free non-parametric verifier using a start-to-end activation delta and two class centroids",
+      "Selection and reranking gains on AIME 24/25, GPQA and WebInstruct-verified, including 56.7% to 70.0% on AIME 24 with a 1.5B model"
+    ],
+    "datasets": [
+      "AIME 24",
+      "AIME 25",
+      "GPQA",
+      "WebInstruct-verified"
+    ],
+    "limitations": "Requires labelled experience to compute the centroids, so it is not label-free, and it needs white-box hidden-state access. The headline comparison changes both the method and the sample budget — majority@64 against top-maj@16 — so the reported gain bundles a verification improvement with a 4x reduction in samples rather than isolating either. Gains concentrate on smaller or less-calibrated models, leaving the frontier case weaker.",
+    "method": "A third information source is studied: hidden states, for binary correctness verification on tasks with a reliable success/failure signal such as deterministic checkers or reference-grounded answers. Correct and incorrect solutions are found to differ geometrically in their hidden-state trajectories. Clue summarizes each trace by an activation delta — the difference between hidden states at the start and end of the explicit reasoning span — and predicts correctness by comparing that delta to two class centroids computed from labelled experience. It is training-free and non-parametric, which is the point: minimal modeling assumptions isolate the signal rather than fitting it.",
+    "methods": [
+      "Clue",
+      "majority voting",
+      "best-of-n",
+      "reward model",
+      "LLM-as-a-judge",
+      "centroid classification",
+      "activation probing"
+    ],
+    "models": [
+      "a 1.5B model (unnamed in abstract)"
+    ],
+    "one_liner": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+    "problem": "Assessing output quality is hard in high-branching settings where one prompt yields many plausible candidates. Existing verifiers work on surface text — reward models, LLM judges, majority voting — or on token-probability confidence proxies. The former is swayed by stylistic artifacts, the latter is often miscalibrated.",
+    "relevance": {
+      "reasoning-training": "Offers a reward signal that requires no reward model, which matters to this topic because reward-model calibration is the recurring failure in the verifier line. A non-parametric centroid comparison over activation deltas is about as assumption-light as a verifier gets, and its strongest gains on poorly calibrated models are consistent with it substituting for exactly what those models lack. It is also the third paper in this drain reading correctness off residual-stream geometry, with arxiv:2608.05660 and acl-long.2073, and the three disagree on representation — full trajectory, displacement-plus-location, start-to-end delta — while all outperforming single-layer probing. That the crudest of the three works this well is the finding worth following up."
+    },
+    "results": "Across math (AIME 24/25), scientific QA (GPQA) and a multi-domain benchmark (WebInstruct-verified), Clue improves selection and reranking, with the strongest gains on smaller or less-calibrated models. On AIME 24 with a 1.5B model, accuracy rises from 56.7% (majority@64) to 70.0% (top-maj@16).",
+    "tags": [
+      "verification",
+      "hidden states",
+      "training-free",
+      "reranking",
+      "calibration"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-788",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

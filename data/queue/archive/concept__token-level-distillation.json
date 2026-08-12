@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+        "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.",
+        "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:53Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'token-level distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "token-level distillation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "token-level distillation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "token-level supervision",
+      "distributional distillation"
+    ],
+    "definition": "Supervising a student on the teacher's full distribution at each token rather than on a sequence-level outcome, which both sources use as the density source that turns sparse rewards into per-token signal. They then disagree about what to do with that density. One aggregates the token-level teacher-student log-probability gaps upward into turn-level evidence, on the view that the useful unit in agentic tasks is the turn. The other keeps the token unit but reweights it, concentrating supervision on tokens whose distribution shifts when a reference solution is supplied. Both derive the signal from distributions the training loop already computes, so neither needs an extra forward pass.",
+    "kind": "method",
+    "related": [
+      "on-policy self-distillation",
+      "privileged information",
+      "token selection",
+      "credit assignment",
+      "process supervision"
+    ]
+  },
+  "task_id": "concept__token-level-distillation",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

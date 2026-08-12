@@ -1,0 +1,56 @@
+# How reasoning is measured, and whether the measurement means anything.
+
+slug: reasoning-evaluation
+name: Reasoning Evaluation
+
+description: >-
+  Benchmarks for reasoning and the methodology behind them: what each one
+  actually tests, how contamination and memorization inflate a score, and where
+  a reported gain fails to reproduce. The question the archive answers is which
+  numbers a claim about reasoning can be built on.
+
+keywords:
+  any:
+    - reasoning benchmark
+    - mathematical reasoning
+    - multi-step reasoning
+    - logical reasoning
+    - competition math
+    - math word problem
+    - GSM8K
+    - AIME
+    - benchmark contamination
+    - data contamination
+    - LLM as a judge
+    - reasoning evaluation
+    - evaluating reasoning
+    - ARC AGI
+  all: []
+  none: []
+
+authors: []
+
+seed_papers:
+  - "2110.14168"   # GSM8K: training verifiers to solve math word problems
+  - "2103.03874"   # MATH: measuring mathematical problem solving
+
+min_score: 0.35
+
+sources:
+  arxiv:
+    enabled: true
+    categories:
+      - cs.CL
+      - cs.LG
+      - cs.AI
+  conferences:
+    enabled: true
+    venues: []
+  youtube:
+    enabled: true
+    channels: []
+
+outputs:
+  lecture_note: true
+  slides: true
+  report: true

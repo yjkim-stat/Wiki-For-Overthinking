@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
+        "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+        "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T03:58:06Z",
+  "created_at": "2026-08-08T03:56:57Z",
+  "instructions": "Write the wiki definition for 'Llama-3.2-1B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama-3.2-1B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Llama-3.2-1B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama-3.2-1B"
+    ],
+    "definition": "A 1B model from the Llama-3.2 family, appearing in both sources as a small-scale subject. One uses it as the weakest rung of a visualization study, where its reasoning accuracy on AQuA is 15.8% and its trajectories converge slowly with low consistency and high uncertainty. The other builds a step-level sparse autoencoder on it and finds its features markedly sparser and less shared across steps than the comparable Qwen model (15.65% activation ratio, Jaccard 0.3052), with 40.4% of features attributed to reasoning rather than calculation or resolution — read there as the model attending more to the explicit chain of thought. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
+    "kind": "dataset",
+    "related": [
+      "Qwen2.5-0.5B",
+      "Llama-3.1-70B",
+      "GSM8K",
+      "sparse autoencoder",
+      "self-consistency"
+    ]
+  },
+  "task_id": "concept__llama-3-2-1b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling"
+  ]
+}

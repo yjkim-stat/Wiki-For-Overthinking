@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
+        "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.",
+        "title": "A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T06:00:23Z",
+  "created_at": "2026-08-08T05:59:49Z",
+  "instructions": "Write the wiki definition for 'modularity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "modularity",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "modularity",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Whether a computation decomposes into components with separable roles that compose in a definite order. The archived sources disagree, and the disagreement is the useful part. On propositional logic, four families of attention heads execute rule location, rule movement, fact processing and decision *sequentially* — presented by its authors as surprising, since nothing forces a transformer to keep the steps distinct. On arithmetic, the mechanism is an *unordered* combination of heuristic neurons, and the authors conclude no algorithm is executed. The two analyses work at different granularities (attention heads versus neurons), so a computation could be modular at one level and a bag of heuristics inside each module; neither paper tests this. A third source warns against reading modularity as competence at all: three-layer models trained directly on the logic task are more accurate while being less modular.",
+    "kind": "concept",
+    "related": [
+      "circuit analysis",
+      "bag of heuristics",
+      "localization",
+      "sparse autoencoder",
+      "effective depth"
+    ]
+  },
+  "task_id": "concept__modularity",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness"
+  ]
+}

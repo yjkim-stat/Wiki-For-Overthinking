@@ -1,0 +1,137 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-f424beba20f4aecf.pdf"
+  },
+  "completed_at": "2026-08-09T03:17:22Z",
+  "created_at": "2026-08-09T03:09:12Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:f424beba20f4aecf",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "best of n"
+    ],
+    "pdf_url": "",
+    "published": "",
+    "scores": {
+      "test-time-scaling": 0.5
+    },
+    "title": "Optimal Stopping vs Best of N for Inference Time Optimization",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Large language model (LLM) generation often requires balancing output quality against inference cost, especially when using multiple generations. We introduce a new framework for inference-time optimization based on the classical Pandora's Box problem. Viewing each generation as opening a costly \"box\" with random reward, we develop algorithms that decide when to stop generating without knowing the underlying reward distribution. Our first contribution is a UCB-style Pandora's Box algorithm, which achieves performance that is provably close to Weitzman's algorithm, the optimal strategy when the distribution is known. We further adapt this method to practical LLM settings by addressing reward scaling across prompts via a Bradley-Terry inspired transformation. This leads to an adaptive inference-time optimization method that normalizes rewards and learns stopping thresholds on the fly. Experiments on the AlpacaFarm and HH-RLHF datasets, using multiple LLM-reward model pairs, show that our adaptive strategy can obtain the same performance as non-adaptive Best-of-N sampling while requiring 15-35% fewer generations on average. Our results establish a principled bridge between optimal stopping theory and inference-time scaling, providing both theoretical performance bounds and practical efficiency gains for LLM deployment.",
+      "arxiv_id": "2510.01394",
+      "authors": [
+        "Yusuf Kalayci",
+        "Vinod Raman",
+        "Shaddin Dughmi"
+      ],
+      "doi": "",
+      "title": "Optimal Stopping vs Best-Of-N for Inference Time Optimization",
+      "venue": "preprint",
+      "year": 2025
+    },
+    "concepts": [
+      "optimal stopping",
+      "Pandora's box",
+      "fair-cap value",
+      "test-time compute",
+      "adaptive compute allocation",
+      "regret",
+      "best-of-n",
+      "reward model calibration",
+      "exploration-exploitation trade-off"
+    ],
+    "contributions": [
+      "A framing of inference-time optimization as the Pandora's Box optimal-stopping problem, with best-of-N as a special case",
+      "UCB Pandora's Box, the first stopping strategy for Pandora's Box with unknown reward distributions, using anytime-valid confidence bounds on the fair-cap value",
+      "A vanishing-regret guarantee against Weitzman's optimal policy, which requires full distributional knowledge",
+      "A Bradley-Terry inspired reward normalization addressing cross-prompt scale differences",
+      "15-35% fewer generations than non-adaptive best-of-N at equal reward on AlpacaFarm and HH-RLHF"
+    ],
+    "datasets": [
+      "AlpacaFarm",
+      "HH-RLHF"
+    ],
+    "limitations": "The guarantee needs the unknown distribution to lie in a known family F admitting an anytime-valid confidence sequence — the paper is explicit that a fully adversarial distribution admits no uniformly bounded sub-optimality gap. Results cover the i.i.d. single-distribution case; the authors note Weitzman's algorithm handles multiple box types and expect but do not prove the extension to ensembles. The objective is reward under a given reward model, so the method inherits that model's miscalibration and any gap between reward and correctness — it optimizes stopping, not what is being maximized. Evaluation is on preference datasets rather than reasoning benchmarks, so the compute savings are not demonstrated on mathematics or code.",
+    "method": "Generation is mapped onto Pandora's Box: each sample opens a box at cost c revealing a reward drawn from a distribution D induced by the model and the reward model, and the decision is when to stop and keep the best reward seen. The relevant special case is infinitely many boxes with identical distribution and cost, since a single LLM can be queried without limit. Weitzman's algorithm solves this optimally when D is known, by sampling until a reward exceeds the fair-cap value tau defined by E[(v - tau)_+] = c. Because D is unknown in practice, UCB Pandora's Box maintains an anytime-valid upper confidence bound on tau from the rewards seen so far and stops once the maximum observed reward exceeds it. A Bradley-Terry inspired transformation normalizes rewards across prompts, since a reward model's scale is not comparable between questions and a single threshold otherwise means different things for different prompts.",
+    "methods": [
+      "UCB Pandora's Box",
+      "Weitzman's algorithm",
+      "best-of-n",
+      "Bradley-Terry transformation",
+      "anytime-valid confidence sequences"
+    ],
+    "models": [],
+    "one_liner": "Casts each generation as opening a costly box in Weitzman's Pandora's Box problem and learns the optimal stopping threshold online, matching best-of-N quality with 15-35% fewer generations.",
+    "problem": "Best-of-N fixes the number of generations in advance, so it wastes compute when an acceptable output arrives early or the prompt is easy, and under-spends when it is hard. Existing early-stopping heuristics have no guarantees and underperform on difficult prompts, and no principled framework said when to stop while keeping near-optimal reward.",
+    "relevance": {
+      "test-time-scaling": "Names the decision this topic keeps rediscovering and supplies the classical theory for it. Every stopping signal in this archive — DEER, Dynasor, CUSUM change-point detection, certaindex, confidence-based early exit — is an estimator of when to quit, invented independently and compared to nothing. Pandora's Box says what the optimal rule is when the reward distribution is known, and the fair-cap value E[(v - tau)_+] = c gives those heuristics a common target to be measured against. The practical contribution is the cross-prompt normalization: a single stopping threshold is meaningless while reward scale varies by question, which is a defect the archive's threshold-based methods share and none of them corrects."
+    },
+    "results": "UCB Pandora's Box attains vanishing regret against Weitzman's optimal policy, which assumes full knowledge of the distribution; performance is measured as an additive sub-optimality gap in net payoff, maximum reward minus total cost. On AlpacaFarm and HH-RLHF across multiple LLM and reward-model pairs, the adaptive strategy reaches the same reward as non-adaptive best-of-N using 15-35% fewer generations on average.",
+    "tags": [
+      "optimal stopping",
+      "pandora's box",
+      "best-of-n",
+      "test-time compute",
+      "theory"
+    ],
+    "topics": [
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__local-f424beba20f4aecf",
+  "task_version": 1,
+  "topics": [
+    "test-time-scaling"
+  ]
+}

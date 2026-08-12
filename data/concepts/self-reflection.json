@@ -1,0 +1,73 @@
+{
+  "aliases": [
+    "self-critique"
+  ],
+  "definition": "A model reviewing and critiquing its own reasoning before committing. The sources place it differently. One reports it emerging from reinforcement learning on verifiable outcomes without being demonstrated, alongside verification and dynamic strategy adaptation. The other treats it as one selectable tool among several in an adaptive inference agent, and finds it outperforms plain chain-of-thought specifically at low iteration counts — explicit self-critique is most valuable when only a few attempts are available, with the gap narrowing as iterations increase. The archive's faithfulness work complicates both readings: spontaneous self-corrections have measured precision of 24.4%, and much of the language that looks like self-critique falls after the answer is already fixed.",
+  "evidence": [
+    {
+      "id": "arxiv:2501.12948",
+      "kind": "paper",
+      "note": "Shows that reasoning ability can be incentivized in an LLM by pure reinforcement learning on verifiable tasks, with no human-annotated reasoning trajectories, and that the resulting reasoning patterns can be transferred to smaller models.",
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.678",
+      "kind": "paper",
+      "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+      "title": "Self-Reflection Improves Safety of Large Reasoning Models"
+    },
+    {
+      "id": "local:80ef8b5ce7217f7c",
+      "kind": "paper",
+      "note": "Replaces uniform test-time compute allocation with a training-free agent that picks reasoning tools, a search strategy and an exploration parameter per problem, using a process reward model both to prune within a trajectory and to select across iterations.",
+      "title": "What If We Allocate Test-Time Compute Adaptively?"
+    }
+  ],
+  "first_seen": "2026-08-08T04:13:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "self-reflection",
+  "related": [
+    "reinforcement-learning-with-verifiable-rewards",
+    "emergent-reasoning-patterns",
+    "verification",
+    "dynamic-strategy-adaptation",
+    "reasoning-distillation",
+    "pure-reinforcement-learning",
+    "safety-alignment",
+    "self-correction",
+    "recovery",
+    "helpfulness-safety-trade-off",
+    "adversarial-robustness",
+    "special-token",
+    "self-reflection-token",
+    "post-training",
+    "adversarial-evaluation",
+    "adaptive-test-time-compute-allocation",
+    "test-time-compute",
+    "process-reward-model",
+    "trajectory-level-selection",
+    "online-pruning",
+    "compute-intensity",
+    "exploration-parameter",
+    "prompt-difficulty",
+    "best-of-n",
+    "beam-search",
+    "lookahead-search",
+    "verifier-guided-adaptive-inference",
+    "chain-of-thought",
+    "monte-carlo-tree-search",
+    "math500",
+    "aime24",
+    "amo-bench",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b",
+    "qwen2-5-math-prm-7b"
+  ],
+  "schema_version": 1,
+  "slug": "self-reflection",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

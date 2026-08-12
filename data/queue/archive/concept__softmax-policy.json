@@ -1,0 +1,79 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
+        "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.",
+        "title": "Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that entropy-regularized policy gradient converges to the regularized optimum at an exponential rate for log-linear softmax policies over continuous state and action spaces, by using the KL regularizer as a Lyapunov function to keep the Fisher information matrix from degenerating.",
+        "title": "Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
+        "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:20:25Z",
+  "created_at": "2026-08-09T06:17:45Z",
+  "instructions": "Write the wiki definition for 'softmax policy'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "softmax policy",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "softmax policy",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "softmax parameterization"
+    ],
+    "definition": "A policy that turns real-valued logits into a distribution over actions by exponentiating and normalizing. All four archived sources adopt it as the setting for their analysis, and for the same two reasons: the normalization couples every action's probability to every logit, which is what makes the optimization objective non-concave in the parameters, and it makes the entropy of the resulting distribution differentiable in closed form, which is what allows entropy change to be written as a covariance or an inner product. Where the four differ is in what produces the logits — an independent parameter per state-action pair in two of them, a linear map from fixed features in the other two — and that difference is the substance of several of their results rather than a detail of presentation.",
+    "kind": "concept",
+    "related": [
+      "log-linear policy",
+      "tabular softmax parameterization",
+      "linear function approximation",
+      "policy gradient",
+      "policy entropy",
+      "token-level entropy",
+      "natural policy gradient"
+    ]
+  },
+  "task_id": "concept__softmax-policy",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

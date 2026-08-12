@@ -1,0 +1,80 @@
+{
+  "aliases": [
+    "latent chain-of-thought",
+    "latent CoT",
+    "continuous chain of thought",
+    "soft chain of thought"
+  ],
+  "definition": "Replacing the discrete tokens of a reasoning trace with continuous states — soft embeddings or hidden states — to cut inference cost or escape the expressiveness limits of token sampling. The sources disagree about what it costs. One asks whether it destroys monitorability and finds task properties and internals access matter more than reasoning mode. Another reports two concrete failure modes, global activation perturbing high-confidence steps and soft embeddings collapsing toward the top token, and gates latent reasoning to low-confidence steps only. A third explains the pattern by identifying decisional certainty as the governing variable, formalized as a Symbolic Index: latent reasoning helps exploration and hurts computation.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04928",
+      "kind": "paper",
+      "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+      "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.320",
+      "kind": "paper",
+      "note": "Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.",
+      "title": "SeLaR: Selective Latent Reasoning in Large Language Models"
+    },
+    {
+      "id": "local:6b66615b7bf3ef86",
+      "kind": "paper",
+      "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+      "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-08T05:29:50Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "latent chain of thought",
+  "related": [
+    "monitorability",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "chain-of-thought-faithfulness",
+    "hint-reliance",
+    "linear-probe",
+    "activation-probing",
+    "latent-state-verbalization",
+    "hint-based-intervention",
+    "token-level-entropy",
+    "entropy-collapse",
+    "exploration-exploitation-trade-off",
+    "soft-embedding",
+    "confidence-gating",
+    "selar",
+    "entropy-gating",
+    "contrastive-regularization",
+    "chain-of-thought",
+    "symbolic-index",
+    "decisional-certainty",
+    "exploration-execution-trade-off",
+    "information-bottleneck",
+    "conditional-information-bottleneck",
+    "curriculum-learning",
+    "discretization-reset",
+    "sub-decisional-perturbation",
+    "compounding-error",
+    "logit-decision-margin",
+    "distributional-mismatch",
+    "effective-depth",
+    "coconut",
+    "self-consistency",
+    "imitation-learning",
+    "noise-injection-analysis",
+    "gsm8k",
+    "prosqa",
+    "prontoqa",
+    "gpt-2"
+  ],
+  "schema_version": 1,
+  "slug": "latent-chain-of-thought",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

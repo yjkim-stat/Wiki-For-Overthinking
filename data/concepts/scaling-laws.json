@@ -1,0 +1,77 @@
+{
+  "aliases": [
+    "scaling law",
+    "compute-performance scaling"
+  ],
+  "definition": "Predictable relationships between resources spent and performance obtained, which the archived sources invoke mostly to mark where the familiar ones stop applying. One derives a law inside RL training rather than pretraining: reward trades against policy entropy as R = -a*exp(H) + b, fitted across model families and predictive enough that coefficients from the first 36 steps extrapolate 200 steps ahead at under 1% RMSE, with the ceiling at zero entropy. The other observes that length generalization is often wholly independent of conventional scaling laws — models from 50M to 3B failed to extend 15-digit addition to 20 digits, and data past a threshold did not help. Both are cautions against reading a compute-loss curve as a capability curve.",
+  "evidence": [
+    {
+      "id": "local:5175928072823010",
+      "kind": "paper",
+      "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
+      "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models"
+    },
+    {
+      "id": "local:bd58c1406f4a1ef5",
+      "kind": "paper",
+      "note": "Proves that no computable length-generalization bound exists for transformers of depth two or beyond, and gives a matching exponential bound for the positive fragment that corresponds to fixed-precision transformers.",
+      "title": "Length Generalization Bounds for Transformers"
+    }
+  ],
+  "first_seen": "2026-08-08T04:37:57Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "scaling laws",
+  "related": [
+    "policy-entropy",
+    "entropy-collapse",
+    "exploration-exploitation-trade-off",
+    "covariance-of-probability-and-advantage",
+    "entropy-performance-exchange-law",
+    "performance-ceiling",
+    "entropy-bonus",
+    "clip-higher",
+    "token-level-entropy",
+    "softmax-policy",
+    "clip-cov",
+    "kl-cov",
+    "grpo",
+    "rloo",
+    "prime",
+    "reinforce",
+    "ppo",
+    "rlvr",
+    "verl",
+    "entropy-regularization",
+    "dapo-math",
+    "math500",
+    "aime24",
+    "aime25",
+    "amc23",
+    "omni-math",
+    "olympiadbench",
+    "minerva",
+    "kodcode",
+    "qwen2-5-7b",
+    "qwen2-5-32b",
+    "mistral-7b",
+    "llama3-1-8b",
+    "deepseek-math-7b",
+    "length-generalization",
+    "generalization",
+    "computability",
+    "expressivity",
+    "out-of-distribution-generalization",
+    "finite-precision",
+    "exact-learning",
+    "c-rasp",
+    "non-asymptotic-length-generalization",
+    "reduction-from-hilbert-s-tenth-problem",
+    "unary-temporal-logic"
+  ],
+  "schema_version": 1,
+  "slug": "scaling-laws",
+  "topics": [
+    "reasoning-training"
+  ]
+}

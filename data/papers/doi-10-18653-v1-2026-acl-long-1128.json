@@ -1,0 +1,39 @@
+{
+  "abstract": "Recent Large Reasoning Models (LRMs) like DeepSeek-R1 have demonstrated remarkable success in complex reasoning tasks, exhibiting human-like patterns in exploring multiple alternative solutions. Upon closer inspection, however, we uncover a surprising phenomenon: The First is The Best, where alternative solutions are not merely suboptimal but potentially detrimental. This observation challenges widely accepted test-time scaling laws, leading us to hypothesize that errors within the reasoning path scale concurrently with test time. Through comprehensive empirical analysis, we characterize errors as a forest-structured Forest of Errors (FoE) and conclude that FoE makes the First the Best, which is underpinned by rigorous theoretical analysis. Leveraging these insights, we propose RED, a self-guided efficient reasoning framework comprising two components: I) Refining First, which suppresses FoE growth in the first solution; and II) Discarding Subs, which prunes subsequent FoE via dual-consistency. Extensive experiments across five benchmarks and six backbone models demonstrate that RED outperforms eight competitive baselines, achieving performance gains of up to 19.0% while reducing token consumption by 37.7%   70.4%. Moreover, comparative experiments on FoE metrics shed light on how RED achieves effectiveness.",
+  "arxiv_id": "",
+  "authors": [
+    "Kehan Jiang",
+    "Haonan Dong",
+    "Zhaolu Kang",
+    "Zhengzhou Zhu",
+    "Guojie Song"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.ACL-LONG.1128",
+  "first_seen": "2026-08-08T07:29:54Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1128",
+  "last_seen": "2026-08-08T07:29:54Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "large reasoning models",
+    "reasoning model",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.8
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/JiangDKZS26",
+  "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.acl-long.1128",
+  "venue": "ACL",
+  "year": 2026
+}

@@ -1,0 +1,108 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:22:35Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.2198",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Yuandong Wang 0002",
+      "Yao Cui",
+      "Yuxin Zhao",
+      "Zhen Yang 0034",
+      "Yangfu Zhu",
+      "Zhenzhou Shao"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mathematical reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-evaluation": 0.5
+    },
+    "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.2198",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "construct validity",
+      "multimodal reasoning",
+      "linguistic prior",
+      "modality ablation",
+      "perception bottleneck",
+      "meta-evaluation"
+    ],
+    "contributions": [
+      "MathSight, a university-level multimodal math benchmark with per-problem original, hand-drawn, photo-captured and text-only variants",
+      "A controlled design that quantifies the marginal contribution of visual input",
+      "The finding that visual contribution diminishes with increasing problem difficulty",
+      "The result that Qwen3-VL without image input surpasses its multimodal variants and GPT-5"
+    ],
+    "datasets": [
+      "MathSight"
+    ],
+    "limitations": "No aggregate numbers in the abstract beyond the ordering of that one comparison, and the full model list is not given. A text-only arm that matches the multimodal arm shows the image is unnecessary for these items, which may indicate the problems are under-specified visually rather than that models cannot see — the benchmark's own construction is implicated in its headline result. That a model beats itself without the image also raises the possibility that image tokens actively interfere, which is a different claim from failing to use them.",
+    "method": "MathSight is a university-level multimodal mathematical reasoning benchmark built to disentangle and quantify the effect of visual input. Each problem carries multiple visual variants — original, hand-drawn, photo-captured — plus a text-only condition for controlled comparison. The text-only arm is the decisive control: if a model scores as well without the image, the image was not contributing.",
+    "methods": [
+      "MathSight",
+      "modality ablation",
+      "visual variant perturbation"
+    ],
+    "models": [
+      "Qwen3-VL",
+      "GPT-5"
+    ],
+    "one_liner": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+    "problem": "Multimodal math benchmarks report strong overall performance but seldom isolate the role of the image, so whether vision-language models genuinely use visual understanding or lean on linguistic priors is unresolved.",
+    "relevance": {
+      "reasoning-evaluation": "Supplies the control that multimodal reasoning benchmarks generally omit — run the same problem with no image — and the result is that the image is often unnecessary and sometimes harmful. That makes multimodal math scores partly a text benchmark, which parallels doi:10.18653/v1/2026.acl-long.826's finding that ARC scores are largely a perception benchmark: in both cases the reported quantity is not the intended one, in opposite directions. With VisAidMath and ErrorRadar this drain now holds four multimodal reasoning benchmarks whose common conclusion is that the modality split is mismeasured, and the text-only ablation is the cheapest of the four controls to adopt."
+    },
+    "results": "The contribution of visual information diminishes as problem difficulty increases. Qwen3-VL with no image input surpasses both its own multimodal variants and GPT-5.",
+    "tags": [
+      "benchmark",
+      "multimodal",
+      "math reasoning",
+      "modality ablation",
+      "construct validity"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-2198",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

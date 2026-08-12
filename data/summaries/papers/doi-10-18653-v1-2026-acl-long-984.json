@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "multi-turn reasoning",
+    "interactive evaluation",
+    "state tracking",
+    "difficulty granularity",
+    "automated benchmark construction",
+    "construct validity"
+  ],
+  "contributions": [
+    "MTR-Bench, a multi-turn interactive reasoning benchmark with 4 classes, 40 tasks and 3600 instances",
+    "Fine-grained difficulty granularity and required interaction with environments",
+    "A fully automated framework covering both dataset construction and evaluation",
+    "Evidence that cutting-edge reasoning models fall short on multi-turn interactive reasoning"
+  ],
+  "datasets": [
+    "MTR-Bench"
+  ],
+  "generated_at": "2026-08-08T12:24:51Z",
+  "generated_by": "paper",
+  "limitations": "No quantitative results and no named models in the abstract. Fully automated construction bounds task realism to what can be generated and checked programmatically. Multi-turn evaluation confounds several abilities — state tracking, instruction adherence across turns, recovery from earlier mistakes — and the abstract does not indicate whether these are separated.",
+  "method": "MTR-Bench comprises 4 classes, 40 tasks and 3600 instances, covering diverse reasoning capabilities with fine-grained difficulty granularity and requiring multi-turn interaction with environments. The framework is fully automated across both dataset construction and model evaluation, which is what makes the benchmark scalable without human intervention — the same property that lets it be regenerated rather than saturated.",
+  "methods": [
+    "MTR-Bench",
+    "automated dataset construction",
+    "environment interaction"
+  ],
+  "models": [],
+  "one_liner": "A fully automated multi-turn reasoning benchmark of 40 tasks and 3600 instances requiring interaction with an environment, on which frontier reasoning models fall short.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.984",
+  "problem": "Reasoning evaluation focuses predominantly on single-turn scenarios, leaving interactive tasks largely unexplored. The paper attributes the gap to two missing pieces: comprehensive datasets and scalable automatic evaluation protocols.",
+  "relevance": {
+    "reasoning-evaluation": "Fills a real gap in this archive, which is dominated by single-turn math and QA: nearly every evaluation here scores one prompt and one answer, so nothing measures whether reasoning survives interaction. The automated-regeneration property also addresses contamination structurally rather than by checking for it, which the archive has found is almost never done. Without numbers the finding is directional, but the design is the contribution, and it pairs with the drain's agentic entries (AgentCoMa, AgentOPSD) as the evaluation side of the same shift toward multi-turn settings."
+  },
+  "results": "Even cutting-edge reasoning models fall short on multi-turn interactive reasoning tasks. No numbers or model names are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "benchmark",
+    "multi-turn",
+    "interactive",
+    "automated evaluation",
+    "state tracking"
+  ]
+}

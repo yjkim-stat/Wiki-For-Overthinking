@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:54:43Z",
+  "created_at": "2026-08-09T06:51:54Z",
+  "instructions": "Write the wiki definition for 'length penalty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "length penalty",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "length penalty",
+    "source_count": 2
+  },
+  "result": {
+    "definition": "A term added to a reinforcement learning objective that charges a trajectory for its length, and the most common lever in this archive's efficiency work. The sources agree it works and disagree about how to apply it safely. Applying it at sequence level couples efficiency to correctness, so long but correct trajectories are punished and the reasoning the penalty was meant to trim is damaged — two sources respond by decoupling the two rewards at token level or by applying the penalty only to correct trajectories, measured as excess over the shortest correct sample for that question rather than in absolute tokens. One source modulates it by difficulty, on the argument that a uniform penalty asks easy and hard problems for the same brevity. Attribution is the recurring difficulty: in a pipeline combining pruned supervision, preference optimization and a length-penalized RL stage, most of the compression arrives with the penalty, which makes it hard to credit the pruning criterion that preceded it. A separate result bounds what the lever can achieve — a model already trained with a heavy length penalty still yields large further reduction under an inference-time stopping policy, so penalized training does not exhaust the redundancy."
+  },
+  "task_id": "concept__length-penalty",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

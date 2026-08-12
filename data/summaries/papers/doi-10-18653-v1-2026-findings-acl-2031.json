@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "effective depth",
+    "counting",
+    "System-2 reasoning",
+    "localization",
+    "attention head",
+    "causal mediation analysis",
+    "architectural limitation",
+    "test-time compute"
+  ],
+  "contributions": [
+    "An architectural account of LLM counting failure as a depth limitation, since counting proceeds across layers",
+    "A test-time System-2 decomposition of large counting tasks into independently solvable sub-problems",
+    "A mechanistic trace of the strategy: latent counts stored in final item representations per part, moved by dedicated attention heads, aggregated at the end",
+    "Experimental evidence that the strategy surpasses the architectural limit on large-scale counting"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:29:49Z",
+  "generated_by": "paper",
+  "limitations": "No numbers in the abstract and no named models. Counting is a narrow task, chosen because the depth argument is clean there, so generalization of the System-2 claim beyond it is asserted rather than shown. The mechanistic account is obtained on the decomposed strategy, so it describes how the fix works rather than how unaided counting fails. Causal mediation analysis identifies components relative to the chosen metric.",
+  "method": "A simple test-time strategy inspired by System-2 cognition decomposes a large counting task into smaller independent sub-problems the model can solve reliably — trading depth for sequential steps. Observational and causal mediation analyses are then used to understand why it works, identifying the components involved.",
+  "methods": [
+    "causal mediation analysis",
+    "activation patching",
+    "task decomposition",
+    "System-2 prompting"
+  ],
+  "models": [],
+  "one_liner": "Explains LLM counting failures as a depth limit, since counting is computed across layers, and fixes it with a System-2 decomposition whose mechanism is then traced.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.2031",
+  "problem": "LLMs perform well on complex mathematics yet fail systematically at counting. The paper attributes this to a transformer architectural limit: counting is performed across layers, so precision degrades for larger counts because depth is finite. That makes it a structural ceiling rather than a knowledge gap.",
+  "relevance": {
+    "reasoning-interpretability": "One of the few entries in this archive that connects a behavioural failure to an architectural cause and then verifies the causal path — depth-bounded across-layer computation, with the fix's mechanism traced to specific storage sites and transfer heads. That is the shape of explanation the archive's effective-depth thread wants, on a task simple enough for the argument to be checked. It also gives a mechanistic reason why serializing a computation into explicit steps helps at all, which is the premise of chain-of-thought generally: extra tokens buy sequential depth the architecture cannot supply within one forward pass."
+  },
+  "results": "Mechanistic analysis finds latent counts are computed and stored in the final item representations of each part, transferred to intermediate steps via dedicated attention heads, and aggregated at the final stage to produce the total. Experimentally, the strategy lets models surpass the architectural limitation and reach higher accuracy on large-scale counting.",
+  "schema_version": 1,
+  "tags": [
+    "counting",
+    "effective depth",
+    "causal mediation",
+    "system-2",
+    "interpretability"
+  ]
+}

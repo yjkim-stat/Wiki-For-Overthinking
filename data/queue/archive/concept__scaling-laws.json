@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
+        "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that no computable length-generalization bound exists for transformers of depth two or beyond, and gives a matching exponential bound for the positive fragment that corresponds to fixed-precision transformers.",
+        "title": "Length Generalization Bounds for Transformers",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:51Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'scaling laws'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "scaling laws",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "scaling laws",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "scaling law",
+      "compute-performance scaling"
+    ],
+    "definition": "Predictable relationships between resources spent and performance obtained, which the archived sources invoke mostly to mark where the familiar ones stop applying. One derives a law inside RL training rather than pretraining: reward trades against policy entropy as R = -a*exp(H) + b, fitted across model families and predictive enough that coefficients from the first 36 steps extrapolate 200 steps ahead at under 1% RMSE, with the ceiling at zero entropy. The other observes that length generalization is often wholly independent of conventional scaling laws — models from 50M to 3B failed to extend 15-digit addition to 20 digits, and data past a threshold did not help. Both are cautions against reading a compute-loss curve as a capability curve.",
+    "kind": "concept",
+    "related": [
+      "policy entropy",
+      "entropy collapse",
+      "performance ceiling",
+      "length generalization",
+      "test-time scaling",
+      "provable scaling law"
+    ]
+  },
+  "task_id": "concept__scaling-laws",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

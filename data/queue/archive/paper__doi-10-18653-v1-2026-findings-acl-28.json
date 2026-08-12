@@ -1,0 +1,107 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:18:04Z",
+  "created_at": "2026-08-08T07:35:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.28",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Longteng Guo",
+      "Xuanxu Lin",
+      "Dongze Hao",
+      "Tongtian Yue",
+      "Pengkang Huo",
+      "Jiatong Ma",
+      "Yuchen Liu",
+      "Jing Liu 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "reasoning evaluation"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-evaluation": 0.5
+    },
+    "title": "SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.28",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "multimodal reasoning",
+      "scientific reasoning",
+      "process evaluation",
+      "traceability",
+      "domain expertise",
+      "multi-step inference"
+    ],
+    "contributions": [
+      "SciVQR, a multimodal scientific reasoning benchmark spanning 54 subfields in six disciplines",
+      "Domain-specific visuals including equations, charts and diagrams requiring joint visual and reasoning competence",
+      "A difficulty range from factual recall to multi-step inference",
+      "Expert-authored solutions for 46% of items enabling reasoning-process evaluation",
+      "Evaluation of leading proprietary and open-source multimodal LLMs, with dataset and code released"
+    ],
+    "datasets": [
+      "SciVQR"
+    ],
+    "limitations": "No quantitative results or named models in the abstract. Expert solutions cover 46% of items, so process evaluation is available on under half the benchmark. 54 subfields across six disciplines implies few items per subfield, limiting per-subfield conclusions. How the reasoning process is scored — by human experts or a model judge — is not stated, which determines how much weight the process claims carry.",
+    "method": "SciVQR covers 54 subfields across mathematics, physics, chemistry, geography, astronomy and biology, with domain-specific visuals — equations, charts, diagrams — requiring visual comprehension to be combined with reasoning. Tasks range from basic factual recall to complex multi-step inference, and 46% include expert-authored solutions, which is what makes process evaluation possible rather than only answer checking. Both final answers and the reasoning process are evaluated.",
+    "methods": [
+      "SciVQR",
+      "process-level evaluation",
+      "expert-authored reference solutions"
+    ],
+    "models": [],
+    "one_liner": "A multimodal scientific reasoning benchmark over 54 subfields with domain-specific visuals and expert solutions for 46% of items, scoring the reasoning process as well as the answer.",
+    "problem": "Scientific reasoning requires integrating multimodal inputs, domain expertise and multi-step inference across subjects. Existing multimodal benchmarks do not capture the complexity or the traceability of the reasoning processes needed for rigorous evaluation.",
+    "relevance": {
+      "reasoning-evaluation": "Adds breadth the archive lacks — the collection is dominated by competition mathematics, and 54 scientific subfields with domain visuals is a different distribution. The design choice worth recording is that expert-authored solutions are what license process evaluation, and this benchmark has them for only 46% of items, which is an honest statement of the real constraint: scoring reasoning rather than answers requires reference reasoning, and that is expensive enough that even a benchmark built for it covers under half. That cost is why so much of the field scores final answers, and it makes the 46% figure more informative than the headline result."
+    },
+    "results": "Evaluation of leading proprietary and open-source multimodal LLMs reveals significant limitations on complex multimodal reasoning tasks, indicating a need for better multi-step reasoning and interdisciplinary knowledge integration. No numbers or model names are given in the abstract.",
+    "tags": [
+      "benchmark",
+      "multimodal",
+      "scientific reasoning",
+      "process evaluation"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-28",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

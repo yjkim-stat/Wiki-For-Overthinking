@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+        "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A competitive chess testbed where 13 models play each other, and no model beats a human-amateur-level engine while some lose to random play.",
+        "title": "ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:47Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'long-horizon reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "long-horizon reasoning",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "long-horizon reasoning",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "long-horizon planning",
+      "multi-step horizon"
+    ],
+    "definition": "Reasoning over many dependent steps where an early decision determines much later outcomes, which both sources treat as the regime where standard methods break down. One shows trajectory-level advantage estimates fail to credit the few pivotal decisions that determine multi-turn agentic outcomes, and recovers turn-level credit by recursively updating a belief in log-odds space. The other supplies an absolute measurement, using chess to require strategic reasoning, rule adherence and state tracking at once, and finding no model beats a human-amateur-level engine while some lose to random play. The shared point is that competence on single steps does not compose over a long horizon.",
+    "kind": "concept",
+    "related": [
+      "credit assignment",
+      "state tracking",
+      "multi-turn reasoning",
+      "compositional generalization",
+      "belief state",
+      "compounding error"
+    ]
+  },
+  "task_id": "concept__long-horizon-reasoning",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

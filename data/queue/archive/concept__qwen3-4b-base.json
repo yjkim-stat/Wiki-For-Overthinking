@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
+        "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
+        "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:20:25Z",
+  "created_at": "2026-08-09T06:17:45Z",
+  "instructions": "Write the wiki definition for 'Qwen3-4B-Base'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-4B-Base",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-4B-Base",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A 4B-parameter base checkpoint from the Qwen3 family, used by both sources as a starting point for reinforcement learning with verifiable rewards on mathematics. In one it is the second of two base models for the entropy-flow experiments, trained on DAPO-17K; in the other it appears in an appendix extension checking that the entropy-discriminator clipping methods hold across model families rather than only on the Qwen2.5-Instruct models of the main study. Neither source describes the model itself.",
+    "kind": "model",
+    "related": [
+      "Qwen2.5-Math-7B",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-14B-Instruct",
+      "DAPO-Math-17K",
+      "GRPO"
+    ]
+  },
+  "task_id": "concept__qwen3-4b-base",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

@@ -2,13 +2,18 @@
 
 # Archive
 
-- Papers: 0 (0 summarized)
+- Papers: 183 (146 summarized)
 - Seminars: 0
 
 ## Recent digests
 
-_No digests yet._
+- [2026-08-09](daily/2026-08-09.md)
+- [2026-08-08](daily/2026-08-08.md)
 
 ## Topics
 
-_No topics registered. Add one with `scripts/new_topic.sh "Name"`._
+- **Reasoning Evaluation** (`reasoning-evaluation`) — 38 paper(s)
+- **Reasoning Faithfulness** (`reasoning-faithfulness`) — 25 paper(s)
+- **Reasoning Interpretability** (`reasoning-interpretability`) — 26 paper(s)
+- **Reasoning Training** (`reasoning-training`) — 116 paper(s)
+- **Test-Time Scaling** (`test-time-scaling`) — 63 paper(s)

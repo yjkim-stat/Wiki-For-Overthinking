@@ -1,0 +1,46 @@
+{
+  "concepts": [
+    "overthinking",
+    "process reward",
+    "reasoning redundancy",
+    "KV cache compression",
+    "early exit",
+    "adaptive compute allocation",
+    "reflection tokens"
+  ],
+  "contributions": [
+    "The observation that tolerance to context loss varies along a reasoning trajectory and that process reward tracks it",
+    "The observation that cache compression is not free on the generation side, since a smaller cache induces more tokens",
+    "ReCo, coordinating reward-adaptive KV-cache compression, a reward-banded reflection-token penalty and confidence-based early stopping under one process reward",
+    "Token and latency reductions across three reasoning models and six benchmarks"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:11:34Z",
+  "generated_by": "paper",
+  "limitations": "'Largely preserving accuracy' is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are not named. The process-reward estimator is an additional component whose own cost and calibration are not reported, and the claim that deleting tokens at high-reward steps is safer rests on that estimator being right about which steps are high-reward.",
+  "method": "ReCo puts a lightweight process-reward estimator on each completed step and uses its score to drive three coordinated components: reward-adaptive KV-cache compression that shrinks the retained cache harder at high-reward steps and less at low-reward ones; a reward-banded penalty on reflection tokens to curb redundant generation; and confidence-based early stopping triggered when the reasoning is judged reliable. Coordinating the compression side and the generation side under one signal is the point — measuring only cache reduction hides the generation-side rebound.",
+  "methods": [
+    "ReCo",
+    "process reward model",
+    "KV-cache eviction",
+    "confidence-based early stopping",
+    "reward-banded penalty"
+  ],
+  "models": [],
+  "one_liner": "Couples KV-cache compression and generation-length control under a single process-reward signal, compressing harder at high-reward reasoning steps and stopping early when confidence is high.",
+  "paper_id": "arxiv:2608.04771",
+  "problem": "Long CoT inflates inference cost, and KV-cache compression is the usual remedy. Existing reasoning-oriented compression applies one uniform policy across the whole trajectory and judges itself only by what it removes from the cache. Two facts undercut that: a reasoning state's tolerance to context loss varies along the trajectory, and a smaller cache makes the model generate more tokens, partly cancelling the saving.",
+  "relevance": {
+    "reasoning-training": "Uses a process reward at inference rather than as a training signal, which is a different job for the same object this topic tracks. The transferable claim is that process reward is informative about which parts of a trajectory can be damaged without cost — a use that does not require the reward to be accurate enough to train on.",
+    "test-time-scaling": "Names a coupling the archive's efficiency thread has mostly ignored: cache compression and generation length are not independent knobs, and a method that reports only cache savings can be silently paid for in extra tokens. That makes end-to-end latency the honest metric, and the 2.08x-2.35x figure is reported that way. Its confidence-based early stopping is a fourth entry alongside the DEER/Dynasor/CUSUM family of stopping signals already tracked here."
+  },
+  "results": "Across three reasoning models and six benchmarks, ReCo reduces generated tokens by 37%-65% and end-to-end latency by 2.08x-2.35x over Full CoT, described as largely preserving accuracy.",
+  "schema_version": 1,
+  "tags": [
+    "kv cache",
+    "overthinking",
+    "process reward",
+    "early exit",
+    "efficient reasoning"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "aliases": [
+    "learning dynamics",
+    "optimization dynamics"
+  ],
+  "definition": "How a model's behaviour changes over the course of training, as distinct from what it ends up being able to do. One source makes it one of three organizing dimensions for mechanistic findings about reasoning models, alongside reasoning mechanisms and unintended behaviours. The other uses dynamics operationally rather than descriptively, reweighting training objectives online from short-horizon signals of convergence and instability so that focus shifts away from saturated objectives toward underperforming or volatile ones. The second shows why the first matters: if the mixture should adapt to observed dynamics, then dynamics are a control input and not only an object of study.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.889",
+      "kind": "paper",
+      "note": "A survey organizing mechanistic findings about reasoning models into training dynamics, reasoning mechanisms and unintended behaviours, and arguing the field needs a unified theoretical framework.",
+      "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1717",
+      "kind": "paper",
+      "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+      "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models"
+    },
+    {
+      "id": "local:fb100130d8c7c2bd",
+      "kind": "paper",
+      "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
+      "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs"
+    },
+    {
+      "id": "local:fe69869b0e362891",
+      "kind": "paper",
+      "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+      "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "training dynamics",
+  "related": [
+    "mechanistic-interpretability",
+    "emergent-behaviour",
+    "unintended-behaviour",
+    "applied-interpretability",
+    "literature-survey",
+    "catastrophic-forgetting",
+    "capability-regression",
+    "experience-replay",
+    "kl-regularization",
+    "chain-of-thought-faithfulness",
+    "objective-reweighting",
+    "recap",
+    "rlvr",
+    "kl-divergence-regularization",
+    "dynamic-objective-reweighting",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "pass-k",
+    "reasoning-boundary",
+    "verification",
+    "benchmark-contamination",
+    "judge-reliability",
+    "spurious-guessing",
+    "process-evaluation",
+    "cot-pass-k",
+    "grpo",
+    "dapo",
+    "llm-as-a-judge",
+    "supervised-fine-tuning",
+    "aime-2024",
+    "aime-2025",
+    "math-500",
+    "amc23",
+    "minerva",
+    "livecodebench",
+    "dapo-qwen-32b",
+    "qwen2-5-32b",
+    "deepseek-r1-0528-qwen3-8b",
+    "acereason-nemotron-7b",
+    "deepseek-r1-distill-qwen-7b",
+    "skywork-or1",
+    "length-generalization",
+    "state-tracking",
+    "optimization-guarantee",
+    "attention-concentration",
+    "expressivity-learnability-gap",
+    "self-training",
+    "circuit-complexity",
+    "context-rot",
+    "gradient-descent-analysis",
+    "chain-of-thought",
+    "recursive-self-training",
+    "attention-analysis",
+    "lego-state-tracking",
+    "lego"
+  ],
+  "schema_version": 1,
+  "slug": "training-dynamics",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "test-time-scaling",
+    "reasoning-interpretability"
+  ]
+}

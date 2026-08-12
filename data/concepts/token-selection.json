@@ -1,0 +1,86 @@
+{
+  "aliases": [
+    "token weighting",
+    "token-level credit",
+    "critical token identification"
+  ],
+  "definition": "Choosing which tokens in a reasoning trace deserve gradient, reward or removal — the archive's central technical dispute, with each source proposing a different criterion and none measuring overlap with the others. The criteria collected here are the teacher's distributional shift when a reference solution is supplied, the signed per-token log-probability gain of the ground-truth answer, the model's own likelihood contribution to the answer and to local coherence, and a teacher's skill-aware decomposition of steps. Elsewhere in the archive the same question is answered by Shannon entropy and by Jensen-Shannon divergence from a reference distribution. One criterion is signed, so it can mark a token as actively harmful rather than merely uninformative; the rest select tokens to weight up.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.06347",
+      "kind": "paper",
+      "note": "Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.",
+      "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1386",
+      "kind": "paper",
+      "note": "Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.",
+      "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.25",
+      "kind": "paper",
+      "note": "Prunes chain-of-thought segments the model's own likelihood landscape marks as extraneous, then trains on the resulting pruning preference pairs.",
+      "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.196",
+      "kind": "paper",
+      "note": "Has a teacher decompose and prune a student's reasoning by mathematical skill, then distills the pruned paths back, on the argument that CoT structure must match student capacity.",
+      "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "token selection",
+  "related": [
+    "cross-lingual-transfer",
+    "reasoning-pivot",
+    "process-supervision",
+    "credit-assignment",
+    "privileged-information",
+    "surface-realization",
+    "rp-opsd",
+    "on-policy-self-distillation",
+    "token-level-distillation",
+    "reference-anchoring",
+    "counterfactual-view-comparison",
+    "overthinking",
+    "reasoning-redundancy",
+    "marginal-utility",
+    "pareto-frontier",
+    "length-normalized-accuracy",
+    "muto",
+    "token-level-marginal-utility",
+    "reinforcement-learning-post-training",
+    "length-control",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "self-guided-pruning",
+    "preference-optimization",
+    "semantic-unit",
+    "likelihood-signal",
+    "sgp-cot",
+    "chain-of-thought-pruning",
+    "self-optimization",
+    "reasoning-distillation",
+    "skill-decomposition",
+    "capacity-matching",
+    "knowledge-transfer",
+    "drp",
+    "chain-of-thought-distillation",
+    "step-decomposition",
+    "inference-time-pruning",
+    "gsm8k",
+    "aime"
+  ],
+  "schema_version": 1,
+  "slug": "token-selection",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

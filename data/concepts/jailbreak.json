@@ -1,0 +1,71 @@
+{
+  "aliases": [
+    "jailbreaking",
+    "safety bypass",
+    "guardrail bypass"
+  ],
+  "definition": "Eliciting behaviour a model was trained to refuse, which in the reasoning-model setting the sources treat as an attack on the reasoning process rather than on the prompt or the output. Two propose defences placed mid-trajectory, one injecting safety reflections at attention-identified points, the other extracting visual intent before generation after finding that risk cues are perceived and then overridden by narrative coherence. The third shows the attack side is far ahead: automated hijacking reaches approaching 100% success within one or a few turns against GPT-o3/o4-mini and Gemini-2.5-Flash, refining attempts from reasoning patterns the target leaks through its own refusals. Its conclusion is that reasoning transparency is itself an exploitable surface.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1453",
+      "kind": "paper",
+      "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
+      "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1821",
+      "kind": "paper",
+      "note": "Identifies a multimodal failure where models see the risky visual cue but let narrative coherence override safety as reasoning proceeds, and defends against it by extracting intent before generation.",
+      "title": "Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1988",
+      "kind": "paper",
+      "note": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
+      "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "jailbreak",
+  "related": [
+    "aha-moment",
+    "inference-time-intervention",
+    "attention-pattern",
+    "test-time-compute",
+    "exaggerated-safety",
+    "reasoning-path-selection",
+    "reasoningguard",
+    "attention-analysis",
+    "scaling-sampling",
+    "safety-reflection-injection",
+    "safety-context-amnesia",
+    "multimodal-reasoning",
+    "narrative-coherence",
+    "perception-versus-reasoning",
+    "intent-guided-safety-reasoning",
+    "perception-decoupling",
+    "chain-of-thought",
+    "safety-reasoning",
+    "attack-surface",
+    "transparency-trade-off",
+    "refusal-leakage",
+    "monitorability",
+    "autoran",
+    "execution-simulation",
+    "iterative-attack-refinement",
+    "automated-red-teaming",
+    "advbench",
+    "harmbench",
+    "strongreject",
+    "gpt-o3",
+    "gpt-o4-mini",
+    "gemini-2-5-flash"
+  ],
+  "schema_version": 1,
+  "slug": "jailbreak",
+  "topics": [
+    "reasoning-training"
+  ]
+}

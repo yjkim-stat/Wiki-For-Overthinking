@@ -1,0 +1,67 @@
+{
+  "concepts": [
+    "commitment boundary",
+    "epiphenomenal reasoning",
+    "performative reasoning",
+    "chain of thought faithfulness",
+    "step-level causal attribution",
+    "answer formation",
+    "mid-guess",
+    "early exit",
+    "linear probing",
+    "reasoning redundancy",
+    "overthinking",
+    "monitorability"
+  ],
+  "contributions": [
+    "A step-level causal attribution framework that truncates rather than perturbs: for each prefix of the CoT the model is forced to answer, and the resulting confidence trajectory measures commitment without corrupting the text being studied.",
+    "Identification of the commitment boundary — the single step at which final-answer probability jumps — and the finding that it typically falls well before the reasoning block ends.",
+    "Characterization of epiphenomenal reasoning: the post-boundary tail of hedging, rechecking and expressed uncertainty that leaves the elicited answer essentially unaltered.",
+    "Evidence that pre-boundary reasoning is genuinely informative rather than merely early, via mid-guesses that the model entertains at high confidence and later revises, and via an asymmetric numeric-perturbation stress test.",
+    "Lightweight causal attention probes that classify answer-formation stage from activations in a single forward pass, generalizing to out-of-distribution reasoning tasks.",
+    "Probe-mediated early exiting that dominates fixed-percentage truncation at every operating point."
+  ],
+  "datasets": [
+    "MATH500",
+    "AIME25",
+    "ZebraLogic",
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-08-08T04:32:04Z",
+  "generated_by": "paper",
+  "limitations": "The paper's limitations section is unusually complete and worth reading in full. Attribution relies on greedy decoding from each truncated prefix plus an answer-forcing suffix, so it captures the answer the model would commit to if forced at that step, ignoring probability mass shifts that do not change the argmax; the suffix is itself a soft intervention pushing the model to commit. Traces are filtered to those the no-CoT baseline gets wrong and those without first-token collisions, which biases the sample toward problems where CoT is genuinely informative. Segmentation is sentence-level, so reported boundary positions are upper bounds — finer attribution would shift the boundary earlier in some cases. Coverage is three open-weight families and four benchmarks dominated by mathematics, logic and multiple-choice science, with no agentic, tool-using or long-horizon tasks where a single final answer is less well defined, and no closed-weight models since activation probing is impossible there. Probes are trained on labels derived from the same truncation procedure they are meant to replace, which makes them liable to inherit its biases. On safety, the early-fire rate is non-negligible on some out-of-distribution settings (up to 21%), which the authors flag as potentially unacceptable in high-stakes deployment. Finally, they explicitly caution against reading epiphenomenal reasoning as functionally useless: the framework measures effect on the elicited answer under forcing, and does not rule out roles in calibrating internal confidence, supporting follow-up turns, behaving differently under other decoding strategies, or serving training-time objectives such as RL reward shaping.",
+  "method": "A decoded CoT is segmented into sentence-level spans. For each prefix an answer-forcing sequence is built by concatenating the prompt, the truncated CoT, the end-of-thinking marker and a task-specific suffix that elicits a direct answer, and the model's answer is greedily decoded and compared to the full-CoT answer under a semantic verifier. Step confidence is the max next-token probability of the elicited answer. Steps are labelled no-guess, mid-guess or final-guess against a threshold set midway between the no-CoT and full-CoT confidences. The commitment boundary is the step maximizing the confidence increment. Analysis is restricted to traces where intermediate reasoning actually helps — traces the model answers correctly with no CoT are dropped — and traces with first-token collisions between intermediate and final answers are discarded. Two stress tests follow. Numeric perturbation randomly offsets a fixed percentage of numbers either only after the boundary or only within the prefix up to it, and measures whether the elicited answer is preserved. Mid-guess consistency is measured across independent traces of the same question by Jaccard overlap of mid-guess sets and by the standard deviation of their relative positions. For the predictive half, activations at a chosen layer for the last token of each step are extracted and a small causal attention probe is trained for three-way stage classification over a fixed window of previous steps, on a question-level split of MATH-500 traces, with the other datasets held out entirely. At inference the probe fires when it predicts final-guess for k consecutive steps (k = 2 by default), and generation is truncated there.",
+  "methods": [
+    "truncation-based causal attribution",
+    "answer forcing",
+    "causal attention probe",
+    "early exit",
+    "numeric perturbation stress test",
+    "linear probing",
+    "fixed-percentage truncation"
+  ],
+  "one_liner": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+  "paper_id": "local:d6e266929de37684",
+  "problem": "Chain-of-thought is the dominant inference-time scaling paradigm and its legibility is what safety monitoring depends on, but the causal influence of individual steps on the final answer is poorly understood. Prior faithfulness work perturbs the trace and observes downstream effects, which is inherently noisy: results depend on how the model interprets a corrupted CoT, and the causal reading is confounded by the model's ability to reason implicitly without the explicit trace. The open question is whether one can track how a model converges to its answer across steps and locate precisely where it stabilizes.",
+  "relevance": {
+    "reasoning-faithfulness": "The strongest causal result in this archive on where in a trace the reasoning stops mattering, and it advances the topic's method as much as its findings. Truncation instead of perturbation removes the confound that has dogged this literature — a corrupted trace changes what the model is reading, whereas a prefix is something the model actually produced — which makes the asymmetry it finds credible: corrupting numbers before the boundary destroys the answer, corrupting them after mostly does not. The characterization of the post-boundary tail is the sharpest available statement of a specific unfaithfulness: the model continues to hedge, recheck and express uncertainty about an answer it has already fixed, so language that reads as deliberation is not deliberation. That directly complicates CoT monitoring, which the paper says plainly. It also sits precisely between two other archived results and adjudicates between them — one finds injecting doubt into a failed trajectory recovers about 15% of them, the other finds most spontaneous doubt is imprecise; this paper shows that where the doubt falls relative to the commitment boundary is what decides which regime applies. The authors' own refusal to conclude that epiphenomenal steps are useless is a caution this topic should adopt: measured-with-respect-to-the-elicited-answer is not the same as causally inert.",
+    "test-time-scaling": "A mechanistically grounded early-exit method and, more valuably for this topic, a diagnosis of why the naive version fails. Fixed-percentage truncation and probe-mediated exit were compared at matched average savings and the fixed baseline lost 23 accuracy points where the probe lost 9 — because the commitment boundary's position varies per trace and, notably, mainly by model family rather than task difficulty, so any population-level heuristic is mistimed on most individual traces. That is a direct argument against the family of length-budget heuristics this topic collects, and a complement to the archived CUSUM stopping rule, which detects convergence from output entropy where this detects it from activations. The quantitative headline is the topic's central waste measurement stated more strongly than elsewhere here: in some configurations up to 87% of generated reasoning tokens come after the answer has stabilized. The safety caveat travels with it — a 21% early-fire rate out of distribution is the price of adaptive exit, and the paper is explicit that per-task threshold calibration is unfinished work."
+  },
+  "results": "The transition is sharp: the largest confidence increment in a trace is on average 4.6 times the second-largest (median, 95% CI [4.3, 4.9], n = 3,119 traces on gpt-oss-20b), and normalized step confidences are strongly bimodal, concentrating near the no-CoT and full-CoT levels. Boundary position is driven mainly by model family rather than task difficulty: gemma-4-26B-A4B-it converges after only 13-23% of CoT tokens while gpt-oss-20b converges at 43-68%, with Qwen3-14B between; in some configurations up to 87% of generated reasoning tokens come after the answer has stabilized. The two sides of the boundary behave asymmetrically under numeric corruption on AIME2025: at 20% corruption, perturbing the prefix preserves the answer in 61% of runs against 95% for perturbing the tail, and at 50% the gap remains 27% versus 72%. Pre-boundary reasoning is substantive — a good fraction of traces entertain one or more mid-guesses at high confidence (average likelihood 0.69) before revising — while post-boundary guess distribution is almost entirely the final answer. Traces containing mid-guesses are more than twice as long (688 ± 57 versus 306.15 ± 24 tokens). Mid-guesses recur across independent traces of the same problem: median Jaccard 0.71 on MATH-500, with the standard deviation of their relative position at 0.005 against a permuted baseline of 0.011. Probes detect the boundary reliably: on in-distribution MATH-500, detection rates are 92% (gpt-oss-20b), 62% (gemma) and 98% (Qwen3-14B), and out-of-distribution ranges stay high (69-97%, 98-99%, 78-98%), with early-fire rates generally low but reaching 21% for Qwen3-14B OOD. Early exiting: on MATH-500, fixed-percentage truncation at matched average savings loses 23 accuracy points (80% to 57%), whereas the probe at k = 1 recovers 89% of full-CoT accuracy (71% versus 80%) while saving 39% of tokens, and at k = 5 reaches 98% of full-CoT accuracy (78% versus 80%) at 26% savings. Applied unchanged to AIME 2025, ZebraLogic and GPQA-Diamond the probe keeps beating fixed baselines, with at most 11% accuracy loss (ZebraLogic, 97% to 86%) while saving 25%, 6% and 35% of tokens respectively.",
+  "schema_version": 1,
+  "tags": [
+    "faithfulness",
+    "epiphenomenal",
+    "early exit",
+    "probing",
+    "chain of thought",
+    "causal attribution",
+    "inference efficiency",
+    "monitoring"
+  ],
+  "models": [
+    "gpt-oss-20b",
+    "Qwen3-14B",
+    "gemma-4-26B-A4B-it"
+  ]
+}

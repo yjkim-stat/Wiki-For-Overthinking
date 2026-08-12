@@ -1,0 +1,56 @@
+{
+  "concepts": [
+    "polysemanticity",
+    "superposition",
+    "sparse dictionary learning",
+    "monosemanticity",
+    "feature dictionary",
+    "residual stream",
+    "causal mediation analysis",
+    "circuit detection",
+    "enumerative safety",
+    "automated interpretability score"
+  ],
+  "contributions": [
+    "An unsupervised, scalable method for taking features out of superposition: a single-hidden-layer autoencoder with tied weights and an L1 penalty, trained on unlabelled model activations at orders of magnitude less compute than training the model itself.",
+    "Evidence that the learned dictionary features score higher on automated interpretability than PCA, ICA, the default neuron basis and random directions, across residual stream layers.",
+    "Evidence that the features localise behaviour more tightly: on indirect object identification, fewer feature patches are needed to reach a given KL divergence from a counterfactual target than with PCA components, at smaller edit magnitude.",
+    "Case studies showing individual features are monosemantic on input, have the expected effect on output logits when ablated, and can be assembled into a causal circuit across layers by recursive ablation."
+  ],
+  "datasets": [
+    "the Pile",
+    "Indirect Object Identification (IOI)"
+  ],
+  "generated_at": "2026-08-08T02:40:59Z",
+  "generated_by": "paper",
+  "limitations": "The paper's own: reconstruction loss is not zero, so the dictionaries do not capture all information in a layer's activations, quantified by the perplexity increase from 25 to 40 when a layer is replaced by its reconstruction; the authors suggest training against change in model outputs rather than reconstruction error as a fix. The training pipeline is suited to the residual stream and does not robustly learn overcomplete bases in intermediate MLP layers, and attention heads are untouched. The claim that behaviour depends on few features is established on one task (IOI), and the authors state that generalisation to other tasks and behaviours needs confirmation. A reader should add that interpretability is scored by a language model judging another model's features, so the metric inherits that judge's limitations — the paper notes such judges struggle with patterns centred on neighbouring rather than current tokens — and that the method's advantage over ICA largely disappears in later layers, which is where the features most relevant to complex behaviour would be expected to live. Experiments are confined to Pythia-70M and Pythia-410M.",
+  "method": "Internal activations x are taken from a language model — mainly the residual streams of Pythia-70M (d=512) and Pythia-410M (d=1024). An autoencoder computes c = ReLU(Mx + b) and reconstructs x_hat = M^T c, so the rows of M form a feature dictionary and c holds the reconstruction coefficients; weights are tied and rows are normalised so the sparsity penalty cannot be gamed by inflating feature vector norms. The hidden layer has size d_hid = R * d_in with R > 1, making the dictionary overcomplete. Training minimises reconstruction error plus alpha times the L1 norm of c, where alpha controls sparsity. Interpretability is measured with the automated pipeline of Bills et al.: sample text where a feature activates, have a language model write a human-readable description, then use that description to predict the feature's activations on held-out text, scoring by correlation. Causal importance is measured with activation patching: run the model on a counterfactual sentence, save the encoded feature activations, then on the base sentence replace the residual stream vector with x_i plus the sum over a chosen feature subset of the difference in feature coefficients times the feature direction, and compute the KL divergence of the patched model's predictions from the target's. The feature subset is chosen by Automated Circuit Discovery, treating features as a flat graph and greedily ordering them by their contribution to the KL metric over 50 IOI data points. Circuits are recovered by picking a target feature, sampling contexts that activate it strongly, ablating each previous-layer feature in turn, and ranking by how much the ablation suppresses the target — applied recursively to build a causal tree.",
+  "methods": [
+    "sparse autoencoder",
+    "activation patching",
+    "Automated Circuit Discovery (ACDC)",
+    "PCA",
+    "ICA",
+    "autointerpretability scoring",
+    "ablation"
+  ],
+  "one_liner": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+  "paper_id": "local:e33ecf791dfdfa8a",
+  "problem": "Reverse engineering a neural network requires units that can be analysed in isolation, but individual neurons are polysemantic — they activate across semantically unrelated contexts — and for the residual stream there is no reason to expect features to align with the neuron basis at all. The hypothesised cause is superposition: a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is only viable when features activate sparsely. If that hypothesis holds, the features should be recoverable by finding a set of directions in activation space such that every activation vector is a sparse linear combination of them — which is sparse dictionary learning.",
+  "relevance": {},
+  "results": "On automated interpretability across residual stream layers of Pythia-70M, using 150 features per method with 95% confidence intervals, sparse coding scores about 0.30 at layer 0 and declines to roughly 0.15 by layer 5, against about 0.14 for ICA, 0.07-0.13 for PCA, and roughly 0.06-0.08 for the identity-ReLU basis and random directions. The advantage narrows with depth, becoming comparable to ICA at layer 4 and minimal at the final layer. On indirect object identification at layer 11 of Pythia-410M, with dictionaries trained on the first 10,000 elements of the Pile (about 7 million activations), patching dictionary features reaches a given KL divergence from the counterfactual target with fewer patched features than PCA or non-negative PCA, and improves the Pareto frontier of mean edit magnitude against KL divergence; the non-sparse control (alpha = 0) does not show the effect, while larger alpha buys localisation at the cost of higher minimum achievable KL divergence. Case studies: feature 556 activates almost exclusively on apostrophes, and ablating it primarily reduces the logit of the following 's' token, matching what an apostrophe detector used for possessives and contractions should do; a layer-5 closing-parenthesis feature unembeds to closing-parenthesis variants and traces back through a legible multi-layer circuit of features detecting open brackets, acronyms and text in parentheses. Reconstruction is lossy: substituting layer 2 residual stream activations of Pythia-70M with their reconstruction raises Pile perplexity from 25 to 40.",
+  "schema_version": 1,
+  "tags": [
+    "mechanistic interpretability",
+    "sparse autoencoder",
+    "superposition",
+    "polysemanticity",
+    "activation patching",
+    "circuits",
+    "feature dictionary"
+  ],
+  "models": [
+    "Pythia-70M",
+    "Pythia-410M"
+  ]
+}

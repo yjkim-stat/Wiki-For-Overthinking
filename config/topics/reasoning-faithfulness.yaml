@@ -1,0 +1,61 @@
+# Whether the reasoning a model shows is the reasoning it used.
+
+slug: reasoning-faithfulness
+name: Reasoning Faithfulness
+
+description: >-
+  The gap between a model's stated chain of thought and the computation that
+  produced its answer: unfaithful or post-hoc rationalization, reasoning that is
+  latent rather than written, encoded or steganographic traces, and what a
+  monitor reading the trace can and cannot catch. The question the archive
+  answers is when a visible reasoning trace is evidence about the model, and
+  when it is only text.
+
+keywords:
+  any:
+    - chain of thought faithfulness
+    - faithful reasoning
+    - unfaithful
+    - faithfulness of chain of thought
+    - chain of thought monitoring
+    - monitorability
+    - encoded reasoning
+    - steganography
+    - latent reasoning
+    - implicit reasoning
+    - post-hoc rationalization
+    - reasoning trace
+    - introspection
+    - sandbagging
+  all: []
+  none: []
+
+authors: []
+
+seed_papers:
+  - "2305.04388"   # Language models don't always say what they think
+  - "2307.13702"   # Question decomposition improves faithfulness
+
+# Lower than the others: this is a smaller literature and the vocabulary is
+# less standardized, so the archive would rather record a near-miss than drop
+# it. Raise it if the topic starts collecting noise.
+min_score: 0.30
+
+sources:
+  arxiv:
+    enabled: true
+    categories:
+      - cs.CL
+      - cs.LG
+      - cs.AI
+  conferences:
+    enabled: true
+    venues: []
+  youtube:
+    enabled: true
+    channels: []
+
+outputs:
+  lecture_note: true
+  slides: true
+  report: true

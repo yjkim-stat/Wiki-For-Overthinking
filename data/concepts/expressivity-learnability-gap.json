@@ -1,0 +1,74 @@
+{
+  "aliases": [
+    "expressiveness-learnability gap",
+    "representation-learning gap"
+  ],
+  "definition": "The gap between what a transformer can represent and what training can actually find from finite data, which the sources treat as the thing expressivity results leave unaddressed. One makes it quantitative on boolean functions, showing the generalization gap scales as the Fourier sparsity times the squared degree, so a high-degree function can be expressible and out of reach. One closes it from the statistical side, giving tight VC-dimension and chain-of-thought sample-complexity bounds so that representational results can be converted into learning guarantees. One closes it from the optimization side, proving gradient descent reaches NC^1-complete problems with CoT where prior optimization analyses had reached only TC^0. Together they mark the three separate things 'can solve' can mean: representable, learnable from data, and findable by gradient descent.",
+  "evidence": [
+    {
+      "id": "local:03f1eff4f1d40725",
+      "kind": "paper",
+      "note": "Derives a non-vacuous PAC-Bayes generalization bound for transformers on boolean functions in terms of Fourier sparsity and degree, and uses it to show chain of thought turns an exponential dependence on reasoning length into a linear one for Parity.",
+      "title": "A Sharper Picture of Generalization in Transformers"
+    },
+    {
+      "id": "local:209065fd89f43691",
+      "kind": "paper",
+      "note": "Pins down the VC dimension of transformers as depth times parameters times a logarithm, and shows chain-of-thought learning by teacher forcing costs only logarithmically more as the number of reasoning steps grows.",
+      "title": "Tight Sample Complexity of Transformers"
+    },
+    {
+      "id": "local:fe69869b0e362891",
+      "kind": "paper",
+      "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+      "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization"
+    }
+  ],
+  "first_seen": "2026-08-09T03:21:53Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "expressivity-learnability gap",
+  "related": [
+    "generalization",
+    "pac-bayes",
+    "flat-minima",
+    "sharpness",
+    "fourier-spectrum",
+    "sample-complexity",
+    "parity",
+    "low-degree-bias",
+    "chain-of-thought",
+    "pac-bayes-bound",
+    "constructive-pac-bayes",
+    "sharpness-minimization",
+    "property-testing",
+    "fourier-analysis",
+    "mechanistic-interpretability",
+    "vc-dimension",
+    "teacher-forcing",
+    "inductive-bias",
+    "hard-attention",
+    "vc-dimension-analysis",
+    "pac-learning",
+    "length-generalization",
+    "state-tracking",
+    "optimization-guarantee",
+    "attention-concentration",
+    "self-training",
+    "circuit-complexity",
+    "training-dynamics",
+    "context-rot",
+    "gradient-descent-analysis",
+    "recursive-self-training",
+    "attention-analysis",
+    "lego-state-tracking",
+    "lego"
+  ],
+  "schema_version": 1,
+  "slug": "expressivity-learnability-gap",
+  "topics": [
+    "reasoning-training",
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

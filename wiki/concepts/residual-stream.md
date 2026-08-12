@@ -1,0 +1,25 @@
+# residual stream
+
+<!-- auto:begin -->
+
+The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
+
+- **Kind**: concept
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
+- **Sources**: 5
+
+**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [AIME 24](../datasets/aime-24.md), [AIME 25](../datasets/aime-25.md), [answer stabilization](answer-stabilization.md), [best-of-n](../methods/best-of-n.md), [calibration](../methods/calibration.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [effective depth](effective-depth.md), [error detection](error-detection.md), [GPQA](../datasets/gpqa.md), [Indirect Object Identification (IOI)](../datasets/indirect-object-identification-ioi.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [localization](localization.md), [majority voting](../methods/majority-voting.md), [monosemanticity](monosemanticity.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [pass-k](../methods/pass-k.md), [polysemanticity](polysemanticity.md), [process supervision](process-supervision.md), [Pythia-410M](../models/pythia-410m.md), [reasoning trajectory](reasoning-trajectory.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [state tracking](state-tracking.md), [superposition](superposition.md), [supervised finetuning](../methods/supervised-finetuning.md), [verification](verification.md)
+
+## Appears in
+
+- [Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs](../../archive/papers/2026/arxiv-2608-05660/summary.md) — Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
+- [Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-2073/summary.md) — Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.
+- [Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-788/summary.md) — Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.
+- [Do Models Read What They Write? Causal Registers in Scratchpad Reasoning](../../archive/papers/2026/local-54a1c25fa51cd59a/summary.md) — Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.
+- [Sparse Autoencoders Find Highly Interpretable Features in Language Models](../../archive/papers/2023/local-e33ecf791dfdfa8a/summary.md) — Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

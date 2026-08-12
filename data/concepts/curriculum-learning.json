@@ -1,0 +1,64 @@
+{
+  "aliases": [
+    "curriculum",
+    "staged training",
+    "progressive training"
+  ],
+  "definition": "Ordering training so that a target is approached in stages, which both sources find is not an optimization convenience but a requirement. One proves curriculum is necessary rather than merely helpful for training latent reasoners: removing it collapses the model to at or below the no-CoT baseline on two of three benchmarks. The other designs the schedule to match the target's structure, deleting thinking tokens in geometric chunks aligned to the parity tree's levels rather than one at a time, which cuts the number of training stages from linear in chain length to logarithmic. The shared lesson is that the schedule should follow the shape of the computation being internalized, not the length of the text.",
+  "evidence": [
+    {
+      "id": "local:6b66615b7bf3ef86",
+      "kind": "paper",
+      "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+      "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought"
+    },
+    {
+      "id": "local:ee30f023d9f2d8fb",
+      "kind": "paper",
+      "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+      "title": "Transformers Provably Learn to Internalize Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-08T05:29:50Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "curriculum learning",
+  "related": [
+    "latent-chain-of-thought",
+    "symbolic-index",
+    "decisional-certainty",
+    "exploration-execution-trade-off",
+    "information-bottleneck",
+    "conditional-information-bottleneck",
+    "discretization-reset",
+    "sub-decisional-perturbation",
+    "compounding-error",
+    "logit-decision-margin",
+    "distributional-mismatch",
+    "effective-depth",
+    "coconut",
+    "chain-of-thought",
+    "self-consistency",
+    "imitation-learning",
+    "noise-injection-analysis",
+    "gsm8k",
+    "prosqa",
+    "prontoqa",
+    "gpt-2",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "sample-complexity",
+    "parity",
+    "internalization",
+    "test-time-compute",
+    "log-icot",
+    "implicit-chain-of-thought",
+    "gradient-descent-analysis"
+  ],
+  "schema_version": 1,
+  "slug": "curriculum-learning",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

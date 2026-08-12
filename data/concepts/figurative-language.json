@@ -1,0 +1,49 @@
+{
+  "aliases": [
+    "idiomatic expression",
+    "multiword expression",
+    "non-literal language"
+  ],
+  "definition": "Expressions whose meaning is not composed from their parts — proverbs, idioms, collocations, noun compounds — used by the sources as a probe for whether apparent understanding is recall. Both find a gap between producing such expressions and reasoning about them. One shows models complete Italian proverbs successfully yet fail multiple-choice selection when no option is correct, and its CoT analysis finds them naming the right ending while missing its absence and preferring literal synonyms. The other consolidates multiword-expression resources into one suite and reports substantial variation concentrated on the tasks it labels semantic reasoning. Neither separates lexical knowledge from reasoning over that knowledge, which is the distinction both invoke.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04670",
+      "kind": "paper",
+      "note": "An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.",
+      "title": "Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.210",
+      "kind": "paper",
+      "note": "Consolidates multiword-expression resources into one evaluation suite covering idioms, noun compounds and verbal constructions across extraction, classification and interpretation tasks.",
+      "title": "Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "figurative language",
+  "related": [
+    "memorization",
+    "cultural-knowledge",
+    "abstention",
+    "construct-validity",
+    "chain-of-thought-faithfulness",
+    "chain-of-thought",
+    "multiple-choice-evaluation",
+    "manual-cot-inspection",
+    "proverbit",
+    "multiword-expression",
+    "semantic-understanding",
+    "compositional-generalization",
+    "semanticqa",
+    "sequential-task-composition",
+    "benchmark-consolidation"
+  ],
+  "schema_version": 1,
+  "slug": "figurative-language",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-e7b4993440250612.pdf"
+  },
+  "completed_at": "2026-08-09T06:15:10Z",
+  "created_at": "2026-08-09T06:08:29Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:e7b4993440250612",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "global linear convergence entropy regularized softmax pg beyond tabular",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "We study the global convergence of policy gradient for infinite-horizon entropy-regularized Markov decision processes (MDPs) with continuous state and action spaces. We consider log-linear softmax policies with linear function approximation, which extend the tabular softmax parameterization while retaining a tractable policy class. Under Q_tau^pi-realizability for the regularized state-action value function, we first establish a non-uniform Polyak-Lojasiewicz (PL) inequality. The non-uniformity arises through degeneracy of constants associated with the policy geometry, namely the Fisher information matrix or an uncentered feature covariance matrix. We then identify two feature regimes under which this non-uniform constant can be bounded along the gradient flow. For full-affine-span features, we prove radial unboundedness of the KL regularizer and show that the smallest eigenvalue of the Fisher information matrix remains bounded below by an initialization-dependent positive constant. For simplex-valued features, we prove an analogous radial unboundedness result in the subspace orthogonal to the all-ones vector and obtain a uniform lower bound for the smallest eigenvalue of the uncentered covariance matrix. These results imply global linear convergence of the regularized objective along the gradient flow, i.e. suboptimality decaying as O(e^(-Ct)) for some C>0. Our analysis extends the global convergence theory of entropy-regularized softmax policy gradient beyond the tabular setting of Agarwal et al. (2020); Bhandari and Russo (2024); Mei et al. (2020).",
+      "arxiv_id": "2605.24939",
+      "authors": [
+        "Ziyue Chen",
+        "David Šiška",
+        "Łukasz Szpruch"
+      ],
+      "doi": "",
+      "title": "Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "entropy regularization",
+      "Polyak-Lojasiewicz inequality",
+      "gradient dominance",
+      "global linear convergence",
+      "Fisher information matrix",
+      "radial unboundedness",
+      "Lyapunov function",
+      "log-linear policy",
+      "linear function approximation",
+      "Q-realizability",
+      "occupancy measure",
+      "softmax policy",
+      "tabular softmax parameterization",
+      "continuous state and action spaces",
+      "gradient flow",
+      "KL divergence"
+    ],
+    "contributions": [
+      "A non-uniform Polyak-Lojasiewicz inequality for the entropy-regularized value function under log-linear softmax policies on continuous state and action spaces, with the non-uniformity carried by the smallest eigenvalue of the Fisher information matrix or of an uncentered feature covariance matrix.",
+      "The use of the KL regularizer as a Lyapunov function, which the paper identifies as unavailable in the tabular setting because KL is finite there for any full-support reference measure -- so the technique is new rather than a transfer, and the results complement the tabular theory instead of containing it.",
+      "Feature conditions under which KL is radially unbounded and the non-uniform constant therefore stays bounded along the flow: a full-affine-span condition giving an initialization-dependent eigenvalue bound, and a simplex-valued condition giving a uniform one in the subspace orthogonal to the all-ones vector.",
+      "Global linear convergence of the regularized objective in both regimes, with suboptimality decaying exponentially in flow time.",
+      "Constructive examples on both sides: trigonometric features and Bernstein polynomial features satisfy the conditions, while one-dimensional hat functions provably do not, with an explicit computation showing the KL divergence saturating at log 3."
+    ],
+    "datasets": [],
+    "limitations": "The paper is pure theory and states no limitations; the following are scope facts a reader should carry. It never mentions language models, transformers or reasoning -- the object is an MDP with a log-linear policy, and any connection to a deployed system is the reader's to make. The policy class is the central restriction: log-linear in fixed basis functions is one step beyond tabular and several steps short of a neural network, and Q-realizability additionally requires the regularized value function to be exactly representable in that same span, which the paper justifies by pointing to tabular and linear MDPs. The analysis is of a continuous-time gradient flow with exact gradients, so there is no step size, no stochastic estimation, no sample complexity, and no discretization argument -- the result says an idealized trajectory converges exponentially, not that an implementable algorithm does. What it converges to is the optimum of the entropy-regularized objective with the temperature held fixed at a positive value, not the optimum of the original reward. The constant in the exponent depends on the initialization through the smallest eigenvalue of the Fisher information matrix, and the positive-definiteness of that matrix at initialization is itself an assumption that has to be checked per basis. The feature conditions are not generic: the hat-function example shows a standard finite-element basis failing them. There are no experiments.",
+    "method": "The setting is a discounted infinite-horizon entropy-regularized MDP on Polish state and action spaces with the action space compact and the cost bounded by one. Rather than a free parameter per state-action pair, the policy is log-linear in fixed basis functions -- pi_theta(da|s) proportional to exp of the inner product of theta with g(s,a) against a reference measure mu -- and the analysis is of the continuous-time gradient flow on theta, not a discrete stochastic algorithm. Everything runs under Q-realizability: for each policy there is a unique parameter representing the regularized state-action value function, an assumption the paper notes holds for the tabular case and for linear MDPs. The argument has two halves. First, a gradient-dominance property. The gradient of the value function factors as the Fisher information matrix, integrated against the occupancy measure, applied to the difference between the current parameter and the one realizing the value function, which lower-bounds the gradient norm by the smallest eigenvalue of that matrix times the parameter distance. Pairing this with a sandwich inequality that bounds the suboptimality gap above by a KL divergence, and with local Lipschitz continuity of KL extending a tabular lemma of Mei et al., gives a Polyak-Lojasiewicz inequality whose constant depends on the parameter. That non-uniformity is the whole difficulty: it yields exponential decay only if the constant stays bounded away from degeneracy along the whole trajectory, which requires the iterates to remain in a compact set. The second half secures that. The value function decreases along the flow, so it can serve as a Lyapunov function provided it is radially unbounded, and the only term that can supply radial unboundedness is the KL regularizer. The paper then identifies two feature regimes in which it does. For full-affine-span features -- where for every direction on the unit sphere the set of actions maximizing the projected feature has measure zero -- KL diverges as the parameter norm grows, and the smallest eigenvalue of the Fisher information matrix stays above an initialization-dependent constant. For simplex-valued features, where the basis functions are non-negative and sum to one, the analogous statement holds in the subspace orthogonal to the all-ones vector, and the lower bound is obtained instead for an uncentered feature covariance matrix and is uniform. Two constructive examples are supplied, trigonometric features for the first regime and Bernstein polynomial features for the second, and a third example is given in the other direction.",
+    "methods": [
+      "policy gradient",
+      "natural policy gradient",
+      "mirror descent",
+      "Lyapunov function argument",
+      "trigonometric basis features",
+      "Bernstein polynomial features"
+    ],
+    "models": [],
+    "one_liner": "Proves that entropy-regularized policy gradient converges to the regularized optimum at an exponential rate for log-linear softmax policies over continuous state and action spaces, by using the KL regularizer as a Lyapunov function to keep the Fisher information matrix from degenerating.",
+    "problem": "Global convergence guarantees for softmax policy gradient existed only in the tabular setting, where every state-action pair carries its own parameter. That setting becomes intractable as the state or action sets grow and is unavailable outright when either is continuous, which is the case in most applied problems. The obstruction is that the softmax normalization makes the objective non-convex in the parameters, so convergence has to be recovered from a gradient-dominance property rather than from convexity. Entropy regularization is known to improve the rate from sublinear to linear in the tabular case, and the question is whether that survives function approximation.",
+    "relevance": {
+      "reasoning-training": "Filed here deliberately, and the reason needs stating because the paper itself never mentions language models. This archive's entropy cluster derives everything -- the covariance mechanism, entropy flow, the Renyi bifurcation, the discriminator score -- under a tabular softmax assumption in which each state-action pair carries an independent parameter, which is precisely the assumption that removes function approximation, the thing a transformer entirely consists of. Those papers say so in their own limitations. This is the first entry in the archive that moves past that assumption at all: log-linear policies with linear function approximation over continuous spaces, with a global convergence rate rather than a one-step expansion. Two things transfer and one does not. What transfers is the diagnosis: convergence hinges on the smallest eigenvalue of the Fisher information matrix not degenerating, so the quantity that governs entropy-regularized training is a property of the policy's geometry rather than of the entropy value, and the paper's own contrast shows natural policy gradient and mirror descent avoid the problem by construction while vanilla policy gradient does not. What also transfers is a caution: the feature conditions are shown to fail for a standard finite-element basis, so 'has function approximation' is not by itself enough for the guarantee. What does not transfer is the setting -- a log-linear policy is not a transformer, the flow is continuous-time with exact gradients, and the convergence is to the regularized optimum at fixed temperature. That last point puts it in direct tension with the archive's comparative-analysis entry, which proves the regularized optimum is strictly worse on unregularized reward unless the true optimum is the maximum-entropy one, and recommends annealing the coefficient to zero. Both are correct about different objectives, and reading them together is what makes the choice of what to converge to visible as a choice."
+    },
+    "results": "Both regimes yield the same conclusion: along the gradient flow the suboptimality of the regularized objective decays as exp(-t/C) with the constant fixed by the initialization, which is global linear convergence for a non-convex problem over continuous state and action spaces. The technical route is the paper's own point of interest. In the tabular case Mei et al. obtain their bound by showing that the value-function gradient summed over actions vanishes along the flow, then lower-bounding the minimum action probability; the paper states plainly that this route is unavailable here, because with general log-linear policies each weight moves the entire conditional log-density and no separation into per-action components exists. Radial unboundedness of KL is therefore introduced as the substitute, and the authors note it is a device the tabular setting could not have used at all: there the KL term is finite for any reference measure with full support, so it can never be radially unbounded. On that basis they describe their results as complementing rather than subsuming the tabular theory. The feature conditions are shown to be real restrictions rather than formalities: an explicit counterexample using hat functions -- standard one-dimensional P1 finite elements on a four-point grid -- gives a KL divergence converging to log 3 as the parameter grows, so radial unboundedness fails and the argument does not apply. The paper also locates the difficulty precisely by contrast with natural policy gradient, which for log-linear policies coincides with mirror descent: those methods keep log densities bounded automatically, so the Fisher information matrix stays invertible for almost any feature basis, and the machinery here is needed only because vanilla policy gradient has no such guarantee.",
+    "tags": [
+      "policy gradient",
+      "convergence",
+      "entropy",
+      "theory",
+      "function approximation",
+      "mdp"
+    ],
+    "topics": [
+      "reasoning-training"
+    ]
+  },
+  "task_id": "paper__local-e7b4993440250612",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-acb4e6ecc12e897d.pdf"
+  },
+  "completed_at": "2026-08-08T06:11:04Z",
+  "created_at": "2026-08-08T06:07:16Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:acb4e6ecc12e897d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "reasoning ability"
+    ],
+    "pdf_url": "",
+    "published": "",
+    "scores": {
+      "reasoning-training": 0.5
+    },
+    "title": "RADAR Reasoning Ability and Difficulty Aware Routing for Reasoning LLMs",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Reasoning language models have demonstrated remarkable performance on many challenging tasks in math, science, and coding. Choosing the right reasoning model for practical deployment involves a performance-cost trade-off at two key levels: model size and reasoning budget, where larger models and higher reasoning budgets lead to better performance but incur greater cost and latency. In this work, we tackle this tradeoff from the angle of model configuration routing for different queries, and present RADAR (Reasoning-Ability and Difficulty-Aware Routing), a lightweight, interpretable, and scalable routing framework. Inspired by psychometrics, RADAR learns an item response model from model responses with different budgets to different queries, with interpretable parameters including query difficulties and model-budget abilities. RADAR then routes queries with higher difficulty to model-budget pairs with higher ability, and vice versa. We conduct extensive experiments on 8 widely used challenging reasoning benchmarks, demonstrating the superior performance of RADAR compared to state-of-the-art model routing methods. RADAR also exhibits query generalization capabilities, achieving strong performance on out-of-distribution queries on all benchmarks. RADAR is also scalable and can efficiently integrate additional models by dynamically selecting a small set of evaluation queries to estimate their abilities.",
+      "arxiv_id": "2509.25426",
+      "authors": [],
+      "doi": "",
+      "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs",
+      "venue": "ICLR 2026",
+      "year": 2026
+    },
+    "concepts": [
+      "item response theory",
+      "prompt difficulty",
+      "model routing",
+      "latent ability",
+      "psychometrics",
+      "test-time compute",
+      "reasoning budget",
+      "out-of-distribution generalization",
+      "calibration"
+    ],
+    "contributions": [
+      "RADAR, a routing framework that treats configuration selection as a psychometric measurement problem rather than a learned black-box mapping.",
+      "A custom item response theory model fitted to the matrix of responses from each {model, budget} configuration across a calibration set of queries, jointly estimating a latent difficulty per query and a latent ability per configuration — both interpretable by construction.",
+      "A routing rule that follows directly from those parameters: match query difficulty to configuration ability.",
+      "Out-of-distribution generalization: the difficulty parameter is made predictable for unseen queries, so routing extends beyond the calibration set, tested on all eight benchmarks including long-context document QA.",
+      "Scalability to new models: a new configuration's ability is estimated by dynamically selecting a small set of evaluation queries, so integrating a model does not require full re-evaluation."
+    ],
+    "datasets": [
+      "AIME24",
+      "GPQA-Diamond",
+      "MATH500",
+      "LiveCodeBench",
+      "MMLU"
+    ],
+    "limitations": "No standalone limitations section is present in the material read. Points a reader should weigh: IRT assumes a unidimensional latent ability and a monotone item response function, so a configuration that is strong on algebra and weak on geometry is compressed into one ability number — a known limitation of the psychometric model that the paper's own framing of specialized models makes salient. The difficulty parameter is estimated from the calibration matrix, so it is difficulty relative to the model pool, not an intrinsic property of the query; adding a much stronger model rescales it. And routing operates at the granularity of whole configurations chosen before generation, so it cannot revise the decision once reasoning reveals the problem to be harder than it looked.",
+    "method": "An evaluation response matrix is collected by running each {reasoning model, reasoning budget} configuration on a calibration set of queries and recording correctness. That matrix is modelled with item response theory — the classical framework from educational assessment in which the probability that a respondent answers an item correctly is a function of the respondent's latent ability and the item's latent difficulty. Fitting the model yields one difficulty parameter per query and one ability parameter per configuration, on a shared scale, which is what makes the routing decision interpretable: a query is sent to the cheapest configuration whose estimated ability exceeds its estimated difficulty. To route queries never seen during calibration, difficulty is made a predictable function of the query rather than a free per-item parameter. To add a new model cheaply, its ability is estimated from a small adaptively chosen subset of calibration queries rather than the full set. Evaluation covers eight reasoning benchmarks spanning math, science and coding, against state-of-the-art routing baselines, with a separate out-of-distribution protocol.",
+    "methods": [
+      "RADAR",
+      "item response theory",
+      "model routing",
+      "adaptive query selection"
+    ],
+    "one_liner": "Routes each query to a {model, reasoning budget} configuration by fitting an item response theory model over an evaluation matrix, yielding interpretable query difficulties and configuration abilities, and sending harder queries to higher-ability configurations.",
+    "problem": "Deploying reasoning models involves a performance-cost trade-off at two levels simultaneously — model size and reasoning budget — and both larger models and higher budgets cost more latency and money for better accuracy. With thousands of reasoning models available and providers exposing low/medium/high budget settings, choosing one configuration for all queries is wasteful on easy queries and inadequate on hard ones. Existing routing methods do not expose why a query was routed where, and adding a new model normally requires re-evaluating it on everything.",
+    "relevance": {
+      "test-time-scaling": "The external counterpart to the archive's internal difficulty estimator, and the one that will read most naturally to a statistics group. Where the reasoning-strength work reads a difficulty estimate the model already computed in its activations, this estimates difficulty as a latent parameter from an evaluation response matrix using item response theory — the same machinery used for standardized testing, with the same interpretability guarantee. That gives this topic two difficulty signals with complementary properties: one requires activation access and works per-query before generation, the other requires a calibration matrix and works for any model including closed ones. It also broadens what allocation means. Every other allocation method in this archive varies the budget for a fixed model; RADAR varies model *and* budget jointly, which is the decision an actual deployment faces. The IRT framing also supplies something the archive's difficulty discussions have lacked — a stated measurement model, with assumptions one can check, rather than a heuristic proxy."
+    },
+    "results": "RADAR outperforms state-of-the-art model routing methods across the eight benchmarks, and retains strong performance on out-of-distribution queries on all of them, including long-context document QA which is structurally unlike the math and science calibration data. The scalability claim is demonstrated by integrating additional models through a small dynamically selected query set rather than full re-evaluation. Because the fitted parameters are interpretable, the routing decisions are auditable — one can read off which queries the system considers hard and which configurations it considers capable, rather than only observing the routing outcome.",
+    "tags": [
+      "routing",
+      "difficulty",
+      "item response theory",
+      "psychometrics",
+      "test-time scaling",
+      "cost-performance"
+    ],
+    "topics": [
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__local-acb4e6ecc12e897d",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:27:19Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1217",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Yibo Yan",
+      "Shen Wang 0005",
+      "Jiahao Huo",
+      "Hang Li 0007",
+      "Boyan Li",
+      "Jiamin Su",
+      "Xiong Gao",
+      "Yifan Zhang 0004",
+      "Tianlong Xu",
+      "Zhendong Chu",
+      "Aoxiao Zhong",
+      "Kun Wang 0042",
+      "Hui Xiong 0001",
+      "Philip S. Yu",
+      "Xuming Hu",
+      "Qingsong Wen"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mathematical reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-evaluation": 0.5
+    },
+    "title": "ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.1217",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "error detection",
+      "process evaluation",
+      "multimodal reasoning",
+      "verification",
+      "construct validity",
+      "human baseline"
+    ],
+    "contributions": [
+      "Formulation of multimodal error detection as an evaluation task",
+      "ErrorRadar, the first benchmark for it, with error step identification and error categorization sub-tasks",
+      "2,500 multimodal K-12 math problems from real student interactions with expert annotation and error-category metadata",
+      "Evaluation of open- and closed-source MLLMs against educational expert evaluators, with the best model around 10% behind humans"
+    ],
+    "datasets": [
+      "ErrorRadar"
+    ],
+    "limitations": "The abstract text available ends mid-sentence at the headline comparison. 'Around 10% behind' is not specified as absolute or relative, and the human reference is expert evaluators whose count and agreement are not given. Data comes from one educational organization, so the error distribution is specific to that population. K-12 level bounds the reasoning difficulty.",
+    "method": "The paper formulates multimodal error detection as a task and introduces ErrorRadar to assess it, over two sub-tasks: error step identification and error categorization. It consists of 2,500 high-quality multimodal K-12 mathematical problems collected from real-world student interactions in an educational organization, with expert annotation and metadata including problem type and error category. Real student errors are the design choice that matters — they are the error distribution that actually occurs, rather than synthetic perturbations.",
+    "methods": [
+      "ErrorRadar",
+      "error step identification",
+      "error categorization",
+      "expert annotation"
+    ],
+    "models": [
+      "GPT-4o"
+    ],
+    "one_liner": "Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.",
+    "problem": "Multimodal math benchmarks focus on problem-solving ability, leaving a gap on more complex scenarios such as error detection — finding a mistake in someone else's work is a different competence from producing correct work.",
+    "relevance": {
+      "reasoning-evaluation": "Error detection is the evaluation task that matters most for the verifier and process-supervision lines this archive tracks, because a process reward model is doing exactly this job. A benchmark with real student errors and expert labels gives those methods an external reference instead of self-generated perturbations, and the ~10% gap to human experts is a concrete ceiling. It joins ErrorRadar's neighbours in this drain — VisAidMath, MathSight, SciVQR — as the fourth multimodal reasoning benchmark, and it is the only one whose labels come from naturally occurring mistakes."
+    },
+    "results": "Both open-source and closed-source representative MLLMs are evaluated against educational expert evaluators. Challenges remain: GPT-4o, the best-performing model, is still around 10% behind human evaluation.",
+    "tags": [
+      "benchmark",
+      "error detection",
+      "multimodal",
+      "math reasoning",
+      "human baseline"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1217",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

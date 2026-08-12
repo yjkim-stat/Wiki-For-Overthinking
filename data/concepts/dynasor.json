@@ -1,0 +1,79 @@
+{
+  "aliases": [
+    "Dynasor",
+    "Dynasor-CoT",
+    "Certaindex"
+  ],
+  "definition": "A reasoning-aware serving system that schedules on certaindex, a normalized measure of how far a reasoning algorithm's answer has stabilized, defined for both multi-path methods (via semantic entropy over clustered answers) and reward-guided ones (via normalized reward). It reports up to 50% compute savings in batch inference and 3.3x throughput in online serving. Two other sources use it as a baseline and both find it conservative — it preserves reasoning quality but exits late enough that length reduction is small — which follows from it being tuned for no accuracy loss by construction.",
+  "evidence": [
+    {
+      "id": "local:0c24c3c0e4729108",
+      "kind": "paper",
+      "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+      "title": "Efficiently Scaling LLM Reasoning with Certaindex"
+    },
+    {
+      "id": "local:379c0b6966148b4a",
+      "kind": "paper",
+      "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+      "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Dynasor",
+  "related": [
+    "certaindex",
+    "answer-stabilization",
+    "self-doubt",
+    "overthinking",
+    "probe-in-the-middle",
+    "semantic-entropy",
+    "early-exit",
+    "adaptive-compute-allocation",
+    "gang-scheduling",
+    "test-time-compute",
+    "reasoning-programs",
+    "self-consistency",
+    "monte-carlo-tree-search",
+    "rebase",
+    "chain-of-thought",
+    "sglang",
+    "math500",
+    "aime24",
+    "amc23",
+    "gsm8k",
+    "livecodebench",
+    "asdiv",
+    "deepseek-r1",
+    "qwen2-5-7b",
+    "qwq-32b",
+    "llama-3-1-70b",
+    "predictive-entropy",
+    "entropy-trajectory",
+    "uncertainty-region",
+    "confidence-region",
+    "two-phase-reasoning-structure",
+    "sequential-change-point-detection",
+    "worst-case-average-detection-delay",
+    "false-alarm-control",
+    "reasoning-redundancy",
+    "cusum",
+    "cusum-weighted-voting",
+    "deer",
+    "histogram-density-estimation",
+    "aime25",
+    "gpqa-diamond",
+    "bespoke-stratos-17k",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen3-4b-thinking-2507",
+    "qwen3-14b"
+  ],
+  "schema_version": 1,
+  "slug": "dynasor",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

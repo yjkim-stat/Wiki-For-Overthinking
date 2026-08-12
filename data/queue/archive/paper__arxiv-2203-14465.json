@@ -1,0 +1,105 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T04:12:49Z",
+  "created_at": "2026-08-08T03:54:22Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2203.14465",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Generating step-by-step \"chain-of-thought\" rationales improves language model performance on complex reasoning tasks like mathematics or commonsense question-answering. However, inducing language model rationale generation currently requires either constructing massive rationale datasets or sacrificing accuracy by using only few-shot inference. We propose a technique to iteratively leverage a small number of rationale examples and a large dataset without rationales, to bootstrap the ability to perform successively more complex reasoning. This technique, the \"Self-Taught Reasoner\" (STaR), relies on a simple loop: generate rationales to answer many questions, prompted with a few rationale examples; if the generated answers are wrong, try again to generate a rationale given the correct answer; fine-tune on all the rationales that ultimately yielded correct answers; repeat. We show that STaR significantly improves performance on multiple datasets compared to a model fine-tuned to directly predict final answers, and performs comparably to fine-tuning a 30$\\times$ larger state-of-the-art language model on CommensenseQA. Thus, STaR lets a model improve itself by learning from its own generated reasoning.",
+    "authors": [
+      "Eric Zelikman",
+      "Yuhuai Wu",
+      "Jesse Mu",
+      "Noah D. Goodman"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "matched_keywords": [
+      "chain of thought",
+      "self-taught reasoner"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2203.14465v2",
+    "published": "2022-03-28",
+    "scores": {
+      "reasoning-training": 0.4,
+      "test-time-scaling": 0.25
+    },
+    "title": "STaR: Bootstrapping Reasoning With Reasoning",
+    "url": "https://arxiv.org/abs/2203.14465",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "self-training",
+      "bootstrapping",
+      "rationale generation",
+      "rationalization",
+      "outcome-based filtering",
+      "chain of thought"
+    ],
+    "contributions": [
+      "The STaR loop: prompt with a few rationale examples to generate rationales for many questions, finetune on those that produced correct answers, and repeat.",
+      "Rationalization as the fix for the loop's dead end: when the generated answer is wrong, regenerate the rationale with the correct answer supplied as a hint, so hard problems still contribute training signal.",
+      "Evidence that a model can improve itself from its own generated reasoning, without external rationale annotation."
+    ],
+    "datasets": [
+      "CommonsenseQA"
+    ],
+    "limitations": "Not discussed in the abstract. A reader should note the structural risk the method carries: correctness of the final answer is the only filter, so a rationale that reaches the right answer by faulty reasoning is kept and trained on. Later work in this archive on unfaithful reasoning makes that failure mode concrete rather than hypothetical.",
+    "method": "A small set of rationale examples seeds few-shot generation of rationales across a large unlabelled-for-rationale dataset. Generated rationales whose final answers are correct are kept; for the incorrect ones the model is given the correct answer and asked to produce a rationale for it. The model is finetuned on all rationales that ultimately yielded correct answers, and the process repeats, each iteration starting from a stronger model.",
+    "methods": [
+      "STaR",
+      "few-shot prompting",
+      "supervised finetuning",
+      "iterative self-improvement"
+    ],
+    "one_liner": "Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.",
+    "problem": "Chain-of-thought rationales improve performance, but eliciting them required either constructing a massive rationale dataset by hand or accepting the accuracy cost of few-shot inference. Neither scales.",
+    "relevance": {
+      "reasoning-training": "The origin of self-training for reasoning and the ancestor of the RLVR line that dominates this topic. The core move — filter self-generated traces by verifiable answer correctness and train on the survivors — is exactly the reward signal RLVR later formalizes, so reading this first makes clear that RLVR's novelty is the optimization, not the supervision. Rationalization is the piece most worth carrying forward: it is an early answer to the problem that outcome filtering discards all signal from problems the model cannot yet solve, which is the same gradient-starvation issue archived work addresses through sample weighting rather than through hints."
+    },
+    "results": "The abstract reports that STaR significantly improves over a model finetuned to predict final answers directly, and performs comparably to finetuning a 30x larger state-of-the-art model on CommonsenseQA. No other figures are given. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+    "tags": [
+      "self-training",
+      "star",
+      "rationales",
+      "bootstrapping",
+      "chain of thought"
+    ]
+  },
+  "task_id": "paper__arxiv-2203-14465",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:24:51Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.889",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Yi Hu",
+      "Jiaqi Gu",
+      "Ruxin Wang",
+      "Zijun Yao 0002",
+      "Hao Peng 0015",
+      "Xiaobao Wu",
+      "Jianhui Chen",
+      "Muhan Zhang",
+      "Liangming Pan"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.889",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "mechanistic interpretability",
+      "training dynamics",
+      "emergent behaviour",
+      "unintended behaviour",
+      "applied interpretability"
+    ],
+    "contributions": [
+      "A survey of mechanistic understanding of large reasoning models across training dynamics, reasoning mechanisms and unintended behaviours",
+      "A roadmap naming applied interpretability, improved methodologies and a unified theoretical framework as gaps"
+    ],
+    "datasets": [],
+    "limitations": "No empirical contribution. The three-dimension taxonomy is one organizing choice among possible ones and the abstract does not state selection criteria or coverage for the surveyed work, so it cannot be treated as a systematic review. Its currency is a limitation by construction for a fast-moving area.",
+    "method": "A survey synthesizing recent mechanistic findings under three dimensions: training dynamics, reasoning mechanisms and unintended behaviours. Under-explored challenges are then identified to outline a roadmap, including the need for applied interpretability, improved methodologies and a unified theoretical framework.",
+    "methods": [
+      "literature survey"
+    ],
+    "models": [],
+    "one_liner": "A survey organizing mechanistic findings about reasoning models into training dynamics, reasoning mechanisms and unintended behaviours, and arguing the field needs a unified theoretical framework.",
+    "problem": "RL has produced reasoning models whose performance is well documented while the internal mechanisms driving their behaviour are comparatively unexplored, leaving a gap between black-box performance and mechanistic transparency.",
+    "relevance": {
+      "reasoning-training": "Useful to this archive as a coverage check rather than a source of findings: its three-way split of training dynamics, reasoning mechanisms and unintended behaviours is close to how this archive's topics are cut, and comparing its citation set against the collection is a cheap way to find what the collectors have missed. Its call for applied interpretability also matches doi:10.18653/v1/2026.findings-acl.502 in this drain, which surveys the same field organized by intervention instead of by observation — two surveys of one area in one drain, disagreeing on the organizing axis."
+    },
+    "results": "A survey; it contributes organization and a roadmap rather than empirical results.",
+    "tags": [
+      "survey",
+      "mechanistic interpretability",
+      "training dynamics",
+      "roadmap"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-889",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

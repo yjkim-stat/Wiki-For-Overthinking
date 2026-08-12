@@ -1,0 +1,55 @@
+{
+  "aliases": [
+    "in-context learning",
+    "few-shot inference"
+  ],
+  "definition": "Supplying worked examples in the prompt so the model imitates their form. In the cited sources it appears as infrastructure rather than as a subject, and in both cases as something with a cost. One notes that inducing rationale generation through few-shot inference alone sacrifices accuracy relative to finetuning, which is the gap its bootstrapping loop exists to close. The other turns the format into an attack surface: reordering the multiple-choice options across few-shot examples so the answer is always '(A)' biases the model's prediction, and the resulting explanation does not mention the pattern. The arrangement of the examples, not only their content, is doing work.",
+  "evidence": [
+    {
+      "id": "arxiv:2203.14465",
+      "kind": "paper",
+      "note": "Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.",
+      "title": "STaR: Bootstrapping Reasoning With Reasoning"
+    },
+    {
+      "id": "arxiv:2305.04388",
+      "kind": "paper",
+      "note": "Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.",
+      "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting"
+    }
+  ],
+  "first_seen": "2026-08-08T04:13:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "few-shot prompting",
+  "related": [
+    "self-training",
+    "bootstrapping",
+    "rationale-generation",
+    "rationalization",
+    "outcome-based-filtering",
+    "chain-of-thought",
+    "star",
+    "supervised-finetuning",
+    "iterative-self-improvement",
+    "commonsenseqa",
+    "chain-of-thought-faithfulness",
+    "post-hoc-rationalization",
+    "biasing-features",
+    "plausible-but-misleading-explanations",
+    "transparency",
+    "social-bias",
+    "input-biasing-intervention",
+    "chain-of-thought-prompting",
+    "big-bench-hard",
+    "gpt-3-5",
+    "claude-1-0"
+  ],
+  "schema_version": 1,
+  "slug": "few-shot-prompting",
+  "topics": [
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "test-time-scaling"
+  ]
+}

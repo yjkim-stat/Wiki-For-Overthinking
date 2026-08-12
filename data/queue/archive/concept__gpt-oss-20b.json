@@ -1,0 +1,68 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:47:17Z",
+  "created_at": "2026-08-08T12:46:29Z",
+  "instructions": "Write the wiki definition for 'GPT-OSS-20B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPT-OSS-20B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "GPT-OSS-20B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "gpt-oss-20b",
+      "GPT OSS 20B"
+    ],
+    "definition": "A 20B open-weight OpenAI reasoning model, used in the archive where open weights are required. One source measures how well it follows instructions inside its reasoning trace and reports an instruction-following score of 0.11, raised to 0.27 by targeted finetuning on synthetic data — so more than doubled and still leaving most traces non-compliant. The other uses it to probe whether chain-of-thought is epiphenomenal, truncating traces and forcing an answer to locate a commitment boundary. Both need access the model's openness provides: trace-level manipulation and per-step intervention.",
+    "kind": "model",
+    "related": [
+      "instruction following",
+      "controllability",
+      "commitment boundary",
+      "chain of thought faithfulness",
+      "reasoning trace"
+    ]
+  },
+  "task_id": "concept__gpt-oss-20b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

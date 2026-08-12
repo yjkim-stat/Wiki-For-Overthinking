@@ -1,0 +1,29 @@
+{
+  "abstract": "Reinforcement learning (RL) has become a key approach for enhancing reasoning in large language models (LLMs), yet scalable training is often hindered by the rapid collapse of policy entropy, which leads to premature convergence and performance saturation [1]. This paper provides a comparative theoretical analysis of two entropy control strategies: traditional entropy regularization and the recently proposed covariance-based mechanism. We establish a unified framework for entropy dynamics under softmax parameterization, showing that entropy change is governed by the covariance between log-probabilities and logit updates. Our analysis reveals that traditional entropy regularization introduces a dense, persistent bias that modifies the stationary condition, leading to suboptimal policies, while covariance-based methods selectively regularize a sparse subset of high-covariance tokens and achieve asymptotic unbiasedness when the regularization coefficient is annealed. Moreover, covariance-based methods preserve the stability margin of the base policy gradient, unlike traditional entropy regularization. These results provide principled guidelines for entropy control in LLM post-training, with implications for scaling RL to larger models and more complex reasoning tasks.",
+  "arxiv_id": "2604.09676",
+  "authors": [
+    "Ming Lei",
+    "Christophe Baehr"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-09T06:08:28Z",
+  "id": "local:ed740509686ff305",
+  "last_seen": "2026-08-09T06:08:28Z",
+  "local_path": "data/pdfs/read/local-ed740509686ff305.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "comparative-theoretical-analysis-entropy-control-methods-rl.pdf",
+  "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

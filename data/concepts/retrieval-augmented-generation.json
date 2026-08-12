@@ -1,0 +1,66 @@
+{
+  "aliases": [
+    "RAG",
+    "retrieval augmentation"
+  ],
+  "definition": "Conditioning generation on retrieved documents so that answers are grounded in supplied evidence rather than in parameters. The two sources use the term for different things, which is worth noting because the archive holds only these two. One treats RAG as the deployment setting needing a guardrail, training a 4B model to classify document-claim pairs as grounded or hallucinated in closed-book document-grounded settings. The other uses retrieval as a contrast case in a mechanistic study of how transformers come to reason implicitly over stored facts. Grounding on retrieved text does not guarantee the answer follows from it, which is the gap the first source addresses.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.835",
+      "kind": "paper",
+      "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
+      "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation"
+    },
+    {
+      "id": "local:6252abed1b134f57",
+      "kind": "paper",
+      "note": "Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.",
+      "title": "Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization"
+    }
+  ],
+  "first_seen": "2026-08-08T06:13:28Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "retrieval-augmented generation",
+  "related": [
+    "hallucination",
+    "groundedness",
+    "verification",
+    "reasoning-distillation",
+    "synthetic-data-generation",
+    "guardrail",
+    "balanced-accuracy",
+    "odds-ratio-preference-optimization",
+    "preference-based-fine-tuning",
+    "synthetic-claim-generation",
+    "ragtruth",
+    "llm-aggrefact",
+    "fineweb",
+    "halluguard",
+    "minicheck",
+    "granite-guardian-3-3",
+    "gpt-4o",
+    "grokking",
+    "implicit-reasoning",
+    "parametric-memory",
+    "generalizing-circuit",
+    "memorizing-circuit",
+    "systematicity",
+    "compositionality",
+    "out-of-distribution-generalization",
+    "circuit-analysis",
+    "memorization",
+    "causal-analysis",
+    "chain-of-thought-prompting",
+    "synthetic-knowledge-base-composition",
+    "synthetic-knowledge-base-comparison",
+    "gpt-4-turbo",
+    "gemini-1-5-pro"
+  ],
+  "schema_version": 1,
+  "slug": "retrieval-augmented-generation",
+  "topics": [
+    "reasoning-training",
+    "reasoning-faithfulness"
+  ]
+}

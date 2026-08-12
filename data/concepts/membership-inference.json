@@ -1,0 +1,57 @@
+{
+  "aliases": [
+    "MIA",
+    "training-data membership test"
+  ],
+  "definition": "Testing whether a specific example was in a model's training data, used in the archive as the main practical handle on benchmark contamination. The sources disagree about whether it works. One applies it as a supporting analysis alongside neuron patterns and attention maps to explain a compositional performance drop. The other finds contamination detection fragile in reasoning models, with GRPO training concealing detection — so a model can be contaminated and pass the test. Taken together the archive holds a method that is routinely cited as a contamination check and a result showing the check can be defeated by ordinary reasoning training.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.380",
+      "kind": "paper",
+      "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
+      "title": "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios"
+    },
+    {
+      "id": "local:4cf1061e50d8b3c3",
+      "kind": "paper",
+      "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
+      "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T06:13:28Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "membership inference",
+  "related": [
+    "compositional-generalization",
+    "commonsense-reasoning",
+    "out-of-distribution-generalization",
+    "brittleness",
+    "construct-validity",
+    "agentcoma",
+    "isolated-step-ablation",
+    "human-baseline-comparison",
+    "attention-analysis",
+    "benchmark-contamination",
+    "contamination-detection",
+    "memorization",
+    "importance-sampling",
+    "clipping",
+    "leaderboard-integrity",
+    "rlvr",
+    "grpo",
+    "ppo",
+    "supervised-finetuning",
+    "membership-inference-attack",
+    "aime24",
+    "math500",
+    "gsm8k",
+    "gpqa-diamond"
+  ],
+  "schema_version": 1,
+  "slug": "membership-inference",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:e64d3a8c4788daf7",
+      "kind": "paper",
+      "note": "Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.",
+      "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "sequence filtering",
+  "related": [
+    "token-level-entropy",
+    "entropy-trajectory",
+    "burst-spike",
+    "peak-valley-rebound-spike",
+    "trajectory-level-confidence-metric",
+    "entropy-collapse",
+    "verifier-free-response-selection",
+    "training-time-sample-curation",
+    "process-supervision",
+    "edis-entropy-dynamics-instability-score",
+    "grpo",
+    "best-k-of-n-selection",
+    "majority-voting",
+    "self-consistency",
+    "self-certainty",
+    "sequence-entropy",
+    "score-weighted-borda-aggregation",
+    "sequence-weighting",
+    "gsm8k",
+    "math",
+    "amc23",
+    "aime24",
+    "numinamath-20k",
+    "qwen2-5-math-1-5b",
+    "qwen2-5-math-7b",
+    "qwen3-4b-instruct"
+  ],
+  "schema_version": 1,
+  "slug": "sequence-filtering",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

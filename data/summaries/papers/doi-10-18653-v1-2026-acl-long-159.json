@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "mechanistic interpretability",
+    "reproducibility",
+    "auditability",
+    "meta-evaluation",
+    "methodological inconsistency",
+    "negative results",
+    "AI governance"
+  ],
+  "contributions": [
+    "A diagnosis that mechanistic interpretability lacks auditability and that this blocks safety-critical adoption",
+    "A documented case where two papers conflicted on one behaviour and a third found both partially correct but incomparable",
+    "A proposal for continuous reviewing on a collaborative platform hosting critiques, negative results, reproductions and partial results",
+    "A proposal to generalize platform practice into expert-verified guidelines and protocols",
+    "A proposal for source-based auditing that tracks which arguments each claim depends on"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-08T12:18:03Z",
+  "generated_by": "paper",
+  "limitations": "No empirical evaluation; the proposals are untested. The diagnosis rests on one documented case of conflicting conclusions rather than a survey of how often the problem occurs. Continuous reviewing platforms depend on sustained community participation, which the paper cannot demonstrate. Expert-verified guidelines require an authority to verify them, and who does so is not settled.",
+  "method": "Three proposals complementing peer review. First, continuous reviewing on a Collaborative Reviewing Platform where meta-science results that do not fit into papers — critiques, negative results, post-hoc extensions, reproductions, replications, partial results — are organized and discussed, with comments and revisions possible at any time. Second, generalizing good practices found there into expert-verified guidelines and protocols. Third, source-based auditing systems that track which arguments a claim depends on, so a claim's support can be inspected rather than assumed.",
+  "methods": [
+    "continuous collaborative reviewing",
+    "source-based auditing",
+    "protocol standardization"
+  ],
+  "models": [],
+  "one_liner": "A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.159",
+  "problem": "Mechanistic interpretability has produced insights but has no standardized system for auditing experiments, so its findings go unused in safety-critical applications such as medical AI and autonomous systems where stakeholders must certify validity. The paper grounds this concretely: two papers reached conflicting conclusions about the same behaviour, and a third found both were partially correct but incomparable because of methodological inconsistencies. Without standardized auditing such ambiguities block adoption where correctness guarantees are required.",
+  "relevance": {
+    "reasoning-interpretability": "Names the exact failure this archive has already recorded independently: two interpretability papers reaching opposite conclusions about the same behaviour, incomparable because they shared no model or method. The archive holds its own instance in the MI-Peaks versus commitment-boundary collision, where the two agree on which discourse markers matter and disagree on what that means, with no shared model between them. So this paper's premise is confirmed by evidence collected here, which raises it above the usual position paper. Its source-based claim tracking is also close to what this archive's wiki does — evidence counts per concept, claims traceable to the summaries that support them — which makes it a useful external check on that design."
+  },
+  "results": "A position paper. It provides early concrete examples to catalyze discussion rather than empirical results.",
+  "schema_version": 1,
+  "tags": [
+    "position paper",
+    "interpretability",
+    "auditing",
+    "reproducibility",
+    "governance"
+  ]
+}

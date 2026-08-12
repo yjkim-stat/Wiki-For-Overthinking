@@ -1,0 +1,96 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
+        "title": "ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.",
+        "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
+        "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
+        "title": "On Reasoning Strength Planning in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:28Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'activation steering'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "activation steering",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "activation steering",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "steering",
+      "steering vector",
+      "activation addition",
+      "representation engineering"
+    ],
+    "definition": "Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive addition as the baseline and find it insufficient: it imposes one intervention across semantically diverse inputs and does not persist across layers, failing entirely on sycophancy and refusal. CircuitSteer instead selects features across multiple layers by co-activation and decoder-direction alignment and intervenes at several points. Steering also appears here as a controllability tool rather than an interpretability one, used to set a simulated patient's resistance level, and one source reports that a reasoning model's eventual token count is linearly decodable from the question's activations before any reasoning token is emitted, which makes reasoning length a steerable quantity.",
+    "kind": "method",
+    "related": [
+      "sparse autoencoder",
+      "circuit",
+      "localization",
+      "monosemanticity",
+      "inference-time intervention",
+      "reasoning strength planning"
+    ]
+  },
+  "task_id": "concept__activation-steering",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

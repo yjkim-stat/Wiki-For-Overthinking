@@ -1,0 +1,135 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-6252abed1b134f57.pdf"
+  },
+  "completed_at": "2026-08-08T06:13:28Z",
+  "created_at": "2026-08-08T06:07:16Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:6252abed1b134f57",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "Grokked Transformers are Implicit Reasoners A Mechanistic Journey to the Edge of Generalization",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "We study whether transformers can learn to implicitly reason over parametric knowledge, a skill that even the most capable language models struggle with. Focusing on two representative reasoning types, composition and comparison, we consistently find that transformers can learn implicit reasoning, but only through grokking, i.e., extended training far beyond overfitting. The levels of generalization also vary across reasoning types: when faced with out-of-distribution examples, transformers fail to systematically generalize for composition but succeed for comparison. We delve into the model's internals throughout training, conducting analytical experiments that reveal: 1) the mechanism behind grokking, such as the formation of the generalizing circuit and its relation to the relative efficiency of generalizing and memorizing circuits, and 2) the connection between systematicity and the configuration of the generalizing circuit. Our findings guide data and training setup to better induce implicit reasoning and suggest potential improvements to the transformer architecture, such as encouraging cross-layer knowledge sharing. Furthermore, we demonstrate that for a challenging reasoning task with a large search space, GPT-4-Turbo and Gemini-1.5-Pro based on non-parametric memory fail badly regardless of prompting styles or retrieval augmentation, while a fully grokked transformer can achieve near-perfect accuracy, showcasing the power of parametric memory for complex reasoning.",
+      "arxiv_id": "2405.15071",
+      "authors": [],
+      "doi": "",
+      "title": "Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization",
+      "venue": "NeurIPS 2024",
+      "year": 2024
+    },
+    "concepts": [
+      "grokking",
+      "implicit reasoning",
+      "parametric memory",
+      "generalizing circuit",
+      "memorizing circuit",
+      "systematicity",
+      "compositionality",
+      "out-of-distribution generalization",
+      "circuit analysis",
+      "memorization"
+    ],
+    "contributions": [
+      "Evidence that transformers can learn implicit reasoning over parametric knowledge for both composition and comparison, but only via grokking — training continued far beyond the point of overfitting.",
+      "The finding that generalization level depends on reasoning type: on out-of-distribution examples, models fail to systematically generalize for composition while succeeding for comparison.",
+      "A mechanistic account of grokking here — the formation of a generalizing circuit, and the role of the relative efficiency of the generalizing versus the memorizing circuit in determining which one training settles on.",
+      "A link between systematicity and the configuration of the generalizing circuit, explaining why composition and comparison differ.",
+      "Practical guidance on data and training setup to induce implicit reasoning, and an architectural suggestion — encouraging cross-layer knowledge sharing.",
+      "A demonstration that a fully grokked transformer reaches near-perfect accuracy on a challenging large-search-space reasoning task where GPT-4-Turbo and Gemini-1.5-Pro fail badly regardless of prompting style or retrieval augmentation."
+    ],
+    "datasets": [
+      "synthetic knowledge base (composition)",
+      "synthetic knowledge base (comparison)",
+      "GPT-4-Turbo",
+      "Gemini-1.5-Pro"
+    ],
+    "limitations": "No standalone limitations section is present in the material read. Points a reader should weigh: the setting is a controlled synthetic knowledge base, which is what makes the circuit analysis and the in/out-of-distribution split possible, but leaves open whether grokking of this kind occurs during realistic pretraining, where data is not repeated to the same degree; the comparison against GPT-4-Turbo and Gemini-1.5-Pro is not like-for-like, since the grokked transformer was trained on exactly this knowledge base while the frontier models were not, so it establishes that parametric memory can support the task rather than that those models could not learn it; and the architectural suggestion of cross-layer knowledge sharing follows from the circuit analysis as a hypothesis rather than being tested.",
+    "method": "Two representative implicit reasoning types are studied — composition (chaining stored facts) and comparison (relating attributes of stored entities) — on controlled synthetic knowledge bases where the required inferences are exactly specified and in-distribution versus out-of-distribution splits can be constructed. Transformers are trained far past the point where training accuracy saturates, and generalization is tracked throughout, so grokking is observed rather than assumed. Model internals are examined across training with analytical experiments that identify the circuit implementing the generalizing solution and contrast it with the circuit that merely memorizes, and the relative efficiency of the two is used to explain when training transitions from one to the other. The configuration of the generalizing circuit — how its components are distributed across layers — is then related to whether the model generalizes systematically. A final comparison pits a fully grokked transformer relying on parametric memory against frontier models relying on non-parametric memory, across prompting styles and with retrieval augmentation, on a task with a large search space.",
+    "methods": [
+      "grokking",
+      "circuit analysis",
+      "causal analysis",
+      "retrieval-augmented generation",
+      "chain-of-thought prompting"
+    ],
+    "one_liner": "Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.",
+    "problem": "Language models are deficient at implicit reasoning with their parametric memory: they cannot robustly compose internalized facts, and even strong models fail to compare entities' attributes reliably. Whether this is a fundamental limitation of transformers or an artefact of how they are trained was unknown, and the internal mechanism by which such reasoning would be acquired had not been characterized.",
+    "relevance": {
+      "reasoning-faithfulness": "The third and decisive data point in a dispute this archive had left at two. One archived paper finds propositional-logic reasoning implemented by four attention-head families executing sequentially and reads it as modular, algorithm-like computation; another finds arithmetic implemented by an unordered bag of heuristic neurons and concludes no algorithm is executed. This paper explains how both can be true of transformers: a memorizing circuit and a generalizing circuit compete, the memorizing one is found first, and the model reorganizes into the generalizing one only under extended training. Modularity is therefore not a fixed property of the architecture or the task but a state a model may or may not have reached — which is exactly what one would expect if a heuristic bag and a clean circuit are the two ends of the same trajectory. It also refines the caution the archive already recorded, that three-layer models trained on a logic task are more accurate while less modular: accuracy and modularity dissociate because a memorizing circuit can be highly accurate in distribution. For this topic the consequence is that a claim about whether a model 'really reasons in steps' is underdetermined without knowing where on that trajectory the model sits, and that out-of-distribution systematicity, not in-distribution accuracy, is the discriminating measurement.",
+      "reasoning-training": "Places a boundary condition on this topic's central question. The archive's training papers all study post-training — which tokens receive gradient, how entropy is managed, what the reward signal should be — on models whose reasoning ability is assumed to be already present and in need of eliciting or sharpening. This paper studies where such ability comes from in the first place, and the answer is uncomfortable: it emerges only after training continues far past overfitting, via a reorganization from memorization to computation that standard stopping criteria would never reach. That gives the archive's recurring 'RL elicits rather than creates' finding a mechanistic complement — if the generalizing circuit forms only under grokking conditions that pretraining may or may not supply, then what RL has to work with is determined long before RL begins. The data and training-setup guidance is the actionable part, and the type-dependence is the caution: composition and comparison, superficially similar, differ in whether the acquired circuit generalizes at all."
+    },
+    "results": "Transformers do acquire implicit reasoning for both types, but only through grokking, so the capability is invisible at the point where standard training would stop. Generalization is type-dependent: on out-of-distribution examples, models generalize systematically for comparison and fail to for composition, which the analysis ties to how the generalizing circuit is configured across layers rather than to task difficulty. The mechanism behind the grokking transition is the relative efficiency of the generalizing and memorizing circuits — the model first fits by memorization and later reorganizes into a circuit that computes, once continued training makes the generalizing solution the more efficient one. The headline capability comparison is stark: on a challenging reasoning task with a large search space, GPT-4-Turbo and Gemini-1.5-Pro fail badly regardless of prompting style or retrieval augmentation, while a fully grokked transformer achieves near-perfect accuracy — evidence that parametric memory supports complex reasoning that non-parametric retrieval does not.",
+    "tags": [
+      "grokking",
+      "implicit reasoning",
+      "circuits",
+      "generalization",
+      "parametric memory",
+      "mechanistic interpretability"
+    ],
+    "topics": [
+      "reasoning-faithfulness",
+      "reasoning-training"
+    ]
+  },
+  "task_id": "paper__local-6252abed1b134f57",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

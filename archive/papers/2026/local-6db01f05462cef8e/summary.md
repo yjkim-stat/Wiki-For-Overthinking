@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Local Causal Attribution of Chain-of-Thought Reasoning
+
+- **Authors**: Dennis Wei, Yannis Belkhiter, Erik Miehling, Radu Marinescu
+- **Venue**: Mechanistic Interpretability Workshop at ICML 2026
+- **Published**: 2026-01-01
+- **Source**: local
+- **Topics**: reasoning-training, test-time-scaling, reasoning-faithfulness
+- **Relevance score**: reasoning-training 0.50, test-time-scaling 0.50
+
+## In one line
+
+Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.
+
+## Problem
+
+Chain-of-thought traces are readable, which invites treating them as explanations, but faithfulness work shows the text can disregard the input or rationalize injected hints. Beyond whether the text is faithful, the mechanisms inside a trace are unexamined: which earlier steps a later step actually depends on, whether intermediate reasoning is consequential, and where unfaithfulness enters. Existing attribution work sits at two other levels — the model's internal mechanisms, or causal effects over distributions of traces obtained by resampling, which is expensive. Attribution at the level of one specific trace, which is what a user actually sees, was not addressed; and existing black-box step-level methods attribute only to the final answer, so the effects of intermediate steps on each other are unaccounted for.
+
+## Contributions
+
+- A structural causal model for the units of a CoT, where each unit's log probability is a function of the input units and preceding output units, with the autoregressive property appearing as strict upper-triangularity of the output attribution matrix.
+- AttriCoT, a black-box algorithm estimating that model by intervening on units, measuring the resulting log-probability changes, and fitting linear structural equations by L1-regularized regression — in O(U) forward passes rather than the quadratic cost a naive pairwise scheme would need.
+- Attribution to all prior units rather than only to the final answer, yielding a matrix of pairwise importance scores rather than a ranking against one target.
+- An evaluation showing the attributions are more behaviourally faithful than Thought Anchors' sentence-to-sentence masking and than prompting baselines, across four reasoning models and five datasets.
+- Aggregate metrics over the score matrices — average influence, importance by distance, input ratio, entropy, score density — that expose structural differences between models and domains.
+
+## Method
+
+A trace is split into user-configurable units: input units from the prompt, and output units which are CoT steps followed by the final answer. Each output unit is scalarized by the log probability of its token sequence conditioned on the input and preceding units, normalized by unit length, so causal effects can be measured with non-generative forward passes. The structural equation for each output unit is linear in indicator functions of whether each prior unit is present or absent, giving coefficients that read as importance scores; the intercept has an interpretation as the log probability under an empty prefix. Interventions are performed by removing units from the sequence — the default is leave-one-out, one unit at a time, requiring one forward pass each, with an optional 2x variant that adds an equal number of uniformly sampled leave-two-out interventions. The resulting log-probability targets and indicator features are regressed with a least-squares objective plus optional L1 penalty, excluding for each target those interventions in which the target unit itself was removed. This yields an input attribution matrix and a strictly upper-triangular output attribution matrix. An exploratory white-box variant instead zeroes attention weights on a unit's tokens within a single transformer block and propagates through a shallow network of the remaining MLP and language-model head, so only one full forward pass is needed. Attribution quality is scored by behavioural faithfulness rather than by agreement with intuition: units are removed in the order the method ranks them, the resulting decrease in the target unit's log probability is plotted as a function of how many are removed (0 to 20% of prior units), and the area under that perturbation curve is reported. Models are DS-Llama-8B, DS-Qwen-14B, DS-Qwen3-8B and Qwen3-8B; datasets are GSM8K, MATH500, MMLU-Pro, GPQA-Diamond and ZebraLogic.
+
+## Results
+
+On GSM8K, AUPC for AttriCoT is 231.00, 216.70, 138.64 and 166.59 across the four models, against 195.61, 181.82, 123.42 and 161.28 for the stronger Thought Anchors-KL variant, 88.65 to 67.45 for prompting the CoT model itself, and 107.06 to 58.31 for the attention-based white-box variant — reported as 15-30% improvement over Thought Anchors and 70-165% over prompting. Doubling the intervention budget adds little (232.39, 218.55, 139.73, 168.03), so the leave-one-out variant captures most of what the linear model can use. The ordering holds on MATH500, MMLU-Pro and GPQA-Diamond, with Thought Anchors-KL consistently the closest competitor; on ZebraLogic it is not, with Thought Anchors-KL slightly ahead for Qwen3-8B (292.42 against 291.73). Among prompting baselines, which same-architecture model to prompt matters and varies by target: a non-distilled counterpart is significantly better for DS-Qwen-14B but narrowly worse than the CoT model itself for DS-Qwen3-8B, and an in-context example helps for two models and not the other two. The attention-based method is competitive with prompting at much lower inference cost but well below both causal methods. The structural analysis finds influence roughly flat through the middle of a trace with the distinguishing behaviour at the two ends: exponentially-weighted average influence falls at the end on GSM8K for two models but rises at the end on MMLU-Pro and ZebraLogic. The input ratio — how much output units depend on the prompt relative to prior reasoning — starts high, falls as the model builds its own chain, then rises again peaking in the middle-to-late region, which the authors read as the model referring back to the problem once it has an answer in order to verify it; that peak occurs later for harder problems (ZebraLogic, MATH500, GPQA).
+
+## Limitations
+
+The paper's stated limitations are the limited expressiveness of linear structural equations and the simplicity of the default leave-one-out intervention, with cheaper white-box methods and analysis of how structure depends on model family and trace features named as next steps. A reader should add that removing a unit from the sequence changes the text the model conditions on, so the intervention shares the off-distribution concern that the archive's activation-patching methodology work documents — a trace with a step excised is not a trace the model would have produced. The evaluation metric is also internal to the framework's own assumption: behavioural faithfulness is measured by how much removing top-ranked units depresses the target's log probability, which is the same quantity the attributions were fitted to, so a method optimizing that objective is advantaged relative to one built on KL divergence over token distributions. The interpretive claims in the structural analysis — that the mid-to-late input-ratio peak reflects verification — are the authors' reading of aggregate curves, offered without a validating experiment and flagged as future work. Finally, all four models are 8-14B open-weight reasoning models.
+
+## Why it matters here
+
+- **reasoning-faithfulness**: Fills the gap between the two extremes this archive already holds. On one side, cue injection and trace perturbation treat the whole trace as a unit and ask whether the answer depends on it; on the other, activation patching and sparse autoencoders work inside the model. This works at the level a reader actually sees — which step depends on which — and produces the object the archive has been missing, a step-to-step influence matrix for one specific trace rather than a distribution over traces. Its choice of evaluation is worth adopting as a standard: attribution methods are scored by behavioural faithfulness to the model that generated the trace, measured by perturbation curves, rather than by whether the attributions look sensible. Two of its structural findings speak directly to open questions here. Influence being concentrated at the beginning and end of a trace with a flat middle is a different cut of the same phenomenon the commitment-boundary work reports, and the two are measuring compatible things by incompatible means — one by truncation and forced answering, the other by unit removal and log-probability regression — so comparing their per-step importance profiles on shared benchmarks is a concrete next step. The input-ratio curve rising in the middle-to-late region, and rising later for harder problems, is an independent signal for the verification behaviour the archive's self-correction papers infer from surface tokens. The caution to carry is that unit removal is itself an off-distribution intervention, the concern the archive's patching-methodology paper raises about Gaussian noising.
+
+## Entities
+
+- **Concepts**: local causality, structural causal model, [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), step-level attribution, thought anchors, leave-one-out intervention, perturbation curve, local explanation, [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), [verification](../../../../wiki/concepts/verification.md)
+- **Methods**: AttriCoT, Thought Anchors, structural equation modelling, L1-regularized regression, leave-one-out intervention, attention intervention, [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md)
+
+Tags: `causal attribution`, `faithfulness`, `chain of thought`, `structural causal model`, `black-box`, `interpretability`, `thought anchors`
+
+## Abstract
+
+Understanding the causal structure of a language model's thought process is a problem of significant importance for both transparency and safety. In this work, we take a local approach toward this goal by analyzing the causal relationships among individual components, termed units, of a given, specific chain-of-thought trace. We construct a structural causal model on these units and relate each unit to the log probability of generating (subsequent) output units. Our algorithm, termed AttriCoT, is a black-box method that performs attribution by estimating importance parameters in the structural causal model using O(U) forward passes through the model, where U is the number of units. Evaluation of perturbation curves across 5 datasets and 4 reasoning models shows that AttriCoT produces attributions that are more faithful to the model's behavior than alternative methods. The attribution results also reveal notable differences in thought structure between models and domains.
+
+---
+
+Record id: `local:6db01f05462cef8e`

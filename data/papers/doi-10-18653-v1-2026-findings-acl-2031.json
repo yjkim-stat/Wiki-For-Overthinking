@@ -1,0 +1,39 @@
+{
+  "abstract": "Large language models (LLMs), despite strong performance on complex mathematical problems, exhibit systematic limitations in counting tasks. This issue arises from the architectural limits of transformers, where counting is performed across layers, leading to degraded precision for larger counting problems due to depth constraints. To address this limitation, we propose a simple test-time strategy inspired by System-2 cognitive processes that decomposes large counting tasks into smaller, independent sub-problems that the model can reliably solve. We evaluate this approach using observational and causal mediation analyses to understand the underlying mechanism of this System-2-like strategy. Our mechanistic analysis identifies key components: latent counts are computed and stored in the final item representations of each part, transferred to intermediate steps via dedicated attention heads, and aggregated in the final stage to produce the total count. Experimental results demonstrate that this strategy enables LLMs to surpass architectural limitations and achieve higher accuracy on large-scale counting tasks. This work provides mechanistic insight into System-2 counting in LLMs and presents a generalizable approach for improving and understanding their reasoning behavior.",
+  "arxiv_id": "",
+  "authors": [
+    "Hosein Hasani",
+    "Mohammadali Banayeeanzade",
+    "Ali Nafisi",
+    "Sadegh Mohammadian",
+    "Fatemeh Askari",
+    "Mobin Bagherian",
+    "Amirmohammad Izadi",
+    "Mahdieh Soleymani Baghshah"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.2031",
+  "first_seen": "2026-08-08T07:26:25Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.2031",
+  "last_seen": "2026-08-08T07:26:25Z",
+  "local_path": "",
+  "matched_keywords": [
+    "mechanistic interpretability"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-interpretability": 0.5
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/HasaniBNMABIB26",
+  "title": "Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy",
+  "topics": [
+    "reasoning-interpretability"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.2031",
+  "venue": "ACL",
+  "year": 2026
+}

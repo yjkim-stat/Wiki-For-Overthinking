@@ -1,0 +1,37 @@
+{
+  "abstract": "Extending CoT through RL has been widely used to enhance the reasoning capabilities of LLMs. However, due to the sparsity of reward signals, it can also induce undesirable thinking patterns such as overthinking, i.e., generating redundant intermediate reasoning content. In this work, we argue that a major source of such redundancy is inefficient reflection, which often manifests in two problematic patterns: Indiscriminate Reflection, where the model performs broad, low-impact checks throughout reasoning, and Repetitive Reflection, where it repeatedly re-verifies an already established conclusion. To address this, we introduce a graph-based CoT optimization framework. Specifically, we convert each linear CoT into a directed acyclic graph (DAG) with explicit dependency edges, and design a dual pruning strategy: branch-level pruning removes weakly contributing reflection branches, while depth-level pruning eliminates late-stage re-verification. We distill this behavior via a three-stage pipeline: (1) SFT to initialize the policy on pruned concise traces, (2) DPO to prefer correct but less redundant trajectories, and (3) GRPO with length penalty to jointly optimize answer correctness and efficiency. Experiments show that our approach reduces the average reasoning tokens by 42% while maintaining or improving accuracy.",
+  "arxiv_id": "2604.05643",
+  "authors": [
+    "Hongyuan Yuan",
+    "Xinran He",
+    "Run Shao",
+    "Bolei He",
+    "Xianwei Xue",
+    "Mengke Chen",
+    "Qiutong Pan",
+    "Haiwei Wang",
+    "Haifeng Li"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-09T06:44:03Z",
+  "id": "local:d3ff7e5088463145",
+  "last_seen": "2026-08-09T06:44:03Z",
+  "local_path": "data/pdfs/read/local-d3ff7e5088463145.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "graph-based-cot-pruning-redundant-reflections.pdf",
+  "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "ACL 2026 Findings",
+  "year": 2026
+}

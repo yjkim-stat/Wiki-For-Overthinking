@@ -1,0 +1,74 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Benchmarks multimodal models on detecting and categorizing errors in K-12 math solutions collected from real student interactions, with the best model about 10% behind human experts.",
+        "title": "ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
+        "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
+        "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:47:17Z",
+  "created_at": "2026-08-08T12:46:29Z",
+  "instructions": "Write the wiki definition for 'GPT-4o'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPT-4o",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "GPT-4o",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "GPT4o",
+      "gpt-4o"
+    ],
+    "definition": "An OpenAI multimodal model used across the archive as a reference point rather than a research subject, and notable for what it is compared against. On multimodal mathematical error detection it is the best-performing model tested and still sits about 10% behind educational expert evaluators. On groundedness classification it is beaten by a 4B guardrail model at 77.1% against 75.9% balanced accuracy. It also appears in a systematic evaluation of LLM judges. The pattern across the three is that a general frontier model is a weak specialist: smaller purpose-trained models overtake it at verification, and human experts remain ahead at error detection.",
+    "kind": "model",
+    "related": [
+      "LLM-as-a-judge",
+      "judge reliability",
+      "error detection",
+      "verification",
+      "hallucination"
+    ]
+  },
+  "task_id": "concept__gpt-4o",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

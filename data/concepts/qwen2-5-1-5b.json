@@ -1,0 +1,75 @@
+{
+  "aliases": [
+    "Qwen2.5 1.5B"
+  ],
+  "definition": "A 1.5B Qwen checkpoint, used by both sources as the small model where a method's effect is largest and most visible. One reports its MATH500 accuracy reaching 58.0% and AMC rising from 25.0% to 32.5% under a verifier-free refine-then-vote scheme that beats verifier-based best-of-N. The other uses it in selecting RLVR training tokens by the divergence of their logit distribution from a reference. Its recurrence at this size is worth noting when reading the results: methods that substitute for weak calibration or weak verification have the most room to help on a small model, and neither source establishes that the gain survives to frontier scale.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05643",
+      "kind": "paper",
+      "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
+      "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
+    },
+    {
+      "id": "local:2175408b166d313f",
+      "kind": "paper",
+      "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+      "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Qwen2.5-1.5B",
+  "related": [
+    "test-time-compute",
+    "test-time-scaling",
+    "self-correction",
+    "answer-stabilization",
+    "reasoning-diversity",
+    "diminishing-returns",
+    "verifier-free-selection",
+    "majority-voting",
+    "self-consistency",
+    "best-of-n",
+    "beam-search",
+    "lookahead-decoding",
+    "iterative-self-critique",
+    "greedy-decoding",
+    "aime24",
+    "aime25",
+    "amc",
+    "olympiadbench",
+    "math500",
+    "token-level-entropy",
+    "second-order-renyi-entropy",
+    "collision-probability",
+    "strategy-purity",
+    "entropy-collapse",
+    "entropy-explosion",
+    "jensen-shannon-divergence",
+    "distributional-uniqueness",
+    "sparse-policy-gradient",
+    "exploration-exploitation-trade-off",
+    "pass-k",
+    "ict-independent-combinatorial-tokens",
+    "sparse-grpo",
+    "grpo",
+    "rlvr",
+    "20-entropy",
+    "stapo",
+    "verl",
+    "gsm8k",
+    "mmlu-stem",
+    "gpqa",
+    "aime23",
+    "qwen2-5-0-5b",
+    "qwen2-5-7b"
+  ],
+  "schema_version": 1,
+  "slug": "qwen2-5-1-5b",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

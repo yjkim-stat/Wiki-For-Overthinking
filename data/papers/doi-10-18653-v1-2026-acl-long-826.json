@@ -1,0 +1,37 @@
+{
+  "abstract": "Reasoning benchmarks such as the Abstraction and Reasoning Corpus (ARC) and ARC-AGI are widely used to assess progress in artificial intelligence and are often interpreted as probes of core, so-called “fluid” reasoning abilities. Despite their apparent simplicity for humans, these tasks remain challenging for frontier vision-language models (VLMs), a gap commonly attributed to deficiencies in machine reasoning. We challenge this interpretation and hypothesize that the gap arises primarily from limitations in visual perception rather than from shortcomings in inductive reasoning.To verify this hypothesis, we introduce a two-stage experimental pipeline that explicitly separates perception and reasoning. In the perception stage, each image is independently converted into a natural-language description, while in the reasoning stage a model induces and applies rules using these descriptions. This design prevents leakage of cross-image inductive signals and isolates reasoning from perception bottlenecks. Across three ARC-style datasets, Mini-ARC, ACRE, and Bongard-LOGO, we show that the perception capability is the dominant factor underlying the observed performance gap by comparing the two-stage pipeline with against standard end-to-end one-stage evaluation. Manual inspection of reasoning traces in the VLM outputs further reveals that approximately 80 percent of model failures stem from perception errors. Together, these results demonstrate that ARC-style benchmarks conflate perceptual and reasoning challenges and that observed performance gaps may overstate deficiencies in machine reasoning. Our findings underscore the need for evaluation protocols that disentangle perception from reasoning when assessing progress in machine intelligence.",
+  "arxiv_id": "",
+  "authors": [
+    "Xinhe Wang 0001",
+    "Jin Huang",
+    "Xingjian Zhang 0002",
+    "Tianhao Wang",
+    "Jiaqi W. Ma"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.ACL-LONG.826",
+  "first_seen": "2026-08-08T07:19:19Z",
+  "id": "doi:10.18653/v1/2026.acl-long.826",
+  "last_seen": "2026-08-08T07:19:19Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning benchmark",
+    "reasoning benchmarks"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.6667
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/WangHZWM26",
+  "title": "Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks",
+  "topics": [
+    "reasoning-evaluation"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.acl-long.826",
+  "venue": "ACL",
+  "year": 2026
+}

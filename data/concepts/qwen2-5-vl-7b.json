@@ -1,0 +1,78 @@
+{
+  "aliases": [
+    "Qwen2.5-VL-7B-Instruct"
+  ],
+  "definition": "A 7B Qwen2.5 vision-language checkpoint, and the archive's usual subject when a finding needs testing outside text. Two sources use it that way: one probes whether RLVR extends the reasoning boundary on visual reasoning benchmarks as well as math and code, the other measures what prolonged RLVR costs, reporting degradation in core capabilities including perception and faithfulness that experience replay is introduced to prevent.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1717",
+      "kind": "paper",
+      "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+      "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models"
+    },
+    {
+      "id": "local:b050d2841cbb4959",
+      "kind": "paper",
+      "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
+      "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?"
+    }
+  ],
+  "first_seen": "2026-08-08T12:46:28Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Qwen2.5-VL-7B",
+  "related": [
+    "catastrophic-forgetting",
+    "capability-regression",
+    "experience-replay",
+    "kl-regularization",
+    "chain-of-thought-faithfulness",
+    "training-dynamics",
+    "objective-reweighting",
+    "recap",
+    "rlvr",
+    "kl-divergence-regularization",
+    "dynamic-objective-reweighting",
+    "qwen2-5-vl-3b",
+    "pass-k",
+    "reasoning-boundary",
+    "exploration-exploitation-trade-off",
+    "sampling-efficiency",
+    "entropy-collapse",
+    "reasoning-distillation",
+    "coverage",
+    "base-model-as-upper-bound",
+    "grpo",
+    "ppo",
+    "reinforce",
+    "rloo",
+    "remax",
+    "dapo",
+    "perplexity-analysis",
+    "aime24",
+    "amc23",
+    "math500",
+    "minerva",
+    "olympiadbench",
+    "gsm8k",
+    "omni-math-rule",
+    "livecodebench",
+    "humaneval",
+    "mathvista",
+    "mathvision",
+    "llama-3-1-8b",
+    "qwen2-5-7b",
+    "qwen2-5-14b",
+    "qwen2-5-32b",
+    "qwen2-5-math-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-7b"
+  ],
+  "schema_version": 1,
+  "slug": "qwen2-5-vl-7b",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation",
+    "test-time-scaling"
+  ]
+}

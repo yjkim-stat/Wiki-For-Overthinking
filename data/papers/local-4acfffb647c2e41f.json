@@ -1,0 +1,34 @@
+{
+  "abstract": "Chain-of-Thought (CoT) distillation transfers multi-step reasoning from large reasoning models to smaller students, but verbose teacher traces inflate both training and inference cost. Existing CoT compression methods fall into two families, selective pruning and generative rewriting, yet prior studies have left key factors entangled: granularity is confounded with importance criteria in pruning, restructuring level is rarely isolated in rewriting, and compression budgets are not systematically evaluated across domains or regimes. We recast CoT compression along three dimensions: importance criterion, restructuring level, and compression budget. Sweeping these across two model families, Math and General domains, and Long-/Short-CoT regimes, we find that (i) importance criterion utility is strictly governed by granularity: step-level criteria converge on a shared reasoning backbone, while token-level pruning requires symbol-aware signals to preserve the logical core; (ii) restructuring level inverts across domains: Math degrades monotonically with structural disruption, while aggressive rewriting acts as a denoiser on General tasks; (iii) training-time compression does not necessarily translate to inference-time savings: Long-CoT students retain verbose habits despite concise supervision, making the training ratio an optimistic lower bound on deployment cost. These findings yield condition-aware guidelines for matching compression to deployment context.",
+  "arxiv_id": "2606.21704",
+  "authors": [
+    "Siyang Lyu",
+    "Zhijing Sun",
+    "Xinghao Chen",
+    "Tong Liu",
+    "Dawei Zhu",
+    "Xiaoyu Shen"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-09T06:44:03Z",
+  "id": "local:4acfffb647c2e41f",
+  "last_seen": "2026-08-09T06:44:03Z",
+  "local_path": "data/pdfs/read/local-4acfffb647c2e41f.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "when-compression-helps-and-when-it-hurts.pdf",
+  "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

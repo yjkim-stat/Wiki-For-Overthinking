@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.",
+        "title": "Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows evaluator accuracy improves monotonically with reasoning tokens spent, and that buying compute at evaluation time can substitute for buying it at generation time.",
+        "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:33Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'judge reliability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "judge reliability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "judge reliability",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "evaluator reliability",
+      "judge bias",
+      "scoring bias"
+    ],
+    "definition": "Whether a model used to score other models' output can be trusted, which matters because judges are how reasoning work gets evaluated once the answer is not a checkable string. One source isolates a content-independent component of judge behaviour by asking the model to emit random numbers, treating deviation from uniform as its latent bias, and rectifies scoring probabilities against it — finding bias varies across models, tasks and score ranges. The other shows judging improves monotonically with reasoning tokens spent, so evaluation compute buys accuracy the way generation compute does, at a comparable exchange rate. A third archived source finds judge preference scores track style rather than substance.",
+    "kind": "concept",
+    "related": [
+      "LLM-as-a-judge",
+      "meta-evaluation",
+      "calibration",
+      "verification",
+      "evaluation-time compute",
+      "construct validity"
+    ]
+  },
+  "task_id": "concept__judge-reliability",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

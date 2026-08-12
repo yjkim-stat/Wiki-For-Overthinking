@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
+        "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces how individual prompt tokens ground into image regions during diffusion denoising, using fixed-seed single-word removal for causal faithfulness and a head-resolved spike score for attribution.",
+        "title": "Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:32Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'counterfactual intervention'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "counterfactual intervention",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "counterfactual intervention",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "counterfactual",
+      "controlled ablation",
+      "intervention"
+    ],
+    "definition": "Changing one input or internal element while holding everything else fixed, so that a difference in output is attributable to that element. Both sources treat the holding-fixed as the hard part. One injects synthetic reasoning snippets into a trace and measures both whether the model follows them and whether it admits doing so, which turns influence into a known quantity and non-disclosure into a measurable one — over 90% for extreme hints. The other removes a single prompt word while fixing the sampling seed, so that two generated images differ only by that word. The archive's trace-level work faces the same nuisance-variation problem and does not consistently apply an equivalent control.",
+    "kind": "method",
+    "related": [
+      "causal tracing",
+      "activation patching",
+      "chain of thought faithfulness",
+      "post-hoc rationalization",
+      "commitment boundary"
+    ]
+  },
+  "task_id": "concept__counterfactual-intervention",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
+  ]
+}

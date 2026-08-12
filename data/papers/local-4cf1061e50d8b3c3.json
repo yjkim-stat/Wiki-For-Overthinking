@@ -1,0 +1,33 @@
+{
+  "abstract": "Leaderboards for large reasoning models (LRMs) have turned evaluation into a competition, incentivizing developers to optimize directly on benchmark suites. A shortcut to achieving higher rankings is to incorporate evaluation benchmarks into the training data, thereby yielding inflated performance, known as benchmark contamination. Despite that numerous contamination detection approaches have been proposed, surprisingly, our studies find that evading contamination detections for LRMs is alarmingly easy. We focus on the two scenarios where contamination may occur in practice: (I) when the base model evolves into LRM via supervised fine-tuning (SFT) and reinforcement learning (RL), we find that contamination during SFT can be originally identified by contamination detection methods. Yet, even a brief Group Relative Policy Optimization (GRPO) training can markedly conceal contamination signals that most detection methods rely on. Further empirical experiments and theoretical analysis indicate that Proximal Policy Optimization (PPO) style importance sampling and clipping objectives are the root cause of this detection concealment, indicating that a broad class of RL methods may inherently exhibit similar concealment capability; (II) when SFT contamination with CoT is applied to advanced LRMs as the final stage, most contamination detection methods perform near random guesses. Without exposure to non-members, contaminated LRMs would still have more confidence when responding to those unseen samples that share similar distributions to the training set, and thus, evade existing memorization-based detection methods. Together, our findings reveal the unique vulnerability of LRMs evaluations: Model developers could easily contaminate LRMs to achieve inflated leaderboards performance while leaving minimal traces of contamination, thereby strongly undermining the fairness of evaluation and threatening the integrity of public leaderboards.",
+  "arxiv_id": "2510.02386",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T06:07:16Z",
+  "id": "local:4cf1061e50d8b3c3",
+  "last_seen": "2026-08-08T06:07:16Z",
+  "local_path": "data/pdfs/read/local-4cf1061e50d8b3c3.pdf",
+  "matched_keywords": [
+    "benchmark contamination",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.5,
+    "reasoning-training": 0.5
+  },
+  "source": "local",
+  "source_id": "On The Fragility of Benchmark Contamination Detection in Reasoning Models.pdf",
+  "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

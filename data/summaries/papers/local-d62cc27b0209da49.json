@@ -1,0 +1,80 @@
+{
+  "concepts": [
+    "benchmark contamination",
+    "data contamination",
+    "evaluation fragility",
+    "symbolic variabilization",
+    "multi-instance verification",
+    "reasoning consistency",
+    "loose and strict metrics",
+    "bootstrap resampling",
+    "memorization",
+    "dynamic benchmarks",
+    "reasoning benchmark"
+  ],
+  "contributions": [
+    "Symbolic variabilization: a pipeline converting fixed numerical problems into parameterized templates with constrained feasible domains, applied to AMC23, AIME24 and AIME25 to produce VAR-AMC23, VAR-AIME24 and VAR-AIME25 (about 430 instantiated questions).",
+    "A two-metric protocol separating two things the drop could mean: a loose score averaging accuracy across variants, which isolates contamination and memorization, and a strict all-or-nothing score requiring every variant of a problem to be solved, which measures reasoning consistency.",
+    "A bootstrap resampling procedure over responses, so scores come with standard deviations rather than as point estimates on 30-40 problem benchmarks.",
+    "An empirical study across seven 7B models, three 32B models and four frontier systems, showing where the degradation is concentrated."
+  ],
+  "datasets": [
+    "AMC23",
+    "AIME24",
+    "AIME25",
+    "VAR-AMC23",
+    "VAR-AIME24",
+    "VAR-AIME25",
+    "GSM8K",
+    "MATH500",
+    "OlympiadBench"
+  ],
+  "generated_at": "2026-08-08T04:25:38Z",
+  "generated_by": "paper",
+  "limitations": "The paper has no limitations section but names two gaps in its conclusion: the methodology is applied only to competition mathematics, with program synthesis, formal logic and decision-making left for future work; and no SFT-only baseline is included, so how much of the observed drop is specific to RL rather than to math-tuning in general is not established — a confound that bears directly on the paper's headline claim. A reader should add a caution about the metric that carries the abstract. The strict score requires all of up to five variants to be correct in a bootstrap draw, so it is compared against an original benchmark score measured on a single instance; those are not the same quantity, and part of every strict drop is the all-or-nothing criterion rather than variabilization. The paper is aware of this and introduces the loose metric precisely to decouple them, but the loose drops are much smaller — 2.6% to 7.2% for the more robust RL models on AMC23, and 1.5% for DAPO-Qwen-32B on AIME24 — so the apples-to-apples degradation is far milder than the headline figures suggest. Scale is also thin: roughly 430 instantiated questions in total, derived from benchmarks of 40, 30 and 30 problems, which the bootstrap stabilizes but cannot enlarge. Finally, the variabilization is hand-built by experts, so it is not automatically extensible and the feasible domains encode judgement about what counts as the same problem.",
+  "method": "Each problem is first solved independently by a mathematics expert who cross-checks against the official solution, identifies which quantities are essential constants, and isolates the symbolic variables driving the solution while preserving the ratios and relationships of the original derivation. Key constants are then replaced by variables with feasible domains chosen to stay near the original scale and to respect domain restrictions such as positivity, non-vanishing denominators or geometric constraints; supported variable types are sampling from a linear space, sampling from a discrete set, a fixed set of allowed values, and algebraic expressions of other variables. The final answer is re-expressed as a symbolic function of the new variables, derived by hand and then verified twice — a second annotator solves instantiated variants from the rewritten prompt, and a frontier model runs all variants as a sanity check; a problem is accepted only if every variant is solved correctly, otherwise it goes to another round. Up to K = 5 variants per template are sampled (K = 2 to 4 for a few problems to preserve difficulty), and all models see exactly the same variants. Each variant is queried M times. Scoring uses a bootstrap: in each of N rounds one response is drawn uniformly per variant, and the loose score is the fraction of variants answered correctly while the strict score is 1 only if all K variants in that draw are correct; reported performance is the mean over rounds with the standard deviation as a stability measure. Constants integral to a problem's identity, such as pi or fixed geometric parameters, are left unmodified.",
+  "methods": [
+    "VAR-MATH",
+    "symbolic parameterization",
+    "bootstrap evaluation",
+    "RLVR",
+    "DAPO",
+    "PRIME",
+    "vLLM"
+  ],
+  "one_liner": "Converts AMC23 and AIME24/25 into symbolic templates whose constants are replaced by sampled variables, requires a model to solve several instantiations of each problem, and finds RL-finetuned models lose most of their reported accuracy under that consistency requirement.",
+  "paper_id": "local:d62cc27b0209da49",
+  "problem": "RL-trained models post large gains on standard math benchmarks, but the same gains appear even when models are trained with random or inverted reward signals, which raises the question of whether the gains reflect reasoning or benchmark-specific overfitting. The paper locates the cause in how benchmarks are built: each problem is a single fixed numerical instance. That creates two vulnerabilities — contamination, since AMC and AIME problems are public and likely present in pretraining corpora, and evaluation fragility, since competition answers are simple values that can be reached by priors, guesswork or shallow heuristics on a one-shot assessment.",
+  "relevance": {
+    "reasoning-evaluation": "The paper this topic exists for, and the first in the archive to make the topic's question concrete: it takes the benchmarks every other archived paper reports on and asks what those numbers survive. Two design decisions are worth carrying into how this group reads any reasoning claim. First, the loose/strict split turns a single degradation number into two separable diagnoses — memorization of specific numeric forms versus inability to apply the same reasoning across structurally identical problems — and shows they dissociate: the base Qwen model loses 38.5% loose while Skywork loses 2.6%, so contamination and inconsistency are genuinely different failures. Second, the bootstrap addresses a problem this archive keeps running into, that AIME24 and AIME25 are 30 problems and archived papers routinely report multi-point differences on them without intervals. That the frontier models hold up on AMC23 but still lose up to 28% on the AIME variants is the useful headline: symbolic variation is not solved anywhere, only better tolerated at scale.",
+    "reasoning-training": "Direct adversarial evidence against the gains this topic collects. Several archived papers report AIME improvements from RLVR variants and read them as better reasoning; VAR-MATH re-evaluates models trained by exactly these pipelines — DAPO, PRIME, SimpleRL-Zoo, Oat-Zero, SRPO — and finds accuracy that does not transfer when the numbers change. It also connects to the paper's own motivating observation that models trained with random or inverted rewards post gains on standard benchmarks, which is the strongest available argument that benchmark movement underdetermines whether a training signal taught reasoning. The honest reading for this topic is bounded by the missing SFT-only baseline the paper itself flags: the results show RL-tuned models are fragile to symbolic variation, but not that RL is what made them fragile."
+  },
+  "results": "Strict-metric drops relative to the original benchmarks average 47.9% on AMC23, 58.8% on AIME24 and 72.9% on AIME25. The spread across model classes is the substance. RL-tuned 7B models fall sharply on VAR-AMC23: Qwen2.5-MATH-7B 36.9 to 2.0 (-94.5%), Eurus-2-7B-PRIME 58.3 to 28.9 (-50.4%), SimpleRL-Zoo-7B 61.4 to 33.6 (-45.3%), Oat-Zero-7B 65.6 to 36.8 (-43.9%), Light-R1-7B-DS 78.6 to 54.9 (-30.2%), Skywork-OR1-Math-7B 73.9 to 57.0 (-22.9%), openPangu-Embedded-7B-V1.1 93.4 to 80.8 (-13.6%). On VAR-AIME25 two models reach zero: Qwen2.5-MATH-7B 4.8 to 0.0 and Qwen2.5-32B 3.5 to 0.0. Scaling to 32B raises raw accuracy without fixing consistency — DAPO-Qwen-32B 92.3 to 69.8 (-24.4%) and SRPO-Qwen-32B 86.7 to 51.5 (-40.6%) on AMC23, with drops above 40% across the variabilized sets. Frontier models are far more robust on AMC23, with DeepSeek-R1-0528 at -3.6%, SEED-THINK-v1.6 at -1.2%, Qwen3-235B-A22B at -6.4% and OpenAI-o4-mini-high at -6.6%, but they still degrade on the harder sets: on VAR-AIME25, DeepSeek-R1-0528 falls 81.5 to 61.3 (-24.8%), SEED-THINK-v1.6 81.7 to 58.8 (-28.1%) and OpenAI-o4-mini-high 93.4 to 76.7 (-17.8%). Under the loose metric, which grants partial credit, the picture separates contamination from inconsistency: base Qwen2.5-MATH-7B still loses 38.5% on AMC23, consistent with heavy reliance on memorized patterns, whereas Skywork-OR1-Math-7B loses 2.6%, DAPO-Qwen-32B 7.2% and Light-R1-7B-DS 3.5%. VAR-MATH also reduces score variance relative to single-instance evaluation, most visibly on AIME25.",
+  "schema_version": 1,
+  "tags": [
+    "benchmark contamination",
+    "evaluation",
+    "symbolic variation",
+    "reasoning consistency",
+    "rlvr",
+    "aime",
+    "amc",
+    "memorization"
+  ],
+  "models": [
+    "Qwen2.5-MATH-7B",
+    "Eurus-2-7B-PRIME",
+    "Skywork-OR1-Math-7B",
+    "SimpleRL-Zoo-7B",
+    "Light-R1-7B-DS",
+    "Oat-Zero-7B",
+    "openPangu-Embedded-7B-V1.1",
+    "Qwen2.5-32B",
+    "DAPO-Qwen-32B",
+    "SRPO-Qwen-32B",
+    "DeepSeek-R1-0528",
+    "Qwen3-235B-A22B",
+    "SEED-THINK-v1.6",
+    "OpenAI-o4-mini-high"
+  ]
+}

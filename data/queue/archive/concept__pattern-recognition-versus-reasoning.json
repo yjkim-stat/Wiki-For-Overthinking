@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.",
+        "title": "SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A competitive chess testbed where 13 models play each other, and no model beats a human-amateur-level engine while some lose to random play.",
+        "title": "ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:49Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'pattern recognition versus reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "pattern recognition versus reasoning",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "pattern recognition versus reasoning",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "genuine reasoning versus memorization",
+      "shallow pattern matching"
+    ],
+    "definition": "The question of whether benchmark success reflects reasoning or the retrieval of familiar patterns, posed by both sources as the thing their benchmark is designed to separate. One decomposes mathematical problem-solving into four cognitive dimensions and adds an All-Pass Score requiring success across them rather than on average, on the argument that a single aggregate lets strength in one dimension mask weakness in another. The other picks chess because it demands strategy, exact rule adherence and state tracking together, and measures against a fixed engine rather than against other models. Both treat the distinction as unanswerable from aggregate accuracy alone, which is why each builds a decomposition or an absolute reference.",
+    "kind": "concept",
+    "related": [
+      "construct validity",
+      "memorization",
+      "benchmark contamination",
+      "compositional generalization",
+      "meta-evaluation"
+    ]
+  },
+  "task_id": "concept__pattern-recognition-versus-reasoning",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

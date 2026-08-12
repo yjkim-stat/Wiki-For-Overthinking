@@ -1,0 +1,134 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-bd58c1406f4a1ef5.pdf"
+  },
+  "completed_at": "2026-08-09T03:21:38Z",
+  "created_at": "2026-08-09T03:09:12Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:bd58c1406f4a1ef5",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "Length Generalization Bounds for Transformers",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Length generalization is a key property of a learning algorithm that enables it to make correct predictions on inputs of any length, given finite training data. To provide such a guarantee, one needs to be able to compute a length generalization bound, beyond which the model is guaranteed to generalize. This paper concerns the open problem of the computability of such generalization bounds for C-RASP, a class of languages which is closely linked to transformers. A positive partial result was recently shown by Chen et al. for C-RASP with only one layer and, under some restrictions, also with two layers. We provide complete answers to the above open problem. Our main result is the non-existence of computable length generalization bounds for C-RASP (already with two layers) and hence for transformers. To complement this, we provide a computable bound for the positive fragment of C-RASP, which we show equivalent to fixed-precision transformers. For both positive C-RASP and fixed-precision transformers, we show that the length complexity is exponential, and prove optimality of the bounds.",
+      "arxiv_id": "2603.02238",
+      "authors": [
+        "Andy Yang",
+        "Pascal Bergsträßer",
+        "Georg Zetzsche",
+        "David Chiang",
+        "Anthony W. Lin"
+      ],
+      "doi": "",
+      "title": "Length Generalization Bounds for Transformers",
+      "venue": "ICML",
+      "year": 2026
+    },
+    "concepts": [
+      "length generalization",
+      "generalization",
+      "computability",
+      "expressivity",
+      "out-of-distribution generalization",
+      "finite precision",
+      "exact learning",
+      "scaling laws"
+    ],
+    "contributions": [
+      "A complete answer to the open problem of computable length-generalization bounds for C-RASP and hence for transformers",
+      "The non-existence result at depth two and beyond, via a reduction from Hilbert's tenth problem to emptiness of C-RASP-definable languages",
+      "The consequence that lengths required for length generalization grow faster than any computable function",
+      "A computable exponential bound for the positive fragment C-RASP+, shown equivalent to fixed-precision transformers via unary temporal logic",
+      "Optimality proofs for those bounds"
+    ],
+    "datasets": [],
+    "limitations": "The negative result concerns exact learning of a worst-case program, so it does not say a particular task cannot length-generalize — only that no algorithm computes a bound valid for all of them. The favourable-conditions framing cuts the other way too: the model is idealized, with access to all examples up to a length and perfect optimization, so it says nothing about which practical setups succeed. The positive bound is exponential, hence not a practical training prescription. C-RASP and fixed-precision transformers are formal proxies whose correspondence to deployed softmax transformers is exact only under the stated precision restrictions.",
+    "method": "The analysis works through C-RASP, a programming language depth-preservingly equivalent to transformers, and uses the framework of non-asymptotic length generalization — a computable N such that a learner given all examples up to length N classifies every longer string correctly. That framework deliberately abstracts away gradient dynamics and assumes the best case of access to all examples up to a length and perfect optimization on them, so a negative result under those favourable conditions applies a fortiori to SGD on limited data. The impossibility is proved by showing non-asymptotic length generalization is equivalent to decidability of language equivalence, which for C-RASP-definable languages reduces to emptiness, shown undecidable by reduction from Hilbert's tenth problem. The positive fragment C-RASP+ is shown equivalent to unary temporal logic with the strict past operator, and hence to (1,1)-precision transformers, which yields the exponential bound.",
+    "methods": [
+      "C-RASP",
+      "non-asymptotic length generalization",
+      "reduction from Hilbert's tenth problem",
+      "unary temporal logic"
+    ],
+    "models": [],
+    "one_liner": "Proves that no computable length-generalization bound exists for transformers of depth two or beyond, and gives a matching exponential bound for the positive fragment that corresponds to fixed-precision transformers.",
+    "problem": "Length generalization is making correct predictions on inputs of any length after training on bounded-length data, and it matters because compute and data limit the lengths seen in training while long contexts and long chains of thought are exactly what deployment needs. To guarantee it one needs a computable bound N such that training on strings up to length N suffices for all longer strings. Whether such a bound is computable for transformers was open; a partial positive answer existed for one layer and, with restrictions, two.",
+    "relevance": {
+      "reasoning-training": "A hard negative where this topic has mostly collected positive constructions. If no computable bound exists past depth two, then there is no procedure that tells you how long the training problems must be for reasoning to transfer to longer ones — the question is not merely open, it is undecidable in general. That reframes the field's empirical length-generalization results as facts about particular tasks rather than steps toward a general guarantee, and it explains why more data past a threshold stops helping, which the paper cites from the addition literature and the archive has met in its own scaling discussions. The positive half is the practically useful part: restricting to fixed precision restores computability at exponential cost, which makes precision a lever on learnability rather than an implementation detail — the same variable the archive's expressivity entries found tightens the no-CoT bound from TC^0 to AC^0."
+    },
+    "results": "There is no terminating algorithm for perfectly learning a C-RASP program even at depth two, so no computable length-generalization bound exists for transformers of depth two or beyond — the lengths needed must grow faster than any computable function. For the positive fragment C-RASP+, expressively equivalent to fixed-precision transformers, training on strings of length exponential in the size of the program is sufficient and in the worst case necessary, and the bounds are proved optimal. The paper notes empirical context: models from 50M to 3B parameters trained on 15-digit addition could not add 20 digits, and training on 30 digits allowed generalization to 60 while extra data past a threshold did not help.",
+    "tags": [
+      "length generalization",
+      "computability",
+      "c-rasp",
+      "undecidability",
+      "theory"
+    ],
+    "topics": [
+      "reasoning-training"
+    ]
+  },
+  "task_id": "paper__local-bd58c1406f4a1ef5",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

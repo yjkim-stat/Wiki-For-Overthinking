@@ -1,0 +1,116 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:27:20Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1717",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Hoang Phan",
+      "Xianjun Yang",
+      "Yuanshun Yao",
+      "Jingyu Zhang",
+      "Shengjie Bi",
+      "Xiaocheng Tang",
+      "Madian Khabsa",
+      "Lijuan Liu",
+      "Deren Lei"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.1717",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "catastrophic forgetting",
+      "capability regression",
+      "experience replay",
+      "KL regularization",
+      "chain of thought faithfulness",
+      "training dynamics",
+      "objective reweighting"
+    ],
+    "contributions": [
+      "Empirical confirmation that open-source reasoning models degrade on core capabilities including perception and faithfulness after prolonged RLVR",
+      "The argument that task-local KL regularization does not guarantee preservation of broader knowledge",
+      "RECAP, replay with online dynamic objective reweighting driven by convergence and instability signals",
+      "An end-to-end method applicable to existing RLVR pipelines with no additional models trained",
+      "Results on Qwen2.5-VL-3B and Qwen2.5-VL-7B preserving general capabilities while improving reasoning"
+    ],
+    "datasets": [],
+    "limitations": "Effect sizes are not given in the abstract. Both backbones are Qwen2.5-VL, so results are within one family and modality setting. Replay requires held data representing the capabilities to preserve, and which capabilities are covered determines what is retained — forgetting outside the replay set is unaddressed. Short-horizon convergence and instability signals introduce hyperparameters whose sensitivity is unreported.",
+    "method": "RECAP is a replay strategy with dynamic objective reweighting for general knowledge preservation. The reweighting adapts online using short-horizon signals of convergence and instability, shifting focus away from saturated objectives toward underperforming or volatile ones — so the mixture is decided by observed training dynamics rather than fixed in advance. It is end-to-end, applies to existing RLVR pipelines, and trains no additional models.",
+    "methods": [
+      "RECAP",
+      "RLVR",
+      "experience replay",
+      "KL divergence regularization",
+      "dynamic objective reweighting"
+    ],
+    "models": [
+      "Qwen2.5-VL-3B",
+      "Qwen2.5-VL-7B"
+    ],
+    "one_liner": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+    "problem": "RLVR is now standard post-training for language and vision-language models, and it risks capability regression: models forget foundational skills after prolonged training without regularization. KL-style regularization is computed on the current task, so it prevents deviation from the base model without guaranteeing retention of broader knowledge. Experience replay across heterogeneous domains raises the question of how much focus each objective should get, which is nontrivial to decide.",
+    "relevance": {
+      "reasoning-training": "Names and measures a cost of the training signal this topic is built around, and the specific capabilities it reports losing are pointed: perception and faithfulness. Faithfulness degrading under RLVR would mean the archive's faithfulness findings are partly a consequence of reasoning training rather than an independent property of models, which is a causal link nothing else here provides. It also shows KL-to-base is the wrong instrument because it is computed on-task, which is worth recording since KL regularization is the field's default answer to regression. With acl-long.1878 on controllability and findings-acl.1456 on trace-level instruction following, this drain now has three independent measurements of what reasoning training costs outside the reasoning benchmark."
+    },
+    "results": "The capability-regression concern is empirically confirmed: open-source reasoning models degrade on core capabilities such as perception and faithfulness. On benchmarks based on Qwen2.5-VL-3B and Qwen2.5-VL-7B, RECAP preserves general capabilities and also improves reasoning by enabling more flexible trade-offs among in-task rewards.",
+    "tags": [
+      "catastrophic forgetting",
+      "rlvr",
+      "experience replay",
+      "capability regression",
+      "faithfulness"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1717",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

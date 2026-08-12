@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
+        "title": "Multi-component Causal Tracing in Large Language Models",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Systematically varies the methodological choices in activation patching — how prompts are corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — and shows each choice can change which model components a study concludes are important.",
+        "title": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:31Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'causal tracing'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "causal tracing",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "causal tracing",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "causal trace",
+      "causal mediation",
+      "interchange intervention"
+    ],
+    "definition": "Intervening on internal representations to measure which components a behaviour causally depends on, as opposed to which merely correlate with it. The sources address complementary weaknesses. One extends tracing from single components or layers to joint subsets, converting the combinatorial search into a continuous problem over soft interventions, because components that matter only together are invisible to one-at-a-time search. The other shows the method's conclusions depend on choices usually left implicit — how prompts are corrupted, which metric scores the effect, and whether layers are patched singly or in sliding windows. Read together: tracing is sensitive both to what it can search over and to how the search is scored.",
+    "kind": "method",
+    "related": [
+      "activation patching",
+      "causal mediation analysis",
+      "attention head",
+      "localization",
+      "modularity",
+      "counterfactual intervention"
+    ]
+  },
+  "task_id": "concept__causal-tracing",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

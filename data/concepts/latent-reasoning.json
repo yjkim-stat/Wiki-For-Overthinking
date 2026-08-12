@@ -1,0 +1,101 @@
+{
+  "aliases": [
+    "latent-space reasoning",
+    "implicit chain of thought"
+  ],
+  "definition": "Reasoning carried in continuous internal states rather than in emitted tokens, treated by the sources both as an efficiency measure and as a loss of the readable trace that monitoring depends on. One finds monitorability survives better than expected, depending more on task structure and access to internals than on whether reasoning is explicit or latent. One makes latent prediction a pretraining objective, adding a higher-level abstract latent to limit error accumulation over long horizons. One keeps discrete decoding except at low-confidence steps, which concentrates the unreadable portion exactly where decisions are being made. The three use the term at different levels — inference mode, pretraining target, and per-step gate.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04928",
+      "kind": "paper",
+      "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+      "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?"
+    },
+    {
+      "id": "arxiv:2608.05806",
+      "kind": "paper",
+      "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+      "title": "Hierarchical Latent Prediction for Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.320",
+      "kind": "paper",
+      "note": "Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.",
+      "title": "SeLaR: Selective Latent Reasoning in Large Language Models"
+    },
+    {
+      "id": "local:17f5eb14b12eda9b",
+      "kind": "paper",
+      "note": "Characterizes exactly how much computational power a chain of thought buys as a function of its length, sandwiching the class of languages a decoder recognizes with t(n) decoding steps between two standard complexity classes.",
+      "title": "The Expressive Power of Transformers with Chain of Thought"
+    },
+    {
+      "id": "local:ee30f023d9f2d8fb",
+      "kind": "paper",
+      "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
+      "title": "Transformers Provably Learn to Internalize Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "latent reasoning",
+  "related": [
+    "monitorability",
+    "implicit-reasoning",
+    "chain-of-thought-faithfulness",
+    "hint-reliance",
+    "linear-probe",
+    "latent-chain-of-thought",
+    "activation-probing",
+    "latent-state-verbalization",
+    "hint-based-intervention",
+    "next-token-prediction",
+    "belief-state",
+    "compounding-error",
+    "planning-horizon",
+    "teacher-forcing",
+    "hierarchical-latent-prediction",
+    "multi-token-prediction",
+    "next-latent-prediction",
+    "speculative-decoding",
+    "auxiliary-pretraining-objective",
+    "token-level-entropy",
+    "entropy-collapse",
+    "exploration-exploitation-trade-off",
+    "soft-embedding",
+    "confidence-gating",
+    "selar",
+    "entropy-gating",
+    "contrastive-regularization",
+    "chain-of-thought",
+    "expressivity",
+    "circuit-complexity",
+    "effective-depth",
+    "regular-language",
+    "context-sensitive-language",
+    "log-precision",
+    "saturated-attention",
+    "recurrence",
+    "layer-norm-hash",
+    "turing-machine-simulation",
+    "automaton-simulation",
+    "projected-pre-norm",
+    "curriculum-learning",
+    "sample-complexity",
+    "parity",
+    "internalization",
+    "test-time-compute",
+    "log-icot",
+    "implicit-chain-of-thought",
+    "gradient-descent-analysis"
+  ],
+  "schema_version": 1,
+  "slug": "latent-reasoning",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

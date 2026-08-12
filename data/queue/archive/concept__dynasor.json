@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
+        "title": "Efficiently Scaling LLM Reasoning with Certaindex",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+        "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T04:40:48Z",
+  "created_at": "2026-08-08T04:37:57Z",
+  "instructions": "Write the wiki definition for 'Dynasor'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Dynasor",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "Dynasor",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Dynasor",
+      "Dynasor-CoT",
+      "Certaindex"
+    ],
+    "definition": "A reasoning-aware serving system that schedules on certaindex, a normalized measure of how far a reasoning algorithm's answer has stabilized, defined for both multi-path methods (via semantic entropy over clustered answers) and reward-guided ones (via normalized reward). It reports up to 50% compute savings in batch inference and 3.3x throughput in online serving. Two other sources use it as a baseline and both find it conservative — it preserves reasoning quality but exits late enough that length reduction is small — which follows from it being tuned for no accuracy loss by construction.",
+    "kind": "method",
+    "related": [
+      "certaindex",
+      "early exit",
+      "answer stabilization",
+      "DEER",
+      "overthinking",
+      "self-consistency"
+    ]
+  },
+  "task_id": "concept__dynasor",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

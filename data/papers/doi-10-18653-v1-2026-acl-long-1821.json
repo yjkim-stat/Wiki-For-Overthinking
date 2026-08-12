@@ -1,0 +1,37 @@
+{
+  "abstract": "Recent advances in Multimodal Large Reasoning Models (MLRMs) have enabled explicit chain-of-thought inference across vision and language, substantially improving performance on complex reasoning tasks. Despite these gains, the reasoning process introduces a subtle yet critical vulnerability. We identify an un-derexplored multimodal safety failure mode in which harmful objectives are embedded within ostensibly benign contexts, leading models to over-prioritize narrative coherence during reasoning. We term this phenomenon Safety Con-text Amnesia (SCA), wherein models correctly perceive risk-relevant visual cues but fail to enforce safety constraints as the reasoning process becomes dominated by contextual alignment. To mitigate SCA, we propose Intent-Guided Safety Reasoning (IGSR), an inference-time defense that operates without modifying target model parameters. IGSR employs a Perception Decoupler to extract objective visual evidence into a structured intent output, followed by a Cognitive Arbiter that enforces explicit safety constraints prior to generation. Extensive experiments across multiple multimodal safety benchmarks demonstrate that IGSR improves defense success rates by over 62% compared to baselines, while largely preserving task utility. These results highlight the critical role of structured, intent-aware reasoning in achieving robust safety reasoning for multi-modal reasoning models. Warning: This paper contains unsafe examples.",
+  "arxiv_id": "",
+  "authors": [
+    "Xiyao Dong",
+    "Guangsheng Cheng",
+    "YiLong Chen",
+    "Xiaojin Zhang",
+    "Kun He"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.ACL-LONG.1821",
+  "first_seen": "2026-08-08T07:30:09Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1821",
+  "last_seen": "2026-08-08T07:30:09Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning model",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.6667
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/DongCCZH26",
+  "title": "Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.acl-long.1821",
+  "venue": "ACL",
+  "year": 2026
+}

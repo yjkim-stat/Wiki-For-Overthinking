@@ -1,0 +1,52 @@
+{
+  "concepts": [
+    "jailbreak",
+    "safety reasoning",
+    "attack surface",
+    "transparency trade-off",
+    "refusal leakage",
+    "monitorability"
+  ],
+  "contributions": [
+    "AutoRAN, an automated framework for hijacking internal safety reasoning in reasoning models",
+    "An execution simulation paradigm using a weaker, less-aligned model to generate initial hijacking attempts",
+    "Iterative attack refinement that exploits reasoning patterns leaked through the target's refusals",
+    "Approaching 100% success within one or few turns against GPT-o3/o4-mini and Gemini-2.5-Flash on AdvBench, HarmBench and StrongReject",
+    "The argument that reasoning transparency is itself an exploitable attack surface"
+  ],
+  "datasets": [
+    "AdvBench",
+    "HarmBench",
+    "StrongReject"
+  ],
+  "generated_at": "2026-08-08T12:22:34Z",
+  "generated_by": "paper",
+  "limitations": "Only three target models. Success is measured by benchmark judges, and 'approaching 100%' is not broken out per benchmark or model. The attack presupposes access to refusal text, so a model that refuses without explanation exposes less. No defence is proposed; the contribution is the attack surface and the argument that traces need protecting.",
+  "method": "AutoRAN introduces an execution simulation paradigm: a weaker but less-aligned model simulates execution reasoning to produce initial hijacking attempts, and attacks are iteratively refined by exploiting reasoning patterns that the target leaks through its own refusals. Refusals are the signal — a refusal explains why it refused, and that explanation is exploitable. The result steers the target into bypassing its own guardrails and elaborating on harmful instructions.",
+  "methods": [
+    "AutoRAN",
+    "execution simulation",
+    "iterative attack refinement",
+    "automated red teaming"
+  ],
+  "models": [
+    "GPT-o3",
+    "GPT-o4-mini",
+    "Gemini-2.5-Flash"
+  ],
+  "one_liner": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.1988",
+  "problem": "Reasoning models perform internal safety reasoning, and no framework existed to automate attacks against that reasoning specifically rather than against final outputs.",
+  "relevance": {
+    "reasoning-training": "Its consequence for this topic is a genuine tension rather than a defect: the same readable trace that makes CoT monitoring possible also tells an attacker how the model's safety reasoning works, and refusals leak that structure for free. The archive holds monitorability as an argument for keeping reasoning explicit; this is the argument against, and it is not answerable by better training alone. It sits with arxiv:2608.04928 in this archive, which asks whether latent reasoning destroys monitorability — if transparency is also an attack surface, the cost of moving to latent reasoning is lower than the monitoring literature assumes."
+  },
+  "results": "Against GPT-o3/o4-mini and Gemini-2.5-Flash across AdvBench, HarmBench and StrongReject, AutoRAN reaches approaching 100% success within one or a few turns, neutralizing reasoning-based defences even when judged by robustly aligned external models.",
+  "schema_version": 1,
+  "tags": [
+    "jailbreak",
+    "red teaming",
+    "safety reasoning",
+    "attack",
+    "transparency"
+  ]
+}

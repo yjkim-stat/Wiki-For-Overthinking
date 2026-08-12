@@ -1,0 +1,63 @@
+{
+  "concepts": [
+    "latent chain-of-thought",
+    "Symbolic Index",
+    "decisional certainty",
+    "exploration-execution trade-off",
+    "information bottleneck",
+    "conditional information bottleneck",
+    "curriculum learning",
+    "discretization reset",
+    "sub-decisional perturbation",
+    "compounding error",
+    "logit decision margin",
+    "distributional mismatch",
+    "effective depth"
+  ],
+  "contributions": [
+    "The Symbolic Index, the probability of the most likely token at a decision point, proposed as the single quantity governing the exploration-execution trade-off and as a computable diagnostic for otherwise opaque internal states.",
+    "A duality result showing the Coconut training curriculum is mathematically equivalent to solving a Conditional Information Bottleneck problem, which licenses information-theoretic tools for analysing latent reasoners.",
+    "Theorems bounding both sides: explicit CoT's KL divergence from an ideal uniform exploration prior diverges as its concentration grows, while latent CoT's stays finitely bounded — formalizing why one explores and the other does not.",
+    "A mechanism for explicit CoT's noise immunity: the argmax at each step is a discretization-reset that acts as an error-correcting filter, so sub-decisional perturbations provably never change the trajectory, whereas latent CoT propagates them with error compounding over steps.",
+    "The Exploration-Execution Trade-off Theorem, lower-bounding exploration loss as a function of the Symbolic Index, minimized at 1/B and growing as certainty approaches 1.",
+    "A proof that direct training of latent CoT fails irreducibly because the model learns from its own biased self-generated latent states, while curriculum training converges at the standard statistical rate — establishing curriculum learning as theoretically necessary rather than a practical trick."
+  ],
+  "datasets": [
+    "GSM8K",
+    "ProsQA",
+    "ProntoQA"
+  ],
+  "generated_at": "2026-08-08T05:28:19Z",
+  "generated_by": "paper",
+  "limitations": "The paper has no limitations section. What a reader should weigh: all experiments use GPT-2 at 124M parameters with six latent steps on two benchmarks, so the theory is validated at a scale far below any deployed reasoning model, and the GSM8K accuracies (42.9% for explicit CoT) are correspondingly low. The Symbolic Index is defined as the maximum probability of the output distribution, which explicit CoT produces natively at every step but latent CoT does not — the measurements at latent steps rely on a renormalized readout over nucleus tokens, so the index is not measuring the same object in both regimes as directly as the framing suggests. The exploration analysis assumes explicit CoT's step distribution is drawn from a Dirichlet with large concentration, which is a modelling choice motivated by teacher forcing rather than measured. The compounding-error result depends on the transition map's Lipschitz constant, which is not estimated for the trained model. Finally, the paper explicitly restricts its analysis to a single coherent reasoning path and argues in a remark that ensemble methods such as self-consistency do not escape its conclusions because each individual chain still depends on high-certainty commitments — a claim that is asserted rather than demonstrated, and that matters given how much of the surrounding literature relies on sampling many chains.",
+  "method": "Reasoning is compared under two models: explicit CoT autoregressively generating discrete steps, and latent CoT iterating a transition function over continuous states with no intermediate tokens, trained by the Coconut curriculum which progressively replaces prefix tokens with latent states from pure CoT to full latent reasoning. The Coconut objective at each curriculum stage is recast as compressing the past chain-of-thought into a latent vector whose sole purpose is predicting the future chain, then shown by Lagrangian duality to be the Conditional Information Bottleneck, with the curriculum's stage index acting as the trade-off parameter. Exploration is modelled as traversal over a decision DAG against an ideal uniform prior over valid next steps, and deviation measured by KL divergence. Explicit CoT's generative distribution at a decision point is modelled as drawn from a Dirichlet prior with large concentration, reflecting the sharply peaked distributions that teacher-forcing on deterministic chains induces. Robustness is analysed through sub-decisional perturbations — noise that corrupts the internal state without changing the argmax — under which explicit CoT's discretization resets state variance every step while latent CoT's transition function accumulates it, with the compounding bounded via the transition map's Lipschitz constant. The Symbolic Index links the two analyses: it lower-bounds the logit decision margin, which gives noise immunity, and simultaneously lower-bounds the exploration loss, which is the cost. Training is analysed in an imitation-learning frame where an unobserved expert policy generates optimal reasoning-encoded latent states. Experiments use GPT-2 (124M) with six latent steps, evaluated on GSM8K for precise computation and ProsQA for exploration, measuring the Symbolic Index distribution across reasoning steps and accuracy degradation under injected Gaussian noise.",
+  "methods": [
+    "COCONUT",
+    "curriculum learning",
+    "chain-of-thought",
+    "self-consistency",
+    "imitation learning",
+    "noise injection analysis"
+  ],
+  "one_liner": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+  "paper_id": "local:6b66615b7bf3ef86",
+  "problem": "Latent CoT replaces discrete reasoning tokens with continuous latent states, promising efficiency by avoiding the sequence-length and autoregressive costs of verbalization. But it shows a stark, unexplained dichotomy against explicit CoT: it reaches 97.0% on the exploratory ProsQA where explicit CoT gets 77.5%, and collapses to 34.1% on GSM8K where explicit CoT gets 42.9%. It is also fragile to train — removing curriculum learning drops ProntoQA from 99.8% to 52.4%. The field lacked a unified account of why exploration capability trades against execution precision, and why implicit models are intrinsically hard to train, so architectural choices were made as a binary discrete-versus-continuous decision on heuristic grounds.",
+  "relevance": {
+    "reasoning-training": "Two results matter here. First, curriculum learning is proved necessary rather than merely helpful: training directly on self-generated latent states locks the model into a suboptimal policy with an irreducible bias that no amount of data removes, while curriculum training converges at the standard rate — one of the few impossibility-plus-possibility pairs in this archive about a training procedure rather than an architecture. The mechanism is a distributional mismatch between the model's own shortcut representations and the expert latent policy, which is a precise version of the failure mode that self-training methods in this archive risk. Second, the framework connects to the archive's entropy line from an unexpected direction: the Symbolic Index is a per-step certainty measure, and the claim that high certainty secures execution while low certainty enables exploration is structurally identical to the entropy-collapse story, where determinism arriving too early destroys exploration. The archive now has that trade-off stated twice — once as policy entropy during RL training, once as decisional certainty during inference — with no paper connecting them.",
+    "test-time-scaling": "Brings a paradigm this archive was missing and, more usefully, supplies the theoretical counterpart to the archive's circuit-complexity result on explicit CoT. That paper explains why generating tokens buys computation — outputs loop back into inputs, so effective depth grows with steps. This one explains what is lost when the loop is closed in continuous space instead: the argmax at each step is a discretization-reset that filters sub-decisional noise, and removing it makes error compound over steps. Read together they say the discrete bottleneck is not an inefficiency to be engineered away but the error-correcting mechanism that makes long chains reliable — which reframes latent reasoning for this topic from 'the same computation with fewer tokens' to 'a different point on an exploration-execution trade-off'. The token counts make the efficiency case concrete (8.2 versus 25.0 on GSM8K, 14.2 versus 49.4 on ProsQA) and the accuracy columns make the cost concrete. The Symbolic Index is also directly comparable to signals this archive already tracks: it is one minus a normalized confidence, closely related to the answer-stability and predictive-entropy measures the archive's early-exit methods use, and the observation that low certainty enables exploration while high certainty enables precise execution is the same trade-off the entropy literature describes on the training side, arrived at independently."
+  },
+  "results": "The dichotomy the paper explains: on GSM8K, explicit CoT reaches 42.9% using 25.0 tokens against Coconut's 34.1% using 8.2, while no-CoT gets 16.5%; on ProsQA, Coconut reaches 97.0% with 14.2 tokens against explicit CoT's 77.5% with 49.4; on ProntoQA both are near ceiling (98.8% vs 99.8%). Removing the curriculum collapses Coconut to 14.4% on GSM8K, 52.4% on ProntoQA and 76.1% on ProsQA — at or below the no-CoT baseline in two of three cases. Symbolic Index measurements confirm the two regimes empirically: on ProsQA the latent model holds the index persistently below 0.6, in the 0.2-0.5 band, sustaining a distribution over multiple latent paths; on GSM8K it shows no probability concentration at all, which by the stability theorem means a minimal decision margin and explains the low computational accuracy. Noise injection produces two qualitatively different failure curves: explicit CoT is flat until the noise exceeds the decision margin and then falls sharply, a step-function consistent with a non-zero margin and discrete filtering, while latent CoT decays immediately and monotonically from near-zero noise, consistent with no margin and continuous error propagation. The decay is task-dependent — latent CoT holds up much better on ProsQA than GSM8K under identical noise — which the paper reads as exploratory tasks having a wider region of latent states mapping to valid outputs, while computational tasks require the state to stay in a narrow region. Quantitatively, the stability bound gives a high-certainty model (index 0.99) a margin of about 4.6 against a low-certainty one (index 0.6) at about 0.4.",
+  "schema_version": 1,
+  "tags": [
+    "latent reasoning",
+    "continuous chain of thought",
+    "theory",
+    "information bottleneck",
+    "curriculum learning",
+    "exploration",
+    "coconut"
+  ],
+  "models": [
+    "GPT-2"
+  ]
+}

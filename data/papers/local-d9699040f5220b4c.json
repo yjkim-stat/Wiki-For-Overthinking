@@ -1,0 +1,36 @@
+{
+  "abstract": "Large Language Models (LLMs) have achieved strong complex reasoning capabilities through Chain-of-Thought (CoT) reasoning. However, their reasoning patterns remain too complicated to analyze. While Sparse Autoencoders (SAEs) have emerged as a powerful tool for interpretability, existing approaches predominantly operate at the token level, creating a granularity mismatch when capturing more critical step-level information, such as reasoning direction and semantic transitions. In this work, we propose step-level sparse autoencoder (SSAE), which serves as an analytical tool to disentangle different aspects of LLMs' reasoning steps into sparse features. Specifically, by precisely controlling the sparsity of a step feature conditioned on its context, we form an information bottleneck in step reconstruction, which splits incremental information from background information and disentangles it into several sparsely activated dimensions. Experiments on multiple base models and reasoning tasks show the effectiveness of the extracted features. By linear probing, we can easily predict surface-level information, such as generation length and first token distribution, as well as more complicated properties, such as the correctness and logicality of the step. These observations indicate that LLMs should already at least partly know about these properties during generation, which provides the foundation for the self-verification ability of LLMs. Our code is available at https://github.com/Miaow-Lab/SSAE",
+  "arxiv_id": "2603.03031",
+  "authors": [
+    "Xuan Yang",
+    "Jiayu Liu",
+    "Yuhang Lai",
+    "Hao Xu",
+    "Zhenya Huang",
+    "Ning Miao"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T03:54:21Z",
+  "id": "local:d9699040f5220b4c",
+  "last_seen": "2026-08-08T03:54:21Z",
+  "local_path": "data/pdfs/read/local-d9699040f5220b4c.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation.pdf",
+  "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+  "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling",
+    "reasoning-interpretability",
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306)",
+  "year": 2026
+}

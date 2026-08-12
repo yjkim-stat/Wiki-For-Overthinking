@@ -1,0 +1,67 @@
+{
+  "aliases": [
+    "beam decoding"
+  ],
+  "definition": "Keeping a fixed number of highest-scoring partial continuations at each step rather than committing to one. In the archive it appears only as a baseline that other test-time methods are measured against, never as the proposed method. One source reports its verifier-free refine-then-vote framework beating beam search along with greedy decoding, majority voting, best-of-N and lookahead decoding; the other includes a search strategy as one of the per-problem choices an allocation agent makes, which treats beam search as one option among several rather than a default.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05643",
+      "kind": "paper",
+      "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
+      "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
+    },
+    {
+      "id": "local:80ef8b5ce7217f7c",
+      "kind": "paper",
+      "note": "Replaces uniform test-time compute allocation with a training-free agent that picks reasoning tools, a search strategy and an exploration parameter per problem, using a process reward model both to prune within a trajectory and to select across iterations.",
+      "title": "What If We Allocate Test-Time Compute Adaptively?"
+    }
+  ],
+  "first_seen": "2026-08-08T05:29:50Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "beam search",
+  "related": [
+    "test-time-compute",
+    "test-time-scaling",
+    "self-correction",
+    "answer-stabilization",
+    "reasoning-diversity",
+    "diminishing-returns",
+    "verifier-free-selection",
+    "majority-voting",
+    "self-consistency",
+    "best-of-n",
+    "lookahead-decoding",
+    "iterative-self-critique",
+    "greedy-decoding",
+    "aime24",
+    "aime25",
+    "amc",
+    "olympiadbench",
+    "math500",
+    "qwen2-5-1-5b",
+    "adaptive-test-time-compute-allocation",
+    "process-reward-model",
+    "trajectory-level-selection",
+    "online-pruning",
+    "compute-intensity",
+    "exploration-parameter",
+    "prompt-difficulty",
+    "lookahead-search",
+    "self-reflection",
+    "verification",
+    "verifier-guided-adaptive-inference",
+    "chain-of-thought",
+    "monte-carlo-tree-search",
+    "amo-bench",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b",
+    "qwen2-5-math-prm-7b"
+  ],
+  "schema_version": 1,
+  "slug": "beam-search",
+  "topics": [
+    "test-time-scaling"
+  ]
+}

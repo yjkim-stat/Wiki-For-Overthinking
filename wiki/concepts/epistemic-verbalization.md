@@ -1,0 +1,24 @@
+# epistemic verbalization
+
+<!-- auto:begin -->
+
+Writing uncertainty down, which the sources argue is what makes it causally usable: because autoregressive decoding conditions on emitted tokens and not on internal states, a latent reliability assessment is inert until verbalized. The evidence is bidirectional — injecting a bare doubt cue recovers about 15% of failed trajectories, while fine-tuning a model on its own correct traces with uncertainty expressions removed roughly halves AIME24 accuracy. A second source reaches the same tokens from information theory, finding the representations at 'Wait' and 'Hmm' carry mutual-information peaks with the correct answer and that suppressing them degrades accuracy while suppressing equally many other tokens does not.
+
+- **Kind**: concept
+- **Also called**: externalizing uncertainty
+- **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 3
+
+**Related**: [aha moment](aha-moment.md), [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [AMC23](../datasets/amc23.md), [budget forcing](../methods/budget-forcing.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GSM8K](../datasets/gsm8k.md), [information bottleneck](information-bottleneck.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [monitorability](monitorability.md), [post-hoc rationalization](post-hoc-rationalization.md), [Qwen2.5-14B](../models/qwen2-5-14b.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-32B-Instruct](../models/qwen2-5-32b-instruct.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning trajectory](reasoning-trajectory.md), [self-correction](self-correction.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [sycophancy](sycophancy.md), [test-time scaling](../methods/test-time-scaling.md)
+
+## Appears in
+
+- [Reasoning Traces Shape Outputs but Models Won&apos;t Say So](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1986/summary.md) — Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.
+- [Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning](../../archive/papers/2025/local-2c3407071e27c9d6/summary.md) — Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.
+- [Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty](../../archive/papers/2026/local-99019f66bdc27581/summary.md) — Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

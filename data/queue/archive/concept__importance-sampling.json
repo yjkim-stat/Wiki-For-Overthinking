@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
+        "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.",
+        "title": "Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:20:23Z",
+  "created_at": "2026-08-09T06:17:45Z",
+  "instructions": "Write the wiki definition for 'importance sampling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "importance sampling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "importance sampling",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "importance ratio",
+      "importance sampling ratio"
+    ],
+    "definition": "Reweighting by the ratio between the probability a sample had under the policy that generated it and its probability under the policy being optimized. The two archived sources put the same ratio to opposite purposes. In one it is the estimator that keeps a stochastic policy gradient unbiased, dividing an observed bandit reward by the probability of the action that produced it. In the other it is a cause rather than a tool: PPO-style importance sampling together with clipping is identified as the reason a brief round of GRPO erases the statistical traces that benchmark contamination detectors rely on. The sources therefore agree on the object and disagree on nothing, because they never address the same question about it.",
+    "kind": "method",
+    "related": [
+      "policy gradient",
+      "GRPO",
+      "PPO",
+      "clip-higher",
+      "benchmark contamination",
+      "natural policy gradient"
+    ]
+  },
+  "task_id": "concept__importance-sampling",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

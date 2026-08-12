@@ -1,0 +1,49 @@
+{
+  "concepts": [
+    "deliberate decision making",
+    "search over thoughts",
+    "self-evaluation",
+    "lookahead",
+    "backtracking",
+    "chain of thought"
+  ],
+  "contributions": [
+    "The Tree of Thoughts framework, in which coherent units of text serve as nodes and the model explores over them rather than over tokens.",
+    "Self-evaluation of candidate thoughts as the search heuristic, so the model itself decides which branch to pursue.",
+    "Lookahead and backtracking as available moves, making the decision global rather than greedy.",
+    "Three tasks requiring non-trivial planning or search — Game of 24, Creative Writing, Mini Crosswords — on which the framework is evaluated."
+  ],
+  "datasets": [
+    "Game of 24",
+    "Creative Writing",
+    "Mini Crosswords"
+  ],
+  "generated_at": "2026-08-08T04:12:50Z",
+  "generated_by": "paper",
+  "limitations": "Not discussed in the abstract. The obvious cost, unpriced here, is compute: a tree search issues many model calls per problem, so the 4% to 74% comparison is not budget-matched against chain-of-thought. Later archived work makes this explicit by comparing decoding methods at fixed sample counts, where tree search does not dominate.",
+  "method": "Problem solving is cast as search over a tree whose nodes are 'thoughts', coherent intermediate text units. At each node the model generates candidate next thoughts and evaluates them itself, and a search procedure over those evaluations decides where to expand, with backtracking permitted. The abstract does not specify the search algorithm, branching factor or evaluation prompt format.",
+  "methods": [
+    "Tree of Thoughts",
+    "chain-of-thought prompting",
+    "self-evaluation",
+    "tree search"
+  ],
+  "one_liner": "Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.",
+  "paper_id": "arxiv:2305.10601",
+  "problem": "Inference is confined to token-level, left-to-right decision making, which fails on tasks needing exploration, strategic lookahead, or where an early decision is pivotal. A single chain has no mechanism for reconsidering a branch once taken.",
+  "relevance": {
+    "test-time-scaling": "The canonical structured-search entry in this topic, and the ancestor of every subsequent method that spends inference compute on exploration rather than on repeated sampling. Its Game of 24 result — 4% to 74% — is the most-cited demonstration that inference procedure alone can move a fixed model that far. It is most useful in this archive as a foil: the archived visualization study runs ToT against chain-of-thought, least-to-most and MCTS at a matched budget and finds ToT at 81.6% against CoT's 84.4% on AQuA, so the enormous gain on a search-shaped puzzle does not transfer to ordinary mathematical reasoning. Holding both results together is what this topic is for."
+  },
+  "results": "On Game of 24, GPT-4 with chain-of-thought prompting solves 4% of tasks while Tree of Thoughts reaches 74%. Results on Creative Writing and Mini Crosswords are reported as improvements but the abstract gives no figures for them. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+  "schema_version": 1,
+  "tags": [
+    "tree of thoughts",
+    "search",
+    "planning",
+    "test-time scaling",
+    "self-evaluation"
+  ],
+  "models": [
+    "GPT-4"
+  ]
+}

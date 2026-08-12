@@ -1,0 +1,71 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
+        "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey organizing mechanistic findings about reasoning models into training dynamics, reasoning mechanisms and unintended behaviours, and arguing the field needs a unified theoretical framework.",
+        "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces reliance on unpredictable emergent 'aha moments' by explicitly aligning models to deduction, induction and abduction on self-verifiable tasks before domain RL.",
+        "title": "Beyond &apos;Aha!&apos;: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:32Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'emergent behaviour'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "emergent behaviour",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "emergent behaviour",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "emergence",
+      "emergent capability",
+      "unintended behaviour"
+    ],
+    "definition": "Behaviour that appears without being trained for directly, which the sources treat as both the appeal and the reliability problem of outcome-based RL. One argues the reasoning behaviours RL elicits incidentally are unpredictable in timing and consistency, and replaces them with explicit alignment to logical primitives. Another reports emergence in an adversarial setting, where a trained planner discovers decoy avoidance and adaptive state prioritization that static heuristics never produce. A survey organizes such findings under unintended behaviours alongside training dynamics and reasoning mechanisms. The shared position is that emergence is real and that relying on it is a design weakness.",
+    "kind": "concept",
+    "related": [
+      "aha moment",
+      "meta-ability",
+      "training dynamics",
+      "self-correction",
+      "reward hacking"
+    ]
+  },
+  "task_id": "concept__emergent-behaviour",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

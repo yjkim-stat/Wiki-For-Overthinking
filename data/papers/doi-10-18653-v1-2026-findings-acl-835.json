@@ -1,0 +1,36 @@
+{
+  "abstract": "Large Language Models excel at NLP tasks but remain prone to hallucinations, limiting trust in real-world applications. We present HalluGuard, a 4B-parameter Small Reasoning Model (SRM) designed as a guardrail for Retrieval-Augmented Generation (RAG) pipelines, which classify document-claim pairs as grounded or hallucinated in closed-book, document-grounded settings and produces evidence-grounded justifications. Our approach combines (i) a domain-agnostic synthetic dataset derived from FineWeb and refined through multi-stage curation and data reformation, (ii) synthetic grounded and hallucinated claims, and (iii) preference-based fine-tuning with Odds Ratio Preference Optimization (ORPO) to distill large-model reasoning into a smaller backbone. On the RAGTruth subset of the LLM-AggreFact benchmark, HalluGuard achieves 84.4% balanced accuracy (BAcc), surpassing specialized models, MiniCheck (7B; 84.0%) and Granite Guardian 3.3 (8B; 82.2%) while using roughly half their parameters. Across the benchmark, it reaches 77.1% BAcc, surpassing larger general-purpose LLMs such as GPT-4o (75.9%). HalluGuard and datasets will be released upon acceptance.",
+  "arxiv_id": "",
+  "authors": [
+    "Loris Bergeron",
+    "Ioana Buhnila",
+    "Jérôme François",
+    "Radu State"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.835",
+  "first_seen": "2026-08-08T07:30:09Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.835",
+  "last_seen": "2026-08-08T07:30:09Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning model",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.6667
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/BergeronBFS26",
+  "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.835",
+  "venue": "ACL",
+  "year": 2026
+}

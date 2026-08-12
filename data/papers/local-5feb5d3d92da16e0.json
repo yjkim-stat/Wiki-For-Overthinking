@@ -1,0 +1,27 @@
+{
+  "abstract": "Recent large language models (LLMs) exhibit impressive reasoning but often overthink, generating excessively long responses that hinder efficiency. We introduce DIET (DIfficulty-AwarE Training), a framework that systematically cuts these \"token calories\" by integrating on-the-fly problem difficulty into the reinforcement learning (RL) process. DIET dynamically adapts token compression strategies by modulating token penalty strength and conditioning target lengths on estimated task difficulty, to optimize the performance-efficiency trade-off. We also theoretically analyze the pitfalls of naive reward weighting in group-normalized RL algorithms like GRPO, and propose Advantage Weighting technique, which enables stable and effective implementation of these difficulty-aware objectives. Experimental results demonstrate that DIET significantly reduces token counts while simultaneously improving reasoning performance. Beyond raw token reduction, we show two crucial benefits largely overlooked by prior work: (1) DIET leads to superior inference scaling. By maintaining high per-sample quality with fewer tokens, it enables better scaling performance via majority voting with more samples under fixed computational budgets, an area where other methods falter. (2) DIET enhances the natural positive correlation between response length and problem difficulty, ensuring verbosity is appropriately allocated, unlike many existing compression methods that disrupt this relationship. Our analyses provide a principled and effective framework for developing more efficient, practical, and high-performing LLMs.",
+  "arxiv_id": "2505.19217",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T06:07:16Z",
+  "id": "local:5feb5d3d92da16e0",
+  "last_seen": "2026-08-08T06:07:16Z",
+  "local_path": "data/pdfs/read/local-5feb5d3d92da16e0.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "The Overthinkers DIET - Cutting Token Calories with Difficulty-Aware Training.pdf",
+  "title": "The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

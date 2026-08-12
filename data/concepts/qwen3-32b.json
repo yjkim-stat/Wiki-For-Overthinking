@@ -1,0 +1,80 @@
+{
+  "aliases": [
+    "Qwen3-32B"
+  ],
+  "definition": "The 32B member of the Qwen3 family. It appears in these sources as a scale check rather than a primary subject — used to verify that numerical-precision reproducibility findings established at 7-8B also hold at larger scale, and as a large model in entropy-mechanism experiments. Results for it are generally deferred to appendices in the sources that use it.",
+  "evidence": [
+    {
+      "id": "local:7d5e3edea2d46b92",
+      "kind": "paper",
+      "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
+      "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning"
+    },
+    {
+      "id": "local:de572e138fc98639",
+      "kind": "paper",
+      "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
+      "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Qwen3-32B",
+  "related": [
+    "token-level-entropy",
+    "forking-tokens",
+    "high-entropy-minority-tokens",
+    "entropy-patterns-in-chain-of-thought",
+    "exploration-in-rlvr",
+    "credit-assignment",
+    "entropy-bonus",
+    "clip-higher",
+    "policy-gradient-masking",
+    "rlvr",
+    "dapo",
+    "grpo",
+    "ppo",
+    "high-entropy-token-gradient-masking",
+    "dual-temperature-decoding",
+    "verl",
+    "dapo-math-17k",
+    "aime-24",
+    "aime-25",
+    "amc-23",
+    "math500",
+    "minerva",
+    "olympiadbench",
+    "qwen3-8b",
+    "qwen3-14b",
+    "reproducibility",
+    "numerical-precision",
+    "non-associativity-of-floating-point-arithmetic",
+    "greedy-decoding",
+    "divergence-index",
+    "nondeterminism",
+    "benchmark-variance",
+    "pass-k",
+    "evaluation-methodology",
+    "response-length",
+    "layercast",
+    "random-sampling",
+    "batch-invariant-operations",
+    "vllm",
+    "tensor-parallelism",
+    "aime24",
+    "livecodebench",
+    "gpqa-diamond",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-llama-8b",
+    "qwen2-5-7b",
+    "llama-3-1-8b-instruct"
+  ],
+  "schema_version": 1,
+  "slug": "qwen3-32b",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation",
+    "test-time-scaling"
+  ]
+}

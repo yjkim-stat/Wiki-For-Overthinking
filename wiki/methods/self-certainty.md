@@ -1,0 +1,23 @@
+# self-certainty
+
+<!-- auto:begin -->
+
+A model's own estimate of how sure it is, read from its output distribution and used as a control signal rather than reported to a user. One source feeds it into preference optimization so that confident answers are compressed and uncertain ones keep deliberating, making difficulty a quantity read off the model that will do the reasoning rather than predicted for it. The other treats certainty dynamics as diagnostic, using entropy over the course of a trace to characterize how reasoning is going. Both depend on certainty tracking correctness, which neither verifies — and the archive holds a source showing a model can be badly calibrated while still ranking correct above incorrect answers well.
+
+- **Kind**: method
+- **Also called**: intrinsic confidence, model certainty, self-confidence
+- **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 2
+
+**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [AIME24](../datasets/aime24.md), [AMC23](../datasets/amc23.md), [calibration](calibration.md), [entropy collapse](../concepts/entropy-collapse.md), [entropy trajectory](../concepts/entropy-trajectory.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [majority voting](majority-voting.md), [MATH](../datasets/math.md), [overthinking](../concepts/overthinking.md), [preference optimization](preference-optimization.md), [process supervision](../concepts/process-supervision.md), [prompt difficulty](../concepts/prompt-difficulty.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [self-consistency](self-consistency.md), [token-level entropy](../concepts/token-level-entropy.md)
+
+## Appears in
+
+- [CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-industry-152/summary.md) — Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.
+- [EDIS: Diagnosing LLM Reasoning via Entropy Dynamics](../../archive/papers/2026/local-e64d3a8c4788daf7/summary.md) — Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

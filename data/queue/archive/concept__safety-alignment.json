@@ -1,0 +1,71 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+        "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names Self-Jailbreak, where a model correctly flags a query as harmful and then overrides that judgement during later reasoning steps, and intervenes step-wise rather than over whole trajectories.",
+        "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+        "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:51Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'safety alignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "safety alignment",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "safety alignment",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "safety tuning",
+      "harmlessness alignment"
+    ],
+    "definition": "Training a model to refuse or avoid harmful behaviour, which all three sources argue must address the reasoning process rather than the output. Two locate the failure mid-trajectory: one finds models recognize harmful intent and then override that judgement in later steps — named Self-Jailbreak — and intervenes step-wise; the other claims the reasoning structure itself is the cause and alters it with 1K supervised examples. The third shifts from prevention to recovery, adding a token that lets a model reflect and recover mid-generation, reporting harmful completion falling from 13.8% to 4.1%. All three are measured against attacks the authors chose, and the archive holds an attack reaching approaching 100% against reasoning-based defences.",
+    "kind": "concept",
+    "related": [
+      "jailbreak",
+      "self-jailbreak",
+      "alignment tax",
+      "inference-time intervention",
+      "post-training",
+      "reasoning structure"
+    ]
+  },
+  "task_id": "concept__safety-alignment",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

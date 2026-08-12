@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-03629.pdf"
+  },
+  "created_at": "2026-08-09T09:38:40Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.03629",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "A companion paper studies when activation patching and weight-space ablation agree, inside an idealized model where a conditional computation is carried additively through a residual stream. For the one composition in that model where two carriers are architecturally dependent, an attention head and its own layer's normalization-MLP composition, it derives an exact first-order interaction formula, zero when only the MLP is ablated and second-order bounded when the head is also ablated. That result is confined to a single residual block and checked only on small transformers on a synthetic task. This paper extends the result past both limits. First, the interaction from ablating carriers spanning several layers decomposes exactly into same-block terms, one per touched layer, plus a cross-layer remainder on which the decomposition makes no claim of smallness. Second, we isolate that remainder exactly, for two layers, as a double integral of a mixed second derivative, and name the missing ingredient needed to bound it: a Jacobian bound for the attention sub-block. We derive this bound in closed form and verify it, without a single violation, against Qwen2.5-1.5B-Instruct's real weights, though we do not yet chain it across layers. We also give, in closed form, the curvature constant the companion paper's bound leaves unexhibited. Third, on that same model, we search for and find an emergent circuit for indirect object identification, never designed into it, using the original activation-patching method for this task, and test collapse, dissociation, and interaction on it. The result is mixed: a shared carrier emerges across all five tested instances, collapse and dissociation hold on most but not all, and a nonzero interaction is measurable on three of five, at layer pairs outside the same-block case the companion theorem covers.",
+    "authors": [
+      "Abdallah Khemais"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "activation patching",
+      "attention head",
+      "residual stream"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03629v1",
+    "published": "2026-08-04",
+    "scores": {
+      "reasoning-interpretability": 0.5
+    },
+    "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model",
+    "url": "https://arxiv.org/abs/2608.03629",
+    "venue": ""
+  },
+  "task_id": "paper__arxiv-2608-03629",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

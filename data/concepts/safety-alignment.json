@@ -1,0 +1,61 @@
+{
+  "aliases": [
+    "safety tuning",
+    "harmlessness alignment"
+  ],
+  "definition": "Training a model to refuse or avoid harmful behaviour, which all three sources argue must address the reasoning process rather than the output. Two locate the failure mid-trajectory: one finds models recognize harmful intent and then override that judgement in later steps — named Self-Jailbreak — and intervenes step-wise; the other claims the reasoning structure itself is the cause and alters it with 1K supervised examples. The third shifts from prevention to recovery, adding a token that lets a model reflect and recover mid-generation, reporting harmful completion falling from 13.8% to 4.1%. All three are measured against attacks the authors chose, and the archive holds an attack reaching approaching 100% against reasoning-based defences.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.240",
+      "kind": "paper",
+      "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+      "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1118",
+      "kind": "paper",
+      "note": "Names Self-Jailbreak, where a model correctly flags a query as harmful and then overrides that judgement during later reasoning steps, and intervenes step-wise rather than over whole trajectories.",
+      "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.678",
+      "kind": "paper",
+      "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+      "title": "Self-Reflection Improves Safety of Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "safety alignment",
+  "related": [
+    "reasoning-structure",
+    "data-efficiency",
+    "generalization",
+    "alignment-tax",
+    "alttrain",
+    "supervised-fine-tuning",
+    "post-training",
+    "self-jailbreak",
+    "reasoning-trajectory",
+    "step-level-intervention",
+    "overthinking",
+    "judgement-override",
+    "chain-of-guardrail",
+    "trajectory-level-training",
+    "self-correction",
+    "self-reflection",
+    "recovery",
+    "helpfulness-safety-trade-off",
+    "adversarial-robustness",
+    "special-token",
+    "self-reflection-token",
+    "adversarial-evaluation"
+  ],
+  "schema_version": 1,
+  "slug": "safety-alignment",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation"
+  ]
+}

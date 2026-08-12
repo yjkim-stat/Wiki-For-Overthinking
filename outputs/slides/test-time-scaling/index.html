@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test-Time Scaling — research review</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title-slide">
+<h1>Test-Time Scaling</h1>
+<p class="subtitle">What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.</p>
+<p>2026-08-12 · 63 archived source(s)</p>
+</section>
+<section class="slide">
+<h2>Agenda</h2>
+<ul>
+<li>Where the field stands</li>
+<li>Key papers</li>
+<li>Recurring ideas</li>
+<li>Benchmarks</li>
+<li>Open problems</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Where the field stands</h2>
+<ul>
+<li><strong>2026</strong> — 41 paper(s)</li>
+<li><strong>2025</strong> — 14 paper(s)</li>
+<li><strong>2024</strong> — 4 paper(s)</li>
+<li><strong>2023</strong> — 4 paper(s)</li>
+</ul>
+<p>14 arrived in the last 30 days.</p>
+</section>
+<section class="slide">
+<h2>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</h2>
+<p class="subtitle">Miles Turpin, Julian Michael, Ethan Perez et al. · 2023</p>
+<blockquote>
+<p>Shows that chain-of-thought explanations systematically misrepresent the real reason for a model&#x27;s answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.</p>
+</blockquote>
+<ul>
+<li>A test for unfaithfulness that does not require access to internals: add a biasing feature to the input, check whether the model&#x27;s answer moves, and check whether the explanation mentions the bias.</li>
+<li>Evidence that models systematically fail to mention such features — for example reordering multiple-choice options so the answer is always &#x27;(A)&#x27; in a few-shot prompt.</li>
+<li>Evidence that when biased toward incorrect answers, models generate CoT explanations rationalizing those answers rather than reporting the influence.</li>
+<li>A social-bias case in which explanations justify stereotype-consistent answers without mentioning the bias driving them.</li>
+</ul>
+<p><strong>Results.</strong> Accuracy drops by as much as 36% across the 13 BIG-Bench Hard tasks under biasing, with explanations rationalizing the biased answers. The social-bias task produces stereotype-aligned answers whose explanations do not mention the bias. No further figures are given in the abstract. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> A thin match, arising because the paper is about chain-of-thought prompting rather than about compute allocation. It contributes nothing on the accuracy-versus-tokens trade-off. The one relevant implication is cautionary: methods in this topic that select among sampled trajectories by reading their content inherit the risk that the content is a rationalization rather than a record.</p>
+</section>
+<section class="slide">
+<h2>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</h2>
+<p class="subtitle">Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al. · 2026</p>
+<blockquote>
+<p>Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.</p>
+</blockquote>
+<ul>
+<li>A verifier-free breadth-depth test-time framework combining independent sampling with per-rollout iterative refinement</li>
+<li>Majority voting over refined rather than raw rollouts</li>
+<li>Comparisons against greedy decoding, majority voting, verifier-based best-of-N, beam search and lookahead decoding</li>
+<li>Results on AIME24, AIME25, AMC, OlympiadBench and MATH500</li>
+</ul>
+<p><strong>Results.</strong> Across AIME24, AIME25, AMC, OlympiadBench and MATH500, it improves over greedy decoding, majority voting, verifier-based best-of-N, beam search and lookahead decoding on multiple open-weight models. With Qwen2.5-1.5B, accuracy reaches 58.0% on MATH500, above the strongest verifier-based baseline, and rises from 25.0% to 32.5% on AMC.</p>
+<p><strong>Why it matters.</strong> A direct claim on this topic&#x27;s central question — what to buy with extra inference compute. It argues depth beats breadth and that neither needs a verifier, which cuts against the best-of-N and process-reward-selection line the archive tracks. The result sits in tension with arxiv:2608.04355 in this same batch, which finds that at small-to-mid scale the content margin of self-revision is near zero and the measured gain is format repair; this paper&#x27;s strongest numbers come from a 1.5B model on parseable-answer math benchmarks, exactly the regime that argument targets. The two should be read together, and the missing control is compute-matched breadth.</p>
+</section>
+<section class="slide">
+<h2>s1: Simple test-time scaling</h2>
+<p class="subtitle">Niklas Muennighoff, Zitong Yang, Weijia Shi et al. · 2025</p>
+<blockquote>
+<p>Reaches test-time scaling with two simple ingredients: supervised finetuning on 1,000 curated reasoning traces, and &#x27;budget forcing&#x27;, which controls thinking length by cutting generation off or appending &#x27;Wait&#x27; to extend it.</p>
+</blockquote>
+<ul>
+<li>s1K, a 1,000-question dataset with reasoning traces, curated against three criteria — difficulty, diversity and quality — each validated by ablation.</li>
+<li>Budget forcing, a decoding-time control that terminates the thinking process to shorten it or appends &#x27;Wait&#x27; when the model tries to stop, to lengthen it.</li>
+<li>The observation that appending &#x27;Wait&#x27; often makes the model double-check and fix incorrect reasoning steps.</li>
+<li>s1-32B, the resulting model, released open-source with data and code.</li>
+</ul>
+<p><strong>Results.</strong> s1-32B exceeds o1-preview on competition math (MATH and AIME24) by up to 27%. Scaling s1-32B with budget forcing extrapolates beyond its own no-intervention performance, from 50% to 57% on AIME24. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> The paper that made the topic&#x27;s central knob explicit and trivially reproducible: chain length is a dial, and it can be turned in both directions with no training and no verifier. That framing is what most archived work here operates on — early exit turns the dial down with a statistical stopping rule, trajectory weighting turns it up and then selects, and the overthinking literature exists because the dial has a wrong end. The 50% to 57% extrapolation on AIME24 is also the topic&#x27;s cleanest demonstration that a fixed model has performance above what it reaches when left alone. Its &#x27;Wait&#x27; mechanism connects directly to the archive&#x27;s faithfulness side, where injecting a doubt cue recovers about 15% of failed trajectories and where &#x27;wait&#x27; is measured as the most frequent marker of verbalized uncertainty — the same token doing the same work, arrived at from two different directions.</p>
+</section>
+<section class="slide">
+<h2>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</h2>
+<p class="subtitle">Charlie Snell, Jaehoon Lee, Kelvin Xu et al. · 2024</p>
+<blockquote>
+<p>Studies how far a fixed model improves when given more inference compute, and shows that allocating that compute adaptively per prompt by difficulty beats a uniform best-of-N budget by more than 4x.</p>
+</blockquote>
+<ul>
+<li>An analysis of two distinct mechanisms for scaling test-time computation: search against dense, process-based verifier reward models, and adaptively updating the model&#x27;s distribution over a response given the prompt.</li>
+<li>The finding that which mechanism works depends critically on prompt difficulty, which is why single-strategy studies produce mixed results.</li>
+<li>A &#x27;compute-optimal&#x27; strategy that allocates test-time compute adaptively per prompt.</li>
+<li>A FLOPs-matched comparison against pretraining a larger model.</li>
+</ul>
+<p><strong>Results.</strong> The compute-optimal strategy improves the efficiency of test-time compute scaling by more than 4x compared with a best-of-N baseline. In a FLOPs-matched evaluation, on problems where a smaller base model already attains somewhat non-trivial success rates, test-time compute lets it outperform a 14x larger model. The abstract gives no benchmark-level accuracies. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> The paper that named this topic&#x27;s central question and gave it a unit of measurement. Two results are load-bearing. First, difficulty-conditioned allocation: the right way to spend inference compute depends on the prompt, so a single fixed strategy is leaving most of the gain unclaimed and the mixed prior results were an artefact of not conditioning. Every archived method that scores or filters trajectories is implicitly doing a version of this, and none of them condition on difficulty explicitly — an open gap this paper identifies but the archive has not closed. Second, the FLOPs-matched comparison makes the pretraining-versus-inference trade-off concrete, which is the framing that turned test-time scaling from a decoding trick into a compute-allocation question. The stated caveat, that the advantage holds where the smaller model already has non-trivial success, is the honest boundary and should travel with the claim.</p>
+</section>
+<section class="slide">
+<h2>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</h2>
+<p class="subtitle">Shunyu Yao, Dian Yu, Jeffrey Zhao et al. · 2023</p>
+<blockquote>
+<p>Generalizes chain-of-thought into a search over a tree of intermediate &#x27;thoughts&#x27;, letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.</p>
+</blockquote>
+<ul>
+<li>The Tree of Thoughts framework, in which coherent units of text serve as nodes and the model explores over them rather than over tokens.</li>
+<li>Self-evaluation of candidate thoughts as the search heuristic, so the model itself decides which branch to pursue.</li>
+<li>Lookahead and backtracking as available moves, making the decision global rather than greedy.</li>
+<li>Three tasks requiring non-trivial planning or search — Game of 24, Creative Writing, Mini Crosswords — on which the framework is evaluated.</li>
+</ul>
+<p><strong>Results.</strong> On Game of 24, GPT-4 with chain-of-thought prompting solves 4% of tasks while Tree of Thoughts reaches 74%. Results on Creative Writing and Mini Crosswords are reported as improvements but the abstract gives no figures for them. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> The canonical structured-search entry in this topic, and the ancestor of every subsequent method that spends inference compute on exploration rather than on repeated sampling. Its Game of 24 result — 4% to 74% — is the most-cited demonstration that inference procedure alone can move a fixed model that far. It is most useful in this archive as a foil: the archived visualization study runs ToT against chain-of-thought, least-to-most and MCTS at a matched budget and finds ToT at 81.6% against CoT&#x27;s 84.4% on AQuA, so the enormous gain on a search-shaped puzzle does not transfer to ordinary mathematical reasoning. Holding both results together is what this topic is for.</p>
+</section>
+<section class="slide">
+<h2>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</h2>
+<p class="subtitle">Agatha Duzan, Asa Cooper Stickland · 2026</p>
+<blockquote>
+<p>The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.</p>
+</blockquote>
+<ul>
+<li>The explicit-versus-implicit influence distinction as an axis for monitorability evaluation</li>
+<li>The first benchmark that directly compares CoT monitorability across the two regimes with the nudge held fixed</li>
+<li>Measurements over four task formats and seven frontier extended-thinking models</li>
+<li>The finding that well-intentioned system-prompt additions reduce detection to as low as 5% while leaving the behavioural influence intact</li>
+</ul>
+<p><strong>Results.</strong> Under explicit influence a CoT monitor detects 60-94% of behaviour shifts: even models instructed to conceal leak the instruction into their CoT. Under implicit influence the same factors still shift behaviour, but detection falls by 41-46 percentage points in two of the four settings. Realistic system-prompt additions lower implicit detection to as low as 5% while preserving the behavioural influence itself.</p>
+<p><strong>Why it matters.</strong> Monitoring is an inference-time layer whose cost is justified by its detection rate. These numbers are the measurement that justification needs, and in the implicit regime the rate is low enough to question the layer.</p>
+</section>
+<section class="slide">
+<h2>Measuring Faithfulness in Chain-of-Thought Reasoning</h2>
+<p class="subtitle">Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al. · 2023</p>
+<blockquote>
+<p>Measures how much a model&#x27;s answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.</p>
+</blockquote>
+<ul>
+<li>An intervention-based measurement of faithfulness: perturb the CoT and observe how far the prediction moves, rather than inspecting the text.</li>
+<li>The finding that conditioning on the CoT varies widely across tasks, from heavy reliance to near-complete disregard.</li>
+<li>Evidence against two alternative explanations of CoT&#x27;s benefit — that it comes from added test-time compute alone, or from information encoded in the CoT&#x27;s particular phrasing.</li>
+<li>An inverse-scaling observation: larger, more capable models produce less faithful reasoning on most tasks studied.</li>
+</ul>
+<p><strong>Results.</strong> Faithfulness varies substantially across tasks, with models sometimes relying heavily on the CoT and sometimes largely ignoring it. The performance boost is attributed neither to added test-time compute alone nor to phrasing-encoded information. Faithfulness decreases with model size and capability on most tasks studied. The abstract reports no numeric values. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper&#x27;s full evaluation is not represented here.</p>
+<p><strong>Why it matters.</strong> Relevant through one specific negative result rather than through a method: CoT&#x27;s benefit is not explained by added test-time compute alone. That is a constraint on how this topic should interpret its own gains — the content of the extra tokens matters, so a scaling curve is not simply a compute curve.</p>
+</section>
+<section class="slide">
+<h2>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</h2>
+<p class="subtitle">Mingguang Chen, Bo Qu, Licheng Wang · 2026</p>
+<blockquote>
+<p>Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.</p>
+</blockquote>
+<ul>
+<li>A decomposition of the self-revision accuracy shift into content and format-recovery/loss margins</li>
+<li>A causal test of the decomposition using grammar-constrained decoding over already-generated reasoning</li>
+<li>Evidence that format effects dominate content effects, and intensify with scale in the frontier arm</li>
+<li>A failed verbatim replication of a published confidence-gating self-correction gain</li>
+</ul>
+<p><strong>Results.</strong> Across 29 primary cells plus a frontier arm on Qwen3.5 (0.8B-9B), Gemma-4-12B, Tencent Hy3 and Nvidia Nemotron-3-Ultra-550B. On the 12 cells with meaningful unparseable-answer rates, format effects exceed content effects (Wilcoxon p=1.7e-3). Grammar-constrained decoding closes a median 71% of the naive-versus-content gap across 14 cells, with two cells converging exactly; the residual on the two largest-effect cells is reported rather than dismissed. Floor-scale models (0.8B/2B) have far higher odds of content-level change and of harm than capable-scale models (p&lt;1e-7). In the frontier arm the content margin is exactly zero in all 5 cells despite total effects up to +0.275, though that arm is lower-powered. Replicating the cited confidence-gating protocol on Qwen3.5 does not reproduce its reported gain and shows the same near-zero content margin. Only one cell is marginally viable under the calibration-floor criterion, with negligible sealed-holdout gain.</p>
+<p><strong>Why it matters.</strong> Directly attacks the measurement that most test-time self-correction results rest on. If the content margin is zero in all five frontier cells while total effects reach +0.275, then reported self-correction gains at scale are answer-formatting artefacts, and any test-time method whose evidence is a revise-then-remeasure accuracy delta needs re-auditing with parseability held fixed. It also names a concrete instrument for doing so — grammar-constrained decoding of already-generated reasoning — which is cheap enough to be a standard control.</p>
+</section>
+<section class="slide">
+<h2>Recurring ideas</h2>
+<ul>
+<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
+<li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
+<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
+<li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Methods</h2>
+<ul>
+<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
+<li><strong>GRPO</strong> — Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own gro...</li>
+<li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
+<li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
+<li><strong>pass-k</strong> — The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on t...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Benchmarks and datasets</h2>
+<ul>
+<li><strong>AIME24</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 28 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
+<li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
+<li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
+<li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
+<li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems</h2>
+<ul>
+<li><strong>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</strong> — The reported gains are concentrated on small open-weight models, and the headline example is a 1.5B model; whether refinement still beats resampling when the...</li>
+<li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
+<li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
+<li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
+<li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
+<li><strong>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</strong> — &#x27;Without compromising performance&#x27; is unquantified, and no accuracy numbers or benchmark names appear in the abstract. Difficulty labels are needed to constr...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems (cont.)</h2>
+<ul>
+<li><strong>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</strong> — No quantitative results, benchmarks or models in the abstract. Necessity is judged by the model&#x27;s own likelihood, so a segment the model undervalues but that...</li>
+<li><strong>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</strong> — No numbers in the abstract and the 26 models are not listed. Template-generated problems are verifiable but constrained to what templates express, so difficu...</li>
+<li><strong>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</strong> — Benchmarks and models are not named. Search costs inference compute that the reported 22% length reduction does not obviously account for — a shorter final p...</li>
+<li><strong>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</strong> — No quantitative results, benchmark names or models in the abstract. Failure attribution comes from teacher models, so the supervision inherits the teachers&#x27;...</li>
+<li><strong>Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning</strong> — The paper has no limitations section; what follows is drawn from its own tables and setup. Most importantly, early exit does not beat unrestricted generation...</li>
+<li><strong>Capabilities and Fundamental Limits of Latent Chain-of-Thought</strong> — The paper has no limitations section. What a reader should weigh: all experiments use GPT-2 at 124M parameters with six latent steps on two benchmarks, so th...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References</h2>
+<ul>
+<li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
+<li>Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. <em>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</em>. cs.AI. 2026</li>
+<li>Niklas Muennighoff, Zitong Yang, Weijia Shi et al.. <em>s1: Simple test-time scaling</em>. cs.CL. 2025</li>
+<li>Charlie Snell, Jaehoon Lee, Kelvin Xu et al.. <em>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</em>. cs.LG. 2024</li>
+<li>Shunyu Yao, Dian Yu, Jeffrey Zhao et al.. <em>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</em>. cs.CL. 2023</li>
+<li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
+<li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
+<li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. <em>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</em>. cs.CL. 2026</li>
+<li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. <em>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</em>. ACL. 2026</li>
+<li>Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. <em>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</em>. ACL. 2026</li>
+<li>Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. <em>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</em>. ACL. 2026</li>
+<li>Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. <em>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</em>. ACL. 2026</li>
+<li>Ting Xu, Xu He, Yupu Lu et al.. <em>Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
+<li>Jiaxuan Zou, Yaozhong Xiong, Yong Liu. <em>Capabilities and Fundamental Limits of Latent Chain-of-Thought</em>. preprint. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. <em>Local Causal Attribution of Chain-of-Thought Reasoning</em>. Mechanistic Interpretability Workshop at ICML 2026. 2026</li>
+<li>Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. <em>What If We Allocate Test-Time Compute Adaptively?</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
+<li>Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. <em>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</em>. preprint. 2026</li>
+<li>Yixiao Huang, Hanlin Zhu, Zixuan Wang et al.. <em>Transformers Provably Learn to Internalize Chain-of-Thought</em>. preprint. 2026</li>
+<li>Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. <em>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</em>. preprint. 2025</li>
+<li>Yuxiao Qu, Matthew Y. R. Yang, Amrith Setlur et al.. <em>Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning</em>. ICML 2025. 2025</li>
+<li>Yanxi Chen, Xuchen Pan, Yaliang Li et al.. <em>Provable Scaling Laws for the Test-Time Compute of Large Language Models</em>. NeurIPS. 2025</li>
+<li>Yusuf Kalayci, Vinod Raman, Shaddin Dughmi. <em>Optimal Stopping vs Best-Of-N for Inference Time Optimization</em>. preprint. 2025</li>
+</ul>
+</section>
+<section class="slide title-slide">
+<h2>Sources</h2>
+<p>Every claim in this deck traces to a page under <code>archive/</code>. Regenerate with <code>python -m pipelines.render</code>.</p>
+</section>
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

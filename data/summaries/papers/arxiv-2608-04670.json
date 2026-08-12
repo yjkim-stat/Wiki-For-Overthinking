@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "memorization",
+    "cultural knowledge",
+    "figurative language",
+    "abstention",
+    "construct validity",
+    "chain of thought faithfulness"
+  ],
+  "contributions": [
+    "ProverbIT, a 100-item Italian proverb benchmark with a no-correct-answer condition",
+    "Evaluation of 13 frontier models including reasoning models across three task formats",
+    "A CoT analysis showing models verbalize the correct ending yet fail to detect its absence, and are biased toward literal synonyms"
+  ],
+  "datasets": [
+    "ProverbIT"
+  ],
+  "generated_at": "2026-08-08T12:09:48Z",
+  "generated_by": "paper",
+  "limitations": "100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute accuracies are not given in the abstract. Attribution of the failure to memorized patterns rather than understanding is an interpretation of the pattern, not a controlled test — a contamination check on the proverbs is not reported.",
+  "method": "ProverbIT is a 100-question Italian multiple-choice benchmark over three tasks: proverb completion, multiple-choice selection where a correct answer is present, and multiple-choice selection where none is. The third condition is the diagnostic: a model that understands the proverb should detect that no option is right. Thirteen frontier models are evaluated, including reasoning models and standard LLMs, and the chains of thought of two reasoning models are inspected in detail.",
+  "methods": [
+    "chain of thought",
+    "multiple-choice evaluation",
+    "manual CoT inspection"
+  ],
+  "models": [],
+  "one_liner": "An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.",
+  "paper_id": "arxiv:2608.04670",
+  "problem": "It is unclear how LLMs process culturally embedded linguistic expressions, and whether benchmark success on such expressions reflects semantic understanding or recall of memorized patterns.",
+  "relevance": {
+    "reasoning-training": "A clean dissociation between producing the right content and using it: the CoT contains the correct proverb ending and the answer still misses that no option matches. That places the failure after the reasoning, in the step from trace to decision, which is the same gap the archive's faithfulness thread tracks from the other direction. It is also a case where more reasoning training did not help, since state-of-the-art reasoning models degrade with the rest."
+  },
+  "results": "Nearly all models demonstrate knowledge of the proverbs through successful completion, but performance drops sharply on multiple-choice selection without a correct answer, including for state-of-the-art reasoning models. CoT analysis of two reasoning models finds a strong bias toward selecting literal synonyms, and finds that models frequently state the correct proverb ending during reasoning while still failing to identify that it is absent from the options.",
+  "schema_version": 1,
+  "tags": [
+    "benchmark",
+    "italian",
+    "memorization",
+    "chain of thought",
+    "abstention"
+  ]
+}

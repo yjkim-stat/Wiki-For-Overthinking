@@ -1,0 +1,109 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:09:47Z",
+  "created_at": "2026-08-08T07:35:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.04524",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Synthetic generation of Cognitive Behavioral Therapy (CBT) sessions is challenged by two competing demands: adhering to strict therapeutic structure while modeling the resistant, unpredictable behavior of real patients. Existing script-based methods fail to capture dynamic therapeutic interactions, while multi-agent approaches struggle to adhere to CBT's sequential structure; both suffer from sycophancy, producing overly compliant patients that misrepresent real clinical settings. In this work we introduce ODRA, a novel framework for synthesizing therapy dialogues through a Chain-of-Thought (CoT) strategy grounded in foundational CBT guidelines (Beck, 2020). ODRA further incorporates a resistance orchestrator to solve patient sycophancy, which employs steering techniques to elicit behaviors aligned with their resistance level. Automated and expert evaluations show that ODRA significantly outperforms existing methods across therapeutic skills, CBT alignment, and patient behavioral fidelity, with licensed psychologists preferring ODRA sessions across 12 of 13 clinical metrics. Furthermore, models fine-tuned on our dataset demonstrate superior therapeutic performance against both cooperative and resistant patients, validating that explicit resistance modeling in synthetic training data directly translates to downstream clinical robustness.",
+    "authors": [
+      "Javier Rodriguez-Juan",
+      "Hiba Arnaout",
+      "Jose Garcia-Rodriguez",
+      "David Tomás",
+      "Iryna Gurevych"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "chain of thought"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.04524v1",
+    "published": "2026-08-05",
+    "scores": {
+      "reasoning-training": 0.5,
+      "test-time-scaling": 0.5
+    },
+    "title": "ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance",
+    "url": "https://arxiv.org/abs/2608.04524",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "sycophancy",
+      "structured chain of thought",
+      "synthetic data generation",
+      "behavioural fidelity"
+    ],
+    "contributions": [
+      "The ODRA framework for CBT session synthesis with a guideline-grounded CoT strategy",
+      "A resistance orchestrator that uses steering to control simulated-patient resistance level and remove sycophancy",
+      "A synthetic CBT dataset whose fine-tuned models are evaluated against both cooperative and resistant patients"
+    ],
+    "datasets": [
+      "ODRA synthetic CBT session dataset"
+    ],
+    "limitations": "No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported with inter-rater agreement or the number of psychologists. Downstream validation is against simulated patients, not human ones, so the claim that explicit resistance modelling transfers to clinical robustness is established only within simulation.",
+    "method": "ODRA generates therapy dialogues through a Chain-of-Thought strategy grounded in published CBT guidelines (Beck, 2020), which supplies the sequential structure. A separate resistance orchestrator addresses patient sycophancy by applying steering techniques to elicit behaviour matched to a specified resistance level.",
+    "methods": [
+      "chain of thought",
+      "activation steering",
+      "supervised fine-tuning",
+      "multi-agent dialogue simulation",
+      "LLM-as-a-judge"
+    ],
+    "models": [],
+    "one_liner": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
+    "problem": "Synthetic CBT session generation must satisfy two competing demands: adherence to a strict sequential therapeutic structure, and modelling of resistant, unpredictable patient behaviour. Script-based methods miss the dynamics; multi-agent methods break the structure; both produce sycophantic, overly compliant patients that misrepresent clinical reality.",
+    "relevance": {
+      "reasoning-training": "Peripheral. CoT is used here as a scaffold for controllable data generation, not as an object of study, and no reasoning benchmark is reported. The one point of contact is that structured CoT is doing a role-fidelity job rather than a problem-solving one, which is a use of the same mechanism this topic tracks for a different purpose.",
+      "test-time-scaling": "Peripheral. The resistance orchestrator is an inference-time steering intervention, but the quantity being controlled is simulated-patient behaviour, not reasoning length or accuracy, so nothing here bears on compute allocation."
+    },
+    "results": "Automated and expert evaluation report that ODRA outperforms existing methods on therapeutic skills, CBT alignment and patient behavioural fidelity, with licensed psychologists preferring ODRA sessions on 12 of 13 clinical metrics. Models fine-tuned on the generated dataset perform better against both cooperative and resistant simulated patients.",
+    "tags": [
+      "cbt",
+      "synthetic dialogue",
+      "steering",
+      "sycophancy",
+      "off-topic-candidate"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-04524",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05643",
+      "kind": "paper",
+      "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
+      "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "verifier-free selection",
+  "related": [
+    "test-time-compute",
+    "test-time-scaling",
+    "self-correction",
+    "answer-stabilization",
+    "reasoning-diversity",
+    "diminishing-returns",
+    "majority-voting",
+    "self-consistency",
+    "best-of-n",
+    "beam-search",
+    "lookahead-decoding",
+    "iterative-self-critique",
+    "greedy-decoding",
+    "aime24",
+    "aime25",
+    "amc",
+    "olympiadbench",
+    "math500",
+    "qwen2-5-1-5b"
+  ],
+  "schema_version": 1,
+  "slug": "verifier-free-selection",
+  "topics": [
+    "test-time-scaling"
+  ]
+}

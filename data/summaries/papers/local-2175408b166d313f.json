@@ -1,0 +1,66 @@
+{
+  "concepts": [
+    "token-level entropy",
+    "second-order Renyi entropy",
+    "collision probability",
+    "strategy purity",
+    "entropy collapse",
+    "entropy explosion",
+    "Jensen-Shannon divergence",
+    "distributional uniqueness",
+    "sparse policy gradient",
+    "exploration-exploitation trade-off",
+    "pass@k"
+  ],
+  "contributions": [
+    "A distributional criterion for token importance: a token's uniqueness is the Jensen-Shannon divergence between its logit distribution and the group-average distribution across rollouts, replacing scalar entropy with the shape of the distribution.",
+    "A theoretical account of entropy dynamics under sparse updates using second-order Renyi entropy and collision probability, deriving an entropy bifurcation — updating a token with probability above the policy's 'strategy purity' decreases entropy (collapse regime), below it increases entropy (explosion regime) — and positioning unique tokens at the boundary between the two.",
+    "The ICT framework and a Sparse-GRPO estimator that masks all but the top-k-percentile unique tokens and renormalizes the objective by the size of the active mask.",
+    "Evidence that unique tokens are drawn about equally from high- and low-entropy populations (ratio 1.03 on GSM8K, 0.99 on MATH), which is the concrete empirical break with entropy-threshold token selection."
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH500",
+    "MMLU-Stem",
+    "GPQA",
+    "AIME23",
+    "AIME24",
+    "AIME25"
+  ],
+  "generated_at": "2026-08-08T02:37:58Z",
+  "generated_by": "paper",
+  "limitations": "The paper has no limitations section; the conclusion names only future extension to continuous domains. Numbers a reader should check before citing: the abstract claims an average pass@4 improvement of 4.58% with a maximum gain of 14.9%, while the contribution list gives 4.37%, 4.98% and 4.38% against the three baselines and Section 4.2 gives 3.38%, 4.31% and 3.94% per model size — three different framings that are not reconciled. Section 4.2 also states a 0.5B P@4 gain of +3.37% where Table 1's parenthetical for the same cell reads +4.37%, and the parenthetical deltas could not be reproduced from Table 1 by comparison against the base model, against GRPO, or against the mean of the three baselines, so what they are relative to is unclear. Beyond the arithmetic: models top out at 7B, and on the 0.5B and 1.5B models the AIME columns are at or near zero for every method, so the seven-benchmark average is carried by benchmarks where the intervention cannot move anything. Five random seeds are stated for the training recipe but no variance or interval is reported in the main table. Finally, uniqueness is defined relative to the sampled group, so the criterion depends on the group size G, which is not ablated.",
+  "method": "For each generation step the group of G rollouts gives G logit distributions; their softmax average P_avg(.|t) defines what the group typically does at that position. A token's uniqueness score is u_{i,t} = JS(softmax(L_{i,t}) || P_avg(.|t)), bounded in [0, log 2], which measures how far this rollout's distribution deviates from the group consensus rather than how uncertain it is. A binary mask keeps tokens whose score is in the top k percentile, and the standard GRPO per-token objective (clipped ratio times advantage, minus a KL penalty to a reference policy) is applied only through that mask, with the normalization changed from the sequence length T to the number of active mask positions. A warm-up phase runs dense GRPO before sparse selection engages. The theory supporting this uses second-order Renyi entropy H_2 = -log C, with C the collision probability, and defines strategy purity beta(pi) = sum_a pi(a)^2. A first-order expansion gives the change in H_2 from nudging a token's logit as proportional to -pi(a*)(pi(a*)/beta(pi) - 1), so the sign flips at pi(a*) = beta(pi): updating dominant tokens collapses entropy, updating long-tail tokens inflates it. The paper's claim is that selecting distributionally unique tokens naturally lands on the boundary and so regulates concentration without optimizing any entropy term directly. Training uses VeRL with the GRPO recipe, averaged over 5 random seeds, with only the token-selection step differing from the GRPO baseline.",
+  "methods": [
+    "ICT (Independent Combinatorial Tokens)",
+    "Sparse-GRPO",
+    "GRPO",
+    "RLVR",
+    "20-Entropy",
+    "STAPO",
+    "VeRL"
+  ],
+  "one_liner": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+  "paper_id": "local:2175408b166d313f",
+  "problem": "RLVR applies gradient uniformly over all tokens, which drives entropy collapse and premature convergence; the obvious fix — training only on high-entropy tokens — pushes the other way into entropy explosion and blind exploration. Existing mitigations monitor or constrain entropy directly rather than addressing the cause. The paper's specific objection is that Shannon entropy is a scalar summary that cannot distinguish distributions with the same entropy but different shape, so two tokens with identical entropy can sit at completely different decision structures, making entropy an ambiguous signal for which tokens carry exploration-relevant information.",
+  "relevance": {
+    "reasoning-training": "A direct and testable disagreement with entropy-based token selection, which makes it the natural companion read to the high-entropy-minority-tokens line of work. The empirical crux is small and checkable: if the tokens that matter were the high-entropy ones, the set ICT selects would be skewed high-entropy, and it is not — it splits about evenly. That reframes the question this topic tracks from 'how uncertain is the model here' to 'how much does this rollout diverge from what the group does here', which is a claim about where exploration signal lives. The Renyi-entropy bifurcation argument also gives a principled reason why both dense updates and high-entropy-only updates fail, in terms of one quantity (collision probability) rather than two opposed heuristics. The caveat for this topic is scale: the strongest competing result in this literature is demonstrated at 32B, and this one stops at 7B."
+  },
+  "results": "On Qwen2.5 at 0.5B, 1.5B and 7B, trained on GSM8K and MATH and evaluated on seven benchmarks (Math500, GSM8K, MMLU-Stem, GPQA, AIME23, AIME24, AIME25), ICT reports the best average P@1, P@4 and Total at every scale. Average P@1/P@4/Total: 0.5B — base 5.65/14.48/10.07, GRPO 10.52/18.97/14.75, 20-Entropy 8.26/16.37/12.32, STAPO 9.54/18.29/13.92, ICT 10.95/21.75/16.35; 1.5B — base 16.41/31.80/24.11, GRPO 18.22/31.87/25.05, 20-Entropy 18.66/31.02/24.84, STAPO 19.89/31.52/25.71, ICT 21.93/36.53/29.23; 7B — base 37.78/55.25/46.52, GRPO 40.27/54.16/46.28, 20-Entropy 41.94/53.29/45.41, STAPO 41.55/55.52/48.54, ICT 42.99/58.37/50.68. Gains in P@4 exceed gains in P@1 at every scale, which the paper reads as evidence of more diverse correct trajectories rather than repeated ones. Training is on math only, but the improvement carries to GPQA, whereas the 20-Entropy baseline gains on math and loses on the non-math average. Sparsity ablation on Qwen2.5-1.5B/GSM8K: 10% unique gives P@1 66.23 and P@4 85.31, against 20% (63.37/83.31), 30% (64.45/83.76), the bottom 90% frequent tokens (60.62/85.08) and GRPO (57.45/78.45). Composition of the selected set: high-entropy to low-entropy ratio 1.03 on GSM8K and 0.99 on MATH.",
+  "schema_version": 1,
+  "tags": [
+    "rlvr",
+    "grpo",
+    "entropy",
+    "renyi entropy",
+    "js divergence",
+    "token selection",
+    "exploration",
+    "sparse updates"
+  ],
+  "models": [
+    "Qwen2.5-0.5B",
+    "Qwen2.5-1.5B",
+    "Qwen2.5-7B"
+  ]
+}

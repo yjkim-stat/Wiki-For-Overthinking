@@ -1,0 +1,154 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-77b3413236375923.pdf"
+  },
+  "completed_at": "2026-08-08T06:09:12Z",
+  "created_at": "2026-08-08T06:07:16Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:77b3413236375923",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning models",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "",
+    "scores": {
+      "reasoning-training": 0.6667
+    },
+    "title": "On Reasoning Strength Planning in Large Reasoning Models",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "Recent studies empirically reveal that large reasoning models (LRMs) can automatically allocate more reasoning strengths (i.e., the number of reasoning tokens) for harder problems, exhibiting difficulty-awareness for better task performance. While this automatic reasoning strength allocation phenomenon has been widely observed, its underlying mechanism remains largely unexplored. To this end, we provide explanations for this phenomenon from the perspective of model activations. We find evidence that LRMs pre-plan the reasoning strengths in their activations even before generation, with this reasoning strength causally controlled by the magnitude of a pre-allocated directional vector. Specifically, we show that the number of reasoning tokens is predictable solely based on the question activations using linear probes, indicating that LRMs estimate the required reasoning strength in advance. We then uncover that LRMs encode this reasoning strength through a pre-allocated directional vector embedded in the activations of the model, where the vector's magnitude modulates the reasoning strength. Subtracting this vector can lead to reduced reasoning token number and performance, while adding this vector can lead to increased reasoning token number and even improved performance. We further reveal that this direction vector consistently yields positive reasoning length prediction, and it modifies the logits of end-of-reasoning token </think> to affect the reasoning length. Finally, we demonstrate two potential applications of our findings: overthinking behavior detection and enabling efficient reasoning on simple problems.",
+      "arxiv_id": "2506.08390",
+      "authors": [
+        "Leheng Sheng",
+        "An Zhang",
+        "Zijian Wu",
+        "Weixiang Zhao",
+        "Changshuo Shen",
+        "Yi Zhang",
+        "Xiang Wang",
+        "Tat-Seng Chua"
+      ],
+      "doi": "",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models",
+      "venue": "NeurIPS 2025",
+      "year": 2025
+    },
+    "concepts": [
+      "reasoning strength",
+      "pre-planning",
+      "prompt difficulty",
+      "linear probing",
+      "difference-in-means",
+      "activation steering",
+      "steering vector",
+      "end-of-thinking token",
+      "overthinking",
+      "test-time compute",
+      "latent plan"
+    ],
+    "contributions": [
+      "Evidence that reasoning strength is pre-planned: a linear probe on the residual-stream activation at the start-of-reasoning token predicts the eventual reasoning token count with correlation above 0.8, before any reasoning token exists.",
+      "Identification of the encoding: difference-in-means vectors between difficulty levels are almost perfectly collinear (cosine similarity around 0.99), so the model uses a *single* shared direction, with difficulty encoded in that vector's magnitude rather than in its direction.",
+      "The finding that vector magnitude is approximately proportional to the additional reasoning tokens a harder question requires, making it a quantitative rather than ordinal signal.",
+      "Causal verification by activation steering: adding or subtracting the vector changes reasoning token count monotonically, while leaving the length of the final answer unaffected.",
+      "A mechanistic account of how the plan is executed — the pre-allocated vector acts by modifying the logits of the end-of-thinking token specifically, with far larger effect there than on the end-of-sequence token or on random tokens.",
+      "Two applications: detecting overthinking *before* generation using the length predictor, and reducing reasoning tokens on easy questions by negative steering without accuracy loss."
+    ],
+    "datasets": [
+      "MATH500",
+      "AIME24",
+      "OlympiadBench",
+      "MMLU",
+      "AlpacaEval",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "QwQ-32B"
+    ],
+    "limitations": "The paper's own limitations section names two: only a linear probe is used, with more expressive architectures such as MLPs unexplored, so the reported correlation is a lower bound on how predictable reasoning length is from activations; and experiments focus on the Qwen model series, leaving open whether the findings transfer to reasoning models built on other backbones. A reader should add that difficulty is operationalized as MATH's own five-level labels, so the 'difficulty direction' is calibrated against a dataset-specific annotation rather than against model-relative hardness; that the steering gains, while consistent in sign across five models, are small in absolute terms on the averaged benchmarks (+0.46 to +2.35) with the larger AIME numbers resting on a 30-problem set; and that the probe predicts length rather than correctness, so pre-generation overthink detection identifies questions the model will spend a lot on, not questions where that spending is wasted — the two coincide only if long generation is itself the pathology.",
+    "method": "For each question, the d-dimensional residual stream activation at the position of the start-of-reasoning token is extracted at every layer, and Lasso regression is fitted to predict the number of tokens the model will subsequently emit between the start- and end-of-thinking markers. This is a strictly pre-generation probe: the target is a property of text that does not yet exist. MATH questions are split into five difficulty groups with a 9:1 train-test split. To find the encoding, the difference-in-means method contrasts mean activations of the hardest levels against the easiest, yielding four candidate vectors per layer whose pairwise cosine similarity and L2 norms are then examined. Causal testing uses activation steering: the mean of the four vectors is added to the layer activation scaled by a steering strength swept from -0.2 to +0.2, and both reasoning token count and accuracy are recorded. To identify the execution mechanism, the logit distribution of the end-of-thinking token is tracked under different steering strengths and compared against the end-of-sequence token and randomly chosen tokens. Overthink detection is tested by constructing question pairs where vanilla AlpacaEval questions are paired with versions modified by an overthink attack, and comparing the probe's predicted lengths. Efficient inference is tested by applying negative steering to MMLU and MATH500 Level-1 questions. Models span DeepSeek-R1-Distill-Qwen at 1.5B, 7B, 14B and 32B plus QwQ-32B.",
+    "methods": [
+      "linear probing",
+      "Lasso regression",
+      "difference-in-means",
+      "activation steering",
+      "overthink attack",
+      "budget forcing"
+    ],
+    "one_liner": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
+    "problem": "Reasoning models are known to allocate more reasoning tokens to harder questions, and reasoning length can also be controlled externally by prompting or by length-aware post-training. Both observations suggest an internal mechanism for modulating reasoning strength, but its nature and structure were unexamined. Two specific questions were open: do models pre-plan reasoning strength before generation begins, and if so, in what form is that plan encoded?",
+    "relevance": {
+      "reasoning-faithfulness": "A clean instance of the archive's three-way distinction between what is written, what is represented and what is used. Here a plan — how long this problem will take — is represented before generation, is causally load-bearing, and never appears in the trace at any point. The trace is the *execution* of a decision made before it started, which is a different kind of incompleteness from the ones this topic usually tracks: not an omitted influence on the answer, but an omitted commitment about the shape of the reasoning itself. It also complicates the archive's commitment-boundary picture. That work locates where the answer stabilizes *within* a trace by truncation; this shows a prior commitment to trace length that precedes the first token, so a trace has at least two pre-verbal decision points. Whether the length plan and the eventual commitment position are related is computable from both papers' methods and is not addressed by either.",
+      "test-time-scaling": "The difficulty estimator this topic has been missing, and it arrives from an unexpected place — inside the model, before generation. The archive's foundational result showed difficulty-conditioned allocation beats uniform budgets by over 4x, and its adaptive-allocation follow-up found the PRM signal driving allocation degrading exactly where compute was most needed. This supplies a different estimator with the opposite failure profile: it needs no verifier, no sampling and no generated tokens, only a linear read of the prompt's activations, and it works because the model has already made the estimate itself. That reframes the allocation problem for this topic — the question is not how to estimate difficulty externally but how to read the estimate the model already computed. The control mechanism is equally consequential. This archive's budget-forcing paper extends thinking by suppressing the end-of-thinking token and appending 'Wait'; this paper shows the model's own length plan is executed *by shifting that same token's logits*, with far larger effect there than anywhere else. Two independent lines therefore converge on the end-of-thinking logit as the control point — one manipulating it lexically at the output, the other finding it manipulated internally by a pre-allocated vector. And unlike every stopping rule in this archive, which conditions on convergence and so arrives too late to allocate, this signal is available before the first token."
+    },
+    "results": "The length probe reaches Spearman correlation 0.8421 between predicted and actual reasoning token counts, with correlations above 0.8 across model sizes and families, and prediction quality increasing with layer depth — so the planning capability appears to be built up in later layers. The four difficulty-contrast vectors have pairwise cosine similarities around 0.99 and mean cross-layer similarity above 0.9, rising toward 1.0 in final layers, establishing that a single direction distinguishes all difficulty levels; their L2 norms increase monotonically with difficulty. Activation steering confirms causality: decreasing steering strength consistently reduces reasoning token count and, with it, accuracy, while the answer token count stays unaffected — so the vector controls the planning of reasoning length rather than output length in general. Moderate positive steering improves accuracy across benchmarks: average over MATH500, AIME2024 and OlympiadBench rises from 51.84 to 52.42 for the 1.5B model, 66.91 to 68.82 for 7B, 72.37 to 74.72 for 14B, 73.75 to 75.43 for 32B and 64.19 to 64.65 for QwQ-32B, with the largest single gains on AIME2024 (+4.58 at 7B, +5.83 at 14B, +3.75 at 32B). Pushing steering beyond a point stops helping and can degrade performance, which the authors attribute to a capability ceiling. The mechanism is specific: negative steering raises the logits of the end-of-thinking token, positive steering lowers them, and the effect on that token is far larger than on the end-of-sequence token or on random tokens. Applications: the probe predicts substantially longer reasoning on overthink-attacked questions than on vanilla ones across all five models, giving pre-generation overthink detection; and negative steering markedly cuts reasoning tokens on MMLU and MATH500 Level-1 while maintaining accuracy, indicating models misallocate reasoning strength on easy questions.",
+    "tags": [
+      "reasoning length",
+      "difficulty",
+      "activation steering",
+      "probing",
+      "overthinking",
+      "test-time scaling",
+      "planning"
+    ],
+    "topics": [
+      "test-time-scaling",
+      "reasoning-faithfulness"
+    ]
+  },
+  "task_id": "paper__local-77b3413236375923",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

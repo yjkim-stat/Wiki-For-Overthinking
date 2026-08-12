@@ -1,0 +1,42 @@
+{
+  "abstract": "While many benchmarks evaluate the reasoning abilities of Large Language Models (LLMs), few isolate reasoning as a capability independent of domain knowledge. We introduce a new benchmark for inductive reasoning inspired by Sound Law Induction (SLI) in historical linguistics and formulated in a simple multi-step Programming by Example (PBE) framework. The task requires inducing a cascade of string rewrite programs that transform inputs into target outputs. We present PBEBench, a fully automated evaluation approach that generates such problems with controllable difficulty and ordering constraints, enabling scalable and contamination-resistant evaluation of sequential inductive reasoning. Using this approach, we construct three datasets that show a large gap between models that leverage test-time compute or long chain-of-thought reasoning and those that do not. Although recent models such as GPT-5 and gpt-oss-120b show promise, solve rates remain below 5% on hard PBEBench instances with long program cascades, even under computationally expensive scaling strategies. Finally, we show that PBEBench scores are more predictive of performance on real SLI than are other inductive reasoning benchmarks. We will release code and data to support further research.",
+  "arxiv_id": "",
+  "authors": [
+    "Atharva Naik",
+    "Prakam",
+    "Yash Mathur",
+    "Darsh Agrawal",
+    "Manav Nitin Kapadnis",
+    "Yuwei An",
+    "Clayton Marr",
+    "Carolyn P. Rosé",
+    "David R. Mortensen"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.432",
+  "first_seen": "2026-08-08T07:19:19Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.432",
+  "last_seen": "2026-08-08T07:19:19Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning benchmark"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.5
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/NaikPMAKAMRM26",
+  "title": "PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.432",
+  "venue": "ACL",
+  "year": 2026
+}

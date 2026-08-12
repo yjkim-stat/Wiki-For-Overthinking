@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
+        "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
+        "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:20:23Z",
+  "created_at": "2026-08-09T06:17:45Z",
+  "instructions": "Write the wiki definition for 'advantage function'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "advantage function",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "advantage function",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "How much better an action is than the policy's average at that state, and in both sources the quantity that scales the update applied to a token's logit. They obtain it in different ways: one takes it from the policy gradient theorem as the state-action value minus the state value, with the property that its expectation under the policy is zero, while the other never estimates a value function at all and instead standardizes the rewards within a group of sampled responses. What the two share is its role rather than its construction — the sign of the advantage sets the direction of the logit update, and that direction combined with the token's probability is what decides whether the update raises or lowers entropy.",
+    "kind": "concept",
+    "related": [
+      "policy gradient",
+      "GRPO",
+      "covariance of probability and advantage",
+      "entropy discriminator",
+      "positive advantage",
+      "softmax policy"
+    ]
+  },
+  "task_id": "concept__advantage-function",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

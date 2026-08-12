@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reasoning Training — research review</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title-slide">
+<h1>Reasoning Training</h1>
+<p class="subtitle">How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.</p>
+<p>2026-08-12 · 116 archived source(s)</p>
+</section>
+<section class="slide">
+<h2>Agenda</h2>
+<ul>
+<li>Where the field stands</li>
+<li>Key papers</li>
+<li>Recurring ideas</li>
+<li>Benchmarks</li>
+<li>Open problems</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Where the field stands</h2>
+<ul>
+<li><strong>2026</strong> — 95 paper(s)</li>
+<li><strong>2025</strong> — 13 paper(s)</li>
+<li><strong>2024</strong> — 4 paper(s)</li>
+<li><strong>2023</strong> — 3 paper(s)</li>
+<li><strong>2022</strong> — 1 paper(s)</li>
+</ul>
+<p>28 arrived in the last 30 days.</p>
+</section>
+<section class="slide">
+<h2>CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models</h2>
+<p class="subtitle">Qizhi Jiang, Shuo Wang, Pei Ke et al. · ACL · 2026</p>
+<blockquote>
+<p>Feeds a reasoning model&#x27;s own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.</p>
+</blockquote>
+<ul>
+<li>CAT: intrinsic self-certainty as a confidence signal inside preference optimization</li>
+<li>Autonomous modulation of reasoning length by problem difficulty without an external difficulty estimator</li>
+<li>Reported accuracy gains over state-of-the-art compression baselines across benchmarks and base models</li>
+</ul>
+<p><strong>Results.</strong> CAT is reported to consistently outperform state-of-the-art baselines on reasoning accuracy across multiple benchmarks on different base models. No numbers, benchmark names or base models are given in the abstract.</p>
+<p><strong>Why it matters.</strong> Sits in the archive&#x27;s difficulty-allocation cluster, and takes the position that the difficulty signal should come from the model&#x27;s own certainty rather than from a separate estimator. That makes calibration the load-bearing assumption, and the archive&#x27;s calibration line gives reason to doubt it — if confidence and correctness come apart, compressing confident answers compresses the wrong ones. The paper does not report a calibration check, so the claim rests on the accuracy result alone. It is one of four length-compression papers in this ACL batch, alongside long.146, long.1386 and long.1766.</p>
+</section>
+<section class="slide">
+<h2>Red Teaming Large Reasoning Models</h2>
+<p class="subtitle">Jiawei Chen, Yang Yang, Chao Yu et al. · ACL · 2026</p>
+<blockquote>
+<p>A trustworthiness benchmark for reasoning models over truthfulness, safety and efficiency, using training paradigm as an analytical axis, and finding reasoning models more fragile than plain LLMs to reasoning-induced risks.</p>
+</blockquote>
+<ul>
+<li>Rt-LRM, a unified LRM trustworthiness benchmark over truthfulness, safety and efficiency</li>
+<li>A curated suite of 30 reasoning tasks including CoT-hijacking and prompt-induced inefficiency risks</li>
+<li>Training paradigm as an analytical axis for comparing trustworthiness</li>
+<li>Evaluation of 26 models, finding LRMs more fragile than LLMs to reasoning-induced risks</li>
+</ul>
+<p><strong>Results.</strong> Experiments cover 26 models. LRMs generally face trustworthiness challenges and tend to be more fragile than LLMs when encountering reasoning-induced risks. Further insights are reported but not quantified in the abstract.</p>
+<p><strong>Why it matters.</strong> Its distinctive move for this topic is treating training paradigm as an explanatory variable for trustworthiness rather than reporting per-model scores, which is the right shape of question — whether RLVR, distillation or process supervision produce differently trustworthy models is exactly what this archive wants to know. The evidence is observational and confounded, so it identifies the question rather than answering it. The headline finding that reasoning models are more fragile than plain LLMs is the inverse of the robustness account in arxiv:2608.04646, and the two disagreeing on the same axis is worth tracking: robustness to benign prompt variation and robustness to adversarial reasoning-directed attack may simply be different quantities.</p>
+</section>
+<section class="slide">
+<h2>FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models</h2>
+<p class="subtitle">Kehan Jiang, Haonan Dong, Zhaolu Kang et al. · ACL · 2026</p>
+<blockquote>
+<p>Finds that a reasoning model&#x27;s first solution is usually its best and that later alternatives are actively harmful, characterizes the errors as a forest structure, and prunes accordingly.</p>
+</blockquote>
+<ul>
+<li>The &#x27;First is The Best&#x27; phenomenon: later alternative solutions are detrimental rather than merely suboptimal</li>
+<li>A forest-structured characterization of errors along the reasoning path, with theoretical analysis</li>
+<li>RED, combining Refining First to suppress in-branch error growth with Discarding Subs to prune alternatives by dual-consistency</li>
+<li>Gains up to 19.0% with 37.7%-70.4% token reduction against eight baselines on five benchmarks and six backbones</li>
+</ul>
+<p><strong>Results.</strong> Across five benchmarks and six backbone models, RED outperforms eight competitive baselines with gains up to 19.0% while cutting token consumption by 37.7% to 70.4%. Comparative experiments on FoE metrics are reported to explain the mechanism.</p>
+<p><strong>Why it matters.</strong> Makes an unusually strong claim against test-time scaling: that exploration of alternatives is net negative because errors scale with compute, so the first solution should be refined and the rest discarded. If it holds, it inverts the premise of the best-of-N and self-consistency lines this archive tracks in depth. It also cuts directly against arxiv:2608.05643 in this same drain, which keeps breadth precisely to preserve diverse initial attempts and reports gains from doing so — same year, same problem, opposite prescription, and neither cites a shared model. That collision is the kind the archive exists to record, and resolving it needs the overlap in their benchmarks and backbones, which neither abstract gives.</p>
+</section>
+<section class="slide">
+<h2>Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models</h2>
+<p class="subtitle">Jiawei Li 0020, Yang Gao 0016, Huashan Sun et al. · ACL · 2026</p>
+<blockquote>
+<p>Defines a token&#x27;s marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.</p>
+</blockquote>
+<ul>
+<li>Token-level Marginal Utility: per-token log-probability gain of the ground-truth answer as a dense supervision signal</li>
+<li>MUTO, a training framework that penalizes negative-utility reasoning tokens rather than controlling length at the trajectory level</li>
+<li>87.1% token reduction with +2.3% accuracy at 1.5B and 80.2% reduction with -0.1% accuracy at 7B</li>
+<li>Best length-normalized accuracy among compared baselines</li>
+</ul>
+<p><strong>Results.</strong> On DeepSeek-R1-Distill-Qwen backbones at 1.5B and 7B across six math reasoning benchmarks, MUTO improves the efficiency-accuracy Pareto frontier: average token usage falls 87.1% at 1.5B while accuracy rises 2.3%, and falls 80.2% at 7B with -0.1% accuracy change. It attains the best length-normalized accuracy among baselines.</p>
+<p><strong>Why it matters.</strong> Adds a criterion to the archive&#x27;s token-selection dispute, and a distinctive one: utility is signed, so a token can be identified as actively harmful rather than merely uninformative. Every other criterion tracked here — entropy, advantage magnitude, teacher-student gap, reference-shift — is unsigned and selects tokens to weight up. That means the overlap question the archive has been measuring for the unsigned criteria does not directly apply, and the interesting measurement is whether negative-utility tokens are the complement of high-entropy tokens or a different set entirely. The 87.1% reduction with a positive accuracy delta is also the strongest evidence in the archive that distilled reasoning chains contain a large fraction of tokens that do no work.</p>
+</section>
+<section class="slide">
+<h2>CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization</h2>
+<p class="subtitle">Junyi Li, Yongqiang Chen, Ningning Ding · ACL · 2026</p>
+<blockquote>
+<p>Reframes unlearning in reasoning models as an intervention on the CoT itself, having the model generate logically valid counterfactual traces and iteratively preference-tuning toward them.</p>
+</blockquote>
+<ul>
+<li>A statement of the unlearning dilemma specific to reasoning models: knowledge surviving in CoT traces versus reasoning degradation</li>
+<li>CiPO, recasting unlearning as targeted intervention on the CoT via model-generated logically valid counterfactual traces</li>
+<li>An iterative preference-data update that increases divergence from the original model while keeping optimization smooth</li>
+<li>Reported removal from both intermediate steps and final answers with preserved reasoning ability</li>
+</ul>
+<p><strong>Results.</strong> On challenging benchmarks, CiPO removes knowledge from both intermediate CoT steps and the final answer while preserving the reasoning abilities of the models. No numbers or benchmark names are given in the abstract.</p>
+<p><strong>Why it matters.</strong> Useful to this topic less as an unlearning method than as evidence about where knowledge sits in a reasoning model: interventions on the final answer leave it recoverable from the intermediate steps, so the CoT is a second storage site that has to be edited separately. That is a structural fact about reasoning models the archive&#x27;s memorization thread should hold. The counterfactual-trace construction is also a training signal of a kind not otherwise represented here — supervision toward a trace that is valid but counterfactual, which separates reasoning form from factual content.</p>
+</section>
+<section class="slide">
+<h2>ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments</h2>
+<p class="subtitle">Yuquan Wang, Mi Zhang 0001, Yining Wang et al. · ACL · 2026</p>
+<blockquote>
+<p>An inference-time safeguard that reads a reasoning model&#x27;s attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.</p>
+</blockquote>
+<ul>
+<li>The observation that harmful generation in reasoning models concentrates in mid-to-late reasoning steps</li>
+<li>ReasoningGuard, a fine-tuning-free inference-time safeguard that injects safety reflections at attention-identified key points</li>
+<li>A scaling sampling strategy at decoding to select a safe reasoning path</li>
+<li>Mitigation of four jailbreak types, outperforming nine safeguards without exaggerated safety</li>
+</ul>
+<p><strong>Results.</strong> With minimal additional inference cost, ReasoningGuard mitigates four types of jailbreak attack, including recent ones targeting the reasoning process of reasoning models, and outperforms nine existing safeguards while avoiding exaggerated-safety failures. No numbers are given in the abstract.</p>
+<p><strong>Why it matters.</strong> Its transferable finding for this topic is where in a trajectory the failure lives: mid-to-late reasoning steps, not the prompt and not the final answer. That is a positional claim about trained reasoning behaviour and it parallels the archive&#x27;s entropy and commitment-boundary results, which also locate decisive structure at specific points in a trace. Using attention to time an intervention is a different localization signal from the entropy-based ones already tracked here, and whether the two identify the same positions is measurable and unmeasured.</p>
+</section>
+<section class="slide">
+<h2>Optimizing Length Compression in Large Reasoning Models</h2>
+<p class="subtitle">Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al. · ACL · 2026</p>
+<blockquote>
+<p>Identifies double-checking after the correct answer is already derived as &#x27;invalid thinking&#x27;, and trains a GRPO variant with a compress reward that targets exactly that portion.</p>
+</blockquote>
+<ul>
+<li>Identification of post-answer double-checking as the specific redundancy to target</li>
+<li>The Brevity and Sufficiency principles as fine-grained replacements for general efficacy/efficiency objectives</li>
+<li>LC-R1, a GRPO-based method pairing a Length Reward with a Compress Reward aimed at the invalid thinking portion</li>
+<li>A roughly 50% length reduction at roughly 2% accuracy cost, with robustness analysis</li>
+</ul>
+<p><strong>Results.</strong> On multiple reasoning benchmarks, LC-R1 reduces sequence length by roughly 50% with a roughly 2% accuracy drop, a Pareto point favouring high compression. Further analysis validates robustness and reports insights for building efficient reasoning models.</p>
+<p><strong>Why it matters.</strong> Pins the overthinking phenomenon to a specific, checkable location — tokens generated after the answer is already correct — which is narrower and more testable than the diffuse redundancy other papers penalize. That definition connects the length-compression cluster to the archive&#x27;s answer-stabilization thread, since the point after which the answer stops changing is precisely what stopping-signal methods like DEER estimate at inference. This paper uses the same quantity as a training reward instead, which means the two lines are estimating one thing from opposite ends, and it reports an honest ~2% accuracy cost where the neighbouring papers in this batch report near-free reductions.</p>
+</section>
+<section class="slide">
+<h2>Quantifying and Understanding Uncertainty in Large Reasoning Models</h2>
+<p class="subtitle">Yangyi Li, Chenxu Zhao, Mengdi Huai · ACL · 2026</p>
+<blockquote>
+<p>Applies conformal prediction to the joint reasoning-answer structure of reasoning models, then attributes coverage to specific training examples and reasoning steps with Shapley values.</p>
+</blockquote>
+<ul>
+<li>A conformal method giving finite-sample uncertainty guarantees over the joint reasoning-answer structure rather than the answer alone</li>
+<li>An example-to-step explanation framework using Shapley values that identifies a provably sufficient subset of training data and reasoning steps for coverage</li>
+<li>Theoretical analysis for both the uncertainty and the explanation methods</li>
+</ul>
+<p><strong>Results.</strong> Extensive experiments on challenging reasoning datasets verify the effectiveness of both methods. No numbers, datasets or models are named in the abstract.</p>
+<p><strong>Why it matters.</strong> The one paper in this drain that offers a finite-sample statistical guarantee, and it puts the guarantee on the trace-and-answer pair rather than the answer, which is the coupling the archive&#x27;s faithfulness thread keeps finding broken. Its second half is more unusual: attributing coverage back to specific training examples and specific reasoning steps within them is a training-signal question answered with an attribution method, which is a route to &#x27;which supervision produced valid reasoning&#x27; that no other paper here takes. Both claims rest on theory the abstract does not expose, so this one needs a full read before the archive relies on it.</p>
+</section>
+<section class="slide">
+<h2>Recurring ideas</h2>
+<ul>
+<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
+<li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
+<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
+<li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Methods</h2>
+<ul>
+<li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
+<li><strong>GRPO</strong> — Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own gro...</li>
+<li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
+<li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
+<li><strong>pass-k</strong> — The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on t...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Benchmarks and datasets</h2>
+<ul>
+<li><strong>AIME24</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 28 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
+<li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
+<li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
+<li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
+<li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems</h2>
+<ul>
+<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
+<li><strong>LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction</strong> — No quantitative results in the abstract. The theoretical guarantees hold &#x27;under suitable conditions&#x27; and at a matched randomness level, neither specified her...</li>
+<li><strong>AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning</strong> — Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so...</li>
+<li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
+<li><strong>Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning</strong> — The claim is a reading of the evidence, and the paper states the gains come &#x27;at least partly&#x27; from robustness, so it does not exclude a ToM-specific componen...</li>
+<li><strong>Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark</strong> — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute acc...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems (cont.)</h2>
+<ul>
+<li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
+<li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
+<li><strong>Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)</strong> — Evaluated only in two simulators, so transfer to real networks is unestablished. The 522% average degradation is reported without a per-environment breakdown...</li>
+<li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
+<li><strong>Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO</strong> — No quantitative results in the abstract, so the size of the trade-off improvement is unstated. The benchmarks are not named. The claim that the second reason...</li>
+<li><strong>SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts</strong> — Datasets and models are not named in the abstract. Gains are in wall-clock time, not in final accuracy, and because the objective is unchanged the method is...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References</h2>
+<ul>
+<li>Qizhi Jiang, Shuo Wang, Pei Ke et al.. <em>CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models</em>. ACL. 2026</li>
+<li>Jiawei Chen, Yang Yang, Chao Yu et al.. <em>Red Teaming Large Reasoning Models</em>. ACL. 2026</li>
+<li>Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. <em>FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Jiawei Li 0020, Yang Gao 0016, Huashan Sun et al.. <em>Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Junyi Li, Yongqiang Chen, Ningning Ding. <em>CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization</em>. ACL. 2026</li>
+<li>Yuquan Wang, Mi Zhang 0001, Yining Wang et al.. <em>ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments</em>. ACL. 2026</li>
+<li>Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. <em>Optimizing Length Compression in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Yangyi Li, Chenxu Zhao, Mengdi Huai. <em>Quantifying and Understanding Uncertainty in Large Reasoning Models</em>. ACL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Tingchen Fu, Yafu Li, Jiawei Gu et al.. <em>Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Jiacheng Liang, Tanqiu Jiang, Yuhui Wang 0003 et al.. <em>AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Shuyang Jiang, Yuhao Wang, Ya Zhang 0002 et al.. <em>Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. <em>Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models</em>. ACL. 2026</li>
+<li>Zihang Liu 0001, Zhouhua Fang, Hui Liu et al.. <em>RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Yi Hu, Jiaqi Gu, Ruxin Wang et al.. <em>Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures</em>. ACL. 2026</li>
+<li>Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. <em>When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models</em>. ACL. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li>Yongchan Kwon, Shang Zhu, Federico Bianchi 0001 et al.. <em>ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning</em>. ACL. 2026</li>
+<li>Tingyun Li, Zishang Jiang, Jinyi Han et al.. <em>ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models</em>. ACL. 2026</li>
+<li>Hoang Phan, Xianjun Yang, Yuanshun Yao et al.. <em>Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. <em>DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models</em>. ACL. 2026</li>
+<li>Zhiyuan Hu, Yibo Wang, Hanze Dong et al.. <em>Beyond &amp;apos;Aha!&amp;apos;: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Xinming Wang, Jian Xu 0015, Bin Yu et al.. <em>MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models</em>. ACL. 2026</li>
+<li>Qiang Huang, Wei Zhai, Feng Huang et al.. <em>Self-Reflection Improves Safety of Large Reasoning Models</em>. ACL. 2026</li>
+<li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
+</ul>
+</section>
+<section class="slide title-slide">
+<h2>Sources</h2>
+<p>Every claim in this deck traces to a page under <code>archive/</code>. Regenerate with <code>python -m pipelines.render</code>.</p>
+</section>
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

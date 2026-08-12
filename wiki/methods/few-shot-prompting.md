@@ -1,0 +1,23 @@
+# few-shot prompting
+
+<!-- auto:begin -->
+
+Supplying worked examples in the prompt so the model imitates their form. In the cited sources it appears as infrastructure rather than as a subject, and in both cases as something with a cost. One notes that inducing rationale generation through few-shot inference alone sacrifices accuracy relative to finetuning, which is the gap its bootstrapping loop exists to close. The other turns the format into an attack surface: reordering the multiple-choice options across few-shot examples so the answer is always '(A)' biases the model's prediction, and the resulting explanation does not mention the pattern. The arrangement of the examples, not only their content, is doing work.
+
+- **Kind**: method
+- **Also called**: few-shot inference, in-context learning
+- **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 2
+
+**Related**: [chain of thought](chain-of-thought.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [CommonsenseQA](../datasets/commonsenseqa.md), [post-hoc rationalization](../concepts/post-hoc-rationalization.md), [self-training](../concepts/self-training.md), [supervised finetuning](supervised-finetuning.md)
+
+## Appears in
+
+- [STaR: Bootstrapping Reasoning With Reasoning](../../archive/papers/2022/arxiv-2203-14465/summary.md) — Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.
+- [Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting](../../archive/papers/2023/arxiv-2305-04388/summary.md) — Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

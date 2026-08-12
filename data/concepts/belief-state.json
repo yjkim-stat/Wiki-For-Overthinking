@@ -1,0 +1,61 @@
+{
+  "aliases": [
+    "belief",
+    "state representation"
+  ],
+  "definition": "A running internal summary of what has been established so far, used by both sources as the object that long-horizon reasoning must maintain. They apply it at different levels. One makes it a pretraining target, adding a higher-level abstract latent so that latent-space rollouts accumulate less error and belief-state representations stay coherent over longer horizons. The other makes it explicit and Bayesian, aggregating token-level teacher-student log-probability gaps into turn-level evidence and updating a belief in log-odds space, where the marginal revision between consecutive states identifies which turn mattered. The shared claim is that a scalar per step is not enough and the history has to be carried.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05806",
+      "kind": "paper",
+      "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+      "title": "Hierarchical Latent Prediction for Language Models"
+    },
+    {
+      "id": "arxiv:2608.05987",
+      "kind": "paper",
+      "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+      "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "belief state",
+  "related": [
+    "next-token-prediction",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "compounding-error",
+    "planning-horizon",
+    "teacher-forcing",
+    "hierarchical-latent-prediction",
+    "multi-token-prediction",
+    "next-latent-prediction",
+    "speculative-decoding",
+    "auxiliary-pretraining-objective",
+    "credit-assignment",
+    "process-supervision",
+    "privileged-information",
+    "long-horizon-reasoning",
+    "pivotal-decision",
+    "log-odds-aggregation",
+    "agentopsd",
+    "on-policy-self-distillation",
+    "grpo",
+    "rlvr",
+    "recursive-bayesian-update",
+    "token-level-distillation",
+    "alfworld",
+    "webshop",
+    "search-qa",
+    "qwen2-5-3b",
+    "qwen2-5-7b"
+  ],
+  "schema_version": 1,
+  "slug": "belief-state",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

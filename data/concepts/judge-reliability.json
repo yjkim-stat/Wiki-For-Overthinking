@@ -1,0 +1,84 @@
+{
+  "aliases": [
+    "evaluator reliability",
+    "judge bias",
+    "scoring bias"
+  ],
+  "definition": "Whether a model used to score other models' output can be trusted, which matters because judges are how reasoning work gets evaluated once the answer is not a checkable string. One source isolates a content-independent component of judge behaviour by asking the model to emit random numbers, treating deviation from uniform as its latent bias, and rectifies scoring probabilities against it — finding bias varies across models, tasks and score ranges. The other shows judging improves monotonically with reasoning tokens spent, so evaluation compute buys accuracy the way generation compute does, at a comparable exchange rate. A third archived source finds judge preference scores track style rather than substance.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05726",
+      "kind": "paper",
+      "note": "Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.",
+      "title": "Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2102",
+      "kind": "paper",
+      "note": "Shows evaluator accuracy improves monotonically with reasoning tokens spent, and that buying compute at evaluation time can substitute for buying it at generation time.",
+      "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators"
+    },
+    {
+      "id": "local:fb100130d8c7c2bd",
+      "kind": "paper",
+      "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
+      "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "judge reliability",
+  "related": [
+    "calibration",
+    "scoring-bias",
+    "meta-evaluation",
+    "token-probability-rectification",
+    "llm-as-a-judge",
+    "random-number-generation-probe",
+    "probability-rectification",
+    "semantic-textual-similarity",
+    "semantic-textual-relatedness",
+    "summarization-evaluation-task",
+    "llm-alignment-evaluation-task",
+    "test-time-compute",
+    "test-time-scaling",
+    "process-evaluation",
+    "verification",
+    "best-of-n",
+    "compute-allocation",
+    "reranking",
+    "outcome-evaluation",
+    "pass-k",
+    "reasoning-boundary",
+    "chain-of-thought-faithfulness",
+    "benchmark-contamination",
+    "spurious-guessing",
+    "training-dynamics",
+    "cot-pass-k",
+    "rlvr",
+    "grpo",
+    "dapo",
+    "supervised-fine-tuning",
+    "aime-2024",
+    "aime-2025",
+    "math-500",
+    "amc23",
+    "minerva",
+    "livecodebench",
+    "dapo-qwen-32b",
+    "qwen2-5-32b",
+    "deepseek-r1-0528-qwen3-8b",
+    "acereason-nemotron-7b",
+    "deepseek-r1-distill-qwen-7b",
+    "skywork-or1"
+  ],
+  "schema_version": 1,
+  "slug": "judge-reliability",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness"
+  ]
+}

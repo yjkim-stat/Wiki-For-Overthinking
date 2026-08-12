@@ -1,0 +1,87 @@
+# How reasoning ability is put into a model in the first place: the training
+# signal, not the decoding strategy. Test-time methods live in
+# config/topics/test-time-scaling.yaml.
+
+slug: reasoning-training
+name: Reasoning Training
+
+description: >-
+  How a language model acquires long-form reasoning: reinforcement learning
+  against verifiable rewards, process versus outcome supervision, distillation
+  of reasoning traces, and self-training. The question the archive answers is
+  which training signal produces reasoning that generalizes, and what each one
+  costs.
+
+# ---------------------------------------------------------------------------
+# Matching
+# ---------------------------------------------------------------------------
+#
+# Note on plurals: list the singular only. The matcher inflects the final word
+# (see docs/commit/0014), so "reasoning model" already catches "reasoning
+# models". Listing both made a single occurrence match two keywords and score
+# double, which pushed off-topic papers over the bar (docs/commit/0018).
+
+keywords:
+  any:
+    - large reasoning model
+    - reasoning model
+    # The phrases a training paper puts in its title. Without these, a paper
+    # whose title says "Incentivizing Reasoning Capability" but never says
+    # "reasoning model" outside the abstract falls below the threshold.
+    - reasoning capability
+    - reasoning ability
+    # Broad on purpose. One mention in an abstract scores 0.25 and is still
+    # rejected; it only carries an item over the bar in the title, or together
+    # with one of the specific terms above.
+    - chain of thought
+    - verifiable reward
+    - RLVR
+    - process reward model
+    - outcome reward
+    - process supervision
+    - reasoning distillation
+    - chain of thought distillation
+    - GRPO
+    - long chain of thought
+    - self-taught reasoner
+  all: []
+  # Left empty on purpose. An item that matches but is off-target is recorded
+  # in data/index/rejected.jsonl when it falls below min_score, which is the
+  # evidence you want before writing an exclusion rule.
+  none: []
+
+authors: []
+
+# Anchors, fetched once on the first run. Scored like anything else, so one
+# that does not clear the bar simply is not archived.
+seed_papers:
+  - "2501.12948"   # DeepSeek-R1: incentivizing reasoning capability via RL
+  - "2305.20050"   # Let's Verify Step by Step
+  - "2203.14465"   # STaR: self-taught reasoner
+
+# One title hit scores 0.50, one abstract-only hit 0.25, two abstract hits
+# 0.40. So 0.35 means: in the title once, or in the abstract twice.
+min_score: 0.35
+
+# ---------------------------------------------------------------------------
+# Sources
+# ---------------------------------------------------------------------------
+
+sources:
+  arxiv:
+    enabled: true
+    categories:
+      - cs.CL
+      - cs.LG
+      - cs.AI
+  conferences:
+    enabled: true
+    venues: []
+  youtube:
+    enabled: true
+    channels: []
+
+outputs:
+  lecture_note: true
+  slides: true
+  report: true

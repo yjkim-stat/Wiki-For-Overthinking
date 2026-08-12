@@ -1,0 +1,40 @@
+{
+  "abstract": "This paper investigates the entropy dynamics of Chain-of-Thought (CoT) and uncovers a consistent two-phase structure: an Uncertainty Region of exploration transitioning sharply to a Confidence Region of convergence. We demonstrate that the Confidence Region possesses two critical properties: 1) High Reliability—answers in the confidence region become highly accurate and stable, and 2) High Redundancy—models generate unnecessary tokens long after reaching the correct answer. These properties unlock more efficient and reliable inference strategies: 1) Early Exit leverages reliability and redundancy to terminate computation safely when returns diminish, and 2) Test-Time Scaling uses the Confidence Region signal to prioritize converged trajectories. To operationalize these strategies, we formulate Confidence Region detection as a sequential change-point detection problem, being the first to apply classical change-point methods to CoT reasoning. Using the Cumulative Sum (CUSUM) algorithm, a statistically optimal change-point detector, we develop a training-free framework for real-time inference control. Experiments show our approach establishes a superior Pareto-frontier for early exit. CUSUM achieves 63.06% accuracy with 11.1% token reduction, outperforming DEER and Dynasor by 3.28% and 4.36% in accuracy respectively. For test-time scaling, CUSUM-weighted voting consistently outperforms self-consistency.",
+  "arxiv_id": "2606.02020",
+  "authors": [
+    "Ting Xu",
+    "Xu He",
+    "Yupu Lu",
+    "Jiankai Sun",
+    "Dong Li",
+    "Wai Lam",
+    "Jianye Hao"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T02:26:50Z",
+  "id": "local:379c0b6966148b4a",
+  "last_seen": "2026-08-08T02:26:50Z",
+  "local_path": "data/pdfs/read/local-379c0b6966148b4a.pdf",
+  "matched_keywords": [
+    "chain of thought"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5,
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning.pdf",
+  "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306)",
+  "year": 2026
+}

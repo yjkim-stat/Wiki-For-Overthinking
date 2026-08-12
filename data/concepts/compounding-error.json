@@ -1,0 +1,67 @@
+{
+  "aliases": [
+    "error accumulation",
+    "error propagation",
+    "drift"
+  ],
+  "definition": "The accumulation of small per-step inaccuracies over a multi-step rollout, which both sources identify as the limit on reasoning in latent space specifically. One introduces a higher-level abstract latent so that a coarser prediction over a longer span replaces a chain of fine-grained ones, on the argument that existing multi-token and next-latent objectives either have too short a horizon or accumulate error. The other explains the same limitation by identifying decisional certainty as the governing variable, formalized as a Symbolic Index, and concludes that latent reasoning is good at exploration and bad at computation. Both treat the error as structural to the latent rollout rather than a shortfall of scale.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05806",
+      "kind": "paper",
+      "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
+      "title": "Hierarchical Latent Prediction for Language Models"
+    },
+    {
+      "id": "local:6b66615b7bf3ef86",
+      "kind": "paper",
+      "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
+      "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-08T05:29:50Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "compounding error",
+  "related": [
+    "next-token-prediction",
+    "latent-reasoning",
+    "implicit-reasoning",
+    "belief-state",
+    "planning-horizon",
+    "teacher-forcing",
+    "hierarchical-latent-prediction",
+    "multi-token-prediction",
+    "next-latent-prediction",
+    "speculative-decoding",
+    "auxiliary-pretraining-objective",
+    "latent-chain-of-thought",
+    "symbolic-index",
+    "decisional-certainty",
+    "exploration-execution-trade-off",
+    "information-bottleneck",
+    "conditional-information-bottleneck",
+    "curriculum-learning",
+    "discretization-reset",
+    "sub-decisional-perturbation",
+    "logit-decision-margin",
+    "distributional-mismatch",
+    "effective-depth",
+    "coconut",
+    "chain-of-thought",
+    "self-consistency",
+    "imitation-learning",
+    "noise-injection-analysis",
+    "gsm8k",
+    "prosqa",
+    "prontoqa",
+    "gpt-2"
+  ],
+  "schema_version": 1,
+  "slug": "compounding-error",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

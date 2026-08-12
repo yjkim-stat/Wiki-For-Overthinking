@@ -1,0 +1,125 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:29:50Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.502",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Hengyuan Zhang",
+      "Zhihao Zhang 0002",
+      "Ercong Nie",
+      "Mingyang Wang 0003",
+      "Zunhai Su",
+      "Yiwei Wang",
+      "Qianli Wang",
+      "Shuzhou Yuan",
+      "Xufeng Duan",
+      "Qibo Xue",
+      "Zeping Yu",
+      "Chenming Shang",
+      "Xiao Liang",
+      "Jing Xiong",
+      "Hui Shen 0008",
+      "Chaofan Tao",
+      "Zhengwu Liu",
+      "Senjie Jin",
+      "Zhiheng Xi",
+      "Dongdong Zhang",
+      "Sophia Ananiadou",
+      "Tao Gui",
+      "Ruobing Xie",
+      "Hayden Kwok-Hay So",
+      "Hinrich Schütze",
+      "Xuanjing Huang 0001",
+      "Qi Zhang 0001",
+      "Ngai Wong 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mechanistic interpretability"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-interpretability": 0.5
+    },
+    "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.502",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "mechanistic interpretability",
+      "localization",
+      "steering",
+      "actionable interpretability",
+      "intervention protocol",
+      "interpretable object"
+    ],
+    "contributions": [
+      "A reframing of mechanistic interpretability from observational science to an actionable Locate-Steer-Improve pipeline",
+      "Formal categorization of localizing and steering methods by the interpretable object they target",
+      "A demonstration of how the framework maps onto improvements in alignment, capability and efficiency",
+      "A curated paper list"
+    ],
+    "datasets": [],
+    "limitations": "No empirical contribution, and no stated selection criteria or coverage for the surveyed work, so it is not a systematic review. Organizing by interpretable object presumes those objects are well defined, which is contested — the run-to-run inconsistency in doi:10.18653/v1/2026.acl-long.99 in this same drain shows SAE features are not stable across seeds. Claims that the framework enables improvements in alignment, capability and efficiency are organizational rather than measured.",
+    "method": "A practical survey structured around a Locate, Steer, Improve pipeline. Localizing methods (diagnosis) and Steering methods (intervention) are formally categorized by the specific Interpretable Object they act on, which is what turns a method list into an intervention protocol. The framework is then used to show how interpretability yields improvements in Alignment, Capability and Efficiency.",
+    "methods": [
+      "literature survey",
+      "activation steering",
+      "localization methods"
+    ],
+    "models": [],
+    "one_liner": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
+    "problem": "Existing reviews treat mechanistic interpretability as an observational science, summarizing analytical insights without a systematic framework for actionable intervention — so findings do not translate into changes to models.",
+    "relevance": {
+      "reasoning-interpretability": "Useful to this archive as an organizing check rather than a finding, and it is the second survey of this field in one drain — doi:10.18653/v1/2026.acl-long.889 organizes the same area by training dynamics, mechanisms and failures, while this one organizes it by intervention. Two incompatible taxonomies of one field arriving together is itself the state of the field. The locate-then-steer framing does match the archive's own trajectory, where SAE work has moved from reading features to steering them, and its weak point is named by its neighbour acl-long.99: an intervention protocol indexed by interpretable objects assumes those objects are stable across training runs, which they are not by default."
+    },
+    "results": "A survey; it contributes a framework and a curated paper list rather than empirical results.",
+    "tags": [
+      "survey",
+      "interpretability",
+      "steering",
+      "framework",
+      "actionable"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-502",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

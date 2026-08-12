@@ -1,0 +1,118 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:22:35Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.2122",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Siyuan Gan",
+      "Jiaheng Liu",
+      "Boyan Wang",
+      "Tianpei Yang",
+      "Runqing Miao",
+      "Yuyao Zhang",
+      "Fanyu Meng",
+      "Junlan Feng",
+      "Linjian Meng",
+      "Jing Huo",
+      "Yang Gao 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.6667
+    },
+    "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.2122",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "reward hacking",
+      "hybrid reasoning",
+      "overthinking",
+      "adaptive compute allocation",
+      "prompt difficulty",
+      "token budget",
+      "verification"
+    ],
+    "contributions": [
+      "A diagnosis that RL training of hybrid reasoning models suffers reward hacking through misclassification of thinking as non-thinking",
+      "TNT: per-query maximum token budgets for non-thinking responses, derived from the solution component of that query's thinking responses",
+      "Avoidance of SFT and of uniform token limits",
+      "Around 50% token reduction with improved accuracy on five mathematical benchmarks",
+      "Reward hacking probability below 10% across all tested datasets"
+    ],
+    "datasets": [
+      "five mathematical benchmarks (unnamed in abstract)"
+    ],
+    "limitations": "Benchmarks are not named. Reward hacking is reduced to below 10% but not eliminated, and how hacking is detected for that measurement is unstated. Three backbones, all distilled Qwen-family models at 1.5B/7B. The token limit is derived from the model's own thinking responses, so it inherits any bias in those solution sections.",
+    "method": "Thinking-Based Non-Thinking uses no SFT. It sets a different maximum token budget for the non-thinking response of each query, derived from the solution component of that same query's thinking responses. The thinking response's solution section is a per-query estimate of how long an honest non-thinking answer should be, which is what makes the limit query-adaptive rather than global.",
+    "methods": [
+      "TNT",
+      "reinforcement learning post-training",
+      "supervised fine-tuning",
+      "length control"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepScaleR-1.5B"
+    ],
+    "one_liner": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
+    "problem": "Hybrid reasoning models decide per query whether to think, and RL is the natural way to train that decision. But RL there suffers reward hacking: a model that does think can be judged as not thinking and rewarded incorrectly. Existing fixes either use SFT, which is computationally costly, or impose uniform token limits on non-thinking responses, which mitigates little — a uniform limit is wrong for every query whose true solution length differs from the average.",
+    "relevance": {
+      "reasoning-training": "The only paper in this drain that treats the thinking/non-thinking classifier as itself a source of reward error, and quantifies the residual — below 10%. That matters because the whole hybrid-reasoning line depends on being able to tell the two modes apart, and if the judge is wrong the reward is wrong regardless of the policy. It joins the drain's large difficulty-allocation cluster (industry.152 via confidence, long.1766 via injected difficulty cues, findings-acl.165 via a mode-selection token) as a fourth mechanism for the same decision, and the four are not compared against each other anywhere."
+    },
+    "results": "On five mathematical benchmarks, TNT cuts token usage by around 50% relative to DeepSeek-R1-Distill-Qwen-1.5B/7B and DeepScaleR-1.5B while significantly improving accuracy, and attains the best accuracy-efficiency trade-off among tested methods. The probability of reward hacking in responses classified as not using thinking stays below 10% across all tested datasets.",
+    "tags": [
+      "reward hacking",
+      "hybrid reasoning",
+      "overthinking",
+      "token budget",
+      "grpo"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-2122",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

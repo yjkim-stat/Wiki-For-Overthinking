@@ -1,0 +1,136 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-e33ecf791dfdfa8a.pdf"
+  },
+  "completed_at": "2026-08-08T02:40:59Z",
+  "created_at": "2026-08-08T02:27:57Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:e33ecf791dfdfa8a",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "One of the roadblocks to a better understanding of neural networks' internals is polysemanticity, where neurons appear to activate in multiple, semantically distinct contexts. Polysemanticity prevents us from identifying concise, human-understandable explanations for what neural networks are doing internally. One hypothesised cause of polysemanticity is superposition, where neural networks represent more features than they have neurons by assigning features to an overcomplete set of directions in activation space, rather than to individual neurons. Here, we attempt to identify those directions, using sparse autoencoders to reconstruct the internal activations of a language model. These autoencoders learn sets of sparsely activating features that are more interpretable and monosemantic than directions identified by alternative approaches, where interpretability is measured by automated methods. Moreover, we show that with our learned set of features, we can pinpoint the features that are causally responsible for counterfactual behaviour on the indirect object identification task (Wang et al., 2022) to a finer degree than previous decompositions. This work indicates that it is possible to resolve superposition in language models using a scalable, unsupervised method. Our method may serve as a foundation for future mechanistic interpretability work, which we hope will enable greater model transparency and steerability.",
+      "arxiv_id": "2309.08600",
+      "authors": [
+        "Hoagy Cunningham",
+        "Aidan Ewart",
+        "Logan Riggs",
+        "Robert Huben",
+        "Lee Sharkey"
+      ],
+      "doi": "",
+      "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+      "venue": "preprint",
+      "year": 2023
+    },
+    "concepts": [
+      "polysemanticity",
+      "superposition",
+      "sparse dictionary learning",
+      "monosemanticity",
+      "feature dictionary",
+      "residual stream",
+      "causal mediation analysis",
+      "circuit detection",
+      "enumerative safety",
+      "automated interpretability score"
+    ],
+    "contributions": [
+      "An unsupervised, scalable method for taking features out of superposition: a single-hidden-layer autoencoder with tied weights and an L1 penalty, trained on unlabelled model activations at orders of magnitude less compute than training the model itself.",
+      "Evidence that the learned dictionary features score higher on automated interpretability than PCA, ICA, the default neuron basis and random directions, across residual stream layers.",
+      "Evidence that the features localise behaviour more tightly: on indirect object identification, fewer feature patches are needed to reach a given KL divergence from a counterfactual target than with PCA components, at smaller edit magnitude.",
+      "Case studies showing individual features are monosemantic on input, have the expected effect on output logits when ablated, and can be assembled into a causal circuit across layers by recursive ablation."
+    ],
+    "datasets": [
+      "the Pile",
+      "Indirect Object Identification (IOI)",
+      "Pythia-70M",
+      "Pythia-410M"
+    ],
+    "limitations": "The paper's own: reconstruction loss is not zero, so the dictionaries do not capture all information in a layer's activations, quantified by the perplexity increase from 25 to 40 when a layer is replaced by its reconstruction; the authors suggest training against change in model outputs rather than reconstruction error as a fix. The training pipeline is suited to the residual stream and does not robustly learn overcomplete bases in intermediate MLP layers, and attention heads are untouched. The claim that behaviour depends on few features is established on one task (IOI), and the authors state that generalisation to other tasks and behaviours needs confirmation. A reader should add that interpretability is scored by a language model judging another model's features, so the metric inherits that judge's limitations — the paper notes such judges struggle with patterns centred on neighbouring rather than current tokens — and that the method's advantage over ICA largely disappears in later layers, which is where the features most relevant to complex behaviour would be expected to live. Experiments are confined to Pythia-70M and Pythia-410M.",
+    "method": "Internal activations x are taken from a language model — mainly the residual streams of Pythia-70M (d=512) and Pythia-410M (d=1024). An autoencoder computes c = ReLU(Mx + b) and reconstructs x_hat = M^T c, so the rows of M form a feature dictionary and c holds the reconstruction coefficients; weights are tied and rows are normalised so the sparsity penalty cannot be gamed by inflating feature vector norms. The hidden layer has size d_hid = R * d_in with R > 1, making the dictionary overcomplete. Training minimises reconstruction error plus alpha times the L1 norm of c, where alpha controls sparsity. Interpretability is measured with the automated pipeline of Bills et al.: sample text where a feature activates, have a language model write a human-readable description, then use that description to predict the feature's activations on held-out text, scoring by correlation. Causal importance is measured with activation patching: run the model on a counterfactual sentence, save the encoded feature activations, then on the base sentence replace the residual stream vector with x_i plus the sum over a chosen feature subset of the difference in feature coefficients times the feature direction, and compute the KL divergence of the patched model's predictions from the target's. The feature subset is chosen by Automated Circuit Discovery, treating features as a flat graph and greedily ordering them by their contribution to the KL metric over 50 IOI data points. Circuits are recovered by picking a target feature, sampling contexts that activate it strongly, ablating each previous-layer feature in turn, and ranking by how much the ablation suppresses the target — applied recursively to build a causal tree.",
+    "methods": [
+      "sparse autoencoder",
+      "activation patching",
+      "Automated Circuit Discovery (ACDC)",
+      "PCA",
+      "ICA",
+      "autointerpretability scoring",
+      "ablation"
+    ],
+    "one_liner": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+    "problem": "Reverse engineering a neural network requires units that can be analysed in isolation, but individual neurons are polysemantic — they activate across semantically unrelated contexts — and for the residual stream there is no reason to expect features to align with the neuron basis at all. The hypothesised cause is superposition: a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is only viable when features activate sparsely. If that hypothesis holds, the features should be recoverable by finding a set of directions in activation space such that every activation vector is a sparse linear combination of them — which is sparse dictionary learning.",
+    "relevance": {},
+    "results": "On automated interpretability across residual stream layers of Pythia-70M, using 150 features per method with 95% confidence intervals, sparse coding scores about 0.30 at layer 0 and declines to roughly 0.15 by layer 5, against about 0.14 for ICA, 0.07-0.13 for PCA, and roughly 0.06-0.08 for the identity-ReLU basis and random directions. The advantage narrows with depth, becoming comparable to ICA at layer 4 and minimal at the final layer. On indirect object identification at layer 11 of Pythia-410M, with dictionaries trained on the first 10,000 elements of the Pile (about 7 million activations), patching dictionary features reaches a given KL divergence from the counterfactual target with fewer patched features than PCA or non-negative PCA, and improves the Pareto frontier of mean edit magnitude against KL divergence; the non-sparse control (alpha = 0) does not show the effect, while larger alpha buys localisation at the cost of higher minimum achievable KL divergence. Case studies: feature 556 activates almost exclusively on apostrophes, and ablating it primarily reduces the logit of the following 's' token, matching what an apostrophe detector used for possessives and contractions should do; a layer-5 closing-parenthesis feature unembeds to closing-parenthesis variants and traces back through a legible multi-layer circuit of features detecting open brackets, acronyms and text in parentheses. Reconstruction is lossy: substituting layer 2 residual stream activations of Pythia-70M with their reconstruction raises Pile perplexity from 25 to 40.",
+    "tags": [
+      "mechanistic interpretability",
+      "sparse autoencoder",
+      "superposition",
+      "polysemanticity",
+      "activation patching",
+      "circuits",
+      "feature dictionary"
+    ],
+    "topics": []
+  },
+  "task_id": "paper__local-e33ecf791dfdfa8a",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

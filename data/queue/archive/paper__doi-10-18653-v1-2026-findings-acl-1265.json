@@ -1,0 +1,104 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:27:19Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1265",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Maisha Maliha",
+      "Dean F. Hougen"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mechanistic interpretability"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-interpretability": 0.5
+    },
+    "title": "Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions",
+    "url": "https://doi.org/10.18653/v1/2026.findings-acl.1265",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "mechanistic interpretability",
+      "cross-attention",
+      "causal faithfulness",
+      "attribution",
+      "head specialization",
+      "counterfactual intervention",
+      "localization"
+    ],
+    "contributions": [
+      "A mechanistic interpretability framework for Stable Diffusion probing per-token representation and use during denoising",
+      "Token-level spatial grounding maps derived from cross-attention activations across UNet denoising",
+      "Fixed-seed single-word removal interventions establishing causal faithfulness through counterfactual generations",
+      "A head-resolved spike score based on divergence between per-head token contribution distributions",
+      "Findings on token grounding, semantic drift and head specialization across denoising timesteps"
+    ],
+    "datasets": [],
+    "limitations": "No quantitative results in the abstract. Scope is Stable Diffusion, so architecture generality is untested. Single-word removal changes the prompt distribution as well as the target semantics, so the counterfactual is not perfectly isolated. Diffusion models, not language reasoning models, so nothing here bears on reasoning traces.",
+    "method": "Cross-attention activations are recorded throughout UNet denoising and converted into token-level spatial grounding maps showing where each token contributes signal. Causal faithfulness is established by controlled prompt interventions that remove one word at a time while holding the sampling seed fixed, producing counterfactual generations — fixing the seed is what makes the two images comparable, so the difference is attributable to the removed word. A head-resolved spike score based on divergence between per-head token contribution distributions before and after intervention quantifies mechanistic sensitivity, enabling module- and head-wise attribution.",
+    "methods": [
+      "cross-attention intervention",
+      "activation patching",
+      "counterfactual prompt ablation",
+      "head-resolved attribution"
+    ],
+    "models": [
+      "Stable Diffusion"
+    ],
+    "one_liner": "Traces how individual prompt tokens ground into image regions during diffusion denoising, using fixed-seed single-word removal for causal faithfulness and a head-resolved spike score for attribution.",
+    "problem": "Text-to-image diffusion models generate well but their internal mechanisms for grounding prompt semantics into visual structure are poorly understood.",
+    "relevance": {
+      "reasoning-interpretability": "Off-target as content — diffusion image generation, no reasoning model — and it reached this topic on interpretability vocabulary. The transferable element is the experimental discipline: holding the sampling seed fixed while ablating one word converts a generative comparison into a controlled counterfactual, and the head-resolved divergence score then attributes the change. The archive's reasoning-trace interventions face the same nuisance-variation problem, since resampling a trace changes everything at once, and seed-fixing is the analogue that trace-level counterfactual studies here do not consistently apply."
+    },
+    "results": "Experiments on compositional prompts and challenging relational descriptions reveal systematic patterns of token grounding, semantic drift and head specialization across denoising timesteps. No numbers are given in the abstract.",
+    "tags": [
+      "diffusion",
+      "cross-attention",
+      "interpretability",
+      "counterfactual",
+      "off-topic-candidate"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1265",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

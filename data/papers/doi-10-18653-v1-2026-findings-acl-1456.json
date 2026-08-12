@@ -1,0 +1,39 @@
+{
+  "abstract": "The ability of large language models (LLMs) to follow user instructions is central to their reliability, safety, and usefulness. While prior studies assess instruction adherence in the model’s main responses, we argue that it is also critical for large reasoning models (LRMs) to follow user instructions throughout their reasoning process. Reasoning instruction following makes LRMs more controllable and transparent, while reducing risks of undesirable shortcuts, hallucinations, or reward hacking within reasoning traces. To evaluate this dimension, we introduce ReasonIF, a systematic benchmark for assessing reasoning instruction following. ReasonIF includes six categories of instruction prompts, spanning multilingual reasoning, and length control. Across many open-source LRMs including GPT-OSS, Qwen3, and DeepSeek-R1, we find substantial failures in reasoning instruction adherence: the highest instruction following score (IFS) remains below 0.25, meaning that fewer than 25% of reasoning traces comply with the given instructions. Notably, as task difficulty increases, reasoning instruction following degrades further. We also explore two strategies to enhance reasoning instruction fidelity: (1) multi-turn reasoning and (2) Reasoning Instruction Finetuning (RIF) using synthetic data. RIF improves the IFS of GPT-OSS-20B from 0.11 to 0.27, indicating measurable progress but leaving ample room for improvement. We hope this work draws attention to reasoning-level instruction adherence as an underexplored but critical aspect of model alignment, and helps pave the way toward more controllable, interpretable, and trustworthy reasoning models.",
+  "arxiv_id": "",
+  "authors": [
+    "Yongchan Kwon",
+    "Shang Zhu",
+    "Federico Bianchi 0001",
+    "Kaitlyn Zhou",
+    "James Zou 0001"
+  ],
+  "categories": [],
+  "doi": "10.18653/V1/2026.FINDINGS-ACL.1456",
+  "first_seen": "2026-08-08T07:29:54Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1456",
+  "last_seen": "2026-08-08T07:29:54Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "large reasoning models",
+    "reasoning model",
+    "reasoning models"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.8
+  },
+  "source": "dblp",
+  "source_id": "conf/acl/KwonZBZZ26",
+  "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "",
+  "url": "https://doi.org/10.18653/v1/2026.findings-acl.1456",
+  "venue": "ACL",
+  "year": 2026
+}

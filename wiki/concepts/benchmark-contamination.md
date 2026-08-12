@@ -1,0 +1,27 @@
+# benchmark contamination
+
+<!-- auto:begin -->
+
+Training on evaluation data, yielding inflated scores. The archived sources establish that for reasoning models it is both consequential and hard to detect, and they now divide into two responses. On detection: contamination introduced during supervised fine-tuning is detectable until a brief GRPO run conceals the signals detectors rely on, with PPO-style importance sampling and clipping identified as the cause, so a broad class of RL methods launders the evidence; and re-instantiating the same problems with different constants collapses RL-trained models by 20-95% on a strict metric. On construction, three newer benchmarks respond by making contamination structurally impossible rather than detectable — parameterized symbolic templates with executable ground truth, automated contamination-resistant generation with controllable difficulty, and symbolic variabilization of existing competition sets. A fourth use inverts it into a control: one source reports its largest effect on AIME 2025 specifically because that split postdates the base model's training cutoff.
+
+- **Kind**: concept
+- **Also called**: data contamination, test set leakage
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 6
+
+**Related**: [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [AMC23](../datasets/amc23.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [compositional generalization](compositional-generalization.md), [construct validity](construct-validity.md), [DAPO](../methods/dapo.md), [DAPO-Qwen-32B](../models/dapo-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5](../models/gpt-5.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [importance sampling](../methods/importance-sampling.md), [judge reliability](judge-reliability.md), [LiveCodeBench](../datasets/livecodebench.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MATH-500](../datasets/math-500.md), [MATH500](../datasets/math500.md), [membership inference](../methods/membership-inference.md), [memorization](memorization.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [pass-k](../methods/pass-k.md), [PPO](../methods/ppo.md), [PRIME](../methods/prime.md), [process evaluation](../methods/process-evaluation.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [reasoning boundary](reasoning-boundary.md), [RLVR](../methods/rlvr.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [supervised finetuning](../methods/supervised-finetuning.md), [test-time compute](test-time-compute.md), [training dynamics](training-dynamics.md), [verification](verification.md), [vLLM](../methods/vllm.md)
+
+## Appears in
+
+- [FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-662/summary.md) — A financial reasoning benchmark built from parameterized symbolic templates with executable Python, giving machine-verifiable step-level ground truth and contamination-free regeneration.
+- [BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications](../../archive/papers/2026/doi-10-18653-v1-2026-findings-acl-1198/summary.md) — A business-domain benchmark pairing four knowledge areas with three practitioner roles, designed to trace application performance back to the theoretical capability it depends on.
+- [PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics](../../archive/papers/2026/doi-10-18653-v1-2026-findings-acl-432/summary.md) — An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.
+- [On The Fragility of Benchmark Contamination Detection in Reasoning Models](../../archive/papers/2026/local-4cf1061e50d8b3c3/summary.md) — Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.
+- [VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks](../../archive/papers/2026/local-d62cc27b0209da49/summary.md) — Converts AMC23 and AIME24/25 into symbolic templates whose constants are replaced by sampled variables, requires a model to solve several instantiations of each problem, and finds RL-finetuned models lose most of their reported accuracy under that consistency requirement.
+- [Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs](../../archive/papers/2025/local-fb100130d8c7c2bd/summary.md) — Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

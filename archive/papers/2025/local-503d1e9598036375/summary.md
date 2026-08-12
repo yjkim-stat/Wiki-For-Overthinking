@@ -1,0 +1,57 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Style Outweighs Substance: Failure Modes of LLM Judges in Alignment Benchmarking
+
+- **Authors**: _unknown_
+- **Venue**: ICLR 2025
+- **Published**: 2025-01-01
+- **Source**: local
+- **Topics**: reasoning-evaluation
+
+## In one line
+
+Builds a large standardized meta-benchmark and finds that LLM-judge preference scores do not correlate with concrete measures of safety, world knowledge or instruction following, because judges systematically prioritize style over factuality and safety.
+
+## Problem
+
+An avalanche of preference-optimization methods claim improved alignment on the strength of LLM-judge preference benchmarks such as MT-Bench, AlpacaEval and Arena-Hard-Auto, and the abstracts of those papers routinely convert judge wins into claims about instruction following, harm reduction, reasoning and accuracy. That conversion assumes judge preference is a robust predictor of downstream behaviour, an assumption nobody had tested at scale.
+
+## Contributions
+
+- A concrete operational definition of alignment, decomposed into measurable components rather than left as whatever judges prefer.
+- SOS-Bench, described as the largest standardized reproducible LLM meta-benchmark of its kind, relating judge preference scores to those concrete measures.
+- The finding that LLM-judge preferences do not correlate with safety, world knowledge or instruction following.
+- Identification of the mechanism: judges carry powerful implicit biases that prioritize style over factuality and safety.
+- A separate positive result on what does drive alignment — the supervised fine-tuning stage has large impact, with data scaling and prompt diversity as the driving factors.
+
+## Method
+
+Alignment is decomposed into concrete, independently measurable dimensions — safety, world knowledge and instruction following — each instantiated with established benchmarks rather than judge preferences. A large set of post-trained models is then scored both on LLM-judge preference benchmarks and on those concrete measures, and the correlation between the two is examined. To identify why they diverge, judge behaviour is probed for systematic preferences over response properties, separating stylistic features from factual and safety-relevant content. A separate analysis varies post-training configuration to determine which stage and which data properties actually move the concrete measures.
+
+## Results
+
+LLM-judge preference scores do not correlate with concrete measures of safety, world knowledge or instruction following — so a method that wins on judge benchmarks has not thereby been shown to improve any of the things its abstract typically claims. The diagnosis is that judges have powerful implicit biases prioritizing style over factuality and safety, meaning the judge is measuring a real property, just not the intended one. On what does work, the supervised fine-tuning stage of post-training is found to have a large impact on alignment, with data scaling and prompt diversity identified as the driving factors — placing the causal weight earlier in the pipeline than the preference-optimization literature assumes.
+
+## Limitations
+
+No standalone limitations section is present in the material read. Points a reader should weigh: the concrete measures are themselves benchmarks with their own construct-validity questions, so the finding is that two families of measurement disagree rather than that one is ground truth; the models studied are post-trained with the preference-optimization methods of the 2024 era, and judge behaviour has since changed, which matters given a later study in this archive measures verbosity bias below 0.011 across a 2026 judge cohort; and the correlation analysis is across models, so it constrains what judge scores predict about a model's other properties without speaking to per-item judge accuracy.
+
+## Why it matters here
+
+- **reasoning-evaluation**: The third and broadest of this topic's judge results, and it attacks a different layer than the other two. One shows the standard agreement metric overstates discrimination by 34-41 points; another shows forced-choice labelling under interpretive ambiguity selects judges up to 31% worse than necessary. Both concern whether a judge measures what a human would. This one asks whether the human-approximating quantity is worth measuring at all, and answers that judge preference does not track safety, world knowledge or instruction following — so even a perfectly validated judge would be reporting a construct that does not predict the properties papers claim from it. For this archive the transfer question is real and should be stated: the archived work uses judges for comparatively determinate labels (is this step correct, was this cue acknowledged), not for open-ended preference, and style-over-substance bias is most damaging in the latter. But the effect it names — the judge reliably measuring something adjacent to the intended construct — is exactly the failure mode that judge-labelled collapse-mode taxonomies and reactive-versus-proactive classifications are exposed to. It also usefully sits in tension with the archive's 2026 judge audit, which finds verbosity bias small; whether style bias has genuinely receded or merely moved to properties that audit did not measure is unresolved.
+
+## Entities
+
+- **Concepts**: LLM as a judge, [construct validity](../../../../wiki/concepts/construct-validity.md), style bias, preference optimization, [alignment](../../../../wiki/concepts/alignment.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), [instruction following](../../../../wiki/concepts/instruction-following.md), supervised finetuning
+- **Methods**: SOS-Bench, [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md), [preference optimization](../../../../wiki/methods/preference-optimization.md), [supervised finetuning](../../../../wiki/methods/supervised-finetuning.md), Bradley-Terry model
+- **Datasets**: [MT-Bench](../../../../wiki/datasets/mt-bench.md), [AlpacaEval](../../../../wiki/datasets/alpacaeval.md), Arena-Hard-Auto, [MMLU](../../../../wiki/datasets/mmlu.md)
+
+Tags: `llm-as-a-judge`, `evaluation`, `alignment`, `style bias`, `meta-benchmark`, `construct validity`
+
+## Abstract
+
+The release of ChatGPT in November 2022 sparked an explosion of interest in post-training and an avalanche of new preference optimization (PO) methods. These methods claim superior alignment by virtue of better correspondence with human pairwise preferences, often measured by LLM-judges. In this work, we attempt to answer the following question - do LLM-judge preferences translate to progress on other, more concrete metrics for alignment, and if not, why not? We define a concrete metric for alignment, and introduce SOS-BENCH (Substance Outweighs Style Benchmark), the largest standardized, reproducible LLM meta-benchmark to date. We find that (1) LLM-judge preferences do not correlate with concrete measures of safety, world knowledge, and instruction following; (2) LLM-judges have powerful implicit biases, prioritizing style over factuality and safety; and (3) the supervised fine-tuning (SFT) stage of post-training has a large impact on alignment, with data scaling and prompt diversity as the driving factors.
+
+---
+
+Record id: `local:503d1e9598036375`

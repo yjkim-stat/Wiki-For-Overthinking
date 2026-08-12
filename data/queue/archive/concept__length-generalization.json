@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proves that no computable length-generalization bound exists for transformers of depth two or beyond, and gives a matching exponential bound for the positive fragment that corresponds to fixed-precision transformers.",
+        "title": "Length Generalization Bounds for Transformers",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+        "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T03:23:49Z",
+  "created_at": "2026-08-09T03:21:54Z",
+  "instructions": "Write the wiki definition for 'length generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "length generalization",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "length generalization",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "length extrapolation",
+      "extrapolation to longer inputs"
+    ],
+    "definition": "Making correct predictions on inputs longer than any seen in training, which both sources treat as the property long-context and long-chain reasoning actually need. They divide sharply. One proves no computable bound exists on how long the training inputs must be, already at depth two, so the required lengths grow faster than any computable function; restricting to fixed precision restores computability at exponential cost. The other proves a positive result in a narrower setting, that a one-layer transformer trained by gradient descent does length-generalize on state-tracking — but only when the task's group action is simply transitive, and only partly for symmetry group actions. Read together: extrapolation is decided by the structure of the specific task, and no general procedure can tell you in advance.",
+    "kind": "concept",
+    "related": [
+      "out-of-distribution generalization",
+      "generalization",
+      "expressivity",
+      "state tracking",
+      "finite precision",
+      "curriculum learning"
+    ]
+  },
+  "task_id": "concept__length-generalization",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

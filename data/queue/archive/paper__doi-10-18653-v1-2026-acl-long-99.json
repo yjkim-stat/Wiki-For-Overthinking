@@ -1,0 +1,111 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:27:19Z",
+  "created_at": "2026-08-08T12:18:14Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.99",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Xiangchen Song",
+      "Aashiq Muhamed",
+      "Yujia Zheng 0001",
+      "Lingjing Kong",
+      "Zeyu Tang 0002",
+      "Mona T. Diab",
+      "Virginia Smith",
+      "Kun Zhang 0001"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "mechanistic interpretability",
+      "sparse autoencoder",
+      "sparse autoencoders"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-interpretability": 0.75
+    },
+    "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.99",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "sparse autoencoder",
+      "monosemanticity",
+      "reproducibility",
+      "feature consistency",
+      "superposition",
+      "canonical features",
+      "auto-interpretation"
+    ],
+    "contributions": [
+      "The argument that run-to-run feature consistency belongs alongside reconstruction and sparsity as a standard SAE evaluation axis",
+      "PW-MCC, an assignment-based metric for dictionary consistency across runs",
+      "Theoretical grounding for strong consistency in the idealized TopK SAE setting",
+      "Synthetic validation on a model organism verifying PW-MCC as a proxy for ground-truth recovery",
+      "Empirical demonstration of PW-MCC around 0.80 for TopK SAEs on LLM activations, correlating with explanation similarity"
+    ],
+    "datasets": [],
+    "limitations": "The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a fifth of the dictionary still differs between runs and which features those are is not characterized. Synthetic validation uses a model organism whose relationship to real activation structure is an assumption. Correlation with automatically generated explanations inherits the reliability of the auto-interpretation pipeline.",
+    "method": "Run-to-run feature consistency is studied directly and proposed as a reported evaluation axis alongside reconstruction and sparsity. The Pairwise Dictionary Mean Correlation Coefficient is an assignment-based metric quantifying consistency: features are matched between runs before being compared, which is what makes the measure invariant to arbitrary feature ordering. Three lines of support are given — theoretical grounding for strong consistency in the idealized TopK setting, synthetic validation on a model organism verifying PW-MCC as a proxy for ground-truth recovery, and empirical analysis on LLM activations.",
+    "methods": [
+      "sparse autoencoder",
+      "TopK SAE",
+      "PW-MCC",
+      "assignment-based matching",
+      "model organism validation"
+    ],
+    "models": [],
+    "one_liner": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+    "problem": "SAEs are used to decompose activations into interpretable features, and the aspiration to find a canonical feature set is undermined by learned features being inconsistent across training runs. That inconsistency breaks reproducibility and makes model comparison unreliable — if two runs on the same activations give different dictionaries, a claim about a feature is a claim about a run.",
+    "relevance": {
+      "reasoning-interpretability": "Directly conditions how much weight this archive's SAE results can carry. Every claim here that a particular feature does a particular thing was read off one training run, and if a fifth of the dictionary is run-dependent then some fraction of those claims are artefacts of a seed. PW-MCC makes that checkable and the paper shows ~0.80 is reachable, so the fix is architectural rather than hopeless. It is also the most concrete instance of what doi:10.18653/v1/2026.acl-long.159 in this drain calls for — an auditing axis the field should report as standard — and it pairs with arxiv:2608.06300's finding that SAEs improve recoverability while attenuating measured influence: consistency and validity are separate properties, and an SAE can now be shown to have the first without the second."
+    },
+    "results": "High consistency is achievable with appropriate architectural choices, with PW-MCC around 0.80 for TopK SAEs on LLM activations. In the synthetic setting PW-MCC is verified as a reliable proxy for ground-truth feature recovery. On LLM activations PW-MCC correlates with the similarity of automatically generated natural-language feature explanations.",
+    "tags": [
+      "sparse autoencoder",
+      "reproducibility",
+      "consistency metric",
+      "interpretability",
+      "evaluation axis"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-99",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

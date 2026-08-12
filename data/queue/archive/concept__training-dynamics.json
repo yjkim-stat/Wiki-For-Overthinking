@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A survey organizing mechanistic findings about reasoning models into training dynamics, reasoning mechanisms and unintended behaviours, and arguing the field needs a unified theoretical framework.",
+        "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+        "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:53Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'training dynamics'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "training dynamics",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "training dynamics",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "learning dynamics",
+      "optimization dynamics"
+    ],
+    "definition": "How a model's behaviour changes over the course of training, as distinct from what it ends up being able to do. One source makes it one of three organizing dimensions for mechanistic findings about reasoning models, alongside reasoning mechanisms and unintended behaviours. The other uses dynamics operationally rather than descriptively, reweighting training objectives online from short-horizon signals of convergence and instability so that focus shifts away from saturated objectives toward underperforming or volatile ones. The second shows why the first matters: if the mixture should adapt to observed dynamics, then dynamics are a control input and not only an object of study.",
+    "kind": "concept",
+    "related": [
+      "entropy collapse",
+      "policy entropy",
+      "catastrophic forgetting",
+      "performance ceiling",
+      "emergent behaviour",
+      "mechanistic interpretability"
+    ]
+  },
+  "task_id": "concept__training-dynamics",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

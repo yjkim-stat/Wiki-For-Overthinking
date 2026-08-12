@@ -1,0 +1,99 @@
+# The fifth topic. The other four ask what reasoning does; this one asks what
+# the computation behind it looks like from the inside.
+#
+# It exists because two archived papers had no home. Activation patching and
+# sparse autoencoders were filed under no topic at all — they concern language
+# models in general rather than reasoning — and then a causal-analysis line
+# accumulated around them: circuit analysis of propositional logic, arithmetic
+# heuristics, grokked implicit reasoning, counterfactual state editing,
+# step-level sparse autoencoders, black-box CoT attribution. The methods paper
+# and the SAE paper are the foundations of that line, not orphans.
+
+slug: reasoning-interpretability
+name: Reasoning Interpretability
+
+description: >-
+  What the computation behind reasoning looks like from the inside: circuits and
+  the attention heads that carry them, features recovered by sparse dictionary
+  learning, and the causal interventions used to establish that a component or a
+  written state matters. The question the archive answers is which claims about
+  a model's internal reasoning the available intervention methods can actually
+  support, and at what granularity.
+
+# ---------------------------------------------------------------------------
+# Matching
+# ---------------------------------------------------------------------------
+#
+# Singular and plural are both listed where the plural is what papers write;
+# scoring matches on word boundaries.
+
+keywords:
+  any:
+    - mechanistic interpretability
+    - activation patching
+    - causal mediation
+    - causal tracing
+    - causal analysis
+    - circuit analysis
+    - circuit discovery
+    # Bare "circuit" was tried and removed. The prediction that circuit papers
+    # in this field put the word in the title was wrong in the other
+    # direction: an analog-circuit design optimizer and a quantum-circuit
+    # simulation planner both cleared the bar on it. "Circuit" is not this
+    # field's word.
+    - reasoning circuit
+    - attention head
+    - sparse autoencoder
+    - superposition
+    - polysemantic
+    - monosemantic
+    - residual stream
+    - activation steering
+    - steering vector
+    - linear probe
+    - linear probing
+    - internal representation
+    - structural causal model
+    - difference-in-means
+    - representation editing
+    - logit lens
+    - interchange intervention
+  all: []
+  # Left empty deliberately, as in the other four topics. Rejected items are
+  # recorded in data/index/rejected.jsonl, which is the evidence to write an
+  # exclusion rule from later.
+  none: []
+
+authors: []
+
+seed_papers: []
+
+# Same arithmetic as the other topics: one title hit scores 0.50, one abstract
+# hit 0.25, two abstract hits 0.40. This topic sits at 0.35 rather than the
+# lower 0.30 used for faithfulness because its vocabulary is standardized —
+# "activation patching" and "sparse autoencoder" are terms of art, so a single
+# clean hit is a strong signal and near-misses are less informative.
+min_score: 0.35
+
+# ---------------------------------------------------------------------------
+# Sources
+# ---------------------------------------------------------------------------
+
+sources:
+  arxiv:
+    enabled: true
+    categories:
+      - cs.CL
+      - cs.LG
+      - cs.AI
+  conferences:
+    enabled: true
+    venues: []
+  youtube:
+    enabled: true
+    channels: []
+
+outputs:
+  lecture_note: true
+  slides: true
+  report: true

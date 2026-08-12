@@ -1,0 +1,106 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:15:50Z",
+  "created_at": "2026-08-08T07:57:42Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1511",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Yangyi Li",
+      "Chenxu Zhao",
+      "Mengdi Huai"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "Quantifying and Understanding Uncertainty in Large Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.acl-long.1511",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "conformal prediction",
+      "uncertainty quantification",
+      "calibration",
+      "coverage guarantee",
+      "Shapley value",
+      "training data attribution",
+      "reasoning-answer coupling"
+    ],
+    "contributions": [
+      "A conformal method giving finite-sample uncertainty guarantees over the joint reasoning-answer structure rather than the answer alone",
+      "An example-to-step explanation framework using Shapley values that identifies a provably sufficient subset of training data and reasoning steps for coverage",
+      "Theoretical analysis for both the uncertainty and the explanation methods"
+    ],
+    "datasets": [
+      "challenging reasoning datasets (unnamed in abstract)"
+    ],
+    "limitations": "No quantitative results, datasets or models in the abstract. Conformal guarantees are exchangeability-dependent, and the abstract does not state the calibration setup or how exchangeability is argued for reasoning traces. Shapley attribution over training examples is expensive, and the abstract claims efficiency without stating the cost. Coverage over a reasoning-answer structure requires a notion of an admissible trace, whose definition governs what the guarantee means.",
+    "method": "A conformal method that provides uncertainty over the reasoning-answer structure with statistical guarantees, rather than over the answer alone. On top of it, a unified example-to-step explanation framework using Shapley values identifies a provably sufficient subset of training data and the specific reasoning steps within it that suffice to achieve coverage. Theoretical analysis is given for both parts.",
+    "methods": [
+      "conformal prediction",
+      "Shapley values",
+      "training data attribution",
+      "uncertainty set construction"
+    ],
+    "models": [],
+    "one_liner": "Applies conformal prediction to the joint reasoning-answer structure of reasoning models, then attributes coverage to specific training examples and reasoning steps with Shapley values.",
+    "problem": "Quantifying generation uncertainty in reasoning models matters, but traditional methods give no finite-sample guarantees for reasoning-answer generation. Conformal prediction is model-agnostic and statistically rigorous, yet existing CP methods ignore the logical connection between the reasoning trace and the final answer. Separately, prior work does not explain where coverage comes from, because it overlooks the training factors that drive valid reasoning, and reasoning quality is hard to disentangle from answer correctness.",
+    "relevance": {
+      "reasoning-training": "The one paper in this drain that offers a finite-sample statistical guarantee, and it puts the guarantee on the trace-and-answer pair rather than the answer, which is the coupling the archive's faithfulness thread keeps finding broken. Its second half is more unusual: attributing coverage back to specific training examples and specific reasoning steps within them is a training-signal question answered with an attribution method, which is a route to 'which supervision produced valid reasoning' that no other paper here takes. Both claims rest on theory the abstract does not expose, so this one needs a full read before the archive relies on it."
+    },
+    "results": "Extensive experiments on challenging reasoning datasets verify the effectiveness of both methods. No numbers, datasets or models are named in the abstract.",
+    "tags": [
+      "conformal prediction",
+      "uncertainty",
+      "shapley",
+      "attribution",
+      "guarantees"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1511",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

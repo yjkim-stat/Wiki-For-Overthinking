@@ -1,0 +1,104 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:15:49Z",
+  "created_at": "2026-08-08T07:57:42Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-industry.152",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [
+      "Qizhi Jiang",
+      "Shuo Wang",
+      "Pei Ke",
+      "Yuhang Song",
+      "Ke Qin"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model",
+      "large reasoning models",
+      "reasoning model",
+      "reasoning models"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "reasoning-training": 0.8
+    },
+    "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+    "url": "https://doi.org/10.18653/v1/2026.acl-industry.152",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "prompt difficulty",
+      "calibration",
+      "self-certainty",
+      "adaptive compute allocation",
+      "efficient reasoning"
+    ],
+    "contributions": [
+      "CAT: intrinsic self-certainty as a confidence signal inside preference optimization",
+      "Autonomous modulation of reasoning length by problem difficulty without an external difficulty estimator",
+      "Reported accuracy gains over state-of-the-art compression baselines across benchmarks and base models"
+    ],
+    "datasets": [],
+    "limitations": "No quantitative results in the abstract, so neither the accuracy gain nor the token saving can be weighed. Benchmarks and base models are unnamed. The approach depends on self-certainty being calibrated with respect to difficulty, which the abstract asserts rather than measures — an overconfident model would compress exactly the problems it is wrong about.",
+    "method": "Confidence-Adaptive Thinking incorporates the model's intrinsic self-certainty signals as confidence into the preference optimization process, letting reasoning length be modulated autonomously by problem difficulty. Using the model's own certainty rather than an external difficulty estimate is the distinguishing choice: difficulty is read off the model that will do the reasoning, not predicted for it.",
+    "methods": [
+      "preference optimization",
+      "Confidence-Adaptive Thinking",
+      "length compression"
+    ],
+    "models": [],
+    "one_liner": "Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.",
+    "problem": "Large reasoning models overthink simple queries, costing tokens and latency. Existing compression applies uniform length reduction or relies on coarse-grained difficulty estimation, which degrades performance on genuinely difficult problems — the cost of a uniform policy falls on the hard cases.",
+    "relevance": {
+      "reasoning-training": "Sits in the archive's difficulty-allocation cluster, and takes the position that the difficulty signal should come from the model's own certainty rather than from a separate estimator. That makes calibration the load-bearing assumption, and the archive's calibration line gives reason to doubt it — if confidence and correctness come apart, compressing confident answers compresses the wrong ones. The paper does not report a calibration check, so the claim rests on the accuracy result alone. It is one of four length-compression papers in this ACL batch, alongside long.146, long.1386 and long.1766."
+    },
+    "results": "CAT is reported to consistently outperform state-of-the-art baselines on reasoning accuracy across multiple benchmarks on different base models. No numbers, benchmark names or base models are given in the abstract.",
+    "tags": [
+      "overthinking",
+      "confidence",
+      "preference optimization",
+      "length compression",
+      "thin-evidence"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-industry-152",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

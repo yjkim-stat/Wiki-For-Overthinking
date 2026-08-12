@@ -1,0 +1,95 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+        "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.",
+        "title": "Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey organizing mechanistic findings about reasoning models into training dynamics, reasoning mechanisms and unintended behaviours, and arguing the field needs a unified theoretical framework.",
+        "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces how individual prompt tokens ground into image regions during diffusion denoising, using fixed-seed single-word removal for causal faithfulness and a head-resolved spike score for attribution.",
+        "title": "Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
+        "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:48Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'mechanistic interpretability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "mechanistic interpretability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "mechanistic interpretability",
+    "source_count": 5
+  },
+  "result": {
+    "aliases": [
+      "MI",
+      "mech interp",
+      "circuit analysis"
+    ],
+    "definition": "Explaining a model's behaviour in terms of its internal computation rather than its input-output mapping, the archive's largest interpretability entity at five sources. Three of the five are about the field's condition rather than any model: one calls for auditable protocols after documenting two papers that reached conflicting conclusions on the same behaviour with a third finding both partially correct and incomparable; one surveys the area by object of study; one surveys it by intervention as a Locate-Steer-Improve pipeline. The remaining two are instrumentation, a VLM library and a diffusion-model framework. That the majority of sources under this term are meta-scientific is itself a description of where the field is.",
+    "kind": "concept",
+    "related": [
+      "reproducibility",
+      "causal tracing",
+      "activation patching",
+      "sparse autoencoder",
+      "localization",
+      "auditability",
+      "literature survey"
+    ]
+  },
+  "task_id": "concept__mechanistic-interpretability",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

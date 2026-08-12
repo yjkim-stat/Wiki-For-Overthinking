@@ -1,0 +1,76 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+        "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.",
+        "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.",
+        "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:48Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'on-policy self-distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "on-policy self-distillation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "on-policy self-distillation",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "OPSD",
+      "privileged self-distillation",
+      "on-policy distillation"
+    ],
+    "definition": "Querying a privileged teacher at prefixes the student actually visits, so that sparse outcome rewards are replaced by dense token-level distributional supervision on the student's own rollouts. Three sources form a family that agrees on the mechanism and differs on how to weight it. One aggregates token-level teacher-student log-probability gaps into turn-level evidence via a recursive Bayesian belief update, identifying pivotal turns by marginal belief revision. One gates backward multi-step aggregation on how each local divergence compares to the sequence mean, arguing that equal magnitudes following different histories should not be weighted equally. One concentrates distillation on reasoning pivots located by the teacher's distributional shift when an English reference solution is added or removed. Three variants appearing together is evidence the approach is consolidating into a named subfield.",
+    "kind": "method",
+    "related": [
+      "privileged information",
+      "token-level distillation",
+      "credit assignment",
+      "process supervision",
+      "token selection",
+      "RLVR"
+    ]
+  },
+  "task_id": "concept__on-policy-self-distillation",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

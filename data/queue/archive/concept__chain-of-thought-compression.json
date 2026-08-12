@@ -1,0 +1,76 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
+        "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:54:42Z",
+  "created_at": "2026-08-09T06:51:54Z",
+  "instructions": "Write the wiki definition for 'chain-of-thought compression'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "chain-of-thought compression",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "chain-of-thought compression",
+    "source_count": 4
+  },
+  "result": {
+    "definition": "Shortening a reasoning trace while trying to keep what the answer depends on, pursued in this archive in two families that the sources treat as distinct. Selective pruning scores each unit — a token, a step, a graph node — and deletes below a threshold; generative rewriting produces a new shorter rationale by paraphrasing, fusing steps or regenerating against a template. Four archived sources establish how the choices inside each family behave. Granularity governs the criterion: at step level different scores converge on the same backbone so the choice hardly matters, while at token level only symbol-aware scoring avoids deleting operators and numbers. Restructuring inverts by domain, degrading mathematics monotonically as structure is disturbed while acting as a denoiser on general tasks. What is nominally pruning is often mostly rewriting — in one attention-guided method, rewrite and fuse account for three quarters of operations and outright keeping for 3.2% — with steps falling 62.4% while average step length rises 22.5%. And the compression measured on training data is not the compression a deployed student produces: long-CoT students retain verbose habits despite concise supervision, so a training-side ratio is an optimistic lower bound on deployment cost."
+  },
+  "task_id": "concept__chain-of-thought-compression",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

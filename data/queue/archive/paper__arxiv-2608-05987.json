@@ -1,0 +1,127 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-08T12:13:22Z",
+  "created_at": "2026-08-08T07:35:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.05987",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reinforcement learning (RL) with verifiable rewards constructs trajectory-level advantage estimates, yet it often fails to credit the few pivotal decisions that determine outcomes in long-horizon, multi-turn agentic tasks. Recent work introduces privileged self-distillation for credit assignment, providing denser supervision, but it remains unclear how such local signals should represent sequential credit. We propose AgentOPSD, a critic-free, recursive method for turn-level credit assignment in agentic reinforcement learning. AgentOPSD aggregates token-level teacher-student log-probability gaps into turn-level evidence and recursively updates a Bayesian belief state in log-odds space. This yields a principled reweighting scheme that converts sparse outcome supervision into turn-level credit signals and identifies pivotal turns through the marginal belief revision between consecutive states. The method is fully compatible with standard policy optimization and requires neither an additional critic nor extra rollouts. We evaluate AgentOPSD on ALFWorld, WebShop, and Search-QA using Qwen2.5 models at two scales (3B and 7B). AgentOPSD outperforms GRPO and strong self-distillation baselines, achieving 89.1% success on ALFWorld with Qwen2.5-7B. Ablation studies attribute the gains to turn-level aggregation and history-dependent recursive belief updates.",
+    "authors": [
+      "Zi-Han Wang",
+      "Zhengxi Lu",
+      "Zhiyuan Yao",
+      "Jinyang Wu",
+      "Jie Wu",
+      "Zhengzhou Cai",
+      "Yueqing Sun",
+      "Ziang Ye",
+      "Linji Hao",
+      "Qi Gu",
+      "Xunliang Cai",
+      "Yongliang Shen",
+      "Yujiu Yang"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "verifiable reward",
+      "verifiable rewards",
+      "GRPO"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.05987v1",
+    "published": "2026-08-06",
+    "scores": {
+      "reasoning-training": 0.5
+    },
+    "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2608.05987",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "credit assignment",
+      "process supervision",
+      "privileged information",
+      "belief state",
+      "long-horizon reasoning",
+      "pivotal decision",
+      "log-odds aggregation"
+    ],
+    "contributions": [
+      "AgentOPSD, a critic-free recursive method for turn-level credit assignment in agentic RL",
+      "Aggregation of token-level teacher-student log-probability gaps into turn-level evidence",
+      "A recursive Bayesian belief update in log-odds space producing history-dependent credit weights",
+      "Pivotal-turn identification via marginal belief revision between consecutive states",
+      "89.1% success on ALFWorld with Qwen2.5-7B, above GRPO and self-distillation baselines"
+    ],
+    "datasets": [
+      "ALFWorld",
+      "WebShop",
+      "Search-QA"
+    ],
+    "limitations": "Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so it is not applicable where none exists. Evaluated on three agentic environments at two scales, all Qwen2.5, so model-family generality is untested. Pivotal-turn identification is validated by downstream reward rather than against any ground truth of which turns mattered.",
+    "method": "AgentOPSD aggregates token-level teacher-student log-probability gaps into turn-level evidence, then recursively updates a Bayesian belief state in log-odds space. Log-odds is what makes the aggregation additive, so per-token evidence composes into a turn-level posterior. This yields a reweighting scheme converting sparse outcome supervision into turn-level credit, and identifies pivotal turns as the marginal belief revision between consecutive states. It is critic-free, needs no extra rollouts, and composes with standard policy optimization.",
+    "methods": [
+      "AgentOPSD",
+      "on-policy self-distillation",
+      "GRPO",
+      "RLVR",
+      "recursive Bayesian update",
+      "token-level distillation"
+    ],
+    "models": [
+      "Qwen2.5-3B",
+      "Qwen2.5-7B"
+    ],
+    "one_liner": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
+    "problem": "RLVR builds trajectory-level advantage estimates, which fail to credit the few pivotal decisions that determine outcomes in long-horizon multi-turn agentic tasks. Privileged self-distillation gives denser supervision, but how those local signals should represent sequential credit is unresolved.",
+    "relevance": {
+      "reasoning-training": "A direct entry in this topic's central dispute — how to get dense credit without a process reward model. It answers with a teacher's log-probabilities as the density source and a recursive belief update as the aggregator, so the supervision is derived rather than learned, which sidesteps reward-model calibration entirely. The identification of pivotal turns by marginal belief revision is the same shape of claim as the token-selection literature in this archive, moved up from tokens to turns, and it makes the archive's four-way token-selection dispute a five-way one at a different granularity. It is one of three OPSD-family papers in this batch, with arxiv:2608.06243 varying the temporal weighting and arxiv:2608.06347 the multilingual pivot."
+    },
+    "results": "On ALFWorld, WebShop and Search-QA with Qwen2.5 at 3B and 7B, AgentOPSD outperforms GRPO and strong self-distillation baselines, reaching 89.1% success on ALFWorld with Qwen2.5-7B. Ablations attribute the gains to turn-level aggregation and to history-dependent recursive belief updates.",
+    "tags": [
+      "credit assignment",
+      "agentic rl",
+      "self-distillation",
+      "grpo",
+      "turn-level"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-05987",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

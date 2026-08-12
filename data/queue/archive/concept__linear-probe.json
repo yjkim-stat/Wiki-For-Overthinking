@@ -1,0 +1,106 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+        "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.",
+        "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.",
+        "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.",
+        "title": "Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
+        "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:34Z",
+  "created_at": "2026-08-08T12:34:09Z",
+  "instructions": "Write the wiki definition for 'linear probe'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "linear probe",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "linear probe",
+    "source_count": 5
+  },
+  "result": {
+    "aliases": [
+      "probe",
+      "linear probing",
+      "probing classifier"
+    ],
+    "definition": "A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five sources. The sources agree it works and disagree about what it measures. Two argue that probing static single-layer activations lets the probe learn surface lexical patterns rather than reasoning structure, and use cross-layer displacement instead; one restores restricted location information because displacement discards the originating state. One detects sycophantic commitment at 74-85% balanced accuracy, beating text-only baselines only at high commitment. One separates recoverability from influence — a concept can be linearly recoverable without affecting the output — and finds sparse autoencoders improve the first while attenuating the second.",
+    "kind": "method",
+    "related": [
+      "activation probing",
+      "residual stream",
+      "localization",
+      "sparse autoencoder",
+      "concept activation vector",
+      "monosemanticity"
+    ]
+  },
+  "task_id": "concept__linear-probe",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

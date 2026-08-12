@@ -1,0 +1,53 @@
+{
+  "aliases": [
+    "GPT5"
+  ],
+  "definition": "An OpenAI frontier model, present in the archive as the ceiling that benchmarks are calibrated against — and beaten in both appearances. On a university-level multimodal math benchmark it is surpassed by Qwen3-VL given no image at all, which the source reads as evidence that visual input contributes little and can interfere. On a contamination-resistant inductive reasoning benchmark it stays below 5% on hard long-cascade instances even under expensive test-time scaling. Both results are used to argue that the benchmark is measuring something real rather than saturating, so GPT-5's presence here marks headroom rather than progress.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2198",
+      "kind": "paper",
+      "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+      "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.432",
+      "kind": "paper",
+      "note": "An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.",
+      "title": "PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics"
+    }
+  ],
+  "first_seen": "2026-08-08T12:46:28Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "GPT-5",
+  "related": [
+    "construct-validity",
+    "multimodal-reasoning",
+    "linguistic-prior",
+    "modality-ablation",
+    "perception-bottleneck",
+    "meta-evaluation",
+    "mathsight",
+    "visual-variant-perturbation",
+    "qwen3-vl",
+    "inductive-reasoning",
+    "programming-by-examples",
+    "benchmark-contamination",
+    "test-time-compute",
+    "predictive-validity",
+    "difficulty-control",
+    "compositional-generalization",
+    "pbebench",
+    "automated-problem-generation",
+    "sound-law-induction",
+    "gpt-oss-120b"
+  ],
+  "schema_version": 1,
+  "slug": "gpt-5",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

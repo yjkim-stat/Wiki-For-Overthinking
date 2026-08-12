@@ -1,0 +1,72 @@
+{
+  "aliases": [
+    "visual perception bottleneck",
+    "perception-reasoning confound"
+  ],
+  "definition": "The finding that failures attributed to reasoning are often failures to see, which three sources establish independently and in different directions. One isolates perception from reasoning with a two-stage pipeline that converts each image to text independently to prevent cross-image inductive leakage, and attributes approximately 80% of ARC-style failures to perception errors. One removes the image entirely and finds performance can improve. One argues that reasoning errors originate in imperfect grounding rather than insufficient deliberation, and routes computation to a re-perceive path rather than more thinking. The practical consequence is that more deliberation cannot repair a perception error, so compute-allocation methods that only choose how much to think are choosing on the wrong axis.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2198",
+      "kind": "paper",
+      "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
+      "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.826",
+      "kind": "paper",
+      "note": "Separates perception from reasoning in ARC-style benchmarks with a two-stage pipeline, and finds about 80% of vision-language model failures are perception errors, not reasoning errors.",
+      "title": "Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.215",
+      "kind": "paper",
+      "note": "Routes each generation step among a fast path, a perception re-examination path and a self-reflection path, trained on 790k samples of teacher-attributed perception-versus-reasoning failures.",
+      "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "perception bottleneck",
+  "related": [
+    "construct-validity",
+    "multimodal-reasoning",
+    "linguistic-prior",
+    "modality-ablation",
+    "meta-evaluation",
+    "mathsight",
+    "visual-variant-perturbation",
+    "qwen3-vl",
+    "gpt-5",
+    "abstract-reasoning",
+    "fluid-reasoning",
+    "confounding",
+    "information-leakage",
+    "two-stage-perception-reasoning-decomposition",
+    "manual-trace-analysis",
+    "end-to-end-versus-staged-comparison",
+    "mini-arc",
+    "acre",
+    "bongard-logo",
+    "arc",
+    "arc-agi",
+    "overthinking",
+    "adaptive-compute-allocation",
+    "meta-reasoning",
+    "failure-attribution",
+    "test-time-compute",
+    "self-correction",
+    "routing",
+    "gpro",
+    "multi-objective-reinforcement-learning",
+    "teacher-based-failure-attribution",
+    "step-level-routing"
+  ],
+  "schema_version": 1,
+  "slug": "perception-bottleneck",
+  "topics": [
+    "reasoning-evaluation",
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

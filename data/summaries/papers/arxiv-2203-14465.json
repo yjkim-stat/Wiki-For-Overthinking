@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "self-training",
+    "bootstrapping",
+    "rationale generation",
+    "rationalization",
+    "outcome-based filtering",
+    "chain of thought"
+  ],
+  "contributions": [
+    "The STaR loop: prompt with a few rationale examples to generate rationales for many questions, finetune on those that produced correct answers, and repeat.",
+    "Rationalization as the fix for the loop's dead end: when the generated answer is wrong, regenerate the rationale with the correct answer supplied as a hint, so hard problems still contribute training signal.",
+    "Evidence that a model can improve itself from its own generated reasoning, without external rationale annotation."
+  ],
+  "datasets": [
+    "CommonsenseQA"
+  ],
+  "generated_at": "2026-08-08T04:12:49Z",
+  "generated_by": "paper",
+  "limitations": "Not discussed in the abstract. A reader should note the structural risk the method carries: correctness of the final answer is the only filter, so a rationale that reaches the right answer by faulty reasoning is kept and trained on. Later work in this archive on unfaithful reasoning makes that failure mode concrete rather than hypothetical.",
+  "method": "A small set of rationale examples seeds few-shot generation of rationales across a large unlabelled-for-rationale dataset. Generated rationales whose final answers are correct are kept; for the incorrect ones the model is given the correct answer and asked to produce a rationale for it. The model is finetuned on all rationales that ultimately yielded correct answers, and the process repeats, each iteration starting from a stronger model.",
+  "methods": [
+    "STaR",
+    "few-shot prompting",
+    "supervised finetuning",
+    "iterative self-improvement"
+  ],
+  "one_liner": "Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.",
+  "paper_id": "arxiv:2203.14465",
+  "problem": "Chain-of-thought rationales improve performance, but eliciting them required either constructing a massive rationale dataset by hand or accepting the accuracy cost of few-shot inference. Neither scales.",
+  "relevance": {
+    "reasoning-training": "The origin of self-training for reasoning and the ancestor of the RLVR line that dominates this topic. The core move — filter self-generated traces by verifiable answer correctness and train on the survivors — is exactly the reward signal RLVR later formalizes, so reading this first makes clear that RLVR's novelty is the optimization, not the supervision. Rationalization is the piece most worth carrying forward: it is an early answer to the problem that outcome filtering discards all signal from problems the model cannot yet solve, which is the same gradient-starvation issue archived work addresses through sample weighting rather than through hints."
+  },
+  "results": "The abstract reports that STaR significantly improves over a model finetuned to predict final answers directly, and performs comparably to finetuning a 30x larger state-of-the-art model on CommonsenseQA. No other figures are given. Summarized from the abstract alone, so the figures below are only those the abstract states; the paper's full evaluation is not represented here.",
+  "schema_version": 1,
+  "tags": [
+    "self-training",
+    "star",
+    "rationales",
+    "bootstrapping",
+    "chain of thought"
+  ],
+  "models": []
+}

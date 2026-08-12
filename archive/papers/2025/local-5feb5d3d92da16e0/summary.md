@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training
+
+- **Authors**: _unknown_
+- **Venue**: NeurIPS 2025
+- **Published**: 2025-01-01
+- **Source**: local
+- **Topics**: test-time-scaling, reasoning-training
+
+## In one line
+
+Trains reasoning models to be concise in proportion to difficulty by modulating the token penalty and the target length per problem, and fixes a distortion that naive reward weighting introduces into group-normalized RL.
+
+## Problem
+
+RL-trained reasoning models overthink, producing responses far longer than needed. Existing compression methods apply a uniform pressure toward brevity, which is the wrong shape: easy problems should get much shorter and hard ones should not. There is also a technical obstacle specific to group-normalized algorithms such as GRPO — multiplying the reward by a difficulty-dependent weight interacts badly with the group normalization, and the paper shows the token penalty is unexpectedly weakened precisely for problems of modest difficulty where outcome variance is highest, which is the opposite of the intended effect.
+
+## Contributions
+
+- DIET, a difficulty-aware training framework that conditions both the token penalty strength and the target response length on an on-the-fly estimate of problem difficulty.
+- A theoretical analysis of why naive reward weighting fails under group-normalized RL, identifying the interaction between the weight and the group normalization as the source of the distortion.
+- Advantage Weighting, which applies the difficulty-dependent weight to the advantage rather than to the raw reward, restoring the intended weighting.
+- Evidence that compression need not cost accuracy: token counts fall substantially while reasoning performance improves.
+- Two benefits the paper argues prior compression work overlooks — better inference-time scaling under a fixed compute budget, and preservation of the natural length-difficulty correlation that other compression methods disrupt.
+
+## Method
+
+Problem difficulty is estimated on the fly during RL rather than annotated in advance, and used in two places. The token penalty strength is modulated so that easy problems face strong pressure toward brevity and hard problems face little. The target length the penalty is measured against is itself conditioned on estimated difficulty, so the objective asks for an appropriate length rather than a uniformly short one. Implementing this naively — scaling the reward by a difficulty weight — is shown to misbehave under group normalization, because normalizing within a group of rollouts rescales the weighted rewards in a way that depends on outcome variance, weakening the penalty exactly where variance is highest. Advantage Weighting instead applies the weight after advantage computation, so the difficulty-dependent modulation survives normalization. The combined objective is trained with GRPO-style RL on mathematical reasoning, and evaluated both on raw token counts and on how accuracy scales with the number of majority-voting samples under a fixed total budget.
+
+## Results
+
+DIET reduces token counts substantially — a 40.7% reduction is reported — while simultaneously improving reasoning performance, rather than trading one against the other. Two further results are the ones the paper argues matter most. First, inference scaling: because per-sample quality is maintained at lower token cost, a fixed compute budget buys more samples, and majority voting over those samples scales better than for competing compression methods, which the paper reports faltering in this regime. Second, the length-difficulty relationship: reasoning models naturally produce longer responses for harder problems, and DIET strengthens that correlation while many existing compression methods weaken or invert it — so verbosity ends up allocated where it is needed instead of being cut uniformly.
+
+## Limitations
+
+The paper's own limitations section states that empirical validation focuses primarily on mathematical reasoning benchmarks, so generalization of the benefits to other domains needs further investigation, and that the optimal balance between the objective's components is not fully characterized. A reader should add that difficulty is estimated on the fly from the model's own rollouts, so the difficulty signal degrades in the same regime as the archive's other rollout-based estimators — on problems the model rarely solves, where the estimate has little to work with; and that the 40.7% figure is a single headline number whose benchmark composition and baseline matter for comparison against the archive's inference-time compression results, which are measured differently.
+
+## Why it matters here
+
+- **reasoning-training**: A concrete technical result about group-normalized RL that generalizes past its own application. The paper shows that multiplying rewards by any per-problem weight interacts with GRPO's group normalization so that the intended weighting is distorted — weakened exactly where outcome variance is highest — and that applying the weight to the advantage instead fixes it. That is directly relevant to several archived methods that reweight rollouts by a per-sample quantity, including entropy-instability weighting and positive-advantage reweighting, none of which discusses this interaction. It is the kind of implementation-level correctness issue that could account for part of the small and inconsistent margins this archive keeps finding among entropy-control methods.
+- **test-time-scaling**: The training-side answer to overthinking, where this archive has collected almost exclusively inference-side answers. Every early-exit method here cuts a trace the model has already decided to produce; DIET changes what the model decides to produce, which sidesteps the stopping-rule problem entirely. Its most useful contribution to this topic is a critique the archive could not previously make: it reports that existing compression methods *disrupt* the natural positive correlation between response length and problem difficulty, cutting verbosity uniformly rather than where it is unneeded. That is a diagnostic this archive should apply to its own early-exit papers, none of which reports whether its savings preserve or destroy that relationship — and a method that shortens hard problems as much as easy ones is doing something different from what its token-savings number suggests. The inference-scaling result is equally pointed: shorter high-quality samples mean more votes per unit compute, so compression and majority voting compound, which is a compute-allocation argument the archive's compression papers do not make.
+
+## Entities
+
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), token penalty, group normalization, advantage weighting, [reward shaping](../../../../wiki/concepts/reward-shaping.md), length-difficulty correlation, inference scaling, majority voting
+- **Methods**: DIET, [GRPO](../../../../wiki/methods/grpo.md), Advantage Weighting, [RLVR](../../../../wiki/methods/rlvr.md), [majority voting](../../../../wiki/methods/majority-voting.md)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime24.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+
+Tags: `overthinking`, `difficulty-aware training`, `token efficiency`, `grpo`, `reward shaping`, `compression`
+
+## Abstract
+
+Recent large language models (LLMs) exhibit impressive reasoning but often overthink, generating excessively long responses that hinder efficiency. We introduce DIET (DIfficulty-AwarE Training), a framework that systematically cuts these "token calories" by integrating on-the-fly problem difficulty into the reinforcement learning (RL) process. DIET dynamically adapts token compression strategies by modulating token penalty strength and conditioning target lengths on estimated task difficulty, to optimize the performance-efficiency trade-off. We also theoretically analyze the pitfalls of naive reward weighting in group-normalized RL algorithms like GRPO, and propose Advantage Weighting technique, which enables stable and effective implementation of these difficulty-aware objectives. Experimental results demonstrate that DIET significantly reduces token counts while simultaneously improving reasoning performance. Beyond raw token reduction, we show two crucial benefits largely overlooked by prior work: (1) DIET leads to superior inference scaling. By maintaining high per-sample quality with fewer tokens, it enables better scaling performance via majority voting with more samples under fixed computational budgets, an area where other methods falter. (2) DIET enhances the natural positive correlation between response length and problem difficulty, ensuring verbosity is appropriately allocated, unlike many existing compression methods that disrupt this relationship. Our analyses provide a principled and effective framework for developing more efficient, practical, and high-performing LLMs.
+
+---
+
+Record id: `local:5feb5d3d92da16e0`

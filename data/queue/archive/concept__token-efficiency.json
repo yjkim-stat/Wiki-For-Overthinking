@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes 'spend test-time compute well' as a meta-reinforcement-learning problem — treating one long output stream as a sequence of episodes and scoring it by cumulative regret over tokens — and trains against a dense progress bonus that outcome-only reward cannot express.",
+        "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:54:44Z",
+  "created_at": "2026-08-09T06:51:54Z",
+  "instructions": "Write the wiki definition for 'token efficiency'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "token efficiency",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "token efficiency",
+    "source_count": 2
+  },
+  "result": {
+    "definition": "Accuracy divided by generated length, used in this archive as a single-number summary of the accuracy-versus-tokens trade-off. It should be read with care, because it improves whenever generation shortens and therefore rewards compression independently of whether accuracy held — in one source the composite rises from 2.81 to 6.80 while accuracy moves by 0.3 points, and at a smaller model scale the same composite improves while accuracy falls. The archive's better-behaved alternatives are a Pareto frontier of accuracy against length reduction, which shows where a method degrades rather than collapsing the curve to a point, and a weighted score that penalizes accuracy loss asymmetrically. The underlying quantity is real and the sources agree on its shape: accuracy holds within about 90% of baseline over a wide compression interval and then drops sharply, so the interesting number is where the plateau ends rather than the ratio at any single operating point."
+  },
+  "task_id": "concept__token-efficiency",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

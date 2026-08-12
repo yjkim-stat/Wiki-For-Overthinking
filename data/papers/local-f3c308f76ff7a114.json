@@ -1,0 +1,39 @@
+{
+  "abstract": "Recent studies have discovered that Chain-of-Thought prompting (CoT) can dramatically improve the performance of Large Language Models (LLMs), particularly when dealing with complex tasks involving mathematics or reasoning. Despite the enormous empirical success, the underlying mechanisms behind CoT and how it unlocks the potential of LLMs remain elusive. In this paper, we take a first step towards theoretically answering these questions. Specifically, we examine the expressivity of LLMs with CoT in solving fundamental mathematical and decision-making problems. By using circuit complexity theory, we first give impossibility results showing that bounded-depth Transformers are unable to directly produce correct answers for basic arithmetic/equation tasks unless the model size grows super-polynomially with respect to the input length. In contrast, we then prove by construction that autoregressive Transformers of constant size suffice to solve both tasks by generating CoT derivations using a commonly used math language format. Moreover, we show LLMs with CoT can handle a general class of decision-making problems known as Dynamic Programming, thus justifying their power in tackling complex real-world tasks. Finally, an extensive set of experiments show that, while Transformers always fail to directly predict the answers, they can consistently learn to generate correct solutions step-by-step given sufficient CoT demonstrations.",
+  "arxiv_id": "2305.15408",
+  "authors": [
+    "Guhao Feng",
+    "Bohang Zhang",
+    "Yuntian Gu",
+    "Haotian Ye",
+    "Di He",
+    "Liwei Wang"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-08T02:26:50Z",
+  "id": "local:f3c308f76ff7a114",
+  "last_seen": "2026-08-08T02:26:50Z",
+  "local_path": "data/pdfs/read/local-f3c308f76ff7a114.pdf",
+  "matched_keywords": [
+    "chain of thought"
+  ],
+  "pdf_url": "",
+  "published": "2023-01-01",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5,
+    "test-time-scaling": 0.5
+  },
+  "source": "local",
+  "source_id": "Towards Revealing the Mystery behind Chain of Thought.pdf",
+  "title": "Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "NeurIPS 2023",
+  "year": 2023
+}

@@ -1,0 +1,68 @@
+{
+  "aliases": [
+    "attention map",
+    "attention weights"
+  ],
+  "definition": "The distribution of attention weights over positions, used by the sources as a readable trace of information flow. One provides tooling to extract and compare these patterns across vision-language architectures; the two others use them to act rather than to observe — locating where to inject a safety reflection, and scoring how strongly cross-step routing aligns with semantic proximity. The sources treat the pattern as evidence about which earlier content a step is actually using, which is the assumption their interventions rest on and which none of them tests directly.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-demo.78",
+      "kind": "paper",
+      "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+      "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1453",
+      "kind": "paper",
+      "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
+      "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.885",
+      "kind": "paper",
+      "note": "Detects reasoning hallucinations by measuring how strongly cross-step attention routing aligns with hidden-state semantic proximity, finding that higher alignment means higher hallucination risk.",
+      "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "attention pattern",
+  "related": [
+    "mechanistic-interpretability",
+    "activation-patching",
+    "tooling",
+    "reproducibility",
+    "attention-pattern-analysis",
+    "transformerlens",
+    "qwen2-5-vl",
+    "qwen3-vl",
+    "llava-1-5",
+    "smolvlm",
+    "aha-moment",
+    "jailbreak",
+    "inference-time-intervention",
+    "test-time-compute",
+    "exaggerated-safety",
+    "reasoning-path-selection",
+    "reasoningguard",
+    "attention-analysis",
+    "scaling-sampling",
+    "safety-reflection-injection",
+    "reasoning-hallucination",
+    "information-flow",
+    "self-confirmation",
+    "verification",
+    "localization",
+    "routing-collapse",
+    "routing-focus-score",
+    "rfs-guard",
+    "cosine-similarity-over-hidden-states"
+  ],
+  "schema_version": 1,
+  "slug": "attention-pattern",
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

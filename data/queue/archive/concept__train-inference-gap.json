@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A speculative-decoding rollout engine for RL post-training that keeps the target sampling distribution exact while adapting the drafter at two timescales.",
+        "title": "SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
+        "title": "LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:40:53Z",
+  "created_at": "2026-08-08T12:37:41Z",
+  "instructions": "Write the wiki definition for 'train-inference gap'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "train-inference gap",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "train-inference gap",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "training-inference mismatch",
+      "distribution shift at inference",
+      "exposure bias"
+    ],
+    "definition": "The mismatch between the distribution a policy is optimized on and the one it generates from at deployment, which both sources treat as a correctness problem rather than an efficiency one. One removes it by construction: exact target verification during speculative rollouts leaves the target sampling distribution and the GRPO objective unchanged, so the speedup introduces no policy-gradient bias. The other closes it in flow models, where training substitutes a stochastic differential equation for the deterministic sampler used at inference and the finite-step discretizations diverge, by taking an inference-aligned deterministic step followed by a stochastic correction. Language RLVR has the same structure — rollouts sampled at temperature, evaluation often greedy — and the archive holds no source measuring that gap directly.",
+    "kind": "concept",
+    "related": [
+      "speculative decoding",
+      "GRPO",
+      "greedy decoding",
+      "rollout generation",
+      "reproducibility"
+    ]
+  },
+  "task_id": "concept__train-inference-gap",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

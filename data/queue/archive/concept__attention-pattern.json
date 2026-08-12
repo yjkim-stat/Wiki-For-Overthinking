@@ -1,0 +1,74 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
+        "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
+        "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects reasoning hallucinations by measuring how strongly cross-step attention routing aligns with hidden-state semantic proximity, finding that higher alignment means higher hallucination risk.",
+        "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:30Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'attention pattern'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "attention pattern",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "attention pattern",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "attention map",
+      "attention weights"
+    ],
+    "definition": "The distribution of attention weights over positions, used by the sources as a readable trace of information flow. One provides tooling to extract and compare these patterns across vision-language architectures; the two others use them to act rather than to observe — locating where to inject a safety reflection, and scoring how strongly cross-step routing aligns with semantic proximity. The sources treat the pattern as evidence about which earlier content a step is actually using, which is the assumption their interventions rest on and which none of them tests directly.",
+    "kind": "concept",
+    "related": [
+      "attention head",
+      "attention analysis",
+      "information flow",
+      "localization",
+      "mechanistic interpretability"
+    ]
+  },
+  "task_id": "concept__attention-pattern",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

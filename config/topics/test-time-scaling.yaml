@@ -1,0 +1,65 @@
+# Spending compute at inference instead of at training. The training-time half
+# is config/topics/reasoning-training.yaml.
+
+slug: test-time-scaling
+name: Test-Time Scaling
+
+description: >-
+  What a model gains by thinking longer at inference: sampling and verification,
+  search over reasoning steps, self-correction, and the length of the chain
+  itself as a compute knob. The question the archive answers is how accuracy
+  trades against tokens spent, and where that curve flattens.
+
+keywords:
+  any:
+    # Prompting-time reasoning is a test-time method, so it belongs here
+    # rather than with training. Broad: one abstract mention scores 0.25 and
+    # is rejected on its own.
+    - chain of thought
+    - chain of thought prompting
+    - test-time compute
+    - test-time scaling
+    - inference-time scaling
+    - inference-time compute
+    - best of n
+    - self-consistency
+    - tree of thoughts
+    - monte carlo tree search
+    - self-refine
+    - self-correction
+    - self-verification
+    - budget forcing
+    - thinking budget
+    - reasoning budget
+    - extended thinking
+    - overthinking
+  all: []
+  none: []
+
+authors: []
+
+seed_papers:
+  - "2408.03314"   # Scaling LLM test-time compute optimally
+  - "2501.19393"   # s1: simple test-time scaling
+  - "2305.10601"   # Tree of Thoughts
+
+min_score: 0.35
+
+sources:
+  arxiv:
+    enabled: true
+    categories:
+      - cs.CL
+      - cs.LG
+      - cs.AI
+  conferences:
+    enabled: true
+    venues: []
+  youtube:
+    enabled: true
+    channels: []
+
+outputs:
+  lecture_note: true
+  slides: true
+  report: true

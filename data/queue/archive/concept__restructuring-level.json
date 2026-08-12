@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
+        "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-09T06:54:44Z",
+  "created_at": "2026-08-09T06:51:54Z",
+  "instructions": "Write the wiki definition for 'restructuring level'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "restructuring level",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "restructuring level",
+    "source_count": 2
+  },
+  "result": {
+    "definition": "How far a compression method is allowed to reorganize a reasoning trace, treated by one archived source as an independent design axis rather than a side effect of how much is removed. It is instantiated as a four-point spectrum: preserving the verbatim logical sequence and cutting only surface words, editing at step level, fusing steps into new statements, and discarding the original structure for a predefined template. Isolating it from compression ratio is what makes the central finding visible — the effect inverts across domains. On mathematics accuracy degrades monotonically as restructuring increases, because strict logical dependencies mean an error introduced by disturbing step boundaries is amplified downstream, leaving structure preservation the only safe choice. On general tasks the monotonicity breaks: aggressive rewriting matches or exceeds structure-preserving baselines, since those tasks accept many valid rationales and do not hinge on a specific intermediate state, so restructuring acts as a denoiser. The most aggressive level is also the highest-variance one, collapsing on logic-heavy problems while remaining competitive elsewhere."
+  },
+  "task_id": "concept__restructuring-level",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

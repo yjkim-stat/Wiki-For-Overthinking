@@ -1,0 +1,47 @@
+{
+  "aliases": [
+    "post-training stage",
+    "fine-tuning stage"
+  ],
+  "definition": "Any training applied after pretraining to shape behaviour, used by both sources as the stage where a property is installed cheaply. One installs safety by altering the reasoning structure with 1K supervised examples and no RL or reward design. The other adds a special token that lets the model reflect and recover mid-generation, integrating into standard post-training rather than replacing it, and reports the harmful completion rate falling from 13.8% to 4.1%. Both emphasize that the intervention composes with existing recipes, which is the practical claim: the property is added without redesigning the pipeline.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.240",
+      "kind": "paper",
+      "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
+      "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.678",
+      "kind": "paper",
+      "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+      "title": "Self-Reflection Improves Safety of Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-08T12:29:58Z",
+  "kind": "method",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "post-training",
+  "related": [
+    "safety-alignment",
+    "reasoning-structure",
+    "data-efficiency",
+    "generalization",
+    "alignment-tax",
+    "alttrain",
+    "supervised-fine-tuning",
+    "self-correction",
+    "self-reflection",
+    "recovery",
+    "helpfulness-safety-trade-off",
+    "adversarial-robustness",
+    "special-token",
+    "self-reflection-token",
+    "adversarial-evaluation"
+  ],
+  "schema_version": 1,
+  "slug": "post-training",
+  "topics": [
+    "reasoning-training"
+  ]
+}

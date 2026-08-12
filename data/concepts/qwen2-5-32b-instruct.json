@@ -1,0 +1,73 @@
+{
+  "aliases": [
+    "Qwen2.5-32B-Instruct"
+  ],
+  "definition": "The 32B instruction-tuned Qwen2.5 model, appearing in both sources as a base to be modified rather than studied. One finetunes it on 1,000 curated reasoning traces and adds budget forcing to produce a model exceeding o1-preview on competition math by up to 27%, and extrapolating from 50% to 57% on AIME24 under forced-longer thinking. The other includes it among the standard LLMs whose self-corrections are almost entirely reactive, with proactive correction essentially absent — the contrast that separates instruction-tuned models from reasoning-trained ones there.",
+  "evidence": [
+    {
+      "id": "arxiv:2501.19393",
+      "kind": "paper",
+      "note": "Reaches test-time scaling with two simple ingredients: supervised finetuning on 1,000 curated reasoning traces, and 'budget forcing', which controls thinking length by cutting generation off or appending 'Wait' to extend it.",
+      "title": "s1: Simple test-time scaling"
+    },
+    {
+      "id": "local:99019f66bdc27581",
+      "kind": "paper",
+      "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
+      "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty"
+    }
+  ],
+  "first_seen": "2026-08-08T02:45:49Z",
+  "kind": "model",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "Qwen2.5-32B-Instruct",
+  "related": [
+    "test-time-scaling",
+    "budget-forcing",
+    "thinking-budget",
+    "data-curation",
+    "difficulty-diversity-and-quality",
+    "extrapolation-beyond-baseline-performance",
+    "supervised-finetuning",
+    "s1",
+    "s1k",
+    "math",
+    "aime24",
+    "epistemic-verbalization",
+    "procedural-information",
+    "silent-divergence",
+    "reasoning-collapse",
+    "reactive-correction",
+    "proactive-correction",
+    "aha-moment",
+    "self-conditioning",
+    "self-bayesian-reasoning",
+    "conditional-entropy-reduction",
+    "distributional-support-alignment",
+    "strategic-information-allocation",
+    "doubt-cue-injection",
+    "trajectory-truncation-and-resampling",
+    "epistemic-token-masking",
+    "self-distillation-sft",
+    "llm-as-a-judge",
+    "supervised-fine-tuning",
+    "aime25",
+    "amc23",
+    "math500",
+    "limo-v2",
+    "qwen2-5-7b",
+    "qwen2-5-math-7b",
+    "qwen3-1-7b-base",
+    "qwen3-8b",
+    "qwen3-14b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b"
+  ],
+  "schema_version": 1,
+  "slug": "qwen2-5-32b-instruct",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-faithfulness",
+    "reasoning-training"
+  ]
+}

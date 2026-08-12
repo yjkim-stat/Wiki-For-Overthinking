@@ -1,0 +1,48 @@
+{
+  "aliases": [
+    "head",
+    "attention heads"
+  ],
+  "definition": "An individual attention computation within a layer, treated by the sources as the unit at which a mechanism can be localized. One generalizes causal tracing to select subsets of heads and MLP neurons jointly, on the argument that single-component tracing misses components that only matter together and makes redundant ones each look unimportant. The other identifies specific heads by function, finding that latent counts stored in per-part item representations are moved to intermediate steps by dedicated heads before final aggregation. The pair frames the open question: heads are individually interpretable often enough to name, and jointly load-bearing often enough that naming them one at a time is unreliable.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.154",
+      "kind": "paper",
+      "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
+      "title": "Multi-component Causal Tracing in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2031",
+      "kind": "paper",
+      "note": "Explains LLM counting failures as a depth limit, since counting is computed across layers, and fixes it with a System-2 decomposition whose mechanism is then traced.",
+      "title": "Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy"
+    }
+  ],
+  "first_seen": "2026-08-08T12:18:14Z",
+  "kind": "concept",
+  "last_seen": "2026-08-10T22:47:38Z",
+  "name": "attention head",
+  "related": [
+    "causal-tracing",
+    "localization",
+    "modularity",
+    "superposition",
+    "combinatorial-search",
+    "soft-intervention",
+    "continuous-relaxation",
+    "causal-mediation-analysis",
+    "activation-patching",
+    "effective-depth",
+    "counting",
+    "system-2-reasoning",
+    "architectural-limitation",
+    "test-time-compute",
+    "task-decomposition",
+    "system-2-prompting"
+  ],
+  "schema_version": 1,
+  "slug": "attention-head",
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

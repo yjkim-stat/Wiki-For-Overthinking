@@ -1,0 +1,42 @@
+{
+  "abstract": "Chain-of-Thought (CoT) prompting remains the standard baseline for evaluating models' reasoning abilities. Originally, this technique was introduced to elicit step-by-step reasoning from large language models (LLMs), which would otherwise tend to directly output the final answer. However, many modern LLMs produce CoT-style responses \\textit{natively} when presented with reasoning tasks, which made us revisit the effectiveness of standard CoT prompting. We evaluate several modern mid-sized language models on a math problem-solving task and find that models specialized for reasoning achieve better performance in a simple zero-shot setting than when using few-shot CoT examples - significantly surpassing officially reported results at no additional cost (e.g., from $\\sim$77\\% to $\\sim$84\\% for Mathstral on GSM8K). For the tested general-purpose model, a zero-shot CoT prompt is also sufficient to outperform a few-shot CoT baseline. We attribute this to a `guidance-distraction' tradeoff: standard CoT prompting also demands style adaptation, formatting compliance, and potentially undesired contextualization, which can distract models from the core reasoning task. Our findings suggest that using standard CoT prompting increasingly acts as a source of distraction as models grow stronger.",
+  "arxiv_id": "2608.03550",
+  "authors": [
+    "Denys Pushkin",
+    "Albert Q. Jiang",
+    "Aryo Lotfi",
+    "Colin Sandon",
+    "Emmanuel Abbé"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-09T09:25:33Z",
+  "id": "arxiv:2608.03550",
+  "last_seen": "2026-08-09T09:25:33Z",
+  "local_path": "data/pdfs/arxiv-2608-03550.pdf",
+  "matched_keywords": [
+    "GSM8K",
+    "reasoning ability",
+    "chain of thought"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.03550v1",
+  "published": "2026-08-04",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.25,
+    "reasoning-training": 0.4,
+    "test-time-scaling": 0.25
+  },
+  "source": "arxiv",
+  "source_id": "2608.03550v1",
+  "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "2026-08-04",
+  "url": "https://arxiv.org/abs/2608.03550",
+  "venue": "",
+  "year": 2026
+}

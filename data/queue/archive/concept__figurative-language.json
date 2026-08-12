@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.",
+        "title": "Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Consolidates multiword-expression resources into one evaluation suite covering idioms, noun compounds and verbal constructions across extraction, classification and interpretation tasks.",
+        "title": "Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-08T12:37:32Z",
+  "created_at": "2026-08-08T12:29:58Z",
+  "instructions": "Write the wiki definition for 'figurative language'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "figurative language",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - names of neighbouring entities worth linking"
+    ]
+  },
+  "payload": {
+    "name": "figurative language",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "idiomatic expression",
+      "multiword expression",
+      "non-literal language"
+    ],
+    "definition": "Expressions whose meaning is not composed from their parts — proverbs, idioms, collocations, noun compounds — used by the sources as a probe for whether apparent understanding is recall. Both find a gap between producing such expressions and reasoning about them. One shows models complete Italian proverbs successfully yet fail multiple-choice selection when no option is correct, and its CoT analysis finds them naming the right ending while missing its absence and preferring literal synonyms. The other consolidates multiword-expression resources into one suite and reports substantial variation concentrated on the tasks it labels semantic reasoning. Neither separates lexical knowledge from reasoning over that knowledge, which is the distinction both invoke.",
+    "kind": "concept",
+    "related": [
+      "memorization",
+      "construct validity",
+      "semantic understanding",
+      "compositional generalization",
+      "abstention"
+    ]
+  },
+  "task_id": "concept__figurative-language",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}
