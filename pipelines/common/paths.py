@@ -88,9 +88,31 @@ class Layout:
         self.wiki = self.root / paths.get("wiki", "wiki")
         self.outputs = self.root / paths.get("outputs", "outputs")
         self.templates = self.root / paths.get("templates", "templates")
+        # Where the templates that ship with the code are. Identical to
+        # `templates` when the repository is run in place; the fallback behind
+        # it when a checkout is pointed at a deployment elsewhere.
+        self.code_templates = REPO_ROOT / "templates"
         # Drop folder for PDFs filed by hand. Outside `data/` because it is an
         # inbox, not a record: everything in it is on its way somewhere else.
         self.inbox = self.root / paths.get("inbox", "inbox")
+
+    @property
+    def template_dirs(self) -> list[Path]:
+        """Where to look for a template, nearest first.
+
+        The deployment's own directory, then the one the code ships. Resolved
+        per file rather than per directory, so a deployment that overrides one
+        template keeps receiving every other one from the code it pulls —
+        copying the whole directory to change a heading is how a deployment
+        stops getting improvements without noticing.
+
+        One entry when the repository is run in place, which is the case the
+        rest of the code was written against.
+        """
+        dirs = [self.templates]
+        if self.code_templates != self.templates:
+            dirs.append(self.code_templates)
+        return dirs
 
     # -- data ---------------------------------------------------------------
     @property

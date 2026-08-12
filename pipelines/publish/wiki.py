@@ -65,7 +65,7 @@ def _preserved_tail(path: Path, end_marker: str) -> str:
 def _write_note(cfg: Config, path: Path, title: str, auto_body: str) -> Path:
     begin, end = _markers(cfg)
     tail = _preserved_tail(path, end)
-    template = load_template(cfg.layout.templates, "wiki", "note.md")
+    template = load_template(cfg.layout.template_dirs, "wiki", "note.md")
     content = render_template(
         template,
         {

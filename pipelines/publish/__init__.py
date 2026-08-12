@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import os
 import re
+from collections.abc import Sequence
 from pathlib import Path
 
 _PLACEHOLDER = re.compile(r"\{\{([A-Z0-9_]+)\}\}")
@@ -25,11 +26,21 @@ class TemplateError(Exception):
     """A template is missing, or a placeholder had no value."""
 
 
-def load_template(templates_dir: Path, *parts: str) -> str:
-    path = templates_dir.joinpath(*parts)
-    if not path.exists():
-        raise TemplateError(f"missing template: {path}")
-    return path.read_text(encoding="utf-8")
+def load_template(where: Path | Sequence[Path], *parts: str) -> str:
+    """Read a template from the first directory that holds it.
+
+    ``where`` is one directory or a search order — see ``Layout.template_dirs``,
+    which puts a deployment's own templates in front of the ones the code ships.
+    A file is resolved individually, so overriding one template does not mean
+    inheriting a whole directory frozen at the version it was copied from.
+    """
+    dirs = [where] if isinstance(where, Path) else list(where)
+    for directory in dirs:
+        path = directory.joinpath(*parts)
+        if path.exists():
+            return path.read_text(encoding="utf-8")
+    looked = " or ".join(str(d.joinpath(*parts)) for d in dirs)
+    raise TemplateError(f"missing template: {looked}")
 
 
 def render_template(template: str, values: dict[str, str]) -> str:

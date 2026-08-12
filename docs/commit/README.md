@@ -60,3 +60,4 @@ reference for everything built before the practice existed.
 | 0037 | [The rules a deployment lives under](0037-the-rules-a-deployment-lives-under.md) | docs | One premise — the code is replaced, the archive is not — and what follows from it |
 | 0038 | [One folder per task, and its harness](0038-one-folder-per-task-and-its-harness.md) | docs | Procedures were scattered; what checks them, and what checks nothing, was nowhere |
 | 0039 | [Name the deployment root once, and mean it everywhere](0039-name-the-deployment-root.md) | feature | The archive can live in a repository of its own; a root named but missing is refused, never fallen back from |
+| 0040 | [A template is resolved against the deployment, then against the code](0040-a-template-is-resolved-per-file.md) | feature | Override one template and go on receiving every other; copying a directory is how a deployment stops getting improvements |

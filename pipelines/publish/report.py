@@ -196,7 +196,7 @@ def _full_index(material: TopicMaterial) -> str:
 def build(cfg: Config, topic: Topic, material: TopicMaterial | None = None) -> Path:
     """Write the HTML report for ``topic``."""
     material = material or gather(cfg, topic)
-    template = load_template(cfg.layout.templates, "report", "base.html")
+    template = load_template(cfg.layout.template_dirs, "report", "base.html")
 
     sections = _Sections()
     sections.add("Overview", _overview(material))

@@ -174,7 +174,7 @@ def _references_slides(material: TopicMaterial, per_slide: int = 8) -> list[str]
 def build(cfg: Config, topic: Topic, material: TopicMaterial | None = None) -> Path:
     """Write the slide deck for ``topic``."""
     material = material or gather(cfg, topic)
-    template = load_template(cfg.layout.templates, "slides", "base.html")
+    template = load_template(cfg.layout.template_dirs, "slides", "base.html")
 
     slides: list[str] = [
         _title_slide(material),

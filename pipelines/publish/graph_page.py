@@ -309,7 +309,7 @@ def build(cfg: Config) -> Path | None:
     if dropped:
         counts += f" · {dropped} least-attested not shown"
 
-    template = load_template(cfg.layout.templates, "wiki", "graph.html")
+    template = load_template(cfg.layout.template_dirs, "wiki", "graph.html")
     page = render_template(
         template,
         {

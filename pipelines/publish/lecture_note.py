@@ -156,7 +156,7 @@ def _open_problems(material: TopicMaterial) -> str:
 def build(cfg: Config, topic: Topic, material: TopicMaterial | None = None) -> Path:
     """Write the lecture note for ``topic``."""
     material = material or gather(cfg, topic)
-    template = load_template(cfg.layout.templates, "lecture-note", "base.md")
+    template = load_template(cfg.layout.template_dirs, "lecture-note", "base.md")
 
     references = citation_list(material)
     content = render_template(
