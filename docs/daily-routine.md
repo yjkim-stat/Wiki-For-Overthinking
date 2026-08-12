@@ -51,6 +51,12 @@ If you would rather run collection on a plain schedule and read the queue when
 convenient, `scripts/daily.sh` is safe to run from cron. The queue simply grows
 until someone drains it.
 
+When the archive lives in a repository of its own, the scheduled job has two
+clones to keep current and must say which tree it works in — `RA_WM_ROOT` in the
+environment, or `--root`, which `daily.sh` forwards to every stage. The commit
+at the end of the run belongs to the archive's repository, not the code's.
+[`workflows/deployment/`](../workflows/deployment/) has the full procedure.
+
 ## Stage by stage
 
 ### Collect
@@ -155,6 +161,8 @@ the manual section, in which case it stays.
 | Result rejected on submit | a required field is empty | the error names the field |
 | Wiki note lost its text | it was written inside the auto block | put it after `<!-- auto:end -->` |
 | Everything looks stale | records fine, renders old | `python3 -m pipelines.render` |
+| Collected records the render cannot see | the two stages ran against different roots | `python3 -m pipelines.migrate status` — it prints the deployment root it resolved |
+| An archive appeared in the code checkout | `RA_WM_ROOT` was unset for that run | see [`workflows/deployment/`](../workflows/deployment/) |
 
 To rebuild every generated file from scratch:
 

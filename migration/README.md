@@ -31,6 +31,13 @@ on purpose, precisely so a scheduled run can start from a fresh clone. If your
 work is pushed, the new environment inherits the archive by cloning — before
 this bundle is unpacked at all.
 
+**Which repository, though.** When the archive lives in one of its own, it is
+*that* repository the new environment clones for the left-hand column, and the
+code separately — `migrate status` prints both roots, and the `git` block it
+prints describes the repository holding the deployment root, which is the one
+this table is about. Everything below is unchanged; `--root` or `RA_WM_ROOT`
+decides which tree is packed and restored.
+
 **This bundle carries only what git refuses to.** Heavy, re-fetchable in
 principle, and in the case of documents not ours to redistribute.
 

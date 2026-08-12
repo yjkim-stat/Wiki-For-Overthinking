@@ -124,6 +124,10 @@ understanding the repository:
 | **The truth** | `data/` | Written by the pipeline, never by hand. Everything else derives from it. |
 | **Derived** | `archive/`, `wiki/`, `outputs/` | Delete them, run render, they come back identical. Never edit them. |
 
+Those three are the archive. `pipelines/`, `templates/`, `tests/` and `docs/`
+are the program, and the two can live in separate repositories — see
+[Keeping the archive in a repository of its own](#keeping-the-archive-in-a-repository-of-its-own).
+
 ```
 .
 ├── config/                     ← yours: what gets collected, and how
@@ -199,6 +203,35 @@ starts from a fresh clone, so anything uncommitted is lost. The exceptions are
 the heavy and the reproducible: raw responses, logs, and PDFs. Note that
 `data/index/seen.sqlite` **is** committed despite being a binary; deduplication
 state that does not survive the clone is not deduplication state.
+
+## Keeping the archive in a repository of its own
+
+Run in place, one repository holds both halves and the quick start above is all
+there is. That works until you want to `git pull` a new version of the code
+while an archive is accumulating underneath it — and then the two halves collide
+in the worst possible files: `seen.sqlite` is binary and unmergeable, the wiki
+graph is regenerated on every render, and `config/` has to be edited by you and
+keeps evolving here.
+
+So the archive can live in a repository of its own, and a checkout of this one
+can be pointed at it:
+
+```bash
+export RA_WM_ROOT=~/research-archive     # or --root on any single command
+python3 -m pipelines.migrate status      # prints both roots — check before running anything
+scripts/daily.sh
+```
+
+The archive repository holds `config/`, `data/`, `wiki/`, `archive/`, `outputs/`
+and `inbox/`; this one holds the program. Nothing is shared, so nothing
+conflicts — `git pull` here and `git commit` there never meet. `templates/` is
+the one directory both may hold: a template is resolved from the deployment
+first and this repository second, per file, so an archive with no `templates/`
+at all renders with the shipped ones and goes on receiving improvements, while
+overriding a single file changes exactly that file.
+
+Setting one up, and updating the code underneath a running archive, is
+[`workflows/deployment/`](workflows/deployment/).
 
 ## Topics
 
@@ -288,9 +321,13 @@ collecting from the wrong indexes is the most common reason a topic stays empty.
 python3 -m pipelines.run_daily [--days N] [--topic slug] [--source arxiv] [--dry-run]
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
 python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
+python3 -m pipelines.migrate status   # which roots, and what each channel carries
 scripts/daily.sh               # collect, then render
 python3 -m unittest discover -s tests -t .
 ```
+
+Every one of them takes `--root <path>` and reads `RA_WM_ROOT`, naming the tree
+the archive lives in. Unset, that is this checkout.
 
 ## Further reading
 

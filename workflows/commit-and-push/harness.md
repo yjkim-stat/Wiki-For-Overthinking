@@ -7,7 +7,7 @@ this page.
 
 | Guard | Catches |
 | --- | --- |
-| `python3 -m unittest discover -s tests -t .` | 403 tests. Run it before every commit, not only when you think you changed behaviour — the layering and churn guards fail on changes that look inert |
+| `python3 -m unittest discover -s tests -t .` | 416 tests. Run it before every commit, not only when you think you changed behaviour — the layering and churn guards fail on changes that look inert |
 | `git push` rejection | Someone else pushed first. Fetch and rebase; never force |
 | `git merge --ff-only` | A divergence you have not noticed. It refuses rather than making a merge commit you did not intend |
 | `.gitignore` | The heavy, un-redistributable half of the archive. Verify with `git check-ignore -v <path>` when adding a directory |

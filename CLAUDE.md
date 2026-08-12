@@ -8,6 +8,37 @@ and reports. The topics are the group's own; nothing here assumes a field.
 The pipeline is deterministic Python. The reading is yours. Those two halves
 meet at a file-backed work queue, and the whole contract is below.
 
+## First: which tree is the archive in?
+
+There are two roots, and every rule below divides along them.
+
+| | **The code root** | **The deployment root** |
+| --- | --- | --- |
+| Holds | `pipelines/`, `templates/`, `tests/`, `docs/`, `workflows/`, this file | `config/`, `data/`, `wiki/`, `archive/`, `outputs/`, `inbox/` |
+| Comes from | `git pull` — it is replaced | months of collecting and reading — it accumulates |
+| Commits go to | this repository, with a note under `docs/commit/` | the archive's own repository, as a digest |
+
+They are **the same directory** when the repository is run in place, which is
+the default and what a fresh clone does. They are **different directories** when
+a checkout is pointed at an archive kept in its own repository — so that pulling
+a new version of the code can never collide with a month of readings.
+
+```bash
+python3 -m pipelines.render --root /path/to/archive   # per command
+export RA_WM_ROOT=/path/to/archive                    # for the whole session
+```
+
+`--root` outranks `RA_WM_ROOT`, which outranks this checkout. Every entry point
+reads it — `run_daily`, `render`, `queue`, `findings`, `migrate` — so setting the
+variable once points all of them at the same tree. A root that is named but
+missing is refused rather than silently falling back, because the fallback would
+write somebody's archive into the code repository and look like a clean run.
+
+**Work out which case you are in before step 0.** `python3 -m pipelines.migrate
+status` prints the root it resolved and the git state of the repository that
+holds it. If they differ, everything about collecting, reading and committing
+happens in the deployment root, and this repository is only the program.
+
 ## The daily routine
 
 Run this when a scheduled session wakes you, or when asked to bring the archive
@@ -20,10 +51,11 @@ git fetch origin main
 git log --oneline HEAD..origin/main    # anything here means you are behind
 ```
 
-Do this before the first edit of a session, and again before merging. More than
-one session commits to this repository, so a container that has been alive for a
-while can be holding a `main` that has moved underneath it — and the two ways
-that goes wrong are both quiet:
+In the deployment root, run it there — that repository has its own `main`, and
+it is the one holding the readings. Do this before the first edit of a session,
+and again before merging. More than one session commits to an archive, so a
+container that has been alive for a while can be holding a `main` that has moved
+underneath it — and the two ways that goes wrong are both quiet:
 
 - **A commit note is numbered by what already exists.** Two sessions each
   reading a stale `docs/commit/` will both write `NNNN`, and the collision only
@@ -205,6 +237,12 @@ ephemeral, so anything uncommitted is lost.
 git add -A && git commit -m "archive: <date> digest"
 ```
 
+**Commit in the deployment root**, when it is a tree of its own — that is where
+the day's work is, and the code checkout should have nothing to show for the
+run. A digest committed to the code repository is the sign that `--root` or
+`RA_WM_ROOT` was not set when it should have been; check `migrate status`
+before assuming otherwise.
+
 A routine digest commit needs no commit note. Any commit that changes code,
 config, templates or documentation does — see the rule below.
 
@@ -232,6 +270,13 @@ config, templates or documentation does — see the rule below.
   against whatever your checkout happens to hold** — see step 0. A number is
   fixed once pushed, so the session that duplicates one is the session that has
   to renumber.
+- **The note rule is the code repository's, not the archive's.** `docs/commit/`
+  numbers the history of the program. A deployment that keeps its archive in its
+  own repository has no `docs/commit/` and needs none: everything it commits is
+  a digest, and its own `config/` is a record of editorial decisions rather than
+  a change to the system. Writing notes there would number them against a
+  sequence the code repository is also advancing, which is the collision the
+  rule above exists to prevent.
 
 ## Working on the code
 
@@ -262,6 +307,13 @@ for months. Every rule here follows from that.
 The question this table answers is *may I write here, and what happens if I do*.
 A tour of the same tree, for a human arriving at the repository, is in the
 [README](README.md#where-things-live).
+
+Every path is relative to the root that owns it. The first block —
+`data/`, `archive/`, `outputs/`, `wiki/`, `inbox/`, `config/` — is in the
+**deployment root**; everything from `pipelines/` down is in the **code root**.
+Run in place they are one tree, and the distinction costs nothing to ignore.
+Run apart, writing to the wrong one is the mistake worth catching, and it is the
+tables above and `migrate status` that tell you which is which.
 
 | Path | Write? | What it is |
 | --- | --- | --- |
@@ -295,7 +347,20 @@ python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
-python3 -m pipelines.migrate status               # moving environments? read migration/README.md
+python3 -m pipelines.migrate status               # which roots, and what each channel carries
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
 ```
+
+Against an archive kept in its own repository, name it once and every command
+above is unchanged:
+
+```bash
+export RA_WM_ROOT=/path/to/archive
+python3 -m pipelines.migrate status               # confirm before anything else
+```
+
+Or per command, which outranks the variable: `--root /path/to/archive`.
+`scripts/daily.sh` passes a `--root` on to every stage, so collecting and
+rendering cannot end up in different trees. Setting up such a deployment, and
+updating the code underneath one, is [`workflows/deployment/`](workflows/deployment/).

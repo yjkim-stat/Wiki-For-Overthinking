@@ -33,7 +33,7 @@ that when first written.
 ## Running it
 
 ```bash
-python3 -m unittest discover -s tests -t .      # 403 tests
+python3 -m unittest discover -s tests -t .      # 416 tests
 python3 -m unittest tests.test_layering -v      # the boundary alone
 ```
 
