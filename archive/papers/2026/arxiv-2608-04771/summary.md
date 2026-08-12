@@ -45,7 +45,7 @@ Across three reasoning models and six benchmarks, ReCo reduces generated tokens 
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [process reward](../../../../wiki/concepts/process-reward.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [KV cache compression](../../../../wiki/concepts/kv-cache-compression.md), early exit, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), reflection tokens
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [process reward](../../../../wiki/concepts/process-reward.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), KV cache compression, early exit, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), reflection tokens
 - **Methods**: ReCo, [process reward model](../../../../wiki/methods/process-reward-model.md), KV-cache eviction, confidence-based early stopping, reward-banded penalty
 - **Datasets**: _none recorded_
 

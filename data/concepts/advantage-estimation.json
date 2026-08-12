@@ -25,6 +25,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "arxiv:2608.04698",
       "kind": "paper",
       "note": "A GRPO variant that teaches multimodal models to refuse when a referred object is absent, without losing localization accuracy on cases where it is present.",
@@ -39,7 +45,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "advantage estimation",
   "related": [
     "credit-assignment",
@@ -92,6 +98,18 @@
     "math-500",
     "mmlu-stem",
     "arc-challenge",
+    "self-improvement",
+    "experience-distillation",
+    "policy-entropy",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "minerva-math",
+    "dapo-math-17k",
     "abstention",
     "hallucination",
     "over-refusal",
@@ -101,7 +119,6 @@
     "reinforcement-learning-post-training",
     "group-relative-advantage",
     "rollout-efficiency",
-    "data-efficiency",
     "prompt-difficulty",
     "zero-variance-group",
     "critic-free-reinforcement-learning"
@@ -111,6 +128,7 @@
   "slug": "advantage-estimation",
   "topics": [
     "reasoning-training",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
   ]
 }

@@ -25,6 +25,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T23:15:37Z",
   "created_at": "2026-08-12T23:01:59Z",
   "instructions": "Write the wiki definition for 'ProntoQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "ProntoQA",
@@ -43,6 +44,12 @@
   "payload": {
     "name": "ProntoQA",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A synthetic deductive-reasoning question-answering task, used by both sources as the near-ceiling control in a latent chain-of-thought comparison: explicit and latent reasoning reach 99.8% and 98.8%, so it separates nothing about representation. Its diagnostic value is what happens when the training curriculum is removed — accuracy collapses from 99.8% to 52.4%, a larger drop than either source reports on the harder benchmarks. A task on which two methods are indistinguishable at ceiling therefore turns out to be the sharpest evidence that the curriculum, not the latent representation, is what makes the method work.",
+    "kind": "dataset",
+    "related": []
   },
   "task_id": "concept__prontoqa",
   "task_version": 1,

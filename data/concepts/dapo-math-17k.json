@@ -7,6 +7,12 @@
   "definition": "The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would otherwise be, since the training distribution is held fixed while the objective varies. One source complicates its use by showing that a roughly 600-sample subset selected by K-means clustering performs comparably to the full set, so its size is not what is doing the work.",
   "evidence": [
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "local:7d5e3edea2d46b92",
       "kind": "paper",
       "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
@@ -33,9 +39,28 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "DAPO-Math-17K",
+  "last_seen": "2026-08-12T23:15:52Z",
+  "name": "DAPO-Math-17k",
   "related": [
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "reward-sparsity",
+    "advantage-estimation",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
     "token-level-entropy",
     "forking-tokens",
     "high-entropy-minority-tokens",
@@ -47,7 +72,6 @@
     "policy-gradient-masking",
     "rlvr",
     "dapo",
-    "grpo",
     "ppo",
     "high-entropy-token-gradient-masking",
     "dual-temperature-decoding",
@@ -65,7 +89,6 @@
     "entropy-dynamics",
     "entropy-discriminator",
     "dynamic-baseline",
-    "policy-entropy",
     "exploration-exploitation-trade-off",
     "low-probability-tokens",
     "learning-dynamics",
@@ -125,9 +148,11 @@
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "dapo-math-17k",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"
   ]

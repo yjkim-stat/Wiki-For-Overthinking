@@ -1,6 +1,10 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "outcome-based reward",
+    "terminal reward",
+    "outcome supervision"
+  ],
+  "definition": "A single scalar awarded for the finished answer, and across these sources the baseline whose insufficiency each of them is arguing. Two treat it as an anchor that must be kept: one finds that removing the terminal reward while retaining dense per-step supervision is its largest single ablation loss (6.3 F1, degrading every benchmark), and the other bounds its privileged correction by the outcome advantage so that privileged information can never generate an update where the outcome reward is silent. The third names what it cannot express: treating one output stream as a sequence of episodes and scoring it by cumulative regret, it finds that current models' progress toward a correct answer is not monotone across the stream, and that a 0/1 terminal reward applies no pressure for it to be. The shared position is that outcome reward determines the direction of learning and cannot determine its distribution over a trajectory.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -78,7 +82,10 @@
     "math",
     "aime24"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "outcome-reward-model",
+    "reward-hacking"
+  ],
   "schema_version": 1,
   "slug": "outcome-reward",
   "topics": [

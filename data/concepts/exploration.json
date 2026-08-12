@@ -9,6 +9,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "arxiv:2608.05600",
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "exploration",
   "related": [
     "latent-reasoning",
@@ -37,6 +43,21 @@
     "math-500",
     "mmlu-stem",
     "arc-challenge",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "policy-entropy",
+    "reward-sparsity",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "minerva-math",
+    "dapo-math-17k",
     "train-inference-gap",
     "discretization-error",
     "wasserstein-distance",
@@ -57,6 +78,7 @@
   "slug": "exploration",
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

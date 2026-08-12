@@ -23,6 +23,12 @@
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "arxiv:2608.04735",
       "kind": "paper",
       "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
@@ -43,7 +49,7 @@
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T22:46:42Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "post-hoc rationalization",
   "related": [
     "chain-of-thought-faithfulness",
@@ -86,6 +92,23 @@
     "gpqa-diamond",
     "medcalc-bench",
     "ruler",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "reward-sparsity",
+    "advantage-estimation",
+    "data-efficiency",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k",
     "monitorability",
     "implicit-influence",
     "evaluation-regime",
@@ -129,6 +152,7 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

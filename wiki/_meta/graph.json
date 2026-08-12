@@ -172,12 +172,22 @@
     },
     {
       "source": "concept:advantage-estimation",
+      "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
       "target": "concept:privileged-information",
       "type": "co-occurs"
     },
     {
       "source": "concept:advantage-estimation",
       "target": "concept:reward-shaping",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "concept:reward-sparsity",
       "type": "co-occurs"
     },
     {
@@ -192,7 +202,22 @@
     },
     {
       "source": "concept:advantage-estimation",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -373,11 +398,6 @@
     {
       "source": "concept:alignment",
       "target": "model:gpt-oss-20b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:alignment-tax",
-      "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
     {
@@ -1637,6 +1657,11 @@
     },
     {
       "source": "concept:credit-assignment",
+      "target": "concept:reward-sparsity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:credit-assignment",
       "target": "concept:search-augmented-reasoning",
       "type": "co-occurs"
     },
@@ -1857,12 +1882,22 @@
     },
     {
       "source": "concept:data-efficiency",
+      "target": "concept:alignment-tax",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
       "target": "concept:generalization",
       "type": "co-occurs"
     },
     {
       "source": "concept:data-efficiency",
       "target": "concept:safety-alignment",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -2012,11 +2047,6 @@
     },
     {
       "source": "concept:entropy-bonus",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-bonus",
       "target": "dataset:kodcode",
       "type": "co-occurs"
     },
@@ -2107,11 +2137,6 @@
     },
     {
       "source": "concept:entropy-collapse",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -2133,11 +2158,6 @@
     {
       "source": "concept:entropy-collapse",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -2412,12 +2432,37 @@
     },
     {
       "source": "concept:exploration",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
     {
       "source": "concept:exploration",
+      "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
       "target": "concept:train-inference-gap",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:exploration",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -2462,11 +2507,6 @@
     },
     {
       "source": "concept:exploration-exploitation-trade-off",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -2493,11 +2533,6 @@
     {
       "source": "concept:exploration-exploitation-trade-off",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -4242,6 +4277,16 @@
     },
     {
       "source": "concept:outcome-reward",
+      "target": "concept:reward-hacking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:outcome-reward",
+      "target": "concept:reward-sparsity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:outcome-reward",
       "target": "concept:search-augmented-reasoning",
       "type": "co-occurs"
     },
@@ -4438,11 +4483,6 @@
     {
       "source": "concept:overthinking",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:overthinking",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -4697,11 +4737,6 @@
     },
     {
       "source": "concept:performance-ceiling",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:performance-ceiling",
       "target": "concept:scaling-laws",
       "type": "co-occurs"
     },
@@ -4782,7 +4817,27 @@
     },
     {
       "source": "concept:policy-entropy",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
       "target": "concept:entropy-bonus",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "concept:entropy-collapse",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "concept:performance-ceiling",
       "type": "co-occurs"
     },
     {
@@ -4802,6 +4857,26 @@
     },
     {
       "source": "concept:policy-entropy",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "dataset:amc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -4812,7 +4887,27 @@
     },
     {
       "source": "concept:policy-entropy",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "dataset:math500",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
       "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "method:calibration",
       "type": "co-occurs"
     },
     {
@@ -4842,6 +4937,11 @@
     },
     {
       "source": "concept:policy-entropy",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
       "target": "method:policy-gradient",
       "type": "co-occurs"
     },
@@ -4862,6 +4962,11 @@
     },
     {
       "source": "concept:policy-entropy",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
       "target": "method:verl",
       "type": "co-occurs"
     },
@@ -4878,6 +4983,11 @@
     {
       "source": "concept:policy-entropy",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:policy-entropy",
+      "target": "model:qwen2-5-7b",
       "type": "co-occurs"
     },
     {
@@ -4907,6 +5017,11 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "concept:advantage-estimation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "concept:auditability",
       "type": "co-occurs"
     },
@@ -4917,7 +5032,17 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "concept:epistemic-verbalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "concept:exploration",
       "type": "co-occurs"
     },
     {
@@ -4928,6 +5053,21 @@
     {
       "source": "concept:post-hoc-rationalization",
       "target": "concept:monitorability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "concept:privileged-information",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "concept:reward-sparsity",
       "type": "co-occurs"
     },
     {
@@ -4962,7 +5102,17 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "dataset:dapo-math-17k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "dataset:math-500",
       "type": "co-occurs"
     },
     {
@@ -4982,12 +5132,22 @@
     },
     {
       "source": "concept:post-hoc-rationalization",
+      "target": "method:grpo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
       "target": "method:kv-cache-compression",
       "type": "co-occurs"
     },
     {
       "source": "concept:post-hoc-rationalization",
       "target": "method:llm-as-a-judge",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
     {
@@ -5007,7 +5167,22 @@
     },
     {
       "source": "concept:privileged-information",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "concept:exploration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
       "target": "concept:long-horizon-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "concept:policy-entropy",
       "type": "co-occurs"
     },
     {
@@ -5018,6 +5193,21 @@
     {
       "source": "concept:privileged-information",
       "target": "concept:token-selection",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -5068,6 +5258,11 @@
     {
       "source": "concept:process-reward",
       "target": "concept:reasoning-redundancy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-reward",
+      "target": "concept:reward-sparsity",
       "type": "co-occurs"
     },
     {
@@ -5602,11 +5797,6 @@
     },
     {
       "source": "concept:reasoning-redundancy",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:reasoning-redundancy",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -5743,11 +5933,6 @@
     {
       "source": "concept:reasoning-skeleton",
       "target": "concept:token-efficiency",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:reasoning-skeleton",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -6378,6 +6563,116 @@
     {
       "source": "concept:reward-shaping",
       "target": "method:reinforcement-learning-post-training",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:exploration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:multi-hop-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:privileged-information",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "concept:search-augmented-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:2wikimultihopqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:dapo-math-17k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:hotpotqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:musique",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:natural-questions",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:popqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:triviaqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:gigpo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:grpo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:ppo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:search-r1",
       "type": "co-occurs"
     },
     {
@@ -7717,11 +8012,6 @@
     },
     {
       "source": "concept:token-level-entropy",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
       "target": "concept:scaling-laws",
       "type": "co-occurs"
     },
@@ -7743,11 +8033,6 @@
     {
       "source": "concept:token-level-entropy",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -8462,6 +8747,11 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
@@ -8473,6 +8763,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:policy-entropy",
       "type": "co-occurs"
     },
     {
@@ -8498,6 +8793,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "dataset:bbh",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -8637,12 +8937,22 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "concept:judge-reliability",
       "type": "co-occurs"
     },
     {
       "source": "dataset:aime-2025",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:policy-entropy",
       "type": "co-occurs"
     },
     {
@@ -8663,6 +8973,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "dataset:bbh",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -8772,11 +9087,6 @@
     },
     {
       "source": "dataset:aime-24",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-24",
       "target": "dataset:gpqa",
       "type": "co-occurs"
     },
@@ -8818,11 +9128,6 @@
     {
       "source": "dataset:aime-25",
       "target": "concept:entropy-bonus",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-25",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -9572,11 +9877,6 @@
     },
     {
       "source": "dataset:aime25",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
       "target": "concept:reasoning-skeleton",
       "type": "co-occurs"
     },
@@ -9613,11 +9913,6 @@
     {
       "source": "dataset:aime25",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -9872,11 +10167,6 @@
     },
     {
       "source": "dataset:amc",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:amc",
       "target": "concept:softmax-policy",
       "type": "co-occurs"
     },
@@ -9962,11 +10252,6 @@
     },
     {
       "source": "dataset:amc23",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:amc23",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -9993,11 +10278,6 @@
     {
       "source": "dataset:amc23",
       "target": "concept:token-efficiency",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:amc23",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -10232,12 +10512,172 @@
     },
     {
       "source": "dataset:dapo-math-17k",
+      "target": "concept:entropy-bonus",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:entropy-collapse",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:reasoning-redundancy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:reasoning-skeleton",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:aime-24",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:aime-25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:math500",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:calibration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:chain-of-thought-compression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:clip-cov",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:kl-cov",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
       "target": "method:length-penalty",
       "type": "co-occurs"
     },
     {
       "source": "dataset:dapo-math-17k",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:policy-gradient-masking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:tokenskip",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:verl",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
       "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:qwen3-14b",
       "type": "co-occurs"
     },
     {
@@ -10248,6 +10688,11 @@
     {
       "source": "dataset:dapo-math-17k",
       "target": "model:qwen3-4b-base",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -10722,6 +11167,11 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "concept:effective-depth",
       "type": "co-occurs"
     },
@@ -10787,6 +11237,16 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "concept:post-hoc-rationalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "concept:privileged-information",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "concept:process-supervision",
       "type": "co-occurs"
     },
@@ -10823,6 +11283,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "concept:reward-shaping",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "concept:reward-sparsity",
       "type": "co-occurs"
     },
     {
@@ -10893,6 +11358,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "dataset:bbh",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -11128,6 +11598,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "method:monte-carlo-tree-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
     {
@@ -11597,17 +12072,7 @@
     },
     {
       "source": "dataset:livecodebench",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
       "target": "concept:reasoning-boundary",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -12052,6 +12517,11 @@
     },
     {
       "source": "dataset:math-500",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
@@ -12072,12 +12542,27 @@
     },
     {
       "source": "dataset:math-500",
+      "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
+      "target": "concept:privileged-information",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
     {
       "source": "dataset:math-500",
       "target": "concept:reward-hacking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
+      "target": "concept:reward-sparsity",
       "type": "co-occurs"
     },
     {
@@ -12098,6 +12583,11 @@
     {
       "source": "dataset:math-500",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -12208,6 +12698,11 @@
     {
       "source": "dataset:math-500",
       "target": "method:majority-voting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math-500",
+      "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
     {
@@ -12367,11 +12862,6 @@
     },
     {
       "source": "dataset:math500",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
       "target": "concept:process-supervision",
       "type": "co-occurs"
     },
@@ -12443,11 +12933,6 @@
     {
       "source": "dataset:math500",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -12808,11 +13293,6 @@
     {
       "source": "dataset:minerva",
       "target": "concept:reasoning-boundary",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:minerva",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -13197,11 +13677,6 @@
     },
     {
       "source": "dataset:olympiadbench",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:olympiadbench",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -13258,11 +13733,6 @@
     {
       "source": "dataset:olympiadbench",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:olympiadbench",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -14752,11 +15222,6 @@
     },
     {
       "source": "method:calibration",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
       "target": "concept:residual-stream",
       "type": "co-occurs"
     },
@@ -14783,11 +15248,6 @@
     {
       "source": "method:calibration",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -15382,11 +15842,6 @@
     },
     {
       "source": "method:chain-of-thought-compression",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:chain-of-thought-compression",
       "target": "method:generative-rewriting",
       "type": "co-occurs"
     },
@@ -15662,11 +16117,6 @@
     },
     {
       "source": "method:clip-cov",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:clip-cov",
       "target": "dataset:kodcode",
       "type": "co-occurs"
     },
@@ -15723,11 +16173,6 @@
     {
       "source": "method:clip-higher",
       "target": "concept:tabular-softmax-parameterization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:clip-higher",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -15838,11 +16283,6 @@
     {
       "source": "method:dapo",
       "target": "concept:reasoning-boundary",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:dapo",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -16178,11 +16618,6 @@
     {
       "source": "method:entropy-regularization",
       "target": "concept:tabular-softmax-parameterization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:entropy-regularization",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -17008,11 +17443,6 @@
     {
       "source": "method:kl-cov",
       "target": "concept:tabular-softmax-parameterization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:kl-cov",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -18062,7 +18492,22 @@
     },
     {
       "source": "method:on-policy-self-distillation",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "concept:exploration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
       "target": "concept:long-horizon-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "concept:policy-entropy",
       "type": "co-occurs"
     },
     {
@@ -18073,6 +18518,21 @@
     {
       "source": "method:on-policy-self-distillation",
       "target": "concept:token-selection",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -18102,11 +18562,6 @@
     },
     {
       "source": "method:pass-k",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -18128,11 +18583,6 @@
     {
       "source": "method:pass-k",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -18288,11 +18738,6 @@
     {
       "source": "method:policy-gradient-masking",
       "target": "concept:advantage-function",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:policy-gradient-masking",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -19672,11 +20117,6 @@
     },
     {
       "source": "method:rlvr",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
       "target": "concept:process-supervision",
       "type": "co-occurs"
     },
@@ -19738,11 +20178,6 @@
     {
       "source": "method:rlvr",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -21542,11 +21977,6 @@
     },
     {
       "source": "method:tokenskip",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:tokenskip",
       "target": "method:length-penalty",
       "type": "co-occurs"
     },
@@ -21568,11 +21998,6 @@
     {
       "source": "method:verl",
       "target": "concept:softmax-policy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:verl",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -21842,11 +22267,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-1-5b",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-1-5b",
       "target": "method:attention-analysis",
       "type": "co-occurs"
     },
@@ -22033,11 +22453,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "dataset:amc23",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -22508,11 +22923,6 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "concept:restructuring-level",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b-instruct",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -23092,11 +23502,6 @@
     },
     {
       "source": "model:qwen2-5-7b",
-      "target": "concept:policy-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-7b",
       "target": "concept:reasoning-boundary",
       "type": "co-occurs"
     },
@@ -23327,11 +23732,6 @@
     },
     {
       "source": "model:qwen2-5-math-7b",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-math-7b",
       "target": "dataset:minerva",
       "type": "co-occurs"
     },
@@ -23457,11 +23857,6 @@
     },
     {
       "source": "model:qwen3-14b",
-      "target": "dataset:dapo-math-17k",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-14b",
       "target": "dataset:minerva",
       "type": "co-occurs"
     },
@@ -23543,11 +23938,6 @@
     {
       "source": "model:qwen3-8b",
       "target": "dataset:bbh",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
-      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -23772,6 +24162,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "concept:advantage-estimation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "concept:alignment",
       "type": "covers"
     },
@@ -23817,6 +24212,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "concept:data-efficiency",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "concept:effective-depth",
       "type": "covers"
     },
@@ -23833,6 +24233,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "concept:error-detection",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "concept:exploration",
       "type": "covers"
     },
     {
@@ -23922,6 +24327,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "concept:post-hoc-rationalization",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "concept:privileged-information",
       "type": "covers"
     },
@@ -23963,6 +24373,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "concept:reward-hacking",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "concept:reward-sparsity",
       "type": "covers"
     },
     {
@@ -24063,6 +24478,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "dataset:amc23",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "dataset:dapo-math-17k",
       "type": "covers"
     },
     {
@@ -26173,6 +26593,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:reward-shaping",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:reward-sparsity",
       "type": "covers"
     },
     {
@@ -28026,7 +28451,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-12T23:01:58Z",
+  "generated_at": "2026-08-12T23:15:53Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -28047,7 +28472,7 @@
       "kind": "concept",
       "label": "advantage estimation",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "concept:advantage-function",
@@ -28208,7 +28633,7 @@
       "kind": "concept",
       "label": "data efficiency",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:effective-depth",
@@ -28264,7 +28689,7 @@
       "kind": "concept",
       "label": "exploration",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:exploration-exploitation-trade-off",
@@ -28516,7 +28941,7 @@
       "kind": "concept",
       "label": "policy entropy",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "concept:polysemanticity",
@@ -28530,14 +28955,14 @@
       "kind": "concept",
       "label": "post-hoc rationalization",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "concept:privileged-information",
       "kind": "concept",
       "label": "privileged information",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "concept:process-reward",
@@ -28629,6 +29054,13 @@
       "label": "reward shaping",
       "settled": false,
       "sources": 4
+    },
+    {
+      "id": "concept:reward-sparsity",
+      "kind": "concept",
+      "label": "reward sparsity",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "concept:robustness",
@@ -28824,14 +29256,14 @@
       "kind": "dataset",
       "label": "AIME 2024",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "dataset:aime-2025",
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "dataset:aime-24",
@@ -28906,9 +29338,9 @@
     {
       "id": "dataset:dapo-math-17k",
       "kind": "dataset",
-      "label": "DAPO-Math-17K",
+      "label": "DAPO-Math-17k",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "dataset:game-of-24",
@@ -28936,7 +29368,7 @@
       "kind": "dataset",
       "label": "GSM8K",
       "settled": false,
-      "sources": 25
+      "sources": 26
     },
     {
       "id": "dataset:hotpotqa",
@@ -28985,7 +29417,7 @@
       "kind": "dataset",
       "label": "MATH-500",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "dataset:math500",
@@ -29342,7 +29774,7 @@
       "kind": "method",
       "label": "GRPO",
       "settled": false,
-      "sources": 25
+      "sources": 26
     },
     {
       "id": "method:importance-sampling",
@@ -29489,7 +29921,7 @@
       "kind": "method",
       "label": "on-policy self-distillation",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:pass-k",

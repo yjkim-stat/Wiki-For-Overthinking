@@ -6,6 +6,12 @@
   "definition": "Achieving a training effect with few examples or few rollouts, used by the sources as evidence about what is being learned rather than only as a cost argument. One identifies rollouts wasted on prompts where every sample is already correct and the advantage is therefore zero, making efficiency a matter of which prompts are worth sampling. The other reports safety alignment from 1K supervised examples and treats that smallness as support for its claim that the target is a reusable reasoning structure rather than knowledge — if the fix needed knowledge it would need far more data. The inference from few examples to structure is the sources' argument, not a demonstrated mechanism.",
   "evidence": [
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.237",
       "kind": "paper",
       "note": "Addresses wasted rollouts in critic-free RL on prompts where every sampled rollout is already correct and the advantage estimate is therefore zero.",
@@ -20,16 +26,33 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "data efficiency",
   "related": [
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "reward-sparsity",
     "advantage-estimation",
+    "post-hoc-rationalization",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k",
     "group-relative-advantage",
     "rollout-efficiency",
     "prompt-difficulty",
     "zero-variance-group",
     "critic-free-reinforcement-learning",
-    "grpo",
     "safety-alignment",
     "reasoning-structure",
     "generalization",
@@ -38,9 +61,11 @@
     "supervised-fine-tuning",
     "post-training"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "data-efficiency",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

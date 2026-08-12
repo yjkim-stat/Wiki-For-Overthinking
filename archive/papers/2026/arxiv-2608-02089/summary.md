@@ -46,7 +46,7 @@ The paper names four. The summaries are a controlled proxy — the same model, o
 
 ## Entities
 
-- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), reasoning summary, observability, correctness prediction, selective prediction, [self-correction](../../../../wiki/concepts/self-correction.md), verbosity, AUROC
+- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), reasoning summary, observability, correctness prediction, selective prediction, [self-correction](../../../../wiki/concepts/self-correction.md), [verbosity](../../../../wiki/concepts/verbosity.md), AUROC
 - **Methods**: observability ladder, [linear probe](../../../../wiki/methods/linear-probe.md), Shapley attribution, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), TF-IDF, logistic regression
 - **Datasets**: [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md)
 

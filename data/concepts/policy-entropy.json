@@ -5,6 +5,12 @@
   "definition": "The token-level average entropy of the policy, and the quantity the RLVR sources here treat as the resource that exploration spends. They disagree about how tightly it binds performance. One establishes an exponential exchange law R = -a*exp(H) + b — fitted over 200-plus data points rather than derived — which makes a performance ceiling predictable at zero entropy. One measures Spearman correlations between entropy and benchmark performance ranging from -0.894 to +0.627 depending on task and metric, and shows accuracy improving while entropy is held at its pre-training level, which is hard to reconcile with a strict trade. One reframes it as a flow rather than a level, arguing what matters is the balance of entropy-increasing against entropy-decreasing updates. One argues the level is the wrong object entirely: under a GRPO step the driver is a per-token discriminator's deviation from a policy-weighted baseline, and that deviation averages to zero over a batch. A theoretical entry supplies the account the classical remedy lacked, proving an entropy bonus does not merely need tuning but relocates the optimum, while covariance-targeted control reaches the unregularized one if its coefficient is annealed. What no source yet does is separate entropy being the controlled quantity from entropy being a statistic that moves when something else is controlled.",
   "evidence": [
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "local:1fadd9f07b138261",
       "kind": "paper",
       "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
@@ -43,9 +49,28 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "policy entropy",
   "related": [
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "reward-sparsity",
+    "advantage-estimation",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k",
     "deliberate-exploration",
     "elliptical-bonus",
     "diversity-bonus",
@@ -59,7 +84,6 @@
     "exploration-exploitation-trade-off",
     "prompt-difficulty",
     "repexp",
-    "grpo",
     "elliptical-bonus-sampling",
     "sparse-random-projection",
     "nucleus-sampling",
@@ -67,7 +91,6 @@
     "best-of-n",
     "rlvr",
     "math",
-    "gsm8k",
     "game-of-24",
     "aime24",
     "aime25",
@@ -116,7 +139,6 @@
     "gspo",
     "ce-gppo",
     "policy-gradient-masking",
-    "dapo-math-17k",
     "dapo500",
     "qwen2-5-7b-instruct",
     "qwen2-5-14b-instruct",
@@ -156,11 +178,12 @@
     "amc",
     "eurus-2-rl-code"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "policy-entropy",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
-    "test-time-scaling",
-    "reasoning-evaluation"
+    "test-time-scaling"
   ]
 }

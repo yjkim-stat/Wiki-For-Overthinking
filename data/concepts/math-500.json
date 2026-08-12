@@ -18,6 +18,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -44,7 +50,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "MATH-500",
   "related": [
     "post-training-quantization",
@@ -83,6 +89,21 @@
     "math",
     "mmlu-stem",
     "arc-challenge",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "policy-entropy",
+    "reward-sparsity",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "minerva-math",
+    "dapo-math-17k",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -101,7 +122,6 @@
     "chain-of-thought-prompting",
     "prosqa",
     "prontoqa",
-    "aime-2024",
     "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
@@ -141,7 +161,6 @@
     "rlvr",
     "dapo",
     "supervised-fine-tuning",
-    "aime-2025",
     "amc23",
     "minerva",
     "livecodebench",
@@ -179,8 +198,8 @@
   "topics": [
     "reasoning-training",
     "reasoning-faithfulness",
+    "reasoning-evaluation",
     "reasoning-interpretability",
-    "test-time-scaling",
-    "reasoning-evaluation"
+    "test-time-scaling"
   ]
 }

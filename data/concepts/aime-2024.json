@@ -14,6 +14,12 @@
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -34,7 +40,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:46:42Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "AIME 2024",
   "related": [
     "answer-evidence-gap",
@@ -60,6 +66,23 @@
     "gpqa-diamond",
     "medcalc-bench",
     "ruler",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "reward-sparsity",
+    "advantage-estimation",
+    "data-efficiency",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -78,8 +101,6 @@
     "chain-of-thought-prompting",
     "prosqa",
     "prontoqa",
-    "math-500",
-    "gsm8k",
     "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
@@ -131,7 +152,6 @@
     "process-evaluation",
     "cot-pass-k",
     "rlvr",
-    "grpo",
     "dapo",
     "supervised-fine-tuning",
     "amc23",
@@ -153,9 +173,9 @@
   "slug": "aime-2024",
   "topics": [
     "reasoning-training",
+    "reasoning-evaluation",
     "reasoning-interpretability",
     "reasoning-faithfulness",
-    "test-time-scaling",
-    "reasoning-evaluation"
+    "test-time-scaling"
   ]
 }

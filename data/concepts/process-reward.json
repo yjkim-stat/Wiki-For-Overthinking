@@ -1,6 +1,10 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "process-level reward",
+    "step-level reward",
+    "process supervision"
+  ],
+  "definition": "A reward attached to an intermediate step rather than to the finished answer, and in these sources a signal used for two quite different purposes. One uses it to train: each retrieval step of a search agent is scored by how much it raised the likelihood of the correct answer and by how necessary it looks once the answer is known, and the resulting dense reward replaces a single trajectory-level scalar. The other uses it at inference to allocate resources: a lightweight per-step estimator drives how hard the KV cache is compressed at that step, how heavily reflection tokens are penalized, and when to stop early, reporting 37% to 65% fewer generated tokens and 2.08x to 2.35x lower latency. The sources therefore agree the useful property is that it varies along a trajectory, and disagree about what to spend that variation on.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -57,7 +61,9 @@
     "confidence-based-early-stopping",
     "reward-banded-penalty"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-reward-model"
+  ],
   "schema_version": 1,
   "slug": "process-reward",
   "topics": [

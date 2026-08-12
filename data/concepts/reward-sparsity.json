@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
       "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent"
+    },
+    {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T22:31:15Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "reward sparsity",
   "related": [
     "credit-assignment",
@@ -38,12 +44,30 @@
     "2wikimultihopqa",
     "musique",
     "bamboogle",
-    "popqa"
+    "popqa",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "post-hoc-rationalization",
+    "data-efficiency",
+    "spee",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "reward-sparsity",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

@@ -14,6 +14,12 @@
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
     },
     {
+      "id": "arxiv:2608.02139",
+      "kind": "paper",
+      "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+      "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
       "id": "local:f92e5f936a3c7422",
       "kind": "paper",
       "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
@@ -28,7 +34,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:46:42Z",
+  "last_seen": "2026-08-12T23:15:52Z",
   "name": "AIME 2025",
   "related": [
     "answer-evidence-gap",
@@ -54,6 +60,23 @@
     "gpqa-diamond",
     "medcalc-bench",
     "ruler",
+    "self-improvement",
+    "experience-distillation",
+    "on-policy-self-distillation",
+    "privileged-information",
+    "exploration",
+    "policy-entropy",
+    "reward-sparsity",
+    "advantage-estimation",
+    "data-efficiency",
+    "spee",
+    "grpo",
+    "reverse-kl-distillation",
+    "knowledge-distillation",
+    "gsm8k",
+    "math-500",
+    "minerva-math",
+    "dapo-math-17k",
     "reasoning-intensity",
     "layer-wise-reasoning-dynamics",
     "hidden-state-l2-norm",
@@ -70,7 +93,6 @@
     "spearman-correlation",
     "interquartile-range-outlier-detection",
     "deepconf",
-    "gsm8k",
     "gsm-plus",
     "bbh",
     "gpqa",
@@ -99,10 +121,8 @@
     "process-evaluation",
     "cot-pass-k",
     "rlvr",
-    "grpo",
     "dapo",
     "supervised-fine-tuning",
-    "math-500",
     "amc23",
     "minerva",
     "livecodebench",
@@ -122,9 +142,9 @@
   "slug": "aime-2025",
   "topics": [
     "reasoning-training",
+    "reasoning-evaluation",
     "reasoning-interpretability",
     "test-time-scaling",
-    "reasoning-evaluation",
     "reasoning-faithfulness"
   ]
 }
