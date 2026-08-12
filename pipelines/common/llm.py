@@ -118,7 +118,12 @@ CONCEPT_OUTPUT_SCHEMA: dict[str, Any] = {
     ),
     "kind": "string - one of: concept, method, dataset",
     "aliases": ["string - other names the sources use for the same thing"],
-    "related": ["string - names of neighbouring entities worth linking"],
+    "related": [
+        "string - name of a neighbouring entity worth linking to. Kept as you "
+        "give it and never derived away, so name what a reader should turn to "
+        "next rather than what happens to appear alongside this. Answering "
+        "again replaces the whole list; an empty list retracts"
+    ],
 }
 
 _SHARED_RULES = """
@@ -235,7 +240,14 @@ def concept_instructions(name: str, language: str = "en") -> str:
         f"Write the wiki definition for '{name}'.\n\n"
         "The sources below are every archived paper and talk that mentions it. "
         "Define it as they use it: if they disagree, say so; if the term is "
-        "used loosely, say that too.\n\n" + _SHARED_RULES.format(language=language)
+        "used loosely, say that too.\n\n"
+        "`related` is the one part of the note nothing can work out on its own. "
+        "The wiki already links entities that turn up in the same summary; what "
+        "it cannot see is the neighbour a reader would actually want next — the "
+        "generation before this one, the benchmark it was built to beat, the "
+        "method it replaces. Name those. Leave the list empty rather than "
+        "repeating what the sources already put side by side.\n\n"
+        + _SHARED_RULES.format(language=language)
     )
 
 

@@ -138,7 +138,7 @@ def write_concept_note(
     body += facts + [""]
 
     related = [
-        all_concepts[slug] for slug in sorted(set(concept.related)) if slug in all_concepts
+        all_concepts[slug] for slug in sorted(concept.neighbours) if slug in all_concepts
     ]
     if related:
         links = []
@@ -305,7 +305,7 @@ def build_graph(
     seen_pairs: set[tuple[str, str]] = set()
     for concept in live.values():
         source = f"{concept.kind}:{concept.slug}"
-        for slug in concept.related:
+        for slug in sorted(concept.neighbours):
             other = live.get(slug)
             if other is None:
                 continue

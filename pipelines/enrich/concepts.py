@@ -6,12 +6,22 @@ evidence behind each one, and promoted to a note of their own once enough
 independent sources have mentioned them.
 
 The split this module exists to hold is between *derived* and *authored*. The
-evidence, the kind and the links between entities are derived, and are rebuilt
-from scratch on every pass so that a deleted or re-read paper leaves no phantom
-mention behind. The definition and the aliases are authored -- somebody read the
-sources and ruled on what the entity is -- and are carried across every rebuild.
-An entity whose evidence has vanished is dropped, unless it carries a
-definition, in which case the writing outlives the evidence that prompted it.
+evidence, the kind and the co-occurrence links are derived, and are rebuilt from
+scratch on every pass so that a deleted or re-read paper leaves no phantom
+mention behind. The definition, the aliases and the ruled links are authored --
+somebody read the sources and said what the entity is and what it sits next to
+-- and are carried across every rebuild. An entity whose evidence has vanished
+is dropped, unless it carries a definition, in which case the writing outlives
+the evidence that prompted it.
+
+Links are the one thing that exists on both sides, in two fields. ``related``
+holds what appeared together in one summary and is rebuilt away; the entity a
+reader would actually turn to next -- the previous generation of the same
+system, the benchmark a method was built to beat -- rarely shares a summary with
+it, so ``related_authored`` holds what somebody ruled and nothing derives. Two
+fields rather than one because they need opposite lifetimes: merging them would
+make every co-occurrence edge permanent, which is the phantom-mention failure
+this module is built to prevent, moved from evidence to edges.
 
 Deriving records is not rendering them. This lives under ``enrich/`` with the
 rest of the code that writes to ``data/``, so that ``publish/`` can be what it
@@ -98,6 +108,11 @@ def harvest(cfg: Config) -> dict[str, Concept]:
                 kind=kind,
                 definition=old.definition if old else "",
                 aliases=list(old.aliases) if old else [],
+                # Carried for the same reason the definition is: somebody ruled
+                # on these, and nothing in the summaries can produce them again.
+                # `related` is deliberately not carried — rebuilding it from
+                # nothing is what stops a re-read paper leaving a phantom edge.
+                related_authored=list(old.related_authored) if old else [],
                 first_seen=old.first_seen if old else utcnow(),
             )
             concepts[slug] = concept

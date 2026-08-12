@@ -207,7 +207,17 @@ class Concept(_Record):
     definition: str = ""
     # [{"kind": "paper"|"video", "id": str, "title": str, "note": str}]
     evidence: list[dict] = field(default_factory=list)
-    related: list[str] = field(default_factory=list)  # slugs
+    # Slugs, derived: two names that appeared in one summary's lists. Rebuilt
+    # from scratch every harvest, so re-reading a paper drops the edges it made.
+    related: list[str] = field(default_factory=list)
+    # Slugs somebody ruled on when they wrote the definition. Carried across a
+    # rebuild the way `definition` and `aliases` are, because a person's link is
+    # not evidence of anything and cannot be re-derived from the summaries.
+    #
+    # Kept apart from `related` rather than merged into it so that each list
+    # keeps the property it needs: derived edges stay disposable, authored ones
+    # survive. Merging would make a re-read paper's edge permanent.
+    related_authored: list[str] = field(default_factory=list)
     topics: list[str] = field(default_factory=list)
     first_seen: str = field(default_factory=utcnow)
     last_seen: str = field(default_factory=utcnow)
@@ -216,6 +226,21 @@ class Concept(_Record):
     @property
     def mention_count(self) -> int:
         return len({(e.get("kind"), e.get("id")) for e in self.evidence})
+
+    @property
+    def neighbours(self) -> set[str]:
+        """Every entity this one links to, however the link got there.
+
+        A union rather than a precedence: the two lists answer different
+        questions — what turned up alongside this, and what somebody said to
+        read next — and a note is worth more for carrying both. Self-links are
+        dropped; co-occurrence cannot produce one, but an authored answer can.
+        """
+        return {
+            slug
+            for slug in (*self.related, *self.related_authored)
+            if slug and slug != self.slug
+        }
 
 
 @dataclass

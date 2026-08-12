@@ -169,12 +169,34 @@ def _apply_concept(cfg: Config, store: RecordStore, task: dict) -> bool:
     for alias in result.get("aliases") or []:
         if alias and alias not in concept.aliases:
             concept.aliases.append(alias)
-    for related in result.get("related") or []:
-        related_slug = slug_for(related)
-        if related_slug and related_slug not in concept.related:
-            concept.related.append(related_slug)
+    # The reader's links go to `related_authored`, never to `related`. The
+    # latter is derived and the next harvest rebuilds it from scratch, so an
+    # answer written there is discarded within the same render — which is
+    # exactly what used to happen, silently, with every counter reporting
+    # success. See docs/commit/0045.
+    if "related" in result:
+        concept.related_authored = _authored_links(slug, result["related"])
     store.save_concept(concept)
     return True
+
+
+def _authored_links(slug: str, names: object) -> list[str]:
+    """The reader's `related` answer as slugs.
+
+    Replaces rather than accumulates, so answering again with a shorter list
+    retracts. An authored link is a ruling over the whole neighbourhood, and
+    without replacement the only way to take one back would be editing `data/`
+    by hand — which is the thing the queue exists to prevent.
+
+    A result that omits the key entirely leaves the stored links alone: absent
+    is not the same answer as `[]`.
+    """
+    links: list[str] = []
+    for name in names or []:
+        other = slug_for(str(name))
+        if other and other != slug and other not in links:
+            links.append(other)
+    return links
 
 
 _APPLIERS = {"paper": _apply_paper, "video": _apply_video, "concept": _apply_concept}
