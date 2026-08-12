@@ -19,6 +19,7 @@ from pathlib import Path
 
 from .common import config as config_mod
 from .common import log
+from .common import paths as P
 from .common.config import Config
 from .common.llm import get_summarizer
 from .common.store import RecordStore, read_json
@@ -436,7 +437,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--verbose", "-v", action="store_true")
     parser.add_argument(
-        "--root", type=Path, default=None, help="repository root (for testing)"
+        "--root",
+        type=Path,
+        default=None,
+        help=f"deployment root: the tree the archive lives in (default: ${P.ROOT_ENV}, "
+        "else this checkout)",
     )
     args = parser.parse_args(argv)
 

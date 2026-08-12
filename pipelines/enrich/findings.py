@@ -35,6 +35,7 @@ from typing import Any
 
 from ..common import config as config_mod
 from ..common.config import Config
+from ..common import paths as P
 from ..common.log import get
 from ..common.schema import Finding, finding_id, utcnow
 from ..common.store import RecordStore
@@ -179,7 +180,13 @@ def main(argv: list[str] | None = None) -> int:
         prog="python -m pipelines.enrich.findings",
         description="Record what the group has settled.",
     )
-    parser.add_argument("--root", type=Path, default=None)
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=None,
+        help=f"deployment root: the tree the archive lives in (default: ${P.ROOT_ENV}, "
+        "else this checkout)",
+    )
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_add = sub.add_parser("add", help="record a finding")

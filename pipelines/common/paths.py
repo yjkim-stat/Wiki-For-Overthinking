@@ -2,10 +2,19 @@
 
 Every directory the pipeline touches is derived here so that the rest of the
 code never joins paths by hand.
+
+Two roots, and telling them apart is the whole of this module. **The code root**
+is this checkout — where `pipelines/` and the templates it ships live. **The
+deployment root** is the tree an archive accumulates in: `config/`, `data/`,
+`wiki/`, `archive/`, `outputs/`, `inbox/`. They are the same directory when the
+repository is run in place, and different ones when a checkout is pointed at an
+archive kept in its own repository, which is what `--root` and `RA_WM_ROOT` are
+for.
 """
 
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 
@@ -15,6 +24,38 @@ CONFIG_DIR = REPO_ROOT / "config"
 TOPICS_DIR = CONFIG_DIR / "topics"
 SETTINGS_FILE = CONFIG_DIR / "settings.yaml"
 SOURCES_FILE = CONFIG_DIR / "sources.yaml"
+
+#: Names the deployment root for every entry point at once, so a session that
+#: exports it does not have to remember `--root` on each command -- and, more
+#: to the point, cannot forget it on one of them.
+ROOT_ENV = "RA_WM_ROOT"
+
+
+class RootError(Exception):
+    """The deployment root was named but is not there."""
+
+
+def resolve_root(explicit: Path | None = None) -> Path | None:
+    """The deployment root: the flag, then the environment, then this checkout.
+
+    ``None`` means this checkout, which is what every caller already did before
+    the environment variable existed.
+
+    A root named but absent raises rather than falling back. The failure it
+    prevents is the quiet one: a typo in `RA_WM_ROOT` would otherwise resolve to
+    this checkout and write somebody's archive into the code repository, which
+    looks like a successful run at every step.
+    """
+    if explicit is not None:
+        return explicit
+    named = os.environ.get(ROOT_ENV, "").strip()
+    if not named:
+        return None
+    root = Path(named).expanduser()
+    if not root.is_dir():
+        raise RootError(f"{ROOT_ENV} is set to {root}, which is not a directory")
+    return root
+
 
 _SLUG_STRIP = re.compile(r"[^a-z0-9]+")
 

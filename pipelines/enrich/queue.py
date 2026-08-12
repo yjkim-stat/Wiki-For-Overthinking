@@ -28,6 +28,7 @@ from typing import Any, Iterator
 
 from ..common import config as config_mod
 from ..common.log import get
+from ..common import paths as P
 from ..common.paths import Layout, fs_id
 from ..common.schema import utcnow
 from ..common.store import read_json, write_json
@@ -348,7 +349,11 @@ def main(argv: list[str] | None = None) -> int:
         description="Inspect and complete summarization tasks.",
     )
     parser.add_argument(
-        "--root", type=Path, default=None, help="repository root (for testing)"
+        "--root",
+        type=Path,
+        default=None,
+        help=f"deployment root: the tree the archive lives in (default: ${P.ROOT_ENV}, "
+        "else this checkout)",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

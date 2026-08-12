@@ -1,7 +1,17 @@
+import os
 import unittest
+from pathlib import Path
+from unittest import mock
 
 from pipelines.common import config as config_mod
-from pipelines.common.paths import REPO_ROOT, fs_id, slugify
+from pipelines.common.paths import (
+    REPO_ROOT,
+    ROOT_ENV,
+    RootError,
+    fs_id,
+    resolve_root,
+    slugify,
+)
 
 from .sandbox import Sandbox
 
@@ -101,6 +111,53 @@ class RealConfigTests(unittest.TestCase):
     def test_template_topic_is_not_loaded(self):
         cfg = config_mod.load(REPO_ROOT)
         self.assertNotIn("my-topic", [t.slug for t in cfg.topics])
+
+
+class DeploymentRootTests(unittest.TestCase):
+    """Which tree an entry point writes to, and how it is chosen.
+
+    The archive can live in a repository of its own, so that pulling a new
+    version of the code cannot collide with a month of readings. That only
+    holds if every entry point agrees on where the archive is.
+    """
+
+    def test_no_root_and_no_environment_means_this_checkout(self):
+        with mock.patch.dict(os.environ, {}, clear=False):
+            os.environ.pop(ROOT_ENV, None)
+            self.assertIsNone(resolve_root())
+
+    def test_the_environment_names_the_root(self):
+        with Sandbox() as sandbox:
+            with mock.patch.dict(os.environ, {ROOT_ENV: str(sandbox.root)}):
+                self.assertEqual(resolve_root(), sandbox.root)
+
+    def test_an_explicit_root_outranks_the_environment(self):
+        with Sandbox() as sandbox:
+            with mock.patch.dict(os.environ, {ROOT_ENV: "/somewhere/else"}):
+                self.assertEqual(resolve_root(sandbox.root), sandbox.root)
+
+    def test_a_root_that_is_not_there_raises(self):
+        """The failure this prevents is the quiet one.
+
+        A typo would otherwise fall back to this checkout and write the
+        deployment's archive into the code repository, which looks like a
+        successful run from every angle until somebody reads the diff.
+        """
+        with mock.patch.dict(os.environ, {ROOT_ENV: "/no/such/deployment"}):
+            with self.assertRaises(RootError):
+                resolve_root()
+
+    def test_config_loads_from_the_environment_named_root(self):
+        with Sandbox({"env-topic": "Env Topic"}) as sandbox:
+            with mock.patch.dict(os.environ, {ROOT_ENV: str(sandbox.root)}):
+                cfg = config_mod.load()
+            self.assertEqual([t.slug for t in cfg.topics], ["env-topic"])
+            self.assertEqual(cfg.layout.root, sandbox.root)
+            self.assertEqual(cfg.layout.papers, sandbox.root / "data" / "papers")
+
+    def test_a_home_relative_root_is_expanded(self):
+        with mock.patch.dict(os.environ, {ROOT_ENV: "~"}):
+            self.assertEqual(resolve_root(), Path.home())
 
 
 if __name__ == "__main__":

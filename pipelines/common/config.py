@@ -170,7 +170,13 @@ def load_topics(topics_dir: Path | None = None) -> list[Topic]:
 
 
 def load(root: Path | None = None) -> Config:
-    """Load settings, sources and topics."""
+    """Load settings, sources and topics from the deployment root.
+
+    ``root`` is the tree the archive lives in, which is this checkout unless a
+    caller or ``RA_WM_ROOT`` says otherwise. Every entry point loads its config
+    through here, so pointing one at another tree points all of them.
+    """
+    root = P.resolve_root(root)
     settings_file = (root / "config" / "settings.yaml") if root else P.SETTINGS_FILE
     sources_file = (root / "config" / "sources.yaml") if root else P.SOURCES_FILE
     topics_dir = (root / "config" / "topics") if root else P.TOPICS_DIR

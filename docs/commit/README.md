@@ -59,3 +59,4 @@ reference for everything built before the practice existed.
 | 0036 | [A render is not an edit](0036-a-render-is-not-an-edit.md) | fix | Every pass restamped every entity, so an unchanged archive still produced a diff |
 | 0037 | [The rules a deployment lives under](0037-the-rules-a-deployment-lives-under.md) | docs | One premise — the code is replaced, the archive is not — and what follows from it |
 | 0038 | [One folder per task, and its harness](0038-one-folder-per-task-and-its-harness.md) | docs | Procedures were scattered; what checks them, and what checks nothing, was nowhere |
+| 0039 | [Name the deployment root once, and mean it everywhere](0039-name-the-deployment-root.md) | feature | The archive can live in a repository of its own; a root named but missing is refused, never fallen back from |

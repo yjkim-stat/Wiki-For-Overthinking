@@ -58,6 +58,7 @@ from pathlib import Path
 from .common import config as config_mod
 from .common.config import Config
 from .common.log import get
+from .common import paths as P
 from .common.paths import Layout
 from .common.schema import utcnow
 from .common.store import RecordStore
@@ -514,6 +515,11 @@ def status(cfg: Config) -> dict:
     plan = build_plan(cfg, store)
     state = repo_state(cfg.layout.root)
     return {
+        # Which tree this is about. `status` is the command a session runs to
+        # find out where it is, so the answer has to be in the output rather
+        # than inferred from the paths further down it.
+        "root": str(cfg.layout.root.resolve()),
+        "code_root": str(P.REPO_ROOT),
         "repo": state,
         "git_warnings": _warn_about_git(state),
         "records": _record_counts(cfg, store),
@@ -523,7 +529,14 @@ def status(cfg: Config) -> dict:
 
 
 def _print_status(result: dict) -> None:
-    print("git")
+    print("roots")
+    print(f"  deployment {result['root']}")
+    if result["code_root"] == result["root"]:
+        print("  code       the same tree -- the repository is run in place")
+    else:
+        print(f"  code       {result['code_root']}")
+
+    print("\ngit")
     repo = result["repo"]
     print(f"  branch     {repo['branch']} @ {repo['head'][:12] or '(none)'}")
     print(f"  upstream   {repo['upstream'] or '(none)'}")
@@ -555,7 +568,13 @@ def main(argv: list[str] | None = None) -> int:
         prog="python -m pipelines.migrate",
         description="Carry the untracked half of an archive between environments.",
     )
-    parser.add_argument("--root", type=Path, default=None, help="repository root")
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=None,
+        help=f"deployment root: the tree the archive lives in (default: ${P.ROOT_ENV}, "
+        "else this checkout)",
+    )
     parser.add_argument(
         "--no-checksum",
         action="store_true",
