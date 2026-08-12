@@ -284,6 +284,16 @@ config, templates or documentation does — see the rule below.
 every so often and keeps running against the `data/` it has been accumulating
 for months. Every rule here follows from that.
 
+- **This repository carries deltas against the code it shipped with, and
+  [`docs/LOCAL-DELTAS.md`](docs/LOCAL-DELTAS.md) is the register.** The largest
+  is a fourth wiki kind, `model` — a checkpoint is not a corpus — which is a
+  schema change and so is spread across seven files rather than hidden behind a
+  seam. `grep -rn "LOCAL" pipelines/` finds every site. **Read that file before
+  replacing any file under `pipelines/` with a newer version of itself, and run
+  the suite after.** Three collection fixes were lost exactly that way once:
+  they lived in template-shaped files, were never registered, and their removal
+  broke no test because each one only makes collection quieter.
+
 - **Only `collect/` and `enrich/` write to `data/`.** `collect/` for what
   arrives from outside, `enrich/` for what is derived from it. `publish/` is a
   pure function of the archive and never writes to it —
@@ -333,8 +343,12 @@ tables above and `migrate status` that tell you which is which.
 | `config/settings.yaml`, `config/sources.yaml` | when asked | Language, lookback, scoring weights, summarizer backend, wiki thresholds; and arXiv categories, venues, curated lists, YouTube channels, the inbox switch. |
 | `pipelines/` | yes | The code, in one direction. `common/` config and records; `collect/` what arrives from outside; `enrich/` everything derived from it — scoring, dedup, the queue, the wiki entities, and folding finished readings back in; `publish/` the renderers. **Only `collect/` and `enrich/` write to `data/`**; `publish/` is a pure function of it, and `tests/test_layering.py` enforces that. `run_daily.py` collects, `render.py` rebuilds. |
 | `templates/` | yes | How the generated artifacts look. Editing one never requires re-collecting anything — just render again. |
-| `scripts/`, `tests/` | yes | `daily.sh`, `new_topic.sh`; and the suite, which touches neither the network nor the real `data/`. |
+| `pipelines/local/` | yes | This archive's own extensions, kept in one package so a template-shaped update replaces a file without touching them: placeholder rejection, abstract backfill, the definition-queue reserve. Each has a one-line call site in a `pipelines/` file, marked `# LOCAL`. |
+| `scripts/`, `tests/` | yes | `daily.sh`, `new_topic.sh`; and the suite, which touches neither the network nor the real `data/`. `tests/test_local*.py` and `test_model_kind.py` guard the deltas below — keep local tests in their own files. |
 | `docs/commit/` | **required** | One note per commit, staged with the commit it explains. See the rule above. |
+| `docs/commit-local/` | read | The archive's own commit history from before it moved into this repository, numbered from 0000 independently of `docs/commit/`. **Read it; do not add to it** — a new note goes in `docs/commit/`. Because both sequences number from 0000, a cross-reference has to spell the directory out. |
+| `docs/LOCAL-DELTAS.md` | **required** | The register of every change this archive makes to code that arrived from the template. A delta that is not in it gets silently reverted the next time a file is replaced wholesale — that has already happened once. |
+| `docs/issues/`, `docs/solved/` | yes | A defect or design question investigated but not yet acted on, and the record of one that was. |
 
 ## Common commands
 

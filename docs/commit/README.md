@@ -66,3 +66,8 @@ reference for everything built before the practice existed.
 | 0043 | [`generated_by` names the backend, not the task kind](0043-generated-by-names-the-backend.md) | fix | A fallback through `task["kind"]` stamped 242 consecutive readings `"paper"`, and nothing reads the field |
 | 0044 | [A reading says what it was based on](0044-a-reading-says-what-it-was-based-on.md) | feature | The document being available is not the document being read, and only the reader can tell you which |
 | 0045 | [A ruled link is not derived away](0045-a-ruled-link-is-not-derived-away.md) | feature | The task asked for `related`, the same render rebuilt the record without it, and every step reported success |
+| 0046 | [A model is not a dataset](0046-a-model-is-not-a-dataset.md) | feature · breaking | A checkpoint and a corpus answer different questions; a schema change has no seam to hide behind |
+| 0047 | [Local extensions in a package of their own](0047-local-extensions-in-a-package-of-their-own.md) | feature | A placeholder is a false entity, a record with no abstract cannot be scored, and one cap starved the wiki |
+| 0048 | [Three fixes that only made collection quieter](0048-three-fixes-that-only-made-collection-quieter.md) | fix | Under-collecting looks exactly like a quiet day, and a test inside a replaceable file cannot guard it |
+| 0049 | [The archive this repository keeps](0049-the-archive-this-repository-keeps.md) | feature · breaking | Both roots are one tree here; `data/` is committed because a scheduled run starts from a fresh clone |
+| 0050 | [Everything the archive needs is in the repository](0050-everything-the-archive-needs-is-in-the-repository.md) | docs | Knowledge that lives only outside the repository is knowledge the next session does not have |

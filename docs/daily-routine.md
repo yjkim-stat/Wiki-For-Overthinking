@@ -57,6 +57,49 @@ environment, or `--root`, which `daily.sh` forwards to every stage. The commit
 at the end of the run belongs to the archive's repository, not the code's.
 [`workflows/deployment/`](../workflows/deployment/) has the full procedure.
 
+<!-- LOCAL: this archive's actual routine state. See LOCAL-DELTAS.md -->
+### This archive's routine — currently paused
+
+A Routine did run nightly for this archive and **is disabled as of 2026-08-09,
+at the user's request, for resource reasons. Do not re-enable it without being
+asked.** The cron expression and prompt are intact, so resuming is a one-field
+update rather than a re-creation.
+
+| | |
+| --- | --- |
+| ID | `trig_018yxS27DM2m7HbgLP7MfvZ7` |
+| Name | ra-lrm daily literature archive |
+| Schedule | `0 22 * * *` UTC = 07:00 KST |
+| State | `enabled: false` |
+
+Three things to settle in the same call that re-enables it:
+
+- **Which repository it clones.** The prompt lives in the trigger's `job_config`,
+  not in any checkout, so editing a repository does not reach it. It was written
+  to clone the archive's own repository; this tree is a different one. Point it
+  at whichever is authoritative, or it will advance the other archive and the two
+  will diverge from the same starting point.
+- **Where it writes commit notes.** Its step 7 names `docs/commit/NNNN-slug.md`,
+  which is correct for this repository and was not for the one it was written
+  against. See [`LOCAL-DELTAS.md`](LOCAL-DELTAS.md).
+- **The sweep caps.** `max_abstracts_per_run: 120` and
+  `virtual_site.max_details_per_run: 60` in `config/sources.yaml` were tuned for
+  a three-topic archive and this one tracks five. Consider halving them for the
+  first unattended night and reading what the run reports.
+
+On the first run back, `collect.lookback_days` is **2**, so it sees two days
+regardless of how long the pause lasted. Widen it once with
+`run_daily --days N` to cover the gap, then let it fall back — `seen.sqlite` is
+tracked, so a pause creates a gap in collection, never duplicate work.
+
+And once it is running, **"no new commit" means either a quiet collection day or
+a failed run, and those must be told apart rather than assumed.** This routine
+has failed silently before: on 2026-08-08 it collected for thirty minutes, left
+its only commit until the end, ran out of session, and the archive gained
+nothing — including the collection. Committing after every step is what fixed
+it, and it is safe because `data/queue/` and `seen.sqlite` are tracked.
+<!-- /LOCAL -->
+
 ## Stage by stage
 
 ### Collect
