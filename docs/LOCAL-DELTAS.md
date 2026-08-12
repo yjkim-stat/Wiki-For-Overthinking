@@ -55,7 +55,7 @@ fourth, because a checkpoint is not a corpus.
 | `common/paths.py` | `WIKI_KINDS` tuple (the single source of truth) and `wiki_kind_dir("model")` in `ensure()` |
 | `enrich/concepts.py` | `KINDS = WIKI_KINDS`, rank 4 for `model`, and `("model", summary.models)` in both harvest sites |
 | `common/schema.py` | `models: list[str]` on `PaperSummary` and `VideoSummary` |
-| `common/llm.py` | `models` in both output schemas, and the "not models" wording on `datasets` |
+| `common/llm.py` | `models` in both output schemas, the "not models" wording on `datasets`, and `CONCEPT_OUTPUT_SCHEMA["kind"]` built from `WIKI_KINDS` rather than spelled out |
 | `enrich/queue.py` | `models` in `_LIST_FIELDS["paper"]`, and the concept-kind check against `WIKI_KINDS` |
 | `enrich/apply.py` | `models=list(result.get("models") or [])` in `_apply_paper` **and** `_apply_video`, and `declared in WIKI_KINDS` in `_apply_concept` |
 | `publish/graph_page.py` | `model` in `_KINDS`, `_shape`, `_legend` and `_table` |
@@ -77,6 +77,15 @@ The graph page carries one **known limitation**: the palette validates three
 entity hues, so `model` takes the concept hue and is separated by shape and
 label alone. Colour does not distinguish the two there. Retiring that needs a
 fourth validated step in `templates/wiki/graph.html`, not a guessed colour.
+
+**The reader-facing half is the other one that gets forgotten**, and it failed
+the same silent way. The validator was widened to `WIKI_KINDS`; the `kind` line
+in `CONCEPT_OUTPUT_SCHEMA` was not, so for every definition task the reader was
+offered three kinds and could only ever answer three. Because a stored
+definition freezes an entity's kind against re-derivation, one such answer
+demotes a correctly harvested model permanently. Fixed in
+[0051](commit/0051-a-kind-that-is-accepted-is-offered.md) by enumerating the
+tuple instead of writing it out, and guarded by `DefinitionContractTests`.
 
 **The applier line is the one that gets forgotten.** It was omitted when the
 kind was first added here, and the failure was silent: `PaperSummary.models`

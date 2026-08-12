@@ -12,10 +12,12 @@ import subprocess
 import sys
 import unittest
 
-from pipelines.common.paths import REPO_ROOT
+from pipelines.common import llm
+from pipelines.common.paths import REPO_ROOT, WIKI_KINDS
 from pipelines.common.schema import Paper, PaperSummary
 from pipelines.common.store import RecordStore
 from pipelines.enrich import concepts as concepts_mod
+from pipelines.enrich import queue as queue_mod
 from pipelines.publish import wiki
 
 from .sandbox import Sandbox
@@ -84,6 +86,38 @@ class ModelKindTests(unittest.TestCase):
         self.assertTrue(
             (self.cfg.layout.wiki_kind_dir("dataset") / "open-x-embodiment.md").exists()
         )
+
+
+class DefinitionContractTests(unittest.TestCase):
+    """What a definition task offers the reader, against what it accepts.
+
+    The two are written in different files, and they drifted: the validator was
+    widened to `WIKI_KINDS` when the `model` kind was added, while the schema
+    string handed to the reader still enumerated three kinds. Nothing failed —
+    a reader following the schema simply never answers `model`, and because a
+    stored definition freezes the kind against re-derivation, a correctly
+    harvested model entity is demoted permanently the first time it is defined.
+    """
+
+    def test_the_schema_offers_every_kind_the_validator_accepts(self):
+        offered = llm.CONCEPT_OUTPUT_SCHEMA["kind"]
+        for kind in WIKI_KINDS:
+            self.assertIn(
+                kind, offered, f"the concept schema never offers '{kind}'"
+            )
+
+    def test_the_validator_accepts_every_kind_the_schema_offers(self):
+        for kind in WIKI_KINDS:
+            errors = queue_mod.validate_result(
+                "concept", {"definition": "A definition.", "kind": kind}
+            )
+            self.assertEqual(errors, [], f"'{kind}' was offered but refused")
+
+    def test_a_kind_outside_the_tuple_is_still_refused(self):
+        errors = queue_mod.validate_result(
+            "concept", {"definition": "A definition.", "kind": "benchmark"}
+        )
+        self.assertTrue(errors, "an unknown kind must not be accepted")
 
 
 class MigrationScriptTests(unittest.TestCase):

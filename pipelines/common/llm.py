@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, Protocol
 
+from .paths import WIKI_KINDS  # LOCAL: the `model` kind — see docs/LOCAL-DELTAS.md
 from .schema import Paper, PaperSummary, Video, VideoSummary
 
 
@@ -125,7 +126,10 @@ CONCEPT_OUTPUT_SCHEMA: dict[str, Any] = {
         "string - two to four sentences defining the entity as the cited "
         "sources use it, not as a textbook would"
     ),
-    "kind": "string - one of: concept, method, dataset",
+    # LOCAL: enumerated from WIKI_KINDS rather than written out, so a fifth
+    # kind cannot reach the validator without reaching the reader. Spelling
+    # this list by hand is how `model` came to be accepted but never offered.
+    "kind": f"string - one of: {', '.join(WIKI_KINDS)}",
     "aliases": ["string - other names the sources use for the same thing"],
     "related": [
         "string - name of a neighbouring entity worth linking to. Kept as you "
