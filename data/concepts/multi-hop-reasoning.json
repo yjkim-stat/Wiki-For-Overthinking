@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "multi-hop QA"
+  ],
+  "definition": "Answering a question that requires combining facts no single retrieved document contains, and in both sources the regime that separates step-level credit assignment from outcome-only training. The evidence for that is an ablation rather than a definition: removing a forward-looking per-step reward costs 5.9 F1 on HotpotQA, 5.7 on 2WikiMultiHopQA and 4.4 on MuSiQue while costing 0.9 on single-hop Natural Questions, so dense step supervision earns its keep exactly where a trajectory holds several decisions that jointly determine the answer. Both sources also split their evaluation tables into single-hop and multi-hop averages and report them separately, treating the distinction as the axis along which a search policy either generalizes or does not.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",

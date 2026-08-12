@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T23:01:43Z",
   "created_at": "2026-08-12T22:46:43Z",
   "instructions": "Write the wiki definition for 'Natural Questions'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Natural Questions",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "Natural Questions",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "NQ"
+    ],
+    "definition": "A question-answering set drawn from real search queries, answerable from a single passage, used by both sources as in-domain data and — more load-bearing than that — as the control their multi-hop claims are read against. Removing the forward-looking step reward in one costs 0.9 F1 here against 5.9 on HotpotQA, and that contrast is what localizes the benefit of dense per-step supervision to trajectories with several decisions rather than to search agents generally. The other reports it among the sets where its method is not best (48.9 EM against 49.5 for a rollout-conditioned baseline) while still leading the seven-benchmark average.",
+    "kind": "dataset",
+    "related": []
   },
   "task_id": "concept__natural-questions",
   "task_version": 1,

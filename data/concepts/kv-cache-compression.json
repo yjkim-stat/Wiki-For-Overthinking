@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "KV compression",
+    "KV cache eviction"
+  ],
+  "definition": "Shrinking the stored key and value states of earlier tokens so long-context decoding fits in memory, by evicting, merging or quantizing them. The two sources approach it from opposite ends. One treats it as an efficiency method to improve, making the compression policy vary along the trajectory under a process-reward signal — compressing harder at high-reward steps and less at low-reward ones — and reports 37% to 65% fewer generated tokens with 2.08x to 2.35x lower end-to-end latency. The other evaluates eleven existing methods and finds the standard success criterion misleading: token-eviction methods can hold competitive final-answer accuracy while destroying the reasoning that supports it, whereas a quantization control that keeps every token stays close to the uncompressed model on every metric. Together they mark the distinction that matters for reasoning models — which tokens stay reachable, not how many bits each one costs.",
   "evidence": [
     {
       "id": "arxiv:2608.01631",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-12T22:46:42Z",
   "name": "KV cache compression",
   "related": [

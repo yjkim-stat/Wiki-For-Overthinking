@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A question-answering set drawn from real search queries, answerable from a single passage, used by both sources as in-domain data and — more load-bearing than that — as the control their multi-hop claims are read against. Removing the forward-looking step reward in one costs 0.9 F1 here against 5.9 on HotpotQA, and that contrast is what localizes the benefit of dense per-step supervision to trajectories with several decisions rather than to search agents generally. The other reports it among the sets where its method is not best (48.9 EM against 49.5 for a rollout-conditioned baseline) while still leading the seven-benchmark average.
 
 - **Kind**: dataset
+- **Also called**: NQ
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

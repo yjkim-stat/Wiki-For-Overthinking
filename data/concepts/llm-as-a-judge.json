@@ -16,6 +16,12 @@
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
     },
     {
+      "id": "arxiv:2608.02089",
+      "kind": "paper",
+      "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+      "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
+    {
       "id": "arxiv:2608.04524",
       "kind": "paper",
       "note": "Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.",
@@ -96,7 +102,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-12T22:46:42Z",
+  "last_seen": "2026-08-12T23:01:57Z",
   "name": "LLM-as-a-judge",
   "related": [
     "answer-evidence-gap",
@@ -122,6 +128,21 @@
     "gpqa-diamond",
     "medcalc-bench",
     "ruler",
+    "monitorability",
+    "reasoning-summary",
+    "observability",
+    "correctness-prediction",
+    "selective-prediction",
+    "self-correction",
+    "verbosity",
+    "auroc",
+    "observability-ladder",
+    "linear-probe",
+    "shapley-attribution",
+    "tf-idf",
+    "logistic-regression",
+    "mmlu-pro",
+    "omni-math",
     "sycophancy",
     "structured-chain-of-thought",
     "synthetic-data-generation",
@@ -174,8 +195,6 @@
     "soft-label-aggregation",
     "11-real-world-rating-tasks",
     "9-commercial-llm-judges",
-    "monitorability",
-    "verbosity",
     "causal-factors",
     "cue-acknowledgement",
     "working-memory-analogy",
@@ -244,7 +263,6 @@
     "attention-intervention",
     "gsm8k",
     "math500",
-    "mmlu-pro",
     "zebralogic",
     "deepseek-r1-distill-llama-8b",
     "deepseek-r1-distill-qwen-14b",
@@ -331,9 +349,9 @@
   "slug": "llm-as-a-judge",
   "topics": [
     "reasoning-training",
+    "reasoning-faithfulness",
     "test-time-scaling",
     "reasoning-evaluation",
-    "reasoning-faithfulness",
     "reasoning-interpretability"
   ]
 }

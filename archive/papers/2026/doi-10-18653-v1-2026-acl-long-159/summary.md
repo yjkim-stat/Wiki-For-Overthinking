@@ -45,7 +45,7 @@ No empirical evaluation; the proposals are untested. The diagnosis rests on one 
 
 ## Entities
 
-- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), [reproducibility](../../../../wiki/concepts/reproducibility.md), auditability, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), methodological inconsistency, negative results, AI governance
+- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), [reproducibility](../../../../wiki/concepts/reproducibility.md), [auditability](../../../../wiki/concepts/auditability.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), methodological inconsistency, negative results, AI governance
 - **Methods**: continuous collaborative reviewing, source-based auditing, protocol standardization
 - **Datasets**: _none recorded_
 

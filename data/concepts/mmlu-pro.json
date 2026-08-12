@@ -1,10 +1,17 @@
 {
   "aliases": [
     "MMLU Pro",
-    "MMLU-Pro"
+    "MMLU-Pro",
+    "MMLU-PRO"
   ],
   "definition": "A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a breadth check rather than studying it: one as a testbed for knockout and league aggregation with provable scaling guarantees, the other for local causal attribution of chain-of-thought reasoning. Its presence marks one of the archive's few non-mathematical evaluation surfaces.",
   "evidence": [
+    {
+      "id": "arxiv:2608.02089",
+      "kind": "paper",
+      "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+      "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
     {
       "id": "local:4acfffb647c2e41f",
       "kind": "paper",
@@ -32,9 +39,26 @@
   ],
   "first_seen": "2026-08-08T04:51:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T11:28:30Z",
-  "name": "MMLU-PRO",
+  "last_seen": "2026-08-12T23:01:57Z",
+  "name": "MMLU-Pro",
   "related": [
+    "monitorability",
+    "chain-of-thought-faithfulness",
+    "reasoning-summary",
+    "observability",
+    "correctness-prediction",
+    "selective-prediction",
+    "self-correction",
+    "verbosity",
+    "auroc",
+    "observability-ladder",
+    "linear-probe",
+    "shapley-attribution",
+    "llm-as-a-judge",
+    "tf-idf",
+    "logistic-regression",
+    "gpqa-diamond",
+    "omni-math",
     "reasoning-redundancy",
     "overthinking",
     "reasoning-distillation",
@@ -59,7 +83,6 @@
     "math500",
     "amc23",
     "aime24",
-    "gpqa-diamond",
     "limo",
     "natural-reasoning",
     "llama-3-1-8b-instruct",
@@ -67,7 +90,6 @@
     "gemini-2-5-flash",
     "local-causality",
     "structural-causal-model",
-    "chain-of-thought-faithfulness",
     "step-level-attribution",
     "thought-anchors",
     "leave-one-out-intervention",
@@ -79,7 +101,6 @@
     "structural-equation-modelling",
     "l1-regularized-regression",
     "attention-intervention",
-    "llm-as-a-judge",
     "zebralogic",
     "deepseek-r1-distill-llama-8b",
     "deepseek-r1-distill-qwen-14b",
@@ -138,9 +159,9 @@
   "schema_version": 1,
   "slug": "mmlu-pro",
   "topics": [
+    "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling",
-    "reasoning-faithfulness",
     "reasoning-evaluation",
     "reasoning-interpretability"
   ]

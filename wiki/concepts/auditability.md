@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a third party can check a claim rather than take it on trust, which the two sources locate at two different levels. One is about a single output: a compressed reasoning model can return a correct answer whose supporting derivation has been destroyed, so the visible trace no longer lets a reader tell whether the answer is reliable — and it argues this bites hardest in clinical or other high-stakes decision support, where a correct-looking output should only be used if its evidential basis can be inspected. The other is about a research field: mechanistic interpretability has no standardized system for auditing experiments, which the paper grounds in two papers reaching conflicting conclusions with nothing available to resolve them, and proposes continuous collaborative reviewing with source-based claim tracking. The shared claim is that a finding which cannot be checked cannot be certified, however accurate it happens to be.
 
 - **Kind**: concept
+- **Also called**: auditable
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [causal intervention](causal-intervention.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [KV cache compression](kv-cache-compression.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [mechanistic interpretability](mechanistic-interpretability.md), [meta-evaluation](meta-evaluation.md), [post-hoc rationalization](post-hoc-rationalization.md), [reproducibility](reproducibility.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [causal intervention](causal-intervention.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [KV cache compression](../methods/kv-cache-compression.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [mechanistic interpretability](mechanistic-interpretability.md), [meta-evaluation](meta-evaluation.md), [post-hoc rationalization](post-hoc-rationalization.md), [reproducibility](reproducibility.md)
 
 ## Appears in
 

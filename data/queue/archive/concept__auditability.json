@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T23:01:43Z",
   "created_at": "2026-08-12T22:46:43Z",
   "instructions": "Write the wiki definition for 'auditability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "auditability",
@@ -39,6 +40,17 @@
   "payload": {
     "name": "auditability",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "auditable"
+    ],
+    "definition": "Whether a third party can check a claim rather than take it on trust, which the two sources locate at two different levels. One is about a single output: a compressed reasoning model can return a correct answer whose supporting derivation has been destroyed, so the visible trace no longer lets a reader tell whether the answer is reliable — and it argues this bites hardest in clinical or other high-stakes decision support, where a correct-looking output should only be used if its evidential basis can be inspected. The other is about a research field: mechanistic interpretability has no standardized system for auditing experiments, which the paper grounds in two papers reaching conflicting conclusions with nothing available to resolve them, and proposes continuous collaborative reviewing with source-based claim tracking. The shared claim is that a finding which cannot be checked cannot be certified, however accurate it happens to be.",
+    "kind": "concept",
+    "related": [
+      "reproducibility",
+      "provenance"
+    ]
   },
   "task_id": "concept__auditability",
   "task_version": 1,

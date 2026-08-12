@@ -9,6 +9,12 @@
   "definition": "A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.",
   "evidence": [
     {
+      "id": "arxiv:2608.02089",
+      "kind": "paper",
+      "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+      "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
+    {
       "id": "arxiv:2608.04355",
       "kind": "paper",
       "note": "Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.",
@@ -71,9 +77,26 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T23:01:57Z",
   "name": "self-correction",
   "related": [
+    "monitorability",
+    "chain-of-thought-faithfulness",
+    "reasoning-summary",
+    "observability",
+    "correctness-prediction",
+    "selective-prediction",
+    "verbosity",
+    "auroc",
+    "observability-ladder",
+    "linear-probe",
+    "shapley-attribution",
+    "llm-as-a-judge",
+    "tf-idf",
+    "logistic-regression",
+    "gpqa-diamond",
+    "mmlu-pro",
+    "omni-math",
     "answer-extraction",
     "calibration",
     "construct-validity",
@@ -223,12 +246,13 @@
     "dapo-math-17k",
     "deepseek-r1-distill-qwen-1-5b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "self-correction",
   "topics": [
+    "reasoning-faithfulness",
     "test-time-scaling",
     "reasoning-training",
-    "reasoning-evaluation",
-    "reasoning-faithfulness"
+    "reasoning-evaluation"
   ]
 }

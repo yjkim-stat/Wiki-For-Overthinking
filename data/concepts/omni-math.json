@@ -11,6 +11,12 @@
       "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
     },
     {
+      "id": "arxiv:2608.02089",
+      "kind": "paper",
+      "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+      "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
+    {
       "id": "local:5175928072823010",
       "kind": "paper",
       "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
@@ -31,7 +37,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:14:36Z",
+  "last_seen": "2026-08-12T23:01:57Z",
   "name": "Omni-MATH",
   "related": [
     "post-training-quantization",
@@ -54,6 +60,23 @@
     "proofwriter",
     "metamathqa",
     "opencodeinstruct",
+    "monitorability",
+    "chain-of-thought-faithfulness",
+    "reasoning-summary",
+    "observability",
+    "correctness-prediction",
+    "selective-prediction",
+    "self-correction",
+    "verbosity",
+    "auroc",
+    "observability-ladder",
+    "linear-probe",
+    "shapley-attribution",
+    "llm-as-a-judge",
+    "tf-idf",
+    "logistic-regression",
+    "gpqa-diamond",
+    "mmlu-pro",
     "policy-entropy",
     "entropy-collapse",
     "exploration-exploitation-trade-off",
@@ -125,6 +148,7 @@
   "slug": "omni-math",
   "topics": [
     "reasoning-training",
+    "reasoning-faithfulness",
     "test-time-scaling"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A multi-hop question-answering set constructed by composing single-hop questions, used by both sources as held-out evaluation and in both the hardest of their seven benchmarks by absolute score. One reaches 28.6 F1 on it against 8.5 for chain-of-thought prompting and 10.0 with retrieval added, and finds it among the sets most damaged when step-level reward is removed (28.6 down to 24.2). The other reports 21.6 EM while a competing method reaches 23.6, making it one of the benchmarks where its macro-average lead does not hold. Its role here is as the floor: where the other multi-hop sets run in the fifties and seventies, methods on this one sit in the twenties.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",

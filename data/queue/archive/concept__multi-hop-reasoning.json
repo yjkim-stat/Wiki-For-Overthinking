@@ -1,0 +1,55 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
+        "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
+        "title": "EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-12T23:01:43Z",
+  "created_at": "2026-08-12T22:46:43Z",
+  "instructions": "Write the wiki definition for 'multi-hop reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "multi-hop reasoning",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "multi-hop reasoning",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "multi-hop QA"
+    ],
+    "definition": "Answering a question that requires combining facts no single retrieved document contains, and in both sources the regime that separates step-level credit assignment from outcome-only training. The evidence for that is an ablation rather than a definition: removing a forward-looking per-step reward costs 5.9 F1 on HotpotQA, 5.7 on 2WikiMultiHopQA and 4.4 on MuSiQue while costing 0.9 on single-hop Natural Questions, so dense step supervision earns its keep exactly where a trajectory holds several decisions that jointly determine the answer. Both sources also split their evaluation tables into single-hop and multi-hop averages and report them separately, treating the distinction as the axis along which a search policy either generalizes or does not.",
+    "kind": "concept",
+    "related": []
+  },
+  "task_id": "concept__multi-hop-reasoning",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}
