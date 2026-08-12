@@ -1,9 +1,16 @@
 {
   "aliases": [
-    "HumanEval+"
+    "HumanEval+",
+    "HumanEval"
   ],
   "definition": "A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification is why it matters here: the archive's sources note that guessing inflates pass@k on short-answer mathematics and that code tasks are the control where it does not, since a compiler and predefined tests decide correctness. One source uses it in exactly that role while probing reasoning boundaries; another uses it alongside early-exit evaluation.",
   "evidence": [
+    {
+      "id": "arxiv:2608.01078",
+      "kind": "paper",
+      "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
+      "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
+    },
     {
       "id": "local:a1d9fa1eb8899dfc",
       "kind": "paper",
@@ -19,9 +26,29 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "HumanEval",
+  "last_seen": "2026-08-12T22:14:36Z",
+  "name": "HumanEval+",
   "related": [
+    "post-training-quantization",
+    "calibration-data",
+    "ternary-quantization",
+    "quantization-aware-training",
+    "self-generated-data",
+    "chain-of-thought",
+    "distribution-matching",
+    "scaleq-1-58",
+    "ayot",
+    "cat-q",
+    "bitnet-b1-58",
+    "sliderquant",
+    "straight-through-estimator",
+    "math-500",
+    "gsm8k",
+    "omni-math",
+    "mbpp",
+    "proofwriter",
+    "metamathqa",
+    "opencodeinstruct",
     "overthinking",
     "early-exit",
     "pearl-reasoning",
@@ -42,7 +69,6 @@
     "nothinking",
     "chain-of-draft",
     "vllm",
-    "gsm8k",
     "math500",
     "amc23",
     "aime24",
@@ -82,6 +108,7 @@
     "qwen2-5-vl-7b",
     "deepseek-r1-distill-qwen-14b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "humaneval",
   "topics": [

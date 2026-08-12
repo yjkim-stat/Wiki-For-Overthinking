@@ -1,6 +1,11 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "AIME25",
+    "AIME 25",
+    "AIME'25",
+    "AIME2025"
+  ],
+  "definition": "The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the training cutoff of the base models being compared, so a result on it is not explained by contamination. One source reports its CoT-Pass@K gap in favour of the RLVR model as most pronounced on this set and attributes that directly to the release date. The other uses it as an ordinary member of a seven-benchmark evaluation sweep. The archive also holds it as the set that degrades most under symbolic re-instantiation — a 72.9 percent strict-metric drop against 58.8 percent for AIME 2024, with two models falling to zero.",
   "evidence": [
     {
       "id": "local:f92e5f936a3c7422",
@@ -82,7 +87,11 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "aime-2024",
+    "var-aime25",
+    "benchmark-contamination"
+  ],
   "schema_version": 1,
   "slug": "aime-2025",
   "topics": [

@@ -1,6 +1,11 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "AIME24",
+    "AIME 24",
+    "AIME'24",
+    "AIME2024"
+  ],
+  "definition": "The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same experiments treat as easy. It is where interventions show their largest movements — one source raises Qwen3-4B from 60.00 to 70.00 on it while GSM8K moves by a fraction of a point — and also where they are least stable, since the set holds only 30 problems, so a single answer shifts Pass@1 by 3.33 percent and the archive separately measures a 9.15 percent accuracy standard deviation on it from hardware configuration alone at BF16. The sources use it in tandem with AIME 2025 and lean on the two dates to separate contamination from capability: one attributes its clearest CoT-Pass@K result to AIME 2025 precisely because that set postdates the base model's training cutoff, which AIME 2024 does not.",
   "evidence": [
     {
       "id": "local:043e84b0b0ae0a39",
@@ -114,7 +119,11 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "aime-2025",
+    "var-aime24",
+    "benchmark-contamination"
+  ],
   "schema_version": 1,
   "slug": "aime-2024",
   "topics": [

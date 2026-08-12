@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-12 from 67 archived source(s).
+> Generated on 2026-08-13 from 67 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.
 
-Built from 67 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-06. 58 of the papers have been read in full.
+Built from 67 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-06. 59 of the papers have been read in full.
 
 Tracked terms: `chain of thought`, `chain of thought prompting`, `test-time compute`, `test-time scaling`, `inference-time scaling`, `inference-time compute`, `best of n`, `self-consistency`, `tree of thoughts`, `monte carlo tree search`, `self-refine`, `self-correction`, `self-verification`, `budget forcing`, `thinking budget`, `reasoning budget`, `extended thinking`, `overthinking`.
 
@@ -129,30 +129,30 @@ Evaluating the evaluation — asking whether a benchmark, metric or judge measur
 
 Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
 
-### self-correction
+### reasoning trajectory
 
-A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.
+The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
 
-Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; Optimizing Length Compression in Large Reasoning Models; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark.
+Seen in: Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 22 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| chain of thought | 20 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
 | LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| self-consistency | 12 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
+| best-of-n | 10 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| self-consistency | 10 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| best-of-n | 9 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| supervised fine-tuning | 9 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| supervised fine-tuning | 10 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
+| test-time scaling | 9 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 8 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
-| test-time scaling | 8 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| majority voting | 8 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | linear probe | 7 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
-| majority voting | 7 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | PPO | 7 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 | activation steering | 6 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
@@ -166,7 +166,7 @@ Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction 
 | --- | ---: | --- |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
-| GSM8K | 22 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 24 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
@@ -176,14 +176,14 @@ Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction 
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU | 6 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
+| MATH-500 | 5 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | DAPO-Math-17K | 4 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
-| MATH-500 | 4 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | MMLU-PRO | 4 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
-| AIME 2024 | 3 | _pending_ |
-| OMNI-MATH | 3 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
-| AIME 2025 | 2 | _pending_ |
+| Omni-MATH | 4 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
+| AIME 2024 | 3 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
+| HumanEval+ | 3 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
+| AIME 2025 | 2 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
-| AMC | 2 | A competition mathematics benchmark, used by both sources purely as an evaluation set reported alongside AIME and MATH500. Neither describes its contents, size or construction,... |
 
 ## Reading path
 
@@ -201,30 +201,30 @@ Seen in: The Calibration Floor: Format Repair Can Masquerade as Self-Correction 
 2. **Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning** (2026)
    - Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.
    - <https://arxiv.org/abs/2608.05643>
-3. **s1: Simple test-time scaling** (2025)
+3. **It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling** (2026)
+   - Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.
+   - <https://arxiv.org/abs/2608.01207>
+4. **s1: Simple test-time scaling** (2025)
    - Reaches test-time scaling with two simple ingredients: supervised finetuning on 1,000 curated reasoning traces, and 'budget forcing', which controls thinking length by cutting generation off or appending 'Wait' to extend it.
    - <https://arxiv.org/abs/2501.19393>
-4. **Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters** (2024)
+5. **Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters** (2024)
    - Studies how far a fixed model improves when given more inference compute, and shows that allocating that compute adaptively per prompt by difficulty beats a uniform best-of-N budget by more than 4x.
    - <https://arxiv.org/abs/2408.03314>
-5. **Tree of Thoughts: Deliberate Problem Solving with Large Language Models** (2023)
+6. **Tree of Thoughts: Deliberate Problem Solving with Large Language Models** (2023)
    - Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.
    - <https://arxiv.org/abs/2305.10601>
-6. **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** (2026)
+7. **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** (2026)
    - The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
    - <https://arxiv.org/abs/2608.04735>
-7. **Measuring Faithfulness in Chain-of-Thought Reasoning** (2023)
+8. **Measuring Faithfulness in Chain-of-Thought Reasoning** (2023)
    - Measures how much a model's answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.
    - <https://arxiv.org/abs/2307.13702>
-8. **The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale** (2026)
+9. **The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale** (2026)
    - Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.
    - <https://arxiv.org/abs/2608.04355>
-9. **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** (2026)
+10. **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** (2026)
    - Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.
    - <https://arxiv.org/abs/2608.04524>
-10. **Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models** (2026)
-   - Two-stage fine-tuning that first injects difficulty cues into output prefixes for prospective strategy selection, then injects redundancy cues mid-reasoning for retrospective correction.
-   - <https://doi.org/10.18653/v1/2026.acl-long.1766>
 
 ## Open problems
 
@@ -235,13 +235,13 @@ Drawn from the limitations each paper states about itself, so this is what the f
 - **The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale** — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-floor argument identifies a squeeze rather than a remedy: floor-scale models have headroom but not enough signal, capable-scale models have signal but little headroom, so the design space where self-correction could be measured cleanly is nearly empty. Scope is answer-extractable tasks; the decomposition does not apply where there is no parseable answer field.
 - **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported with inter-rater agreement or the number of psychologists. Downstream validation is against simulated patients, not human ones, so the claim that explicit resistance modelling transfers to clinical robustness is established only within simulation.
 - **Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning** — 'Largely preserving accuracy' is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are not named. The process-reward estimator is an additional component whose own cost and calibration are not reported, and the claim that deleting tokens at high-reward steps is safer rests on that estimator being right about which steps are high-reward.
+- **It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling** — The paper states its bounds directly. The grid is two open 7B VLMs and four automatically scored benchmarks, so a stronger model family or a larger decode budget could in principle show a benefit this does not; universality is not claimed. Main results are three-seed means, which cannot rule out rarer decoding regimes, though the paired PGS-vs-MatchedCtrl comparisons carry instance-level bootstrap intervals. The perturbation families are hand-designed heuristics and a learned set could carry more signal — but the authors note it would still have to clear a MatchedCtrl-style control. No stronger-signal reference point is included: they do not show that a trained verifier or a multi-model ensemble beats MatchedCtrl, so whether the gap is recoverable under training is untested. And the negative finding is about answer selection specifically; the stability gap survives as a partial diagnostic of visual dependence, and abstention and routing uses of it are not evaluated.
 - **Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models** — 'Without compromising performance' is unquantified, and no accuracy numbers or benchmark names appear in the abstract. Difficulty labels are needed to construct the prefix cues, and how they are obtained determines whether the learned sensitivity is to difficulty or to a proxy. The asymmetric savings — over 70% on easy versus 40% on complex — mean the aggregate reduction depends on the difficulty mix of the evaluation set, which is unstated.
 - **Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning** — No quantitative results, benchmarks or models in the abstract. Necessity is judged by the model's own likelihood, so a segment the model undervalues but that a correct derivation requires would be pruned — the criterion is self-referential. Semantic-unit segmentation is a preprocessing choice whose method is unstated, and it determines what can be pruned.
 - **FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning** — No numbers in the abstract and the 26 models are not listed. Template-generated problems are verifiable but constrained to what templates express, so difficulty and diversity are bounded by template design rather than by real financial analysis. The finding that math-enhanced fine-tuning narrows the gap suggests the benchmark measures symbolic manipulation substantially, which may be the intent but limits claims about financial reasoning specifically.
 - **Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models** — Benchmarks and models are not named. Search costs inference compute that the reported 22% length reduction does not obviously account for — a shorter final path can still be more expensive to find, and total compute is not reported. The dual-factor heuristic requires weighting correctness against cost, and that weighting is a free parameter. 'Sparse superior paths' is established by the paper's own characterization of the solution space.
 - **Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization** — No quantitative results, benchmark names or models in the abstract. Failure attribution comes from teacher models, so the supervision inherits the teachers' own confusion between perception and reasoning errors — the labels are estimates of a distinction that is itself contested. 790k samples is a heavy data requirement. Whether re-examining the image actually repairs perception, as opposed to giving another sample of the same process, is not established.
 - **Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning** — The paper has no limitations section; what follows is drawn from its own tables and setup. Most importantly, early exit does not beat unrestricted generation on accuracy — vanilla scores 45.02%, 74.32% and 73.69% on the three models against CUSUM's 44.44%, 73.3% and 71.45%. The claim is a better efficiency-accuracy Pareto frontier against other early-exit methods, not a free improvement, and the abstract's framing of 'without compromising accuracy' is a small-loss-for-tokens trade rather than a null one. The detector needs per-model calibration data: f0 and f1 are estimated from 100 Bespoke-Stratos-17k trajectories, so a new model requires that step. CUSUM's classical guarantees assume i.i.d. observations within each regime, which entropy sequences violate; the paper argues consistency still holds by citing a sub-quadratic partial-sum variance condition and asserting it is satisfied, but does not test the dependence directly. Evaluation rests on AIME24 and AIME25, which are 30 problems each — mitigated by 16 random runs per dataset, but still a narrow base — plus GPQA-Diamond, and all models are 4B-14B, so behaviour at frontier scale is untested. Finally, extracting an intermediate answer at every step requires interrupting generation, which is feasible for open-weight models only.
-- **Capabilities and Fundamental Limits of Latent Chain-of-Thought** — The paper has no limitations section. What a reader should weigh: all experiments use GPT-2 at 124M parameters with six latent steps on two benchmarks, so the theory is validated at a scale far below any deployed reasoning model, and the GSM8K accuracies (42.9% for explicit CoT) are correspondingly low. The Symbolic Index is defined as the maximum probability of the output distribution, which explicit CoT produces natively at every step but latent CoT does not — the measurements at latent steps rely on a renormalized readout over nucleus tokens, so the index is not measuring the same object in both regimes as directly as the framing suggests. The exploration analysis assumes explicit CoT's step distribution is drawn from a Dirichlet with large concentration, which is a modelling choice motivated by teacher forcing rather than measured. The compounding-error result depends on the transition map's Lipschitz constant, which is not estimated for the trained model. Finally, the paper explicitly restricts its analysis to a single coherent reasoning path and argues in a remark that ensemble methods such as self-consistency do not escape its conclusions because each individual chain still depends on high-certainty commitments — a claim that is asserted rather than demonstrated, and that matters given how much of the surrounding literature relies on sampling many chains.
 
 ## References
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely related to monitorability and ranks BBH highest of its sets with GPQA-Diamond lowest, so a trace produced on BBH is the most likely to enumerate the factors that actually decide the answer. The other includes it in a seven-benchmark sweep in which a norm-based steering signal leads on AIME, GPQA and MMLU-Pro while an SAE-based one wins BBH and GSM-Plus, so interventions separate on it rather than agreeing. Under the fuller name the archive holds a third use: 13 of its tasks are the setting in which biasing the prompt drops accuracy by as much as 36 percent while the model's explanation rationalizes the biased answer.
 
 - **Kind**: dataset
+- **Also called**: BBH tasks, BIG-Bench Hard
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

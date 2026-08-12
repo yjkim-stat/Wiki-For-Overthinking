@@ -2,7 +2,7 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-12 from 27 archived source(s).
+> Generated on 2026-08-13 from 27 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
@@ -105,6 +105,12 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
 
+### reasoning trajectory
+
+The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
+
+Seen in: Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience.
+
 ### self-correction
 
 A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.
@@ -117,26 +123,20 @@ Supervising the steps rather than only the outcome, and a line the archive has w
 
 Seen in: AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning; DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models; RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer; MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models.
 
-### reasoning trajectory
-
-The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
-
-Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience; Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 22 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| chain of thought | 20 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
 | LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| self-consistency | 12 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | activation patching | 10 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| self-consistency | 10 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| supervised fine-tuning | 9 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| supervised fine-tuning | 10 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
-| test-time scaling | 8 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| test-time scaling | 9 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | linear probe | 7 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 | activation steering | 6 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
@@ -154,7 +154,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | --- | ---: | --- |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
-| GSM8K | 22 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 24 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
@@ -163,15 +163,15 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | MATH | 7 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU | 6 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
-| MATH-500 | 4 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
+| MATH-500 | 5 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | MMLU-PRO | 4 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
-| AIME 2024 | 3 | _pending_ |
-| AIME 2025 | 2 | _pending_ |
+| AIME 2024 | 3 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
+| AIME 2025 | 2 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
-| BBH | 2 | _pending_ |
+| BBH | 2 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
+| OpenCodeInstruct | 2 | _pending_ |
 | ProntoQA | 2 | _pending_ |
 | ProsQA | 2 | _pending_ |
-| ZebraLogic | 2 | A benchmark of constraint-satisfaction logic puzzles, used in both sources as the non-mathematical reasoning task that stresses long deductive chains. Two findings attach to it:... |
 
 ## Reading path
 

@@ -6,6 +6,12 @@
   "definition": "A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with sufficient attempts, which is exactly what makes it informative. One source uses it to validate provable test-time scaling; another reports that RLVR's effect on it is muted precisely because the base model already reaches the answers given enough samples, so the benchmark cannot show an extended boundary. That saturation is the thing to know before quoting a MATH-500 number.",
   "evidence": [
     {
+      "id": "arxiv:2608.01078",
+      "kind": "paper",
+      "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
+      "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -32,9 +38,29 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T11:28:30Z",
+  "last_seen": "2026-08-12T22:14:36Z",
   "name": "MATH-500",
   "related": [
+    "post-training-quantization",
+    "calibration-data",
+    "ternary-quantization",
+    "quantization-aware-training",
+    "self-generated-data",
+    "chain-of-thought",
+    "distribution-matching",
+    "scaleq-1-58",
+    "ayot",
+    "cat-q",
+    "bitnet-b1-58",
+    "sliderquant",
+    "straight-through-estimator",
+    "gsm8k",
+    "omni-math",
+    "humaneval",
+    "mbpp",
+    "proofwriter",
+    "metamathqa",
+    "opencodeinstruct",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -55,7 +81,6 @@
     "prosqa",
     "prontoqa",
     "aime-2024",
-    "gsm8k",
     "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
@@ -132,9 +157,9 @@
   "schema_version": 1,
   "slug": "math-500",
   "topics": [
+    "reasoning-training",
     "reasoning-interpretability",
     "reasoning-faithfulness",
-    "reasoning-training",
     "test-time-scaling",
     "reasoning-evaluation"
   ]

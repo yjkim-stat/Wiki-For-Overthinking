@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.01078",
+      "kind": "paper",
+      "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
+      "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
+    },
+    {
       "id": "local:d9699040f5220b4c",
       "kind": "paper",
       "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
@@ -11,9 +17,29 @@
   ],
   "first_seen": "2026-08-08T03:56:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T22:14:36Z",
   "name": "OpenCodeInstruct",
   "related": [
+    "post-training-quantization",
+    "calibration-data",
+    "ternary-quantization",
+    "quantization-aware-training",
+    "self-generated-data",
+    "chain-of-thought",
+    "distribution-matching",
+    "scaleq-1-58",
+    "ayot",
+    "cat-q",
+    "bitnet-b1-58",
+    "sliderquant",
+    "straight-through-estimator",
+    "math-500",
+    "gsm8k",
+    "omni-math",
+    "humaneval",
+    "mbpp",
+    "proofwriter",
+    "metamathqa",
     "sparse-autoencoder",
     "step-level-representation",
     "context-conditioned-encoding",
@@ -33,7 +59,6 @@
     "self-consistency",
     "llm-as-a-judge",
     "activation-patching",
-    "gsm8k",
     "gsm8k-aug",
     "numinamath-cot",
     "math500",
@@ -44,12 +69,13 @@
     "qwen2-5-0-5b",
     "llama-3-2-1b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "opencodeinstruct",
   "topics": [
+    "reasoning-training",
     "reasoning-faithfulness",
     "test-time-scaling",
-    "reasoning-interpretability",
-    "reasoning-training"
+    "reasoning-interpretability"
   ]
 }

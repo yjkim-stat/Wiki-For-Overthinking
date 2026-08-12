@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Test-Time Scaling</h1>
 <p class="subtitle">What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.</p>
-<p>2026-08-12 · 67 archived source(s)</p>
+<p>2026-08-13 · 67 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -151,6 +151,21 @@ th { background: var(--surface); }
 </ul>
 <p><strong>Results.</strong> Across AIME24, AIME25, AMC, OlympiadBench and MATH500, it improves over greedy decoding, majority voting, verifier-based best-of-N, beam search and lookahead decoding on multiple open-weight models. With Qwen2.5-1.5B, accuracy reaches 58.0% on MATH500, above the strongest verifier-based baseline, and rises from 25.0% to 32.5% on AMC.</p>
 <p><strong>Why it matters.</strong> A direct claim on this topic&#x27;s central question — what to buy with extra inference compute. It argues depth beats breadth and that neither needs a verifier, which cuts against the best-of-N and process-reward-selection line the archive tracks. The result sits in tension with arxiv:2608.04355 in this same batch, which finds that at small-to-mid scale the content margin of self-revision is near zero and the measured gain is format repair; this paper&#x27;s strongest numbers come from a 1.5B model on parseable-answer math benchmarks, exactly the regime that argument targets. The two should be read together, and the missing control is compute-matched breadth.</p>
+</section>
+<section class="slide">
+<h2>It&#x27;s the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</h2>
+<p class="subtitle">Puzhuo Zheng, Hasan Kurban · 2026</p>
+<blockquote>
+<p>Shows that a perturbation-based selection rule&#x27;s apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.</p>
+</blockquote>
+<ul>
+<li>Names the confound: comparing a perturbation- or consistency-based selector against CoT-only majority voting conflates the selection mechanism with a CoT-to-short decoding-format change</li>
+<li>MatchedCtrl, a format-matched control that reuses the N CoT answers and adds the same M*K short no-CoT answers drawn from the original unperturbed image, so it differs from the perturbation rule only in whether those short draws pass through perturbed views</li>
+<li>A negative result under that control across four benchmarks and two open VLMs, with no category showing a significant positive difference and every 95% bootstrap interval overlapping zero</li>
+<li>A separation of diagnostic from routing: the perturbation score demonstrably sees the image, and that fact still does not predict when the rule beats the control</li>
+</ul>
+<p><strong>Results.</strong> On Qwen2.5-VL-7B over three seeds, PGS appears to beat MV by 31.8 points on TextVQA (86.2 against 54.4) and is near-flat elsewhere. MatchedCtrl tracks or exceeds it on every benchmark: TextVQA 87.6 against 86.2, MATH-Vision 25.3 against 26.0, MMMU 50.1 against 50.3, ViLP 53.7 against 52.3 — with the control ahead on the benchmark where the headline gain was largest. Per-category bootstrap intervals close the case: no category yields a significant positive difference and the ViLP interval lies entirely below zero. Against a panel of label-free alternatives at matched budgets of 32 and 16 on both models, self-certainty and mean token entropy often fall below MatchedCtrl while SC+Borda and confidence-weighted self-consistency track it within noise, so the control absorbs the strongest confidence aggregators too. The diagnostics behave differently from the selector: blanking the perturbation inputs collapses PGS where the signal is visual — TextVQA 87.7 to 7.9, ViLP-F 46.2 to 0.4, MMMU 50.2 to 23.3 — while symbolic MATH-Vision barely moves (26.3 to 23.4), confirming the score genuinely depends on the image. The preserve/destroy gap is real and image-dependent, reaching +0.478 on TextVQA and +0.445 on ViLP, yet instance-level correlation between gap and gain is near zero and gap quartiles are non-monotone. The two diagnostics also decouple from each other: MMMU collapses under blanking while its mean stability gap is only +0.071.</p>
+<p><strong>Why it matters.</strong> It supplies a control that most test-time-scaling comparisons in this archive do not run. Any selection rule that spends its extra draws in a different decoding format than the baseline it is compared against — short answers against long chains — is measuring two things at once, and here that confound is worth up to 31.8 points, larger than almost any selection gain reported anywhere. The practical hurdle it establishes is also cheap: short-answer aggregation on the original image at matched budget is a strong baseline that both confidence-style and perturbation-weighted selectors failed to clear. It also sharpens what a grounding claim has to show, by exhibiting a signal that provably tracks the pixels (blanking it collapses accuracy from 87.7 to 7.9) and still buys nothing at the selection layer.</p>
 </section>
 <section class="slide">
 <h2>s1: Simple test-time scaling</h2>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Relevant through one specific negative result rather than through a method: CoT&#x27;s benefit is not explained by added test-time compute alone. That is a constraint on how this topic should interpret its own gains — the content of the extra tokens matters, so a scaling curve is not simply a compute curve.</p>
 </section>
 <section class="slide">
-<h2>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</h2>
-<p class="subtitle">Mingguang Chen, Bo Qu, Licheng Wang · 2026</p>
-<blockquote>
-<p>Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.</p>
-</blockquote>
-<ul>
-<li>A decomposition of the self-revision accuracy shift into content and format-recovery/loss margins</li>
-<li>A causal test of the decomposition using grammar-constrained decoding over already-generated reasoning</li>
-<li>Evidence that format effects dominate content effects, and intensify with scale in the frontier arm</li>
-<li>A failed verbatim replication of a published confidence-gating self-correction gain</li>
-</ul>
-<p><strong>Results.</strong> Across 29 primary cells plus a frontier arm on Qwen3.5 (0.8B-9B), Gemma-4-12B, Tencent Hy3 and Nvidia Nemotron-3-Ultra-550B. On the 12 cells with meaningful unparseable-answer rates, format effects exceed content effects (Wilcoxon p=1.7e-3). Grammar-constrained decoding closes a median 71% of the naive-versus-content gap across 14 cells, with two cells converging exactly; the residual on the two largest-effect cells is reported rather than dismissed. Floor-scale models (0.8B/2B) have far higher odds of content-level change and of harm than capable-scale models (p&lt;1e-7). In the frontier arm the content margin is exactly zero in all 5 cells despite total effects up to +0.275, though that arm is lower-powered. Replicating the cited confidence-gating protocol on Qwen3.5 does not reproduce its reported gain and shows the same near-zero content margin. Only one cell is marginally viable under the calibration-floor criterion, with negligible sealed-holdout gain.</p>
-<p><strong>Why it matters.</strong> Directly attacks the measurement that most test-time self-correction results rest on. If the content margin is zero in all five frontier cells while total effects reach +0.275, then reported self-correction gains at scale are answer-formatting artefacts, and any test-time method whose evidence is a revise-then-remeasure accuracy delta needs re-auditing with parseability held fixed. It also names a concrete instrument for doing so — grammar-constrained decoding of already-generated reasoning — which is cheap enough to be a standard control.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -260,8 +260,8 @@ th { background: var(--surface); }
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
+<li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
 <li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
-<li><strong>pass-k</strong> — The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on t...</li>
 </ul>
 </section>
 <section class="slide">
@@ -283,18 +283,18 @@ th { background: var(--surface); }
 <li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
 <li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
 <li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
-<li><strong>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</strong> — &#x27;Without compromising performance&#x27; is unquantified, and no accuracy numbers or benchmark names appear in the abstract. Difficulty labels are needed to constr...</li>
+<li><strong>It&#x27;s the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</strong> — The paper states its bounds directly. The grid is two open 7B VLMs and four automatically scored benchmarks, so a stronger model family or a larger decode bu...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</strong> — &#x27;Without compromising performance&#x27; is unquantified, and no accuracy numbers or benchmark names appear in the abstract. Difficulty labels are needed to constr...</li>
 <li><strong>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</strong> — No quantitative results, benchmarks or models in the abstract. Necessity is judged by the model&#x27;s own likelihood, so a segment the model undervalues but that...</li>
 <li><strong>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</strong> — No numbers in the abstract and the 26 models are not listed. Template-generated problems are verifiable but constrained to what templates express, so difficu...</li>
 <li><strong>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</strong> — Benchmarks and models are not named. Search costs inference compute that the reported 22% length reduction does not obviously account for — a shorter final p...</li>
 <li><strong>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</strong> — No quantitative results, benchmark names or models in the abstract. Failure attribution comes from teacher models, so the supervision inherits the teachers&#x27;...</li>
 <li><strong>Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning</strong> — The paper has no limitations section; what follows is drawn from its own tables and setup. Most importantly, early exit does not beat unrestricted generation...</li>
-<li><strong>Capabilities and Fundamental Limits of Latent Chain-of-Thought</strong> — The paper has no limitations section. What a reader should weigh: all experiments use GPT-2 at 124M parameters with six latent steps on two benchmarks, so th...</li>
 </ul>
 </section>
 <section class="slide">
@@ -302,17 +302,18 @@ th { background: var(--surface); }
 <ul>
 <li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
 <li>Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. <em>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</em>. cs.AI. 2026</li>
+<li>Puzhuo Zheng, Hasan Kurban. <em>It&#x27;s the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</em>. cs.CV. 2026</li>
 <li>Niklas Muennighoff, Zitong Yang, Weijia Shi et al.. <em>s1: Simple test-time scaling</em>. cs.CL. 2025</li>
 <li>Charlie Snell, Jaehoon Lee, Kelvin Xu et al.. <em>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</em>. cs.LG. 2024</li>
 <li>Shunyu Yao, Dian Yu, Jeffrey Zhao et al.. <em>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</em>. cs.CL. 2023</li>
 <li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
-<li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
 <li>Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. <em>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</em>. cs.CL. 2026</li>
 <li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
 <li>Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. <em>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</em>. ACL. 2026</li>
@@ -320,12 +321,12 @@ th { background: var(--surface); }
 <li>Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. <em>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</em>. ACL. 2026</li>
 <li>Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. <em>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</em>. ACL. 2026</li>
 <li>Ting Xu, Xu He, Yupu Lu et al.. <em>Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
-<li>Jiaxuan Zou, Yaozhong Xiong, Yong Liu. <em>Capabilities and Fundamental Limits of Latent Chain-of-Thought</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Jiaxuan Zou, Yaozhong Xiong, Yong Liu. <em>Capabilities and Fundamental Limits of Latent Chain-of-Thought</em>. preprint. 2026</li>
 <li>Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. <em>Local Causal Attribution of Chain-of-Thought Reasoning</em>. Mechanistic Interpretability Workshop at ICML 2026. 2026</li>
 <li>Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. <em>What If We Allocate Test-Time Compute Adaptively?</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
 <li>Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. <em>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</em>. preprint. 2026</li>
@@ -333,7 +334,6 @@ th { background: var(--surface); }
 <li>Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. <em>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</em>. preprint. 2025</li>
 <li>Yuxiao Qu, Matthew Y. R. Yang, Amrith Setlur et al.. <em>Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning</em>. ICML 2025. 2025</li>
 <li>Yanxi Chen, Xuchen Pan, Yaliang Li et al.. <em>Provable Scaling Laws for the Test-Time Compute of Large Language Models</em>. NeurIPS. 2025</li>
-<li>Yusuf Kalayci, Vinod Raman, Shaddin Dughmi. <em>Optimal Stopping vs Best-Of-N for Inference Time Optimization</em>. preprint. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

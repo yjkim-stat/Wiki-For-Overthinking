@@ -3,6 +3,12 @@
   "definition": "Direct Preference Optimization, used in this archive as the middle stage of efficiency pipelines rather than for alignment. The pattern in both sources is the same: sample multiple trajectories for a question, keep only those reaching the correct answer, rank them by a redundancy or confidence score, and prefer the leaner one — so the preference signal is constructed from the model's own outputs and carries no human judgement. One ranks correct trajectories by a score combining the fraction of review nodes in a dependency graph with normalized length; the other feeds the model's own self-certainty into the preference so it compresses where it is confident and keeps deliberating where it is not. In both it sits between supervised fine-tuning on pruned traces and a length-penalized reinforcement stage, and in at least one the stage-wise ablation shows it contributes less of the final compression than the stage after it.",
   "evidence": [
     {
+      "id": "arxiv:2608.01014",
+      "kind": "paper",
+      "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
+      "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning"
+    },
+    {
       "id": "local:b1536fcbe72cb268",
       "kind": "paper",
       "note": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
@@ -17,9 +23,23 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T22:14:36Z",
   "name": "DPO",
   "related": [
+    "persistent-homology",
+    "hidden-state-geometry",
+    "reasoning-trajectory",
+    "preference-optimization",
+    "self-consistency",
+    "preference-pair-quality",
+    "semi-supervised-learning",
+    "cloud-scpo",
+    "scpo",
+    "supervised-fine-tuning",
+    "vietoris-rips-filtration",
+    "mean-pooling-of-hidden-states",
+    "gsm8k",
+    "math-numeric",
     "process-reward-model",
     "outcome-reward-model",
     "implicit-reward",
@@ -70,9 +90,11 @@
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "dpo",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"
   ]
