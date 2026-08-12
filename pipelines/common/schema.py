@@ -159,6 +159,15 @@ class PaperSummary(_Record):
     methods: list[str] = field(default_factory=list)
     datasets: list[str] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
+    # What this reading was based on: ``document`` when the reader opened the
+    # PDF attached to the task, ``abstract`` when they worked from the payload
+    # alone. Which one it was decides what the record is worth -- an abstract
+    # reports a paper's claims and rarely the condition under which they fail.
+    #
+    # Empty means unknown, which is not the same as ``abstract``: a reading
+    # written before this field existed had a document as often as not, and
+    # defaulting one to the other would make them indistinguishable for ever.
+    read_from: str = ""
     generated_by: str = ""
     generated_at: str = field(default_factory=utcnow)
     schema_version: int = SCHEMA_VERSION

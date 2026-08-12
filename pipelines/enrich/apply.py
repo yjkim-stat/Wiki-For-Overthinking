@@ -73,6 +73,29 @@ def _apply_bibliography(cfg: Config, store: RecordStore, paper, result: dict) ->
     store.save_paper(paper)
 
 
+def _reading_basis(task: dict, result: dict) -> str:
+    """What a reading was based on, from the answer or from the task.
+
+    The reader's own answer wins, and the validator has already refused the one
+    version of it that could be checked. Two cases remain:
+
+    A task that attached no document had nothing to open, so ``abstract`` is not
+    an assumption about the reader — it is the only thing the task made possible.
+
+    A task that attached one and came back silent predates this field, and there
+    is no way to recover which it was. That stays empty. Recording a guess would
+    make an unknown reading indistinguishable from a declared one, and the whole
+    point of the field is that the difference is visible.
+    """
+    declared = str(result.get("read_from") or "").strip()
+    if declared:
+        return declared
+    attachments = task.get("attachments")
+    if isinstance(attachments, dict) and not attachments.get("pdf_path"):
+        return "abstract"
+    return ""
+
+
 def _apply_paper(cfg: Config, store: RecordStore, task: dict) -> bool:
     result = task.get("result") or {}
     paper_id = task["item_id"]
@@ -97,6 +120,7 @@ def _apply_paper(cfg: Config, store: RecordStore, task: dict) -> bool:
         methods=list(result.get("methods") or []),
         datasets=list(result.get("datasets") or []),
         tags=list(result.get("tags") or []),
+        read_from=_reading_basis(task, result),
         generated_by=task.get("completed_by") or "queue",
         generated_at=task.get("completed_at") or utcnow(),
     )

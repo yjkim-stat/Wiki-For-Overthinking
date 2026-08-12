@@ -61,9 +61,54 @@ _LIST_FIELDS = {
 
 _KINDS = tuple(_REQUIRED_FIELDS)
 
+#: What a reading may say it was based on. ``document`` is a claim the task can
+#: check; ``abstract`` is one it cannot, and does not need to.
+READING_BASIS = ("document", "abstract")
+
+
+def _check_reading_basis(
+    result: dict, attachments: dict[str, Any] | None
+) -> list[str]:
+    """Whether a paper reading says what it was based on, and may say it.
+
+    Asked of every paper task and answerable only by the reader: nothing in the
+    pipeline can observe whether a PDF was opened. What the task *can* do is
+    refuse the one direction that is checkable — a reading cannot have been
+    based on a document that was never attached to it.
+    """
+    basis = result.get("read_from")
+    if basis is not None and not isinstance(basis, str):
+        return ["field `read_from` must be a string"]
+    basis = (basis or "").strip()
+
+    if basis and basis not in READING_BASIS:
+        return [
+            f"field `read_from` must be one of {', '.join(READING_BASIS)} "
+            f"(got '{basis}')"
+        ]
+    if attachments is None:
+        return []
+
+    if attachments.get("pdf_path"):
+        if not basis:
+            return [
+                "missing or empty required field: read_from — this task "
+                "attached a document, so say whether you read it ('document') "
+                "or worked from the abstract ('abstract')"
+            ]
+    elif basis == "document":
+        return [
+            "`read_from` says 'document', but this task attached none — a "
+            "reading cannot be based on a document it was never given"
+        ]
+    return []
+
 
 def validate_result(
-    kind: str, result: Any, topics: list[str] | None = None
+    kind: str,
+    result: Any,
+    topics: list[str] | None = None,
+    attachments: dict[str, Any] | None = None,
 ) -> list[str]:
     """Check a submitted result against the contract. Returns error strings.
 
@@ -72,6 +117,17 @@ def validate_result(
     checked against anything — a paper's relevance decides which topic page it
     renders under, and a key naming a slug the task does not have renders
     nowhere at all.
+
+    ``attachments`` is the task's own attachment block, and the same reasoning
+    applies to ``read_from``: whether a reading had to open a document is a fact
+    about the task, not about the answer, so a validator that cannot see the
+    task cannot tell a true claim from a false one.
+
+    The three states are distinct on purpose. ``None`` means no context was
+    given and only the value itself is checked. ``{}`` means the task carried no
+    document — nothing to open, so nothing is required, but claiming to have
+    read one is rejected. A block with ``pdf_path`` means the reader was handed
+    a document and has to say whether they used it.
     """
     errors: list[str] = []
     if not isinstance(result, dict):
@@ -122,6 +178,8 @@ def validate_result(
                 for slug, text in (relevance or {}).items():
                     if slug in allowed and not str(text).strip():
                         errors.append(f"`relevance['{slug}']` is empty")
+
+        errors.extend(_check_reading_basis(result, attachments))
 
         bibliography = result.get("bibliography")
         if bibliography is not None:
@@ -258,7 +316,16 @@ class Queue:
         if not task:
             raise FileNotFoundError(f"no pending task with id '{task_id}'")
 
-        errors = validate_result(task["kind"], result, task.get("topics") or None)
+        # Both context arguments come from the task rather than the answer, so
+        # a claim the answer makes about itself can be checked against what was
+        # actually handed over. `attachments` is passed as stored — `{}` is a
+        # task that carried no document, and is not the same as no context.
+        errors = validate_result(
+            task["kind"],
+            result,
+            task.get("topics") or None,
+            task.get("attachments"),
+        )
         if errors:
             raise ValueError(
                 f"result for '{task_id}' is invalid:\n  - " + "\n  - ".join(errors)

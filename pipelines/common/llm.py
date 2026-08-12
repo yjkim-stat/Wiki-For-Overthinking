@@ -64,6 +64,17 @@ VIDEO_OUTPUT_SCHEMA: dict[str, Any] = {
     "tags": ["string - short lowercase keywords"],
 }
 
+# Added to a paper task only when a document is attached to it. Where none is,
+# there is nothing to ask — the abstract was the only thing there was to read,
+# and the applier records that without troubling the reader for it.
+READ_FROM_SCHEMA: dict[str, Any] = {
+    "read_from": (
+        "string - required: 'document' if you opened the attached PDF and read "
+        "it, 'abstract' if you worked from the payload alone. Answer for what "
+        "you did, not for what you were asked to do"
+    ),
+}
+
 # A hand-filed PDF arrives with no metadata at all — the collector only knows a
 # filename and a hash. Whoever reads the document supplies the bibliography and
 # says which tracked topics it belongs to, so these fields extend, rather than
@@ -84,6 +95,22 @@ PDF_EXTRA_SCHEMA: dict[str, Any] = {
     ],
 }
 
+def _paper_schema(*, local: bool, has_document: bool) -> dict[str, Any]:
+    """The output contract for one paper task.
+
+    Three fragments, each earned by something about the task rather than by the
+    kind: the ordinary paper contract, the bibliography a hand-filed PDF has
+    nobody else to get its metadata from, and the reading basis a task can only
+    ask about when it handed over a document to begin with.
+    """
+    schema = dict(PAPER_OUTPUT_SCHEMA)
+    if local:
+        schema.update(PDF_EXTRA_SCHEMA)
+    if has_document:
+        schema.update(READ_FROM_SCHEMA)
+    return schema
+
+
 CONCEPT_OUTPUT_SCHEMA: dict[str, Any] = {
     "definition": (
         "string - two to four sentences defining the entity as the cited "
@@ -102,6 +129,14 @@ Rules:
 - No marketing language. Prefer the specific number over the adjective.
 - Return one JSON object matching the schema exactly. No prose around it.
 """.strip()
+
+
+_READ_FROM_RULE = (
+    "Then set `read_from`: 'document' if you opened the file, 'abstract' if you "
+    "did not and worked from the payload. Say which you actually did. A reading "
+    "that is honest about being abstract-only can be redone later; one that "
+    "claims a document it never opened cannot be found at all."
+)
 
 
 def paper_instructions(
@@ -130,6 +165,7 @@ def paper_instructions(
         "distinguishes them. If a headline holds only under a condition — a "
         "scale, a threshold, a subset of tasks — that condition belongs in "
         "`results`.\n\n"
+        f"{_READ_FROM_RULE}\n\n"
         if has_pdf
         else ""
     )
@@ -170,7 +206,7 @@ def local_pdf_instructions(topics: list[dict], language: str = "en") -> str:
         "empty rather than forcing a fit:\n"
         f"{lens}\n\n"
         "`relevance` must have one entry per slug you listed in `topics`.\n\n"
-        + _SHARED_RULES.format(language=language)
+        f"{_READ_FROM_RULE}\n\n" + _SHARED_RULES.format(language=language)
     )
 
 
@@ -256,6 +292,7 @@ class QueueSummarizer:
         # same archive page. Only the prompt, the extra schema fields and the
         # attached file differ, because the record has no abstract to read.
         local = paper.is_local
+        has_document = bool(paper.local_path)
         self._enqueue(
             kind="paper",
             item_id=paper.id,
@@ -264,15 +301,9 @@ class QueueSummarizer:
             instructions=(
                 local_pdf_instructions(topics, language)
                 if local
-                else paper_instructions(
-                    topics, language, has_pdf=bool(paper.local_path)
-                )
+                else paper_instructions(topics, language, has_pdf=has_document)
             ),
-            output_schema=(
-                {**PAPER_OUTPUT_SCHEMA, **PDF_EXTRA_SCHEMA}
-                if local
-                else PAPER_OUTPUT_SCHEMA
-            ),
+            output_schema=_paper_schema(local=local, has_document=has_document),
             # Whatever a paper's provenance, if a document is on disk the
             # reader is told where it is. A fetched PDF and a hand-filed one
             # are the same thing to whoever has to read it.
