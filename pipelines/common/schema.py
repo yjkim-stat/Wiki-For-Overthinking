@@ -158,6 +158,7 @@ class PaperSummary(_Record):
     concepts: list[str] = field(default_factory=list)
     methods: list[str] = field(default_factory=list)
     datasets: list[str] = field(default_factory=list)
+    models: list[str] = field(default_factory=list)  # LOCAL
     tags: list[str] = field(default_factory=list)
     # What this reading was based on: ``document`` when the reader opened the
     # PDF attached to the task, ``abstract`` when they worked from the payload
@@ -187,6 +188,7 @@ class VideoSummary(_Record):
     concepts: list[str] = field(default_factory=list)
     methods: list[str] = field(default_factory=list)
     datasets: list[str] = field(default_factory=list)
+    models: list[str] = field(default_factory=list)  # LOCAL
     tags: list[str] = field(default_factory=list)
     generated_by: str = ""
     generated_at: str = field(default_factory=utcnow)

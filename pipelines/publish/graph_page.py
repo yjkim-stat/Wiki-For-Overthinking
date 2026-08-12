@@ -54,6 +54,14 @@ _KINDS = {
     "concept": ("k1", "circle", "Concept"),
     "method": ("k2", "square", "Method"),
     "dataset": ("k3", "diamond", "Dataset"),
+    # LOCAL: the `model` kind. The palette validates three entity hues and no
+    # more, so this one takes the concept hue and is told apart by shape and
+    # label alone. That is a real limitation and it is stated rather than
+    # hidden: colour does not separate a model from a concept here. The
+    # alternative was leaving 123 nodes drawn *and labelled* "Concept", which is
+    # wrong rather than merely ambiguous. A fourth validated step in
+    # templates/wiki/graph.html would retire this. See docs/LOCAL-DELTAS.md.
+    "model": ("k1", "triangle", "Model"),
 }
 
 
@@ -165,6 +173,13 @@ def _shape(node: dict, x: float, y: float, r: float, css: str) -> str:
         d = r * 1.15
         pts = f"{x:.1f},{y - d:.1f} {x + d:.1f},{y:.1f} {x:.1f},{y + d:.1f} {x - d:.1f},{y:.1f}"
         return f'<polygon class="{css}" points="{pts}"/>'
+    if kind == "model":  # LOCAL: shares the concept hue, so the shape carries it
+        d = r * 1.12
+        pts = (
+            f"{x:.1f},{y - d:.1f} {x + d * 0.92:.1f},{y + d * 0.7:.1f} "
+            f"{x - d * 0.92:.1f},{y + d * 0.7:.1f}"
+        )
+        return f'<polygon class="{css}" points="{pts}"/>'
     return f'<circle class="{css}" cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}"/>'
 
 
@@ -236,7 +251,7 @@ def _svg(nodes: list[dict], edges: list[dict], placed: dict) -> str:
 
 
 def _legend(present: set[str]) -> str:
-    order = ["topic", "concept", "method", "dataset"]
+    order = ["topic", "concept", "method", "dataset", "model"]  # LOCAL: model
     marks = {
         "topic": '<svg width="13" height="13"><circle cx="6.5" cy="6.5" r="5" '
                  'class="mark k0"/></svg>',
@@ -246,6 +261,9 @@ def _legend(present: set[str]) -> str:
                   'height="10" rx="2" class="mark k2"/></svg>',
         "dataset": '<svg width="13" height="13"><polygon points="6.5,1 12,6.5 6.5,12 1,6.5" '
                    'class="mark k3"/></svg>',
+        # LOCAL: same hue as concept, distinguished by the triangle.
+        "model": '<svg width="13" height="13"><polygon points="6.5,1.5 12,11.5 1,11.5" '
+                 'class="mark k1"/></svg>',
     }
     out = [
         f"<span>{marks[k]}{_KINDS[k][2]}</span>" for k in order if k in present
@@ -260,7 +278,10 @@ def _legend(present: set[str]) -> str:
 
 
 def _table(nodes: list[dict]) -> str:
-    swatch = {"topic": "s0", "concept": "s1", "method": "s2", "dataset": "s3"}
+    # LOCAL: `model` shares the concept swatch; the Kind column is what separates
+    # them in the table view, which is the relief route for the colour anyway.
+    swatch = {"topic": "s0", "concept": "s1", "method": "s2", "dataset": "s3",
+              "model": "s1"}
     rows = []
     for node in sorted(
         nodes, key=lambda n: (-int(n.get("sources", 0)), str(n.get("label", "")))

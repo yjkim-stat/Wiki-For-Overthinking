@@ -25,6 +25,10 @@ TOPICS_DIR = CONFIG_DIR / "topics"
 SETTINGS_FILE = CONFIG_DIR / "settings.yaml"
 SOURCES_FILE = CONFIG_DIR / "sources.yaml"
 
+# LOCAL: the `model` kind is this deployment's fourth entity kind, and the
+# single source of truth for what kinds exist. See docs/LOCAL-DELTAS.md.
+WIKI_KINDS = ("concept", "method", "dataset", "model")
+
 #: Names the deployment root for every entry point at once, so a session that
 #: exports it does not have to remember `--root` on each command -- and, more
 #: to the point, cannot forget it on one of them.
@@ -262,6 +266,7 @@ class Layout:
             self.wiki_kind_dir("concept"),
             self.wiki_kind_dir("method"),
             self.wiki_kind_dir("dataset"),
+            self.wiki_kind_dir("model"),  # LOCAL
             self.out_lecture_notes,
             self.out_slides,
             self.out_reports,

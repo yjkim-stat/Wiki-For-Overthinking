@@ -32,14 +32,15 @@ from __future__ import annotations
 
 from ..common.config import Config
 from ..common.log import get
-from ..common.paths import slugify
+from ..common.paths import WIKI_KINDS, slugify
 from ..common.schema import Concept, utcnow
 from ..common.store import RecordStore
 
 _LOG = get(__name__)
 
-KINDS = ("concept", "method", "dataset")
-_KIND_RANK = {"concept": 1, "method": 2, "dataset": 3}
+# LOCAL: fourth kind `model` — see docs/LOCAL-DELTAS.md
+KINDS = WIKI_KINDS
+_KIND_RANK = {"concept": 1, "method": 2, "dataset": 3, "model": 4}
 _RANK_KIND = {v: k for k, v in _KIND_RANK.items()}
 
 
@@ -146,6 +147,7 @@ def harvest(cfg: Config) -> dict[str, Concept]:
             ("concept", summary.concepts),
             ("method", summary.methods),
             ("dataset", summary.datasets),
+            ("model", summary.models),  # LOCAL
         ):
             for name in values:
                 concept = entity(name, kind)
@@ -169,6 +171,7 @@ def harvest(cfg: Config) -> dict[str, Concept]:
             ("concept", summary.concepts),
             ("method", summary.methods),
             ("dataset", summary.datasets),
+            ("model", summary.models),  # LOCAL
         ):
             for name in values:
                 concept = entity(name, kind)

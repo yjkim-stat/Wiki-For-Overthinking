@@ -42,7 +42,15 @@ PAPER_OUTPUT_SCHEMA: dict[str, Any] = {
     },
     "concepts": ["string - reusable ideas this paper relies on or introduces"],
     "methods": ["string - named methods, architectures or algorithms"],
-    "datasets": ["string - datasets, benchmarks, corpora or simulators used"],
+    # LOCAL: `models` — a checkpoint is not a corpus. See docs/LOCAL-DELTAS.md.
+    "datasets": [
+        "string - datasets, benchmarks, corpora or simulators used. Not models:"
+        " a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "models": [
+        "string - models the work trains, evaluates or analyses, as named in"
+        " the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
     "tags": ["string - short lowercase keywords"],
 }
 
@@ -61,6 +69,7 @@ VIDEO_OUTPUT_SCHEMA: dict[str, Any] = {
     "concepts": ["string"],
     "methods": ["string"],
     "datasets": ["string"],
+    "models": ["string"],  # LOCAL
     "tags": ["string - short lowercase keywords"],
 }
 
