@@ -97,7 +97,7 @@ def _apply_paper(cfg: Config, store: RecordStore, task: dict) -> bool:
         methods=list(result.get("methods") or []),
         datasets=list(result.get("datasets") or []),
         tags=list(result.get("tags") or []),
-        generated_by=task.get("completed_by", task.get("kind", "")) or "queue",
+        generated_by=task.get("completed_by") or "queue",
         generated_at=task.get("completed_at") or utcnow(),
     )
     store.save_paper_summary(summary)
