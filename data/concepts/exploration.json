@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.01593",
+      "kind": "paper",
+      "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+      "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
+    {
       "id": "arxiv:2608.05600",
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
@@ -11,14 +17,30 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T22:31:15Z",
   "name": "exploration",
   "related": [
+    "latent-reasoning",
+    "credit-assignment",
+    "advantage-estimation",
+    "expected-reward-estimation",
+    "reward-variance",
+    "soft-thinking",
+    "latent-thought-credit",
+    "grpo",
+    "grpo-ma",
+    "hrpo",
+    "gumbel-softmax",
+    "reinforce",
+    "gsm8k",
+    "math",
+    "math-500",
+    "mmlu-stem",
+    "arc-challenge",
     "train-inference-gap",
     "discretization-error",
     "wasserstein-distance",
     "marginal-preservation",
-    "grpo",
     "lc-grpo",
     "langevin-correction",
     "ode-euler-step",
@@ -28,9 +50,11 @@
     "flux-1-dev",
     "hunyuanvideo"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "exploration",
   "topics": [
+    "reasoning-faithfulness",
     "reasoning-training"
   ]
 }

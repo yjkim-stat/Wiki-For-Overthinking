@@ -12,6 +12,12 @@
       "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
     },
     {
+      "id": "arxiv:2608.01593",
+      "kind": "paper",
+      "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+      "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -38,7 +44,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-12T22:14:36Z",
+  "last_seen": "2026-08-12T22:31:15Z",
   "name": "MATH-500",
   "related": [
     "post-training-quantization",
@@ -61,6 +67,22 @@
     "proofwriter",
     "metamathqa",
     "opencodeinstruct",
+    "latent-reasoning",
+    "credit-assignment",
+    "advantage-estimation",
+    "expected-reward-estimation",
+    "reward-variance",
+    "soft-thinking",
+    "exploration",
+    "latent-thought-credit",
+    "grpo",
+    "grpo-ma",
+    "hrpo",
+    "gumbel-softmax",
+    "reinforce",
+    "math",
+    "mmlu-stem",
+    "arc-challenge",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -72,7 +94,6 @@
     "entity-belief-evolution",
     "discretization-bottleneck",
     "logit-lens",
-    "soft-thinking",
     "coconut",
     "entity-level-probing",
     "causal-intervention",
@@ -118,7 +139,6 @@
     "process-evaluation",
     "cot-pass-k",
     "rlvr",
-    "grpo",
     "dapo",
     "supervised-fine-tuning",
     "aime-2025",
@@ -158,8 +178,8 @@
   "slug": "math-500",
   "topics": [
     "reasoning-training",
-    "reasoning-interpretability",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "test-time-scaling",
     "reasoning-evaluation"
   ]

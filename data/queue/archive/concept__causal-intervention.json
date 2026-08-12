@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T22:31:07Z",
   "created_at": "2026-08-12T22:14:37Z",
   "instructions": "Write the wiki definition for 'causal intervention'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "causal intervention",
@@ -41,6 +42,18 @@
   "payload": {
     "name": "causal intervention",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "intervention",
+      "do-operation"
+    ],
+    "definition": "Changing something inside a model or its context and measuring the effect, as against reading a correlation off unmodified runs — in both sources the standard of evidence that separates a claim about mechanism from a claim about association. One injects synthetic reasoning into a trace to establish that the trace content shapes the answer, which it states plainly requires an intervention rather than an observation, and only then asks the model to account for the change. The other organizes its whole analysis into three regimes each carrying an intervention rather than a correlational read, and shows what makes one clean: on a task whose queries are binary, deleting the latent tokens is a do-operation whose counterfactual is read directly off the log probabilities assigned to the two answers. The sources therefore use the term for the design property, not for any particular technique.",
+    "kind": "concept",
+    "related": [
+      "causal tracing",
+      "activation patching"
+    ]
   },
   "task_id": "concept__causal-intervention",
   "task_version": 1,

@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Soft Thinking"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.01593",
+      "kind": "paper",
+      "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+      "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
     {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
@@ -11,9 +19,26 @@
   ],
   "first_seen": "2026-08-12T11:28:29Z",
   "kind": "method",
-  "last_seen": "2026-08-12T11:28:30Z",
-  "name": "Soft Thinking",
+  "last_seen": "2026-08-12T22:31:15Z",
+  "name": "soft thinking",
   "related": [
+    "latent-reasoning",
+    "credit-assignment",
+    "advantage-estimation",
+    "expected-reward-estimation",
+    "reward-variance",
+    "exploration",
+    "latent-thought-credit",
+    "grpo",
+    "grpo-ma",
+    "hrpo",
+    "gumbel-softmax",
+    "reinforce",
+    "gsm8k",
+    "math",
+    "math-500",
+    "mmlu-stem",
+    "arc-challenge",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -32,9 +57,7 @@
     "chain-of-thought-prompting",
     "prosqa",
     "prontoqa",
-    "math-500",
     "aime-2024",
-    "gsm8k",
     "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
@@ -48,8 +71,8 @@
   "schema_version": 1,
   "slug": "soft-thinking",
   "topics": [
-    "reasoning-interpretability",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

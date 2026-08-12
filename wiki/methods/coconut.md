@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The curriculum that trains latent chain-of-thought by progressively replacing prefix reasoning tokens with continuous latent states, and in these sources the standard instantiation of latent CoT rather than one method among several. Both find its behaviour is governed by the curriculum rather than by the latent representation: one recasts the per-stage objective by Lagrangian duality as a Conditional Information Bottleneck and shows that removing the curriculum drops GSM8K from 34.1% to 14.4% and ProntoQA from 99.8% to 52.4%, at or below the no-CoT baseline. The other finds that in the fine-tuned regime the latent tokens it produces can be deleted outright with accuracy changing by at most 1.0 point on ProsQA across GPT-2 and three SmolLM2 sizes, with entity probing showing the final target entity already dominating the representation. Taken together the sources describe a method whose latent slots carry an answer that has already been reached rather than a computation in progress.
 
 - **Kind**: method
-- **Also called**: COCONUT
+- **Also called**: COCONUT, Coconut curriculum
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [causal intervention](causal-intervention.md), [chain of thought](chain-of-thought.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [compounding error](../concepts/compounding-error.md), [curriculum learning](../concepts/curriculum-learning.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [effective depth](../concepts/effective-depth.md), [entropy collapse](../concepts/entropy-collapse.md), [GPT-2](../models/gpt-2.md), [GSM8K](../datasets/gsm8k.md), [information bottleneck](../concepts/information-bottleneck.md), [latent chain of thought](latent-chain-of-thought.md), [Logit Lens](logit-lens.md), [MATH-500](../datasets/math-500.md), [ProntoQA](../datasets/prontoqa.md), [ProsQA](../datasets/prosqa.md), [QwQ-32B](../models/qwq-32b.md), [self-consistency](self-consistency.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [causal intervention](../concepts/causal-intervention.md), [chain of thought](chain-of-thought.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [compounding error](../concepts/compounding-error.md), [curriculum learning](../concepts/curriculum-learning.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [effective depth](../concepts/effective-depth.md), [entropy collapse](../concepts/entropy-collapse.md), [GPT-2](../models/gpt-2.md), [GSM8K](../datasets/gsm8k.md), [information bottleneck](../concepts/information-bottleneck.md), [latent chain of thought](latent-chain-of-thought.md), [Logit Lens](logit-lens.md), [MATH-500](../datasets/math-500.md), [ProntoQA](../datasets/prontoqa.md), [ProsQA](../datasets/prosqa.md), [QwQ-32B](../models/qwq-32b.md), [self-consistency](self-consistency.md), [soft thinking](soft-thinking.md)
 
 ## Appears in
 

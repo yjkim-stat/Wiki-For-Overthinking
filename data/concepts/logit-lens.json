@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Reading a model's intermediate hidden states through its output vocabulary projection, so that any layer's state can be inspected as a distribution over tokens. Both sources use it as an instrument rather than studying it, and in two different roles. One applies it at five evenly spaced layers every 50 decoding steps to compare Shannon entropy profiles between soft thinking and ordinary discrete decoding, where the two coincide. The other uses logit-lens features as a baseline for predicting whether a reasoning chain will end correctly, reaching 0.765 against 0.649 for step count alone and 0.852 for the trajectory-geometry features it proposes — so here the lens also serves as the yardstick a stronger representation-based signal has to beat.",
   "evidence": [
     {
       "id": "local:043e84b0b0ae0a39",
@@ -72,7 +72,9 @@
     "llama-3-1-8b-instruct",
     "deepseek-r1-distill-llama-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "sparse-autoencoder"
+  ],
   "schema_version": 1,
   "slug": "logit-lens",
   "topics": [

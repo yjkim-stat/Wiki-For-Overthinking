@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
 
-Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 105 of the papers have been read in full.
+Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 107 of the papers have been read in full.
 
 Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
 
@@ -108,6 +108,12 @@ Attributing a behaviour to a specific part of a model — a layer, a head, a neu
 
 Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
 
+### credit assignment
+
+Deciding which part of a trajectory deserves the reward, and the problem RLVR's sparse sequence-level signal creates. Nine sources attack it and the interesting split is where they place the unit. At token level: the roughly 20% highest-entropy tokens act as decision forks and restricting gradient to them matches or beats full-gradient training; a token's signed marginal utility for the correct answer marks harmful tokens as well as useful ones. At segment or turn level: token-level teacher-student log-probability gaps are aggregated into turn-level evidence by a recursive Bayesian belief update, or concentrated on reasoning pivots identified counterfactually. At reward-design level: attaching an efficiency signal to the whole sequence implicitly penalizes long-but-correct trajectories, so the fix is to attach it to a single mode-selection token instead. One theoretical result cuts across all of them, showing a per-step Q value can be recovered from an outcome reward alone under the right parameterization — so dense credit does not always require dense labels.
+
+Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic).
+
 ### exploration-exploitation trade-off
 
 The tension this archive's entropy literature is organized around: a policy that concentrates probability mass gains reward on patterns it already has and stops discovering new ones. Twelve sources make it measurable rather than rhetorical, and they disagree about what to measure. The entropy family reads collapse as premature exploitation, supported by plain GRPO reaching the highest training reward at the lowest entropy, and takes pass@k at large k rather than accuracy as the metric that separates the two — which is also what supports the claim that RL sharpens sampling inside the base model's reachable set. Several sources then argue entropy is the wrong handle, replacing it with distributional deviation from the group average, with a diversity bonus over hidden-state representations that removes the pass@k degradation entropy methods leave behind, or with a per-token discriminator's deviation from a policy-weighted baseline. Two entries move the trade-off out of training entirely and pose it as a stopping problem — how many samples to draw before quitting — with classical optimal-stopping theory supplying the rule. A theoretical entry states the cost most sharply: exploration bought with an entropy bonus is paid for permanently in the location of the optimum unless the coefficient is annealed away.
@@ -132,17 +138,11 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
 
-### meta-evaluation
-
-Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
-
-Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 22 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| GRPO | 25 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
 | LLM-as-a-judge | 13 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
@@ -155,8 +155,8 @@ Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation;
 | test-time scaling | 9 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 8 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | majority voting | 8 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| PPO | 8 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | linear probe | 7 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
-| PPO | 7 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 | activation steering | 6 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
 | chain-of-thought prompting | 6 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
@@ -169,24 +169,24 @@ Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation;
 | --- | ---: | --- |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
-| GSM8K | 24 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 25 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 13 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
 | GPQA-Diamond | 9 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| MATH | 8 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | LiveCodeBench | 7 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
-| MATH | 7 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
+| MATH-500 | 6 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU | 6 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
-| MATH-500 | 5 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | DAPO-Math-17K | 4 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
 | MMLU-PRO | 4 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | Omni-MATH | 4 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
 | AIME 2024 | 3 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
 | HumanEval+ | 3 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
+| 2WikiMultiHopQA | 2 | _pending_ |
 | AIME | 2 | The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checka... |
-| AIME 2025 | 2 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
 
 ## Reading path
 

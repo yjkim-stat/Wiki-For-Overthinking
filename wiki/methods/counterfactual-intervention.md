@@ -9,7 +9,7 @@ Changing one input or internal element while holding everything else fixed, so t
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [activation patching](activation-patching.md), [causal intervention](causal-intervention.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [epistemic verbalization](../concepts/epistemic-verbalization.md), [localization](../concepts/localization.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [monitorability](../concepts/monitorability.md), [post-hoc rationalization](../concepts/post-hoc-rationalization.md), [sycophancy](../concepts/sycophancy.md)
+**Related**: [activation patching](activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [epistemic verbalization](../concepts/epistemic-verbalization.md), [localization](../concepts/localization.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [monitorability](../concepts/monitorability.md), [post-hoc rationalization](../concepts/post-hoc-rationalization.md), [sycophancy](../concepts/sycophancy.md)
 
 ## Appears in
 

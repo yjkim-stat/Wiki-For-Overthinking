@@ -9,7 +9,7 @@ The mismatch between the distribution a policy is optimized on and the one it ge
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [GRPO](../methods/grpo.md), [speculative decoding](../methods/speculative-decoding.md)
+**Related**: [exploration](exploration.md), [GRPO](../methods/grpo.md), [speculative decoding](../methods/speculative-decoding.md)
 
 ## Appears in
 

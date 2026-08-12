@@ -45,7 +45,7 @@ The paper carries no limitations section in the material read. What a reader sho
 
 - **Concepts**: deliberate exploration, elliptical bonus, diversity bonus, representation-based exploration, diversity collapse, sharpening, pass@k, verifier efficiency, coreset selection, leverage score, [policy entropy](../../../../wiki/concepts/policy-entropy.md), [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md)
 - **Methods**: RepExp, [GRPO](../../../../wiki/methods/grpo.md), elliptical bonus sampling, sparse random projection, nucleus sampling, min-p sampling, [best-of-N](../../../../wiki/methods/best-of-n.md), [RLVR](../../../../wiki/methods/rlvr.md)
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Game-of-24](../../../../wiki/datasets/game-of-24.md), [AIME24](../../../../wiki/datasets/aime24.md), [AIME25](../../../../wiki/datasets/aime25.md), MBPP+
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Game-of-24](../../../../wiki/datasets/game-of-24.md), [AIME24](../../../../wiki/datasets/aime24.md), [AIME25](../../../../wiki/datasets/aime25.md), [MBPP+](../../../../wiki/datasets/mbpp.md)
 
 Tags: `exploration`, `diversity`, `elliptical bonus`, `pass@k`, `rlvr`, `test-time scaling`, `verifier efficiency`, `representations`
 

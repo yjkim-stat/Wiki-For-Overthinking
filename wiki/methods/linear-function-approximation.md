@@ -8,7 +8,7 @@ Representing the policy through a fixed set of basis functions combined by a wei
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [entropy regularization](entropy-regularization.md), [exploration-exploitation trade-off](../concepts/exploration-exploitation-trade-off.md), [importance sampling](importance-sampling.md), [log-linear policy](../concepts/log-linear-policy.md), [natural policy gradient](natural-policy-gradient.md), [policy gradient](policy-gradient.md), [PPO](ppo.md), [REINFORCE++](reinforce.md), [softmax policy](../concepts/softmax-policy.md), [tabular softmax parameterization](../concepts/tabular-softmax-parameterization.md)
+**Related**: [entropy regularization](entropy-regularization.md), [exploration-exploitation trade-off](../concepts/exploration-exploitation-trade-off.md), [importance sampling](importance-sampling.md), [log-linear policy](../concepts/log-linear-policy.md), [natural policy gradient](natural-policy-gradient.md), [policy gradient](policy-gradient.md), [PPO](ppo.md), [REINFORCE](reinforce.md), [softmax policy](../concepts/softmax-policy.md), [tabular softmax parameterization](../concepts/tabular-softmax-parameterization.md)
 
 ## Appears in
 

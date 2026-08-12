@@ -25,6 +25,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T22:31:06Z",
   "created_at": "2026-08-12T22:14:37Z",
   "instructions": "Write the wiki definition for 'Coconut'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Coconut",
@@ -43,6 +44,14 @@
   "payload": {
     "name": "Coconut",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Coconut curriculum"
+    ],
+    "definition": "The curriculum that trains latent chain-of-thought by progressively replacing prefix reasoning tokens with continuous latent states, and in these sources the standard instantiation of latent CoT rather than one method among several. Both find its behaviour is governed by the curriculum rather than by the latent representation: one recasts the per-stage objective by Lagrangian duality as a Conditional Information Bottleneck and shows that removing the curriculum drops GSM8K from 34.1% to 14.4% and ProntoQA from 99.8% to 52.4%, at or below the no-CoT baseline. The other finds that in the fine-tuned regime the latent tokens it produces can be deleted outright with accuracy changing by at most 1.0 point on ProsQA across GPT-2 and three SmolLM2 sizes, with entity probing showing the final target entity already dominating the representation. Taken together the sources describe a method whose latent slots carry an answer that has already been reached rather than a computation in progress.",
+    "kind": "method",
+    "related": []
   },
   "task_id": "concept__coconut",
   "task_version": 1,

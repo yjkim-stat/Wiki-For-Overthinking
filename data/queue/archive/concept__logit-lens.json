@@ -27,6 +27,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-12T22:31:07Z",
   "created_at": "2026-08-12T22:14:37Z",
   "instructions": "Write the wiki definition for 'Logit Lens'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Logit Lens",
@@ -45,6 +46,14 @@
   "payload": {
     "name": "Logit Lens",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Reading a model's intermediate hidden states through its output vocabulary projection, so that any layer's state can be inspected as a distribution over tokens. Both sources use it as an instrument rather than studying it, and in two different roles. One applies it at five evenly spaced layers every 50 decoding steps to compare Shannon entropy profiles between soft thinking and ordinary discrete decoding, where the two coincide. The other uses logit-lens features as a baseline for predicting whether a reasoning chain will end correctly, reaching 0.765 against 0.649 for step count alone and 0.852 for the trajectory-geometry features it proposes — so here the lens also serves as the yardstick a stronger representation-based signal has to beat.",
+    "kind": "method",
+    "related": [
+      "sparse autoencoder"
+    ]
   },
   "task_id": "concept__logit-lens",
   "task_version": 1,

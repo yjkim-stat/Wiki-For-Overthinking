@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "MMLU-Stem"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.01593",
+      "kind": "paper",
+      "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+      "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
     {
       "id": "local:2175408b166d313f",
       "kind": "paper",
@@ -11,9 +19,26 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "MMLU-Stem",
+  "last_seen": "2026-08-12T22:31:15Z",
+  "name": "MMLU-STEM",
   "related": [
+    "latent-reasoning",
+    "credit-assignment",
+    "advantage-estimation",
+    "expected-reward-estimation",
+    "reward-variance",
+    "soft-thinking",
+    "exploration",
+    "latent-thought-credit",
+    "grpo",
+    "grpo-ma",
+    "hrpo",
+    "gumbel-softmax",
+    "reinforce",
+    "gsm8k",
+    "math",
+    "math-500",
+    "arc-challenge",
     "token-level-entropy",
     "second-order-renyi-entropy",
     "collision-probability",
@@ -27,12 +52,10 @@
     "pass-k",
     "ict-independent-combinatorial-tokens",
     "sparse-grpo",
-    "grpo",
     "rlvr",
     "20-entropy",
     "stapo",
     "verl",
-    "gsm8k",
     "math500",
     "gpqa",
     "aime23",
@@ -42,9 +65,11 @@
     "qwen2-5-1-5b",
     "qwen2-5-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "mmlu-stem",
   "topics": [
+    "reasoning-faithfulness",
     "reasoning-training"
   ]
 }

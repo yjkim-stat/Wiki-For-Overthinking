@@ -6,6 +6,12 @@
   "definition": "Reasoning carried in continuous internal states rather than in emitted tokens, treated by the sources both as an efficiency measure and as a loss of the readable trace that monitoring depends on. One finds monitorability survives better than expected, depending more on task structure and access to internals than on whether reasoning is explicit or latent. One makes latent prediction a pretraining objective, adding a higher-level abstract latent to limit error accumulation over long horizons. One keeps discrete decoding except at low-confidence steps, which concentrates the unreadable portion exactly where decisions are being made. The three use the term at different levels — inference mode, pretraining target, and per-step gate.",
   "evidence": [
     {
+      "id": "arxiv:2608.01593",
+      "kind": "paper",
+      "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+      "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
+    {
       "id": "arxiv:2608.04928",
       "kind": "paper",
       "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
@@ -38,9 +44,26 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-12T22:31:15Z",
   "name": "latent reasoning",
   "related": [
+    "credit-assignment",
+    "advantage-estimation",
+    "expected-reward-estimation",
+    "reward-variance",
+    "soft-thinking",
+    "exploration",
+    "latent-thought-credit",
+    "grpo",
+    "grpo-ma",
+    "hrpo",
+    "gumbel-softmax",
+    "reinforce",
+    "gsm8k",
+    "math",
+    "math-500",
+    "mmlu-stem",
+    "arc-challenge",
     "monitorability",
     "implicit-reasoning",
     "chain-of-thought-faithfulness",
@@ -90,6 +113,7 @@
     "implicit-chain-of-thought",
     "gradient-descent-analysis"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "latent-reasoning",
   "topics": [
