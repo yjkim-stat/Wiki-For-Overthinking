@@ -6,6 +6,12 @@
   "definition": "How many training examples suffice to learn a target to a given accuracy, and the archive's measure of what reasoning supervision costs statistically. The sources agree the news is good and arrive at it differently. One bounds it parametrically through the VC dimension of transformers, finding chain-of-thought learning by teacher forcing costs O(LW log((T+T')W)) — so input length and the number of reasoning steps enter only inside a logarithm, and only through their sum. One bounds it by the target's Fourier structure via PAC-Bayes, where CoT turns Parity's dependence from exponential to linear in reasoning length. One shows the efficiency survives internalization, with implicit CoT learning k-parity from polynomially many samples. The common conclusion is that long reasoning chains are not statistically expensive; whatever they cost is compute or annotation.",
   "evidence": [
     {
+      "id": "arxiv:2608.02415",
+      "kind": "paper",
+      "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
+      "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
+    },
+    {
       "id": "local:03f1eff4f1d40725",
       "kind": "paper",
       "note": "Derives a non-vacuous PAC-Bayes generalization bound for transformers on boolean functions in terms of Fourier sparsity and degree, and uses it to show chain of thought turns an exponential dependence on reasoning length into a linear one for Parity.",
@@ -26,9 +32,40 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T00:17:14Z",
   "name": "sample complexity",
   "related": [
+    "intent-classification",
+    "linear-probe",
+    "hidden-state-geometry",
+    "calibration",
+    "out-of-distribution-generalization",
+    "adversarial-robustness",
+    "uncertainty-quantification",
+    "routing",
+    "superposition",
+    "vecstat",
+    "normstat",
+    "multilayer-perceptron-classifier",
+    "kl-divergence-scoring",
+    "cosine-similarity",
+    "llm-as-a-judge",
+    "gsm8k",
+    "math-500",
+    "humaneval",
+    "magicoder",
+    "mmlu",
+    "aya",
+    "competition-math",
+    "adv-math500",
+    "qwen3-1-7b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "llama-3-2-1b",
+    "roberta",
+    "gpt-5",
+    "gpt-5-nano",
+    "gpt-4o",
     "generalization",
     "pac-bayes",
     "flat-minima",
@@ -60,11 +97,12 @@
     "implicit-chain-of-thought",
     "gradient-descent-analysis"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "sample-complexity",
   "topics": [
-    "reasoning-training",
     "reasoning-interpretability",
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

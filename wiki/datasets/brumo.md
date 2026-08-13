@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically: one includes it among five mathematics benchmarks where a categorical PPO critic improves avg@256 from 18.20 to 21.40, the other among the sets where a constraint-extraction prompting protocol improves over direct chain of thought on multiple backbones. Its role in the archive is as part of the tail of competition sets that get reported alongside AIME to show a result is not specific to one contest.
 
 - **Kind**: dataset
 - **Also called**: BRUMO
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [2WikiMultiHopQA](2wikimultihopqa.md), [advantage estimation](../concepts/advantage-estimation.md), [AIME](aime.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Bamboogle](bamboogle.md), [chain of thought](../methods/chain-of-thought.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](dapo-math-17k.md), [expected calibration error](../methods/expected-calibration-error.md), [GRPO](../methods/grpo.md), [HotpotQA](hotpotqa.md), [MuSiQue](musique.md), [Natural Questions](natural-questions.md), [OlympiadBench](olympiadbench.md), [PopQA](popqa.md), [PPO](../methods/ppo.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [reasoning boundary](../concepts/reasoning-boundary.md), [reward sparsity](../concepts/reward-sparsity.md), [routing](../concepts/routing.md), [Search-R1](../methods/search-r1.md), [self-verification](../concepts/self-verification.md), [TriviaQA](triviaqa.md), [verification](../concepts/verification.md)
+**Related**: [2WikiMultiHopQA](2wikimultihopqa.md), [advantage estimation](../concepts/advantage-estimation.md), [AIME](aime.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Bamboogle](bamboogle.md), [chain of thought](../methods/chain-of-thought.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](dapo-math-17k.md), [expected calibration error](../concepts/expected-calibration-error.md), [GRPO](../methods/grpo.md), [HotpotQA](hotpotqa.md), [MuSiQue](musique.md), [Natural Questions](natural-questions.md), [OlympiadBench](olympiadbench.md), [PopQA](popqa.md), [PPO](../methods/ppo.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [reasoning boundary](../concepts/reasoning-boundary.md), [reward sparsity](../concepts/reward-sparsity.md), [routing](../concepts/routing.md), [Search-R1](../methods/search-r1.md), [self-verification](../concepts/self-verification.md), [TriviaQA](triviaqa.md), [verification](../concepts/verification.md)
 
 ## Appears in
 

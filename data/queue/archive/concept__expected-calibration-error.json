@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T00:17:14Z",
   "created_at": "2026-08-13T00:02:05Z",
   "instructions": "Write the wiki definition for 'expected calibration error'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "expected calibration error",
@@ -39,6 +40,18 @@
   "payload": {
     "name": "expected calibration error",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "ECE",
+      "calibration error"
+    ],
+    "definition": "The average gap between a model's stated confidence and its observed accuracy, binned over the confidence range — how wrong the numbers are, as against how well they order. Both sources use it precisely because it measures only that. One reports a critic's improvement from 0.2612 to 0.2131 alongside Brier and maximum calibration error, and connects it to a downstream consequence rather than treating it as an end: a critic that overestimates success probability turns a symmetric binary reward into an asymmetric advantage. The other separates the two properties outright, finding a diffusion language model at 31.2% on this measure — badly miscalibrated — while ranking correct from incorrect at 0.826 AUROC against 0.611 for autoregressive baselines, and shows post-hoc calibration cutting the error by over 60% while leaving the ranking intact. Read together the sources say the same thing from opposite directions: this quantity is not a proxy for whether a confidence signal is useful, and which one you need depends on whether something downstream consumes the value or only the order.",
+    "kind": "concept",
+    "related": [
+      "Brier score",
+      "AUROC"
+    ]
   },
   "task_id": "concept__expected-calibration-error",
   "task_version": 1,

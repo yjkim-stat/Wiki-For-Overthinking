@@ -9,7 +9,7 @@ Training a model to refuse or avoid harmful behaviour, which all three sources a
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 3
 
-**Related**: [alignment tax](alignment-tax.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [overthinking](overthinking.md), [post-training](../methods/post-training.md), [reasoning trajectory](reasoning-trajectory.md), [self-correction](self-correction.md), [self-reflection](../methods/self-reflection.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
+**Related**: [adversarial robustness](adversarial-robustness.md), [alignment tax](alignment-tax.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [overthinking](overthinking.md), [post-training](../methods/post-training.md), [reasoning trajectory](reasoning-trajectory.md), [self-correction](self-correction.md), [self-reflection](../methods/self-reflection.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
 
 ## Appears in
 

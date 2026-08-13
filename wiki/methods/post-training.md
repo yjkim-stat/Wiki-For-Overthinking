@@ -9,7 +9,7 @@ Any training applied after pretraining to shape behaviour, used by both sources 
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [alignment tax](../concepts/alignment-tax.md), [data efficiency](../concepts/data-efficiency.md), [generalization](../concepts/generalization.md), [safety alignment](../concepts/safety-alignment.md), [self-correction](../concepts/self-correction.md), [self-reflection](self-reflection.md), [supervised fine-tuning](supervised-fine-tuning.md)
+**Related**: [adversarial robustness](../concepts/adversarial-robustness.md), [alignment tax](../concepts/alignment-tax.md), [data efficiency](../concepts/data-efficiency.md), [generalization](../concepts/generalization.md), [safety alignment](../concepts/safety-alignment.md), [self-correction](../concepts/self-correction.md), [self-reflection](self-reflection.md), [supervised fine-tuning](supervised-fine-tuning.md)
 
 ## Appears in
 

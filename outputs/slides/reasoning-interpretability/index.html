@@ -183,6 +183,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Not a reasoning paper — the task is L2 speaking assessment and no reasoning model appears. It earns its place in this topic on one methodological result the archive should hold: probing shows a concept is encoded, which is not the same as showing it is used, and SAEs improve the first measurement while degrading the second. Every SAE result in this archive that reads a feature and infers a role inherits that gap, and this paper is the cleanest statement of it, on an application where the distinction has legal consequences. The finding that attenuation is worst in low-dimensional layers is a concrete caution for layer selection.</p>
 </section>
 <section class="slide">
+<h2>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</h2>
+<p class="subtitle">Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen · 2026</p>
+<blockquote>
+<p>Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.</p>
+</blockquote>
+<ul>
+<li>A substrate with the property the diagnosis needs: 27 Thompson Motif-Index roles instantiated across 10 cultures spanning six language families, giving 270 cells each with one canonical entity, so the same question has a gold answer in every tradition</li>
+<li>A four-instrument design in which each measurement explicitly does not answer the others&#x27; question, and the argument is their conjunction — probe for encoding, logit lens for depth, activation patching for causal location, generation for what a user receives</li>
+<li>A per-cell 2x2 decomposition pairing what the probe reads against what the model emits, yielding Preserved, DecodingSuppressed, SurfaceLuck and RepresentationallyFlat cells</li>
+<li>An output-format control that poses the same question as a 10-way multiple choice over the parallel fillers, separating a classification-versus-generation artefact from a genuine generation-time loss</li>
+</ul>
+<p><strong>Results.</strong> The headline is uniform across the sweep: DecodingSuppressed — the probe reads the culture and the generation emits a wrong name — is the largest cell in every one of the 18 models, at 51 to 76 percent (mean 0.65), while RepresentationallyFlat is 0.10 to 0.33 (mean 0.18). Seventeen of eighteen probes clear a 0.60 character-n-gram surface baseline, peaking at 0.61 to 0.88, with significance confirmed by paired bootstrap and exact McNemar; the same models generating land at 0.09 to 0.43. The smallest probe-output gap in the sweep is 0.26 and the largest 0.70. The format control does real work and does not explain the gap away: matching the output task to the probe by multiple choice over the same motif&#x27;s ten fillers recovers mean accuracy from 0.26 to 0.67, but the chain representation 0.79 to selection 0.67 to generation 0.26 still loses about 41 points at the generation step, and the collapse onto the dominant tradition is visible inside pure selection — on Roman cells 49 percent of errors land on the same-motif Greek counterpart against roughly 11 percent under a uniform error model. Depth is consistent: the lens onset falls in the last 12 percent of layers in every model (median 0.96) while probe-peak depth spreads widely across families, so every model sits on or above the encode-before-decode diagonal. Patching makes the localization causal rather than correlational — the preference-flip rate sits at baseline through the early third, peaks in the last quarter (median peak depth 0.89, median rate 0.75, median lift +0.55), roughly seven times the early-network rate. Scaling shrinks the gap in all five multi-size families and closes it in none: Llama 3.x from 1.2B to 8B moves the probe 0.79 to 0.88 and the output 0.09 to 0.25, leaving 0.63, with a naive log-parameter extrapolation predicting about +0.10 output gain per decade of parameters. Cross-lingual querying gates partially disjoint subsets of the same representation: within-mode correctness correlates at 0.57 against 0.29 cross-mode, so cross-language queries are about twice as decoupled, and per-culture English-versus-native deltas track the language each canon is documented in (Greek +0.241 and Egyptian +0.177 favouring English; Chinese -0.071 and Finnish -0.058 favouring the native query) rather than tokenizer fertility, which does not predict the per-cell delta at all. Simply taking the union of the two query modes lifts cell recovery by 0.08 absolute, a 36 percent relative gain, at zero training cost.</p>
+<p><strong>Why it matters.</strong> It is a clean instance of the distinction this archive keeps needing and rarely gets stated so sharply: what a representation contains and what the model does with it are separately measurable, and here they disagree in every model tested. The methodological core transfers directly to reasoning work — a linear probe showing a property is decodable establishes encoding and nothing more, which is why the design pairs it per cell with generation and adds patching to make the locus causal rather than correlational. The paper is explicit that each instrument does not answer the others&#x27; question and that the argument is their conjunction, which is the standard this archive&#x27;s probing results should be read against. Two further results carry over. Scaling shrinks the encode-decode gap in every family and closes it in none, extrapolating to about +0.10 per decade of parameters, so a readout failure is not something more capacity fixes. And the practical consequence is a diagnosis of where an intervention can work at all: encoder-side fixes push on the 0.10-to-0.33 slice while the dominant 0.51-to-0.76 slice sits at the unembedding, which is the same shape of argument as the archive&#x27;s finding that a signal can demonstrably track the right thing and still buy nothing downstream.</p>
+</section>
+<section class="slide">
 <h2>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</h2>
 <p class="subtitle">Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al. · 2026</p>
 <blockquote>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Addresses a limitation that undercuts much of the archive&#x27;s circuit work directly: single-component tracing can miss components that only matter together, and redundant components can each look unimportant in isolation. A joint-subset method is what the archive&#x27;s modularity dispute needs, since claims that a capability is or is not localized depend on whether the search could see distributed sets at all. The catch is that criticality remains defined relative to a chosen target metric, so this makes the search tractable without making &#x27;important&#x27; model-intrinsic. No reasoning-specific result is reported, so the application to reasoning circuits is open.</p>
 </section>
 <section class="slide">
-<h2>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</h2>
-<p class="subtitle">Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al. · ACL · 2026</p>
-<blockquote>
-<p>A position paper arguing mechanistic interpretability cannot be used in safety-critical settings until its findings are auditable, and proposing continuous collaborative reviewing plus source-based claim tracking.</p>
-</blockquote>
-<ul>
-<li>A diagnosis that mechanistic interpretability lacks auditability and that this blocks safety-critical adoption</li>
-<li>A documented case where two papers conflicted on one behaviour and a third found both partially correct but incomparable</li>
-<li>A proposal for continuous reviewing on a collaborative platform hosting critiques, negative results, reproductions and partial results</li>
-<li>A proposal to generalize platform practice into expert-verified guidelines and protocols</li>
-</ul>
-<p><strong>Results.</strong> A position paper. It provides early concrete examples to catalyze discussion rather than empirical results.</p>
-<p><strong>Why it matters.</strong> Names the exact failure this archive has already recorded independently: two interpretability papers reaching opposite conclusions about the same behaviour, incomparable because they shared no model or method. The archive holds its own instance in the MI-Peaks versus commitment-boundary collision, where the two agree on which discourse markers matter and disagree on what that means, with no shared model between them. So this paper&#x27;s premise is confirmed by evidence collected here, which raises it above the usual position paper. Its source-based claim tracking is also close to what this archive&#x27;s wiki does — evidence counts per concept, claims traceable to the summaries that support them — which makes it a useful external check on that design.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -261,15 +261,15 @@ th { background: var(--surface); }
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
 <li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
 <li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
-<li><strong>supervised fine-tuning</strong> — Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unsta...</li>
+<li><strong>linear probe</strong> — A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive&#x27;s most common in...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
 <li><strong>AIME24</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 28 sources — which is itself the...</li>
-<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
 <li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
 <li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
 <li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
@@ -281,20 +281,20 @@ th { background: var(--surface); }
 <li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
 <li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
+<li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
+<li><strong>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</strong> — The paper states none beyond its conclusion that there is no one-size-fits-all method. What a reader should weigh: the headline robustness claim holds on the...</li>
 <li><strong>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</strong> — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a f...</li>
-<li><strong>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</strong> — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identif...</li>
-<li><strong>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</strong> — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and pe...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</strong> — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identif...</li>
+<li><strong>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</strong> — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and pe...</li>
 <li><strong>Multi-component Causal Tracing in Large Language Models</strong> — No quantitative results, models or baselines in the abstract. Soft interventions are a relaxation, so a subset selected in the continuous problem is not guar...</li>
 <li><strong>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</strong> — No empirical evaluation; the proposals are untested. The diagnosis rests on one documented case of conflicting conclusions rather than a survey of how often...</li>
 <li><strong>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</strong> — No quantitative results in the abstract. Scope is Stable Diffusion, so architecture generality is untested. Single-word removal changes the prompt distributi...</li>
 <li><strong>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</strong> — No numbers in the abstract and no named models. Counting is a narrow task, chosen because the depth argument is clean there, so generalization of the System-...</li>
-<li><strong>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</strong> — No empirical contribution, and no stated selection criteria or coverage for the surveyed work, so it is not a systematic review. Organizing by interpretable...</li>
-<li><strong>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</strong> — The authors name three: other latent-reasoning families are untested, including RL-trained continuous chains and recurrent or looped-layer architectures; the...</li>
 </ul>
 </section>
 <section class="slide">
@@ -304,36 +304,36 @@ th { background: var(--surface); }
 <li>Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. <em>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</em>. cs.LG. 2026</li>
 <li>Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. <em>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</em>. ACL. 2026</li>
 <li>Arya Labroo, Mengjie Qian, Kate Knill. <em>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</em>. cs.AI. 2026</li>
+<li>Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. <em>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</em>. cs.CL. 2026</li>
 <li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
 <li>Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. <em>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</em>. ACL. 2026</li>
 <li>Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. <em>Multi-component Causal Tracing in Large Language Models</em>. ACL. 2026</li>
-<li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
 <li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
 <li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 <li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
+<li>Nan Chen, Zhouhao Yang, Soufiane Hayou. <em>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</em>. cs.CL. 2026</li>
 <li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
 <li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
-<li>Xinyan Jiang, Ninghao Liu, Di Wang et al.. <em>Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability</em>. ICML. 2026</li>
-<li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Xinyan Jiang, Ninghao Liu, Di Wang et al.. <em>Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability</em>. ICML. 2026</li>
+<li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
 <li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 <li>Jinyang Zhang, Hongxin Ding, Yue Fang et al.. <em>The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models</em>. preprint. 2026</li>
 <li>Lihao Sun, Hang Dong, Bo Qiao et al.. <em>LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals</em>. preprint. 2026</li>
 <li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
 <li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 <li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
-<li>Yu Huang, Zixin Wen, Aarti Singh et al.. <em>Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization</em>. NeurIPS. 2025</li>
-<li>Fred Zhang, Neel Nanda. <em>Towards Best Practices of Activation Patching in Language Models: Metrics and Methods</em>. preprint. 2024</li>
 </ul>
 </section>
 <section class="slide title-slide">
