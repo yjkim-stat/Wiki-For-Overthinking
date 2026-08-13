@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
       "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model"
+    },
+    {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
     }
   ],
   "first_seen": "2026-08-13T02:55:53Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T03:09:29Z",
+  "last_seen": "2026-08-13T03:39:22Z",
   "name": "self-repair",
   "related": [
     "activation-patching",
@@ -43,7 +49,29 @@
     "greedy-circuit-search",
     "finite-difference-verification",
     "jacobian-bound",
-    "qwen2-5-1-5b-instruct"
+    "qwen2-5-1-5b-instruct",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "safety-alignment",
+    "faithfulness-safety-tension",
+    "steering-vector",
+    "linear-probe",
+    "activation-steering",
+    "power-seeking",
+    "agentic-reasoning",
+    "targeted-reasoning-replacement",
+    "difference-of-means-probe",
+    "contrastive-activation-addition",
+    "attention-mask-ablation",
+    "hazmart",
+    "mmlu",
+    "qwen3-8b",
+    "qwen3-32b",
+    "qwq-32b",
+    "ministral-3-14b-reasoning",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-oss-120b",
+    "minimax-m2-230b"
   ],
   "related_authored": [
     "superposition"
@@ -51,6 +79,7 @@
   "schema_version": 1,
   "slug": "self-repair",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

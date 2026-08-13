@@ -12,6 +12,12 @@
       "title": "Inverted Detection and Control in Steering Vectors"
     },
     {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
       "id": "local:77b3413236375923",
       "kind": "paper",
       "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
@@ -20,7 +26,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:37:09Z",
+  "last_seen": "2026-08-13T03:39:22Z",
   "name": "steering vector",
   "related": [
     "linear-representation-hypothesis",
@@ -44,6 +50,25 @@
     "qwen2-5-14b",
     "olmo-3-7b",
     "gpt-4-1-mini",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "safety-alignment",
+    "faithfulness-safety-tension",
+    "power-seeking",
+    "agentic-reasoning",
+    "self-repair",
+    "targeted-reasoning-replacement",
+    "difference-of-means-probe",
+    "attention-mask-ablation",
+    "hazmart",
+    "mmlu",
+    "qwen3-8b",
+    "qwen3-32b",
+    "qwq-32b",
+    "ministral-3-14b-reasoning",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-oss-120b",
+    "minimax-m2-230b",
     "reasoning-strength",
     "pre-planning",
     "prompt-difficulty",
@@ -59,12 +84,10 @@
     "math500",
     "aime24",
     "olympiadbench",
-    "mmlu",
     "alpacaeval",
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-14b",
-    "deepseek-r1-distill-qwen-32b",
-    "qwq-32b"
+    "deepseek-r1-distill-qwen-32b"
   ],
   "related_authored": [
     "inverted-steering-vector"

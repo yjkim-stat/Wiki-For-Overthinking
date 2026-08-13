@@ -9,6 +9,12 @@
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
     },
     {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
       "id": "local:1b977d02353e100b",
       "kind": "paper",
       "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
@@ -47,7 +53,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T03:39:22Z",
   "name": "MMLU",
   "related": [
     "intent-classification",
@@ -81,6 +87,26 @@
     "gpt-5",
     "gpt-5-nano",
     "gpt-4o",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "safety-alignment",
+    "faithfulness-safety-tension",
+    "steering-vector",
+    "activation-steering",
+    "power-seeking",
+    "agentic-reasoning",
+    "self-repair",
+    "causal-intervention",
+    "targeted-reasoning-replacement",
+    "difference-of-means-probe",
+    "contrastive-activation-addition",
+    "attention-mask-ablation",
+    "hazmart",
+    "qwq-32b",
+    "ministral-3-14b-reasoning",
+    "deepseek-r1-distill-llama-70b",
+    "gpt-oss-120b",
+    "minimax-m2-230b",
     "reasoning-trajectory",
     "intermediate-state",
     "answer-space-distance-features",
@@ -105,9 +131,6 @@
     "llama-3-2-3b",
     "llama-3-1-8b",
     "llama-3-1-70b",
-    "qwq-32b",
-    "monitorability",
-    "chain-of-thought-faithfulness",
     "verbosity",
     "causal-factors",
     "cue-acknowledgement",
@@ -147,8 +170,6 @@
     "prompt-difficulty",
     "linear-probing",
     "difference-in-means",
-    "activation-steering",
-    "steering-vector",
     "end-of-thinking-token",
     "overthinking",
     "test-time-compute",
@@ -193,9 +214,9 @@
   "slug": "mmlu",
   "topics": [
     "reasoning-interpretability",
+    "reasoning-training",
     "test-time-scaling",
     "reasoning-faithfulness",
-    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

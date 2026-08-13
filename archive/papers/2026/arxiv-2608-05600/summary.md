@@ -46,7 +46,7 @@ No quantitative results in the abstract. The theoretical guarantees hold 'under 
 ## Entities
 
 - **Concepts**: [train-inference gap](../../../../wiki/concepts/train-inference-gap.md), [exploration](../../../../wiki/concepts/exploration.md), discretization error, Wasserstein distance, marginal preservation
-- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), LC-GRPO, Langevin correction, ODE Euler step, Euler-Maruyama discretization, flow matching
+- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), LC-GRPO, Langevin correction, ODE Euler step, Euler-Maruyama discretization, [flow matching](../../../../wiki/methods/flow-matching.md)
 - **Datasets**: _none recorded_
 
 Tags: `grpo`, `flow matching`, `text-to-image`, `train-inference gap`, `off-topic-candidate`

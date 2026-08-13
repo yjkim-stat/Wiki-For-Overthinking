@@ -45,7 +45,7 @@ The paper's discussion is the most careful in this archive and states the bounds
 
 ## Entities
 
-- **Concepts**: activation patching, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [weight-space ablation](../../../../wiki/concepts/weight-space-ablation.md), conditional collapse, [residual stream](../../../../wiki/concepts/residual-stream.md), [superposition](../../../../wiki/concepts/superposition.md), [self-repair](../../../../wiki/concepts/self-repair.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), circuit analysis, interpretability illusion, out-of-sample validation
+- **Concepts**: activation patching, [causal intervention](../../../../wiki/concepts/causal-intervention.md), weight-space ablation, conditional collapse, [residual stream](../../../../wiki/concepts/residual-stream.md), [superposition](../../../../wiki/concepts/superposition.md), [self-repair](../../../../wiki/concepts/self-repair.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), circuit analysis, interpretability illusion, out-of-sample validation
 - **Methods**: [activation patching](../../../../wiki/methods/activation-patching.md), [low-rank weight ablation](../../../../wiki/methods/low-rank-weight-ablation.md), [causal tracing](../../../../wiki/methods/causal-tracing.md), matched-pair analysis, permutation test
 - **Datasets**: _none recorded_
 

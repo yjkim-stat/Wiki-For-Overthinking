@@ -45,7 +45,7 @@ Benchmarks and models are not named. Search costs inference compute that the rep
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), search, [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), solution space, [overthinking](../../../../wiki/concepts/overthinking.md), foresight
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), search, [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), solution space, [overthinking](../../../../wiki/concepts/overthinking.md), [foresight](../../../../wiki/concepts/foresight.md)
 - **Methods**: NCoTS, heuristic search, [chain of thought](../../../../wiki/methods/chain-of-thought.md), reasoning operator evaluation
 - **Datasets**: _none recorded_
 
