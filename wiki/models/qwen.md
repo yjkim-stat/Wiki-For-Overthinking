@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An open-weight model family, and in these sources the default subject rather than a choice either of them defends. One localizes the sentences that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes on members of this family. The other is a position paper arguing that reading intermediate tokens as thinking is unsupported, and draws on work done predominantly on it. The entry is worth keeping for what it says about the archive rather than about the family: a large majority of the reasoning results collected here are measured on one lineage of open checkpoints, so a claim that holds across this archive's papers is not thereby a claim that holds across architectures.
 
 - **Kind**: model
+- **Also called**: Qwen family, Qwen2.5, Qwen3
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

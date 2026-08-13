@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison affordable, and its presence marks how their results should be scoped — a finding established under low-rank adaptation is a finding about what that adaptation reaches, not about full fine-tuning. One uses it to train students on compressed reasoning traces so that three importance criteria can be compared at matched compression ratios on the same traces. The other uses it in the pipeline that scores hidden-state trajectory geometry for progress and stability.
 
 - **Kind**: method
+- **Also called**: Low-Rank Adaptation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

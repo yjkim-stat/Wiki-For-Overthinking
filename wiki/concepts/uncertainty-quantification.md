@@ -9,7 +9,7 @@ Attaching a defensible measure of confidence to a model's output, which the two 
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [answer stabilization](answer-stabilization.md), [calibration](../methods/calibration.md)
+**Related**: [answer stabilization](answer-stabilization.md), [calibration](../methods/calibration.md), [expected calibration error](../methods/expected-calibration-error.md)
 
 ## Appears in
 

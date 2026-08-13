@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
       "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
+      "id": "arxiv:2608.02181",
+      "kind": "paper",
+      "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+      "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-12T23:15:52Z",
+  "last_seen": "2026-08-13T00:02:04Z",
   "name": "reward sparsity",
   "related": [
     "credit-assignment",
@@ -64,7 +70,28 @@
     "gsm8k",
     "math-500",
     "minerva-math",
-    "dapo-math-17k"
+    "dapo-math-17k",
+    "critic-calibration",
+    "advantage-asymmetry",
+    "regression-as-classification",
+    "value-function",
+    "expected-calibration-error",
+    "brier-score",
+    "reasoning-boundary",
+    "target-smoothing",
+    "hl-gauss-ppo",
+    "dapo",
+    "vapo",
+    "generalized-advantage-estimation",
+    "categorical-value-head",
+    "two-hot-encoding",
+    "bernoulli-two-bin-critic",
+    "hmmt",
+    "beyondaime",
+    "brumo",
+    "qwen2-5-math-7b",
+    "qwen2-5-7b-instruct",
+    "qwen3-4b-base"
   ],
   "related_authored": [
     "exploration"

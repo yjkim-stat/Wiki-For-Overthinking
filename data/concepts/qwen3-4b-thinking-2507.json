@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen3-4B-Thinking"
+  ],
+  "definition": "A small released reasoning checkpoint that emits an explicit thinking segment, used by both sources as the model whose traces are analysed rather than trained. One measures the entropy of its chain of thought and reports the two-phase structure it exhibits — a high-entropy exploration region shifting abruptly into low-entropy convergence — and uses it for the end-to-end latency comparison, at 419 seconds against 504 for vanilla decoding on AIME25, with CUSUM-weighted voting beating self-consistency at every sample count from 2 to 64 and a 3.33-point lead at 64. The other includes it among the models whose hidden-state trajectory geometry is scored. Its role here is as a model small enough to sample heavily from while still producing a long, structured thinking trace.",
   "evidence": [
     {
       "id": "local:379c0b6966148b4a",

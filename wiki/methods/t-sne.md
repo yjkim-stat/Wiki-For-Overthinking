@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A nonlinear projection that places high-dimensional points in two dimensions so that near neighbours stay near, used by both sources to make a reasoning trajectory something a person can look at. One turns each intermediate step into a vector of distances to the candidate answers and projects the resulting sequence, so a whole trace becomes a path across a plane and converging and wandering chains are visibly different. The other projects step-marker activations and finds them occupying linearly separable, step-indexed regions. Both treat the projection as a way of seeing structure that is then verified by something else — a classifier, a separability test — rather than as evidence in itself, which is the right use of it: the layout is not a measurement.
 
 - **Kind**: method
+- **Also called**: t-distributed stochastic neighbor embedding
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

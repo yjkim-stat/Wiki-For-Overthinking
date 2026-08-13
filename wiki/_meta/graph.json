@@ -222,6 +222,11 @@
     },
     {
       "source": "concept:advantage-estimation",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -253,6 +258,16 @@
     {
       "source": "concept:advantage-estimation",
       "target": "dataset:triviaqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -302,6 +317,16 @@
     },
     {
       "source": "concept:advantage-estimation",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
       "target": "model:qwen3-1-7b-base",
       "type": "co-occurs"
     },
@@ -318,11 +343,6 @@
     {
       "source": "concept:advantage-function",
       "target": "method:policy-gradient",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:advantage-function",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -358,11 +378,6 @@
     {
       "source": "concept:aha-moment",
       "target": "model:deepseek-r1-distill-qwen-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:aha-moment",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -687,11 +702,6 @@
     },
     {
       "source": "concept:benchmark-contamination",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:benchmark-contamination",
       "target": "method:importance-sampling",
       "type": "co-occurs"
     },
@@ -718,11 +728,6 @@
     {
       "source": "concept:benchmark-contamination",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:benchmark-contamination",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -2057,11 +2062,6 @@
     },
     {
       "source": "concept:entropy-bonus",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-bonus",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -2182,11 +2182,6 @@
     },
     {
       "source": "concept:entropy-collapse",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -2277,16 +2272,6 @@
     },
     {
       "source": "concept:entropy-collapse",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-collapse",
       "target": "model:qwen2-5-vl-7b",
       "type": "co-occurs"
     },
@@ -2353,11 +2338,6 @@
     {
       "source": "concept:epistemic-verbalization",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:epistemic-verbalization",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -2542,11 +2522,6 @@
     },
     {
       "source": "concept:exploration-exploitation-trade-off",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -2633,16 +2608,6 @@
     {
       "source": "concept:exploration-exploitation-trade-off",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -2946,11 +2911,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "concept:information-bottleneck",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
       "source": "concept:instruction-following",
       "target": "concept:alignment",
       "type": "co-occurs"
@@ -3108,11 +3068,6 @@
     {
       "source": "concept:judge-reliability",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:judge-reliability",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -3602,11 +3557,6 @@
     },
     {
       "source": "concept:memorization",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:memorization",
       "target": "method:importance-sampling",
       "type": "co-occurs"
     },
@@ -3648,11 +3598,6 @@
     {
       "source": "concept:memorization",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:memorization",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -5381,11 +5326,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "concept:process-supervision",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
       "source": "concept:prompt-difficulty",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
@@ -5692,6 +5632,11 @@
     },
     {
       "source": "concept:reasoning-boundary",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-boundary",
       "target": "dataset:livecodebench",
       "type": "co-occurs"
     },
@@ -5713,6 +5658,11 @@
     {
       "source": "concept:reasoning-boundary",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-boundary",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -5768,6 +5718,11 @@
     {
       "source": "concept:reasoning-boundary",
       "target": "model:qwen2-5-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-boundary",
+      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -6652,6 +6607,11 @@
     },
     {
       "source": "concept:reward-sparsity",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
       "target": "concept:search-augmented-reasoning",
       "type": "co-occurs"
     },
@@ -6673,6 +6633,11 @@
     {
       "source": "concept:reward-sparsity",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "dataset:brumo",
       "type": "co-occurs"
     },
     {
@@ -6707,6 +6672,16 @@
     },
     {
       "source": "concept:reward-sparsity",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -6733,6 +6708,21 @@
     {
       "source": "concept:reward-sparsity",
       "target": "method:search-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-sparsity",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -8122,11 +8112,6 @@
     },
     {
       "source": "concept:token-level-entropy",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -8183,16 +8168,6 @@
     {
       "source": "concept:token-level-entropy",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -8263,11 +8238,6 @@
     {
       "source": "concept:training-dynamics",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:training-dynamics",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -8498,6 +8468,11 @@
     {
       "source": "concept:verification",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:verification",
+      "target": "dataset:brumo",
       "type": "co-occurs"
     },
     {
@@ -8747,7 +8722,32 @@
     },
     {
       "source": "dataset:2wikimultihopqa",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -8762,7 +8762,32 @@
     },
     {
       "source": "dataset:2wikimultihopqa",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -8837,6 +8862,11 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -8888,6 +8918,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -8948,6 +8983,16 @@
     {
       "source": "dataset:aime-2024",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -9027,6 +9072,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -9063,6 +9113,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -9108,6 +9163,16 @@
     {
       "source": "dataset:aime-2025",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -9162,11 +9227,6 @@
     },
     {
       "source": "dataset:aime-24",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-24",
       "target": "method:policy-gradient-masking",
       "type": "co-occurs"
     },
@@ -9203,11 +9263,6 @@
     {
       "source": "dataset:aime-25",
       "target": "method:clip-higher",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-25",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -10027,11 +10082,6 @@
     },
     {
       "source": "dataset:aime25",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -10163,16 +10213,6 @@
     {
       "source": "dataset:aime25",
       "target": "model:qwen2-5-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime25",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -10672,12 +10712,62 @@
     },
     {
       "source": "dataset:bamboogle",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "dataset:dapo-math-17k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
       "target": "dataset:popqa",
       "type": "co-occurs"
     },
     {
       "source": "dataset:bamboogle",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -10688,6 +10778,36 @@
     {
       "source": "dataset:bbh",
       "target": "model:qwen3-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "concept:routing",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "concept:self-verification",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "dataset:aime",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:brumo",
+      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -10762,6 +10882,11 @@
     },
     {
       "source": "dataset:dapo-math-17k",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
       "target": "concept:reasoning-redundancy",
       "type": "co-occurs"
     },
@@ -10793,6 +10918,11 @@
     {
       "source": "dataset:dapo-math-17k",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:brumo",
       "type": "co-occurs"
     },
     {
@@ -10843,6 +10973,11 @@
     {
       "source": "dataset:dapo-math-17k",
       "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -11043,11 +11178,6 @@
     {
       "source": "dataset:gpqa",
       "target": "model:qwen2-5-0-5b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:gpqa",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -12087,12 +12217,37 @@
     },
     {
       "source": "dataset:hotpotqa",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
       "target": "dataset:2wikimultihopqa",
       "type": "co-occurs"
     },
     {
       "source": "dataset:hotpotqa",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -12107,7 +12262,32 @@
     },
     {
       "source": "dataset:hotpotqa",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -12322,11 +12502,6 @@
     },
     {
       "source": "dataset:livecodebench",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -12393,11 +12568,6 @@
     {
       "source": "dataset:livecodebench",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:livecodebench",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -13252,11 +13422,6 @@
     },
     {
       "source": "dataset:math500",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -13462,11 +13627,6 @@
     },
     {
       "source": "dataset:math500",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
       "target": "model:qwen2-5-vl-7b",
       "type": "co-occurs"
     },
@@ -13548,11 +13708,6 @@
     {
       "source": "dataset:minerva",
       "target": "dataset:kodcode",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:minerva",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -13827,7 +13982,32 @@
     },
     {
       "source": "dataset:musique",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -13837,7 +14017,32 @@
     },
     {
       "source": "dataset:musique",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -13847,12 +14052,37 @@
     },
     {
       "source": "dataset:natural-questions",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
       "target": "dataset:2wikimultihopqa",
       "type": "co-occurs"
     },
     {
       "source": "dataset:natural-questions",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -13877,7 +14107,32 @@
     },
     {
       "source": "dataset:natural-questions",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -14017,11 +14272,6 @@
     },
     {
       "source": "dataset:olympiadbench",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:olympiadbench",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -14143,11 +14393,6 @@
     {
       "source": "dataset:olympiadbench",
       "target": "model:qwen2-5-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:olympiadbench",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -14517,7 +14762,57 @@
     },
     {
       "source": "dataset:popqa",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "dataset:dapo-math-17k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -14582,12 +14877,37 @@
     },
     {
       "source": "dataset:triviaqa",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
       "target": "dataset:2wikimultihopqa",
       "type": "co-occurs"
     },
     {
       "source": "dataset:triviaqa",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -14607,7 +14927,32 @@
     },
     {
       "source": "dataset:triviaqa",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
       "target": "method:on-policy-self-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -15512,11 +15857,6 @@
     },
     {
       "source": "method:calibration",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -15543,11 +15883,6 @@
     {
       "source": "method:calibration",
       "target": "model:llama-3-1-8b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:calibration",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -15838,6 +16173,11 @@
     {
       "source": "method:chain-of-thought",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought",
+      "target": "dataset:brumo",
       "type": "co-occurs"
     },
     {
@@ -16347,11 +16687,6 @@
     },
     {
       "source": "method:clip-cov",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:clip-cov",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -16407,11 +16742,6 @@
     },
     {
       "source": "method:clip-higher",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:clip-higher",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -16438,11 +16768,6 @@
     {
       "source": "method:clip-higher",
       "target": "method:rloo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:clip-higher",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -16492,6 +16817,146 @@
     },
     {
       "source": "method:dapo",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:entropy-bonus",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:entropy-collapse",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:memorization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:aime-24",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:aime-25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:math500",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:calibration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:clip-cov",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:kl-cov",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:policy-gradient-masking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:prime",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:rloo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "method:verl",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
       "target": "method:vllm",
       "type": "co-occurs"
     },
@@ -16502,12 +16967,67 @@
     },
     {
       "source": "method:dapo",
+      "target": "model:deepseek-r1-distill-qwen-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:llama-3-1-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen2-5-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen2-5-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
       "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
       "source": "method:dapo",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen2-5-vl-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen3-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
       "target": "model:qwen3-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -16822,11 +17342,6 @@
     },
     {
       "source": "method:entropy-regularization",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:entropy-regularization",
       "target": "method:linear-function-approximation",
       "type": "co-occurs"
     },
@@ -16846,8 +17361,38 @@
       "type": "co-occurs"
     },
     {
-      "source": "method:entropy-regularization",
+      "source": "method:expected-calibration-error",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
+      "target": "concept:uncertainty-quantification",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
+      "target": "method:calibration",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
       "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:expected-calibration-error",
+      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -17222,6 +17767,11 @@
     },
     {
       "source": "method:grpo",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -17318,6 +17868,11 @@
     {
       "source": "method:grpo",
       "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -17643,11 +18198,6 @@
     {
       "source": "method:kl-cov",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:kl-cov",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -18401,11 +18951,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "method:lora",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
       "source": "method:majority-voting",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
@@ -18787,11 +19332,6 @@
     },
     {
       "source": "method:pass-k",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -18877,16 +19417,6 @@
     },
     {
       "source": "method:pass-k",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
       "target": "model:qwen2-5-vl-7b",
       "type": "co-occurs"
     },
@@ -18908,16 +19438,6 @@
     {
       "source": "method:policy-gradient-masking",
       "target": "concept:advantage-function",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:policy-gradient-masking",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:policy-gradient-masking",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -19052,6 +19572,11 @@
     },
     {
       "source": "method:ppo",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ppo",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -19128,6 +19653,11 @@
     {
       "source": "method:ppo",
       "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ppo",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -19397,11 +19927,6 @@
     },
     {
       "source": "method:prime",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:prime",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -19438,11 +19963,6 @@
     {
       "source": "method:process-evaluation",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-evaluation",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -20222,11 +20742,6 @@
     },
     {
       "source": "method:rloo",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rloo",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -20407,11 +20922,6 @@
     },
     {
       "source": "method:rlvr",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -20527,11 +21037,6 @@
     },
     {
       "source": "method:rlvr",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:rlvr",
       "target": "model:qwen2-5-vl-7b",
       "type": "co-occurs"
     },
@@ -20557,12 +21062,37 @@
     },
     {
       "source": "method:search-r1",
+      "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
       "target": "dataset:2wikimultihopqa",
       "type": "co-occurs"
     },
     {
       "source": "method:search-r1",
+      "target": "dataset:aime-2024",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -20592,6 +21122,16 @@
     },
     {
       "source": "method:search-r1",
+      "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "method:expected-calibration-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -20603,6 +21143,21 @@
     {
       "source": "method:search-r1",
       "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
+      "target": "model:qwen3-4b-base",
       "type": "co-occurs"
     },
     {
@@ -20618,11 +21173,6 @@
     {
       "source": "method:self-certainty",
       "target": "concept:token-level-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:self-certainty",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -22197,11 +22747,6 @@
     },
     {
       "source": "method:verl",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:verl",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
@@ -22228,11 +22773,6 @@
     {
       "source": "method:verl",
       "target": "model:qwen2-5-0-5b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:verl",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -22332,11 +22872,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-llama-70b",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-70b",
       "target": "model:qwen3-14b",
       "type": "co-occurs"
     },
@@ -22378,16 +22913,6 @@
     {
       "source": "model:deepseek-r1-distill-llama-8b",
       "target": "model:qwen2-5-14b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-8b",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-llama-8b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -22472,11 +22997,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-14b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-14b",
       "target": "method:linear-probing",
       "type": "co-occurs"
     },
@@ -22496,11 +23016,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "model:deepseek-r1-distill-qwen-14b",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
       "source": "model:deepseek-r1-distill-qwen-32b",
       "target": "dataset:alpacaeval",
       "type": "co-occurs"
@@ -22513,11 +23028,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-32b",
       "target": "model:qwen2-5-14b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-32b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -22627,11 +23137,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "method:deer",
       "type": "co-occurs"
     },
@@ -22728,11 +23233,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -22853,11 +23353,6 @@
     {
       "source": "model:gpt-4o",
       "target": "model:qwen2-5-0-5b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gpt-4o",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -22997,11 +23492,6 @@
     },
     {
       "source": "model:llama-3-1-8b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b",
       "target": "method:rloo",
       "type": "co-occurs"
     },
@@ -23046,11 +23536,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "model:llama-3-1-8b",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
       "source": "model:llama-3-1-8b-instruct",
       "target": "concept:reasoning-skeleton",
       "type": "co-occurs"
@@ -23078,11 +23563,6 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "method:clip-higher",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b-instruct",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -23133,16 +23613,6 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "model:qwen2-5-0-5b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b-instruct",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b-instruct",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -23292,11 +23762,6 @@
     },
     {
       "source": "model:qwen2-5-0-5b",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-0-5b",
       "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
@@ -23362,22 +23827,12 @@
     },
     {
       "source": "model:qwen2-5-1-5b",
-      "target": "model:qwen2-5-7b-instruct",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-1-5b",
       "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
       "source": "model:qwen2-5-14b",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-14b",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -23438,11 +23893,6 @@
     {
       "source": "model:qwen2-5-32b",
       "target": "method:clip-higher",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-32b",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -23513,11 +23963,6 @@
     {
       "source": "model:qwen2-5-32b",
       "target": "model:qwen2-5-14b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-32b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -23687,11 +24132,6 @@
     },
     {
       "source": "model:qwen2-5-7b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-7b",
       "target": "method:dynasor",
       "type": "co-occurs"
     },
@@ -23802,11 +24242,6 @@
     },
     {
       "source": "model:qwen2-5-7b",
-      "target": "model:qwen2-5-math-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-7b",
       "target": "model:qwen2-5-vl-7b",
       "type": "co-occurs"
     },
@@ -23831,8 +24266,108 @@
       "type": "co-occurs"
     },
     {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:advantage-function",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:entropy-collapse",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:lora",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:policy-gradient-masking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:gpt-4o",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:qwen2-5-0-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:qwen2-5-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:aha-moment",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
       "source": "model:qwen2-5-math-7b",
       "target": "concept:entropy-bonus",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
     {
@@ -23842,7 +24377,62 @@
     },
     {
       "source": "model:qwen2-5-math-7b",
+      "target": "concept:epistemic-verbalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:information-bottleneck",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:memorization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:process-supervision",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "dataset:aime25",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "dataset:math500",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
       "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "method:calibration",
       "type": "co-occurs"
     },
     {
@@ -23857,17 +24447,17 @@
     },
     {
       "source": "model:qwen2-5-math-7b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-math-7b",
       "target": "method:entropy-regularization",
       "type": "co-occurs"
     },
     {
       "source": "model:qwen2-5-math-7b",
       "target": "method:kl-cov",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "method:pass-k",
       "type": "co-occurs"
     },
     {
@@ -23882,6 +24472,21 @@
     },
     {
       "source": "model:qwen2-5-math-7b",
+      "target": "method:rlvr",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "method:self-certainty",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "method:verl",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
       "target": "method:vllm",
       "type": "co-occurs"
     },
@@ -23892,12 +24497,77 @@
     },
     {
       "source": "model:qwen2-5-math-7b",
+      "target": "model:deepseek-r1-distill-llama-70b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:deepseek-r1-distill-qwen-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:deepseek-r1-distill-qwen-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:llama-3-1-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
       "target": "model:qwen2-5-14b",
       "type": "co-occurs"
     },
     {
       "source": "model:qwen2-5-math-7b",
+      "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:qwen2-5-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:qwen2-5-vl-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
       "target": "model:qwen3-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-math-7b",
+      "target": "model:qwq-32b",
       "type": "co-occurs"
     },
     {
@@ -23908,11 +24578,6 @@
     {
       "source": "model:qwen2-5-vl-7b",
       "target": "dataset:minerva",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-vl-7b",
-      "target": "method:dapo",
       "type": "co-occurs"
     },
     {
@@ -23938,11 +24603,6 @@
     {
       "source": "model:qwen2-5-vl-7b",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-vl-7b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -24022,11 +24682,6 @@
     },
     {
       "source": "model:qwen3-14b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-14b",
       "target": "method:linear-probing",
       "type": "co-occurs"
     },
@@ -24082,6 +24737,11 @@
     },
     {
       "source": "model:qwen3-4b-base",
+      "target": "dataset:brumo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-base",
       "target": "dataset:math500",
       "type": "co-occurs"
     },
@@ -24113,6 +24773,11 @@
     {
       "source": "model:qwen3-4b-base",
       "target": "method:entropy-regularization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-base",
+      "target": "method:expected-calibration-error",
       "type": "co-occurs"
     },
     {
@@ -24153,11 +24818,6 @@
     {
       "source": "model:qwen3-4b-thinking-2507",
       "target": "method:lora",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-4b-thinking-2507",
-      "target": "model:qwen2-5-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -24212,11 +24872,6 @@
     },
     {
       "source": "model:qwen3-8b",
-      "target": "method:dapo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
       "target": "method:policy-gradient-masking",
       "type": "co-occurs"
     },
@@ -24248,11 +24903,6 @@
     {
       "source": "model:qwen3-8b",
       "target": "model:gpt-4o",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen3-8b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -24388,11 +25038,6 @@
     {
       "source": "model:qwq-32b",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwq-32b",
-      "target": "model:qwen2-5-math-7b",
       "type": "co-occurs"
     },
     {
@@ -24722,6 +25367,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "dataset:brumo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "dataset:dapo-math-17k",
       "type": "covers"
     },
@@ -24878,6 +25528,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "method:entropy-regularization",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "method:expected-calibration-error",
       "type": "covers"
     },
     {
@@ -27037,6 +27692,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "dataset:brumo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "dataset:commonsenseqa",
       "type": "covers"
     },
@@ -27293,6 +27953,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "method:entropy-regularization",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "method:expected-calibration-error",
       "type": "covers"
     },
     {
@@ -28706,7 +29371,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-12T23:47:41Z",
+  "generated_at": "2026-08-13T00:02:05Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -28727,7 +29392,7 @@
       "kind": "concept",
       "label": "advantage estimation",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "concept:advantage-function",
@@ -29245,7 +29910,7 @@
       "kind": "concept",
       "label": "reasoning boundary",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "concept:reasoning-redundancy",
@@ -29315,7 +29980,7 @@
       "kind": "concept",
       "label": "reward sparsity",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:robustness",
@@ -29497,7 +30162,7 @@
       "kind": "dataset",
       "label": "2WikiMultiHopQA",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:aime",
@@ -29511,14 +30176,14 @@
       "kind": "dataset",
       "label": "AIME 2024",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "dataset:aime-2025",
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "dataset:aime-24",
@@ -29574,12 +30239,19 @@
       "kind": "dataset",
       "label": "Bamboogle",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:bbh",
       "kind": "dataset",
       "label": "BBH",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "dataset:brumo",
+      "kind": "dataset",
+      "label": "Brumo",
       "settled": false,
       "sources": 2
     },
@@ -29595,7 +30267,7 @@
       "kind": "dataset",
       "label": "DAPO-Math-17k",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "dataset:game-of-24",
@@ -29630,7 +30302,7 @@
       "kind": "dataset",
       "label": "HotpotQA",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:humaneval",
@@ -29728,14 +30400,14 @@
       "kind": "dataset",
       "label": "MuSiQue",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:natural-questions",
       "kind": "dataset",
       "label": "Natural Questions",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:olympiadbench",
@@ -29770,7 +30442,7 @@
       "kind": "dataset",
       "label": "PopQA",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:prontoqa",
@@ -29791,7 +30463,7 @@
       "kind": "dataset",
       "label": "TriviaQA",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:zebralogic",
@@ -29952,7 +30624,7 @@
       "kind": "method",
       "label": "DAPO",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "method:deer",
@@ -29988,6 +30660,13 @@
       "label": "entropy regularization",
       "settled": false,
       "sources": 6
+    },
+    {
+      "id": "method:expected-calibration-error",
+      "kind": "method",
+      "label": "expected calibration error",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "method:few-shot-prompting",
@@ -30029,7 +30708,7 @@
       "kind": "method",
       "label": "GRPO",
       "settled": false,
-      "sources": 27
+      "sources": 28
     },
     {
       "id": "method:importance-sampling",
@@ -30211,7 +30890,7 @@
       "kind": "method",
       "label": "PPO",
       "settled": false,
-      "sources": 9
+      "sources": 10
     },
     {
       "id": "method:preference-optimization",
@@ -30288,7 +30967,7 @@
       "kind": "method",
       "label": "Search-R1",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:self-certainty",
@@ -30617,14 +31296,14 @@
       "kind": "model",
       "label": "Qwen2.5-7B-Instruct",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "model:qwen2-5-math-7b",
       "kind": "model",
       "label": "Qwen2.5-Math-7B",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "model:qwen2-5-vl-7b",
@@ -30659,7 +31338,7 @@
       "kind": "model",
       "label": "Qwen3-4B-Base",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "model:qwen3-4b-thinking-2507",

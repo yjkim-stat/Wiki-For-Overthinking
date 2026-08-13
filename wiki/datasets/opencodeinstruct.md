@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large instruction-tuning corpus of programming problems, used by both sources as the coding half of a training or calibration mixture rather than as an evaluation set. One draws coding questions from it, in equal proportion with mathematics, to build the calibration set for ternary quantization — the mixture whose composition turns out to decide whether the quantized model scores zero or fifty-eight on mathematics. The other uses it among the corpora its step-level sparse autoencoder is trained over. In both, it is there to keep a method from being tuned on mathematics alone.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

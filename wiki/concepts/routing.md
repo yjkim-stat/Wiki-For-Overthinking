@@ -9,7 +9,7 @@ Deciding per input which of several processing paths to take, rather than applyi
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [AIME](../datasets/aime.md), [chain of thought](../methods/chain-of-thought.md), [meta-reasoning](../methods/meta-reasoning.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [perception bottleneck](perception-bottleneck.md), [self-correction](self-correction.md), [self-verification](self-verification.md), [test-time compute](test-time-compute.md), [verification](verification.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [AIME](../datasets/aime.md), [Brumo](../datasets/brumo.md), [chain of thought](../methods/chain-of-thought.md), [meta-reasoning](../methods/meta-reasoning.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [perception bottleneck](perception-bottleneck.md), [self-correction](self-correction.md), [self-verification](self-verification.md), [test-time compute](test-time-compute.md), [verification](verification.md)
 
 ## Appears in
 

@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "BRUMO"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.02181",
+      "kind": "paper",
+      "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+      "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning"
+    },
     {
       "id": "arxiv:2608.05254",
       "kind": "paper",
@@ -11,9 +19,44 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "BRUMO",
+  "last_seen": "2026-08-13T00:02:04Z",
+  "name": "Brumo",
   "related": [
+    "critic-calibration",
+    "advantage-asymmetry",
+    "advantage-estimation",
+    "regression-as-classification",
+    "value-function",
+    "reward-sparsity",
+    "expected-calibration-error",
+    "brier-score",
+    "reasoning-boundary",
+    "target-smoothing",
+    "hl-gauss-ppo",
+    "ppo",
+    "dapo",
+    "vapo",
+    "grpo",
+    "generalized-advantage-estimation",
+    "categorical-value-head",
+    "two-hot-encoding",
+    "bernoulli-two-bin-critic",
+    "search-r1",
+    "dapo-math-17k",
+    "aime-2024",
+    "aime-2025",
+    "hmmt",
+    "beyondaime",
+    "natural-questions",
+    "triviaqa",
+    "popqa",
+    "hotpotqa",
+    "2wikimultihopqa",
+    "musique",
+    "bamboogle",
+    "qwen2-5-math-7b",
+    "qwen2-5-7b-instruct",
+    "qwen3-4b-base",
     "answer-space-constraint",
     "verification",
     "test-time-intervention",
@@ -30,9 +73,11 @@
     "aimo-amc",
     "olympiadbench"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "brumo",
   "topics": [
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }
