@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.09217",
+      "kind": "paper",
+      "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
+      "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training"
+    },
+    {
       "id": "local:1b977d02353e100b",
       "kind": "paper",
       "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
@@ -11,9 +17,35 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T12:22:18Z",
   "name": "Llama-3.2-3B",
   "related": [
+    "task-learnability",
+    "solvability",
+    "task-value-estimation",
+    "training-dynamics",
+    "data-efficiency",
+    "curriculum-learning",
+    "prompt-difficulty",
+    "reward-trajectory",
+    "regime-conditionality",
+    "grpo",
+    "probe-based-estimation",
+    "task-scheduling",
+    "importance-weighting",
+    "linear-probe",
+    "dapo-math-17k",
+    "guru",
+    "arc-agi",
+    "barc",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math500",
+    "minerva",
+    "olympiadbench",
+    "qwen3-1-7b",
+    "qwen3-4b",
     "reasoning-trajectory",
     "intermediate-state",
     "answer-space-distance-features",
@@ -41,9 +73,11 @@
     "llama-3-1-70b",
     "qwq-32b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "llama-3-2-3b",
   "topics": [
+    "reasoning-evaluation",
     "test-time-scaling"
   ]
 }

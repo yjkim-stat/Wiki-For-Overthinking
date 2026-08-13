@@ -107,6 +107,11 @@
     },
     {
       "source": "concept:adaptive-compute-allocation",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:adaptive-compute-allocation",
       "target": "method:beam-search",
       "type": "co-occurs"
     },
@@ -277,6 +282,11 @@
     },
     {
       "source": "concept:advantage-estimation",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
       "target": "concept:reward-hacking",
       "type": "co-occurs"
     },
@@ -383,6 +393,11 @@
     {
       "source": "concept:advantage-estimation",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:advantage-estimation",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -713,6 +728,11 @@
     {
       "source": "concept:answer-stabilization",
       "target": "concept:pareto-frontier",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:answer-stabilization",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -1133,11 +1153,6 @@
     {
       "source": "concept:benchmark-contamination",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:catastrophic-forgetting",
-      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -2212,6 +2227,11 @@
     },
     {
       "source": "concept:construct-validity",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:construct-validity",
       "target": "dataset:cmimc",
       "type": "co-occurs"
     },
@@ -2447,6 +2467,11 @@
     },
     {
       "source": "concept:credit-assignment",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:credit-assignment",
       "target": "concept:reasoning-redundancy",
       "type": "co-occurs"
     },
@@ -2603,6 +2628,11 @@
     {
       "source": "concept:credit-assignment",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:credit-assignment",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -2857,6 +2887,16 @@
     },
     {
       "source": "concept:curriculum-learning",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
       "target": "dataset:beavertails",
       "type": "co-occurs"
     },
@@ -2868,6 +2908,11 @@
     {
       "source": "concept:curriculum-learning",
       "target": "dataset:mathvista",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
+      "target": "dataset:olympiadbench",
       "type": "co-occurs"
     },
     {
@@ -2942,6 +2987,11 @@
     },
     {
       "source": "concept:curriculum-learning",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
       "target": "model:qwen2-5-vl-3b",
       "type": "co-occurs"
     },
@@ -2967,12 +3017,32 @@
     },
     {
       "source": "concept:data-efficiency",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
       "target": "concept:generalization",
       "type": "co-occurs"
     },
     {
       "source": "concept:data-efficiency",
       "target": "concept:safety-alignment",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -2987,12 +3057,22 @@
     },
     {
       "source": "concept:data-efficiency",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
       "target": "method:knowledge-distillation",
       "type": "co-occurs"
     },
     {
       "source": "concept:data-efficiency",
       "target": "method:post-training",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:data-efficiency",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -3792,11 +3872,6 @@
     },
     {
       "source": "concept:exploration-exploitation-trade-off",
-      "target": "concept:training-dynamics",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:exploration-exploitation-trade-off",
       "target": "dataset:gpqa",
       "type": "co-occurs"
     },
@@ -4318,6 +4393,31 @@
     {
       "source": "concept:implicit-reasoning",
       "target": "model:mistral-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:in-context-learning",
+      "target": "concept:answer-extraction",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:in-context-learning",
+      "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:in-context-learning",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:in-context-learning",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:in-context-learning",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -5132,6 +5232,11 @@
     },
     {
       "source": "concept:matched-budget-comparison",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:matched-budget-comparison",
       "target": "method:borda-count",
       "type": "co-occurs"
     },
@@ -5168,11 +5273,6 @@
     {
       "source": "concept:mechanistic-interpretability",
       "target": "concept:generalization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:mechanistic-interpretability",
-      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -5313,6 +5413,11 @@
     {
       "source": "concept:meta-evaluation",
       "target": "dataset:alpacaeval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:meta-evaluation",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -5792,6 +5897,11 @@
     },
     {
       "source": "concept:multi-hop-reasoning",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:multi-hop-reasoning",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -6207,6 +6317,11 @@
     },
     {
       "source": "concept:outcome-reward",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:outcome-reward",
       "target": "concept:reward-hacking",
       "type": "co-occurs"
     },
@@ -6293,6 +6408,11 @@
     {
       "source": "concept:outcome-reward",
       "target": "dataset:wmt22",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:outcome-reward",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -6463,6 +6583,11 @@
     {
       "source": "concept:overthinking",
       "target": "concept:perception-bottleneck",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:overthinking",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -6733,11 +6858,6 @@
     {
       "source": "concept:pareto-frontier",
       "target": "method:length-control",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:pareto-frontier",
-      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -7341,6 +7461,31 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:predictive-entropy",
+      "target": "concept:entropy-trajectory",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:predictive-entropy",
+      "target": "method:deer",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:predictive-entropy",
+      "target": "method:dynasor",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:predictive-entropy",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:predictive-entropy",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:privileged-information",
       "target": "concept:belief-state",
       "type": "co-occurs"
@@ -7388,6 +7533,11 @@
     {
       "source": "concept:privileged-information",
       "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:privileged-information",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -7478,6 +7628,11 @@
     {
       "source": "concept:process-reward",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-reward",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -7892,6 +8047,11 @@
     },
     {
       "source": "concept:prompt-difficulty",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
       "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
@@ -7957,6 +8117,11 @@
     },
     {
       "source": "concept:prompt-difficulty",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
       "target": "concept:uncertainty-quantification",
       "type": "co-occurs"
     },
@@ -7978,6 +8143,16 @@
     {
       "source": "concept:prompt-difficulty",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -8007,6 +8182,11 @@
     },
     {
       "source": "concept:prompt-difficulty",
+      "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
       "target": "dataset:mmlu",
       "type": "co-occurs"
     },
@@ -8018,6 +8198,11 @@
     {
       "source": "concept:prompt-difficulty",
       "target": "dataset:omni-math",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -8187,6 +8372,11 @@
     },
     {
       "source": "concept:prompt-difficulty",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
       "target": "model:mistral-7b",
       "type": "co-occurs"
     },
@@ -8212,7 +8402,17 @@
     },
     {
       "source": "concept:prompt-difficulty",
+      "target": "model:qwen3-1-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
       "target": "model:qwen3-1-7b-base",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-difficulty",
+      "target": "model:qwen3-4b",
       "type": "co-occurs"
     },
     {
@@ -8238,6 +8438,11 @@
     {
       "source": "concept:prompt-sensitivity",
       "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-sensitivity",
+      "target": "concept:in-context-learning",
       "type": "co-occurs"
     },
     {
@@ -8456,6 +8661,41 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:reasoning-drift",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "method:teacher-forcing",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-drift",
+      "target": "model:deepseek-v3",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:reasoning-redundancy",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
@@ -8483,6 +8723,11 @@
     {
       "source": "concept:reasoning-redundancy",
       "target": "concept:pareto-frontier",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-redundancy",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -8873,6 +9118,11 @@
     {
       "source": "concept:reasoning-trajectory",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-trajectory",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -9493,6 +9743,11 @@
     {
       "source": "concept:reward-shaping",
       "target": "concept:pareto-frontier",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reward-shaping",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -10122,6 +10377,11 @@
     },
     {
       "source": "concept:search-augmented-reasoning",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:search-augmented-reasoning",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -10198,6 +10458,11 @@
     {
       "source": "concept:selection-signal",
       "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:selection-signal",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -10492,6 +10757,11 @@
     },
     {
       "source": "concept:self-correction",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:self-correction",
       "target": "model:qwen2-5-1-5b",
       "type": "co-occurs"
     },
@@ -10713,11 +10983,6 @@
     {
       "source": "concept:state-tracking",
       "target": "concept:length-generalization",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:state-tracking",
-      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -11512,11 +11777,6 @@
     },
     {
       "source": "concept:token-level-entropy",
-      "target": "concept:training-dynamics",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
       "target": "dataset:gpqa",
       "type": "co-occurs"
     },
@@ -11652,7 +11912,17 @@
     },
     {
       "source": "concept:training-dynamics",
+      "target": "concept:catastrophic-forgetting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
       "target": "concept:circuit-complexity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "concept:exploration-exploitation-trade-off",
       "type": "co-occurs"
     },
     {
@@ -11663,6 +11933,31 @@
     {
       "source": "concept:training-dynamics",
       "target": "concept:length-generalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "concept:mechanistic-interpretability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "concept:state-tracking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "method:attention-analysis",
       "type": "co-occurs"
     },
     {
@@ -11688,6 +11983,21 @@
     {
       "source": "concept:training-dynamics",
       "target": "method:policy-gradient-masking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:training-dynamics",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -11813,6 +12123,11 @@
     {
       "source": "concept:uncertainty-quantification",
       "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:uncertainty-quantification",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -12562,6 +12877,11 @@
     },
     {
       "source": "dataset:2wikimultihopqa",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:2wikimultihopqa",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -12702,6 +13022,11 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
@@ -12793,6 +13118,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -12933,6 +13263,11 @@
     {
       "source": "dataset:aime-2024",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -13422,6 +13757,11 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "model:llama-3-2-3b-instruct",
       "type": "co-occurs"
     },
@@ -13622,6 +13962,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
@@ -13653,6 +13998,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:in-context-learning",
       "type": "co-occurs"
     },
     {
@@ -13712,7 +14062,17 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -13807,6 +14167,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "dataset:brumo",
       "type": "co-occurs"
     },
@@ -13863,6 +14228,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -14097,6 +14467,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "model:llama-3-2-3b-instruct",
       "type": "co-occurs"
     },
@@ -14457,6 +14832,11 @@
     },
     {
       "source": "dataset:amc23",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:amc23",
       "target": "concept:entropy-bonus",
       "type": "co-occurs"
     },
@@ -14543,6 +14923,11 @@
     {
       "source": "dataset:amc23",
       "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:amc23",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -14747,6 +15132,11 @@
     },
     {
       "source": "dataset:amc23",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:amc23",
       "target": "model:mistral-7b",
       "type": "co-occurs"
     },
@@ -14783,6 +15173,16 @@
     {
       "source": "dataset:amc23",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:arc-agi",
+      "target": "concept:perception-bottleneck",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:arc-agi",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -14828,6 +15228,11 @@
     {
       "source": "dataset:bamboogle",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:bamboogle",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -15317,12 +15722,22 @@
     },
     {
       "source": "dataset:commonsenseqa",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:commonsenseqa",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
     {
       "source": "dataset:dapo-math-17k",
       "target": "concept:advantage-function",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "concept:curriculum-learning",
       "type": "co-occurs"
     },
     {
@@ -15388,6 +15803,11 @@
     {
       "source": "dataset:dapo-math-17k",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -15498,6 +15918,11 @@
     {
       "source": "dataset:dapo-math-17k",
       "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:dapo-math-17k",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -15683,6 +16108,11 @@
     {
       "source": "dataset:gpqa-diamond",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -16052,6 +16482,11 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -16122,6 +16557,11 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "concept:privileged-information",
       "type": "co-occurs"
     },
@@ -16148,6 +16588,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -16387,6 +16832,11 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "dataset:truthfulqa",
       "type": "co-occurs"
     },
@@ -16473,6 +16923,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "method:deer",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -16618,6 +17073,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "method:reinforcement-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "method:retrieval-augmented-generation",
       "type": "co-occurs"
     },
     {
@@ -17147,6 +17607,11 @@
     },
     {
       "source": "dataset:hotpotqa",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hotpotqa",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -17927,6 +18392,11 @@
     },
     {
       "source": "dataset:math",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math",
       "target": "method:attention-analysis",
       "type": "co-occurs"
     },
@@ -18212,6 +18682,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
@@ -18238,6 +18713,11 @@
     {
       "source": "dataset:math500",
       "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "concept:in-context-learning",
       "type": "co-occurs"
     },
     {
@@ -18312,6 +18792,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "concept:privileged-information",
       "type": "co-occurs"
     },
@@ -18333,6 +18818,11 @@
     {
       "source": "dataset:math500",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -18462,6 +18952,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
@@ -18562,6 +19057,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "dataset:zebralogic",
       "type": "co-occurs"
     },
@@ -18633,6 +19133,11 @@
     {
       "source": "dataset:math500",
       "target": "method:deer",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -18777,6 +19282,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "method:rloo",
       "type": "co-occurs"
     },
@@ -18908,6 +19418,11 @@
     {
       "source": "dataset:math500",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -19322,6 +19837,11 @@
     },
     {
       "source": "dataset:minerva",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:minerva",
       "target": "concept:entropy-bonus",
       "type": "co-occurs"
     },
@@ -19373,6 +19893,11 @@
     {
       "source": "dataset:minerva",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:minerva",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -19493,6 +20018,11 @@
     {
       "source": "dataset:minerva",
       "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:minerva",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -19723,6 +20253,11 @@
     {
       "source": "dataset:mmlu",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmlu",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -20097,6 +20632,11 @@
     },
     {
       "source": "dataset:musique",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:musique",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -20202,6 +20742,11 @@
     },
     {
       "source": "dataset:natural-questions",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:natural-questions",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -20292,7 +20837,17 @@
     },
     {
       "source": "dataset:olympiadbench",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:olympiadbench",
       "target": "dataset:alpacaeval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:olympiadbench",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -20398,6 +20953,11 @@
     {
       "source": "dataset:olympiadbench",
       "target": "model:llama-3-1-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:olympiadbench",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -20847,6 +21407,11 @@
     },
     {
       "source": "dataset:popqa",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:popqa",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -20903,6 +21468,16 @@
     {
       "source": "dataset:prosqa",
       "target": "model:gpt-2",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:sciq",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:sciq",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -20987,6 +21562,11 @@
     },
     {
       "source": "dataset:triviaqa",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:triviaqa",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -21048,6 +21628,11 @@
     {
       "source": "dataset:truthfulqa",
       "target": "model:qwen2-5-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:wmt22",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -21567,11 +22152,6 @@
     },
     {
       "source": "method:attention-analysis",
-      "target": "concept:training-dynamics",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:attention-analysis",
       "target": "method:chain-of-thought-compression",
       "type": "co-occurs"
     },
@@ -21847,6 +22427,11 @@
     },
     {
       "source": "method:best-of-n",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
       "target": "method:activation-probing",
       "type": "co-occurs"
     },
@@ -22087,6 +22672,11 @@
     },
     {
       "source": "method:borda-count",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:borda-count",
       "target": "method:paired-bootstrap-confidence-intervals",
       "type": "co-occurs"
     },
@@ -22127,12 +22717,27 @@
     },
     {
       "source": "method:budget-forcing",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
     {
       "source": "method:budget-forcing",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -22222,12 +22827,22 @@
     },
     {
       "source": "method:budget-forcing",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
       "target": "method:activation-steering",
       "type": "co-occurs"
     },
     {
       "source": "method:budget-forcing",
       "target": "method:beam-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -22243,6 +22858,11 @@
     {
       "source": "method:budget-forcing",
       "target": "method:pass-k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "method:retrieval-augmented-generation",
       "type": "co-occurs"
     },
     {
@@ -22268,6 +22888,11 @@
     {
       "source": "method:budget-forcing",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -22322,12 +22947,27 @@
     },
     {
       "source": "method:budget-forcing",
+      "target": "model:qwen3-1-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
       "target": "model:qwen3-30b-a3b-thinking-2507",
       "type": "co-occurs"
     },
     {
       "source": "method:budget-forcing",
+      "target": "model:qwen3-4b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
       "target": "model:qwen3-6-35b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:budget-forcing",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -23077,6 +23717,11 @@
     },
     {
       "source": "method:chain-of-thought",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought",
       "target": "model:qwen2-5-7b",
       "type": "co-occurs"
     },
@@ -23243,6 +23888,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "concept:implicit-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "concept:in-context-learning",
       "type": "co-occurs"
     },
     {
@@ -24286,6 +24936,41 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:dense-retrieval",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dense-retrieval",
+      "target": "model:qwen2-5-3b-instruct",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:difference-of-means-probe",
       "target": "concept:construct-validity",
       "type": "co-occurs"
@@ -24487,6 +25172,11 @@
     },
     {
       "source": "method:early-exit",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:early-exit",
       "target": "concept:token-level-entropy",
       "type": "co-occurs"
     },
@@ -24592,6 +25282,11 @@
     },
     {
       "source": "method:few-shot-prompting",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:few-shot-prompting",
       "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
@@ -24628,6 +25323,11 @@
     {
       "source": "method:flow-matching",
       "target": "method:t-sne",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:gemba-mqm",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -24732,6 +25432,11 @@
     },
     {
       "source": "method:gigpo",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:gigpo",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -24818,6 +25523,11 @@
     {
       "source": "method:grpo",
       "target": "concept:covariance-of-probability-and-advantage",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
+      "target": "concept:curriculum-learning",
       "type": "co-occurs"
     },
     {
@@ -24937,6 +25647,11 @@
     },
     {
       "source": "method:grpo",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
       "target": "concept:reasoning-redundancy",
       "type": "co-occurs"
     },
@@ -25028,6 +25743,11 @@
     {
       "source": "method:grpo",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
+      "target": "dataset:arc-agi",
       "type": "co-occurs"
     },
     {
@@ -25163,6 +25883,11 @@
     {
       "source": "method:grpo",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -25447,6 +26172,11 @@
     },
     {
       "source": "method:grpo",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
       "target": "model:llama-3-2-3b-instruct",
       "type": "co-occurs"
     },
@@ -25603,6 +26333,11 @@
     {
       "source": "method:kl-regularization",
       "target": "concept:catastrophic-forgetting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:kl-regularization",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -25917,11 +26652,6 @@
     },
     {
       "source": "method:length-control",
-      "target": "model:deepseek-r1-distill-qwen-1-5b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:length-control",
       "target": "model:deepseek-r1-distill-qwen-7b",
       "type": "co-occurs"
     },
@@ -25968,6 +26698,11 @@
     {
       "source": "method:linear-probe",
       "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "concept:data-efficiency",
       "type": "co-occurs"
     },
     {
@@ -26107,6 +26842,11 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "concept:trajectory-diversity",
       "type": "co-occurs"
     },
@@ -26122,7 +26862,22 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "dataset:beavertails",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -26133,6 +26888,11 @@
     {
       "source": "method:linear-probe",
       "target": "dataset:hmmt",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "dataset:minerva",
       "type": "co-occurs"
     },
     {
@@ -26348,6 +27108,11 @@
     {
       "source": "method:linear-probe",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -27282,6 +28047,11 @@
     },
     {
       "source": "method:long-chain-of-thought-distillation",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:long-chain-of-thought-distillation",
       "target": "concept:reward-shaping",
       "type": "co-occurs"
     },
@@ -27617,6 +28387,11 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "method:activation-probing",
       "type": "co-occurs"
     },
@@ -27847,6 +28622,11 @@
     },
     {
       "source": "method:monte-carlo-tree-search",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
       "target": "model:phi-4-reasoning",
       "type": "co-occurs"
     },
@@ -27918,6 +28698,11 @@
     {
       "source": "method:on-policy-self-distillation",
       "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:on-policy-self-distillation",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -28972,11 +29757,6 @@
     },
     {
       "source": "method:process-evaluation",
-      "target": "concept:training-dynamics",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-evaluation",
       "target": "model:qwen2-5-32b",
       "type": "co-occurs"
     },
@@ -29897,6 +30677,11 @@
     },
     {
       "source": "method:retrieval-augmented-generation",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
       "target": "concept:memorization",
       "type": "co-occurs"
     },
@@ -29907,12 +30692,27 @@
     },
     {
       "source": "method:retrieval-augmented-generation",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
       "target": "concept:traceability",
       "type": "co-occurs"
     },
     {
       "source": "method:retrieval-augmented-generation",
       "target": "dataset:2wikimultihopqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
+      "target": "dataset:aime-2025",
       "type": "co-occurs"
     },
     {
@@ -29942,6 +30742,11 @@
     },
     {
       "source": "method:retrieval-augmented-generation",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
       "target": "dataset:triviaqa",
       "type": "co-occurs"
     },
@@ -29962,6 +30767,11 @@
     },
     {
       "source": "method:retrieval-augmented-generation",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
       "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
@@ -29973,6 +30783,11 @@
     {
       "source": "method:retrieval-augmented-generation",
       "target": "model:claude-3-7-sonnet",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:retrieval-augmented-generation",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -30702,6 +31517,11 @@
     },
     {
       "source": "method:search-r1",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:search-r1",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -30753,6 +31573,11 @@
     {
       "source": "method:self-certainty",
       "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-certainty",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -30853,6 +31678,11 @@
     {
       "source": "method:self-consistency",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -31018,6 +31848,11 @@
     {
       "source": "method:self-consistency",
       "target": "dataset:prosqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -31322,7 +32157,22 @@
     },
     {
       "source": "method:self-reflection",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "concept:latent-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -31342,6 +32192,11 @@
     },
     {
       "source": "method:self-reflection",
+      "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
@@ -31352,12 +32207,27 @@
     },
     {
       "source": "method:self-reflection",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "method:beam-search",
       "type": "co-occurs"
     },
     {
       "source": "method:self-reflection",
+      "target": "method:budget-forcing",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "method:circuit-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -31382,12 +32252,22 @@
     },
     {
       "source": "method:self-reflection",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "method:self-consistency",
       "type": "co-occurs"
     },
     {
       "source": "method:self-reflection",
       "target": "method:test-time-scaling",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -31417,7 +32297,22 @@
     },
     {
       "source": "method:self-reflection",
+      "target": "model:qwen3-1-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "model:qwen3-4b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
       "target": "model:qwen3-4b-instruct-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-reflection",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -31863,6 +32758,11 @@
     {
       "source": "method:supervised-fine-tuning",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:supervised-fine-tuning",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -32652,6 +33552,11 @@
     },
     {
       "source": "method:t-sne",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:t-sne",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
@@ -32757,6 +33662,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -32807,6 +33717,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "concept:process-reward",
       "type": "co-occurs"
     },
@@ -32818,6 +33733,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "concept:prompt-sensitivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -32952,6 +33872,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "method:activation-steering",
       "type": "co-occurs"
     },
@@ -32983,6 +33908,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -33057,6 +33987,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "method:self-certainty",
       "type": "co-occurs"
     },
@@ -33088,6 +34023,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -33237,7 +34177,17 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "model:qwen3-1-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "model:qwen3-4b",
       "type": "co-occurs"
     },
     {
@@ -33253,6 +34203,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "model:qwen3-6-35b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -34112,6 +35067,11 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-1-5b",
+      "target": "concept:pareto-frontier",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-distill-qwen-1-5b",
       "target": "concept:reasoning-skeleton",
       "type": "co-occurs"
     },
@@ -34138,6 +35098,11 @@
     {
       "source": "model:deepseek-r1-distill-qwen-1-5b",
       "target": "method:generative-rewriting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-distill-qwen-1-5b",
+      "target": "method:length-control",
       "type": "co-occurs"
     },
     {
@@ -34228,11 +35193,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "concept:token-level-entropy",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -34332,6 +35292,11 @@
     },
     {
       "source": "model:e5-base-v2",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:e5-base-v2",
       "target": "method:on-policy-self-distillation",
       "type": "co-occurs"
     },
@@ -34378,6 +35343,11 @@
     {
       "source": "model:gemini-1-5-pro",
       "target": "model:kimi-k2-5",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gemini-2-0-flash",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -34872,6 +35842,11 @@
     },
     {
       "source": "model:gpt-4o",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4o",
       "target": "concept:reward-hacking",
       "type": "co-occurs"
     },
@@ -35203,6 +36178,11 @@
     {
       "source": "model:gpt-5",
       "target": "concept:perception-bottleneck",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-5",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -35807,6 +36787,11 @@
     },
     {
       "source": "model:llama-3-1-8b-instruct",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
       "target": "concept:linear-representation-hypothesis",
       "type": "co-occurs"
     },
@@ -36102,12 +37087,27 @@
     },
     {
       "source": "model:llama-3-2-1b",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-2-1b",
       "target": "model:qwen2-5-0-5b",
       "type": "co-occurs"
     },
     {
       "source": "model:llama-3-2-1b",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-2-3b",
+      "target": "model:llama-3-1-70b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-2-3b",
+      "target": "model:llama-3-1-8b",
       "type": "co-occurs"
     },
     {
@@ -36553,6 +37553,11 @@
     {
       "source": "model:qwen2-5-1-5b-instruct",
       "target": "dataset:indirect-object-identification",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-1-5b-instruct",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -37187,6 +38192,11 @@
     },
     {
       "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
       "target": "concept:latent-reasoning",
       "type": "co-occurs"
     },
@@ -37208,6 +38218,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -37298,6 +38313,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -37882,6 +38902,21 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "concept:multi-hop-reasoning",
       "type": "co-occurs"
     },
@@ -37902,7 +38937,17 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "concept:privileged-information",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -37927,6 +38972,11 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "concept:uncertainty-quantification",
       "type": "co-occurs"
     },
@@ -37942,7 +38992,22 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "dataset:bamboogle",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -37958,6 +39023,11 @@
     {
       "source": "model:qwen3-1-7b",
       "target": "dataset:ifeval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "dataset:minerva",
       "type": "co-occurs"
     },
     {
@@ -37982,7 +39052,17 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "dataset:popqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -38012,6 +39092,11 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "method:gigpo",
       "type": "co-occurs"
     },
@@ -38037,6 +39122,11 @@
     },
     {
       "source": "model:qwen3-1-7b",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
       "target": "method:search-r1",
       "type": "co-occurs"
     },
@@ -38053,6 +39143,11 @@
     {
       "source": "model:qwen3-1-7b",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -38078,6 +39173,11 @@
     {
       "source": "model:qwen3-1-7b",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -38238,6 +39338,11 @@
     {
       "source": "model:qwen3-14b",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-14b",
+      "target": "concept:predictive-entropy",
       "type": "co-occurs"
     },
     {
@@ -38992,6 +40097,21 @@
     },
     {
       "source": "model:qwen3-4b",
+      "target": "concept:curriculum-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "concept:data-efficiency",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
       "target": "concept:monitorability",
       "type": "co-occurs"
     },
@@ -39002,7 +40122,22 @@
     },
     {
       "source": "model:qwen3-4b",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "concept:reasoning-drift",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
       "target": "concept:self-correction",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
@@ -39013,6 +40148,21 @@
     {
       "source": "model:qwen3-4b",
       "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "dataset:arc-agi",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "dataset:dapo-math-17k",
       "type": "co-occurs"
     },
     {
@@ -39032,7 +40182,22 @@
     },
     {
       "source": "model:qwen3-4b",
+      "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "dataset:sciq",
       "type": "co-occurs"
     },
     {
@@ -39043,6 +40208,16 @@
     {
       "source": "model:qwen3-4b",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "method:dense-retrieval",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "method:grpo",
       "type": "co-occurs"
     },
     {
@@ -39062,6 +40237,11 @@
     },
     {
       "source": "model:qwen3-4b",
+      "target": "method:retrieval-augmented-generation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
       "target": "method:sparse-autoencoder",
       "type": "co-occurs"
     },
@@ -39077,6 +40257,11 @@
     },
     {
       "source": "model:qwen3-4b",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
       "target": "model:gemma-3-4b",
       "type": "co-occurs"
     },
@@ -39088,6 +40273,11 @@
     {
       "source": "model:qwen3-4b",
       "target": "model:gpt-oss-20b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b",
+      "target": "model:llama-3-2-3b",
       "type": "co-occurs"
     },
     {
@@ -39332,6 +40522,11 @@
     },
     {
       "source": "model:qwen3-4b-thinking-2507",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
       "target": "dataset:gpqa",
       "type": "co-occurs"
     },
@@ -39497,6 +40692,11 @@
     },
     {
       "source": "model:qwen3-8b",
+      "target": "concept:in-context-learning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
       "target": "concept:long-horizon-reasoning",
       "type": "co-occurs"
     },
@@ -39537,6 +40737,11 @@
     },
     {
       "source": "model:qwen3-8b",
+      "target": "concept:predictive-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
       "target": "concept:process-reward",
       "type": "co-occurs"
     },
@@ -39548,6 +40753,11 @@
     {
       "source": "model:qwen3-8b",
       "target": "concept:reasoning-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
+      "target": "concept:reasoning-drift",
       "type": "co-occurs"
     },
     {
@@ -39717,6 +40927,11 @@
     },
     {
       "source": "model:qwen3-8b",
+      "target": "dataset:sciq",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
       "target": "dataset:triviaqa",
       "type": "co-occurs"
     },
@@ -39763,6 +40978,11 @@
     {
       "source": "model:qwen3-8b",
       "target": "method:dapo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
+      "target": "method:dense-retrieval",
       "type": "co-occurs"
     },
     {
@@ -39863,6 +41083,11 @@
     {
       "source": "model:qwen3-8b",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-8b",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "co-occurs"
     },
     {
@@ -40187,6 +41412,11 @@
     },
     {
       "source": "model:qwq-32b",
+      "target": "model:llama-3-2-3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwq-32b",
       "target": "model:qwen2-5",
       "type": "co-occurs"
     },
@@ -40243,6 +41473,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "concept:credit-assignment",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "concept:curriculum-learning",
       "type": "covers"
     },
     {
@@ -40543,6 +41778,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "dataset:amc23",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "dataset:arc-agi",
       "type": "covers"
     },
     {
@@ -40987,6 +42227,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "model:llama-3-2-3b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "model:llama-3-70b-instruct",
       "type": "covers"
     },
@@ -41062,6 +42307,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "model:qwen3-1-7b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "model:qwen3-1-7b-base",
       "type": "covers"
     },
@@ -41078,6 +42328,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "model:qwen3-32b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "model:qwen3-4b",
       "type": "covers"
     },
     {
@@ -41207,6 +42462,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "concept:in-context-learning",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "concept:information-bottleneck",
       "type": "covers"
     },
@@ -41272,6 +42532,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "concept:predictive-entropy",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "concept:process-supervision",
       "type": "covers"
     },
@@ -41283,6 +42548,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "concept:reasoning-boundary",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "concept:reasoning-drift",
       "type": "covers"
     },
     {
@@ -41477,6 +42747,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "dataset:sciq",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "dataset:zebralogic",
       "type": "covers"
     },
@@ -41553,6 +42828,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "method:dapo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "method:dense-retrieval",
       "type": "covers"
     },
     {
@@ -41723,6 +43003,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "model:deepseek-r1-distill-llama-8b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "model:deepseek-r1-distill-qwen-1-5b",
       "type": "covers"
     },
     {
@@ -41898,6 +43183,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "model:qwen2-5-vl-7b-instruct",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "model:qwen3-1-7b",
       "type": "covers"
     },
     {
@@ -42977,6 +44267,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "concept:in-context-learning",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "concept:inference-time-intervention",
       "type": "covers"
     },
@@ -43137,6 +44432,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "concept:predictive-entropy",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "concept:privileged-information",
       "type": "covers"
     },
@@ -43168,6 +44468,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:reasoning-boundary",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:reasoning-drift",
       "type": "covers"
     },
     {
@@ -43567,6 +44872,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "dataset:sciq",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "dataset:triviaqa",
       "type": "covers"
     },
@@ -43683,6 +44993,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "method:deer",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "method:dense-retrieval",
       "type": "covers"
     },
     {
@@ -44537,6 +45852,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "concept:in-context-learning",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "concept:information-bottleneck",
       "type": "covers"
     },
@@ -44642,6 +45962,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "concept:predictive-entropy",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "concept:process-reward",
       "type": "covers"
     },
@@ -44663,6 +45988,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "concept:reasoning-boundary",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "concept:reasoning-drift",
       "type": "covers"
     },
     {
@@ -44977,6 +46307,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "dataset:sciq",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "dataset:truthfulqa",
       "type": "covers"
     },
@@ -45063,6 +46398,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "method:deer",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "method:dense-retrieval",
       "type": "covers"
     },
     {
@@ -45228,6 +46568,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "method:reinforcement-learning-post-training",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "method:retrieval-augmented-generation",
       "type": "covers"
     },
     {
@@ -45447,6 +46792,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "model:llama-3-2-3b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "model:llama-3-2-3b-instruct",
       "type": "covers"
     },
@@ -45616,7 +46966,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-13T12:18:54Z",
+  "generated_at": "2026-08-13T12:22:19Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -45826,14 +47176,14 @@
       "kind": "concept",
       "label": "curriculum learning",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "concept:data-efficiency",
       "kind": "concept",
       "label": "data efficiency",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "concept:detection-versus-control",
@@ -45981,6 +47331,13 @@
       "label": "implicit reasoning",
       "settled": false,
       "sources": 6
+    },
+    {
+      "id": "concept:in-context-learning",
+      "kind": "concept",
+      "label": "in-context learning",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "concept:inference-time-intervention",
@@ -46221,6 +47578,13 @@
       "sources": 9
     },
     {
+      "id": "concept:predictive-entropy",
+      "kind": "concept",
+      "label": "predictive entropy",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "concept:privileged-information",
       "kind": "concept",
       "label": "privileged information",
@@ -46246,7 +47610,7 @@
       "kind": "concept",
       "label": "prompt difficulty",
       "settled": false,
-      "sources": 14
+      "sources": 15
     },
     {
       "id": "concept:prompt-sensitivity",
@@ -46268,6 +47632,13 @@
       "label": "reasoning boundary",
       "settled": true,
       "sources": 7
+    },
+    {
+      "id": "concept:reasoning-drift",
+      "kind": "concept",
+      "label": "reasoning drift",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "concept:reasoning-redundancy",
@@ -46498,7 +47869,7 @@
       "kind": "concept",
       "label": "training dynamics",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "concept:trajectory-diversity",
@@ -46568,14 +47939,14 @@
       "kind": "dataset",
       "label": "AIME 2024",
       "settled": false,
-      "sources": 39
+      "sources": 40
     },
     {
       "id": "dataset:aime-2025",
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 27
+      "sources": 29
     },
     {
       "id": "dataset:aime-2026",
@@ -46603,7 +47974,14 @@
       "kind": "dataset",
       "label": "AMC23",
       "settled": false,
-      "sources": 15
+      "sources": 16
+    },
+    {
+      "id": "dataset:arc-agi",
+      "kind": "dataset",
+      "label": "ARC-AGI",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "dataset:bamboogle",
@@ -46652,7 +48030,7 @@
       "kind": "dataset",
       "label": "DAPO-Math-17K",
       "settled": false,
-      "sources": 8
+      "sources": 9
     },
     {
       "id": "dataset:game-of-24",
@@ -46680,7 +48058,7 @@
       "kind": "dataset",
       "label": "GSM8K",
       "settled": false,
-      "sources": 33
+      "sources": 34
     },
     {
       "id": "dataset:harmbench",
@@ -46750,7 +48128,7 @@
       "kind": "dataset",
       "label": "MATH500",
       "settled": false,
-      "sources": 40
+      "sources": 42
     },
     {
       "id": "dataset:mathvision",
@@ -46778,7 +48156,7 @@
       "kind": "dataset",
       "label": "Minerva",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "dataset:mmlu",
@@ -46834,7 +48212,7 @@
       "kind": "dataset",
       "label": "OlympiadBench",
       "settled": false,
-      "sources": 12
+      "sources": 13
     },
     {
       "id": "dataset:omni-math",
@@ -46875,6 +48253,13 @@
       "id": "dataset:prosqa",
       "kind": "dataset",
       "label": "ProsQA",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "dataset:sciq",
+      "kind": "dataset",
+      "label": "SciQ",
       "settled": false,
       "sources": 2
     },
@@ -46967,7 +48352,7 @@
       "kind": "method",
       "label": "budget forcing",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:calibration",
@@ -47096,6 +48481,13 @@
       "sources": 2
     },
     {
+      "id": "method:dense-retrieval",
+      "kind": "method",
+      "label": "dense retrieval",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "method:difference-of-means-probe",
       "kind": "method",
       "label": "difference-of-means probe",
@@ -47184,7 +48576,7 @@
       "kind": "method",
       "label": "GRPO",
       "settled": false,
-      "sources": 34
+      "sources": 35
     },
     {
       "id": "method:importance-sampling",
@@ -47254,7 +48646,7 @@
       "kind": "method",
       "label": "linear probe",
       "settled": true,
-      "sources": 19
+      "sources": 20
     },
     {
       "id": "method:literature-survey",
@@ -47478,7 +48870,7 @@
       "kind": "method",
       "label": "retrieval-augmented generation",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:rloo",
@@ -47520,7 +48912,7 @@
       "kind": "method",
       "label": "self-reflection",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:soft-thinking",
@@ -47583,7 +48975,7 @@
       "kind": "method",
       "label": "test-time scaling",
       "settled": true,
-      "sources": 17
+      "sources": 18
     },
     {
       "id": "method:token-level-distillation",
@@ -47681,7 +49073,7 @@
       "kind": "model",
       "label": "DeepSeek-R1-Distill-Qwen-1.5B",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "model:deepseek-r1-distill-qwen-14b",
@@ -47894,6 +49286,13 @@
       "sources": 3
     },
     {
+      "id": "model:llama-3-2-3b",
+      "kind": "model",
+      "label": "Llama-3.2-3B",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "model:llama-3-2-3b-instruct",
       "kind": "model",
       "label": "Llama-3.2-3B-Instruct",
@@ -48073,7 +49472,7 @@
       "kind": "model",
       "label": "Qwen3-1.7B",
       "settled": false,
-      "sources": 4
+      "sources": 6
     },
     {
       "id": "model:qwen3-1-7b-base",
@@ -48122,7 +49521,7 @@
       "kind": "model",
       "label": "Qwen3-4B",
       "settled": false,
-      "sources": 3
+      "sources": 5
     },
     {
       "id": "model:qwen3-4b-base",
@@ -48164,7 +49563,7 @@
       "kind": "model",
       "label": "Qwen3-8B",
       "settled": false,
-      "sources": 14
+      "sources": 15
     },
     {
       "id": "model:qwen3-8b-base",

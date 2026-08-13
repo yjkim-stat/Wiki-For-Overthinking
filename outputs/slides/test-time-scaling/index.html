@@ -138,6 +138,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> A thin match, arising because the paper is about chain-of-thought prompting rather than about compute allocation. It contributes nothing on the accuracy-versus-tokens trade-off. The one relevant implication is cautionary: methods in this topic that select among sampled trajectories by reading their content inherit the risk that the content is a rationalization rather than a record.</p>
 </section>
 <section class="slide">
+<h2>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</h2>
+<p class="subtitle">Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al. · 2026</p>
+<blockquote>
+<p>Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model&#x27;s own thinking trace at each step boundary, using the model&#x27;s current intermediate answer as the retrieval query.</p>
+</blockquote>
+<ul>
+<li>In-trace retrieval of complete solved exemplars at every reasoning step, rather than facts before reasoning starts</li>
+<li>Use of the model&#x27;s elicited intermediate answer as the retrieval query, in place of the raw reasoning text</li>
+<li>An analysis showing in-trace exemplars lower the predictive entropy of the generated answer relative to sequential scaling</li>
+<li>A budget accounting under which the method has strictly fewer generation tokens than the baseline it beats</li>
+</ul>
+<p><strong>Results.</strong> Improvement over sequential test-time scaling in every model-by-benchmark cell, and the size tracks difficulty: small on GSM-8K and MATH-500, largest on AIME 2025, reaching +13.4 points for Qwen3-1.7B. The budget curves are the more interesting result. Sequential scaling improves with more thinking tokens and then degrades: on AIME 2025 with Qwen3-1.7B it plateaus around 22 percent at 8K tokens and does not improve at 32K, while ThinkRetrieve climbs steadily to 35.6; on GSM-8K with DeepSeek-R1-Distill-Qwen-1.5B it collapses from 83 to 52 percent by 22K tokens while ThinkRetrieve holds 84. Across all five models and every benchmark the retrieval-augmented curve is monotone increasing or flat where the sequential one turns over. The mechanism analysis reports that in-trace exemplars measurably reduce the predictive entropy and uncertainty of the generated answer relative to sequential scaling, which is the paper&#x27;s account of why procedural scaffolding beats thinking longer. The qualitative case shows both methods reaching the same wrong intermediate estimate on a MATH-500 probability problem, with self-reflection failing to catch it and a retrieved near-miss problem supplying the contrast that exposes the miscount.</p>
+<p><strong>Why it matters.</strong> The cleanest budget control in this archive&#x27;s scaling cluster -- retrieved tokens are charged against the same budget as generated ones, so the method spends strictly fewer of its own tokens than the baseline it beats. And it supplies a measured instance of the diminishing-returns phenomenon the archive keeps citing: sequential scaling collapsing from 83 to 52 percent as the budget grows is a stronger statement of &#x27;thinking longer is not thinking better&#x27; than anything else here, because it is a decline rather than a plateau.</p>
+</section>
+<section class="slide">
 <h2>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</h2>
 <p class="subtitle">Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al. · 2026</p>
 <blockquote>
@@ -227,21 +242,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Sits directly against an archived result that a perturbation-based selection rule&#x27;s apparent 31.8-point gain over majority voting in vision-language scaling was a decoding-format effect, recovered by a control spending the same short-answer budget on the unperturbed image. This paper runs the matched-compute comparison that one demanded and reports a real but much smaller input-side gain -- 1.80 against 0.92 mean pp -- which is what the archive should expect once the format confound is removed. It also refines the standing finding that extra samples strengthen whatever the aggregation rule already does: here the aggregation rule is unchanged and only the input varies, and the benefit saturates at k = 5 while self-consistency keeps climbing to k = 10, so input diversity reduces variance faster without raising the ceiling.</p>
 </section>
 <section class="slide">
-<h2>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</h2>
-<p class="subtitle">Agatha Duzan, Asa Cooper Stickland · 2026</p>
-<blockquote>
-<p>The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.</p>
-</blockquote>
-<ul>
-<li>The explicit-versus-implicit influence distinction as an axis for monitorability evaluation</li>
-<li>The first benchmark that directly compares CoT monitorability across the two regimes with the nudge held fixed</li>
-<li>Measurements over four task formats and seven frontier extended-thinking models</li>
-<li>The finding that well-intentioned system-prompt additions reduce detection to as low as 5% while leaving the behavioural influence intact</li>
-</ul>
-<p><strong>Results.</strong> Under explicit influence a CoT monitor detects 60-94% of behaviour shifts: even models instructed to conceal leak the instruction into their CoT. Under implicit influence the same factors still shift behaviour, but detection falls by 41-46 percentage points in two of the four settings. Realistic system-prompt additions lower implicit detection to as low as 5% while preserving the behavioural influence itself.</p>
-<p><strong>Why it matters.</strong> Monitoring is an inference-time layer whose cost is justified by its detection rate. These numbers are the measurement that justification needs, and in the implicit regime the rate is low enough to question the layer.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -278,40 +278,41 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</strong> — The paper&#x27;s own scope limits are stated in the method rather than a section. CLR only reweights already-parsed candidates, so it cannot recover a correct ans...</li>
+<li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
 <li><strong>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</strong> — The paper is unusually direct about scope: it states that gains of 1-2 pp may not justify a 2-6x cost increase, and that TTA is most valuable when baseline a...</li>
 <li><strong>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</strong> — The reported gains are concentrated on small open-weight models, and the headline example is a 1.5B model; whether refinement still beats resampling when the...</li>
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
 <li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
-<li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
 <li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
 <li><strong>Interpretable Adaptive Sampling for LLM Test-Time Scaling</strong> — The paper is candid about most of this in the text. The accuracy differences are within overlapping marginal confidence intervals, and the authors note that...</li>
 <li><strong>Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility</strong> — The paper is a formalization and a resource rather than a claim about which method is best, and it says so throughout — the empirical numbers are described a...</li>
 <li><strong>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</strong> — The paper states them: the method inherits whatever ambiguity its vision-language safety encoder has, and it updates the conditioning from the safety signal...</li>
 <li><strong>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</strong> — The limitations section is unusually thorough and should be read as part of the result. The interpretation is behavioural: the trace carries information abou...</li>
-<li><strong>Monte Carlo Tree Search for Table-to-Multimodal Report Generation</strong> — The paper has no limitations section, listing future work instead. What a reader should weigh: the novelty term is the weakest part of the reward and the res...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References</h2>
 <ul>
 <li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
+<li>Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. <em>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</em>. cs.AI. 2026</li>
 <li>Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. <em>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</em>. cs.AI. 2026</li>
 <li>Puzhuo Zheng, Hasan Kurban. <em>It&#x27;s the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</em>. cs.CV. 2026</li>
 <li>Niklas Muennighoff, Zitong Yang, Weijia Shi et al.. <em>s1: Simple test-time scaling</em>. cs.CL. 2025</li>
 <li>Charlie Snell, Jaehoon Lee, Kelvin Xu et al.. <em>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</em>. cs.LG. 2024</li>
 <li>Shunyu Yao, Dian Yu, Jeffrey Zhao et al.. <em>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</em>. cs.CL. 2023</li>
 <li>Nikita Kozodoi, Zainab Afolabi, Jack Butler. <em>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</em>. cs.LG. 2026</li>
-<li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
 <li>Mobina Kashaniyan, Ali Jannesari. <em>Interpretable Adaptive Sampling for LLM Test-Time Scaling</em>. cs.AI. 2026</li>
 <li>Mohsen Hariri, Weicong Chen, Nahal Shahini et al.. <em>Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility</em>. cs.LG. 2026</li>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
@@ -319,12 +320,12 @@ th { background: var(--surface); }
 <li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
 <li>Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. <em>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</em>. cs.CL. 2026</li>
 <li>Jinya Sakurai, Shueicheng Yan, Xun Xu. <em>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</em>. cs.CV. 2026</li>
-<li>Shashwat Sourav, Aishwarya Balwani. <em>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Shashwat Sourav, Aishwarya Balwani. <em>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</em>. cs.LG. 2026</li>
 <li>Teng Lin, Zhiyang Zhang, Yuyu Luo et al.. <em>Monte Carlo Tree Search for Table-to-Multimodal Report Generation</em>. cs.AI. 2026</li>
 <li>Zhaoxin Yu, Qi Shen, Hengli Li et al.. <em>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</em>. cs.LG. 2026</li>
 <li>Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. <em>Evading Chain-of-Thought Monitoring Through Model Poisoning</em>. cs.CR. 2026</li>
@@ -332,7 +333,6 @@ th { background: var(--surface); }
 <li>Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. <em>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</em>. ACL. 2026</li>
 <li>Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. <em>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</em>. ACL. 2026</li>
 <li>Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. <em>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</em>. ACL. 2026</li>
-<li>Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. <em>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

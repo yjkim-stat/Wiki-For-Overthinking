@@ -9,7 +9,7 @@ The finding that failures attributed to reasoning are often failures to see, whi
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [construct validity](construct-validity.md), [GPT-5](../models/gpt-5.md), [meta-evaluation](meta-evaluation.md), [meta-reasoning](../methods/meta-reasoning.md), [multimodal reasoning](multimodal-reasoning.md), [overthinking](overthinking.md), [Qwen3-VL](../models/qwen3-vl.md), [routing](routing.md), [self-correction](self-correction.md), [test-time compute](test-time-compute.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [ARC-AGI](../datasets/arc-agi.md), [construct validity](construct-validity.md), [GPT-5](../models/gpt-5.md), [meta-evaluation](meta-evaluation.md), [meta-reasoning](../methods/meta-reasoning.md), [multimodal reasoning](multimodal-reasoning.md), [overthinking](overthinking.md), [Qwen3-VL](../models/qwen3-vl.md), [routing](routing.md), [self-correction](self-correction.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

@@ -9,7 +9,7 @@ How a scorer recovers the final answer from a model's output, and in both source
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [calibration](../methods/calibration.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](construct-validity.md), [few-shot prompting](../methods/few-shot-prompting.md), [Gemma-4-12B](../models/gemma-4-12b.md), [GSM8K](../datasets/gsm8k.md), [inverse scaling](inverse-scaling.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [prompt sensitivity](prompt-sensitivity.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [self-correction](self-correction.md)
+**Related**: [calibration](../methods/calibration.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](construct-validity.md), [few-shot prompting](../methods/few-shot-prompting.md), [Gemma-4-12B](../models/gemma-4-12b.md), [GSM8K](../datasets/gsm8k.md), [in-context learning](in-context-learning.md), [inverse scaling](inverse-scaling.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [prompt sensitivity](prompt-sensitivity.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [self-correction](self-correction.md)
 
 ## What we have settled
 

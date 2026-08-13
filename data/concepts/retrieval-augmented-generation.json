@@ -18,6 +18,12 @@
       "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
     },
     {
+      "id": "arxiv:2608.10928",
+      "kind": "paper",
+      "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+      "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.835",
       "kind": "paper",
       "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
@@ -32,7 +38,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:22:18Z",
   "name": "retrieval-augmented generation",
   "related": [
     "credit-assignment",
@@ -86,6 +92,29 @@
     "claude-3-7-sonnet",
     "gemini-1-5-pro",
     "paddleocr-vl-1-5",
+    "test-time-scaling",
+    "in-trace-retrieval",
+    "procedural-scaffolding",
+    "predictive-entropy",
+    "error-compounding",
+    "reasoning-drift",
+    "budget-forcing",
+    "intermediate-answer-probing",
+    "in-context-learning",
+    "dense-retrieval",
+    "faiss",
+    "self-reflection",
+    "decontamination",
+    "gsm8k",
+    "math500",
+    "aime-2025",
+    "sciq",
+    "numinamath",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-1-7b",
+    "qwen3-5-2b",
+    "qwen3-4b",
+    "e5-large",
     "hallucination",
     "groundedness",
     "verification",
@@ -121,6 +150,7 @@
   "slug": "retrieval-augmented-generation",
   "topics": [
     "reasoning-training",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "test-time-scaling"
   ]
 }

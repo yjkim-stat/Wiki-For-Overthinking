@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
       "title": "EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents"
+    },
+    {
+      "id": "arxiv:2608.10928",
+      "kind": "paper",
+      "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+      "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T12:22:18Z",
   "name": "dense retrieval",
   "related": [
     "credit-assignment",
@@ -41,12 +47,37 @@
     "qwen2-5-7b-instruct",
     "qwen2-5-3b-instruct",
     "qwen3-1-7b",
-    "e5-base-v2"
+    "e5-base-v2",
+    "test-time-scaling",
+    "in-trace-retrieval",
+    "procedural-scaffolding",
+    "predictive-entropy",
+    "error-compounding",
+    "reasoning-drift",
+    "budget-forcing",
+    "intermediate-answer-probing",
+    "in-context-learning",
+    "retrieval-augmented-generation",
+    "faiss",
+    "self-reflection",
+    "decontamination",
+    "gsm8k",
+    "math500",
+    "aime-2025",
+    "sciq",
+    "numinamath",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-5-2b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "e5-large"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "dense-retrieval",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "test-time-scaling"
   ]
 }

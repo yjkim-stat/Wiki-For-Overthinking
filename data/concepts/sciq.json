@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
       "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.10928",
+      "kind": "paper",
+      "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+      "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-13T04:11:14Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T04:11:14Z",
+  "last_seen": "2026-08-13T12:22:18Z",
   "name": "SciQ",
   "related": [
     "test-time-scaling",
@@ -31,12 +37,36 @@
     "gsm8k",
     "math",
     "phi-3-mini-4k-instruct",
-    "qwen2-5-1-5b-instruct"
+    "qwen2-5-1-5b-instruct",
+    "in-trace-retrieval",
+    "procedural-scaffolding",
+    "predictive-entropy",
+    "error-compounding",
+    "reasoning-drift",
+    "budget-forcing",
+    "intermediate-answer-probing",
+    "in-context-learning",
+    "retrieval-augmented-generation",
+    "dense-retrieval",
+    "faiss",
+    "self-reflection",
+    "decontamination",
+    "math500",
+    "aime-2025",
+    "numinamath",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-1-7b",
+    "qwen3-5-2b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "e5-large"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "sciq",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }
