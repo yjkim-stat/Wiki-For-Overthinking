@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.",
       "title": "It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.03961",
+      "kind": "paper",
+      "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+      "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T04:11:14Z",
   "name": "Borda count",
   "related": [
     "test-time-scaling",
@@ -34,7 +40,19 @@
     "mmmu",
     "vilp",
     "qwen2-5-vl-7b-instruct",
-    "llava-onevision-7b"
+    "llava-onevision-7b",
+    "adaptive-compute-allocation",
+    "prompt-difficulty",
+    "interpretability",
+    "uncertainty-quantification",
+    "fuzzy-control",
+    "self-certainty",
+    "compute-optimal-allocation",
+    "gsm8k",
+    "math",
+    "sciq",
+    "phi-3-mini-4k-instruct",
+    "qwen2-5-1-5b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

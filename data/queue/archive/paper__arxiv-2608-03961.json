@@ -1,0 +1,121 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-03961.pdf"
+  },
+  "completed_at": "2026-08-13T04:08:52Z",
+  "created_at": "2026-08-09T09:37:10Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.03961",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling improves LLM reasoning by generating and aggregating multiple candidate answers, yet many pipelines use fixed per-query budgets that spend the same compute on easy and difficult prompts. These fixed budgets are also difficult to inspect because they do not explain why a given prompt receives a particular number of samples. We propose adaptive} test-time scaling with a lightweight fuzzy controller that maps interpretable signals, including estimated prompt complexity and model confidence, to a per-query sampling budget. The controller assigns fewer samples to easier or more confident prompts and more samples to harder or less certain prompts, making inference-time compute inspectable rather than fixed or opaque. We evaluate under a fair-alignment protocol with matched decoding settings and controlled answer selection, and compare against best-of-$N$, compute-aware scaling, and self-certainty-based baselines on question-answering and mathematical reasoning tasks. Across models and datasets, adaptive fuzzy control improves over several standard baselines and remains close to a selector-matched full-budget control while reducing the average number of samples. These findings suggest that interpretable adaptive sampling is a practical direction for more efficient test-time reasoning in large language models.",
+    "authors": [
+      "Mobina Kashaniyan",
+      "Ali Jannesari"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "mathematical reasoning",
+      "test-time scaling",
+      "inference-time compute"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03961v1",
+    "published": "2026-08-04",
+    "scores": {
+      "reasoning-evaluation": 0.25,
+      "test-time-scaling": 0.5714
+    },
+    "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling",
+    "url": "https://arxiv.org/abs/2608.03961",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "adaptive compute allocation",
+      "self-consistency",
+      "best-of-N",
+      "prompt difficulty",
+      "interpretability",
+      "uncertainty quantification",
+      "selection signal",
+      "matched-budget comparison"
+    ],
+    "contributions": [
+      "A budget controller whose inputs, rules and outputs are inspectable per prompt: fuzzy membership over prompt complexity, model confidence, entropy, prompt type, expected answer length and cached history, with a second stage whose interval width is itself a reported uncertainty",
+      "A fair-alignment protocol that fixes decoding across methods, disables the draft pass and lets the controller change only the number of samples — deliberately stricter than the full system, to answer whether adaptive allocation helps when selection and decoding are held constant",
+      "A selector-matched control at the same maximum budget, so the effect of allocation is separated from the effect of the answer selector",
+      "Reporting the outcome as a tradeoff rather than a win, including the two of four settings where adaptive is slightly less accurate",
+      "A component ablation reported with its inconvenient results intact — removing some signals improves accuracy"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "SciQ"
+    ],
+    "limitations": "The paper is candid about most of this in the text. The accuracy differences are within overlapping marginal confidence intervals, and the authors note that a paired test would require matched per-prompt correctness logs which they do not report — so the small negative deltas are not established as real losses any more than the small positive one is a real gain. The component ablation shows individual signals are not validated: some removals help, which means the interpretability claim is about the controller's structure being auditable, not about its signals being the right ones. The fair-alignment protocol disables the draft pass and fixes decoding, so the evaluated configuration is deliberately weaker than the full system and the reported savings are a lower bound on what the full method would do and an upper bound on how cleanly it can be attributed. Scale is two small instruction-tuned models with a maximum budget of eight and a 256-token output cap, which bounds both the difficulty of the problems and the room for allocation to matter. The factual-QA numbers are acknowledged to be depressed by strict exact-match scoring. Nothing is reported about the controller's own compute cost against the samples it saves.",
+    "method": "Prompt-side signals are computed before generation: a surface complexity score from normalized length with bonuses for punctuation, digits and multiple sentences, and an NLP complexity score combining vocabulary richness, sentence count, mathematical-symbol density, semantic ambiguity, linguistic complexity and reasoning depth, blended into one difficulty value. Model-side signals come from a short draft — a confidence score from the geometric mean of token probabilities and a normalized entropy — plus a slow-moving cache of prior performance on similar prompts. A two-stage fuzzy controller maps difficulty and confidence to a coarse budget through triangular and trapezoidal membership functions, then refines it with the remaining signals as Type-2 intervals whose width narrows when the refinements agree and widens when they conflict; defuzzification gives a scale and an uncertainty, and the scale is nudged upward in proportion to that uncertainty before being mapped to an integer sample count, with a floor for clearly hard prompts. Candidates are scored by self-certainty and aggregated by Borda count over extracted answers. Two small instruction-tuned models are evaluated on grade-school arithmetic, a competition mathematics subset and a short factual science set, against best-of-N at several fixed budgets, a compute-optimal allocation rule, self-certainty selection at the full budget, and the selector-matched fixed full budget.",
+    "methods": [
+      "fuzzy control",
+      "best-of-N",
+      "Borda count",
+      "self-certainty",
+      "compute-optimal allocation",
+      "majority voting"
+    ],
+    "models": [
+      "Phi-3-mini-4k-instruct",
+      "Qwen2.5-1.5B-Instruct"
+    ],
+    "one_liner": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+    "problem": "Test-time scaling pipelines mostly spend a fixed number of samples on every prompt, wasting compute on easy instances while underserving hard ones. Learned allocation policies can do better but their decisions are hard to audit, which matters for debugging, safety review and deployment under a compute budget: a fixed budget at least explains itself trivially, whereas a learned policy explains nothing about why a given prompt received the compute it did. A second problem is methodological — a method that changes both the budget and the answer selector cannot say which of the two produced its result.",
+    "read_from": "document",
+    "relevance": {
+      "test-time-scaling": "Two things here are worth more than the method. The first is the selector-matched control: adaptive allocation and fixed full budget run through the same self-certainty-plus-Borda selector, so the comparison isolates the budget policy — which is precisely the discipline the archive's baseline-validity finding asks for, and which the archive's own vision-language audit showed can be worth 31.8 points when neglected. The second is the non-monotonicity: best-of-3 scoring below best-of-1 on one model is a clean demonstration that more samples are not safe by default, and it joins the label-free RLVR result where 64 rollouts underperformed 16. The shared mechanism is the same in both — more samples strengthen whatever the aggregation rule already does, including when it is wrong — and it is the counterweight this archive needs against the assumption that sampling more is a free improvement. The paper's own honesty is also a data point for how to read this literature: it reports a tradeoff where a less careful version would have reported a win, and reports an ablation in which removing its own signals sometimes helps."
+    },
+    "results": "Under the selector-matched comparison the method is not more accurate, and the paper says so. On competition mathematics it loses 0.007 and 0.018 accuracy while using 10.8% and 14.5% fewer samples on the two models; on grade-school arithmetic it loses 0.002 on one and gains 0.005 on the other, at 1.4% and 3.9% fewer samples. The claim being made is therefore that an interpretable controller can stay close to full-budget accuracy while spending less, and the budget histograms explain where the saving comes from — more prompts fall below the full budget on the harder mathematics set, while the arithmetic set concentrates near the cap, so the controller is conservative exactly where near-full aggregation still helps. Against the broader baselines it does better: on the factual set it reaches 0.192 and 0.376 accuracy against 0.154 and 0.360 for self-certainty selection at the full budget, using about seven samples on average. The most interesting number in the paper is a baseline failure rather than a method success — best-of-3 scores 0.093 against best-of-1's 0.153 on one model, so three samples are worse than one, which the authors read correctly: if the selector does not exploit the candidate set, extra samples add plausible wrong answers. The fixed-budget controls confirm the shape: budgets of one to three are far worse, five is closer, and the adaptive setting lands within 0.001 and 0.004 of the full budget at 7.86 and 7.07 average samples. The component ablation is reported with its awkward results intact — removing the entropy signal improves mathematics accuracy, and neutralizing confidence also improves it while forcing the average budget to the maximum — and the authors draw the correct conclusion, that the controller should be read as a transparent allocation policy rather than an optimized one.",
+    "tags": [
+      "test-time scaling",
+      "adaptive allocation",
+      "interpretability",
+      "sampling",
+      "compute budget"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-03961",
+  "task_version": 1,
+  "topics": [
+    "test-time-scaling"
+  ]
+}

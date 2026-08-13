@@ -7,6 +7,12 @@
   "definition": "A model's own estimate of how sure it is, read from its output distribution and used as a control signal rather than reported to a user. One source feeds it into preference optimization so that confident answers are compressed and uncertain ones keep deliberating, making difficulty a quantity read off the model that will do the reasoning rather than predicted for it. The other treats certainty dynamics as diagnostic, using entropy over the course of a trace to characterize how reasoning is going. Both depend on certainty tracking correctness, which neither verifies — and the archive holds a source showing a model can be badly calibrated while still ranking correct above incorrect answers well.",
   "evidence": [
     {
+      "id": "arxiv:2608.03961",
+      "kind": "paper",
+      "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+      "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-industry.152",
       "kind": "paper",
       "note": "Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.",
@@ -21,13 +27,29 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T04:11:14Z",
   "name": "self-certainty",
   "related": [
-    "overthinking",
-    "prompt-difficulty",
-    "calibration",
+    "test-time-scaling",
     "adaptive-compute-allocation",
+    "self-consistency",
+    "best-of-n",
+    "prompt-difficulty",
+    "interpretability",
+    "uncertainty-quantification",
+    "selection-signal",
+    "matched-budget-comparison",
+    "fuzzy-control",
+    "borda-count",
+    "compute-optimal-allocation",
+    "majority-voting",
+    "gsm8k",
+    "math",
+    "sciq",
+    "phi-3-mini-4k-instruct",
+    "qwen2-5-1-5b-instruct",
+    "overthinking",
+    "calibration",
     "efficient-reasoning",
     "preference-optimization",
     "confidence-adaptive-thinking",
@@ -44,14 +66,10 @@
     "edis-entropy-dynamics-instability-score",
     "grpo",
     "best-k-of-n-selection",
-    "majority-voting",
-    "self-consistency",
     "sequence-entropy",
     "score-weighted-borda-aggregation",
     "sequence-filtering",
     "sequence-weighting",
-    "gsm8k",
-    "math",
     "amc23",
     "aime24",
     "numinamath-20k",
@@ -59,10 +77,11 @@
     "qwen2-5-math-7b",
     "qwen3-4b-instruct"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "self-certainty",
   "topics": [
-    "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

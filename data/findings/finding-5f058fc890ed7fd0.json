@@ -1,0 +1,27 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "best-of-N",
+    "self-consistency",
+    "majority voting",
+    "spurious consensus",
+    "selection signal"
+  ],
+  "established_at": "2026-08-13T04:08:52Z",
+  "id": "finding:5f058fc890ed7fd0",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.03961",
+    "arxiv:2608.03119",
+    "arxiv:2608.04001"
+  ],
+  "rationale": "Two independent demonstrations with different aggregation rules. At inference, best-of-3 selection scores 0.093 against best-of-1's 0.153 on one model and dataset — three samples worse than one — which the authors attribute to a selector that does not exploit the candidate set, so extra samples add plausible wrong answers. In label-free RLVR training, where the reward is the consensus answer among rollouts, 64 rollouts reach 34.42 average accuracy against 34.66 at 16 and at 3.6x the wall clock, because more samples make a spurious consensus easier to form around an incorrect answer. The mechanism is shared even though one is a selector and the other a reward: the sample count amplifies the aggregation rule rather than averaging its errors away. The practical consequence is that a sample-count sweep is a required control, not an optional one, and that a scaling curve reported only at its endpoints can hide a reversal in between. A third instance is the cleanest of all, because it holds the candidate bank fixed and varies only the reducer: selecting by mean token log probability falls from 75.56% at one sample to 65.83% at eighty on the same banks where literal answer plurality rises to 78.33%, so nothing but the selection rule can explain the decline.",
+  "schema_version": 1,
+  "statement": "Sampling more candidates is not monotone in accuracy: extra samples strengthen whatever the aggregation rule already does, including when it is wrong.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "test-time-scaling",
+    "reasoning-evaluation"
+  ]
+}

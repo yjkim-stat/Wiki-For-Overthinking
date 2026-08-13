@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
       "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning"
+    },
+    {
+      "id": "arxiv:2608.04001",
+      "kind": "paper",
+      "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+      "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility"
     }
   ],
   "first_seen": "2026-08-13T00:02:04Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T00:02:04Z",
+  "last_seen": "2026-08-13T04:11:14Z",
   "name": "HMMT",
   "related": [
     "critic-calibration",
@@ -48,12 +54,45 @@
     "bamboogle",
     "qwen2-5-math-7b",
     "qwen2-5-7b-instruct",
-    "qwen3-4b-base"
+    "qwen3-4b-base",
+    "test-time-scaling",
+    "budgeted-inference",
+    "pass-k",
+    "self-consistency",
+    "minimum-bayes-risk",
+    "reproducibility",
+    "construct-validity",
+    "compute-accounting",
+    "adaptive-compute-allocation",
+    "reward-hacking",
+    "uncertainty-quantification",
+    "discovery-stability-profile",
+    "best-of-n",
+    "minimum-bayes-risk-decoding",
+    "beam-search",
+    "monte-carlo-tree-search",
+    "tree-of-thoughts",
+    "process-reward-model",
+    "budget-forcing",
+    "bootstrap-confidence-intervals",
+    "wilson-interval",
+    "mmlu-pro",
+    "bbh",
+    "aime-2026",
+    "cmimc",
+    "smt",
+    "supergpqa",
+    "qwen3-30b-a3b-thinking-2507",
+    "qwen3-6-35b-a3b",
+    "gpt-oss-20b",
+    "deepseek-r1",
+    "phi-4-reasoning"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "hmmt",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
       "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model"
+    },
+    {
+      "id": "arxiv:2608.03961",
+      "kind": "paper",
+      "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+      "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "model",
-  "last_seen": "2026-08-13T03:09:29Z",
+  "last_seen": "2026-08-13T04:11:14Z",
   "name": "Qwen2.5-1.5B-Instruct",
   "related": [
     "linear-probe",
@@ -68,12 +74,31 @@
     "greedy-circuit-search",
     "causal-tracing",
     "finite-difference-verification",
-    "jacobian-bound"
+    "jacobian-bound",
+    "test-time-scaling",
+    "adaptive-compute-allocation",
+    "self-consistency",
+    "best-of-n",
+    "prompt-difficulty",
+    "interpretability",
+    "uncertainty-quantification",
+    "selection-signal",
+    "matched-budget-comparison",
+    "fuzzy-control",
+    "borda-count",
+    "self-certainty",
+    "compute-optimal-allocation",
+    "majority-voting",
+    "gsm8k",
+    "math",
+    "sciq",
+    "phi-3-mini-4k-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "qwen2-5-1-5b-instruct",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

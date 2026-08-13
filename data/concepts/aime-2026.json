@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
+    },
+    {
+      "id": "arxiv:2608.04001",
+      "kind": "paper",
+      "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+      "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility"
     }
   ],
   "first_seen": "2026-08-12T22:46:42Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T04:11:14Z",
   "name": "AIME 2026",
   "related": [
     "answer-evidence-gap",
@@ -39,12 +45,46 @@
     "ruler",
     "qwen3-8b",
     "deepseek-r1-distill-llama-8b",
-    "qwen3-30b-a3b"
+    "qwen3-30b-a3b",
+    "test-time-scaling",
+    "budgeted-inference",
+    "pass-k",
+    "self-consistency",
+    "minimum-bayes-risk",
+    "reproducibility",
+    "construct-validity",
+    "compute-accounting",
+    "adaptive-compute-allocation",
+    "reward-hacking",
+    "uncertainty-quantification",
+    "discovery-stability-profile",
+    "best-of-n",
+    "minimum-bayes-risk-decoding",
+    "beam-search",
+    "monte-carlo-tree-search",
+    "tree-of-thoughts",
+    "process-reward-model",
+    "budget-forcing",
+    "bootstrap-confidence-intervals",
+    "wilson-interval",
+    "mmlu-pro",
+    "bbh",
+    "hmmt",
+    "brumo",
+    "cmimc",
+    "smt",
+    "supergpqa",
+    "qwen3-30b-a3b-thinking-2507",
+    "qwen3-6-35b-a3b",
+    "gpt-oss-20b",
+    "deepseek-r1",
+    "phi-4-reasoning"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "aime-2026",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

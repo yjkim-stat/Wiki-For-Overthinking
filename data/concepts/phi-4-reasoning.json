@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Phi-4-Reasoning"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.04001",
+      "kind": "paper",
+      "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+      "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility"
+    },
     {
       "id": "local:f92e5f936a3c7422",
       "kind": "paper",
@@ -11,9 +19,44 @@
   ],
   "first_seen": "2026-08-12T11:28:30Z",
   "kind": "model",
-  "last_seen": "2026-08-12T11:28:30Z",
-  "name": "Phi-4-Reasoning",
+  "last_seen": "2026-08-13T04:11:14Z",
+  "name": "Phi-4-reasoning",
   "related": [
+    "test-time-scaling",
+    "budgeted-inference",
+    "pass-k",
+    "self-consistency",
+    "minimum-bayes-risk",
+    "reproducibility",
+    "construct-validity",
+    "compute-accounting",
+    "adaptive-compute-allocation",
+    "reward-hacking",
+    "uncertainty-quantification",
+    "discovery-stability-profile",
+    "best-of-n",
+    "minimum-bayes-risk-decoding",
+    "beam-search",
+    "monte-carlo-tree-search",
+    "tree-of-thoughts",
+    "process-reward-model",
+    "budget-forcing",
+    "bootstrap-confidence-intervals",
+    "wilson-interval",
+    "mmlu-pro",
+    "bbh",
+    "aime-2024",
+    "aime-2025",
+    "aime-2026",
+    "hmmt",
+    "brumo",
+    "cmimc",
+    "smt",
+    "supergpqa",
+    "qwen3-30b-a3b-thinking-2507",
+    "qwen3-6-35b-a3b",
+    "gpt-oss-20b",
+    "deepseek-r1",
     "reasoning-intensity",
     "layer-wise-reasoning-dynamics",
     "hidden-state-l2-norm",
@@ -30,13 +73,9 @@
     "spearman-correlation",
     "interquartile-range-outlier-detection",
     "deepconf",
-    "aime-2024",
-    "aime-2025",
     "gsm8k",
     "gsm-plus",
-    "bbh",
     "gpqa",
-    "mmlu-pro",
     "hellaswag",
     "ifeval",
     "nq-open",
@@ -55,7 +94,7 @@
   "schema_version": 1,
   "slug": "phi-4-reasoning",
   "topics": [
-    "reasoning-interpretability",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }
