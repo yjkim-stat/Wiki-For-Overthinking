@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small model used by both sources as the scale at which a signal is characterized before being applied elsewhere. One reports its mixed-intent calibration comparison on this model in the main text — where a coordinate-wise activation statistic reaches 0.1216 and 0.0858 RMSE against 0.2451 and 0.1764 for a trained head — and uses it for the layer-count and prompt-length sweeps that establish the first 12 of 28 layers suffice. The other reports its hidden-state norm signal lifting accuracy from 40.00 to 48.33 on AIME24. In both it is the model small enough to sweep exhaustively, which is what its results are worth.
 
 - **Kind**: model
+- **Also called**: Qwen3-1.7B-Instruct
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -17,6 +17,12 @@
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
     },
     {
+      "id": "arxiv:2608.02585",
+      "kind": "paper",
+      "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+      "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning"
+    },
+    {
       "id": "local:837612b527cb427c",
       "kind": "paper",
       "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
@@ -31,7 +37,7 @@
   ],
   "first_seen": "2026-08-09T06:17:44Z",
   "kind": "model",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T00:31:59Z",
   "name": "Qwen2.5-7B-Instruct",
   "related": [
     "critic-calibration",
@@ -103,6 +109,27 @@
     "yi-1-5-34b-chat",
     "olmo-3-1-32b-instruct",
     "tiny-aya-global",
+    "latent-reasoning",
+    "credit-assignment",
+    "test-time-compute",
+    "test-time-scaling",
+    "policy-gradient",
+    "self-attention",
+    "circuit-analysis",
+    "gradient-attribution",
+    "reasoning-connector",
+    "gradcuit",
+    "latentseek",
+    "self-consistency",
+    "best-of-n",
+    "self-reflection",
+    "chain-of-thought-prompting",
+    "prefix-tuning",
+    "gpqa-diamond",
+    "gsm8k",
+    "math-500",
+    "qwen2-5-14b-instruct",
+    "qwen3-4b-instruct-2507",
     "token-level-entropy",
     "entropy-collapse",
     "entropy-dynamics",
@@ -125,7 +152,6 @@
     "aime24",
     "aime25",
     "dapo500",
-    "qwen2-5-14b-instruct",
     "internlm3-8b",
     "normalized-net-displacement",
     "average-trajectory-curvature",
@@ -145,7 +171,6 @@
     "cot-kinetics",
     "lora",
     "bootstrap-confidence-interval",
-    "gsm8k",
     "math",
     "theoremqa",
     "gpqa",
@@ -164,7 +189,8 @@
   "topics": [
     "reasoning-training",
     "reasoning-interpretability",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "reasoning-faithfulness",
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

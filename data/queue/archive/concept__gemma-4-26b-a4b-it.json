@@ -25,6 +25,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T00:31:45Z",
   "created_at": "2026-08-13T00:17:15Z",
   "instructions": "Write the wiki definition for 'Gemma-4-26B-A4B-it'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Gemma-4-26B-A4B-it",
@@ -43,6 +44,14 @@
   "payload": {
     "name": "Gemma-4-26B-A4B-it",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Gemma-4-26B-A4B"
+    ],
+    "definition": "A mixture-of-experts checkpoint with roughly 4B active parameters out of 26B total, used by both sources as one member of a multi-model sweep rather than as a subject. In one it is among the 18 models where the culture of a mythological entity is linearly readable from the residual stream while generation emits the wrong name, and its probe reaches 0.69 at layer 3 — an unusually early encoding depth for the sweep. In the other it is among the models probed for where a reasoning chain commits to its answer. Its presence in the archive is chiefly as evidence that these findings are not confined to dense architectures.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__gemma-4-26b-a4b-it",
   "task_version": 1,

@@ -45,7 +45,7 @@ Base models and benchmarks are not named in the abstract. 4.1% harmful completio
 
 ## Entities
 
-- **Concepts**: [safety alignment](../../../../wiki/concepts/safety-alignment.md), [self-correction](../../../../wiki/concepts/self-correction.md), self-reflection, recovery, helpfulness-safety trade-off, adversarial robustness, special token
+- **Concepts**: [safety alignment](../../../../wiki/concepts/safety-alignment.md), [self-correction](../../../../wiki/concepts/self-correction.md), self-reflection, recovery, helpfulness-safety trade-off, [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), special token
 - **Methods**: Self-Reflection token, [post-training](../../../../wiki/methods/post-training.md), adversarial evaluation
 - **Datasets**: _none recorded_
 

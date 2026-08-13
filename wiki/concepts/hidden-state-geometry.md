@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Treating the arrangement of hidden states — distances, directions, clustering — as the object to be read, rather than any single activation value. Both sources exploit it as a training-free signal available at the forward pass. One builds correct and incorrect reference point clouds from a small labelled set and scores an unlabelled trajectory by how its mean-pooled final-layer state connects to each, using zero-dimensional persistent homology to define the components. The other summarizes prefill activations by coordinate-wise or radial moments and proves when each is sufficient: when classes differ only in the direction of their means a norm-only reading is at chance, while when they share a mean and differ in scale it is Bayes-optimal. The pair marks what the phrase actually has to specify — direction and magnitude carry different information, and which one a task needs is a fact about the task.
 
 - **Kind**: concept
+- **Also called**: activation geometry, representation geometry
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

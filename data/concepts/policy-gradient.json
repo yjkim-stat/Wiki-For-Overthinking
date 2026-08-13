@@ -6,6 +6,12 @@
   "definition": "The gradient of expected return with respect to the parameters of a policy, and in all three sources an object of analysis rather than a tool. They converge on one difficulty: under a softmax parameterization the normalization makes the objective non-concave in the parameters, so convergence cannot be argued from convexity and has to be recovered from a gradient-dominance property instead. What they establish diverges with the setting. In stochastic bandits with unregularized reward the question is which feature representations admit convergence at all; in entropy-regularized Markov decision processes on continuous spaces it is the rate at which an idealized gradient flow converges and what keeps its constant from degenerating; in language-model fine-tuning it is which direction a single update moves the policy's entropy. Only the first two treat convergence; the third works one step at a time.",
   "evidence": [
     {
+      "id": "arxiv:2608.02585",
+      "kind": "paper",
+      "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+      "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning"
+    },
+    {
       "id": "local:8458ce24c9e6b3b5",
       "kind": "paper",
       "note": "Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.",
@@ -26,9 +32,32 @@
   ],
   "first_seen": "2026-08-09T06:17:44Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T00:31:59Z",
   "name": "policy gradient",
   "related": [
+    "latent-reasoning",
+    "credit-assignment",
+    "test-time-compute",
+    "test-time-scaling",
+    "self-attention",
+    "circuit-analysis",
+    "gradient-attribution",
+    "reasoning-connector",
+    "gradcuit",
+    "latentseek",
+    "self-consistency",
+    "best-of-n",
+    "self-reflection",
+    "chain-of-thought-prompting",
+    "prefix-tuning",
+    "gpqa-diamond",
+    "gsm8k",
+    "math-500",
+    "llama-3-2-3b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-14b-instruct",
+    "qwen3-4b-instruct-2507",
     "approximation-error",
     "global-convergence",
     "reward-ordering-preservation",
@@ -95,9 +124,12 @@
     "qwen2-5-7b",
     "qwen2-5-32b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "policy-gradient",
   "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling",
     "reasoning-training"
   ]
 }

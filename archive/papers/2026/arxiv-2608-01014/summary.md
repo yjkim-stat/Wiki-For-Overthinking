@@ -44,7 +44,7 @@ The paper has no limitations section. What a reader should weigh: the topologica
 
 ## Entities
 
-- **Concepts**: persistent homology, hidden-state geometry, [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), preference optimization, self-consistency, preference pair quality, semi-supervised learning
+- **Concepts**: persistent homology, [hidden-state geometry](../../../../wiki/concepts/hidden-state-geometry.md), [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), preference optimization, self-consistency, preference pair quality, semi-supervised learning
 - **Methods**: Cloud-ScPO, ScPO, [DPO](../../../../wiki/methods/dpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), Vietoris-Rips filtration, mean pooling of hidden states
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH-Numeric
 

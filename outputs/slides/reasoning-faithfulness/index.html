@@ -182,6 +182,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Its diagnostics are evidence about latent traces rather than about the training method, and they bear on the archive&#x27;s established finding that intermediate reasoning can be swapped or deleted with the answer unchanged. Here the same phenomenon is measured from the training side: after RL, the expected-reward spread across different latent thoughts for the same prompt collapses to 0.0043 while answer-sampling noise under a fixed thought rises to 0.0568, and pairwise ordering of thoughts by their downstream utility degrades to near chance. That is a quantitative statement that the latent thoughts a trained policy produces become close to interchangeable in their effect on the answer — which is what a faithfulness account would predict, and which the paper reports without drawing that conclusion.</p>
 </section>
 <section class="slide">
+<h2>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</h2>
+<p class="subtitle">Zhaoxin Yu, Qi Shen, Hengli Li et al. · 2026</p>
+<blockquote>
+<p>Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token&#x27;s log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.</p>
+</blockquote>
+<ul>
+<li>Placing the latents inside the network — concatenated with the prompt&#x27;s and continuation&#x27;s hidden states at a chosen layer — so the pre-trained self-attention serves as both the forward computation path and the backward gradient path</li>
+<li>A resulting factorization in which every generated token attends to every latent, so the reward-weighted gradient for each latent aggregates contributions from all continuation positions rather than one</li>
+<li>An ablation that decomposes the gain into three separable parts: inserting a fixed prefix, optimizing it in the selected latent space at all, and using reward-derived rather than random directions</li>
+<li>A token-level gradient attribution showing where latent influence lands, using rule-based categories for continuation tokens</li>
+</ul>
+<p><strong>Results.</strong> Averaged over all 30 settings the method reaches 64.5 percent, 6.6 points above chain-of-thought prompting and 2.4 above the strongest competing method, and is best in 23 of 30. Against the output-side latent baseline it wins every benchmark-format aggregate, by 2.2 and 2.0 points on GPQA-Diamond, 2.5 and 3.8 on GSM8K, and 2.8 and 8.9 on MATH-500. The robustness results are the more interesting half. Across seven learning-rate settings its accuracy moves only from 51.4 to 53.8 percent against 47.6 to 51.8 for the baseline, with standard deviation 0.82 against 1.53. And the random-walk variant — reward guidance removed entirely — averages 60.6 percent against 60.3 for the reward-guided baseline, which the paper reads as evidence that the latent space itself is the robust part and the reward only decides how well it is explored. The ablation separates three contributions cleanly: inserting a fixed prefix moves the average from 60.5 to 62.0 percent but degrades six of fifteen settings, random optimization of that prefix beats the fixed version in 14 of 15, and reward-derived directions add a further 2.4 points to reach 66.6. Gradient attribution puts latent influence on reasoning connectors — tokens like &#x27;because&#x27;, &#x27;therefore&#x27; and &#x27;then&#x27; — at 0.308, 0.303 and 0.256 gradient strength across the three benchmarks, well above answer markers, answer content, formatting and content explanation, with answer content lowest on two of three. The layer sweep favours intermediate depth: 25 to 50 percent of the network beats the embedding level on all three benchmarks and 75 percent is worse than either, most visibly on GPQA-Diamond.</p>
+<p><strong>Why it matters.</strong> The gradient attribution is the part that bears on faithfulness, and it points the same way as this archive&#x27;s other latent-reasoning evidence. Optimizing a latent state changes reasoning connectors far more than answer content — 0.303 against 0.018 on GSM8K — so what the intervention moves is the shape of the trace rather than the conclusion it reports. Read alongside the archive&#x27;s finding that trace content is often not what produces the answer, that is a second route to the same place: the connective tissue of a chain is what an internal intervention has purchase on, which is exactly the part a reader would take as evidence of reasoning. The case study points the other way and is worth keeping for it: the output-side method visibly corrupts the decoded text while getting the answer wrong, whereas this one corrects the answer without altering the token sequence — a reminder that an unchanged-looking trace is not evidence that nothing was intervened on.</p>
+</section>
+<section class="slide">
 <h2>SeLaR: Selective Latent Reasoning in Large Language Models</h2>
 <p class="subtitle">Renyu Fu, Guibo Luo · ACL · 2026</p>
 <blockquote>
@@ -227,21 +242,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The paper that established the topic&#x27;s premise, and the reference point every later faithfulness result is measured against. Its contribution is a clean existence proof — a trace can be plausible, fluent and systematically wrong about its own cause — obtained without any access to internals, which is why the method spread. It also states the practical stake this topic exists to track: plausible-but-misleading explanations raise trust without raising safety. Read alongside the archive&#x27;s step-level probing result, the two bracket the problem from outside and inside: the trace omits an influence that demonstrably moved the answer, and the representation contains information the trace does not report.</p>
 </section>
 <section class="slide">
-<h2>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</h2>
-<p class="subtitle">Andres Algaba, Francesca Carlon, Lynn Delcon et al. · 2026</p>
-<blockquote>
-<p>Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary&#x27;s value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.</p>
-</blockquote>
-<ul>
-<li>An observability ladder that fixes the completed run and the correctness label and varies only the inspected evidence, so differences are attributable to access rather than to different runs</li>
-<li>A prompt-withheld contrast run alongside the prompt-visible one, which shows that response-only baselines overstate what summaries add</li>
-<li>Length-matched comparisons between model-written summaries and deterministic extracts from the trace at the same word count</li>
-<li>A within-item repeated-run analysis that removes question-level cues, isolating whether a display distinguishes a correct from an incorrect run of the same question</li>
-</ul>
-<p><strong>Results.</strong> With the prompt withheld, the summary is genuinely useful: summary-only AUROC averages 0.774 against 0.813 for the full trace, and adding the summary to the response gains +0.156. With the prompt visible, that same increment collapses to +0.019 — a paired difference of -0.137 (95% interval [-0.177, -0.095]) — because a prompt-only reader already reaches 0.734, so most of what the summary contributes is question difficulty the prompt already states. The trace increment is stable across both conditions (+0.035 withheld, +0.041 visible), so what the trace adds is run-specific in a way the summary&#x27;s contribution is not. At equal word count the summary loses its advantage entirely: the final 90 words of the trace score 0.780 against the summary&#x27;s 0.774, rising to 0.804 for the strongest last-word extracts against 0.778 for the uncapped summary, a paired +0.025. Those extracts carry denser marker content — uncertainty +0.009, self-correction +0.012 and answer markers +0.051, all with intervals excluding zero — so the model-written summary is not adding discriminative cues the trace&#x27;s own ending lacks. The repeated-run analysis is the sharpest negative: on outcome-discordant MMLU-Pro items, linear summary readers sit at within-item AUROC 0.503-0.545, essentially chance, while trace displays retain 0.544-0.590. Reader choice then reverses part of the picture — GPT-5-mini with the prompt withheld reaches 0.649 on summaries and 0.683 on traces against 0.503 on the response, recovering signal the linear readers miss while keeping the trace slightly ahead. Length explains much of the linear readers&#x27; trace advantage: trace word count alone reaches within-question 0.553 against 0.567 for the full trace reader, and after adjusting for word and sentence counts the trace-minus-summary contrast turns slightly negative (+0.043 to -0.024), though restricting to pairs whose lengths differ by at most 20% leaves the trace +0.032 ahead. In selective-risk terms at 50% coverage, error falls from 0.243 with the response alone to 0.139 with the summary, 0.114 with the trace and 0.098 with internals.</p>
-<p><strong>Why it matters.</strong> It supplies the missing qualifier for every monitorability and faithfulness claim in this archive: a claim about what a trace reveals is not well formed until it names the property monitored, what the reader could see, whether the prompt was among it, and who the reader was. Each of those changes the answer materially here — the summary&#x27;s contribution moves by 0.137 AUROC on prompt visibility alone, and switching from a linear probe to a capable model reader moves summary discrimination from chance to 0.649 on the same text. Two results bear directly on the archive&#x27;s existing work on monitorability. First, a provider-style summary is worth little to a monitor who already holds the question, and at matched length the trace&#x27;s own last ninety words do the same job or better while carrying denser uncertainty and self-correction markers — so redacting the trace to a summary costs the specific cues monitoring depends on. Second, the honest scope: the ladder scores final-answer correctness, and the authors decline to claim it measures whether the trace describes the computation, which is exactly the distinction the archive&#x27;s causal-intervention work is built to test.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -271,7 +271,7 @@ th { background: var(--surface); }
 <li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items...</li>
 <li><strong>AIME25</strong> — The 2025 American Invitational Mathematics Examination, used in the archive as AIME24&#x27;s companion and, increasingly, as a contamination c...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
-<li><strong>OlympiadBench</strong> — An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It fun...</li>
+<li><strong>GPQA-Diamond</strong> — A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematic...</li>
 </ul>
 </section>
 <section class="slide">
@@ -280,20 +280,20 @@ th { background: var(--surface); }
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
 <li><strong>Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?</strong> — No quantitative results in the abstract. Hint-reliance is one proxy target, and a negative result about reasoning mode on this target need not transfer to ot...</li>
 <li><strong>Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning</strong> — The paper states its scope in the conclusion rather than a limitations section: two Qwen2.5-Instruct sizes, mathematics and STEM multiple choice with verifia...</li>
+<li><strong>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the random-walk result is presented as robustness and is also the sharpest bound on the cla...</li>
 <li><strong>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</strong> — The paper names four. The summaries are a controlled proxy — the same model, one instruction, no content filter and no incentive to evade a monitor — so the...</li>
 <li><strong>Reasoning Traces Shape Outputs but Models Won&amp;apos;t Say So</strong> — Three models, unnamed in the abstract. Injected snippets are synthetic, so the influence is not one the model generated itself and non-disclosure of an exter...</li>
-<li><strong>SeLaR: Selective Latent Reasoning in Large Language Models</strong> — No quantitative results, benchmarks or models in the abstract. The entropy gate introduces a threshold whose sensitivity is unreported, and the archive&#x27;s ent...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>SeLaR: Selective Latent Reasoning in Large Language Models</strong> — No quantitative results, benchmarks or models in the abstract. The entropy gate introduces a threshold whose sensitivity is unreported, and the archive&#x27;s ent...</li>
 <li><strong>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</strong> — The authors name three: other latent-reasoning families are untested, including RL-trained continuous chains and recurrent or looped-layer architectures; the...</li>
 <li><strong>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</strong> — The paper has no limitations section, though its conclusion is explicit that the next step is richer domains and names program states, theorem-prover goals,...</li>
 <li><strong>Local Causal Attribution of Chain-of-Thought Reasoning</strong> — The paper&#x27;s stated limitations are the limited expressiveness of linear structural equations and the simplicity of the default leave-one-out intervention, wi...</li>
 <li><strong>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</strong> — The paper&#x27;s own: analysis is mainly on mathematical reasoning where correctness is verifiable, with extension to other closed-world tasks and the open-world...</li>
 <li><strong>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</strong> — The paper&#x27;s limitations section is unusually complete and worth reading in full. Attribution relies on greedy decoding from each truncated prefix plus an ans...</li>
-<li><strong>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</strong> — The paper has no limitations section. Several things a reader should weigh. The claim that token-level SAE features are no better than naive baselines is con...</li>
 </ul>
 </section>
 <section class="slide">
@@ -303,15 +303,16 @@ th { background: var(--surface); }
 <li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
 <li>Pedro Ferreira, Wilker Aziz, Ivan Titov. <em>Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?</em>. cs.CL. 2026</li>
 <li>Xuyang Zhao, Liting Zhang, Zichen Xu et al.. <em>Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning</em>. cs.AI. 2026</li>
+<li>Zhaoxin Yu, Qi Shen, Hengli Li et al.. <em>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</em>. cs.LG. 2026</li>
 <li>Renyu Fu, Guibo Luo. <em>SeLaR: Selective Latent Reasoning in Large Language Models</em>. ACL. 2026</li>
 <li>Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. <em>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</em>. preprint. 2025</li>
 <li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
-<li>Andres Algaba, Francesca Carlon, Lynn Delcon et al.. <em>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Andres Algaba, Francesca Carlon, Lynn Delcon et al.. <em>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</em>. cs.LG. 2026</li>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
 <li>Benjamin Shih, John Winnicki, Eric Darve. <em>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</em>. preprint. 2026</li>
@@ -319,12 +320,12 @@ th { background: var(--surface); }
 <li>Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. <em>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</em>. preprint. 2026</li>
 <li>Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. <em>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</em>. preprint. 2026</li>
 <li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
-<li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 <li>Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. <em>Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics</em>. ICLR 2025. 2025</li>
 <li>Chen Qian, Dongrui Liu, Haochen Wen et al.. <em>Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning</em>. preprint. 2025</li>
 <li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
