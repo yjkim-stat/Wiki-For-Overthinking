@@ -267,6 +267,11 @@ class Finding(_Record):
     # harvested yet without inventing a link that resolves to nothing.
     concepts: list[str] = field(default_factory=list)
     papers: list[str] = field(default_factory=list)  # canonical paper ids
+    # Ids of `Reference` records: things checked outside the archive. Kept apart
+    # from `papers` because they are apart in kind — a paper is evidence the
+    # archive collected and can re-read, a reference is a page somebody looked
+    # at once. Nothing derived from this list ever reaches entity promotion.
+    references: list[str] = field(default_factory=list)
     topics: list[str] = field(default_factory=list)
     supersedes: str = ""
     superseded_by: str = ""
@@ -278,9 +283,91 @@ class Finding(_Record):
         return not self.superseded_by
 
 
+@dataclass
+class Reference(_Record):
+    """Something checked outside the archive, cited by a finding.
+
+    The archive can answer a great deal about itself and nothing at all about
+    what is not in it. A published implementation, a model card, a proceedings
+    page: a session that consults one of these and records what it learned
+    leaves the fact inside a finding's prose, where the next person can neither
+    verify it nor find it again without repeating the search.
+
+    This is where that citation goes, and the fields are chosen so it is a
+    citation rather than a rumour:
+
+    ``retrieved_at`` because the web changes, and a claim about a page with no
+    date attached cannot be checked against anything. ``quoted`` because a URL
+    alone says a page was visited, not what it was found to say — and a page
+    that has since moved leaves the quotation as the only surviving evidence.
+
+    **A reference is not evidence for an entity.** `Concept.evidence` counts
+    papers and talks the archive has read, and that count is what promotes an
+    entity to a note of its own. Two blog posts must never promote anything: if
+    they could, nothing could later say what the wiki grew from, and that damage
+    cannot be undone by deleting the posts. Nothing in `enrich/concepts.py`
+    reads this record, and `tests/test_references.py` asserts it stays that way.
+    """
+
+    id: str  # "web:<fingerprint of the normalized url>"
+    url: str
+    title: str = ""
+    publisher: str = ""  # a domain, or whoever published it
+    kind: str = "other"
+    retrieved_at: str = ""
+    # The passage actually relied on. Not the page — the part of it that was
+    # used as evidence, which is the part worth being able to check.
+    quoted: str = ""
+    # Optional path to a local copy. Nothing writes one today; the field exists
+    # so that a deployment which starts taking snapshots has somewhere to say so
+    # without a schema change.
+    snapshot: str = ""
+    first_seen: str = field(default_factory=utcnow)
+    schema_version: int = SCHEMA_VERSION
+
+
 def finding_id(statement: str) -> str:
     """Content-addressed, so recording the same sentence twice is one finding."""
     return f"finding:{title_fingerprint(statement)}"
+
+
+def normalize_url(url: str) -> str:
+    """The form two spellings of one page agree on.
+
+    Deliberately timid, because the two failure directions are not symmetric.
+    Under-normalising leaves two records for one page: visible, and fixed by
+    citing the other one. Over-normalising fuses two pages into one record, and
+    the result is a citation pointing at something the reader never read — the
+    same shape of damage as a wrong alias, which this repository already treats
+    as the expensive kind because a fused record looks perfectly healthy.
+
+    So: case is folded on the scheme and the host, where it is not significant;
+    a default port is dropped; a fragment is dropped, because it selects a place
+    within a document rather than a document; and one trailing slash goes. The
+    query string is left exactly alone — for a great many sites it is what
+    chooses the page.
+    """
+    from urllib.parse import urlsplit, urlunsplit
+
+    parts = urlsplit((url or "").strip())
+    host = parts.hostname or ""
+    if parts.port and not (
+        (parts.scheme == "http" and parts.port == 80)
+        or (parts.scheme == "https" and parts.port == 443)
+    ):
+        host = f"{host}:{parts.port}"
+
+    path = parts.path
+    if len(path) > 1 and path.endswith("/"):
+        path = path[:-1]
+
+    return urlunsplit((parts.scheme.lower(), host, path, parts.query, ""))
+
+
+def reference_id(url: str) -> str:
+    """Content-addressed, so the same page cited twice is one record."""
+    digest = hashlib.sha1(normalize_url(url).encode("utf-8")).hexdigest()[:16]
+    return f"web:{digest}"
 
 
 def canonical_paper_id(

@@ -17,6 +17,7 @@ them is how a migration silently loses half of itself.
 | Papers, seminars, readings | ✅ `data/papers/`, `data/videos/`, `data/summaries/` | — |
 | Wiki entities and evidence | ✅ `data/concepts/` | — |
 | What the group settled | ✅ `data/findings/` | — |
+| Pages checked outside the archive | ✅ `data/references/` | — |
 | The work queue | ✅ `data/queue/` | — |
 | Dedup state, coverage ledger | ✅ `data/index/` incl. `seen.sqlite` | — |
 | The wiki, and your analysis after `<!-- auto:end -->` | ✅ `wiki/` | — |

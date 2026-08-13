@@ -149,6 +149,8 @@ are the program, and the two can live in separate repositories — see
 │   ├── concepts/<slug>.json      wiki entities and the evidence behind each one
 │   ├── findings/<id>.json        what the group settled in conversation — the one
 │   │                             record it authors itself
+│   ├── references/<id>.json      pages checked outside the archive, cited by findings;
+│   │                             never evidence for a wiki entity
 │   ├── queue/                    pending/ → done/ → archive/, one JSON task per unread item
 │   ├── index/                    papers.jsonl, videos.jsonl, rejected.jsonl, coverage.jsonl, seen.sqlite
 │   ├── abstracts/<cat>/<day>.jsonl  every announced paper, not only the tracked

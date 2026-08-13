@@ -43,7 +43,7 @@ from ..common.store import RecordStore
 _LOG = get(__name__)
 
 KINDS = ("decision", "fact")
-_LIST_FIELDS = ("concepts", "papers", "topics")
+_LIST_FIELDS = ("concepts", "papers", "references", "topics")
 
 
 def validate(cfg: Config, result: Any, store: RecordStore) -> list[str]:
@@ -86,6 +86,17 @@ def validate(cfg: Config, result: Any, store: RecordStore) -> list[str]:
                 "collect it first rather than referring to a record that is not there"
             )
 
+    # The same check as `papers`, against a different store and for the same
+    # reason: a citation naming a record nobody kept is one nobody can follow.
+    # Record the page first, with `pipelines.enrich.references add`, so that
+    # what the finding points at carries a date and a quotation.
+    for ref_id in result.get("references") or []:
+        if store.load_reference(str(ref_id)) is None:
+            errors.append(
+                f"`references` names '{ref_id}', which is not a recorded reference "
+                "— add it with `pipelines.enrich.references add` first"
+            )
+
     supersedes = str(result.get("supersedes", "")).strip()
     if supersedes and store.load_finding(supersedes) is None:
         errors.append(f"`supersedes` names an unknown finding: {supersedes}")
@@ -108,6 +119,9 @@ def record(cfg: Config, result: dict, store: RecordStore | None = None) -> Findi
         rationale=str(result.get("rationale", "")).strip(),
         concepts=[str(c).strip() for c in (result.get("concepts") or []) if str(c).strip()],
         papers=[str(p).strip() for p in (result.get("papers") or []) if str(p).strip()],
+        references=[
+            str(r).strip() for r in (result.get("references") or []) if str(r).strip()
+        ],
         topics=[str(t).strip() for t in (result.get("topics") or []) if str(t).strip()],
         supersedes=str(result.get("supersedes", "")).strip(),
         established_at=utcnow(),

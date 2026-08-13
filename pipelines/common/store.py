@@ -20,6 +20,7 @@ from .schema import (
     Finding,
     Paper,
     PaperSummary,
+    Reference,
     Video,
     VideoSummary,
     utcnow,
@@ -250,6 +251,25 @@ class RecordStore:
             data = read_json(path)
             if isinstance(data, dict) and data:
                 yield Finding.from_dict(data)
+
+    # -- references ---------------------------------------------------------
+    def reference_path(self, reference_id: str) -> Path:
+        return self.layout.references / f"{fs_id(reference_id)}.json"
+
+    def save_reference(self, reference: Reference) -> Path:
+        path = self.reference_path(reference.id)
+        write_json(path, reference.to_dict())
+        return path
+
+    def load_reference(self, reference_id: str) -> Reference | None:
+        data = read_json(self.reference_path(reference_id))
+        return Reference.from_dict(data) if isinstance(data, dict) and data else None
+
+    def iter_references(self) -> Iterator[Reference]:
+        for path in sorted(self.layout.references.glob("*.json")):
+            data = read_json(path)
+            if isinstance(data, dict) and data:
+                yield Reference.from_dict(data)
 
     # -- abstracts ----------------------------------------------------------
     def abstracts_path(self, category: str, day: str) -> Path:

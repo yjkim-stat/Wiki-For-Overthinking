@@ -163,6 +163,17 @@ class Layout:
         return self.data / "findings"
 
     @property
+    def references(self) -> Path:
+        """Pages checked outside the archive, cited by findings.
+
+        A sibling of `findings` rather than of `papers`, because neither of them
+        arrived from a collector and neither is evidence for a wiki entity.
+        Keeping these out of `papers/` is what stops a blog post from reaching a
+        promotion threshold, a paper count or a topic rollup.
+        """
+        return self.data / "references"
+
+    @property
     def index(self) -> Path:
         return self.data / "index"
 
@@ -247,6 +258,7 @@ class Layout:
             self.summaries / "videos",
             self.concepts,
             self.findings,
+            self.references,
             self.abstracts,
             self.index,
             self.logs,

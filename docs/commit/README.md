@@ -69,3 +69,4 @@ reference for everything built before the practice existed.
 | 0046 | [The PDF cap bounds a run, not a call](0046-the-pdf-cap-bounds-a-run.md) | fix | Collection fetches one paper at a time, so `max_per_run` restarted on every paper and bounded nothing |
 | 0047 | [A filed document survives its merge](0047-a-filed-document-survives-its-merge.md) | fix | `source` merged and `local_path` did not, so the archive knew it held a hand-filed paper and not where |
 | 0048 | [A second chance at a document](0048-a-second-chance-at-a-document.md) | feature | Collection fetches only for papers arriving that run, so a backlog keeps its abstracts for ever |
+| 0049 | [A citation rather than a rumour](0049-a-citation-rather-than-a-rumour.md) | feature | What a session checked on the web lived in a finding's prose; a reference has a date, a quotation, and no vote on promotion |

@@ -244,6 +244,33 @@ collector, and the rule against inventing sources still holds — a finding is n
 a source, it is the group's own position, and it is stored apart from the
 literature for exactly that reason.
 
+**When you settled it by checking something outside the archive, record that
+too.** A published implementation, a model card, a venue's own listing: without
+a record, what you learned survives only inside the finding's prose, and the
+next person has to repeat your search to confirm a single sentence.
+
+```bash
+python3 -m pipelines.enrich.references add --file /tmp/reference.json
+```
+
+```json
+{"url": "https://github.com/example/thing",
+ "kind": "code",
+ "retrieved_at": "2026-08-13",
+ "quoted": "The passage you actually relied on, not the whole page."}
+```
+
+Then name its id in the finding's `references`. Both fields above are required
+and neither is bureaucracy: the web changes, so an undated claim about a page
+cannot be checked against anything, and when the page moves the quotation is the
+only evidence that survives.
+
+**A reference is never evidence for a wiki entity.** `Concept.evidence` counts
+papers and talks the archive has read, and that count is what promotes a concept
+to a note of its own. Two blog posts must not promote anything — if they could,
+nothing afterwards could say what the wiki grew from, and deleting the posts
+would not undo it.
+
 **4. Commit.** Generated files are tracked on purpose: the container is
 ephemeral, so anything uncommitted is lost.
 
@@ -332,6 +359,7 @@ tables above and `migrate status` that tell you which is which.
 | Path | Write? | What it is |
 | --- | --- | --- |
 | `data/findings/` | through the CLI | What the group settled in conversation — decisions and established facts. The one record type whose author is the group rather than a collector. Answer with `findings add`; superseding never deletes. |
+| `data/references/` | through the CLI | Pages checked outside the archive — a published implementation, a model card, a venue's own listing — with the date they were read and the passage relied on. Answer with `references add`. **A reference is never evidence for a wiki entity**: two blog posts must not promote a concept, or nothing can later say what the wiki grew from. |
 | `data/papers/`, `data/videos/`, `data/summaries/`, `data/concepts/` | pipeline only | The source of truth: one record per paper and seminar, the readings, and the wiki entities with their evidence. Things enter through a collector, never through an editor. |
 | `data/queue/` | through the CLI | `pending/` → `done/` → `archive/`, one JSON task per unread item. Answer with `queue complete`; do not edit the files. |
 | `data/index/` | never | `papers.jsonl`, `videos.jsonl`, `rejected.jsonl`, `coverage.jsonl` and `seen.sqlite` — the dedup alias map and the per-day coverage ledger, committed on purpose because a scheduled run starts from a fresh clone. |
@@ -363,6 +391,7 @@ python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
+python3 -m pipelines.enrich.references list       # what it checked outside the archive
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
