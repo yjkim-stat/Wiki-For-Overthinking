@@ -44,7 +44,7 @@ The paper's own limitations section names four gaps: it explains why CoT increas
 
 ## Entities
 
-- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), log-precision Transformer, [effective depth](../../../../wiki/concepts/effective-depth.md), TC0 and NC1, P-completeness, dynamic programming, autoregressive generation as a loop, [process supervision](../../../../wiki/concepts/process-supervision.md), length extrapolation
+- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), log-precision Transformer, [effective depth](../../../../wiki/concepts/effective-depth.md), TC0 and NC1, P-completeness, dynamic programming, autoregressive generation as a loop, [process supervision](../../../../wiki/concepts/process-supervision.md), [length extrapolation](../../../../wiki/concepts/length-generalization.md)
 - **Methods**: [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), circuit complexity reduction, constructive Transformer programs, conditional COPY and MEAN attention primitives, Gaussian elimination, direct-answer supervised training
 - **Datasets**: synthetic arithmetic expression evaluation over a finite field, synthetic linear equation solving over a finite field, longest increasing subsequence, edit distance, Context-Free Grammar Membership Testing
 

@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
       "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1878",
+      "kind": "paper",
+      "note": "A benchmark showing that as reasoning capacity grows, instruction adherence falls, and that recovering obedience costs reasoning performance.",
+      "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-12T23:15:52Z",
   "kind": "method",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:09:06Z",
   "name": "knowledge distillation",
   "related": [
     "self-improvement",
@@ -45,7 +51,7 @@
     "aime-2025",
     "gsm8k",
     "math500",
-    "minerva-math",
+    "minerva",
     "dapo-math-17k",
     "qwen3-1-7b-base",
     "qwen3-4b-base",
@@ -117,7 +123,16 @@
     "llava-onevision-7b",
     "qwen3-5-397b-a17b",
     "kimi-k2-5",
-    "gemini-1-5-pro"
+    "gemini-1-5-pro",
+    "instruction-following",
+    "controllability",
+    "alignment-tax",
+    "reasoning-capability",
+    "generation-length",
+    "trade-off",
+    "mathif",
+    "reinforcement-learning-post-training",
+    "prompt-intervention"
   ],
   "related_authored": [
     "data-quality"

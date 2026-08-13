@@ -40,7 +40,7 @@ The paper's own: experiments are on decoder-only language models up to 6B parame
 
 - **Concepts**: activation patching, causal tracing, causal mediation analysis, interchange intervention, [localization](../../../../wiki/concepts/localization.md), circuit analysis, out-of-distribution intervention, logit difference, negative model components, sliding window patching
 - **Methods**: [activation patching](../../../../wiki/methods/activation-patching.md), Gaussian noising corruption, symmetric token replacement, sliding window patching, path patching, KL divergence metric, logit difference metric
-- **Datasets**: PairedFacts, [Indirect Object Identification (IOI)](../../../../wiki/datasets/indirect-object-identification-ioi.md), greater-than task, Python docstring completion, basic arithmetic
+- **Datasets**: PairedFacts, [Indirect Object Identification (IOI)](../../../../wiki/datasets/indirect-object-identification.md), greater-than task, Python docstring completion, basic arithmetic
 
 Tags: `mechanistic interpretability`, `activation patching`, `circuits`, `methodology`, `reproducibility`, `evaluation metrics`
 

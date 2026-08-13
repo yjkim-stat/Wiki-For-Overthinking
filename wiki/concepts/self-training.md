@@ -9,7 +9,7 @@ Improving a model on data it generated itself, filtered by some correctness sign
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [attention analysis](../methods/attention-analysis.md), [chain of thought](../methods/chain-of-thought.md), [circuit complexity](circuit-complexity.md), [CommonsenseQA](../datasets/commonsenseqa.md), [expressivity-learnability gap](expressivity-learnability-gap.md), [few-shot prompting](../methods/few-shot-prompting.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [hallucination](hallucination.md), [length generalization](length-generalization.md), [state tracking](state-tracking.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [training dynamics](training-dynamics.md), [verification](verification.md)
+**Related**: [attention analysis](../methods/attention-analysis.md), [chain of thought](../methods/chain-of-thought.md), [circuit complexity](circuit-complexity.md), [CommonsenseQA](../datasets/commonsenseqa.md), [expressivity-learnability gap](expressivity-learnability-gap.md), [few-shot prompting](../methods/few-shot-prompting.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [hallucination](hallucination.md), [length generalization](length-generalization.md), [post-hoc rationalization](post-hoc-rationalization.md), [state tracking](state-tracking.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [training dynamics](training-dynamics.md), [verification](verification.md)
 
 ## Appears in
 

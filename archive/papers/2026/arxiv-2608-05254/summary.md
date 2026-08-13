@@ -45,7 +45,7 @@ Effect sizes are not given in the abstract. The benefit is explicitly conditiona
 
 ## Entities
 
-- **Concepts**: answer-space constraint, [verification](../../../../wiki/concepts/verification.md), test-time intervention, [routing](../../../../wiki/concepts/routing.md), [self-verification](../../../../wiki/concepts/self-verification.md), constraint compliance
+- **Concepts**: answer-space constraint, [verification](../../../../wiki/concepts/verification.md), [test-time intervention](../../../../wiki/concepts/inference-time-intervention.md), [routing](../../../../wiki/concepts/routing.md), [self-verification](../../../../wiki/concepts/self-verification.md), constraint compliance
 - **Methods**: Constraint-First Reasoning, Routed-CFR, [chain of thought](../../../../wiki/methods/chain-of-thought.md), regex routing, paired significance testing
 - **Datasets**: [AIME](../../../../wiki/datasets/aime.md), [CMIMC](../../../../wiki/datasets/cmimc.md), [BRUMO](../../../../wiki/datasets/brumo.md), AIMO_AMC, [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 

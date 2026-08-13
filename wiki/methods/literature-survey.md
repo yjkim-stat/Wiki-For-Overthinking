@@ -9,7 +9,7 @@ A review paper rather than a technique applied to models; it appears as an entit
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [activation steering](activation-steering.md), [emergent behaviour](../concepts/emergent-behaviour.md), [localization](../concepts/localization.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [steering](../concepts/steering.md), [training dynamics](../concepts/training-dynamics.md)
+**Related**: [activation steering](activation-steering.md), [emergent behaviour](../concepts/emergent-behaviour.md), [localization](../concepts/localization.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [training dynamics](../concepts/training-dynamics.md)
 
 ## Appears in
 

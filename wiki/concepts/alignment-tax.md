@@ -9,7 +9,7 @@ The capability cost paid for making a model behave as intended. The sources esta
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [controllability](controllability.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [instruction following](instruction-following.md), [post-training](../methods/post-training.md), [reinforcement learning post-training](../methods/reinforcement-learning-post-training.md), [safety alignment](safety-alignment.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
+**Related**: [controllability](controllability.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [instruction following](instruction-following.md), [knowledge distillation](../methods/knowledge-distillation.md), [post-training](../methods/post-training.md), [reinforcement learning post-training](../methods/reinforcement-learning-post-training.md), [safety alignment](safety-alignment.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
 
 ## Appears in
 

@@ -14,7 +14,7 @@ from pipelines import render
 from pipelines.enrich import apply as apply_mod
 from pipelines.enrich import concepts as concepts_mod
 from pipelines.common.http import HTTPError
-from pipelines.common.schema import Paper
+from pipelines.common.schema import Paper, PaperSummary
 from pipelines.common.store import RecordStore
 from pipelines.enrich.queue import Queue, validate_result
 from pipelines.local import abstracts as local_abstracts
@@ -262,6 +262,58 @@ class DefinitionQueueShareTests(unittest.TestCase):
         """The reserve is released only when the archive stage held it back."""
         result = render.run(self.cfg, only="wiki")
         self.assertNotIn("summaries_queued", result)
+
+    def test_definitions_queued_counts_tasks_filed_not_attempts(self):
+        """The same lesson as the test above, in the other counter.
+
+        `queue.add` returns "" once the queue is at its cap; `define_concept`
+        discards that and returns None either way; and the loop read None as
+        "deferred to the queue". So a render that filed nothing reported four
+        definitions queued — and the reserve exists precisely because the queue
+        being full of reading is the normal state, which is when this counter
+        is read and when it is wrong.
+        """
+        self.cfg.settings["summarize"] = {"max_pending_tasks": 2}
+        store = RecordStore(self.cfg.layout)
+
+        # Two summaries naming one entity: promoted, undefined, so a definition
+        # task is owed.
+        for i in range(2):
+            paper = Paper(
+                id=f"arxiv:2401.0000{i}",
+                title=f"Read paper {i}",
+                source="arxiv",
+                abstract="Already summarized.",
+                topics=[SLUG],
+                scores={SLUG: 0.9},
+            )
+            store.save_paper(paper)
+            store.save_paper_summary(
+                PaperSummary(
+                    paper_id=paper.id,
+                    one_liner=f"Paper {i} does a thing.",
+                    concepts=["Instrumental Variable"],
+                )
+            )
+
+        # Fill every slot with reading, the way a collection run does.
+        queue = Queue(self.cfg.layout)
+        for i in range(2):
+            queue.enqueue(
+                kind="paper",
+                item_id=f"arxiv:2409.0000{i}",
+                topics=[SLUG],
+                language="en",
+                instructions="Read it.",
+                output_schema={},
+                payload={},
+            )
+        self.assertEqual(queue_share.pending_count(self.cfg), 2)
+
+        result = render.run(self.cfg)
+
+        self.assertEqual(queue_share.pending_count(self.cfg), 2, "nothing fitted")
+        self.assertEqual(result["definitions_queued"], 0)
 
 
 ACL_PAGE = """<!doctype html><html><head><title>A Paper - ACL Anthology</title></head>

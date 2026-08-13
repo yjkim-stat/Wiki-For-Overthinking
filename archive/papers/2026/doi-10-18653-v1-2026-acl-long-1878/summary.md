@@ -45,7 +45,7 @@ No numbers in the abstract, so the size of the trade-off is unstated, and the mo
 ## Entities
 
 - **Concepts**: [instruction following](../../../../wiki/concepts/instruction-following.md), [controllability](../../../../wiki/concepts/controllability.md), [alignment tax](../../../../wiki/concepts/alignment-tax.md), reasoning capability, generation length, trade-off
-- **Methods**: MathIF, distillation, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), prompt intervention
+- **Methods**: MathIF, [distillation](../../../../wiki/methods/knowledge-distillation.md), [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), prompt intervention
 - **Datasets**: MathIF
 
 Tags: `instruction following`, `benchmark`, `controllability`, `alignment tax`, `math reasoning`

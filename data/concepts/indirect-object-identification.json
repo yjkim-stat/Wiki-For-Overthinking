@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Indirect Object Identification (IOI)"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,23 @@
       "kind": "paper",
       "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
       "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model"
+    },
+    {
+      "id": "local:956614b275995bc4",
+      "kind": "paper",
+      "note": "Systematically varies the methodological choices in activation patching — how prompts are corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — and shows each choice can change which model components a study concludes are important.",
+      "title": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods"
+    },
+    {
+      "id": "local:e33ecf791dfdfa8a",
+      "kind": "paper",
+      "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+      "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
     }
   ],
   "first_seen": "2026-08-13T03:09:29Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T03:09:29Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-13T12:09:06Z",
   "name": "indirect object identification",
   "related": [
     "activation-patching",
@@ -28,7 +42,43 @@
     "causal-tracing",
     "finite-difference-verification",
     "jacobian-bound",
-    "qwen2-5-1-5b-instruct"
+    "qwen2-5-1-5b-instruct",
+    "causal-mediation-analysis",
+    "interchange-intervention",
+    "localization",
+    "out-of-distribution-intervention",
+    "logit-difference",
+    "negative-model-components",
+    "sliding-window-patching",
+    "gaussian-noising-corruption",
+    "symmetric-token-replacement",
+    "path-patching",
+    "kl-divergence-metric",
+    "logit-difference-metric",
+    "pairedfacts",
+    "greater-than-task",
+    "python-docstring-completion",
+    "basic-arithmetic",
+    "gpt-2-small",
+    "gpt-2-xl",
+    "gpt-j-6b",
+    "polysemanticity",
+    "sparse-dictionary-learning",
+    "monosemanticity",
+    "feature-dictionary",
+    "residual-stream",
+    "circuit-detection",
+    "enumerative-safety",
+    "automated-interpretability-score",
+    "sparse-autoencoder",
+    "automated-circuit-discovery-acdc",
+    "pca",
+    "ica",
+    "autointerpretability-scoring",
+    "ablation",
+    "the-pile",
+    "pythia-70m",
+    "pythia-410m"
   ],
   "related_authored": [],
   "schema_version": 1,

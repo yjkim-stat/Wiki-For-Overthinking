@@ -9,7 +9,7 @@ Editing a network's parameters by projecting a low-dimensional subspace out of t
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [weight-space ablation](weight-space-ablation.md)
+**Related**: [activation patching](activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [indirect object identification](../datasets/indirect-object-identification.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [weight-space ablation](weight-space-ablation.md)
 
 ## Appears in
 

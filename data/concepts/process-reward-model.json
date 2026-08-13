@@ -1,7 +1,8 @@
 {
   "aliases": [
     "PRM",
-    "process reward models"
+    "process reward models",
+    "Process Reward Models"
   ],
   "definition": "A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and inference-time selection. The sources converge on its cost being the binding problem — training one normally needs a label at every step, obtained either by hand or by sampling look-ahead rollouts from each prefix, which one source measures at 38.8 times the FLOPs of training an outcome model. That source then shows the cost is avoidable: parameterizing the outcome reward as a log-likelihood ratio between policy and reference makes the running sum of per-token ratios an exact expectation of the outcome reward at each step, so a PRM falls out of ORM training for free. Downstream sources treat a pretrained PRM as infrastructure — a local step validator supplying online pruning signals and cross-trajectory selection — and report the same failure mode: PRM quality is the limiting factor on hard problems, where it can be overconfident or prefer locally correct but globally wrong paths.",
   "evidence": [
@@ -46,11 +47,17 @@
       "kind": "paper",
       "note": "Formalizes 'spend test-time compute well' as a meta-reinforcement-learning problem — treating one long output stream as a sequence of episodes and scoring it by cumulative regret over tokens — and trains against a dense progress bonus that outcome-only reward cannot express.",
       "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning"
+    },
+    {
+      "id": "local:e62f069bc5144f28",
+      "kind": "paper",
+      "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+      "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "method",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:09:06Z",
   "name": "process reward model",
   "related": [
     "test-time-compute",
@@ -171,13 +178,36 @@
     "token-efficiency",
     "mrt-meta-reinforcement-fine-tuning",
     "outcome-reward-rl",
-    "supervised-finetuning-on-search-traces"
+    "supervised-finetuning-on-search-traces",
+    "intermediate-token-generation",
+    "derivational-trace",
+    "anthropomorphization-of-intermediate-tokens",
+    "trace-validity",
+    "false-trust",
+    "learned-prompt-augmentation",
+    "chain-of-thought-monitorability",
+    "generate-test-paradigm",
+    "a-search",
+    "supervised-fine-tuning",
+    "llm-modulo",
+    "wilson-maze-instances",
+    "nomaze-instances",
+    "deepseek-r1-zero",
+    "openai-o1",
+    "gpt-oss",
+    "llama",
+    "qwen",
+    "searchformer",
+    "dualformer"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "process-reward-model",
   "topics": [
     "test-time-scaling",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

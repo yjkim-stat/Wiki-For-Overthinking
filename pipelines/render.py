@@ -139,12 +139,19 @@ def queue_missing_definitions(cfg: Config) -> int:
     an actual definition, without anyone requesting it.
     """
     store = RecordStore(cfg.layout)
-    _, summarizer = _queue_and_summarizer(cfg)
+    queue, summarizer = _queue_and_summarizer(cfg)
 
     concepts = {c.slug: c for c in store.iter_concepts()}
     live = concepts_mod.promoted(cfg, concepts)
 
-    queued = 0
+    # LOCAL: counted from the queue, not from the return value. `add` refuses a
+    # task once the queue is at its cap and returns "", `define_concept`
+    # discards that and returns None either way, and None is what the loop
+    # below reads as "deferred to the queue" -- so a full queue was reported as
+    # four definitions filed when none were. The summary path next to this one
+    # already counts from the queue for a different reason; this is the same
+    # correction. See docs/commit/0060.
+    before = queue.count_pending()
     for concept in concepts_mod.undefined_concepts(cfg, live):
         sources = [
             {
@@ -155,9 +162,9 @@ def queue_missing_definitions(cfg: Config) -> int:
             }
             for item in concept.evidence
         ]
-        if summarizer.define_concept(concept.name, sources, cfg.language) is None:
-            queued += 1
+        summarizer.define_concept(concept.name, sources, cfg.language)
 
+    queued = queue.count_pending() - before
     if queued:
         _LOG.info("queued %d definition task(s)", queued)
     return queued

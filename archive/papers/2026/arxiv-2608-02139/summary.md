@@ -47,7 +47,7 @@ The conclusion's stated limitation is really future work — extending to domain
 
 - **Concepts**: self-improvement, experience distillation, on-policy self-distillation, [privileged information](../../../../wiki/concepts/privileged-information.md), [exploration](../../../../wiki/concepts/exploration.md), [policy entropy](../../../../wiki/concepts/policy-entropy.md), [reward sparsity](../../../../wiki/concepts/reward-sparsity.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [data efficiency](../../../../wiki/concepts/data-efficiency.md)
 - **Methods**: SPEE, [GRPO](../../../../wiki/methods/grpo.md), [on-policy self-distillation](../../../../wiki/methods/on-policy-self-distillation.md), reverse KL distillation, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md)
-- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), Minerva Math, [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md)
 
 Tags: `self-evolution`, `experience`, `reinforcement learning`, `distillation`, `exploration`
 

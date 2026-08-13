@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
       "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning"
+    },
+    {
+      "id": "local:e64d3a8c4788daf7",
+      "kind": "paper",
+      "note": "Introduces EDIS, a trajectory-level score that measures how unstably token entropy evolves during generation, and uses it to select better reasoning rollouts at inference and to curate training samples in RL.",
+      "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics"
     }
   ],
   "first_seen": "2026-08-13T00:31:59Z",
   "kind": "model",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:09:06Z",
   "name": "Qwen3-4B-Instruct-2507",
   "related": [
     "persistent-homology",
@@ -61,7 +67,31 @@
     "llama-3-2-3b-instruct",
     "llama-3-1-8b-instruct",
     "qwen2-5-7b-instruct",
-    "qwen2-5-14b-instruct"
+    "qwen2-5-14b-instruct",
+    "token-level-entropy",
+    "entropy-trajectory",
+    "burst-spike",
+    "peak-valley-rebound-spike",
+    "trajectory-level-confidence-metric",
+    "entropy-collapse",
+    "verifier-free-response-selection",
+    "training-time-sample-curation",
+    "process-supervision",
+    "edis-entropy-dynamics-instability-score",
+    "grpo",
+    "best-k-of-n-selection",
+    "majority-voting",
+    "self-certainty",
+    "sequence-entropy",
+    "score-weighted-borda-aggregation",
+    "sequence-filtering",
+    "sequence-weighting",
+    "math",
+    "amc23",
+    "aime-2024",
+    "numinamath-20k",
+    "qwen2-5-math-1-5b",
+    "qwen2-5-math-7b"
   ],
   "related_authored": [],
   "schema_version": 1,
@@ -69,6 +99,7 @@
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

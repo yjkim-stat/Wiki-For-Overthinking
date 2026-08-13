@@ -45,8 +45,8 @@ Effect sizes are not given in the abstract. Both backbones are Qwen2.5-VL, so re
 
 ## Entities
 
-- **Concepts**: [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), capability regression, experience replay, KL regularization, [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [training dynamics](../../../../wiki/concepts/training-dynamics.md), objective reweighting
-- **Methods**: RECAP, [RLVR](../../../../wiki/methods/rlvr.md), experience replay, KL divergence regularization, dynamic objective reweighting
+- **Concepts**: [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), [capability regression](../../../../wiki/concepts/catastrophic-forgetting.md), experience replay, KL regularization, [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [training dynamics](../../../../wiki/concepts/training-dynamics.md), objective reweighting
+- **Methods**: RECAP, [RLVR](../../../../wiki/methods/rlvr.md), experience replay, [KL divergence regularization](../../../../wiki/methods/kl-regularization.md), dynamic objective reweighting
 - **Datasets**: _none recorded_
 
 Tags: `catastrophic forgetting`, `rlvr`, `experience replay`, `capability regression`, `faithfulness`

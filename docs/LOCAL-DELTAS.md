@@ -100,7 +100,7 @@ If you re-apply nothing else from this section, re-apply that.
 | --- | --- |
 | `enrich/queue.py` | `errors.extend(placeholders.check(kind, result))` in `validate_result` |
 | `collect/conferences.py` | `local_abstracts.fill_missing(...)` at the end of `collect()`, after deduplication |
-| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, and the release of the unused reserve after `queue_missing_definitions` |
+| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, the release of the unused reserve after `queue_missing_definitions`, and `queue.count_pending()` on either side of the loop **inside** `queue_missing_definitions` |
 | `common/config.py` | `aliases.install(layout)` in `load()`, imported inside the function |
 | `enrich/concepts.py` | `_aliases.canonical(...)` inside `slug_for`, **and** `_aliases.canonical_name(slug) or name` where `entity()` builds a `Concept` |
 
@@ -112,6 +112,13 @@ the difference, rather than using the return value. That is not decoration: the
 function returns how many records lack a summary, so two passes over one
 backlog report it twice. Re-applying the reserve without this reports double
 (note 0032).
+
+**The same correction is needed one function further in.**
+`queue_missing_definitions` counted iterations whose `define_concept` returned
+`None`, and `None` means *asked*, not *filed* — `Queue.add` refuses at the cap
+and its return value is discarded. Restoring the reserve without this restores
+a counter that reads correctly on an idle queue and reports four definitions
+filed when none were on a busy one (note 0060).
 
 **The alias delta is two lines in one file, and re-applying only the obvious
 one is worse than re-applying neither.** `slug_for` decides which record a name
