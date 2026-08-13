@@ -43,7 +43,7 @@ The paper is unusually direct about scope: it states that gains of 1-2 pp may no
 
 ## Entities
 
-- **Concepts**: test-time augmentation, input diversity, output diversity, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), matched compute, cost-effectiveness, variance reduction, [answer aggregation](../../../../wiki/concepts/answer-aggregation.md)
+- **Concepts**: test-time augmentation, input diversity, output diversity, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), matched compute, cost-effectiveness, variance reduction, answer aggregation
 - **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [majority voting](../../../../wiki/methods/majority-voting.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), paraphrasing, [test-time scaling](../../../../wiki/methods/test-time-scaling.md)
 - **Datasets**: [MMLU](../../../../wiki/datasets/mmlu.md), MMMLU, [MMMU](../../../../wiki/datasets/mmmu.md), HLE, [MATH500](../../../../wiki/datasets/math500.md), IMDB Reviews
 

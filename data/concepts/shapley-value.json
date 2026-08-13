@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08829",
+      "kind": "paper",
+      "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+      "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1511",
       "kind": "paper",
       "note": "Applies conformal prediction to the joint reasoning-answer structure of reasoning models, then attributes coverage to specific training examples and reasoning steps with Shapley values.",
@@ -11,9 +17,29 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T12:49:24Z",
   "name": "Shapley value",
   "related": [
+    "steering-vector",
+    "layer-selection",
+    "per-instance-intervention",
+    "over-steering",
+    "fluency-collapse",
+    "detection-versus-control",
+    "saturation",
+    "sub-additivity",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "logistic-regression",
+    "pca",
+    "listwise-ranking",
+    "beam-search",
+    "adaptive-gating",
+    "anthropic-persona",
+    "llama-3-8b-instruct",
+    "aya-expanse-8b",
+    "qwen3-embedding",
+    "gpt-2",
     "conformal-prediction",
     "uncertainty-quantification",
     "calibration",
@@ -23,9 +49,11 @@
     "shapley-values",
     "uncertainty-set-construction"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "shapley-value",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

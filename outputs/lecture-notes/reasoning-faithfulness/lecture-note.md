@@ -139,7 +139,7 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | pass@k | 14 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| activation steering | 11 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
+| activation steering | 12 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |

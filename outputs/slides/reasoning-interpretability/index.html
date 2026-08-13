@@ -183,6 +183,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The archive&#x27;s interpretability cluster leans on sparse autoencoders, including a step-level SAE for reading reasoning traces, and this constrains what a set of active latents can be taken to mean. Two results matter here. First, the interpretability of individual latents does not license reading their union as a list of the concepts present -- a compatible refinement removes 20 to 60 percent of them, and they are removed rather than suppressed. Second, and less remarked, SAE-induced similarity aligns with human conceptual structure no better than the dense residual stream does; the extra machinery buys per-latent nameability, not a closer match to human categories. Together with the weight-based mounts entry read alongside it, which declines to claim any replacement for SAEs while noting that its own units carry no names, the archive now holds both halves of the trade: dictionaries give names without faithful composition, and weight rules give faithful mechanisms without names.</p>
 </section>
 <section class="slide">
+<h2>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</h2>
+<p class="subtitle">Muhammad Faishal Adly Nelwan, Alfan Farizki Wicaksono · 2026</p>
+<blockquote>
+<p>Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.</p>
+</blockquote>
+<ul>
+<li>A per-instance oracle over layer subsets establishing that the best layers change from input to input, with a permutation control</li>
+<li>A structural account of why a greedy top-K-by-single-layer-effect rule matches the exhaustive joint optimum: near-collinear mid-band vectors, negligible synergy, and padding</li>
+<li>A label-free deployable recipe -- a prompt-embedding layer ranker, a direction classifier, and an adaptive gate on how many layers to steer</li>
+<li>A mechanistic reading, direction over magnitude, that unifies global-rule corruption, high-K collapse, an unflippable ceiling and a cross-model dissociation</li>
+</ul>
+<p><strong>Results.</strong> The best layers are a property of the input: an input&#x27;s own oracle layers beat those of a different same-sign input in all twelve cells. The greedy rule then matches the exhaustive joint optimum -- statistically indistinguishable on 15 of 24 configurations on the full test set, with the oracle&#x27;s margin at or below about 2.6 points everywhere and under one point on most cells -- and the paper explains why rather than reporting it as luck. The layers that carry effect sit in a narrow mid-band whose vectors are near-collinear (mean pairwise cosine 0.65 and 0.61, adjacent pairs 0.92), so neighbours substitute for one another; two-layer synergy is a few thousandths of the metric against single-layer effects two orders larger, and correlates <em>negatively</em> with vector cosine; and the exhaustive optimum pads a third of its three-layer picks on one model and 61 percent on the other with a do-nothing bottom layer, so joint search reaches for a third active layer only when one helps. Over-steering turns out to be dose-graded and extremely concentrated: of 942 severe events, 97 percent fall in a single trait-model cell, growing from 30 at three layers to 624 at five with a median perplexity inflation of 810 points. Attributing those events by selector, the global oracle carries 227 and the fixed-depth greedy rule 76, while each adaptively gated variant carries exactly one -- so the pathology belongs to a fixed aggressive dose, not to any particular picker. The deployable recipe recovers 93 percent of the exhaustive steerable lift on Llama-3-8B-Instruct and 65 percent on Aya-Expanse-8B, exceeds the gold-aware global oracle on five of six tasks on the first model despite having no labels, and never drives a trait-model cell below its unsteered baseline -- where the global rules do, on four cells and eight cells respectively. Counting behavioural flips on the generated answer, the per-instance rules corrupt no answer at any depth while the global oracle climbs from 12 corruptions at one layer to 249 at five, going net negative there. And the ceiling is stated plainly: of 206 strongly opposed inputs, 155 are flipped by no selector at all, the exhaustive oracle included.</p>
+<p><strong>Why it matters.</strong> Sharpens the archive&#x27;s standing finding that a direction&#x27;s quality as a detector says nothing about its effect as an intervention, by adding the axis nobody here had varied: <em>where</em> the direction is applied. The same vector at different layers produces effects that differ enough that an input&#x27;s own layers beat another input&#x27;s oracle layers in every cell, and the paper&#x27;s summary -- direction over magnitude, meaning which layers carry the vector and hence which way the push points dominates how hard it is pushed -- means a steering result reported at a fixed layer is a measurement of that layer choice as much as of the direction. It also supplies the archive&#x27;s first controlled account of over-steering: fluency collapse is content crowding rather than norm inflation, the final-layer residual norm stays flat while the output degenerates to a content-free attractor, and 97 percent of severe events fall in one trait-model cell. Read with the constrained-ablation entry from the same day, the two agree that safe steering is a selection problem -- one selects the direction, the other selects the site -- and neither is solved by the canonical direction.</p>
+</section>
+<section class="slide">
 <h2>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</h2>
 <p class="subtitle">Arya Labroo, Mengjie Qian, Kate Knill · 2026</p>
 <blockquote>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> A clean instance of the archive&#x27;s standing finding that how well a direction detects a property licenses no claim about what intervening on it does. Here the standard refusal direction demonstrably mediates refusal and its cosine similarity with a steering vector <em>predicts</em> the safety damage -- and ablating it recovers almost nothing, leaving worst-case ASR unchanged on two of three models. The direction that must be removed has to be learned bottom-up against the intervention&#x27;s own objective, and it turns out to be partially opposed to the behavioural effect rather than merely orthogonal to it. That is a sharper statement than the archive currently holds: not only does a detection direction fail to transfer to intervention, the correct intervention direction is one no detector had named.</p>
 </section>
 <section class="slide">
-<h2>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</h2>
-<p class="subtitle">Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al. · 2026</p>
-<blockquote>
-<p>Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.</p>
-</blockquote>
-<ul>
-<li>Identification of the displacement-versus-full-state trade-off in trajectory-based reasoning-error detection</li>
-<li>A three-stream detector combining motion, a vector-quantized coarse region reader, and a fine direction reader over normalized multi-layer states</li>
-<li>Up to 12% and 21% selection-accuracy gains over displacement-only and single-layer probing baselines on unseen reasoning benchmarks</li>
-<li>Transfer to factual completion and fact verification, evidence that the signal tracks correctness rather than a reasoning type</li>
-</ul>
-<p><strong>Results.</strong> On reasoning benchmarks unseen during training, selection accuracy improves by up to 12% over the displacement-only state of the art and 21% over single-layer probing baselines. Though trained only on reasoning benchmarks, the detector also reads factual completion and fact verification ahead of every compared detector, which the authors take to place the signal on correctness rather than on a kind of reasoning. Ablations show motion, region and direction contribute complementary signals.</p>
-<p><strong>Why it matters.</strong> A concrete answer to where reasoning errors live: a region and a direction in residual-stream trajectory space, with the two carrying complementary information and neither sufficient alone. The methodological contribution is the deliberate restriction of state information — quantized region plus normalized direction — as a way to get state context without shortcut features, which is a middle path between displacement-only trajectories and full-state probing that the archive&#x27;s probing thread has not held before.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -279,22 +279,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</strong> — The paper is explicit that its two preliminary checks establish only that signatures can be meaningful in controlled settings and in qualitative neighbourhoo...</li>
+<li><strong>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</strong> — The paper marks its own boundaries carefully, which is unusual and worth noting: the cross-model dissociation is called provisional and the magnitude gap exp...</li>
 <li><strong>Safety Cost of Steering Vectors Is Separable and Reducible</strong> — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the c...</li>
 <li><strong>Finding Usable Weight Mechanisms with Tiled SVD</strong> — The paper&#x27;s own list is unusually direct, and its discussion opens by saying the novelty is thin: singular vectors of transformer weights, detector-effector...</li>
 <li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
 <li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
-<li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 <li><strong>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</strong> — The paper&#x27;s discussion is the most careful in this archive and states the bounds itself. The three central results rest on the additive decomposition and the...</li>
 <li><strong>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</strong> — The paper is unusually precise about what it did not close, and the closing sentences are worth quoting in effect: a theory that only ever gets confirmed on...</li>
 <li><strong>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</strong> — The limitations section is exemplary and should be read as part of the result. The construct-validity concern is stated first and is the sharpest: short-term...</li>
 <li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
 <li><strong>Inverted Detection and Control in Steering Vectors</strong> — The paper states its scope: it studies translation-based steering vectors specifically, in order to isolate the inverted phenomenon, and does not evaluate mo...</li>
-<li><strong>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</strong> — The paper states none beyond its conclusion that there is no one-size-fits-all method. What a reader should weigh: the headline robustness claim holds on the...</li>
 </ul>
 </section>
 <section class="slide">
@@ -304,15 +304,16 @@ th { background: var(--surface); }
 <li>Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. <em>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</em>. cs.LG. 2026</li>
 <li>Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. <em>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</em>. ACL. 2026</li>
 <li>Nikolai Bolik, Lennart Stöpler, Artur Andrzejak. <em>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</em>. cs.LG. 2026</li>
+<li>Muhammad Faishal Adly Nelwan, Alfan Farizki Wicaksono. <em>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</em>. cs.CL. 2026</li>
 <li>Arya Labroo, Mengjie Qian, Kate Knill. <em>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</em>. cs.AI. 2026</li>
 <li>Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. <em>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</em>. cs.CL. 2026</li>
 <li>Yuxiao Li, Gjergji Kasneci. <em>Safety Cost of Steering Vectors Is Separable and Reducible</em>. cs.CL. 2026</li>
-<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</em>. cs.AI. 2026</li>
 <li>Max Torop, Aria Masoomi, Jennifer Dy. <em>Inverted Detection and Control in Steering Vectors</em>. cs.LG. 2026</li>
@@ -320,12 +321,12 @@ th { background: var(--surface); }
 <li>Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. <em>Multi-component Causal Tracing in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
 <li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
-<li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 <li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
 <li>Ash Manvi, Samreena Tajreen. <em>Finding Usable Weight Mechanisms with Tiled SVD</em>. cs.AI. 2026</li>
@@ -333,7 +334,6 @@ th { background: var(--surface); }
 <li>Nan Chen, Zhouhao Yang, Soufiane Hayou. <em>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</em>. cs.CL. 2026</li>
 <li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
 <li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
-<li>Xinyan Jiang, Ninghao Liu, Di Wang et al.. <em>Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability</em>. ICML. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

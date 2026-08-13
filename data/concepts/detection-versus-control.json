@@ -33,11 +33,17 @@
       "kind": "paper",
       "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
       "title": "Finding Usable Weight Mechanisms with Tiled SVD"
+    },
+    {
+      "id": "arxiv:2608.08829",
+      "kind": "paper",
+      "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+      "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models"
     }
   ],
   "first_seen": "2026-08-13T01:37:09Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:41:01Z",
+  "last_seen": "2026-08-13T12:49:24Z",
   "name": "detection versus control",
   "related": [
     "steering-vector",
@@ -102,7 +108,23 @@
     "ridge-regression",
     "ablation",
     "wikitext-2",
-    "gemma-2-2b"
+    "gemma-2-2b",
+    "layer-selection",
+    "per-instance-intervention",
+    "over-steering",
+    "fluency-collapse",
+    "saturation",
+    "shapley-value",
+    "sub-additivity",
+    "pca",
+    "listwise-ranking",
+    "beam-search",
+    "adaptive-gating",
+    "anthropic-persona",
+    "llama-3-8b-instruct",
+    "aya-expanse-8b",
+    "qwen3-embedding",
+    "gpt-2"
   ],
   "related_authored": [
     "representation-versus-readout"

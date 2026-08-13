@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
       "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
+    },
+    {
+      "id": "arxiv:2608.08829",
+      "kind": "paper",
+      "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+      "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models"
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:53:45Z",
+  "last_seen": "2026-08-13T12:49:24Z",
   "name": "Llama-3-8B-Instruct",
   "related": [
     "llm-as-a-judge",
@@ -49,12 +55,32 @@
     "deepseek-r1-distill-llama-8b",
     "deepseek-r1-distill-llama-70b",
     "llama-3-70b-instruct",
-    "aya-expanse-8b"
+    "aya-expanse-8b",
+    "steering-vector",
+    "layer-selection",
+    "per-instance-intervention",
+    "over-steering",
+    "fluency-collapse",
+    "detection-versus-control",
+    "saturation",
+    "shapley-value",
+    "sub-additivity",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "logistic-regression",
+    "pca",
+    "listwise-ranking",
+    "beam-search",
+    "adaptive-gating",
+    "anthropic-persona",
+    "qwen3-embedding",
+    "gpt-2"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "llama-3-8b-instruct",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }
