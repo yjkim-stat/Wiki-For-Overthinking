@@ -7,9 +7,9 @@ Whether reading a model's reasoning trace reveals what is driving its behaviour,
 - **Kind**: concept
 - **Also called**: CoT monitorability, monitoring, trace readability
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
-- **Sources**: 12
+- **Sources**: 13
 
-**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [activation steering](../methods/activation-steering.md), [AIME25](../datasets/aime25.md), [alignment](alignment.md), [backtracking](backtracking.md), [BBH](../datasets/bbh.md), [causal intervention](causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [commitment boundary](commitment-boundary.md), [contrastive activation addition](../methods/contrastive-activation-addition.md), [controllability](controllability.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [curriculum learning](curriculum-learning.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-V3](../models/deepseek-v3.md), [early exit](../methods/early-exit.md), [epistemic verbalization](epistemic-verbalization.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o](../models/gpt-4o.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-OSS](../models/gpt-oss.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [gpt-oss-20b](../models/gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [instruction following](instruction-following.md), [inverse scaling](inverse-scaling.md), [jailbreak](jailbreak.md), [KL regularization](../methods/kl-regularization.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [MMLU-Pro](../datasets/mmlu-pro.md), [multi-turn reasoning](../methods/multi-turn-reasoning.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](overthinking.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [post-hoc rationalization](post-hoc-rationalization.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning boundary](reasoning-boundary.md), [reasoning redundancy](reasoning-redundancy.md), [reward hacking](reward-hacking.md), [safety alignment](safety-alignment.md), [self-correction](self-correction.md), [self-repair](self-repair.md), [steering vector](../methods/steering-vector.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [sycophancy](sycophancy.md), [synthetic data generation](../methods/synthetic-data-generation.md), [truthfulness](truthfulness.md), [verbosity](verbosity.md), [ZebraLogic](../datasets/zebralogic.md)
+**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [activation steering](../methods/activation-steering.md), [adaptive compute allocation](adaptive-compute-allocation.md), [AIME25](../datasets/aime25.md), [alignment](alignment.md), [auditability](auditability.md), [backtracking](backtracking.md), [BBH](../datasets/bbh.md), [BeaverTails](../datasets/beavertails.md), [causal intervention](causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [Coconut](../methods/coconut.md), [commitment boundary](commitment-boundary.md), [contrastive activation addition](../methods/contrastive-activation-addition.md), [controllability](controllability.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [curriculum learning](curriculum-learning.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-V3](../models/deepseek-v3.md), [difference-of-means probe](../methods/difference-of-means-probe.md), [early exit](../methods/early-exit.md), [epistemic verbalization](epistemic-verbalization.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o](../models/gpt-4o.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-OSS](../models/gpt-oss.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [gpt-oss-20b](../models/gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [HarmBench](../datasets/harmbench.md), [implicit reasoning](implicit-reasoning.md), [instruction following](instruction-following.md), [inverse scaling](inverse-scaling.md), [jailbreak](jailbreak.md), [KL regularization](../methods/kl-regularization.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [logistic regression](../methods/logistic-regression.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [MMLU-Pro](../datasets/mmlu-pro.md), [multi-turn reasoning](../methods/multi-turn-reasoning.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](overthinking.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [post-hoc rationalization](post-hoc-rationalization.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning boundary](reasoning-boundary.md), [reasoning redundancy](reasoning-redundancy.md), [representation versus readout](representation-versus-readout.md), [reward hacking](reward-hacking.md), [safety alignment](safety-alignment.md), [self-correction](self-correction.md), [self-repair](self-repair.md), [steering vector](../methods/steering-vector.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [sycophancy](sycophancy.md), [synthetic data generation](../methods/synthetic-data-generation.md), [truthfulness](truthfulness.md), [verbosity](verbosity.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## What we have settled
 
@@ -22,6 +22,7 @@ Whether reading a model's reasoning trace reveals what is driving its behaviour,
 - [Evading Chain-of-Thought Monitoring Through Model Poisoning](../../archive/papers/2026/arxiv-2608-02820/summary.md) — Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).
 - [The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics](../../archive/papers/2026/arxiv-2608-03291/summary.md) — Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.
 - [Risky Business: Measuring The Faithfulness-Safety Tension](../../archive/papers/2026/arxiv-2608-03745/summary.md) — Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.
+- [LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards](../../archive/papers/2026/arxiv-2608-03838/summary.md) — Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.
 - [Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings](../../archive/papers/2026/arxiv-2608-04735/summary.md) — The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
 - [Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?](../../archive/papers/2026/arxiv-2608-04928/summary.md) — Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.
 - [Red Teaming Large Reasoning Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1034/summary.md) — A trustworthiness benchmark for reasoning models over truthfulness, safety and efficiency, using training paradigm as an analytical axis, and finding reasoning models more fragile than plain LLMs to reasoning-induced risks.
@@ -158,4 +159,40 @@ other.** The full evidence and the mechanistic finding that the two are
 here because it is a fact about faithfulness that constrains monitorability,
 not the reverse.
 
-<!-- analysis-sources: 12 -->
+### Revised at thirteen sources: an audit interface that mostly re-reads the input
+
+A deployed-shaped instance arrived, and its own ablation is the finding. A
+safety guard moves its reasoning off the critical path into continuous latents —
+268 rationale tokens down to 1.60 — and offers an **on-demand audit decoder**
+that reconstructs a human-readable artifact when a decision is questioned.
+Exactly the arrangement a provider would build.
+
+Its audit-utility ablation:
+
+| Removed | Cost in audit utility |
+| --- | --- |
+| the guard's **latent states** | −2.76 |
+| the **source text** | **−17.14** |
+
+So the artifact that is supposed to make a latent decision inspectable is
+anchored overwhelmingly by re-reading the input a human auditor could read
+anyway; the internal computation contributes a small margin. The authors are
+straightforward that the decoder is not meant to recover the guard's internal
+process — which makes the design honest and the inspection claim much narrower
+than "inspectable" suggests.
+
+**This is the observability ladder's result in a shipped interface.** There, a
+self-summary added +0.156 AUROC with the prompt withheld and +0.019 with it
+visible; here, an audit artifact loses 17.14 points when it loses the input. The
+same quantity is being measured both times: **how much of an explanation is
+recoverable from what the reader already has.** An inspection interface whose
+output survives losing the model's internals but not losing the prompt is
+supplying a plausible account, not a window.
+
+**The check that would settle it is not run.** Nothing tests whether the audit
+artifact and the verdict can be made to *disagree* — the consistency test that
+[[chain-of-thought-faithfulness]] establishes is the only thing surviving
+adversarial decoupling. Until an audit interface is stress-tested that way, its
+consistency with the decision it explains is assumed.
+
+<!-- analysis-sources: 13 -->

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The angle between two vectors, used as a similarity that ignores magnitude, and in both sources the readout that turns a geometric claim into a number. One proves when it suffices and when it does not: a coordinate-aware comparison of activation summaries separates classes whose means differ in direction, where a norm-only rule is at chance, while the converse holds when classes share a mean and differ only in scale — so choosing between angle and magnitude is a fact about the task, not a convention. The other uses it as the supervision signal itself, computing a per-token loss between decoded latent features and the frozen encoder's features of the true future observation, and separately as the readout in an intervention probe. Between them the pair marks the two uses that get conflated: a similarity used to compare, and a similarity used to train.
 
 - **Kind**: method
+- **Also called**: cosine distance
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

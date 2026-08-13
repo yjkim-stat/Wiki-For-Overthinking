@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
       "title": "Inverted Detection and Control in Steering Vectors"
+    },
+    {
+      "id": "arxiv:2608.03838",
+      "kind": "paper",
+      "note": "Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.",
+      "title": "LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:37:09Z",
+  "last_seen": "2026-08-13T03:54:49Z",
   "name": "representation versus readout",
   "related": [
     "linear-probe",
@@ -75,7 +81,38 @@
     "gemma-3-12b",
     "qwen2-5-14b",
     "olmo-3-7b",
-    "gpt-4-1-mini"
+    "gpt-4-1-mini",
+    "latent-reasoning",
+    "monitorability",
+    "auditability",
+    "post-hoc-rationalization",
+    "safety-alignment",
+    "curriculum-learning",
+    "adaptive-compute-allocation",
+    "guard-model",
+    "latentguard",
+    "coconut",
+    "guardreasoner",
+    "supervised-fine-tuning",
+    "stop-gradient",
+    "adaptive-early-exit",
+    "guardreasonertrain",
+    "toxicchat",
+    "harmbench",
+    "openai-moderation",
+    "aegis-safetytest",
+    "simplesafetytests",
+    "saferlhf",
+    "beavertails",
+    "xstest",
+    "wildguard-test",
+    "latentguard-8b",
+    "guardreasoner-8b",
+    "llamaguard3-8b",
+    "llamaguard4-12b",
+    "wildguard",
+    "robloxguard-1-0",
+    "qwen3-5-27b"
   ],
   "related_authored": [
     "unembedding",
@@ -84,6 +121,7 @@
   "schema_version": 1,
   "slug": "representation-versus-readout",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-faithfulness"
   ]
 }

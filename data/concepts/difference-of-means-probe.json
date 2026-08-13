@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
       "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
+      "id": "arxiv:2608.03892",
+      "kind": "paper",
+      "note": "Trains a difference-of-means direction on short- versus long-horizon answer continuations and steers along it, shifting binary temporal choices, moving the monetary indifference threshold on an untrained task by a factor of 56 at a ten-year delay, and changing a planning benchmark — with matched-norm random controls and an unusually candid account of what the direction may actually encode.",
+      "title": "Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition"
     }
   ],
   "first_seen": "2026-08-13T03:39:22Z",
   "kind": "method",
-  "last_seen": "2026-08-13T03:39:22Z",
+  "last_seen": "2026-08-13T03:54:49Z",
   "name": "difference-of-means probe",
   "related": [
     "chain-of-thought-faithfulness",
@@ -36,12 +42,21 @@
     "ministral-3-14b-reasoning",
     "deepseek-r1-distill-llama-70b",
     "gpt-oss-120b",
-    "minimax-m2-230b"
+    "minimax-m2-230b",
+    "detection-versus-control",
+    "construct-validity",
+    "intertemporal-preference",
+    "long-horizon-planning",
+    "randomized-control",
+    "out-of-distribution-generalization",
+    "logistic-regression",
+    "travelplanner"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "difference-of-means-probe",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Training a generative model by regressing a velocity field along a straight interpolation between noise and data, so sampling becomes integration of an ordinary differential equation. The two sources meet at the seam that creates. One uses it to predict action chunks, integrating the learned field with a fixed number of Euler steps at deployment. The other identifies the problem that follows for reinforcement learning on such models: the deployment sampler is deterministic while online RL needs stochastic rollouts, and the usual remedy of substituting a stochastic differential equation during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as exploration noise rises. Its fix keeps the inference-aligned deterministic step and adds a correction targeting the same marginal, so exploration is bought without changing the sampler.
 
 - **Kind**: method
+- **Also called**: conditional flow matching
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

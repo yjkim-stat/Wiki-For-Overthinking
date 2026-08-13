@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:54:49Z",
   "created_at": "2026-08-13T03:25:16Z",
   "instructions": "Write the wiki definition for 'flow matching'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "flow matching",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "flow matching",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "conditional flow matching"
+    ],
+    "definition": "Training a generative model by regressing a velocity field along a straight interpolation between noise and data, so sampling becomes integration of an ordinary differential equation. The two sources meet at the seam that creates. One uses it to predict action chunks, integrating the learned field with a fixed number of Euler steps at deployment. The other identifies the problem that follows for reinforcement learning on such models: the deployment sampler is deterministic while online RL needs stochastic rollouts, and the usual remedy of substituting a stochastic differential equation during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as exploration noise rises. Its fix keeps the inference-aligned deterministic step and adds a correction targeting the same marginal, so exploration is bought without changing the sampler.",
+    "kind": "method",
+    "related": [
+      "exploration"
+    ]
   },
   "task_id": "concept__flow-matching",
   "task_version": 1,

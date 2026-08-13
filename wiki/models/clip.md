@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A vision-language encoder trained to align image and text embeddings, used by both sources as fixed infrastructure rather than as a subject. One uses it as the safety encoder against whose prohibited-concept embeddings intermediate clean-image estimates are scored, and names the consequence in its own limitations: the method inherits whatever ambiguity that encoder has about what a concept is. The other uses it to encode language instructions in an ablation, where replacing a visual task representation with such encoded instructions costs 8.6 points. Its role in both is as a component whose failure modes propagate into results built on it — which is worth recording, since neither paper is in a position to audit it.
 
 - **Kind**: model
+- **Also called**: CLIP encoder
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

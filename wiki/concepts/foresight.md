@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Predicting what comes next before or while acting, treated by both sources as something to train for rather than to hope emerges. One makes it an explicit auxiliary objective — a latent predicting the observation one chunk ahead, supervised in a frozen encoder's feature space — and finds removing it costs 15.6 points, collapsing a world-action model to a reactive policy. The other searches over candidate continuations to find a better reasoning path rather than committing to the first. The pair marks the two available forms: supervise a prediction of the future during training, or search the future at inference. Only the first leaves nothing extra to pay at deployment, since its decoder is discarded once trained.
 
 - **Kind**: concept
+- **Also called**: lookahead
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -47,7 +47,7 @@ Only three target models. Success is measured by benchmark judges, and 'approach
 
 - **Concepts**: [jailbreak](../../../../wiki/concepts/jailbreak.md), safety reasoning, attack surface, transparency trade-off, refusal leakage, [monitorability](../../../../wiki/concepts/monitorability.md)
 - **Methods**: AutoRAN, execution simulation, iterative attack refinement, automated red teaming
-- **Datasets**: AdvBench, HarmBench, StrongReject
+- **Datasets**: AdvBench, [HarmBench](../../../../wiki/datasets/harmbench.md), StrongReject
 
 Tags: `jailbreak`, `red teaming`, `safety reasoning`, `attack`, `transparency`
 

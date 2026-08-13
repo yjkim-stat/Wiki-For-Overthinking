@@ -197,6 +197,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The paper is robotics rather than language, and what carries over is its check rather than its method. A latent that is supposed to represent the future is only doing that if intervening on the action changes it, and the paper tests exactly that — swapping the action chunk moves the predicted future features while adding noise of comparable size does not. That is the discipline this archive keeps asking of latent reasoning claims in language models and rarely gets: an intervention that distinguishes a representation that is used from one that is merely present. The ablation is a second point of contact. Removing the future-prediction objective costs 15.6 points, so the latent is load-bearing here in a way this archive&#x27;s latent-CoT results generally find it is not — where deleting latent tokens changed accuracy by at most 1.0 point. The difference is worth noting because it is a difference in supervision: this latent is trained against an observable future state, while a latent thought in a language model is supervised only through the answer that follows it.</p>
 </section>
 <section class="slide">
+<h2>LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards</h2>
+<p class="subtitle">Zhinan Liu, Jie Li, Mingyu Kang et al. · 2026</p>
+<blockquote>
+<p>Compresses a safety guard&#x27;s textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.</p>
+</blockquote>
+<ul>
+<li>Framing safety moderation as task-aligned latent rationale compression, with the three coupled subtasks — request harmfulness, refusal detection, response harmfulness — each getting its own reasoning component to replace</li>
+<li>A staged curriculum that replaces those components with continuous latent states one at a time rather than optimizing the fully latent configuration directly</li>
+<li>An adaptive latent budget at inference: latent states are produced recurrently and stopped when the end-of-reasoning probability crosses a threshold, so easy inputs stop early and hard ones use more</li>
+<li>An isolated audit decoder trained under stop-gradient, so producing an inspection artifact cannot change the guard&#x27;s latent reasoning, and is invoked only when inspection is requested</li>
+</ul>
+<p><strong>Results.</strong> Moderation quality improves rather than degrades: mean weighted F1 across the three subtasks rises from 83.95 to 84.91 at 8B against the reasoning guard it is initialized from, with the largest gain on request harmfulness (+1.84), and the same ordering holds at 1B and 3B. Efficiency is where the method is meant to pay and does — the 8B model&#x27;s reasoning budget falls from 268.56 explicit rationale tokens to 1.60 latent ones and latency from 0.792s to 0.089s, a 168-fold token reduction and 8.9-fold speedup. That comparison is against reasoning guards; against classification guards it remains slower (0.089s against 0.029s and 0.074s for two of them), which the table shows and the text does not dwell on. The ablation that matters most is the continued-training control: starting from the same checkpoint and training the same number of epochs without latent replacement costs 0.65, 1.63 and 1.41 mean F1 at the three scales, so the gain comes from latent reasoning rather than from extra training, and removing the staged curriculum costs a further 0.51 to 1.05. Adaptive stopping lands near the saturated region of the fixed-budget curve on both an easy and a hard benchmark, so the budget need not be tuned per dataset. On audit utility the full decoder reaches 85.75 at 8B, and manual annotation of 386 decoded rationales agrees with the automatic judge 95.6% on label support and 94.8% on rationale quality. But the decoder&#x27;s own ablation is the paper&#x27;s most revealing number and it cuts against the inspection story: removing source-text conditioning costs 17.14 audit-utility points, while removing the guard&#x27;s latent states costs 2.76 — so the artifact that is supposed to make a latent decision inspectable is anchored overwhelmingly by re-reading the input, with the latent states contributing a small increment.</p>
+<p><strong>Why it matters.</strong> This is a deployed-shaped instance of the question the archive keeps asking, and its own ablation answers it in the unwelcome direction. The system removes reasoning from the output and then offers an inspection interface that reconstructs a rationale on demand — exactly the arrangement a provider would want. Removing the latent states from that reconstruction costs 2.76 audit-utility points; removing the source text costs 17.14. So the artifact is mostly re-derived from what the auditor could already read, and the latent computation contributes a small margin. That is the archive&#x27;s representation-versus-readout pattern appearing in a safety interface rather than in a probe, and it sharpens the observability result already held here: a summary&#x27;s value collapses once the reader has the prompt, and here an audit artifact&#x27;s value collapses once it loses the input. The authors are honest that the decoder is not meant to recover the internal process, which makes the design defensible and the inspection claim narrower than the framing suggests. What is missing, and would settle it, is the check the archive&#x27;s poisoning work supplies for traces: whether the audit artifact and the verdict can be made to disagree. Nothing here tests that, so the artifact&#x27;s consistency with the decision is assumed rather than measured.</p>
+</section>
+<section class="slide">
 <h2>Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning</h2>
 <p class="subtitle">Xuyang Zhao, Liting Zhang, Zichen Xu et al. · 2026</p>
 <blockquote>
@@ -225,21 +240,6 @@ th { background: var(--surface); }
 </ul>
 <p><strong>Results.</strong> Averaged over all 30 settings the method reaches 64.5 percent, 6.6 points above chain-of-thought prompting and 2.4 above the strongest competing method, and is best in 23 of 30. Against the output-side latent baseline it wins every benchmark-format aggregate, by 2.2 and 2.0 points on GPQA-Diamond, 2.5 and 3.8 on GSM8K, and 2.8 and 8.9 on MATH-500. The robustness results are the more interesting half. Across seven learning-rate settings its accuracy moves only from 51.4 to 53.8 percent against 47.6 to 51.8 for the baseline, with standard deviation 0.82 against 1.53. And the random-walk variant — reward guidance removed entirely — averages 60.6 percent against 60.3 for the reward-guided baseline, which the paper reads as evidence that the latent space itself is the robust part and the reward only decides how well it is explored. The ablation separates three contributions cleanly: inserting a fixed prefix moves the average from 60.5 to 62.0 percent but degrades six of fifteen settings, random optimization of that prefix beats the fixed version in 14 of 15, and reward-derived directions add a further 2.4 points to reach 66.6. Gradient attribution puts latent influence on reasoning connectors — tokens like &#x27;because&#x27;, &#x27;therefore&#x27; and &#x27;then&#x27; — at 0.308, 0.303 and 0.256 gradient strength across the three benchmarks, well above answer markers, answer content, formatting and content explanation, with answer content lowest on two of three. The layer sweep favours intermediate depth: 25 to 50 percent of the network beats the embedding level on all three benchmarks and 75 percent is worse than either, most visibly on GPQA-Diamond.</p>
 <p><strong>Why it matters.</strong> The gradient attribution is the part that bears on faithfulness, and it points the same way as this archive&#x27;s other latent-reasoning evidence. Optimizing a latent state changes reasoning connectors far more than answer content — 0.303 against 0.018 on GSM8K — so what the intervention moves is the shape of the trace rather than the conclusion it reports. Read alongside the archive&#x27;s finding that trace content is often not what produces the answer, that is a second route to the same place: the connective tissue of a chain is what an internal intervention has purchase on, which is exactly the part a reader would take as evidence of reasoning. The case study points the other way and is worth keeping for it: the output-side method visibly corrupts the decoded text while getting the answer wrong, whereas this one corrects the answer without altering the token sequence — a reminder that an unchanged-looking trace is not evidence that nothing was intervened on.</p>
-</section>
-<section class="slide">
-<h2>SeLaR: Selective Latent Reasoning in Large Language Models</h2>
-<p class="subtitle">Renyu Fu, Guibo Luo · ACL · 2026</p>
-<blockquote>
-<p>Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.</p>
-</blockquote>
-<ul>
-<li>Identification of two failure modes in latent reasoning: perturbation of high-confidence steps by global activation, and soft-embedding collapse toward the top token</li>
-<li>SeLaR, a training-free selective latent reasoning framework</li>
-<li>An entropy gate that activates soft embeddings only at low-confidence steps</li>
-<li>Entropy-aware contrastive regularization pushing soft embeddings off the top-token direction</li>
-</ul>
-<p><strong>Results.</strong> On five reasoning benchmarks, SeLaR consistently outperforms standard CoT and state-of-the-art training-free methods. No numbers, benchmarks or models are given in the abstract.</p>
-<p><strong>Why it matters.</strong> Interesting to this topic mainly for what it implies about monitoring: reasoning becomes latent exactly at the low-confidence steps, which are the steps a monitor would most want to read. So selective latent reasoning is not a uniform loss of transparency but a targeted one, concentrated where decisions are actually being made. That is a sharper version of the concern in arxiv:2608.04928, which finds monitorability depends on task structure more than reasoning mode — this paper&#x27;s gating gives a concrete case where mode and decision-point coincide. It also reuses the entropy-as-decision-point signal the archive tracks from the training side, here at inference and without training.</p>
 </section>
 <section class="slide">
 <h2>Recurring ideas</h2>
@@ -280,20 +280,20 @@ th { background: var(--surface); }
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
 <li><strong>Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?</strong> — No quantitative results in the abstract. Hint-reliance is one proxy target, and a negative result about reasoning mode on this target need not transfer to ot...</li>
 <li><strong>LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation</strong> — No limitations section appears in the main text. What a reader should weigh: the headline comparison is close enough that the ordering depends on which colum...</li>
+<li><strong>LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards</strong> — The paper has no limitations section, and one of its own framings should be read as the central caveat: the auxiliary decoder is explicitly not intended to r...</li>
 <li><strong>Evading Chain-of-Thought Monitoring Through Model Poisoning</strong> — The paper states its bounds directly: three open-weight reasoning models between 3.8B and 12B parameters, with every backdoor installed through supervised fi...</li>
 <li><strong>Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning</strong> — The paper states its scope in the conclusion rather than a limitations section: two Qwen2.5-Instruct sizes, mathematics and STEM multiple choice with verifia...</li>
-<li><strong>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the random-walk result is presented as robustness and is also the sharpest bound on the cla...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the random-walk result is presented as robustness and is also the sharpest bound on the cla...</li>
 <li><strong>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</strong> — The paper names four. The summaries are a controlled proxy — the same model, one instruction, no content filter and no incentive to evade a monitor — so the...</li>
 <li><strong>Reasoning Traces Shape Outputs but Models Won&amp;apos;t Say So</strong> — Three models, unnamed in the abstract. Injected snippets are synthetic, so the influence is not one the model generated itself and non-disclosure of an exter...</li>
 <li><strong>SeLaR: Selective Latent Reasoning in Large Language Models</strong> — No quantitative results, benchmarks or models in the abstract. The entropy gate introduces a threshold whose sensitivity is unreported, and the archive&#x27;s ent...</li>
 <li><strong>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</strong> — The authors name three: other latent-reasoning families are untested, including RL-trained continuous chains and recurrent or looped-layer architectures; the...</li>
 <li><strong>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</strong> — The paper has no limitations section, though its conclusion is explicit that the next step is richer domains and names program states, theorem-prover goals,...</li>
-<li><strong>Local Causal Attribution of Chain-of-Thought Reasoning</strong> — The paper&#x27;s stated limitations are the limited expressiveness of linear structural equations and the simplicity of the default leave-one-out intervention, wi...</li>
 </ul>
 </section>
 <section class="slide">
@@ -304,14 +304,15 @@ th { background: var(--surface); }
 <li>Pedro Ferreira, Wilker Aziz, Ivan Titov. <em>Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?</em>. cs.CL. 2026</li>
 <li>Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. <em>Evading Chain-of-Thought Monitoring Through Model Poisoning</em>. cs.CR. 2026</li>
 <li>Fan Yang, Yuting Su, Xiaobo Wang et al.. <em>LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation</em>. cs.RO. 2026</li>
+<li>Zhinan Liu, Jie Li, Mingyu Kang et al.. <em>LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards</em>. cs.AI. 2026</li>
 <li>Xuyang Zhao, Liting Zhang, Zichen Xu et al.. <em>Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning</em>. cs.AI. 2026</li>
 <li>Zhaoxin Yu, Qi Shen, Hengli Li et al.. <em>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</em>. cs.LG. 2026</li>
-<li>Renyu Fu, Guibo Luo. <em>SeLaR: Selective Latent Reasoning in Large Language Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Renyu Fu, Guibo Luo. <em>SeLaR: Selective Latent Reasoning in Large Language Models</em>. ACL. 2026</li>
 <li>Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. <em>Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity</em>. preprint. 2025</li>
 <li>Miles Turpin, Julian Michael, Ethan Perez et al.. <em>Language Models Don&#x27;t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting</em>. cs.CL. 2023</li>
 <li>Andres Algaba, Francesca Carlon, Lynn Delcon et al.. <em>How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models</em>. cs.LG. 2026</li>
@@ -319,12 +320,12 @@ th { background: var(--surface); }
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
 <li>Benjamin Shih, John Winnicki, Eric Darve. <em>Do Models Read What They Write? Causal Registers in Scratchpad Reasoning</em>. preprint. 2026</li>
 <li>Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. <em>Local Causal Attribution of Chain-of-Thought Reasoning</em>. Mechanistic Interpretability Workshop at ICML 2026. 2026</li>
-<li>Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. <em>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. <em>Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty</em>. preprint. 2026</li>
 <li>Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. <em>Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models</em>. preprint. 2026</li>
 <li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
 <li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
@@ -332,7 +333,6 @@ th { background: var(--surface); }
 <li>Chen Qian, Dongrui Liu, Haochen Wen et al.. <em>Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning</em>. preprint. 2025</li>
 <li>Leheng Sheng, An Zhang, Zijian Wu et al.. <em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 <li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
-<li>Xumeng Wen, Zihan Liu, Shun Zheng et al.. <em>Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs</em>. preprint. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

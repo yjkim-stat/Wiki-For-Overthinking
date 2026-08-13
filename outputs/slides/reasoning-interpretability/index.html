@@ -246,11 +246,11 @@ th { background: var(--surface); }
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
+<li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
 <li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
 <li><strong>reasoning redundancy</strong> — The part of a chain of thought that does no work, and the quantity every efficiency method in this archive is trying to identify. Fifteen...</li>
 <li><strong>localization</strong> — Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing q...</li>
 <li><strong>entropy collapse</strong> — The failure mode in which a policy&#x27;s output distribution becomes progressively more deterministic during reinforcement learning, eliminat...</li>
-<li><strong>prompt difficulty</strong> — How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Ele...</li>
 </ul>
 </section>
 <section class="slide">
@@ -261,7 +261,7 @@ th { background: var(--surface); }
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>supervised fine-tuning</strong> — Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unsta...</li>
 <li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
-<li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
+<li><strong>linear probe</strong> — A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive&#x27;s most common in...</li>
 </ul>
 </section>
 <section class="slide">
@@ -283,18 +283,18 @@ th { background: var(--surface); }
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 <li><strong>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</strong> — The paper&#x27;s discussion is the most careful in this archive and states the bounds itself. The three central results rest on the additive decomposition and the...</li>
 <li><strong>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</strong> — The paper is unusually precise about what it did not close, and the closing sentences are worth quoting in effect: a theory that only ever gets confirmed on...</li>
-<li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
+<li><strong>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</strong> — The limitations section is exemplary and should be read as part of the result. The construct-validity concern is stated first and is the sharpest: short-term...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
 <li><strong>Inverted Detection and Control in Steering Vectors</strong> — The paper states its scope: it studies translation-based steering vectors specifically, in order to isolate the inverted phenomenon, and does not evaluate mo...</li>
 <li><strong>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</strong> — The paper states none beyond its conclusion that there is no one-size-fits-all method. What a reader should weigh: the headline robustness claim holds on the...</li>
 <li><strong>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</strong> — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a f...</li>
 <li><strong>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</strong> — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identif...</li>
 <li><strong>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</strong> — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and pe...</li>
-<li><strong>Multi-component Causal Tracing in Large Language Models</strong> — No quantitative results, models or baselines in the abstract. Soft interventions are a relaxation, so a subset selected in the continuous problem is not guar...</li>
 </ul>
 </section>
 <section class="slide">
@@ -326,6 +326,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Michal Mráz, Justin Shenk. <em>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</em>. cs.AI. 2026</li>
 <li>Nan Chen, Zhouhao Yang, Soufiane Hayou. <em>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</em>. cs.CL. 2026</li>
 <li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
 <li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
@@ -333,7 +334,6 @@ th { background: var(--surface); }
 <li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
 <li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 <li>Jinyang Zhang, Hongxin Ding, Yue Fang et al.. <em>The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models</em>. preprint. 2026</li>
-<li>Lihao Sun, Hang Dong, Bo Qiao et al.. <em>LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

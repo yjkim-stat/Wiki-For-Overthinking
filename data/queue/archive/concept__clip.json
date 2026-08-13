@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:54:48Z",
   "created_at": "2026-08-13T03:25:16Z",
   "instructions": "Write the wiki definition for 'CLIP'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "CLIP",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "CLIP",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "CLIP encoder"
+    ],
+    "definition": "A vision-language encoder trained to align image and text embeddings, used by both sources as fixed infrastructure rather than as a subject. One uses it as the safety encoder against whose prohibited-concept embeddings intermediate clean-image estimates are scored, and names the consequence in its own limitations: the method inherits whatever ambiguity that encoder has about what a concept is. The other uses it to encode language instructions in an ablation, where replacing a visual task representation with such encoded instructions costs 8.6 points. Its role in both is as a component whose failure modes propagate into results built on it — which is worth recording, since neither paper is in a position to audit it.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__clip",
   "task_version": 1,
