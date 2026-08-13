@@ -184,6 +184,12 @@ def load(root: Path | None = None) -> Config:
     settings = _read_yaml(settings_file)
     sources = _read_yaml(sources_file)
     layout = P.Layout(settings.get("paths"), root=root)
+    # LOCAL: the authored concept-alias map, installed here because `slug_for`
+    # is called from four modules with no config to hand. Imported inside the
+    # function so `common` keeps no import-time edge on `local`.
+    from ..local import aliases as _aliases  # LOCAL
+
+    _aliases.install(layout)  # LOCAL
     return Config(
         settings=settings,
         sources=sources,

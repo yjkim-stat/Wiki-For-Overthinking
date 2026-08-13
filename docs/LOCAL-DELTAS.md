@@ -94,13 +94,15 @@ queue and the store and the field merely looked unused. It went unnoticed for
 80-odd summaries. See `docs/commit-local/0021-the-model-kind-reached-half-the-pipeline.md`.
 If you re-apply nothing else from this section, re-apply that.
 
-### 2. Call sites for `pipelines/local/` — 3 files, one line each
+### 2. Call sites for `pipelines/local/` — 5 files, one line each
 
 | File | Line |
 | --- | --- |
 | `enrich/queue.py` | `errors.extend(placeholders.check(kind, result))` in `validate_result` |
 | `collect/conferences.py` | `local_abstracts.fill_missing(...)` at the end of `collect()`, after deduplication |
 | `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, and the release of the unused reserve after `queue_missing_definitions` |
+| `common/config.py` | `aliases.install(layout)` in `load()`, imported inside the function |
+| `enrich/concepts.py` | `_aliases.canonical(...)` inside `slug_for`, **and** `_aliases.canonical_name(slug) or name` where `entity()` builds a `Concept` |
 
 `render.py` also carries the `_UNSET` sentinel and the `max_pending` parameter
 those two calls need.
@@ -110,6 +112,15 @@ the difference, rather than using the return value. That is not decoration: the
 function returns how many records lack a summary, so two passes over one
 backlog report it twice. Re-applying the reserve without this reports double
 (note 0032).
+
+**The alias delta is two lines in one file, and re-applying only the obvious
+one is worse than re-applying neither.** `slug_for` decides which record a name
+files under; the line in `entity()` decides what that record is *called*.
+Restore the redirect alone and the evidence folds correctly into a note titled
+by whichever spelling the harvest happened to read first — which is the
+arbitrariness the map exists to remove, now invisible because the merge looks
+like it worked. `tests/test_local_aliases.py` covers both directions; the
+name-side test is `test_the_canonical_name_wins_even_when_the_alias_is_seen_first`.
 
 ### 3. Three collection fixes the template does not carry — 2 files
 

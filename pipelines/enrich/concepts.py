@@ -33,6 +33,7 @@ from __future__ import annotations
 from ..common.config import Config
 from ..common.log import get
 from ..common.paths import WIKI_KINDS, slugify
+from ..local import aliases as _aliases  # LOCAL
 from ..common.schema import Concept, utcnow
 from ..common.store import RecordStore
 
@@ -45,7 +46,9 @@ _RANK_KIND = {v: k for k, v in _KIND_RANK.items()}
 
 
 def slug_for(name: str) -> str:
-    return slugify(name)
+    # LOCAL: one entity may have several names, and which one a summary used is
+    # not a fact about the entity. See pipelines/local/aliases.py.
+    return _aliases.canonical(slugify(name))
 
 
 def _upgrade_kind(current: str, incoming: str) -> str:
@@ -105,7 +108,10 @@ def harvest(cfg: Config) -> dict[str, Concept]:
             old = previous.get(slug)
             concept = Concept(
                 slug=slug,
-                name=name,
+                # LOCAL: a ruled entity is titled by the ruling, not by which
+                # summary the harvest happened to read first. The surface name
+                # still lands in `aliases` two lines below.
+                name=_aliases.canonical_name(slug) or name,
                 kind=kind,
                 definition=old.definition if old else "",
                 aliases=list(old.aliases) if old else [],
