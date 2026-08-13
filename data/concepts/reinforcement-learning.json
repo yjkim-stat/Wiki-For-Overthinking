@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.02833",
+      "kind": "paper",
+      "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+      "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
       "id": "local:dbfa51b5159a1a77",
       "kind": "paper",
       "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
@@ -11,9 +17,38 @@
   ],
   "first_seen": "2026-08-09T06:51:53Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:22:49Z",
   "name": "reinforcement learning",
   "related": [
+    "visual-grounding",
+    "curriculum-learning",
+    "multimodal-reasoning",
+    "chain-of-thought",
+    "reasoning-depth",
+    "compositional-generalization",
+    "process-supervision",
+    "llm-as-a-judge",
+    "synthetic-data-generation",
+    "curv",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "intersection-over-union",
+    "ccqa",
+    "chartqa",
+    "chartqa-pro",
+    "charxiv",
+    "chartmuseum",
+    "mathvista",
+    "mmmu-pro",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "internvl3-1b",
+    "internvl3-2b",
+    "internvl3-8b",
+    "gpt-4o",
+    "gpt-4-1-mini",
+    "llama-3-2-vision-11b",
+    "gemma-3-4b",
     "optimal-stopping",
     "answer-stabilization",
     "overthinking",
@@ -39,10 +74,11 @@
     "gpt-oss-20b",
     "drpo-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "reinforcement-learning",
   "topics": [
-    "test-time-scaling",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.",
+        "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds prefix trees of semantically equivalent reasoning statements and measures how RLVR changes a model's preference between branches, finding the entropy collapse is not stylistic — the collapse is stronger for semantically distinct continuations than for syntactic variants of the same statement.",
+        "title": "BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-13T01:22:51Z",
+  "instructions": "Write the wiki definition for 'backtracking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "backtracking",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "backtracking",
+    "source_count": 2
+  },
+  "task_id": "concept__backtracking",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

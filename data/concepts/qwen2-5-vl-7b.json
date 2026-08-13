@@ -5,6 +5,12 @@
   "definition": "A 7B Qwen2.5 vision-language checkpoint, and the archive's usual subject when a finding needs testing outside text. Two sources use it that way: one probes whether RLVR extends the reasoning boundary on visual reasoning benchmarks as well as math and code, the other measures what prolonged RLVR costs, reporting degradation in core capabilities including perception and faithfulness that experience replay is introduced to prevent.",
   "evidence": [
     {
+      "id": "arxiv:2608.02833",
+      "kind": "paper",
+      "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+      "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.1717",
       "kind": "paper",
       "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
@@ -19,9 +25,38 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:22:49Z",
   "name": "Qwen2.5-VL-7B",
   "related": [
+    "visual-grounding",
+    "curriculum-learning",
+    "multimodal-reasoning",
+    "chain-of-thought",
+    "reasoning-depth",
+    "compositional-generalization",
+    "process-supervision",
+    "llm-as-a-judge",
+    "synthetic-data-generation",
+    "curv",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "reinforcement-learning",
+    "intersection-over-union",
+    "ccqa",
+    "chartqa",
+    "chartqa-pro",
+    "charxiv",
+    "chartmuseum",
+    "mathvista",
+    "mmmu-pro",
+    "qwen2-5-vl-3b",
+    "internvl3-1b",
+    "internvl3-2b",
+    "internvl3-8b",
+    "gpt-4o",
+    "gpt-4-1-mini",
+    "llama-3-2-vision-11b",
+    "gemma-3-4b",
     "catastrophic-forgetting",
     "capability-regression",
     "experience-replay",
@@ -33,7 +68,6 @@
     "rlvr",
     "kl-divergence-regularization",
     "dynamic-objective-reweighting",
-    "qwen2-5-vl-3b",
     "pass-k",
     "reasoning-boundary",
     "exploration-exploitation-trade-off",
@@ -58,7 +92,6 @@
     "omni-math-rule",
     "livecodebench",
     "humaneval",
-    "mathvista",
     "mathvision",
     "llama-3-1-8b",
     "qwen2-5-7b",
@@ -68,11 +101,12 @@
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1-distill-qwen-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen2-5-vl-7b",
   "topics": [
     "reasoning-training",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

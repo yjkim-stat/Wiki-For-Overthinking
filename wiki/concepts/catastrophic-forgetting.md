@@ -9,7 +9,7 @@ Loss of previously held capability when a model is trained further, which both s
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [chain of thought faithfulness](chain-of-thought-faithfulness.md), [KL regularization](../methods/kl-regularization.md), [localization](localization.md), [model merging](../methods/model-merging.md), [modularity](modularity.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [RLVR](../methods/rlvr.md), [training dynamics](training-dynamics.md)
+**Related**: [chain of thought faithfulness](chain-of-thought-faithfulness.md), [KL regularization](../methods/kl-regularization.md), [localization](localization.md), [model merging](../methods/model-merging.md), [modularity](modularity.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [RLVR](../methods/rlvr.md), [training dynamics](training-dynamics.md)
 
 ## Appears in
 

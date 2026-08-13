@@ -7,6 +7,12 @@
   "definition": "Solving a problem that combines steps the model can already perform individually, which all three sources treat as the property that fails while single-step competence holds. The strongest measurement pairs each compositional task with its isolated steps on the same items: models usually solve both steps alone yet lose nearly 30% when they are combined, a larger drop than same-type multi-step benchmarks show, and non-expert humans show no such gap. A second isolates composition as a cascade of string-rewrite programs and reports solve rates below 5% on long cascades even under expensive test-time scaling. A third tests sequential task compositions over semantic phrase tasks without reporting the gap numerically.",
   "evidence": [
     {
+      "id": "arxiv:2608.02833",
+      "kind": "paper",
+      "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+      "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.210",
       "kind": "paper",
       "note": "Consolidates multiword-expression resources into one evaluation suite covering idioms, noun compounds and verbal constructions across extraction, classification and interpretation tasks.",
@@ -27,9 +33,38 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:22:49Z",
   "name": "compositional generalization",
   "related": [
+    "visual-grounding",
+    "curriculum-learning",
+    "multimodal-reasoning",
+    "chain-of-thought",
+    "reasoning-depth",
+    "process-supervision",
+    "llm-as-a-judge",
+    "synthetic-data-generation",
+    "curv",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "reinforcement-learning",
+    "intersection-over-union",
+    "ccqa",
+    "chartqa",
+    "chartqa-pro",
+    "charxiv",
+    "chartmuseum",
+    "mathvista",
+    "mmmu-pro",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "internvl3-1b",
+    "internvl3-2b",
+    "internvl3-8b",
+    "gpt-4o",
+    "gpt-4-1-mini",
+    "llama-3-2-vision-11b",
+    "gemma-3-4b",
     "multiword-expression",
     "semantic-understanding",
     "figurative-language",
@@ -57,11 +92,12 @@
     "gpt-5",
     "gpt-oss-120b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "compositional-generalization",
   "topics": [
-    "reasoning-evaluation",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

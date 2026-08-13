@@ -261,7 +261,7 @@ th { background: var(--surface); }
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable stri...</li>
 <li><strong>RLVR</strong> — Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned rewar...</li>
 <li><strong>self-consistency</strong> — Sampling several reasoning paths and taking the most common answer, the archive&#x27;s default aggregation baseline — and now with its failure...</li>
-<li><strong>activation patching</strong> — Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive&#x27;s work...</li>
+<li><strong>supervised fine-tuning</strong> — Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unsta...</li>
 </ul>
 </section>
 <section class="slide">
@@ -290,11 +290,11 @@ th { background: var(--surface); }
 <h2>Open problems (cont.)</h2>
 <ul>
 <li><strong>Evading Chain-of-Thought Monitoring Through Model Poisoning</strong> — The paper states its bounds directly: three open-weight reasoning models between 3.8B and 12B parameters, with every backdoor installed through supervised fi...</li>
+<li><strong>CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the training data is synthetic and template-generated from thirty charts per type, so the c...</li>
 <li><strong>It&#x27;s the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling</strong> — The paper states its bounds directly. The grid is two open 7B VLMs and four automatically scored benchmarks, so a stronger model family or a larger decode bu...</li>
 <li><strong>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</strong> — &#x27;Without compromising performance&#x27; is unquantified, and no accuracy numbers or benchmark names appear in the abstract. Difficulty labels are needed to constr...</li>
 <li><strong>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</strong> — No quantitative results, benchmarks or models in the abstract. Necessity is judged by the model&#x27;s own likelihood, so a segment the model undervalues but that...</li>
 <li><strong>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</strong> — No numbers in the abstract and the 26 models are not listed. Template-generated problems are verifiable but constrained to what templates express, so difficu...</li>
-<li><strong>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</strong> — Benchmarks and models are not named. Search costs inference compute that the reported 22% length reduction does not obviously account for — a shorter final p...</li>
 </ul>
 </section>
 <section class="slide">

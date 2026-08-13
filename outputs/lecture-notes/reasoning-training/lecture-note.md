@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
 
-Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 110 of the papers have been read in full.
+Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 112 of the papers have been read in full.
 
 Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
 
@@ -126,39 +126,39 @@ How hard a specific problem is for a specific model, and the signal every adapti
 
 Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
 
+### entropy collapse
+
+The failure mode in which a policy's output distribution becomes progressively more deterministic during reinforcement learning, eliminating exploration and saturating performance. At nine sources it has moved from a constraint the methods cite to an object several of them study, and they explain it differently. One attributes it to a covariance between log-probability and probability-weighted advantage that stays positive throughout training. One recasts it as an imbalance of flow, with entropy-decreasing tokens persistently outweighing entropy-increasing ones inside each update. One derives a bifurcation in second-order Renyi entropy at the policy's collision probability, so updating dominant tokens collapses entropy while updating long-tail tokens inflates it. One reduces the direction of change to the sign of a single scalar per token, and to that scalar's deviation from a policy-weighted baseline once a GRPO step is substituted in. A theoretical entry ties the remedies together, proving the classical entropy bonus relocates the optimum while covariance-targeted control is asymptotically unbiased once its coefficient is annealed. Two findings cut against the consensus: one source reports training entropy falling while accuracy improves, and another finds entropy tracks response diversity far more reliably than accuracy.
+
+Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; SeLaR: Selective Latent Reasoning in Large Language Models; The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning.
+
 ### self-correction
 
 A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.
 
 Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; Optimizing Length Compression in Large Reasoning Models.
 
-### adaptive compute allocation
-
-Spending different amounts of inference compute on different problems instead of a uniform budget, which is the largest cluster in the archive at seven sources. They agree on the goal and disagree entirely on where the difficulty signal comes from: the model's own self-certainty, difficulty cues injected into an output prefix, per-query token limits derived from the model's own thinking responses, a single mode-selection token carrying the efficiency reward, a process-reward estimator scoring each completed step, a controller routing among fast, re-perceive and self-reflect paths, and an algorithm-agnostic measure of whether the answer has stopped changing. Reported savings are large and asymmetric — over 70% on easy problems against 40% on hard ones in one case. No source compares its signal against another's, so whether these seven mechanisms identify the same easy problems is unmeasured.
-
-Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models; Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 29 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| LLM-as-a-judge | 18 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
-| RLVR | 18 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
+| chain of thought | 22 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| LLM-as-a-judge | 20 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| RLVR | 19 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
 | self-consistency | 13 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| supervised fine-tuning | 13 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | best-of-n | 11 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | linear probe | 11 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
-| supervised fine-tuning | 11 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
-| pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
+| pass@k | 11 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | PPO | 10 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | test-time scaling | 10 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
+| chain-of-thought prompting | 8 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
+| DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | majority voting | 8 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
-| chain-of-thought prompting | 7 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
-| DAPO | 7 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 | activation steering | 6 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
 | clip-higher | 6 | Raising the upper clipping bound of the importance ratio in a PPO-style objective, so low-probability tokens with positive advantages are not clipped away and can grow. Introduc... |
@@ -177,10 +177,10 @@ Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CA
 | MATH-500 | 10 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | MATH | 9 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | AIME 2024 | 7 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
+| DAPO-Math-17k | 7 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
 | LiveCodeBench | 7 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MMLU | 7 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | AIME 2025 | 6 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |
-| DAPO-Math-17k | 6 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
 | Minerva | 6 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
 | MMLU-Pro | 5 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |

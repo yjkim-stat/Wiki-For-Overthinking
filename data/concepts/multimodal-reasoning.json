@@ -6,6 +6,12 @@
   "definition": "Reasoning that must combine visual and textual information, represented in the archive almost entirely by benchmarks that conclude the modality split is mismeasured. One finds high answer accuracy conceals near-total failure at producing or reasoning from visual aids. One runs each problem with and without its image and finds a model with no image beating its own multimodal variants and GPT-5, with visual contribution shrinking as difficulty rises. One benchmarks error detection on real student work and puts the best model about 10% behind expert humans. One covers 54 scientific subfields with expert solutions for 46% of items. One finds risk cues correctly perceived and then overridden during reasoning. The recurring conclusion is that these benchmarks do not measure what their names claim.",
   "evidence": [
     {
+      "id": "arxiv:2608.02833",
+      "kind": "paper",
+      "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+      "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1719",
       "kind": "paper",
       "note": "Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.",
@@ -38,9 +44,38 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:22:49Z",
   "name": "multimodal reasoning",
   "related": [
+    "visual-grounding",
+    "curriculum-learning",
+    "chain-of-thought",
+    "reasoning-depth",
+    "compositional-generalization",
+    "process-supervision",
+    "llm-as-a-judge",
+    "synthetic-data-generation",
+    "curv",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "reinforcement-learning",
+    "intersection-over-union",
+    "ccqa",
+    "chartqa",
+    "chartqa-pro",
+    "charxiv",
+    "chartmuseum",
+    "mathvista",
+    "mmmu-pro",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "internvl3-1b",
+    "internvl3-2b",
+    "internvl3-8b",
+    "gpt-4o",
+    "gpt-4-1-mini",
+    "llama-3-2-vision-11b",
+    "gemma-3-4b",
     "construct-validity",
     "reasoning-illusion",
     "visual-perception",
@@ -58,7 +93,6 @@
     "jailbreak",
     "intent-guided-safety-reasoning",
     "perception-decoupling",
-    "chain-of-thought",
     "linguistic-prior",
     "modality-ablation",
     "perception-bottleneck",
@@ -73,7 +107,6 @@
     "error-step-identification",
     "error-categorization",
     "expert-annotation",
-    "gpt-4o",
     "scientific-reasoning",
     "traceability",
     "domain-expertise",
@@ -82,10 +115,12 @@
     "process-level-evaluation",
     "expert-authored-reference-solutions"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "multimodal-reasoning",
   "topics": [
-    "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

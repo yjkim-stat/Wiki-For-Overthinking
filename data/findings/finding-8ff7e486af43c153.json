@@ -1,0 +1,27 @@
+{
+  "concepts": [
+    "reasoning boundary",
+    "entropy collapse",
+    "exploration",
+    "backtracking",
+    "pass@k",
+    "policy entropy"
+  ],
+  "established_at": "2026-08-13T01:22:25Z",
+  "id": "finding:8ff7e486af43c153",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.02867",
+    "local:b050d2841cbb4959",
+    "local:fb100130d8c7c2bd"
+  ],
+  "rationale": "Measuring a model's preference between two specific verifier-equivalent continuations at a shared branch point, RLVR-trained policies show lower branch entropy than distilled counterparts on 95.5-100% of sampled branches across four model families, and the collapse is significantly stronger in the semantic contrast than in the syntactic one — so the pruning is of inferences, not of phrasing. The same work shows the compensating gain: backtracking probability at dead ends rises from 0.0068 to 0.1537 and from 0.0647 to 0.1687 on two maze models, and recovery from an injected distractor improves by 4.18 to 29.09 points on mathematics. Masking illegal continuations makes the trade explicit — with invalid options removed the flatter distilled policy outperforms the RL one by about 60 percent. This reconciles the archive's standing disagreement rather than picking a side: under plain pass@k the base model overtakes at large k because valid-but-different paths were pruned, while under CoT-Pass@K the RLVR model leads at every k because invalid paths were pruned harder.",
+  "schema_version": 1,
+  "statement": "RLVR narrows the set of semantically distinct solution paths a model will produce while widening the set of errors it can recover from; the two effects are separable, both real, and a single pass@k number cannot show either.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation"
+  ]
+}

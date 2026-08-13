@@ -8,6 +8,12 @@
   "definition": "Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.",
   "evidence": [
     {
+      "id": "arxiv:2608.02833",
+      "kind": "paper",
+      "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+      "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
       "id": "arxiv:2608.05987",
       "kind": "paper",
       "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
@@ -64,9 +70,38 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:22:49Z",
   "name": "process supervision",
   "related": [
+    "visual-grounding",
+    "curriculum-learning",
+    "multimodal-reasoning",
+    "chain-of-thought",
+    "reasoning-depth",
+    "compositional-generalization",
+    "llm-as-a-judge",
+    "synthetic-data-generation",
+    "curv",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "reinforcement-learning",
+    "intersection-over-union",
+    "ccqa",
+    "chartqa",
+    "chartqa-pro",
+    "charxiv",
+    "chartmuseum",
+    "mathvista",
+    "mmmu-pro",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "internvl3-1b",
+    "internvl3-2b",
+    "internvl3-8b",
+    "gpt-4o",
+    "gpt-4-1-mini",
+    "llama-3-2-vision-11b",
+    "gemma-3-4b",
     "credit-assignment",
     "privileged-information",
     "belief-state",
@@ -194,7 +229,6 @@
     "dynamic-programming",
     "autoregressive-generation-as-a-loop",
     "length-extrapolation",
-    "chain-of-thought-prompting",
     "circuit-complexity-reduction",
     "constructive-transformer-programs",
     "conditional-copy-and-mean-attention-primitives",
@@ -206,12 +240,13 @@
     "edit-distance",
     "context-free-grammar-membership-testing"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "process-supervision",
   "topics": [
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-evaluation",
-    "reasoning-faithfulness",
-    "test-time-scaling"
+    "reasoning-faithfulness"
   ]
 }
