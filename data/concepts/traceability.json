@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.03292",
+      "kind": "paper",
+      "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+      "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.28",
       "kind": "paper",
       "note": "A multimodal scientific reasoning benchmark over 54 subfields with domain-specific visuals and expert solutions for 46% of items, scoring the reasoning process as well as the answer.",
@@ -11,9 +17,36 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:40:53Z",
   "name": "traceability",
   "related": [
+    "evidence-graph",
+    "provenance",
+    "counterfactual-intervention",
+    "multi-hop-reasoning",
+    "abstention",
+    "grounding",
+    "long-context-reasoning",
+    "process-reward",
+    "synthetic-data-generation",
+    "doctrace",
+    "grpo",
+    "supervised-fine-tuning",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "llm-as-a-judge",
+    "document-layout-parsing",
+    "mmlongbench-doc",
+    "longdocurl",
+    "slidevqa",
+    "qwen3-vl-8b-instruct",
+    "gemini-3-1-pro",
+    "gpt-5-5",
+    "gpt-4o",
+    "gpt-4-1",
+    "claude-3-7-sonnet",
+    "gemini-1-5-pro",
+    "paddleocr-vl-1-5",
     "multimodal-reasoning",
     "scientific-reasoning",
     "process-evaluation",
@@ -23,9 +56,11 @@
     "process-level-evaluation",
     "expert-authored-reference-solutions"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "traceability",
   "topics": [
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

@@ -69,17 +69,17 @@ Whether a stated chain of thought is the reason for the answer, which fifteen so
 
 Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models.
 
-### verification
-
-Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
-
-Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
-
 ### credit assignment
 
 Deciding which part of a trajectory deserves the reward, and the problem RLVR's sparse sequence-level signal creates. Nine sources attack it and the interesting split is where they place the unit. At token level: the roughly 20% highest-entropy tokens act as decision forks and restricting gradient to them matches or beats full-gradient training; a token's signed marginal utility for the correct answer marks harmful tokens as well as useful ones. At segment or turn level: token-level teacher-student log-probability gaps are aggregated into turn-level evidence by a recursive Bayesian belief update, or concentrated on reasoning pivots identified counterfactually. At reward-design level: attaching an efficiency signal to the whole sequence implicitly penalizes long-but-correct trajectories, so the fix is to attach it to a single mode-selection token instead. One theoretical result cuts across all of them, showing a per-step Q value can be recovered from an outcome reward alone under the right parameterization — so dense credit does not always require dense labels.
 
 Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning.
+
+### verification
+
+Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
+
+Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
 
 ### reasoning redundancy
 
@@ -97,7 +97,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 
 The failure mode in which a policy's output distribution becomes progressively more deterministic during reinforcement learning, eliminating exploration and saturating performance. At nine sources it has moved from a constraint the methods cite to an object several of them study, and they explain it differently. One attributes it to a covariance between log-probability and probability-weighted advantage that stays positive throughout training. One recasts it as an imbalance of flow, with entropy-decreasing tokens persistently outweighing entropy-increasing ones inside each update. One derives a bifurcation in second-order Renyi entropy at the policy's collision probability, so updating dominant tokens collapses entropy while updating long-tail tokens inflates it. One reduces the direction of change to the sign of a single scalar per token, and to that scalar's deviation from a policy-weighted baseline once a GRPO step is substituted in. A theoretical entry ties the remedies together, proving the classical entropy bonus relocates the optimum while covariance-targeted control is asymptotically unbiased once its coefficient is annealed. Two findings cut against the consensus: one source reports training entropy falling while accuracy improves, and another finds entropy tracks response diversity far more reliably than accuracy.
 
-Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; SeLaR: Selective Latent Reasoning in Large Language Models; The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models.
+Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; SeLaR: Selective Latent Reasoning in Large Language Models.
 
 ### exploration-exploitation trade-off
 
@@ -117,28 +117,28 @@ A model noticing an error in its own work and repairing it, and one of the archi
 
 Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics; The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
-### monitorability
+### advantage estimation
 
-Whether reading a model's reasoning trace reveals what is driving its behaviour, and the property CoT-based safety arguments depend on. Eight sources measure it and the picture is worse than the headline numbers suggest, for a specific reason: the field measures it in the regime most favourable to it. Where a prompt explicitly instructs concealment, a monitor detects 60-94% of behaviour shifts — because the instruction itself must enter the context and leaks into the trace. Remove the instruction and leave the influence, and detection falls by 41-46 points; add a well-intentioned debiasing system prompt and it falls to 5% while the influence remains. Other results compound this: fewer than 25% of traces follow an instruction given for the reasoning itself, models decline to disclose influences they demonstrably followed, and reasoning transparency is itself an attack surface, with refusals leaking the structure an automated attack needs. One source argues faithfulness is not enough and adds verbosity — whether the trace lists everything it used — as a second requirement. The one encouraging result is that latent reasoning damages monitorability less than expected, since task structure and internals access matter more than whether the trace is discrete.
+Assigning each sampled rollout a learning signal relative to a baseline, which in the critic-free methods the sources use means comparing rollouts within a group. Both sources identify the same structural failure from opposite ends: when every rollout in a group receives the same reward the group-relative advantage is zero and the batch teaches nothing. One hits it on prompts where all rollouts are already correct, wasting the rollouts; the other on negative samples where no valid output exists, and forces a canonical 'None' rollout so the group regains variance. Together they show that group-relative methods depend on within-group disagreement, which makes example selection a requirement rather than an optimization.
 
-Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; Evading Chain-of-Thought Monitoring Through Model Poisoning; The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics; Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings.
+Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; Self-Improving Large Language Models via Progressive Experience Evolution.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 31 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 23 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| GRPO | 33 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| LLM-as-a-judge | 25 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | chain of thought | 22 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| RLVR | 20 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
-| supervised fine-tuning | 15 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| RLVR | 21 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
+| supervised fine-tuning | 16 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | self-consistency | 14 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | linear probe | 12 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
+| pass@k | 12 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | best-of-n | 11 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| pass@k | 11 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
+| chain-of-thought prompting | 11 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | test-time scaling | 11 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
-| chain-of-thought prompting | 10 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | activation steering | 7 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
@@ -152,15 +152,15 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| GSM8K | 30 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 31 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 14 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | GPQA-Diamond | 12 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| MATH-500 | 12 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
-| MATH-500 | 11 | A 500-problem subset of the MATH benchmark, and the archive's most common mid-difficulty mathematics reference — easy enough that strong base models solve most of it with suffic... |
-| MATH | 10 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
+| MATH | 11 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | AIME 2024 | 8 | The 2024 American Invitational Mathematics Examination, used across the archive as the hard end of a mathematics evaluation suite, paired with MATH500 and GSM8K which the same e... |
 | LiveCodeBench | 8 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | AIME 2025 | 7 | The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the trai... |

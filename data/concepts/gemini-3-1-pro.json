@@ -11,6 +11,12 @@
       "title": "Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning"
     },
     {
+      "id": "arxiv:2608.03292",
+      "kind": "paper",
+      "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+      "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
+    {
       "id": "local:504cc53656b06ab4",
       "kind": "paper",
       "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
@@ -19,7 +25,7 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:08:39Z",
+  "last_seen": "2026-08-13T02:40:53Z",
   "name": "Gemini-3.1-Pro",
   "related": [
     "rubric-as-reward",
@@ -55,6 +61,29 @@
     "mimo-audio-7b",
     "audio-flamingo-3",
     "step-audio-2-mini",
+    "evidence-graph",
+    "traceability",
+    "provenance",
+    "counterfactual-intervention",
+    "multi-hop-reasoning",
+    "abstention",
+    "long-context-reasoning",
+    "synthetic-data-generation",
+    "doctrace",
+    "supervised-fine-tuning",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "document-layout-parsing",
+    "mmlongbench-doc",
+    "longdocurl",
+    "slidevqa",
+    "qwen3-vl-8b-instruct",
+    "gpt-5-5",
+    "gpt-4o",
+    "gpt-4-1",
+    "claude-3-7-sonnet",
+    "gemini-1-5-pro",
+    "paddleocr-vl-1-5",
     "kappa-deflation",
     "consistency-bias-paradox",
     "cohen-s-kappa",
@@ -73,7 +102,6 @@
     "mt-bench",
     "judgebench",
     "rewardbench",
-    "gpt-4o",
     "gpt-5-4",
     "claude-opus-4-6",
     "claude-sonnet-4-6",
@@ -89,6 +117,7 @@
   "schema_version": 1,
   "slug": "gemini-3-1-pro",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training"
   ]
 }

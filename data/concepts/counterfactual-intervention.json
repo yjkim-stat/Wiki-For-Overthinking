@@ -7,6 +7,12 @@
   "definition": "Changing one input or internal element while holding everything else fixed, so that a difference in output is attributable to that element. Both sources treat the holding-fixed as the hard part. One injects synthetic reasoning snippets into a trace and measures both whether the model follows them and whether it admits doing so, which turns influence into a known quantity and non-disclosure into a measurable one — over 90% for extreme hints. The other removes a single prompt word while fixing the sampling seed, so that two generated images differ only by that word. The archive's trace-level work faces the same nuisance-variation problem and does not consistently apply an equivalent control.",
   "evidence": [
     {
+      "id": "arxiv:2608.03292",
+      "kind": "paper",
+      "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+      "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1986",
       "kind": "paper",
       "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
@@ -21,9 +27,36 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:40:53Z",
   "name": "counterfactual intervention",
   "related": [
+    "evidence-graph",
+    "traceability",
+    "provenance",
+    "multi-hop-reasoning",
+    "abstention",
+    "grounding",
+    "long-context-reasoning",
+    "process-reward",
+    "synthetic-data-generation",
+    "doctrace",
+    "grpo",
+    "supervised-fine-tuning",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "llm-as-a-judge",
+    "document-layout-parsing",
+    "mmlongbench-doc",
+    "longdocurl",
+    "slidevqa",
+    "qwen3-vl-8b-instruct",
+    "gemini-3-1-pro",
+    "gpt-5-5",
+    "gpt-4o",
+    "gpt-4-1",
+    "claude-3-7-sonnet",
+    "gemini-1-5-pro",
+    "paddleocr-vl-1-5",
     "chain-of-thought-faithfulness",
     "post-hoc-rationalization",
     "monitorability",
@@ -46,11 +79,12 @@
     "head-resolved-attribution",
     "stable-diffusion"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "counterfactual-intervention",
   "topics": [
-    "reasoning-faithfulness",
     "reasoning-training",
+    "reasoning-faithfulness",
     "reasoning-interpretability"
   ]
 }

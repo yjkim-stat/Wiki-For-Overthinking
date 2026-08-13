@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Claude 3.7 Sonnet"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.03292",
+      "kind": "paper",
+      "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+      "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
     {
       "id": "local:2f98d1e607e7b1dd",
       "kind": "paper",
@@ -11,9 +19,36 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "Claude 3.7 Sonnet",
+  "last_seen": "2026-08-13T02:40:53Z",
+  "name": "Claude-3.7-Sonnet",
   "related": [
+    "evidence-graph",
+    "traceability",
+    "provenance",
+    "counterfactual-intervention",
+    "multi-hop-reasoning",
+    "abstention",
+    "grounding",
+    "long-context-reasoning",
+    "process-reward",
+    "synthetic-data-generation",
+    "doctrace",
+    "grpo",
+    "supervised-fine-tuning",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "llm-as-a-judge",
+    "document-layout-parsing",
+    "mmlongbench-doc",
+    "longdocurl",
+    "slidevqa",
+    "qwen3-vl-8b-instruct",
+    "gemini-3-1-pro",
+    "gpt-5-5",
+    "gpt-4o",
+    "gpt-4-1",
+    "gemini-1-5-pro",
+    "paddleocr-vl-1-5",
     "monitorability",
     "chain-of-thought-faithfulness",
     "verbosity",
@@ -26,7 +61,6 @@
     "post-hoc-rationalization",
     "inverse-scaling",
     "cue-injection",
-    "llm-as-a-judge",
     "causal-factor-extraction",
     "monitorability-scoring",
     "inspect-evaluation-library",
@@ -41,11 +75,12 @@
     "qwen3-235b",
     "qwen3-235b-thinking"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "claude-3-7-sonnet",
   "topics": [
-    "reasoning-faithfulness",
     "reasoning-training",
+    "reasoning-faithfulness",
     "test-time-scaling"
   ]
 }

@@ -27,6 +27,12 @@
       "title": "BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?"
     },
     {
+      "id": "arxiv:2608.03467",
+      "kind": "paper",
+      "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+      "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO"
+    },
+    {
       "id": "arxiv:2608.05600",
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
@@ -35,7 +41,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:22:49Z",
+  "last_seen": "2026-08-13T02:40:53Z",
   "name": "exploration",
   "related": [
     "latent-reasoning",
@@ -116,6 +122,18 @@
     "gpt-oss-120b",
     "deepseek-v4-pro",
     "gpt-5-6-luna",
+    "rarity-weighting",
+    "solution-multiplicity",
+    "randomized-control",
+    "cue-grpo",
+    "credit-redistribution",
+    "lora",
+    "uarl",
+    "pass-k-estimation",
+    "humanity-s-last-exam",
+    "qwen2-5-math-7b",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-32b-instruct",
     "train-inference-gap",
     "discretization-error",
     "wasserstein-distance",

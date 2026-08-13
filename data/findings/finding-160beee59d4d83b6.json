@@ -1,0 +1,26 @@
+{
+  "concepts": [
+    "credit assignment",
+    "advantage estimation",
+    "randomized control",
+    "policy entropy",
+    "exploration"
+  ],
+  "established_at": "2026-08-13T02:40:31Z",
+  "id": "finding:160beee59d4d83b6",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.03467",
+    "local:c70c8f6b2ab7db16",
+    "arxiv:2608.02585"
+  ],
+  "rationale": "Three independent instances, on three different intervention types. Partitioning verified-correct completions at random and applying the same rarity-based credit redistribution recovers 1.45 of a 3.55-point gain, with the cue-derived semantic partition adding 2.10 on top — half the benefit survives destroying the partition's meaning. Zeroing the gradients of a randomly chosen subset of positive-advantage tokens performs comparably to selecting those tokens by covariance, suggesting what does the work is the reduction in effective gradient rather than the criterion that picks them. And a reward-free random walk in an intermediate latent space reaches 60.6% against 60.3% for a reward-guided method operating at the output, so the choice of space dominated the choice of direction. In none of the three does the randomized arm match fully, so the targeted criteria are doing something; what the pattern establishes is that the untested attribution is routinely wrong about how much.",
+  "schema_version": 1,
+  "statement": "In RLVR credit-assignment work, a randomized control routinely captures much of the benefit attributed to the targeted criterion — so a criterion is not credited until it has been raced against random selection at matched cost.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-training",
+    "reasoning-evaluation"
+  ]
+}

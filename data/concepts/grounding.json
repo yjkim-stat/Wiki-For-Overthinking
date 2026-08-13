@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Supervises audio reasoning with per-question rubrics generated from the raw waveform, and keeps the signal alive as the policy improves by regenerating the rubrics from the model's own rollouts each step and pruning any criterion that every rollout satisfies or none does.",
       "title": "Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning"
+    },
+    {
+      "id": "arxiv:2608.03292",
+      "kind": "paper",
+      "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+      "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
     }
   ],
   "first_seen": "2026-08-13T01:08:39Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:08:39Z",
+  "last_seen": "2026-08-13T02:40:53Z",
   "name": "grounding",
   "related": [
     "rubric-as-reward",
@@ -46,12 +52,36 @@
     "kimi-audio",
     "mimo-audio-7b",
     "audio-flamingo-3",
-    "step-audio-2-mini"
+    "step-audio-2-mini",
+    "evidence-graph",
+    "traceability",
+    "provenance",
+    "counterfactual-intervention",
+    "multi-hop-reasoning",
+    "abstention",
+    "long-context-reasoning",
+    "synthetic-data-generation",
+    "doctrace",
+    "supervised-fine-tuning",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "document-layout-parsing",
+    "mmlongbench-doc",
+    "longdocurl",
+    "slidevqa",
+    "qwen3-vl-8b-instruct",
+    "gpt-5-5",
+    "gpt-4o",
+    "gpt-4-1",
+    "claude-3-7-sonnet",
+    "gemini-1-5-pro",
+    "paddleocr-vl-1-5"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "grounding",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training"
   ]
 }
