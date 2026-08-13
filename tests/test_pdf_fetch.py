@@ -102,17 +102,88 @@ class FetchTests(unittest.TestCase):
         self.assertEqual(len(client.calls), 1)
         self.assertEqual(second.local_path, first.local_path)
 
-    def test_the_cap_bounds_a_run(self):
-        self.cfg.settings["collect"]["pdfs"] = {"max_per_run": 1}
-        papers = [
+    def _three(self) -> list[Paper]:
+        return [
             Paper(id=f"arxiv:{i}", title=f"P{i}", source="arxiv",
                   pdf_url=f"https://x.test/{i}")
             for i in range(3)
         ]
+
+    def test_the_cap_bounds_a_run(self):
+        self.cfg.settings["collect"]["pdfs"] = {"max_per_run": 1}
+        papers = self._three()
         client = StubClient({p.pdf_url: PDF_BYTES for p in papers})
         counts = pdf_fetch.fetch_for(self.cfg, papers, client)
         self.assertEqual(counts["fetched"], 1)
         self.assertEqual(len(client.calls), 1)
+
+    def test_the_cap_bounds_a_run_called_one_paper_at_a_time(self):
+        """The shape `run_daily` actually uses.
+
+        Collection fetches each paper as it files that paper's task, so the cap
+        was checked against a counter that began again on every call and
+        therefore bounded nothing. The test above hands over the whole list at
+        once and never touches the production path.
+        """
+        self.cfg.settings["collect"]["pdfs"] = {"max_per_run": 1}
+        papers = self._three()
+        client = StubClient({p.pdf_url: PDF_BYTES for p in papers})
+
+        budget = pdf_fetch.Budget.from_settings(self.cfg)
+        for paper in papers:
+            pdf_fetch.fetch_for(self.cfg, [paper], client, budget=budget)
+
+        self.assertEqual(len(client.calls), 1, "the cap is per run, not per call")
+        self.assertEqual([bool(p.local_path) for p in papers], [True, False, False])
+
+    def test_without_a_budget_a_call_gets_the_whole_cap(self):
+        """The old signature still means what it always did.
+
+        One call's worth is the only reading under which it was ever correct,
+        and a caller that wants a run has to say so by passing a budget.
+        """
+        self.cfg.settings["collect"]["pdfs"] = {"max_per_run": 1}
+        papers = self._three()
+        client = StubClient({p.pdf_url: PDF_BYTES for p in papers})
+        for paper in papers:
+            pdf_fetch.fetch_for(self.cfg, [paper], client)
+        self.assertEqual(len(client.calls), 3)
+
+    def test_every_caller_of_fetch_for_passes_a_budget(self):
+        """Static, because no fixture reaches the path that was broken.
+
+        The behavioural tests above call `fetch_for` directly, so they pass
+        whether or not collection shares a budget across its calls — which is
+        exactly how the cap came to bound nothing in a real run while a test
+        called `test_the_cap_bounds_a_run` was green.
+
+        The same reasoning as `tests/test_layering.py`'s static half: a defect
+        that lives in how a module is *called* is invisible to a test of the
+        module.
+        """
+        import ast
+
+        from pipelines.common.paths import REPO_ROOT
+
+        offenders: list[str] = []
+        for path in sorted((REPO_ROOT / "pipelines").rglob("*.py")):
+            tree = ast.parse(path.read_text(encoding="utf-8"))
+            for node in ast.walk(tree):
+                if not isinstance(node, ast.Call):
+                    continue
+                func = node.func
+                name = func.attr if isinstance(func, ast.Attribute) else getattr(func, "id", "")
+                if name != "fetch_for":
+                    continue
+                if not any(kw.arg == "budget" for kw in node.keywords):
+                    offenders.append(f"{path.relative_to(REPO_ROOT)}:{node.lineno}")
+
+        self.assertEqual(
+            offenders,
+            [],
+            "these call fetch_for without a budget, so the per-run cap resets: "
+            + ", ".join(offenders),
+        )
 
     def test_disabled_means_no_requests(self):
         self.cfg.settings["collect"]["pdfs"] = {"enabled": False}

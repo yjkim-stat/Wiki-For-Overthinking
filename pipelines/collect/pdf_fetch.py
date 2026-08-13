@@ -59,26 +59,62 @@ def client_for(cfg: Config) -> Client:
     )
 
 
+class Budget:
+    """How many documents a run may still fetch.
+
+    The cap in settings is per *run*, and a run fetches one paper at a time —
+    collection calls ``fetch_for`` with a single paper as it files that paper's
+    task. A counter local to the call therefore started again on every paper and
+    bounded nothing. Handing the same budget to every call is what makes "per
+    run" mean the run.
+
+    A caller that passes none gets a fresh one, which is one call's worth. That
+    is the only reading under which the old behaviour was correct, so it is the
+    one the default keeps.
+    """
+
+    def __init__(self, limit: int) -> None:
+        # 0 means fetch nothing, as it always has. A negative cap is treated the
+        # same rather than as unlimited: a bound that switches off by going
+        # below zero is not one anybody can reason about.
+        self.limit = max(0, int(limit))
+        self.spent = 0
+
+    @classmethod
+    def from_settings(cls, cfg: Config) -> "Budget":
+        return cls(int(_settings(cfg).get("max_per_run", 40)))
+
+    @property
+    def exhausted(self) -> bool:
+        return self.spent >= self.limit
+
+    def charge(self) -> None:
+        self.spent += 1
+
+
 def fetch_for(
     cfg: Config,
     papers: list[Paper],
     client: Client | None = None,
     errors: list[str] | None = None,
+    budget: Budget | None = None,
 ) -> dict[str, int]:
     """Download a PDF for each paper that has one and does not already.
 
     Mutates ``paper.local_path`` in place; the caller saves. Returns counts.
+
+    ``budget`` bounds the run rather than this call — see ``Budget``.
     """
     block = _settings(cfg)
     counts = {"fetched": 0, "skipped": 0, "failed": 0}
     if not block.get("enabled", True):
         return counts
 
-    cap = int(block.get("max_per_run", 40))
+    budget = budget if budget is not None else Budget.from_settings(cfg)
     client = client or client_for(cfg)
 
     for paper in papers:
-        if counts["fetched"] >= cap:
+        if budget.exhausted:
             counts["skipped"] += 1
             continue
         # A hand-filed PDF is already on disk, and its file is the original.
@@ -114,6 +150,7 @@ def fetch_for(
         target.write_bytes(body)
         paper.local_path = _relative(cfg, target)
         counts["fetched"] += 1
+        budget.charge()
 
     if counts["fetched"] or counts["failed"]:
         _LOG.info("pdfs: %s", counts)
