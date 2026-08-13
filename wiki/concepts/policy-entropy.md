@@ -9,7 +9,7 @@ The token-level average entropy of the policy, and the quantity the RLVR sources
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 7
 
-**Related**: [advantage estimation](advantage-estimation.md), [advantage function](advantage-function.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [best-of-n](../methods/best-of-n.md), [calibration](../methods/calibration.md), [Clip-Cov](../methods/clip-cov.md), [clip-higher](../methods/clip-higher.md), [covariance of probability and advantage](covariance-of-probability-and-advantage.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [data efficiency](data-efficiency.md), [entropy bonus](entropy-bonus.md), [entropy collapse](entropy-collapse.md), [entropy regularization](../methods/entropy-regularization.md), [exploration](exploration.md), [exploration-exploitation trade-off](exploration-exploitation-trade-off.md), [Game of 24](../datasets/game-of-24.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [KL-Cov](../methods/kl-cov.md), [KodCode](../datasets/kodcode.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [MATH500](../datasets/math500.md), [MBPP+](../datasets/mbpp.md), [Minerva](../datasets/minerva.md), [Mistral-7B](../models/mistral-7b.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [pass-k](../methods/pass-k.md), [performance ceiling](performance-ceiling.md), [Phi-4](../models/phi-4.md), [policy gradient](../methods/policy-gradient.md), [policy gradient masking](../methods/policy-gradient-masking.md), [post-hoc rationalization](post-hoc-rationalization.md), [PPO](../methods/ppo.md), [PRIME](../methods/prime.md), [privileged information](privileged-information.md), [prompt difficulty](prompt-difficulty.md), [Qwen2.5-14B-Instruct](../models/qwen2-5-14b-instruct.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [REINFORCE](../methods/reinforce.md), [reward sparsity](reward-sparsity.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md), [scaling laws](scaling-laws.md), [softmax policy](softmax-policy.md), [tabular softmax parameterization](tabular-softmax-parameterization.md), [token-level entropy](token-level-entropy.md), [VeRL](../methods/verl.md)
+**Related**: [advantage estimation](advantage-estimation.md), [advantage function](advantage-function.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [best-of-n](../methods/best-of-n.md), [calibration](../methods/calibration.md), [Clip-Cov](../methods/clip-cov.md), [clip-higher](../methods/clip-higher.md), [covariance of probability and advantage](covariance-of-probability-and-advantage.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [data efficiency](data-efficiency.md), [entropy bonus](entropy-bonus.md), [entropy collapse](entropy-collapse.md), [entropy regularization](../methods/entropy-regularization.md), [exploration](exploration.md), [exploration-exploitation trade-off](exploration-exploitation-trade-off.md), [Game of 24](../datasets/game-of-24.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [KL-Cov](../methods/kl-cov.md), [KodCode](../datasets/kodcode.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [MATH500](../datasets/math500.md), [MBPP+](../datasets/mbpp.md), [Minerva](../datasets/minerva.md), [Mistral-7B](../models/mistral-7b.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [pass-k](../methods/pass-k.md), [performance ceiling](performance-ceiling.md), [Phi-4](../models/phi-4.md), [policy gradient](../methods/policy-gradient.md), [policy gradient masking](../methods/policy-gradient-masking.md), [post-hoc rationalization](post-hoc-rationalization.md), [PPO](../methods/ppo.md), [PRIME](../methods/prime.md), [privileged information](privileged-information.md), [prompt difficulty](prompt-difficulty.md), [Qwen2.5-14B-Instruct](../models/qwen2-5-14b-instruct.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B](../models/qwen2-5-math-7b.md), [Qwen3-1.7B-Base](../models/qwen3-1-7b-base.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [REINFORCE](../methods/reinforce.md), [reward sparsity](reward-sparsity.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md), [scaling laws](scaling-laws.md), [softmax policy](softmax-policy.md), [tabular softmax parameterization](tabular-softmax-parameterization.md), [token-level entropy](token-level-entropy.md), [VeRL](../methods/verl.md)
 
 ## Appears in
 
@@ -204,4 +204,45 @@ optimization with exact gradients, and neither treats a language model. The
 junction that is still empty is specific and can now be named — the entropy
 dynamics of a policy whose parameters are *shared across states*.
 
-<!-- analysis-sources: 6 -->
+### Revised at seven sources: the quantity entropy is standing in for
+
+The seventh entry does not argue about entropy at all, which is why it is
+useful. *SPEE* inserts an experience-distillation stage **before** RL and
+measures its effect on a quantity this thread has been circling without naming:
+**the fraction of prompts whose rollout group contains any reward variation.**
+When all eight sampled responses to a problem are wrong they share a reward, the
+group-relative advantage is identically zero, and the update carries no gradient
+for that prompt. Stage I cuts that all-incorrect share by 4.95 points at 4B and
+2.75 at 8B.
+
+Two things make this bear on the open question above.
+
+**It is a direct measure where entropy is a summary.** Two policies can hold the
+same token-level average entropy and differ in how many prompts produce a usable
+group — entropy is computed per position over the vocabulary, the all-incorrect
+rate is computed per prompt over outcomes. The second is what actually gates
+whether a gradient exists. That reframes the note's dichotomy: the choice is not
+only *mechanism versus correlate* but **correlate of what**, and here the
+downstream quantity is cheap to measure and nobody in the cluster reports it.
+
+**Entropy appears as a control, not a target.** SPEE reports 0.047 after its
+pre-stage against GRPO's 0.029 — used to rule out the cheap explanation that the
+better initialization came from collapsing diversity. This is the correct use of
+the statistic and it is the third non-entropy mechanism in this note to improve
+exploration: RepExp's elliptical bonus on hidden states, MRT's regret objective,
+and now a textual experience pool distilled into the weights. Its ablation is
+the sharpest form of the point — removing the experience pool costs more than
+removing the reinforcement-learning stage entirely (34.13 against 35.16, full
+36.67), so most of what the method achieves happens before any entropy is spent.
+
+**What it does not settle.** SPEE's margin over GRPO is 0.75 to 1.92 average
+points with no seeds, so nothing here rests on the headline. And it does not run
+the discriminating experiment this note has now asked for twice — vary the
+selection criterion while holding the reduction in effective gradient fixed. It
+does supply a **second** experiment worth running and cheaper than that one:
+report the all-incorrect group rate alongside entropy in any paper claiming an
+entropy intervention improved exploration. If the two move together the
+distinction collapses; if they come apart, the exchange law is a law about the
+wrong variable.
+
+<!-- analysis-sources: 7 -->

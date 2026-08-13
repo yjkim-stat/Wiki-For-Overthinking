@@ -41,7 +41,12 @@
     "GiGPO",
     "dense retrieval"
   ],
-  "models": [],
+  "models": [
+    "Qwen2.5-7B-Instruct",
+    "Qwen2.5-3B-Instruct",
+    "Qwen3-1.7B",
+    "E5-base-v2"
+  ],
   "one_liner": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
   "paper_id": "arxiv:2608.01359",
   "problem": "Outcome-based RL gives a multi-turn search agent one scalar per trajectory, so the query that retrieved the decisive passage and the query that repeated an earlier one inherit the same credit. Process-reward and turn-level methods make credit finer-grained but only decide where feedback lands, not what information should judge a sampled search action. On-policy self-distillation supplies that missing information by re-scoring under a privileged context, but existing versions condition the teacher on things that do not identify what this particular query should have found — reusable skills, trajectory-derived hindsight, or the golden answer, which specifies the target rather than the evidence.",

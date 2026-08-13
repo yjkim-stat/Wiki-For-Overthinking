@@ -37,7 +37,11 @@
     "reverse KL distillation",
     "knowledge distillation"
   ],
-  "models": [],
+  "models": [
+    "Qwen3-1.7B-Base",
+    "Qwen3-4B-Base",
+    "Qwen3-8B-Base"
+  ],
   "one_liner": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
   "paper_id": "arxiv:2608.02139",
   "problem": "Self-evolution splits into two families that do not meet. Test-time methods keep demonstrations, reflections or retrieved notes as extra context, so the knowledge stays outside the parameters and is bounded by context capacity and retrieval quality. Training-time RL writes behaviour into the parameters but absorbs experience only through a scalar reward, so when sampled trajectories are mostly wrong the supervision carries almost no information about what to do instead. The missing stage is turning transient interaction into transferable text and then into parameters, before reward-driven exploration begins.",

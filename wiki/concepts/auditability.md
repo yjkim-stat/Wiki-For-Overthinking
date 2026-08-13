@@ -9,7 +9,7 @@ Whether a third party can check a claim rather than take it on trust, which the 
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [causal intervention](causal-intervention.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [KV cache compression](../methods/kv-cache-compression.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [mechanistic interpretability](mechanistic-interpretability.md), [meta-evaluation](meta-evaluation.md), [post-hoc rationalization](post-hoc-rationalization.md), [reproducibility](reproducibility.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [causal intervention](causal-intervention.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [KV cache compression](../methods/kv-cache-compression.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [mechanistic interpretability](mechanistic-interpretability.md), [meta-evaluation](meta-evaluation.md), [post-hoc rationalization](post-hoc-rationalization.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Qwen3-8B](../models/qwen3-8b.md), [reproducibility](reproducibility.md)
 
 ## Appears in
 

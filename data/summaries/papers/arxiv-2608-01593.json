@@ -33,7 +33,10 @@
     "Gumbel-Softmax",
     "REINFORCE"
   ],
-  "models": [],
+  "models": [
+    "Qwen2.5-3B-Instruct",
+    "Qwen2.5-7B-Instruct"
+  ],
   "one_liner": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
   "paper_id": "arxiv:2608.01593",
   "problem": "A latent thought is a continuous state, so it is never observed directly and can only be judged by the answers that follow it. A single sampled answer therefore mixes the thought's quality with answer-sampling noise, and existing latent and soft-reasoning methods do not estimate a sampled thought's expected downstream reward at all — they inherit one trajectory-level scalar for the whole rollout, the same problem outcome-only RL has for discrete chains, made worse because the object being credited cannot be inspected.",

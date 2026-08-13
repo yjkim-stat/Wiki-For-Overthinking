@@ -40,7 +40,11 @@
     "PyramidKV",
     "TOVA"
   ],
-  "models": [],
+  "models": [
+    "Qwen3-8B",
+    "DeepSeek-R1-Distill-Llama-8B",
+    "Qwen3-30B-A3B"
+  ],
   "one_liner": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
   "paper_id": "arxiv:2608.01631",
   "problem": "KV cache compression is evaluated by final-answer accuracy, which assumes that whatever preserves the answer preserves the derivation behind it. For large reasoning models that assumption is load-bearing in a way it is not elsewhere, because the intermediate trace is what a user audits. If a compressed cache retains enough to recover the answer while losing the structure that justifies it, an accuracy-only leaderboard produces false positives — a method counted as successful although the reasoning state no longer supports the output.",

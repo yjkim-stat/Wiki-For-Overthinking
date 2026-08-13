@@ -9,7 +9,7 @@ Solving a problem that combines steps the model can already perform individually
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [attention analysis](../methods/attention-analysis.md), [benchmark contamination](benchmark-contamination.md), [construct validity](construct-validity.md), [figurative language](figurative-language.md), [GPT-5](../models/gpt-5.md), [membership inference](../methods/membership-inference.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [test-time compute](test-time-compute.md)
+**Related**: [attention analysis](../methods/attention-analysis.md), [benchmark contamination](benchmark-contamination.md), [construct validity](construct-validity.md), [figurative language](figurative-language.md), [GPT-5](../models/gpt-5.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [membership inference](../methods/membership-inference.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

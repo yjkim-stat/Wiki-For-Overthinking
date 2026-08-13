@@ -35,7 +35,14 @@
     "TF-IDF",
     "logistic regression"
   ],
-  "models": [],
+  "models": [
+    "Qwen3-4B",
+    "Qwen3-8B",
+    "Qwen3-14B",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
+    "GPT-5-mini"
+  ],
   "one_liner": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
   "paper_id": "arxiv:2608.02089",
   "problem": "Commercial deployments show a final answer and a short reasoning summary while the full trace stays hidden, but the evidence that reasoning traces reveal errors or misbehaviour was gathered from full traces. That leaves the practically important question unanswered: what can a reader actually learn from what is displayed? The question has a second half that is usually left implicit — any answer depends on who is reading, since a weak probe and a capable model reader will extract different amounts from the same text.",

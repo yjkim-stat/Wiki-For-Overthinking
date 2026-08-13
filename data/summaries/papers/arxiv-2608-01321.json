@@ -41,7 +41,12 @@
     "HCAPO",
     "retrieval-augmented generation"
   ],
-  "models": [],
+  "models": [
+    "Qwen2.5-7B-Instruct",
+    "Qwen3-8B",
+    "E5-base-v2",
+    "GPT-5.5"
+  ],
   "one_liner": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
   "paper_id": "arxiv:2608.01321",
   "problem": "GRPO rewards a search agent only on its final answer, so a trajectory of ten retrievals receives one scalar and nothing distinguishes the retrieval that found the key document from the one that repeated a query. The paper's claim is that the resulting sparsity produces training instability and redundant search. Existing process rewards pick one of two views and each is insufficient on its own: forward signals such as information gain measure a step's immediate contribution but cannot tell a locally useful step from a necessary one, while hindsight attribution identifies which steps mattered for the final answer but gives no feedback on how a step changed the agent's information state when it was taken.",

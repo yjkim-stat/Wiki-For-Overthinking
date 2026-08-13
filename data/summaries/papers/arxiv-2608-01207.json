@@ -36,7 +36,10 @@
     "Borda count",
     "paired bootstrap confidence intervals"
   ],
-  "models": [],
+  "models": [
+    "Qwen2.5-VL-7B-Instruct",
+    "LLaVA-OneVision-7B"
+  ],
   "one_liner": "Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.",
   "paper_id": "arxiv:2608.01207",
   "problem": "Test-time scaling needs a selection signal, and in vision-language models the usual ones fail for a specific reason: neither answer frequency nor verbalized confidence tests whether an answer depends on the pixels, so a grounded answer and a confident language-prior guess look identical at the selection layer. The natural fix is a signal that cannot be computed without the image. But the obvious way to evaluate such a fix is unfair by construction: a perturbation-based rule spends its extra draws as short, no-CoT samples while the majority-voting baseline aggregates only long CoT samples, so any gain mixes the intended mechanism with a change of decoding format.",
