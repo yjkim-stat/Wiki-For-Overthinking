@@ -1402,6 +1402,11 @@
     },
     {
       "source": "concept:causal-intervention",
+      "target": "method:ridge-regression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
       "target": "method:steering-vector",
       "type": "co-occurs"
     },
@@ -3142,6 +3147,11 @@
     },
     {
       "source": "concept:detection-versus-control",
+      "target": "concept:monosemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:detection-versus-control",
       "target": "concept:randomized-control",
       "type": "co-occurs"
     },
@@ -3158,6 +3168,11 @@
     {
       "source": "concept:detection-versus-control",
       "target": "dataset:truthfulqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:detection-versus-control",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -3188,6 +3203,11 @@
     {
       "source": "concept:detection-versus-control",
       "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:detection-versus-control",
+      "target": "method:sparse-autoencoder",
       "type": "co-occurs"
     },
     {
@@ -5132,7 +5152,12 @@
     },
     {
       "source": "concept:linear-representation-hypothesis",
-      "target": "concept:superposition",
+      "target": "concept:monosemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:linear-representation-hypothesis",
+      "target": "dataset:the-pile",
       "type": "co-occurs"
     },
     {
@@ -5158,6 +5183,11 @@
     {
       "source": "concept:linear-representation-hypothesis",
       "target": "method:difference-of-means-probe",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:linear-representation-hypothesis",
+      "target": "method:sparse-autoencoder",
       "type": "co-occurs"
     },
     {
@@ -9402,6 +9432,11 @@
     },
     {
       "source": "concept:representation-versus-readout",
+      "target": "method:ridge-regression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
       "target": "method:steering-vector",
       "type": "co-occurs"
     },
@@ -9612,6 +9647,11 @@
     },
     {
       "source": "concept:residual-stream",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
       "target": "method:causal-mediation-analysis",
       "type": "co-occurs"
     },
@@ -9643,6 +9683,11 @@
     {
       "source": "concept:residual-stream",
       "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
+      "target": "method:ridge-regression",
       "type": "co-occurs"
     },
     {
@@ -10457,6 +10502,11 @@
     },
     {
       "source": "concept:scaling-laws",
+      "target": "method:ridge-regression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:scaling-laws",
       "target": "method:rloo",
       "type": "co-occurs"
     },
@@ -11203,6 +11253,11 @@
     {
       "source": "concept:superposition",
       "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "concept:linear-representation-hypothesis",
       "type": "co-occurs"
     },
     {
@@ -21852,11 +21907,6 @@
     },
     {
       "source": "dataset:the-pile",
-      "target": "method:ablation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:the-pile",
       "target": "method:causal-mediation-analysis",
       "type": "co-occurs"
     },
@@ -22062,7 +22112,17 @@
     },
     {
       "source": "method:ablation",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ablation",
       "target": "method:causal-mediation-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ablation",
+      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -22248,6 +22308,11 @@
     {
       "source": "method:activation-patching",
       "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-patching",
+      "target": "method:ridge-regression",
       "type": "co-occurs"
     },
     {
@@ -27517,6 +27582,11 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "method:ridge-regression",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "method:sparse-autoencoder",
       "type": "co-occurs"
     },
@@ -28462,12 +28532,22 @@
     },
     {
       "source": "method:logit-lens",
+      "target": "concept:detection-versus-control",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:logit-lens",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
     },
     {
       "source": "method:logit-lens",
       "target": "concept:linear-representation-hypothesis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:logit-lens",
+      "target": "concept:monosemanticity",
       "type": "co-occurs"
     },
     {
@@ -28493,6 +28573,11 @@
     {
       "source": "method:logit-lens",
       "target": "dataset:prosqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:logit-lens",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -28523,6 +28608,11 @@
     {
       "source": "method:logit-lens",
       "target": "method:pca",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:logit-lens",
+      "target": "method:ridge-regression",
       "type": "co-occurs"
     },
     {
@@ -31383,6 +31473,66 @@
     {
       "source": "method:retrieval-augmented-generation",
       "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "concept:detection-versus-control",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "concept:monosemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "method:pca",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "method:sparse-autoencoder",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:gemma-4-26b-a4b-it",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:llama-3-1-8b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:llama-3-2-3b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:phi-4",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:qwen2-5-1-5b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ridge-regression",
+      "target": "model:qwen3-6-35b-a3b",
       "type": "co-occurs"
     },
     {
@@ -38157,11 +38307,6 @@
     },
     {
       "source": "model:pythia-410m",
-      "target": "method:ablation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:pythia-410m",
       "target": "method:causal-analysis",
       "type": "co-occurs"
     },
@@ -39143,6 +39288,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "method:reinforce",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:ridge-regression",
       "type": "co-occurs"
     },
     {
@@ -44672,6 +44822,11 @@
     },
     {
       "source": "topic:reasoning-interpretability",
+      "target": "method:ridge-regression",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
       "target": "method:rlvr",
       "type": "covers"
     },
@@ -47896,7 +48051,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-13T12:37:20Z",
+  "generated_at": "2026-08-13T12:41:02Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -48120,7 +48275,7 @@
       "kind": "concept",
       "label": "detection versus control",
       "settled": true,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "concept:effective-depth",
@@ -48344,7 +48499,7 @@
       "kind": "concept",
       "label": "linear representation hypothesis",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:localization",
@@ -48414,7 +48569,7 @@
       "kind": "concept",
       "label": "monosemanticity",
       "settled": false,
-      "sources": 5
+      "sources": 7
     },
     {
       "id": "concept:multi-hop-reasoning",
@@ -48610,7 +48765,7 @@
       "kind": "concept",
       "label": "residual stream",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "concept:restructuring-level",
@@ -48736,7 +48891,7 @@
       "kind": "concept",
       "label": "superposition",
       "settled": false,
-      "sources": 10
+      "sources": 11
     },
     {
       "id": "concept:sycophancy",
@@ -49205,7 +49360,7 @@
       "kind": "dataset",
       "label": "the Pile",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:triviaqa",
@@ -49247,7 +49402,7 @@
       "kind": "method",
       "label": "ablation",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:activation-patching",
@@ -49268,7 +49423,7 @@
       "kind": "method",
       "label": "activation steering",
       "settled": false,
-      "sources": 10
+      "sources": 11
     },
     {
       "id": "method:attention-analysis",
@@ -49632,7 +49787,7 @@
       "kind": "method",
       "label": "logit lens",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "method:long-chain-of-thought-distillation",
@@ -49831,6 +49986,13 @@
       "sources": 5
     },
     {
+      "id": "method:ridge-regression",
+      "kind": "method",
+      "label": "ridge regression",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "method:rloo",
       "kind": "method",
       "label": "RLOO",
@@ -49884,7 +50046,7 @@
       "kind": "method",
       "label": "sparse autoencoder",
       "settled": false,
-      "sources": 6
+      "sources": 8
     },
     {
       "id": "method:speculative-decoding",

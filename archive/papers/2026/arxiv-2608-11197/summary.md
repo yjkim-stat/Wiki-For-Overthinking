@@ -11,9 +11,44 @@
 - **Topics**: reasoning-interpretability
 - **Relevance score**: reasoning-interpretability 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.
+
+## Problem
+
+Sparse autoencoders are adopted because individual latents admit meaningful semantic interpretations, and sets of active latents are increasingly treated as objects of analysis in their own right. But almost all SAE work validates individual latents, not sets. If SAE latents faithfully decompose an activation into its underlying active concepts, then two things should follow that nobody had checked: the induced similarity should recover human conceptual structure at least as well as dense representations do, and composing an object with a compatible property should approximately expand the active set rather than replace it.
+
+## Contributions
+
+- Preliminary evidence that active latent sets are a meaningful unit at all -- union consistency in a controlled toy model, and semantically coherent neighbourhoods in natural text
+- A replication of a human-concepts study with set overlap in place of cosine similarity, finding SAE-induced similarity aligns with human structure no better and in fact slightly worse than dense states
+- A controlled compositional test showing large-scale latent loss under a refinement that should only add, with the loss traced to removal rather than to negative suppression
+- Elimination of the two obvious explanations, geometric interference and feature absorption
+
+## Method
+
+A latent is active when its post-nonlinearity value is positive, and the signature of an input is the union of the active sets over its token positions. Two preliminary checks establish that signatures carry structure: in a toy model where synthetic residual states are generated from known ground-truth directions, sufficiently wide SAEs satisfy union consistency -- the signature of a composed input matches the union of the individual features' signatures at high Jaccard, recall and precision -- and on 30,000 snippets from a large corpus, neighbourhoods built from signature overlap are semantically interpretable. Experiment 1 replicates a human-concepts study built on classic typicality psychology, where categories are paired with instances and human typicality scores. Words are represented by averaging over their target-token positions under a neutral template so the surrounding prompt is controlled, similarity between two words is Jaccard overlap of their signatures for the SAE and cosine for the dense baseline, and two things are measured: whether clustering the induced similarity recovers human category boundaries by adjusted mutual information, and whether the within-category ranking of instances matches human typicality by Spearman correlation. Experiment 2 builds chains of increasingly specific prompts by prefixing adjectives to a noun, holding the template fixed and comparing signatures at the noun token positions only, so the comparison is always on the same word. The union-of-properties hypothesis predicts that a compatible adjective preserves the noun's latents and adds its own. The lost-latent rate is the fraction of the base prompt's active latents no longer active in the specific one, and three follow-ups decompose it: whether lost latents were active earlier in the computation when probing the full sequence with the same layer's SAE as a cross-layer detector, whether their pre-activations sit in a near-zero band or a strongly negative one, and what an automatic interpretability pipeline says about them.
+
+## Results
+
+SAE latent sets do not recover human conceptual structure better than the dense states they are meant to decompose. Category-boundary recovery by adjusted mutual information is no better for signature overlap than for residual-stream cosine, and the best SAE-based score stays below the best embedding-based one across the settings investigated. Within-category typicality is worse than that: per-category Spearman correlations between human typicality rankings and Jaccard rankings fluctuate around zero for most categories, so the overlap does not systematically recover human typicality at all. What signature overlap does track is model-internal similarity -- its correlations with residual-stream cosine are high though not one, so it captures a related but partially distinct structure rather than reproducing the dense geometry. The compositional result is the sharper one. Lost-latent rates run typically between 20 and 60 percent, rising with the number of adjectives and often with model depth, so prefixing a compatible adjective removes a large fraction of the latents that the bare noun had active. The decomposition rules out the easy readings. Around 60 percent of lost latents in middle layers were active upstream when probing the full sequence, and the noun-restricted version agrees closely, meaning those latents were already active on the noun itself and disappear specifically at the position where loss is measured -- so a substantial share remain in use by the model. At that position roughly 80 percent of lost latents on the noun signature sit in the near-zero pre-activation band with only a few strongly negative, so they are removed rather than actively suppressed. Feature absorption does not explain it: Matryoshka SAEs, designed to mitigate absorption, show lost-latent rates qualitatively consistent with other SAE families. Geometric interference is judged insufficient for the magnitude and structure observed. Lost latents also score slightly lower on automatic interpretability, which the paper reads as weak evidence that they participate in more distributed or context-dependent computation.
+
+## Limitations
+
+The paper is explicit that its two preliminary checks establish only that signatures can be meaningful in controlled settings and in qualitative neighbourhoods, not that they are compositional in naturalistic ones, and that whether the distributed coding it observes reflects genuine model structure or SAE artifacts remains unsettled. What a reader should add: the main text rests on one small model with one SAE width, with other models and SAE variants in appendices, so 'across models' is an appendix claim. The compositional dataset is 200 hand-curated adjective-noun sequences with at most five adjectives, under one fixed template, so the effect is established on a narrow and deliberately clean construction -- which is the right design for a negative result but means the rate itself should not be transported. The upstream check uses the layer's own SAE as a cross-layer detector, which assumes that detector transfers across layers; the paper cites prior use of SAEs as transferable probes rather than validating it here. The near-zero threshold is a pragmatic constant for non-JumpReLU SAEs. And the human-concepts comparison inherits the earlier study's dataset, prompt template and evaluation procedure wholesale, so both the replication and its extension stand or fall with that apparatus.
+
+## Why it matters here
+
+- **reasoning-interpretability**: The archive's interpretability cluster leans on sparse autoencoders, including a step-level SAE for reading reasoning traces, and this constrains what a set of active latents can be taken to mean. Two results matter here. First, the interpretability of individual latents does not license reading their union as a list of the concepts present -- a compatible refinement removes 20 to 60 percent of them, and they are removed rather than suppressed. Second, and less remarked, SAE-induced similarity aligns with human conceptual structure no better than the dense residual stream does; the extra machinery buys per-latent nameability, not a closer match to human categories. Together with the weight-based mounts entry read alongside it, which declines to claim any replacement for SAEs while noting that its own units carry no names, the archive now holds both halves of the trade: dictionaries give names without faithful composition, and weight rules give faithful mechanisms without names.
+
+## Entities
+
+- **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), feature composition, bag-of-features, latent signature, feature absorption, [superposition](../../../../wiki/concepts/superposition.md), typicality, distributed representation, [monosemanticity](../../../../wiki/concepts/monosemanticity.md)
+- **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), JumpReLU, Matryoshka SAE, Jaccard similarity, k-medoids clustering, adjusted mutual information, auto-interpretability
+- **Datasets**: [the Pile](../../../../wiki/datasets/the-pile.md)
+
+Tags: `sparse-autoencoder`, `compositionality`, `interpretability`, `negative-result`, `representation`
 
 ## Abstract
 

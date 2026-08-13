@@ -46,7 +46,7 @@ The paper has no limitations section. What a reader should weigh: the headline i
 
 - **Concepts**: post-training quantization, calibration data, ternary quantization, quantization-aware training, self-generated data, chain of thought, distribution matching
 - **Methods**: ScaleQ-1.58, AYOT, CAT-Q, BitNet b1.58, SliderQuant, straight-through estimator
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md), [HumanEval+](../../../../wiki/datasets/humaneval.md), [MBPP+](../../../../wiki/datasets/mbpp.md), ProofWriter, MetaMathQA, [OpenCodeInstruct](../../../../wiki/datasets/opencodeinstruct.md)
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md), [HumanEval+](../../../../wiki/datasets/humaneval.md), [MBPP+](../../../../wiki/datasets/mbpp.md), [ProofWriter](../../../../wiki/datasets/proofwriter.md), MetaMathQA, [OpenCodeInstruct](../../../../wiki/datasets/opencodeinstruct.md)
 
 Tags: `quantization`, `efficiency`, `calibration`, `compression`, `chain of thought`
 

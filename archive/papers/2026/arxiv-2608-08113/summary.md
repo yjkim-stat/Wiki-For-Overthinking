@@ -48,7 +48,7 @@ No limitations section, and the central comparison does not support the claim it
 
 - **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), recurrent depth, implicit chain of thought, semantic drift, adaptive computation time, deep supervision, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), residual refinement, parameter efficiency
 - **Methods**: truncated backpropagation through time, [Coconut](../../../../wiki/methods/coconut.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), RMSNorm, SwiGLU, adaptive halting
-- **Datasets**: GLoRE, ProofWriter, RuleTaker, HELP, NaN-NLI, TaxiNLI
+- **Datasets**: GLoRE, [ProofWriter](../../../../wiki/datasets/proofwriter.md), RuleTaker, HELP, NaN-NLI, TaxiNLI
 
 Tags: `latent-reasoning`, `recurrence`, `efficiency`, `logical-reasoning`, `small-models`
 

@@ -168,6 +168,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Lands directly on a dispute this drain has now populated from both sides. This paper argues displacement is the right representation because it strips lexical confounds; arxiv:2608.05660, collected in the same drain, argues displacement alone is insufficient because it discards the originating state, and adds a quantized region plus a normalized direction to restore location without shortcuts. Both report gains over the same single-layer probing baseline, on different benchmarks, with no shared model — which is precisely the incomparability that doi:10.18653/v1/2026.acl-long.159 in this drain calls the field&#x27;s auditing failure. The resolvable question is whether the location information the one paper adds is the lexical confound the other removes.</p>
 </section>
 <section class="slide">
+<h2>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</h2>
+<p class="subtitle">Nikolai Bolik, Lennart Stöpler, Artur Andrzejak · 2026</p>
+<blockquote>
+<p>Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.</p>
+</blockquote>
+<ul>
+<li>Preliminary evidence that active latent sets are a meaningful unit at all -- union consistency in a controlled toy model, and semantically coherent neighbourhoods in natural text</li>
+<li>A replication of a human-concepts study with set overlap in place of cosine similarity, finding SAE-induced similarity aligns with human structure no better and in fact slightly worse than dense states</li>
+<li>A controlled compositional test showing large-scale latent loss under a refinement that should only add, with the loss traced to removal rather than to negative suppression</li>
+<li>Elimination of the two obvious explanations, geometric interference and feature absorption</li>
+</ul>
+<p><strong>Results.</strong> SAE latent sets do not recover human conceptual structure better than the dense states they are meant to decompose. Category-boundary recovery by adjusted mutual information is no better for signature overlap than for residual-stream cosine, and the best SAE-based score stays below the best embedding-based one across the settings investigated. Within-category typicality is worse than that: per-category Spearman correlations between human typicality rankings and Jaccard rankings fluctuate around zero for most categories, so the overlap does not systematically recover human typicality at all. What signature overlap does track is model-internal similarity -- its correlations with residual-stream cosine are high though not one, so it captures a related but partially distinct structure rather than reproducing the dense geometry. The compositional result is the sharper one. Lost-latent rates run typically between 20 and 60 percent, rising with the number of adjectives and often with model depth, so prefixing a compatible adjective removes a large fraction of the latents that the bare noun had active. The decomposition rules out the easy readings. Around 60 percent of lost latents in middle layers were active upstream when probing the full sequence, and the noun-restricted version agrees closely, meaning those latents were already active on the noun itself and disappear specifically at the position where loss is measured -- so a substantial share remain in use by the model. At that position roughly 80 percent of lost latents on the noun signature sit in the near-zero pre-activation band with only a few strongly negative, so they are removed rather than actively suppressed. Feature absorption does not explain it: Matryoshka SAEs, designed to mitigate absorption, show lost-latent rates qualitatively consistent with other SAE families. Geometric interference is judged insufficient for the magnitude and structure observed. Lost latents also score slightly lower on automatic interpretability, which the paper reads as weak evidence that they participate in more distributed or context-dependent computation.</p>
+<p><strong>Why it matters.</strong> The archive&#x27;s interpretability cluster leans on sparse autoencoders, including a step-level SAE for reading reasoning traces, and this constrains what a set of active latents can be taken to mean. Two results matter here. First, the interpretability of individual latents does not license reading their union as a list of the concepts present -- a compatible refinement removes 20 to 60 percent of them, and they are removed rather than suppressed. Second, and less remarked, SAE-induced similarity aligns with human conceptual structure no better than the dense residual stream does; the extra machinery buys per-latent nameability, not a closer match to human categories. Together with the weight-based mounts entry read alongside it, which declines to claim any replacement for SAEs while noting that its own units carry no names, the archive now holds both halves of the trade: dictionaries give names without faithful composition, and weight rules give faithful mechanisms without names.</p>
+</section>
+<section class="slide">
 <h2>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</h2>
 <p class="subtitle">Arya Labroo, Mengjie Qian, Kate Knill · 2026</p>
 <blockquote>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> A concrete answer to where reasoning errors live: a region and a direction in residual-stream trajectory space, with the two carrying complementary information and neither sufficient alone. The methodological contribution is the deliberate restriction of state information — quantized region plus normalized direction — as a way to get state context without shortcut features, which is a middle path between displacement-only trajectories and full-state probing that the archive&#x27;s probing thread has not held before.</p>
 </section>
 <section class="slide">
-<h2>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</h2>
-<p class="subtitle">Abdallah Khemais · 2026</p>
-<blockquote>
-<p>Proves that activation patching and weight-space ablation measure two different quantities — a carrier&#x27;s donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.</p>
-</blockquote>
-<ul>
-<li>An if-and-only-if criterion for a weight-space ablation to collapse a conditional onto a single unconditional branch: the removal must be symmetric on the matched pair and no contrast may survive outside the ablated set, with the polarity of the resulting error fixed by the pair&#x27;s mean margin</li>
-<li>A robust form of that criterion — the same computation gives an exact error identity rather than an estimate, so a condition stated as two exact equalities degrades gracefully into a tolerance condition instead of describing a null set</li>
-<li>An exact naming of what the two interventions move: patching a carrier shifts the readout by its donor-receiver contrast, ablating it shifts the readout by its absolute level at the receiver, and neither bounds the other</li>
-<li>A construction of matched pairs on which every single-carrier patch flips the decision while no single-carrier ablation does — the redundancy regime where patching overstates importance and ablation understates it, produced with no repair mechanism at all</li>
-</ul>
-<p><strong>Results.</strong> The predictions are realized rather than vacuous. Redundancy and low rank hold on all five instances, and ablation collapses the network onto an unconditional reader on four of them. The fifth is the informative one: two <em>nested</em> subsets collapse the same trained weights onto <em>opposite</em> readers, each with the untouched format retained at 0.96 or better — a rank-one head alone gives the inverted reader at 0.93, and that head together with its own block&#x27;s MLP gives the literal reader at 0.977. The idealized model forbids this, so at least one subset must violate a collapse hypothesis, and the paper traces which. The dissociation is confirmed on a single site where patching gives a median recovery of 1.043 with an 0.85 flip rate — recovery above one being the overshoot signature — while ablating the weights feeding that same site leaves the receiver format correct on 57% of inputs: patch-sufficient, far from ablation-necessary, on the same component of the same network. The collapse certificate turns out rarely available for a structural reason worth recording: the mean margin it must exceed is small by construction (median 0.083 of the pair contrast) while the tolerances are of the order of the margins themselves (0.14 and 0.21), so the sufficient condition misses by a median factor of 5.3 and fires on 10.0% of pair-configurations — though it discriminates rather than being uniformly pessimistic, with realized collapse rate rising from 32% to 57% to 88% across certificate-rate bands. The paper&#x27;s own headline empirical claim does not survive its out-of-sample test, and it says so. A clean numerical band separating configurations that the idealized model describes from those it does not, read off the original 14, was frozen along with its decision rule and applied to all 39 subsets including 25 never used to fix anything, on a third disjoint probe seed: nine violate it, six out of sample, seven land inside the supposedly empty band, and three of the original 14 change sides on mere re-measurement. What survives is a monotone association at Spearman -0.83 over all 39, -0.85 on the held-out 25 alone, with the pass rate falling 7/8 to 6/8 to 1/7 across terciles of interaction magnitude. The second task and architecture reproduce all of it, including a polarity reversal and the same monotone relationship at -0.90.</p>
-<p><strong>Why it matters.</strong> This turns the archive&#x27;s standing caution about interpretability instruments into an identity. The archive already holds that a direction&#x27;s discriminability licenses no claim about what steering it does; this paper establishes the parallel statement one level up — patching and ablation are different operators on different objects, they measure a carrier&#x27;s contrast and its absolute level respectively, and neither bounds the other, with an explicit construction where every single-carrier patch is sufficient and no single-carrier ablation is necessary. Any claim in this archive resting on one of those two interventions should now name which quantity it measured. The empirical conduct is worth as much as the theorem. A clean separation found on 14 configurations was frozen as a rule and tested on 25 held-out ones, failed, and was withdrawn in favour of the weaker monotone claim the data support — including the detail that three of the original 14 flip sides on re-measurement alone. That is the discipline the archive&#x27;s own findings on baseline validity and randomized controls keep pointing toward, executed by the authors against themselves. The polarity reversal is the concrete warning to carry: two <em>nested</em> ablated subsets collapsed the same trained network onto opposite unconditional readers, so enlarging a subset that already produces a clean collapse can reverse rather than deepen it.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -278,23 +278,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</strong> — The paper is explicit that its two preliminary checks establish only that signatures can be meaningful in controlled settings and in qualitative neighbourhoo...</li>
 <li><strong>Safety Cost of Steering Vectors Is Separable and Reducible</strong> — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the c...</li>
+<li><strong>Finding Usable Weight Mechanisms with Tiled SVD</strong> — The paper&#x27;s own list is unusually direct, and its discussion opens by saying the novelty is thin: singular vectors of transformer weights, detector-effector...</li>
 <li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
 <li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
-<li><strong>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</strong> — The paper&#x27;s discussion is the most careful in this archive and states the bounds itself. The three central results rest on the additive decomposition and the...</li>
-<li><strong>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</strong> — The paper is unusually precise about what it did not close, and the closing sentences are worth quoting in effect: a theory that only ever gets confirmed on...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</strong> — The paper&#x27;s discussion is the most careful in this archive and states the bounds itself. The three central results rest on the additive decomposition and the...</li>
+<li><strong>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</strong> — The paper is unusually precise about what it did not close, and the closing sentences are worth quoting in effect: a theory that only ever gets confirmed on...</li>
 <li><strong>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</strong> — The limitations section is exemplary and should be read as part of the result. The construct-validity concern is stated first and is the sharpest: short-term...</li>
 <li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
 <li><strong>Inverted Detection and Control in Steering Vectors</strong> — The paper states its scope: it studies translation-based steering vectors specifically, in order to isolate the inverted phenomenon, and does not evaluate mo...</li>
 <li><strong>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</strong> — The paper states none beyond its conclusion that there is no one-size-fits-all method. What a reader should weigh: the headline robustness claim holds on the...</li>
-<li><strong>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</strong> — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a f...</li>
-<li><strong>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</strong> — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identif...</li>
 </ul>
 </section>
 <section class="slide">
@@ -303,16 +303,17 @@ th { background: var(--surface); }
 <li>Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al.. <em>Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders</em>. ACL. 2026</li>
 <li>Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. <em>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</em>. cs.LG. 2026</li>
 <li>Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. <em>Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning</em>. ACL. 2026</li>
+<li>Nikolai Bolik, Lennart Stöpler, Artur Andrzejak. <em>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</em>. cs.LG. 2026</li>
 <li>Arya Labroo, Mengjie Qian, Kate Knill. <em>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</em>. cs.AI. 2026</li>
 <li>Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. <em>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</em>. cs.CL. 2026</li>
 <li>Yuxiao Li, Gjergji Kasneci. <em>Safety Cost of Steering Vectors Is Separable and Reducible</em>. cs.CL. 2026</li>
 <li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
-<li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</em>. cs.AI. 2026</li>
 <li>Max Torop, Aria Masoomi, Jennifer Dy. <em>Inverted Detection and Control in Steering Vectors</em>. cs.LG. 2026</li>
 <li>Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. <em>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</em>. ACL. 2026</li>
@@ -320,20 +321,19 @@ th { background: var(--surface); }
 <li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
 <li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
 <li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
-<li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
+<li>Ash Manvi, Samreena Tajreen. <em>Finding Usable Weight Mechanisms with Tiled SVD</em>. cs.AI. 2026</li>
 <li>Michal Mráz, Justin Shenk. <em>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</em>. cs.AI. 2026</li>
 <li>Nan Chen, Zhouhao Yang, Soufiane Hayou. <em>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</em>. cs.CL. 2026</li>
 <li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
 <li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
 <li>Xinyan Jiang, Ninghao Liu, Di Wang et al.. <em>Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability</em>. ICML. 2026</li>
-<li>Xuan Yang, Jiayu Liu, Yuhang Lai et al.. <em>Step-Level Sparse Autoencoder for Reasoning Process Interpretation</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
-<li>Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. <em>Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!</em>. ICML. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">
