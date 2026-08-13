@@ -46,7 +46,7 @@ The paper's own list is unusually direct, and its discussion opens by saying the
 ## Entities
 
 - **Concepts**: mechanism mount, [residual stream](../../../../wiki/concepts/residual-stream.md), write direction, energy lift, coverage saturation, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [monosemanticity](../../../../wiki/concepts/monosemanticity.md), effective path, weight-based interpretability
-- **Methods**: singular value decomposition, [logit lens](../../../../wiki/methods/logit-lens.md), [activation steering](../../../../wiki/methods/activation-steering.md), [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), ridge regression, [ablation](../../../../wiki/methods/ablation.md)
+- **Methods**: singular value decomposition, [logit lens](../../../../wiki/methods/logit-lens.md), [activation steering](../../../../wiki/methods/activation-steering.md), [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [ridge regression](../../../../wiki/methods/ridge-regression.md), [ablation](../../../../wiki/methods/ablation.md)
 - **Datasets**: WikiText-2
 
 Tags: `mechanistic-interpretability`, `svd`, `weights`, `steering`, `evaluation-protocol`

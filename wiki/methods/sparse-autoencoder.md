@@ -70,3 +70,57 @@ If step correctness is probeable without step labels, this is a route to
 names as future work from the entropy side. Two independent methods now point at
 unsupervised process supervision from different directions, which makes it the
 most concrete open direction in this archive.
+
+### Revised at eight sources: what a set of latents is not
+
+A new entry attacks the level above the individual latent, and it matters for
+everything the section above builds on. **Beyond a Bag of Features** takes the
+*set* of active latents as the unit — the object every "which concepts are
+present here" reading implicitly uses — and tests the composition property that
+reading requires.
+
+Prefix a compatible adjective to a noun and the noun's own signature should be
+preserved while the adjective's is added. Instead **20–60% of the noun's active
+latents go away**, rising with the number of adjectives and often with depth.
+The decomposition is what makes this hard to dismiss:
+
+| Check | Result |
+| --- | --- |
+| Were the lost latents used at all? | ~60% were active upstream in middle layers, and the noun-only restriction agrees — they were active *on the noun itself* |
+| Suppressed or removed? | ~80% sit in the near-zero pre-activation band, only 10–20% strongly negative |
+| Feature absorption? | Matryoshka SAEs, built to mitigate it, show the same rates |
+| Geometric interference? | Judged insufficient for the magnitude and structure |
+
+So the latents are dropped rather than pushed down, they were doing work
+immediately before, and neither standard explanation covers it.
+
+**The quieter result is the one to weigh against the whole method.** Replacing
+cosine similarity over dense states with Jaccard overlap over SAE signatures
+does not improve alignment with human conceptual structure — category-boundary
+recovery is no better and the best SAE score stays *below* the best dense one,
+while within-category typicality correlations fluctuate around zero. What
+signature overlap does track is the dense geometry it was meant to decompose.
+The dictionary buys per-latent nameability; it does not buy a closer match to
+human categories.
+
+### Both halves of the trade are now in the archive
+
+Read alongside **Finding Usable Weight Mechanisms with Tiled SVD**, arriving the
+same day, the two entries state a choice rather than a ranking:
+
+| | Identity lives in | Composition | Names |
+| --- | --- | --- | --- |
+| SAE latents | a separately trained dictionary | fails under a compatible refinement | yes, per latent |
+| Tile-SVD mounts | the weight matrix itself | is the weight rule, so nothing to fail | **none** — the paper says so |
+
+The SVD paper explicitly declines to claim a replacement for sparse
+autoencoders in concept discovery, and it is right to: its units carry no
+semantic labels. But it does supply something this archive wanted and could not
+get from the SAE line — a **depth curve for detection against intervention**.
+For the same write direction it computes what an unembedding lens predicts and
+what steering actually does, and the agreement runs from about zero in layers
+0–5 to ρ ≈ 0.91 at the final layer. See [[detection-versus-control]]: the gap
+the archive keeps citing is not a constant, and it is widest exactly where most
+probing is done.
+
+<!-- analysis-sources: 8 -->
