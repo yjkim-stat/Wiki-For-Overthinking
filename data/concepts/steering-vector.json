@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "SV",
+    "activation steering vector"
+  ],
+  "definition": "A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and texts that do not. One source uses them as an instrument and finds a model plans its reasoning effort in advance — a direction encoding intended length is present before generation and steering along it changes the length produced. The other studies the instrument itself and finds a class of directions that are highly discriminative and aligned with positive examples yet steer the opposite way, systematically enough to be identified from forward passes and corrected by a sign flip, improving a standard pipeline in 27 of 30 experiments. The pair is the archive's caution in miniature: a steering result is only as good as the check that the vector moves the model the way its discriminability suggests.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-08T06:13:28Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-13T01:37:09Z",
   "name": "steering vector",
   "related": [
@@ -63,7 +66,9 @@
     "deepseek-r1-distill-qwen-32b",
     "qwq-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "inverted-steering-vector"
+  ],
   "schema_version": 1,
   "slug": "steering-vector",
   "topics": [

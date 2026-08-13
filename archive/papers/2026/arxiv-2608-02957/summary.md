@@ -45,9 +45,9 @@ The paper states its scope: it studies translation-based steering vectors specif
 
 ## Entities
 
-- **Concepts**: steering vector, linear representation hypothesis, detection versus control, representation versus readout, linear probe, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [attention head](../../../../wiki/concepts/attention-head.md), concept direction, representation response, activation steering
-- **Methods**: inverted-steering vector, Inference Time Intervention, ITI-RRF, [activation steering](../../../../wiki/methods/activation-steering.md), mean-difference probe, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), contrastive activation addition
-- **Datasets**: TruthfulQA, Model-Written Evaluations
+- **Concepts**: [steering vector](../../../../wiki/concepts/steering-vector.md), [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), detection versus control, [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), linear probe, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [attention head](../../../../wiki/concepts/attention-head.md), concept direction, representation response, activation steering
+- **Methods**: inverted-steering vector, Inference Time Intervention, ITI-RRF, [activation steering](../../../../wiki/methods/activation-steering.md), mean-difference probe, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md)
+- **Datasets**: [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), Model-Written Evaluations
 
 Tags: `steering vectors`, `interpretability`, `activation steering`, `causal intervention`, `control`
 

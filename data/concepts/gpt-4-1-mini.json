@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "gpt-4.1-mini"
+  ],
+  "definition": "A small proprietary model, appearing in both sources as evaluation apparatus rather than as a subject. One uses it as the macro-level judge scoring chart-reasoning answers by a true-or-false assessment, alongside rule-based metrics introduced specifically to mitigate judge bias. The other uses it to score open-ended concept expression under steering. Both therefore depend on it for the numbers they report while studying something else, which is worth noting: a judge model is a load-bearing part of an experimental setup that papers rarely audit and this archive separately holds evidence is prompt- and format-sensitive.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -13,11 +15,17 @@
       "kind": "paper",
       "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
       "title": "Inverted Detection and Control in Steering Vectors"
+    },
+    {
+      "id": "arxiv:2608.02975",
+      "kind": "paper",
+      "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
+      "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
     }
   ],
   "first_seen": "2026-08-13T01:22:49Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:37:09Z",
+  "last_seen": "2026-08-13T01:53:45Z",
   "name": "GPT-4.1-mini",
   "related": [
     "visual-grounding",
@@ -68,9 +76,43 @@
     "model-written-evaluations",
     "gemma-3-12b",
     "qwen2-5-14b",
-    "olmo-3-7b"
+    "olmo-3-7b",
+    "knowledge-distillation",
+    "inter-annotator-agreement",
+    "data-quality",
+    "structured-output",
+    "prompt-sensitivity",
+    "jury-aggregation",
+    "translation-quality-evaluation",
+    "tqlite",
+    "gemba-mqm",
+    "lora",
+    "multi-model-jury",
+    "wmt22",
+    "opus-100",
+    "europarl",
+    "mqm",
+    "gpt-4",
+    "gpt-4o-mini",
+    "o1",
+    "o3",
+    "o4-mini",
+    "gemini-2-0-flash",
+    "gemini-2-5-pro",
+    "gemma-3-4b-it",
+    "gemma-3-12b-it",
+    "gemma-3-27b-it",
+    "qwen3-8b",
+    "qwen3-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "llama-3-8b-instruct",
+    "llama-3-70b-instruct",
+    "aya-expanse-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llm-as-a-judge"
+  ],
   "schema_version": 1,
   "slug": "gpt-4-1-mini",
   "topics": [

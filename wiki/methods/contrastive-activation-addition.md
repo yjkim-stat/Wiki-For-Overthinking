@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the baseline whose limitation motivates them, and locate that limitation in the same place — a single aggregate direction applied at one site. One replaces the fixed single-layer intervention with sparse-feature-derived vectors applied at multiple points, on the grounds that one direction imposed across semantically diverse inputs has an effect that often fails to persist across layers. The other shows the failure is worse than insufficiency: a direction can be highly discriminative for a concept and aligned with its positive examples while steering reliably in the opposite direction, so the sign of the intervention cannot be read off the direction's discriminability at all.
 
 - **Kind**: method
-- **Also called**: Contrastive Activation Addition
+- **Also called**: CAA, Contrastive Activation Addition, contrastive activation steering
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation steering](activation-steering.md), [attention head](../concepts/attention-head.md), [causal intervention](../concepts/causal-intervention.md), [circuit discovery](circuit-discovery.md), [GPT-4.1-mini](../models/gpt-4-1-mini.md), [Inference Time Intervention](../concepts/inference-time-intervention.md), [linear probe](linear-probe.md), [linear representation hypothesis](../concepts/linear-representation-hypothesis.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [monosemanticity](../concepts/monosemanticity.md), [Qwen2.5-14B](../models/qwen2-5-14b.md), [representation versus readout](../concepts/representation-versus-readout.md), [sparse autoencoder](sparse-autoencoder.md), [steering](../concepts/steering.md), [steering vector](../concepts/steering-vector.md), [superposition](../concepts/superposition.md), [TruthfulQA](../datasets/truthfulqa.md)
+**Related**: [activation steering](activation-steering.md), [attention head](../concepts/attention-head.md), [causal intervention](../concepts/causal-intervention.md), [circuit discovery](circuit-discovery.md), [GPT-4.1-mini](../models/gpt-4-1-mini.md), [Inference Time Intervention](../concepts/inference-time-intervention.md), [linear probe](linear-probe.md), [linear representation hypothesis](../concepts/linear-representation-hypothesis.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [monosemanticity](../concepts/monosemanticity.md), [Qwen2.5-14B](../models/qwen2-5-14b.md), [representation versus readout](../concepts/representation-versus-readout.md), [sparse autoencoder](sparse-autoencoder.md), [steering](../concepts/steering.md), [steering vector](steering-vector.md), [superposition](../concepts/superposition.md), [TruthfulQA](../datasets/truthfulqa.md)
 
 ## Appears in
 

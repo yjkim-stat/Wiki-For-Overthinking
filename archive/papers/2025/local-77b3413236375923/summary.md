@@ -45,7 +45,7 @@ The paper's own limitations section names two: only a linear probe is used, with
 
 ## Entities
 
-- **Concepts**: reasoning strength, pre-planning, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), linear probing, difference-in-means, activation steering, steering vector, end-of-thinking token, [overthinking](../../../../wiki/concepts/overthinking.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), latent plan
+- **Concepts**: reasoning strength, pre-planning, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), linear probing, difference-in-means, activation steering, [steering vector](../../../../wiki/concepts/steering-vector.md), end-of-thinking token, [overthinking](../../../../wiki/concepts/overthinking.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), latent plan
 - **Methods**: [linear probing](../../../../wiki/methods/linear-probing.md), Lasso regression, difference-in-means, [activation steering](../../../../wiki/methods/activation-steering.md), overthink attack, [budget forcing](../../../../wiki/methods/budget-forcing.md)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime24.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [MMLU](../../../../wiki/datasets/mmlu.md), [AlpacaEval](../../../../wiki/datasets/alpacaeval.md)
 

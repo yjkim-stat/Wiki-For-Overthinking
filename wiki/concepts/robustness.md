@@ -9,7 +9,7 @@ Whether performance survives changes that should not matter, and the sources mak
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [chain of thought faithfulness](chain-of-thought-faithfulness.md), [construct validity](construct-validity.md), [RLVR](../methods/rlvr.md)
+**Related**: [chain of thought faithfulness](chain-of-thought-faithfulness.md), [construct validity](construct-validity.md), [prompt sensitivity](prompt-sensitivity.md), [RLVR](../methods/rlvr.md)
 
 ## Appears in
 

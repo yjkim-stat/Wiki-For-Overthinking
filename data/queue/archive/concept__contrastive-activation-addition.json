@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:53:44Z",
   "created_at": "2026-08-13T01:37:10Z",
   "instructions": "Write the wiki definition for 'contrastive activation addition'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "contrastive activation addition",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "contrastive activation addition",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "CAA",
+      "contrastive activation steering"
+    ],
+    "definition": "Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the baseline whose limitation motivates them, and locate that limitation in the same place — a single aggregate direction applied at one site. One replaces the fixed single-layer intervention with sparse-feature-derived vectors applied at multiple points, on the grounds that one direction imposed across semantically diverse inputs has an effect that often fails to persist across layers. The other shows the failure is worse than insufficiency: a direction can be highly discriminative for a concept and aligned with its positive examples while steering reliably in the opposite direction, so the sign of the intervention cannot be read off the direction's discriminability at all.",
+    "kind": "method",
+    "related": [
+      "detection versus control"
+    ]
   },
   "task_id": "concept__contrastive-activation-addition",
   "task_version": 1,

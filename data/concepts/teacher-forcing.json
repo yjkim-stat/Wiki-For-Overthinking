@@ -5,6 +5,12 @@
   "definition": "Training a model on ground-truth prefixes rather than on its own generations. The sources treat it from opposite ends. One prices it: selecting a predictor consistent with the entire chain of thought on the training data learns with sample complexity logarithmic in the combined input and reasoning length, with a matching lower bound, so no other rule using chain data does fundamentally better. The other names it as the thing to move away from, arguing that the teacher-forced objective underlying next-token prediction is ill-suited to long-horizon reasoning and planning and proposing latent auxiliary targets instead. Statistically cheap and, by the second account, structurally limited.",
   "evidence": [
     {
+      "id": "arxiv:2608.03077",
+      "kind": "paper",
+      "note": "Scores each reasoning step of a translation by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold translation, and adds that as a dense per-step reward on top of sequence-level quality — after first establishing that explicit reasoning helps long and hard inputs while drifting on terminology and style.",
+      "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation"
+    },
+    {
       "id": "arxiv:2608.05806",
       "kind": "paper",
       "note": "Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.",
@@ -19,9 +25,40 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:53:45Z",
   "name": "teacher forcing",
   "related": [
+    "credit-assignment",
+    "process-reward",
+    "outcome-reward",
+    "reward-shaping",
+    "advantage-estimation",
+    "terminology-control",
+    "domain-adaptation",
+    "long-chain-of-thought",
+    "reasoning-drift",
+    "pamt",
+    "grpo",
+    "supervised-fine-tuning",
+    "long-chain-of-thought-distillation",
+    "kl-regularization",
+    "gemba-mqm",
+    "wmt22",
+    "wmt23-terminology-shared-task",
+    "guofeng-webnovel",
+    "multi-domain",
+    "qwen2-5-7b-instruct",
+    "gemma2-9b-it",
+    "deepseek-v3",
+    "deepseek-r1",
+    "gemini-2-0-flash",
+    "gemini-2-0-flash-thinking",
+    "gpt-4o",
+    "gpt-5",
+    "towerinstruct-7b-v0-2",
+    "alma-7b-r",
+    "alma-13b-r",
+    "tower-plus-9b",
     "next-token-prediction",
     "latent-reasoning",
     "implicit-reasoning",
@@ -43,10 +80,11 @@
     "vc-dimension-analysis",
     "pac-learning"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "teacher-forcing",
   "topics": [
-    "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

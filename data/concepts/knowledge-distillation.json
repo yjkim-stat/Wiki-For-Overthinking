@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
       "title": "Self-Improving Large Language Models via Progressive Experience Evolution"
+    },
+    {
+      "id": "arxiv:2608.02975",
+      "kind": "paper",
+      "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
+      "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
     }
   ],
   "first_seen": "2026-08-12T23:15:52Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T01:53:45Z",
   "name": "knowledge distillation",
   "related": [
     "self-improvement",
@@ -35,12 +41,49 @@
     "dapo-math-17k",
     "qwen3-1-7b-base",
     "qwen3-4b-base",
-    "qwen3-8b-base"
+    "qwen3-8b-base",
+    "llm-as-a-judge",
+    "inter-annotator-agreement",
+    "data-quality",
+    "structured-output",
+    "prompt-sensitivity",
+    "jury-aggregation",
+    "translation-quality-evaluation",
+    "tqlite",
+    "gemba-mqm",
+    "supervised-fine-tuning",
+    "lora",
+    "multi-model-jury",
+    "chain-of-thought-prompting",
+    "wmt22",
+    "opus-100",
+    "europarl",
+    "mqm",
+    "gpt-4",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-4-1-mini",
+    "o1",
+    "o3",
+    "o4-mini",
+    "gemini-2-0-flash",
+    "gemini-2-5-pro",
+    "gemma-3-4b-it",
+    "gemma-3-12b-it",
+    "gemma-3-27b-it",
+    "qwen3-8b",
+    "qwen3-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "llama-3-8b-instruct",
+    "llama-3-70b-instruct",
+    "aya-expanse-8b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "knowledge-distillation",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training"
   ]
 }

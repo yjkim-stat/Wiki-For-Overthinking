@@ -84,17 +84,17 @@ The part of a chain of thought that does no work, and the quantity every efficie
 
 Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models; Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models; Optimizing Length Compression in Large Reasoning Models.
 
-### localization
-
-Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing question of this archive's interpretability work at fourteen sources. The sources agree it is possible and disagree about what a located component means. Granularity changes the answer: on propositional logic, four families of attention heads execute a sequential circuit, while on arithmetic the mechanism is an unordered bag of heuristic neurons, and no source tests whether a computation modular at head level is heuristic inside each head. Method choices change the answer too — how prompts are corrupted, which metric scores the effect and whether layers are patched singly or in windows all shift what activation patching reports, and single-component tracing cannot see components that matter only jointly. Two cautions recur. Being encoded is not being used: a concept can be linearly recoverable while having no influence on the output, and sparse autoencoders improve the first while attenuating the second. And what is located may be a state rather than a property, since memorizing and generalizing circuits compete during training.
-
-Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
-
 ### credit assignment
 
 Deciding which part of a trajectory deserves the reward, and the problem RLVR's sparse sequence-level signal creates. Nine sources attack it and the interesting split is where they place the unit. At token level: the roughly 20% highest-entropy tokens act as decision forks and restricting gradient to them matches or beats full-gradient training; a token's signed marginal utility for the correct answer marks harmful tokens as well as useful ones. At segment or turn level: token-level teacher-student log-probability gaps are aggregated into turn-level evidence by a recursive Bayesian belief update, or concentrated on reasoning pivots identified counterfactually. At reward-design level: attaching an efficiency signal to the whole sequence implicitly penalizes long-but-correct trajectories, so the fix is to attach it to a single mode-selection token instead. One theoretical result cuts across all of them, showing a per-step Q value can be recovered from an outcome reward alone under the right parameterization — so dense credit does not always require dense labels.
 
 Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning.
+
+### localization
+
+Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing question of this archive's interpretability work at fourteen sources. The sources agree it is possible and disagree about what a located component means. Granularity changes the answer: on propositional logic, four families of attention heads execute a sequential circuit, while on arithmetic the mechanism is an unordered bag of heuristic neurons, and no source tests whether a computation modular at head level is heuristic inside each head. Method choices change the answer too — how prompts are corrupted, which metric scores the effect and whether layers are patched singly or in windows all shift what activation patching reports, and single-component tracing cannot see components that matter only jointly. Two cautions recur. Being encoded is not being used: a concept can be linearly recoverable while having no influence on the output, and sparse autoencoders improve the first while attenuating the second. And what is located may be a state rather than a property, since memorizing and generalizing circuits compete during training.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
 
 ### exploration-exploitation trade-off
 
@@ -114,22 +114,22 @@ A model noticing an error in its own work and repairing it, and one of the archi
 
 Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning; Optimizing Length Compression in Large Reasoning Models.
 
-### meta-evaluation
+### advantage estimation
 
-Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
+Assigning each sampled rollout a learning signal relative to a baseline, which in the critic-free methods the sources use means comparing rollouts within a group. Both sources identify the same structural failure from opposite ends: when every rollout in a group receives the same reward the group-relative advantage is zero and the batch teaches nothing. One hits it on prompts where all rollouts are already correct, wasting the rollouts; the other on negative samples where no valid output exists, and forces a canonical 'None' rollout so the group regains variance. Together they show that group-relative methods depend on within-group disagreement, which makes example selection a requirement rather than an optimization.
 
-Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
+Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; Self-Improving Large Language Models via Progressive Experience Evolution.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 29 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| GRPO | 30 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 22 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| LLM-as-a-judge | 21 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| LLM-as-a-judge | 22 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | RLVR | 19 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
+| supervised fine-tuning | 15 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | self-consistency | 13 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| supervised fine-tuning | 13 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | linear probe | 12 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
 | best-of-n | 11 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |

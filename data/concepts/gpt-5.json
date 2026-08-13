@@ -11,6 +11,12 @@
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
     },
     {
+      "id": "arxiv:2608.03077",
+      "kind": "paper",
+      "note": "Scores each reasoning step of a translation by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold translation, and adds that as a dense per-step reward on top of sequence-level quality — after first establishing that explicit reasoning helps long and hard inputs while drifting on terminology and style.",
+      "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.2198",
       "kind": "paper",
       "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
@@ -25,7 +31,7 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T01:53:45Z",
   "name": "GPT-5",
   "related": [
     "intent-classification",
@@ -59,6 +65,36 @@
     "roberta",
     "gpt-5-nano",
     "gpt-4o",
+    "credit-assignment",
+    "process-reward",
+    "outcome-reward",
+    "reward-shaping",
+    "advantage-estimation",
+    "terminology-control",
+    "domain-adaptation",
+    "long-chain-of-thought",
+    "reasoning-drift",
+    "pamt",
+    "grpo",
+    "supervised-fine-tuning",
+    "long-chain-of-thought-distillation",
+    "kl-regularization",
+    "teacher-forcing",
+    "gemba-mqm",
+    "wmt22",
+    "wmt23-terminology-shared-task",
+    "guofeng-webnovel",
+    "multi-domain",
+    "qwen2-5-7b-instruct",
+    "gemma2-9b-it",
+    "deepseek-v3",
+    "deepseek-r1",
+    "gemini-2-0-flash",
+    "gemini-2-0-flash-thinking",
+    "towerinstruct-7b-v0-2",
+    "alma-7b-r",
+    "alma-13b-r",
+    "tower-plus-9b",
     "construct-validity",
     "multimodal-reasoning",
     "linguistic-prior",
@@ -85,8 +121,8 @@
   "slug": "gpt-5",
   "topics": [
     "reasoning-interpretability",
-    "reasoning-evaluation",
     "reasoning-training",
+    "reasoning-evaluation",
     "test-time-scaling"
   ]
 }

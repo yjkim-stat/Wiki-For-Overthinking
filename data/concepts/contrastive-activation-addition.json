@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Contrastive Activation Addition"
+    "Contrastive Activation Addition",
+    "CAA",
+    "contrastive activation steering"
   ],
-  "definition": "",
+  "definition": "Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the baseline whose limitation motivates them, and locate that limitation in the same place — a single aggregate direction applied at one site. One replaces the fixed single-layer intervention with sparse-feature-derived vectors applied at multiple points, on the grounds that one direction imposed across semantically diverse inputs has an effect that often fails to persist across layers. The other shows the failure is worse than insufficiency: a direction can be highly discriminative for a concept and aligned with its positive examples while steering reliably in the opposite direction, so the sign of the intervention cannot be read off the direction's discriminability at all.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -54,7 +56,9 @@
     "circuit-discovery",
     "multi-point-intervention"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "detection-versus-control"
+  ],
   "schema_version": 1,
   "slug": "contrastive-activation-addition",
   "topics": [

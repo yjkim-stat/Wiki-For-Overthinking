@@ -45,7 +45,7 @@ No quantitative results in the abstract and the model families are not named. Be
 ## Entities
 
 - **Concepts**: sparse autoencoder, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), circuit, [superposition](../../../../wiki/concepts/superposition.md), [steering](../../../../wiki/concepts/steering.md), feature co-activation, geometric alignment, [localization](../../../../wiki/concepts/localization.md)
-- **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [activation steering](../../../../wiki/methods/activation-steering.md), Contrastive Activation Addition, [circuit discovery](../../../../wiki/methods/circuit-discovery.md), multi-point intervention
+- **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [activation steering](../../../../wiki/methods/activation-steering.md), [Contrastive Activation Addition](../../../../wiki/methods/contrastive-activation-addition.md), [circuit discovery](../../../../wiki/methods/circuit-discovery.md), multi-point intervention
 - **Datasets**: _none recorded_
 
 Tags: `sparse autoencoder`, `steering`, `circuit`, `multi-layer`, `interpretability`

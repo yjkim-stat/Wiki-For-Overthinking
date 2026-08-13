@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:53:44Z",
   "created_at": "2026-08-13T01:37:10Z",
   "instructions": "Write the wiki definition for 'representation versus readout'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "representation versus readout",
@@ -37,6 +38,18 @@
   "payload": {
     "name": "representation versus readout",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "encoding versus decoding",
+      "detection versus control"
+    ],
+    "definition": "The distinction between what a model's internal state contains and what its output does with it — the archive's name for a gap both sources measure directly rather than infer. One finds cultural identity linearly readable from the residual stream at 0.79 while generation emits it at 0.09, with the decoding-suppressed cell the largest in all 18 models tested and activation patching locating the failure in the last quarter of layers. The other pushes the distinction further than encoding: a direction can detect a concept nearly perfectly and, when steered along, produce the opposite behaviour, so readout can invert rather than merely drop what representation holds. Together they establish that detection, decoding and control are three separate questions and an experiment answering one answers neither of the others.",
+    "kind": "concept",
+    "related": [
+      "unembedding",
+      "logit lens"
+    ]
   },
   "task_id": "concept__representation-versus-readout",
   "task_version": 1,

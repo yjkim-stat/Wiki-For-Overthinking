@@ -124,17 +124,17 @@ Seen in: Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?; Hierarchica
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 29 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| GRPO | 30 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 22 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| LLM-as-a-judge | 21 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| LLM-as-a-judge | 22 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| supervised fine-tuning | 15 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | self-consistency | 13 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| supervised fine-tuning | 13 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | linear probe | 12 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
 | test-time scaling | 10 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| chain-of-thought prompting | 9 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
-| chain-of-thought prompting | 8 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | activation steering | 7 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
 | reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 | sparse autoencoder | 6 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
