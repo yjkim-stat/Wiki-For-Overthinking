@@ -137,6 +137,20 @@ When there is no attachment the PDF was unreachable, paywalled or never
 offered, which is ordinary. Work from the abstract, and fetch the linked PDF or
 abstract page yourself if the contribution cannot be established from it.
 
+**Before draining a long-standing backlog, ask for its documents.** Collection
+fetches a document only for papers arriving that run, so a task filed on a day
+when its host was down keeps its abstract for ever — nothing revisits it,
+because deduplication has already seen the paper:
+
+```bash
+python3 -m pipelines.backfill --dry-run     # what is owed, and what cannot be reached
+python3 -m pipelines.backfill --limit 20    # fetch, best-scoring first
+python3 -m pipelines.render                 # puts the paths in front of the reader
+```
+
+It is bounded, re-runnable and fetches nothing twice. A paper it reports as
+naming no PDF at all cannot be helped here; that is a question for a person.
+
 **Leave a field empty rather than inventing content** — an empty `results`
 field is a true statement about what you know; a plausible invented one
 corrupts everything built on top of it, including the lecture notes and the
@@ -343,6 +357,8 @@ python3 -m pipelines.run_daily --dry-run          # see what would be collected
 python3 -m pipelines.run_daily --topic <slug>     # one topic only
 python3 -m pipelines.run_daily --days 30          # backfill a wider window
 python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing else
+python3 -m pipelines.backfill --dry-run           # which waiting papers still have no document
+python3 -m pipelines.backfill --limit 20          # fetch those documents, best-scoring first
 python3 -m pipelines.render --only wiki           # rebuild one stage
 python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
