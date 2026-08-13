@@ -13,6 +13,12 @@
       "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
     },
     {
+      "id": "arxiv:2608.08383",
+      "kind": "paper",
+      "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+      "title": "Safety Cost of Steering Vectors Is Separable and Reducible"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1453",
       "kind": "paper",
       "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
@@ -33,7 +39,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "jailbreak",
   "related": [
     "test-time-scaling",
@@ -61,6 +67,28 @@
     "clip",
     "gpt-4o-mini",
     "nudenet",
+    "steering-vector",
+    "refusal-direction",
+    "safety-degradation",
+    "false-refusal",
+    "superposition",
+    "constrained-optimization",
+    "representation-versus-readout",
+    "activation-space",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "ablation",
+    "primal-dual-optimization",
+    "kl-divergence",
+    "gcg",
+    "autodan",
+    "pair",
+    "jailbreakbench",
+    "alpaca",
+    "xstest",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-14b-instruct",
     "aha-moment",
     "inference-time-intervention",
     "attention-pattern",
@@ -99,6 +127,7 @@
   "slug": "jailbreak",
   "topics": [
     "test-time-scaling",
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

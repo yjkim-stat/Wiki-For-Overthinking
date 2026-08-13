@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
       "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
+    },
+    {
+      "id": "arxiv:2608.08113",
+      "kind": "paper",
+      "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+      "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "ProofWriter",
   "related": [
     "post-training-quantization",
@@ -40,12 +46,42 @@
     "qwen3-32b",
     "qwen3-235b-a22b",
     "bitnet-b1-58-2b4t",
-    "deepseek-r1-671b"
+    "deepseek-r1-671b",
+    "latent-reasoning",
+    "recurrent-depth",
+    "implicit-chain-of-thought",
+    "semantic-drift",
+    "adaptive-computation-time",
+    "deep-supervision",
+    "answer-stabilization",
+    "residual-refinement",
+    "parameter-efficiency",
+    "truncated-backpropagation-through-time",
+    "coconut",
+    "chain-of-thought-prompting",
+    "rmsnorm",
+    "swiglu",
+    "adaptive-halting",
+    "glore",
+    "ruletaker",
+    "help",
+    "nan-nli",
+    "taxinli",
+    "tinyllama-1-1b",
+    "roberta",
+    "gpt-4",
+    "o1-mini",
+    "deepseek-r1",
+    "qwq-32b",
+    "mixtral-8x7b",
+    "falcon"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "proofwriter",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation",
+    "reasoning-faithfulness"
   ]
 }

@@ -47,7 +47,7 @@ Three ARC-style datasets, so the conclusion is about this benchmark family. The 
 
 - **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), [perception bottleneck](../../../../wiki/concepts/perception-bottleneck.md), abstract reasoning, fluid reasoning, confounding, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), information leakage
 - **Methods**: two-stage perception-reasoning decomposition, manual trace analysis, end-to-end versus staged comparison
-- **Datasets**: Mini-ARC, ACRE, Bongard-LOGO, ARC, ARC-AGI
+- **Datasets**: Mini-ARC, ACRE, Bongard-LOGO, ARC, [ARC-AGI](../../../../wiki/datasets/arc-agi.md)
 
 Tags: `arc`, `construct validity`, `perception`, `vision-language models`, `benchmark critique`
 

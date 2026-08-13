@@ -13,6 +13,12 @@
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.08113",
+      "kind": "paper",
+      "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+      "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1128",
       "kind": "paper",
       "note": "Finds that a reasoning model's first solution is usually its best and that later alternatives are actively harmful, characterizes the errors as a forest structure, and prunes accordingly.",
@@ -63,7 +69,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "answer stabilization",
   "related": [
     "test-time-compute",
@@ -85,6 +91,34 @@
     "olympiadbench",
     "math500",
     "qwen2-5-1-5b",
+    "latent-reasoning",
+    "recurrent-depth",
+    "implicit-chain-of-thought",
+    "semantic-drift",
+    "adaptive-computation-time",
+    "deep-supervision",
+    "residual-refinement",
+    "parameter-efficiency",
+    "truncated-backpropagation-through-time",
+    "coconut",
+    "chain-of-thought-prompting",
+    "rmsnorm",
+    "swiglu",
+    "adaptive-halting",
+    "glore",
+    "proofwriter",
+    "ruletaker",
+    "help",
+    "nan-nli",
+    "taxinli",
+    "tinyllama-1-1b",
+    "roberta",
+    "gpt-4",
+    "o1-mini",
+    "deepseek-r1",
+    "qwq-32b",
+    "mixtral-8x7b",
+    "falcon",
     "overthinking",
     "reasoning-redundancy",
     "compounding-error",
@@ -139,9 +173,7 @@
     "gsm8k",
     "livecodebench",
     "asdiv",
-    "deepseek-r1",
     "qwen2-5-7b",
-    "qwq-32b",
     "llama-3-1-70b",
     "predictive-entropy",
     "entropy-trajectory",
@@ -187,7 +219,8 @@
   "slug": "answer-stabilization",
   "topics": [
     "test-time-scaling",
-    "reasoning-training",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

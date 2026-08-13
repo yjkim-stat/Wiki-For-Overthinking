@@ -42,7 +42,7 @@ The paper has no limitations section; what follows is drawn from its own tables 
 
 ## Entities
 
-- **Concepts**: predictive entropy, [entropy trajectory](../../../../wiki/concepts/entropy-trajectory.md), uncertainty region, confidence region, two-phase reasoning structure, sequential change-point detection, worst-case average detection delay, false alarm control, [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
+- **Concepts**: [predictive entropy](../../../../wiki/concepts/predictive-entropy.md), [entropy trajectory](../../../../wiki/concepts/entropy-trajectory.md), uncertainty region, confidence region, two-phase reasoning structure, sequential change-point detection, worst-case average detection delay, false alarm control, [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
 - **Methods**: CUSUM, CUSUM-weighted voting, [early exit](../../../../wiki/methods/early-exit.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [DEER](../../../../wiki/methods/deer.md), [Dynasor](../../../../wiki/methods/dynasor.md), histogram density estimation
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), Bespoke-Stratos-17k
 

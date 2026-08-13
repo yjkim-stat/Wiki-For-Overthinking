@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.
 
-Built from 52 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 31 of the papers have been read in full.
+Built from 52 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 32 of the papers have been read in full.
 
 Tracked terms: `mechanistic interpretability`, `activation patching`, `causal mediation`, `causal tracing`, `causal analysis`, `circuit analysis`, `circuit discovery`, `reasoning circuit`, `attention head`, `sparse autoencoder`, `superposition`, `polysemantic`, `monosemantic`, `residual stream`, `activation steering`, `steering vector`, `linear probe`, `linear probing`, `internal representation`, `structural causal model`, `difference-in-means`, `representation editing`, `logit lens`, `interchange intervention`.
 
@@ -26,7 +26,7 @@ Tracked terms: `mechanistic interpretability`, `activation patching`, `causal me
 - **Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics** _(not yet summarized)_
 - **Interpreting Language Model Hidden States at Scale** _(not yet summarized)_
 - **Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models** _(not yet summarized)_
-- **Safety Cost of Steering Vectors Is Separable and Reducible** _(not yet summarized)_
+- **Safety Cost of Steering Vectors Is Separable and Reducible** — Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.
 - **Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing** _(not yet summarized)_
 - **"Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders** _(not yet summarized)_
 - _...and 34 more._
@@ -125,25 +125,25 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 35 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 27 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| LLM-as-a-judge | 28 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | supervised fine-tuning | 27 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | linear probe | 20 | _pending_ |
 | self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
-| chain-of-thought prompting | 14 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
-| activation steering | 9 | _pending_ |
+| activation steering | 10 | _pending_ |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | circuit analysis | 7 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
+| LoRA | 6 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 | sparse autoencoder | 6 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | attention analysis | 5 | Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes... |
 | budget forcing | 5 | Controlling how long a model thinks by cutting the thinking block short, or extending it by suppressing the end-of-thinking token and appending 'Wait'. Its originating source re... |
-| causal mediation analysis | 5 | Measuring a component's causal contribution to an outcome by intervening on it while holding the rest of the computation fixed — the framework activation patching instantiates.... |
 
 ## Benchmarks and datasets
 
@@ -151,7 +151,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | --- | ---: | --- |
 | MATH500 | 42 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | AIME 2024 | 40 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| GSM8K | 34 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 35 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 13 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
@@ -189,26 +189,27 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 5. **Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs** (2026)
    - Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.
    - <https://arxiv.org/abs/2608.02486>
-6. **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** (2026)
+6. **Safety Cost of Steering Vectors Is Separable and Reducible** (2026)
+   - Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.
+   - <https://arxiv.org/abs/2608.08383>
+7. **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** (2026)
    - Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
    - <https://arxiv.org/abs/2608.05660>
-7. **A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation** (2026)
+8. **A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation** (2026)
    - Proves that activation patching and weight-space ablation measure two different quantities — a carrier's donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.
    - <https://arxiv.org/abs/2608.03620>
-8. **Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model** (2026)
+9. **Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model** (2026)
    - Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.
    - <https://arxiv.org/abs/2608.03629>
-9. **Inverted Detection and Control in Steering Vectors** (2026)
+10. **Inverted Detection and Control in Steering Vectors** (2026)
    - Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.
    - <https://arxiv.org/abs/2608.02957>
-10. **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** (2026)
-   - An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.
-   - <https://doi.org/10.18653/v1/2026.acl-demo.78>
 
 ## Open problems
 
 Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
 
+- **Safety Cost of Steering Vectors Is Separable and Reducible** — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the constraints are satisfied only to close approximation. Three more a reader should weigh. The main results use a rank-1 subspace while the paper's own motivation is that refusal is higher-dimensional; the higher-rank study is a later section rather than the headline. The effect tolerance is chosen empirically as the smallest value that lets safety return to baseline while retaining the steering effect, so the trade-off point is tuned per setting rather than derived. And the direction is learned per model, per behaviour and per layer, which makes this a post-hoc correction applied to each vector before deployment rather than a property of the model -- the paper says as much in calling it a recipe, but the framing 'safety cost is reducible' is easily read as stronger. On measurement: both ASR and false-refusal rate come from LLM judges, which this archive treats as an instrument with its own reliability, and the training multipliers are small enough for the first-order approximation the method leans on while evaluation runs to 1.5.
 - **CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits** — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is shown about steering a reasoning process. Requires a trained SAE for every layer involved, which bounds applicability to models with available SAEs. Fluency preservation is reported as a comparative claim without a stated metric.
 - **Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors** — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The gradient-based sensitivity metric is a local measure and need not capture influence realized through nonlinear paths. The SAE finding is a trade-off without a resolution: the sparse space gives cleaner directions but a distorted influence estimate, and which to trust is left open.
 - **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Improvements are stated as 'up to', so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks supports a correctness signal but leaves open whether the signal is correctness or a correlate such as fluency or confidence. The detector needs white-box access to multi-layer activations, so it cannot monitor an API model.
@@ -220,7 +221,6 @@ Drawn from the limitations each paper states about itself, so this is what the f
 - **Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes** — The paper states none beyond its conclusion that there is no one-size-fits-all method. What a reader should weigh: the headline robustness claim holds on the easy and medium adversarial tiers only, and which training-free method is more robust swaps between backbones — the norm-only rule leads on the 32B model and the cosine variant on the 8B — so the ranking is not stable even within the claim. The hard tier is a shared collapse that no lightweight method survives, which bounds the practical reading of 'more robust' considerably. The level-1 comparison is saturated at 99 to 100 percent, so most of the accuracy table cannot distinguish methods; the informative content is concentrated in the one task where the norm-only rule fails and in the level-2 gap. The two theoretical regimes are limiting cases the paper says real activations mix, and the intermediate analysis is a symmetric-mixture proxy rather than a result about activations. The mixed-intent calibration numbers in the main text come from one 1.7B model, and the adversarial set was produced by rewriting MATH500 with a frontier model, so its difficulty is defined by what that rewriter produced.
 - **Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders** — The theoretical result covers the idealized TopK case, so it does not cover other SAE architectures. PW-MCC around 0.80 is high but not near-identity, so a fifth of the dictionary still differs between runs and which features those are is not characterized. Synthetic validation uses a model organism whose relationship to real activation structure is an assumption. Correlation with automatically generated explanations inherits the reliability of the auto-interpretation pipeline.
 - **Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning** — No numbers in the abstract and the models are not named. Displacement discards the originating state, which is exactly the trade-off arxiv:2608.05660 identifies and tries to repair by adding restricted location information — so this paper takes the position that paper argues is incomplete. Whether the residual signal is reasoning structure or a different confound is not established beyond the lexical case.
-- **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** — A tooling contribution, so there are no empirical findings about models beyond the counting-task demonstration. Four supported checkpoints at release, and per-checkpoint configuration means each new architecture needs manual work rather than being handled generically. No performance or fidelity comparison against TransformerLens or other libraries is reported.
 
 ## References
 

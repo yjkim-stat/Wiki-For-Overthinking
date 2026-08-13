@@ -12,6 +12,12 @@
       "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR"
     },
     {
+      "id": "arxiv:2608.08383",
+      "kind": "paper",
+      "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+      "title": "Safety Cost of Steering Vectors Is Separable and Reducible"
+    },
+    {
       "id": "local:e7b4993440250612",
       "kind": "paper",
       "note": "Proves that entropy-regularized policy gradient converges to the regularized optimum at an exponential rate for log-linear softmax policies over continuous state and action spaces, by using the KL regularizer as a Lyapunov function to keep the Fisher information matrix from degenerating.",
@@ -20,7 +26,7 @@
   ],
   "first_seen": "2026-08-09T06:17:44Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "KL divergence",
   "related": [
     "label-free-reinforcement-learning",
@@ -54,6 +60,29 @@
     "qwen3-1-7b-base",
     "llama-3-2-3b-instruct",
     "qwen3-14b-base",
+    "steering-vector",
+    "refusal-direction",
+    "safety-degradation",
+    "false-refusal",
+    "superposition",
+    "constrained-optimization",
+    "jailbreak",
+    "representation-versus-readout",
+    "activation-space",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "ablation",
+    "primal-dual-optimization",
+    "llm-as-a-judge",
+    "gcg",
+    "autodan",
+    "pair",
+    "jailbreakbench",
+    "alpaca",
+    "xstest",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-14b-instruct",
     "entropy-regularization",
     "polyak-lojasiewicz-inequality",
     "gradient-dominance",
@@ -82,6 +111,7 @@
   "schema_version": 1,
   "slug": "kl-divergence",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }

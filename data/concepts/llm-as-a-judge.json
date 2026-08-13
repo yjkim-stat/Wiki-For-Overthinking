@@ -106,6 +106,12 @@
       "title": "Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation"
     },
     {
+      "id": "arxiv:2608.08383",
+      "kind": "paper",
+      "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+      "title": "Safety Cost of Steering Vectors Is Separable and Reducible"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.788",
       "kind": "paper",
       "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
@@ -174,7 +180,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "LLM-as-a-judge",
   "related": [
     "answer-evidence-gap",
@@ -508,6 +514,21 @@
     "semantic-textual-relatedness",
     "summarization-evaluation-task",
     "llm-alignment-evaluation-task",
+    "refusal-direction",
+    "safety-degradation",
+    "false-refusal",
+    "constrained-optimization",
+    "activation-space",
+    "ablation",
+    "primal-dual-optimization",
+    "kl-divergence",
+    "gcg",
+    "autodan",
+    "pair",
+    "jailbreakbench",
+    "alpaca",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-14b-instruct",
     "verification",
     "residual-stream",
     "reasoning-trajectory",

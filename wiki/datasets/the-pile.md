@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](../methods/activation-patching.md), [benchmark contamination](../concepts/benchmark-contamination.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [indirect object identification](indirect-object-identification.md), [membership inference](../methods/membership-inference.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [permutation test](../methods/permutation-test.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [residual stream](../concepts/residual-stream.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](../concepts/superposition.md)
+**Related**: [ablation](../methods/ablation.md), [activation patching](../methods/activation-patching.md), [benchmark contamination](../concepts/benchmark-contamination.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [indirect object identification](indirect-object-identification.md), [membership inference](../methods/membership-inference.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [permutation test](../methods/permutation-test.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [residual stream](../concepts/residual-stream.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](../concepts/superposition.md)
 
 ## Appears in
 

@@ -167,6 +167,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The archive already holds the result that a brief round of GRPO erases the signals contamination detectors rely on, and treats that as a reason to distrust any benchmark number. This supplies the missing half: an information-theoretic statement of when a detector could have worked at all, in one estimable quantity, plus the finding that a null audit is uninterpretable unless its efficacy, budget and validity gates are reported alongside it. It also gives the archive its first measured mechanism ordering for contamination -- verbatim above paraphrase above surface perturbation, with answer-only exposure indistinguishable from drift -- which bears directly on whether the reasoning benchmarks here are exposed in a way any behavioural probe could see.</p>
 </section>
 <section class="slide">
+<h2>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</h2>
+<p class="subtitle">Ruijie Hou, Yueyang Jiao, Zhao Wang et al. · 2026</p>
+<blockquote>
+<p>Shows that the standard metric for judging contamination-mitigation strategies can be scored by cancellation rather than by restoration, replaces it with a per-question stratified metric under which the published ranking reverses, and proposes a mitigation that decides its intervention during decoding instead of from a prior estimate.</p>
+</blockquote>
+<ul>
+<li>A demonstration that a zero aggregate gap certifies nothing: over-suppression on some questions cancels under-suppression on others</li>
+<li>SA-PPG, a metric that reads zero if and only if every question&#x27;s solve probability matches the clean model&#x27;s, and that is stratified so a trivial strategy cannot score well by chasing the clean model&#x27;s most frequent value</li>
+<li>A rank reversal on published strategies: the method that looks near-perfect under the old metric is barely better than no intervention under the new one</li>
+<li>RailCap, a mitigation that replaces the pre-hoc contamination estimate with step-wise supervision during generation</li>
+</ul>
+<p><strong>Results.</strong> The rank reversal is the headline and it is complete. On Llama-2 with GSM8K, LNE-blocking reads 0.0235 under the old metric against 0.3192 for no intervention at all, and is the best strategy in that column; under SA-PPG it reads 0.2932 against 0.3261 for no intervention, which is barely a difference, and it falls behind two other strategies. RailCap, which is not best under the old metric at 0.0728, is best under SA-PPG at 0.1914. Same responses, same models, same strategies -- only the metric changes, and the verdict inverts. The decomposition shows where the old metric hides the error: LNE-blocking&#x27;s over-suppression component is 2.0 times RailCap&#x27;s, yet its aggregate reading is 3.8 times better, because the extra collateral damage cancels against the residual contamination and pushes the number toward zero. The readout correction is worth separating from the aggregation correction, and the paper measures both. Drawing two independent sampling batches from the same clean model, the mean per-question gap between batches is 0.190 under the single-sample discrete readout and 0.041 under the 50-sample solve probability -- so a 0/1 readout does not even reproduce between two evaluations of one model. And a synthetic All-Zero strategy that makes the contaminated model fail every question scores 0.2190 under equal-weight A-PPG, better than no intervention (0.3793) and better than two published strategies, while stratification ranks it worst of all at 0.4903. RailCap attains the lowest SA-PPG in all six model-by-domain settings. The baselines are consistent and modest: TED is nearly indistinguishable from no intervention everywhere, and LNE-blocking is worse than no intervention on all three models in the paraphrase domain, which the paper reads as a one-shot pre-hoc estimate degrading when the questions seen at inference differ from the contaminated ones.</p>
+<p><strong>Why it matters.</strong> This archive already holds the result that a brief round of GRPO erases the signals contamination detectors rely on, and treats it as a reason to distrust benchmark numbers. This attacks the layer above: even where mitigation is attempted, the metric everyone used to judge it can be satisfied by damaging the model as much as the contamination inflated it. The All-Zero control is the cleanest statement of that -- a strategy that makes the model fail everything outscores two published methods. It also gives the archive a measurement it lacked, that a single-sample 0/1 readout does not reproduce between two evaluations of the same model (mean per-question gap 0.190 against 0.041 for a 50-sample probability), which bears on far more of this literature than contamination work.</p>
+</section>
+<section class="slide">
 <h2>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</h2>
 <p class="subtitle">Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn · 2026</p>
 <blockquote>
@@ -226,21 +241,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Matched on benchmark vocabulary rather than evaluation content. Its value here is coverage: 17 languages and stratified difficulty is a wider evaluation surface than the English math benchmarks the archive is dominated by, and it separates reasoning content from surface realization, which is a distinction English-only benchmarks cannot make because the two are confounded.</p>
 </section>
 <section class="slide">
-<h2>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</h2>
-<p class="subtitle">Yujie Hou, Mei Wang, Yaoyao Zhong et al. · ACL · 2026</p>
-<blockquote>
-<p>Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.</p>
-</blockquote>
-<ul>
-<li>SMART, a benchmark decomposing mathematical problem-solving into Semantic Understanding, Mathematical Reasoning, Arithmetic Computation and Reflection/Refinement</li>
-<li>Dimension-specific tasks that measure each cognitive process separately rather than through final answers</li>
-<li>Evaluation of 22 open- and closed-source LLMs revealing substantial cross-dimensional capability discrepancies</li>
-<li>The All-Pass Score, a metric requiring success across dimensions rather than on average</li>
-</ul>
-<p><strong>Results.</strong> Applied to 22 state-of-the-art open- and closed-source LLMs, SMART uncovers substantial discrepancies in capability across the four dimensions and reveals genuine weaknesses in current models, motivating the All-Pass Score.</p>
-<p><strong>Why it matters.</strong> A direct construct-validity contribution: it argues a single math accuracy number aggregates over dimensions that can compensate for one another, and the All-Pass Score is a concrete alternative that refuses to average them. That is the same structural criticism the archive already holds from VAR-MATH, which varies problem instances, but arrives from a different direction — decomposing the task rather than perturbing it — and the two are complementary. It joins three other papers in this drain arguing that reasoning benchmarks measure something other than reasoning, alongside long.826 on perception and findings-acl.460 on code.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -278,21 +278,21 @@ th { background: var(--surface); }
 <ul>
 <li><strong>Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training</strong> — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-g...</li>
 <li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
+<li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
+<li><strong>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</strong> — No limitations section. The load-bearing one a reader must supply: SA-PPG is defined relative to a clean model, and outside a simulation that reference does...</li>
 <li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
 <li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
-<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
-<li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
+<li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 <li><strong>Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving</strong> — Effect sizes are not given in the abstract. The benefit is explicitly conditional on the problem having recoverable constraints and on Stage 1 extracting the...</li>
 <li><strong>Self-Improving Large Language Models via Progressive Experience Evolution</strong> — The conclusion&#x27;s stated limitation is really future work — extending to domains with sparser or less reliable feedback. What a reader should weigh instead: t...</li>
 <li><strong>Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning</strong> — The paper states none. What a reader should weigh: the margins are 0.8 and 2.6 average points from single runs with no seeds or variance anywhere, and the re...</li>
-<li><strong>Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the headline is a rubric method whose ablation attributes most of the movement to ordinary...</li>
-<li><strong>Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the topological claim is validated qualitatively on Level 3 and Level 4 subsets of MATH wit...</li>
 </ul>
 </section>
 <section class="slide">
@@ -301,16 +301,17 @@ th { background: var(--surface); }
 <li>Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. <em>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</em>. ACL. 2026</li>
 <li>Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al.. <em>Training Verifiers to Solve Math Word Problems</em>. cs.LG. 2021</li>
 <li>Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma. <em>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</em>. cs.AI. 2026</li>
+<li>Ruijie Hou, Yueyang Jiao, Zhao Wang et al.. <em>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</em>. cs.CL. 2026</li>
 <li>Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. <em>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</em>. cs.CL. 2026</li>
 <li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
 <li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
 <li>Xinye Wang, Junxiao Liu, Shujian Huang. <em>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</em>. cs.CL. 2026</li>
-<li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
 <li>Jingkun Ma, Runzhe Zhan, Yang Li et al.. <em>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</em>. ACL. 2026</li>
 <li>Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. <em>Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models</em>. ACL. 2026</li>
 <li>Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. <em>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</em>. ACL. 2026</li>
@@ -318,12 +319,12 @@ th { background: var(--surface); }
 <li>Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. <em>MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation</em>. ACL. 2026</li>
 <li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
 <li>Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. <em>The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning</em>. ACL. 2026</li>
-<li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
 <li>Longteng Guo, Xuanxu Lin, Dongze Hao et al.. <em>SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation</em>. ACL. 2026</li>
 <li>Atharva Naik, Prakam, Yash Mathur et al.. <em>PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics</em>. ACL. 2026</li>
 <li>Jun Gao, Yun Peng, Qian Qiao et al.. <em>CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction</em>. ACL. 2026</li>
@@ -331,7 +332,6 @@ th { background: var(--surface); }
 <li>Justin D. Norman, Michael U. Rivera, D. Alex Hughes. <em>Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias</em>. preprint. 2026</li>
 <li>Jian Yao, Bowen Zheng, Ran Cheng et al.. <em>VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks</em>. preprint. 2026</li>
 <li>Luke Guerdan, Solon Barocas, Kenneth Holstein et al.. <em>Validating LLM-as-a-Judge Systems under Rating Indeterminacy</em>. NeurIPS 2025. 2025</li>
-<li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

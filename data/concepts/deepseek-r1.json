@@ -23,6 +23,12 @@
       "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
     },
     {
+      "id": "arxiv:2608.08113",
+      "kind": "paper",
+      "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+      "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.1456",
       "kind": "paper",
       "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
@@ -49,7 +55,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "DeepSeek-R1",
   "related": [
     "credit-assignment",
@@ -134,6 +140,34 @@
     "qwen3-vl-235b",
     "qwen3-coder-32b",
     "tablegpt2-7b",
+    "latent-reasoning",
+    "recurrent-depth",
+    "implicit-chain-of-thought",
+    "semantic-drift",
+    "adaptive-computation-time",
+    "deep-supervision",
+    "answer-stabilization",
+    "residual-refinement",
+    "parameter-efficiency",
+    "truncated-backpropagation-through-time",
+    "coconut",
+    "chain-of-thought-prompting",
+    "rmsnorm",
+    "swiglu",
+    "adaptive-halting",
+    "glore",
+    "proofwriter",
+    "ruletaker",
+    "help",
+    "nan-nli",
+    "taxinli",
+    "tinyllama-1-1b",
+    "roberta",
+    "gpt-4",
+    "o1-mini",
+    "qwq-32b",
+    "mixtral-8x7b",
+    "falcon",
     "instruction-following",
     "controllability",
     "monitorability",
@@ -147,7 +181,6 @@
     "gpt-oss",
     "qwen3",
     "certaindex",
-    "answer-stabilization",
     "self-doubt",
     "overthinking",
     "probe-in-the-middle",
@@ -165,7 +198,6 @@
     "livecodebench",
     "asdiv",
     "qwen2-5-7b",
-    "qwq-32b",
     "llama-3-1-70b",
     "chain-of-thought-faithfulness",
     "verbosity",
@@ -214,8 +246,8 @@
   "topics": [
     "reasoning-training",
     "test-time-scaling",
+    "reasoning-evaluation",
     "reasoning-faithfulness",
-    "reasoning-interpretability",
-    "reasoning-evaluation"
+    "reasoning-interpretability"
   ]
 }

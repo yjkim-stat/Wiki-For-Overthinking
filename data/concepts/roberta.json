@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
+    },
+    {
+      "id": "arxiv:2608.08113",
+      "kind": "paper",
+      "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+      "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "model",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "RoBERTa",
   "related": [
     "intent-classification",
@@ -44,12 +50,43 @@
     "llama-3-2-1b",
     "gpt-5",
     "gpt-5-nano",
-    "gpt-4o"
+    "gpt-4o",
+    "latent-reasoning",
+    "recurrent-depth",
+    "implicit-chain-of-thought",
+    "semantic-drift",
+    "adaptive-computation-time",
+    "deep-supervision",
+    "answer-stabilization",
+    "residual-refinement",
+    "parameter-efficiency",
+    "truncated-backpropagation-through-time",
+    "coconut",
+    "chain-of-thought-prompting",
+    "rmsnorm",
+    "swiglu",
+    "adaptive-halting",
+    "glore",
+    "proofwriter",
+    "ruletaker",
+    "help",
+    "nan-nli",
+    "taxinli",
+    "tinyllama-1-1b",
+    "gpt-4",
+    "o1-mini",
+    "deepseek-r1",
+    "qwq-32b",
+    "mixtral-8x7b",
+    "falcon"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "roberta",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

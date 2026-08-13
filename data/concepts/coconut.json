@@ -18,6 +18,12 @@
       "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
     },
     {
+      "id": "arxiv:2608.08113",
+      "kind": "paper",
+      "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+      "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -32,7 +38,7 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "method",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:37:19Z",
   "name": "Coconut",
   "related": [
     "latent-reasoning",
@@ -99,6 +105,32 @@
     "kimi-k2-5",
     "gpt-4o",
     "gemini-1-5-pro",
+    "recurrent-depth",
+    "implicit-chain-of-thought",
+    "semantic-drift",
+    "adaptive-computation-time",
+    "deep-supervision",
+    "answer-stabilization",
+    "residual-refinement",
+    "parameter-efficiency",
+    "truncated-backpropagation-through-time",
+    "rmsnorm",
+    "swiglu",
+    "adaptive-halting",
+    "glore",
+    "proofwriter",
+    "ruletaker",
+    "help",
+    "nan-nli",
+    "taxinli",
+    "tinyllama-1-1b",
+    "roberta",
+    "gpt-4",
+    "o1-mini",
+    "deepseek-r1",
+    "qwq-32b",
+    "mixtral-8x7b",
+    "falcon",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -119,7 +151,6 @@
     "math500",
     "aime-2024",
     "gsm8k",
-    "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
     "gpt-2",
@@ -148,8 +179,9 @@
   "slug": "coconut",
   "topics": [
     "reasoning-faithfulness",
-    "reasoning-interpretability",
+    "reasoning-evaluation",
     "reasoning-training",
+    "reasoning-interpretability",
     "test-time-scaling"
   ]
 }

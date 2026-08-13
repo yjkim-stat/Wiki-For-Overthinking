@@ -112,6 +112,11 @@
     },
     {
       "source": "concept:adaptive-compute-allocation",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:adaptive-compute-allocation",
       "target": "method:beam-search",
       "type": "co-occurs"
     },
@@ -641,6 +646,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:adversarial-robustness",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:aha-moment",
       "target": "concept:epistemic-verbalization",
       "type": "co-occurs"
@@ -758,6 +768,11 @@
     {
       "source": "concept:answer-stabilization",
       "target": "method:greedy-decoding",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:answer-stabilization",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -938,6 +953,11 @@
     {
       "source": "concept:auditability",
       "target": "dataset:harmbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:auditability",
+      "target": "dataset:xstest",
       "type": "co-occurs"
     },
     {
@@ -2252,6 +2272,11 @@
     },
     {
       "source": "concept:construct-validity",
+      "target": "method:greedy-decoding",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:construct-validity",
       "target": "method:importance-sampling",
       "type": "co-occurs"
     },
@@ -2932,12 +2957,22 @@
     },
     {
       "source": "concept:curriculum-learning",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
       "target": "method:coconut",
       "type": "co-occurs"
     },
     {
       "source": "concept:curriculum-learning",
       "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -3223,6 +3258,11 @@
     {
       "source": "concept:effective-depth",
       "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:effective-depth",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4316,6 +4356,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:hidden-state-geometry",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:implicit-reasoning",
       "target": "concept:belief-state",
       "type": "co-occurs"
@@ -4378,6 +4423,11 @@
     {
       "source": "concept:implicit-reasoning",
       "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:implicit-reasoning",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4622,6 +4672,16 @@
     },
     {
       "source": "concept:jailbreak",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:jailbreak",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:jailbreak",
       "target": "method:attention-analysis",
       "type": "co-occurs"
     },
@@ -4672,6 +4732,11 @@
     },
     {
       "source": "concept:kl-divergence",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kl-divergence",
       "target": "concept:log-linear-policy",
       "type": "co-occurs"
     },
@@ -4698,6 +4763,16 @@
     {
       "source": "concept:kl-divergence",
       "target": "dataset:livecodebench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kl-divergence",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kl-divergence",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -4753,6 +4828,11 @@
     {
       "source": "concept:latent-reasoning",
       "target": "concept:adaptive-compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
+      "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
     {
@@ -4882,6 +4962,11 @@
     },
     {
       "source": "concept:latent-reasoning",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
       "target": "method:activation-probing",
       "type": "co-occurs"
     },
@@ -4908,6 +4993,11 @@
     {
       "source": "concept:latent-reasoning",
       "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4967,6 +5057,11 @@
     },
     {
       "source": "concept:latent-reasoning",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
       "target": "model:gemini-1-5-pro",
       "type": "co-occurs"
     },
@@ -4998,6 +5093,16 @@
     {
       "source": "concept:latent-reasoning",
       "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
+      "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -5337,6 +5442,11 @@
     },
     {
       "source": "concept:memorization",
+      "target": "method:greedy-decoding",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:memorization",
       "target": "method:importance-sampling",
       "type": "co-occurs"
     },
@@ -5617,6 +5727,11 @@
     },
     {
       "source": "concept:monitorability",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:monitorability",
       "target": "dataset:zebralogic",
       "type": "co-occurs"
     },
@@ -5808,6 +5923,11 @@
     {
       "source": "concept:monosemanticity",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:monosemanticity",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -6268,6 +6388,11 @@
     {
       "source": "concept:out-of-distribution-generalization",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:out-of-distribution-generalization",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -7348,6 +7473,11 @@
     {
       "source": "concept:post-hoc-rationalization",
       "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "dataset:xstest",
       "type": "co-occurs"
     },
     {
@@ -9197,6 +9327,16 @@
     },
     {
       "source": "concept:representation-versus-readout",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
       "target": "concept:linear-representation-hypothesis",
       "type": "co-occurs"
     },
@@ -9223,6 +9363,16 @@
     {
       "source": "concept:representation-versus-readout",
       "target": "dataset:truthfulqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -9288,6 +9438,11 @@
     {
       "source": "concept:representation-versus-readout",
       "target": "model:qwen2-5-14b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
+      "target": "model:qwen2-5-14b-instruct",
       "type": "co-occurs"
     },
     {
@@ -9443,6 +9598,11 @@
     {
       "source": "concept:residual-stream",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -10036,6 +10196,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:routing",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:safety-alignment",
       "target": "concept:alignment-tax",
       "type": "co-occurs"
@@ -10058,6 +10223,11 @@
     {
       "source": "concept:safety-alignment",
       "target": "dataset:harmbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:safety-alignment",
+      "target": "dataset:xstest",
       "type": "co-occurs"
     },
     {
@@ -10162,6 +10332,11 @@
     },
     {
       "source": "concept:sample-complexity",
+      "target": "method:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:sample-complexity",
       "target": "method:teacher-forcing",
       "type": "co-occurs"
     },
@@ -10178,6 +10353,11 @@
     {
       "source": "concept:sample-complexity",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:sample-complexity",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -11017,6 +11197,16 @@
     },
     {
       "source": "concept:superposition",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
       "target": "concept:localization",
       "type": "co-occurs"
     },
@@ -11033,6 +11223,11 @@
     {
       "source": "concept:superposition",
       "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "concept:representation-versus-readout",
       "type": "co-occurs"
     },
     {
@@ -11068,6 +11263,16 @@
     {
       "source": "concept:superposition",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -11137,6 +11342,11 @@
     },
     {
       "source": "concept:superposition",
+      "target": "method:steering-vector",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
       "target": "method:weight-space-ablation",
       "type": "co-occurs"
     },
@@ -11148,6 +11358,11 @@
     {
       "source": "concept:superposition",
       "target": "model:gpt-5",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "model:llama-3-1-8b-instruct",
       "type": "co-occurs"
     },
     {
@@ -11168,6 +11383,16 @@
     {
       "source": "concept:superposition",
       "target": "model:qwen2-5-1-5b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "model:qwen2-5-14b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -11543,6 +11768,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "method:greedy-decoding",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -12193,6 +12423,11 @@
     {
       "source": "concept:uncertainty-quantification",
       "target": "model:qwen3-6-35b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:uncertainty-quantification",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -15542,6 +15777,11 @@
     },
     {
       "source": "dataset:beavertails",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:beavertails",
       "target": "method:coconut",
       "type": "co-occurs"
     },
@@ -16827,6 +17067,11 @@
     },
     {
       "source": "dataset:gsm8k",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
       "target": "dataset:prosqa",
       "type": "co-occurs"
     },
@@ -16953,6 +17198,11 @@
     {
       "source": "dataset:gsm8k",
       "target": "method:generative-rewriting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gsm8k",
+      "target": "method:greedy-decoding",
       "type": "co-occurs"
     },
     {
@@ -17416,6 +17666,16 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:gsm8k",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:harmbench",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:harmbench",
       "target": "model:gemini-2-5-flash",
       "type": "co-occurs"
@@ -17762,6 +18022,11 @@
     },
     {
       "source": "dataset:humaneval",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:humaneval",
       "target": "method:calibration",
       "type": "co-occurs"
     },
@@ -17921,6 +18186,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:humaneval",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:ifeval",
       "target": "concept:exploration-exploitation-trade-off",
       "type": "co-occurs"
@@ -17993,6 +18263,11 @@
     {
       "source": "dataset:indirect-object-identification",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:indirect-object-identification",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -19052,6 +19327,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "dataset:prosqa",
       "type": "co-occurs"
     },
@@ -19541,6 +19821,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:math500",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:mathvision",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
@@ -19763,6 +20048,11 @@
     {
       "source": "dataset:mbpp",
       "target": "dataset:opencodeinstruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mbpp",
+      "target": "dataset:proofwriter",
       "type": "co-occurs"
     },
     {
@@ -20263,6 +20553,11 @@
     {
       "source": "dataset:mmlu",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmlu",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -21127,6 +21422,11 @@
     },
     {
       "source": "dataset:omni-math",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:omni-math",
       "target": "method:chain-of-thought-compression",
       "type": "co-occurs"
     },
@@ -21456,6 +21756,71 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:proofwriter",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "concept:latent-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "dataset:opencodeinstruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "method:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwen3-1-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwen3-235b-a22b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwen3-30b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwen3-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwen3-4b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:prosqa",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
@@ -21483,6 +21848,11 @@
     {
       "source": "dataset:the-pile",
       "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:the-pile",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -21676,6 +22046,26 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:xstest",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:xstest",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ablation",
+      "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ablation",
+      "target": "method:causal-mediation-analysis",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:activation-patching",
       "target": "concept:attention-head",
       "type": "co-occurs"
@@ -21803,6 +22193,11 @@
     {
       "source": "method:activation-patching",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-patching",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -21982,6 +22377,16 @@
     },
     {
       "source": "method:activation-steering",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-steering",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-steering",
       "target": "concept:localization",
       "type": "co-occurs"
     },
@@ -22038,6 +22443,16 @@
     {
       "source": "method:activation-steering",
       "target": "dataset:truthfulqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-steering",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-steering",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -23146,6 +23561,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:calibration",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:causal-analysis",
       "target": "model:gpt-j-6b",
       "type": "co-occurs"
@@ -23537,6 +23957,11 @@
     },
     {
       "source": "method:chain-of-thought",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought",
       "target": "dataset:prosqa",
       "type": "co-occurs"
     },
@@ -23588,6 +24013,11 @@
     {
       "source": "method:chain-of-thought",
       "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -23822,6 +24252,11 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
       "target": "concept:attention-pattern",
       "type": "co-occurs"
     },
@@ -24032,6 +24467,11 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
+      "target": "dataset:proofwriter",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
       "target": "dataset:prosqa",
       "type": "co-occurs"
     },
@@ -24073,6 +24513,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "method:grpo",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -24158,6 +24603,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "model:claude-3-7-sonnet",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "model:deepseek-r1",
       "type": "co-occurs"
     },
     {
@@ -24303,6 +24753,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -24537,6 +24992,11 @@
     },
     {
       "source": "method:coconut",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:coconut",
       "target": "concept:attention-pattern",
       "type": "co-occurs"
     },
@@ -24577,6 +25037,16 @@
     },
     {
       "source": "method:coconut",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:coconut",
+      "target": "method:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:coconut",
       "target": "method:latent-chain-of-thought",
       "type": "co-occurs"
     },
@@ -24598,6 +25068,16 @@
     {
       "source": "method:contrastive-activation-addition",
       "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:contrastive-activation-addition",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:contrastive-activation-addition",
+      "target": "concept:kl-divergence",
       "type": "co-occurs"
     },
     {
@@ -24628,6 +25108,16 @@
     {
       "source": "method:contrastive-activation-addition",
       "target": "dataset:truthfulqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:contrastive-activation-addition",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:contrastive-activation-addition",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -24688,6 +25178,11 @@
     {
       "source": "method:cosine-similarity",
       "target": "model:llama-3-2-1b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:cosine-similarity",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -25463,6 +25958,11 @@
     {
       "source": "method:gigpo",
       "target": "model:qwen2-5-7b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:greedy-decoding",
+      "target": "concept:benchmark-contamination",
       "type": "co-occurs"
     },
     {
@@ -26273,6 +26773,16 @@
     {
       "source": "method:grpo",
       "target": "model:qwen3-8b-base",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:implicit-chain-of-thought",
+      "target": "dataset:parity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:implicit-chain-of-thought",
+      "target": "method:gradient-descent-analysis",
       "type": "co-occurs"
     },
     {
@@ -27181,6 +27691,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:linear-probe",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:llm-as-a-judge",
       "target": "concept:abstention",
       "type": "co-occurs"
@@ -27288,6 +27803,11 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "concept:kl-divergence",
       "type": "co-occurs"
     },
     {
@@ -27522,7 +28042,17 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "dataset:zebralogic",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -27802,6 +28332,11 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "model:qwen2-5-14b-instruct",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "model:qwen2-5-32b",
       "type": "co-occurs"
     },
@@ -27858,6 +28393,11 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -28107,7 +28647,22 @@
     },
     {
       "source": "method:lora",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:lora",
+      "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:lora",
       "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:lora",
+      "target": "concept:memorization",
       "type": "co-occurs"
     },
     {
@@ -28153,6 +28708,11 @@
     {
       "source": "method:lora",
       "target": "method:generative-rewriting",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:lora",
+      "target": "method:greedy-decoding",
       "type": "co-occurs"
     },
     {
@@ -29058,6 +29618,11 @@
     {
       "source": "method:pca",
       "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pca",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -32407,6 +32972,11 @@
     },
     {
       "source": "method:sparse-autoencoder",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:sparse-autoencoder",
       "target": "method:causal-mediation-analysis",
       "type": "co-occurs"
     },
@@ -32462,6 +33032,16 @@
     },
     {
       "source": "method:steering-vector",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:steering-vector",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:steering-vector",
       "target": "concept:linear-representation-hypothesis",
       "type": "co-occurs"
     },
@@ -32493,6 +33073,16 @@
     {
       "source": "method:steering-vector",
       "target": "dataset:truthfulqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:steering-vector",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:steering-vector",
+      "target": "method:ablation",
       "type": "co-occurs"
     },
     {
@@ -32963,6 +33553,11 @@
     {
       "source": "method:supervised-fine-tuning",
       "target": "dataset:wmt22",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:supervised-fine-tuning",
+      "target": "dataset:xstest",
       "type": "co-occurs"
     },
     {
@@ -34632,12 +35227,22 @@
     },
     {
       "source": "model:deepseek-r1",
+      "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1",
       "target": "method:dynasor",
       "type": "co-occurs"
     },
     {
       "source": "model:deepseek-r1",
       "target": "method:early-exit",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -35602,7 +36207,22 @@
     },
     {
       "source": "model:gpt-4",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "concept:latent-reasoning",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
       "target": "concept:prompt-sensitivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "dataset:proofwriter",
       "type": "co-occurs"
     },
     {
@@ -35612,7 +36232,17 @@
     },
     {
       "source": "model:gpt-4",
+      "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
       "target": "method:gemba-mqm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -35628,6 +36258,11 @@
     {
       "source": "model:gpt-4",
       "target": "method:lora",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "model:deepseek-r1",
       "type": "co-occurs"
     },
     {
@@ -35678,6 +36313,16 @@
     {
       "source": "model:gpt-4",
       "target": "model:qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -36792,6 +37437,16 @@
     },
     {
       "source": "model:llama-3-1-8b-instruct",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
       "target": "concept:linear-representation-hypothesis",
       "type": "co-occurs"
     },
@@ -36862,6 +37517,16 @@
     },
     {
       "source": "model:llama-3-1-8b-instruct",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
       "target": "method:activation-steering",
       "type": "co-occurs"
     },
@@ -36893,6 +37558,11 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
+      "target": "method:contrastive-activation-addition",
       "type": "co-occurs"
     },
     {
@@ -36933,6 +37603,11 @@
     {
       "source": "model:llama-3-1-8b-instruct",
       "target": "method:policy-gradient",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-1-8b-instruct",
+      "target": "method:steering-vector",
       "type": "co-occurs"
     },
     {
@@ -37098,6 +37773,11 @@
     {
       "source": "model:llama-3-2-1b",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:llama-3-2-1b",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -37477,6 +38157,11 @@
     },
     {
       "source": "model:pythia-410m",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
       "target": "method:causal-analysis",
       "type": "co-occurs"
     },
@@ -37677,6 +38362,16 @@
     },
     {
       "source": "model:qwen2-5-14b-instruct",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
       "target": "concept:token-level-entropy",
       "type": "co-occurs"
     },
@@ -37687,7 +38382,27 @@
     },
     {
       "source": "model:qwen2-5-14b-instruct",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
+      "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
       "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
+      "target": "method:contrastive-activation-addition",
       "type": "co-occurs"
     },
     {
@@ -37703,6 +38418,11 @@
     {
       "source": "model:qwen2-5-14b-instruct",
       "target": "method:policy-gradient-masking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-14b-instruct",
+      "target": "method:steering-vector",
       "type": "co-occurs"
     },
     {
@@ -38197,6 +38917,16 @@
     },
     {
       "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:jailbreak",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
       "target": "concept:latent-reasoning",
       "type": "co-occurs"
     },
@@ -38243,6 +38973,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "concept:scaling-laws",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "concept:superposition",
       "type": "co-occurs"
     },
     {
@@ -38297,7 +39032,22 @@
     },
     {
       "source": "model:qwen2-5-7b-instruct",
+      "target": "dataset:xstest",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
       "target": "method:activation-patching",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:activation-steering",
       "type": "co-occurs"
     },
     {
@@ -38308,6 +39058,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "method:clip-higher",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:contrastive-activation-addition",
       "type": "co-occurs"
     },
     {
@@ -38338,6 +39093,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "method:linear-probe",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:llm-as-a-judge",
       "type": "co-occurs"
     },
     {
@@ -38388,6 +39148,11 @@
     {
       "source": "model:qwen2-5-7b-instruct",
       "target": "method:soft-thinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen2-5-7b-instruct",
+      "target": "method:steering-vector",
       "type": "co-occurs"
     },
     {
@@ -39218,6 +39983,11 @@
     {
       "source": "model:qwen3-1-7b",
       "target": "model:qwen3-4b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-1-7b",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -40093,6 +40863,11 @@
     {
       "source": "model:qwen3-32b",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-32b",
+      "target": "model:roberta",
       "type": "co-occurs"
     },
     {
@@ -41246,6 +42021,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "model:qwen3-8b",
+      "target": "model:roberta",
+      "type": "co-occurs"
+    },
+    {
       "source": "model:qwen3-8b-base",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
@@ -41367,6 +42147,11 @@
     },
     {
       "source": "model:qwq-32b",
+      "target": "method:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwq-32b",
       "target": "method:latent-chain-of-thought",
       "type": "co-occurs"
     },
@@ -41423,6 +42208,41 @@
     {
       "source": "model:qwq-32b",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "method:coconut",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "method:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "model:gpt-4o",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "model:gpt-5",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:roberta",
+      "target": "model:qwq-32b",
       "type": "co-occurs"
     },
     {
@@ -41872,6 +42692,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "dataset:proofwriter",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "dataset:the-pile",
       "type": "covers"
     },
@@ -41922,6 +42747,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "method:chain-of-thought-prompting",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "method:circuit-analysis",
       "type": "covers"
     },
@@ -41938,6 +42768,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "method:clip-higher",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "method:coconut",
       "type": "covers"
     },
     {
@@ -41978,6 +42813,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "method:grpo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -42187,6 +43027,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "model:gpt-4",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "model:gpt-4o",
       "type": "covers"
     },
@@ -42371,6 +43216,11 @@
       "type": "covers"
     },
     {
+      "source": "topic:reasoning-evaluation",
+      "target": "model:roberta",
+      "type": "covers"
+    },
+    {
       "source": "topic:reasoning-faithfulness",
       "target": "concept:adaptive-compute-allocation",
       "type": "covers"
@@ -42383,6 +43233,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "concept:aha-moment",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "concept:answer-stabilization",
       "type": "covers"
     },
     {
@@ -42742,12 +43597,22 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "dataset:proofwriter",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "dataset:prosqa",
       "type": "covers"
     },
     {
       "source": "topic:reasoning-faithfulness",
       "target": "dataset:sciq",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "dataset:xstest",
       "type": "covers"
     },
     {
@@ -42853,6 +43718,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "method:grpo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -43052,6 +43922,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "model:gpt-4",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "model:gpt-4o",
       "type": "covers"
     },
@@ -43241,6 +44116,11 @@
       "type": "covers"
     },
     {
+      "source": "topic:reasoning-faithfulness",
+      "target": "model:roberta",
+      "type": "covers"
+    },
+    {
       "source": "topic:reasoning-interpretability",
       "target": "concept:adversarial-robustness",
       "type": "covers"
@@ -43323,6 +44203,16 @@
     {
       "source": "topic:reasoning-interpretability",
       "target": "concept:information-bottleneck",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "concept:jailbreak",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "concept:kl-divergence",
       "type": "covers"
     },
     {
@@ -43588,6 +44478,16 @@
     {
       "source": "topic:reasoning-interpretability",
       "target": "dataset:truthfulqa",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "dataset:xstest",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "method:ablation",
       "type": "covers"
     },
     {
@@ -43972,6 +44872,11 @@
     },
     {
       "source": "topic:reasoning-interpretability",
+      "target": "model:qwen2-5-14b-instruct",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
       "target": "model:qwen2-5-7b-instruct",
       "type": "covers"
     },
@@ -44018,6 +44923,11 @@
     {
       "source": "topic:reasoning-interpretability",
       "target": "model:qwq-32b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "model:roberta",
       "type": "covers"
     },
     {
@@ -44867,6 +45777,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "dataset:proofwriter",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "dataset:prosqa",
       "type": "covers"
     },
@@ -45058,6 +45973,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "method:grpo",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -45693,6 +46613,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "model:qwq-32b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "model:roberta",
       "type": "covers"
     },
     {
@@ -46447,6 +47372,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "method:implicit-chain-of-thought",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "method:kl-regularization",
       "type": "covers"
     },
@@ -46966,7 +47896,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-13T12:22:19Z",
+  "generated_at": "2026-08-13T12:37:20Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -47043,7 +47973,7 @@
       "kind": "concept",
       "label": "answer stabilization",
       "settled": false,
-      "sources": 9
+      "sources": 10
     },
     {
       "id": "concept:attention-head",
@@ -47084,8 +48014,8 @@
       "id": "concept:benchmark-contamination",
       "kind": "concept",
       "label": "benchmark contamination",
-      "settled": false,
-      "sources": 7
+      "settled": true,
+      "sources": 8
     },
     {
       "id": "concept:catastrophic-forgetting",
@@ -47148,7 +48078,7 @@
       "kind": "concept",
       "label": "construct validity",
       "settled": true,
-      "sources": 25
+      "sources": 26
     },
     {
       "id": "concept:controllability",
@@ -47372,7 +48302,7 @@
       "kind": "concept",
       "label": "jailbreak",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "concept:judge-reliability",
@@ -47386,7 +48316,7 @@
       "kind": "concept",
       "label": "KL divergence",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:kv-cache",
@@ -47400,7 +48330,7 @@
       "kind": "concept",
       "label": "latent reasoning",
       "settled": true,
-      "sources": 10
+      "sources": 11
     },
     {
       "id": "concept:length-generalization",
@@ -47456,7 +48386,7 @@
       "kind": "concept",
       "label": "memorization",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "concept:meta-evaluation",
@@ -47666,7 +48596,7 @@
       "kind": "concept",
       "label": "representation versus readout",
       "settled": true,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "concept:reproducibility",
@@ -47806,7 +48736,7 @@
       "kind": "concept",
       "label": "superposition",
       "settled": false,
-      "sources": 9
+      "sources": 10
     },
     {
       "id": "concept:sycophancy",
@@ -48058,7 +48988,7 @@
       "kind": "dataset",
       "label": "GSM8K",
       "settled": false,
-      "sources": 34
+      "sources": 35
     },
     {
       "id": "dataset:harmbench",
@@ -48250,6 +49180,13 @@
       "sources": 2
     },
     {
+      "id": "dataset:proofwriter",
+      "kind": "dataset",
+      "label": "ProofWriter",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "dataset:prosqa",
       "kind": "dataset",
       "label": "ProsQA",
@@ -48292,9 +49229,23 @@
       "sources": 2
     },
     {
+      "id": "dataset:xstest",
+      "kind": "dataset",
+      "label": "XSTest",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "dataset:zebralogic",
       "kind": "dataset",
       "label": "ZebraLogic",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "method:ablation",
+      "kind": "method",
+      "label": "ablation",
       "settled": false,
       "sources": 2
     },
@@ -48317,7 +49268,7 @@
       "kind": "method",
       "label": "activation steering",
       "settled": false,
-      "sources": 9
+      "sources": 10
     },
     {
       "id": "method:attention-analysis",
@@ -48408,7 +49359,7 @@
       "kind": "method",
       "label": "chain-of-thought prompting",
       "settled": false,
-      "sources": 14
+      "sources": 15
     },
     {
       "id": "method:circuit-analysis",
@@ -48443,14 +49394,14 @@
       "kind": "method",
       "label": "Coconut",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:contrastive-activation-addition",
       "kind": "method",
       "label": "contrastive activation addition",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:cosine-similarity",
@@ -48569,7 +49520,7 @@
       "kind": "method",
       "label": "greedy decoding",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:grpo",
@@ -48577,6 +49528,13 @@
       "label": "GRPO",
       "settled": false,
       "sources": 35
+    },
+    {
+      "id": "method:implicit-chain-of-thought",
+      "kind": "method",
+      "label": "implicit chain of thought",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "method:importance-sampling",
@@ -48660,7 +49618,7 @@
       "kind": "method",
       "label": "LLM-as-a-judge",
       "settled": true,
-      "sources": 27
+      "sources": 28
     },
     {
       "id": "method:logistic-regression",
@@ -48688,7 +49646,7 @@
       "kind": "method",
       "label": "LoRA",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "method:low-rank-weight-ablation",
@@ -48940,7 +49898,7 @@
       "kind": "method",
       "label": "steering vector",
       "settled": true,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "method:supervised-fine-tuning",
@@ -49045,7 +50003,7 @@
       "kind": "model",
       "label": "DeepSeek-R1",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "model:deepseek-r1-0528-qwen3-8b",
@@ -49178,7 +50136,7 @@
       "kind": "model",
       "label": "GPT-4",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "model:gpt-4-1-mini",
@@ -49276,7 +50234,7 @@
       "kind": "model",
       "label": "Llama-3.1-8B-Instruct",
       "settled": false,
-      "sources": 12
+      "sources": 13
     },
     {
       "id": "model:llama-3-2-1b",
@@ -49402,7 +50360,7 @@
       "kind": "model",
       "label": "Qwen2.5-14B-Instruct",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "model:qwen2-5-32b",
@@ -49437,7 +50395,7 @@
       "kind": "model",
       "label": "Qwen2.5-7B-Instruct",
       "settled": false,
-      "sources": 10
+      "sources": 11
     },
     {
       "id": "model:qwen2-5-math-7b",
@@ -49584,7 +50542,14 @@
       "kind": "model",
       "label": "QwQ-32B",
       "settled": false,
-      "sources": 9
+      "sources": 10
+    },
+    {
+      "id": "model:roberta",
+      "kind": "model",
+      "label": "RoBERTa",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "topic:reasoning-evaluation",

@@ -45,7 +45,7 @@ The paper states three: the signal is validated only on mathematical and logical
 
 - **Concepts**: task learnability, solvability, task value estimation, [training dynamics](../../../../wiki/concepts/training-dynamics.md), [data efficiency](../../../../wiki/concepts/data-efficiency.md), [curriculum learning](../../../../wiki/concepts/curriculum-learning.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), reward trajectory, regime conditionality
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), probe-based estimation, task scheduling, importance weighting, [linear probe](../../../../wiki/methods/linear-probe.md)
-- **Datasets**: [DAPO-Math-17K](../../../../wiki/datasets/dapo-math-17k.md), GURU, ARC-AGI, BARC, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: [DAPO-Math-17K](../../../../wiki/datasets/dapo-math-17k.md), GURU, [ARC-AGI](../../../../wiki/datasets/arc-agi.md), BARC, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `rl-post-training`, `data-selection`, `curriculum`, `task-valuation`, `training-dynamics`
 
