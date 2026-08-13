@@ -43,7 +43,7 @@ The paper has no limitations section, though its conclusion is explicit that the
 
 ## Entities
 
-- **Concepts**: causal register, scratchpad oversight, [process supervision](../../../../wiki/concepts/process-supervision.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), activation patching, representation editing, counterfactual state editing, causal abstraction, [state tracking](../../../../wiki/concepts/state-tracking.md), [residual stream](../../../../wiki/concepts/residual-stream.md), KV cache, linear probing, selectivity control
+- **Concepts**: causal register, scratchpad oversight, [process supervision](../../../../wiki/concepts/process-supervision.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), activation patching, representation editing, counterfactual state editing, causal abstraction, [state tracking](../../../../wiki/concepts/state-tracking.md), [residual stream](../../../../wiki/concepts/residual-stream.md), [KV cache](../../../../wiki/concepts/kv-cache.md), linear probing, selectivity control
 - **Methods**: counterfactual state editing, [activation patching](../../../../wiki/methods/activation-patching.md), low-rank subspace projection, attention edge ablation and restoration, [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), [linear probing](../../../../wiki/methods/linear-probe.md)
 - **Datasets**: synthetic state-tracking task (Q8), synthetic state-tracking task (D8)
 

@@ -45,8 +45,8 @@ The paper's own limitations section is unusually complete and should be read as 
 ## Entities
 
 - **Concepts**: [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), audit power, behavioral separability, sparse mixture detection, detection boundary, score efficacy, membership inference, prevalence certificate, validity gate, blind separation
-- **Methods**: permutation test, Min-K% Prob, Min-K%++, neighborhood loss, sample splitting, empirical Bernstein bound, continued pretraining
-- **Datasets**: SQuAD, the Pile, Wikipedia
+- **Methods**: [permutation test](../../../../wiki/methods/permutation-test.md), Min-K% Prob, Min-K%++, neighborhood loss, sample splitting, empirical Bernstein bound, continued pretraining
+- **Datasets**: SQuAD, [the Pile](../../../../wiki/datasets/the-pile.md), Wikipedia
 
 Tags: `contamination`, `auditing`, `statistical-power`, `membership-inference`, `evaluation-validity`
 

@@ -113,6 +113,10 @@ function returns how many records lack a summary, so two passes over one
 backlog report it twice. Re-applying the reserve without this reports double
 (note 0032).
 
+**And in the log line one function back.** `queue_missing_summaries` logs
+tasks filed while returning records found; the two differ at the cap, and the
+log line is what a person reads during a run (note 0061).
+
 **The same correction is needed one function further in.**
 `queue_missing_definitions` counted iterations whose `define_concept` returned
 `None`, and `None` means *asked*, not *filed* — `Queue.add` refuses at the cap

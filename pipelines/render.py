@@ -98,6 +98,7 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
     store = RecordStore(cfg.layout)
     queue, summarizer = _queue_and_summarizer(cfg, max_pending)  # LOCAL
     queued = 0
+    before = queue.count_pending()  # LOCAL: see the log line at the end
 
     for paper in store.iter_papers():
         if store.paper_summary_path(paper.id).exists():
@@ -126,8 +127,15 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
         ) is None:
             queued += 1
 
-    if queued:
-        _LOG.info("re-queued %d missing summary task(s)", queued)
+    # LOCAL: the log line reports tasks filed; the return value keeps its
+    # original meaning of records found lacking a summary. They differ whenever
+    # the queue is at its cap, and it is the log line a person reads during a
+    # run -- it said "re-queued 76" on a render that filed none. The return
+    # value is left alone because the reserve in `run` counts the queue on
+    # either side and does not use it (docs/LOCAL-DELTAS.md). See note 0061.
+    filed = queue.count_pending() - before
+    if filed:
+        _LOG.info("re-queued %d missing summary task(s)", filed)
     return queued
 
 
