@@ -313,5 +313,104 @@ class PromotionIsSealedOffTests(unittest.TestCase):
         self.assertNotIn(reference_id(GOOD["url"]), ids)
 
 
+class RenderedTests(unittest.TestCase):
+    """Where a citation appears, and where it must not."""
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.cfg = self.sandbox.config()
+        self.store = RecordStore(self.cfg.layout)
+        for index in (1, 2):
+            paper_id = f"arxiv:2401.0000{index}"
+            self.store.save_paper(
+                Paper(id=paper_id, title=f"Paper {index}", source="arxiv",
+                      published="2024-01-15", year=2024, topics=[SLUG])
+            )
+            self.store.save_paper_summary(
+                PaperSummary(
+                    paper_id=paper_id,
+                    one_liner="It does a thing.",
+                    relevance={SLUG: "Relevant."},
+                    concepts=["Instrumental Variable"],
+                )
+            )
+        references.record(self.cfg, GOOD, self.store)
+        findings.record(
+            self.cfg,
+            {
+                "kind": "fact",
+                "statement": "The implementation contradicts the paper's table 3.",
+                "rationale": "Read off the scheduler config.",
+                "concepts": ["Instrumental Variable"],
+                "references": [reference_id(GOOD["url"])],
+                "topics": [SLUG],
+            },
+            self.store,
+        )
+        render.run(self.cfg)
+
+    def tearDown(self):
+        self.sandbox.close()
+
+    def _note(self) -> str:
+        from pipelines.publish import wiki
+
+        return wiki.note_path(
+            self.cfg.layout, "concept", "instrumental-variable"
+        ).read_text(encoding="utf-8")
+
+    def test_the_note_carries_the_citation_and_its_quotation(self):
+        note = self._note()
+        self.assertIn("## Checked against", note)
+        self.assertIn(GOOD["url"], note)
+        self.assertIn(GOOD["quoted"], note)
+        self.assertIn("retrieved 2026-08-13", note)
+
+    def test_the_citation_is_not_in_the_evidence_list(self):
+        """`## Appears in` is what the archive read. A page is not that.
+
+        The two sections are the visible half of the record split: if a
+        reference appeared among the sources, the note would claim a source it
+        does not have, whatever the counts underneath say.
+        """
+        note = self._note()
+        appears = note.split("## Appears in", 1)[1].split("## Checked against", 1)[0]
+        self.assertNotIn(GOOD["url"], appears)
+        self.assertIn("Paper 1", appears)
+
+    def test_the_findings_page_names_it_apart_from_the_papers(self):
+        page = (self.cfg.layout.wiki / "findings.md").read_text(encoding="utf-8")
+        self.assertIn("Checked against:", page)
+        self.assertIn(GOOD["url"], page)
+
+    def test_a_note_with_no_citation_has_no_such_heading(self):
+        from pipelines.publish import wiki
+
+        note = wiki.note_path(
+            self.cfg.layout, "concept", "instrumental-variable"
+        )
+        other = note.parent.glob("*.md")
+        for path in other:
+            text = path.read_text(encoding="utf-8")
+            if path == note:
+                continue
+            self.assertNotIn("## Checked against", text)
+
+    def test_one_page_cited_twice_is_listed_once(self):
+        findings.record(
+            self.cfg,
+            {
+                "kind": "fact",
+                "statement": "A second thing was settled from the same page.",
+                "concepts": ["Instrumental Variable"],
+                "references": [reference_id(GOOD["url"])],
+                "topics": [SLUG],
+            },
+            self.store,
+        )
+        render.run(self.cfg)
+        self.assertEqual(self._note().count(GOOD["url"]), 1)
+
+
 if __name__ == "__main__":
     unittest.main()
