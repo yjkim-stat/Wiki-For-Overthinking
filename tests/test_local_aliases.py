@@ -15,16 +15,33 @@ delta existed, since that is what every other test in the suite assumes.
 
 from __future__ import annotations
 
+import contextlib
+import importlib.util
+import io
 import textwrap
 import unittest
 from pathlib import Path
 
-from pipelines.common.schema import Paper, PaperSummary
+from pipelines.common.schema import Concept, Paper, PaperSummary
 from pipelines.common.store import RecordStore
 from pipelines.enrich import concepts as concepts_mod
+from pipelines.common.paths import REPO_ROOT
 from pipelines.local import aliases as aliases_mod
 
 from .sandbox import Sandbox
+
+
+def _script(name: str):
+    """Import a one-off from `scripts/`, the way test_model_kind does."""
+    spec = importlib.util.spec_from_file_location(
+        name, REPO_ROOT / "scripts" / f"{name}.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+merge = _script("merge_concept_aliases")
 
 SLUG = "test-topic"
 
@@ -221,6 +238,110 @@ class HarvestTests(unittest.TestCase):
         harvested = concepts_mod.harvest(cfg)
         self.assertIn("aime-2024", harvested["grpo"].related)
         self.assertNotIn("aime24", harvested["grpo"].related)
+
+
+class RetireTests(unittest.TestCase):
+    """The one-off that folds records the map has orphaned.
+
+    The bug this class exists for: the write condition re-tested
+    `new.definition`, which the clearing two lines above had just emptied, so
+    `--apply` cleared the record in memory, reported it, and wrote nothing.
+    Every symptom pointed at the harvest restoring the definition, which is a
+    rule the repository genuinely has — so the wrong file got read first.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        (self.sandbox.root / "config" / aliases_mod.FILENAME).write_text(
+            "merge:\n  AIME 2024:\n    - AIME24\n", encoding="utf-8"
+        )
+        self.cfg = self.sandbox.config()
+        self.store = RecordStore(self.cfg.layout)
+
+    def tearDown(self):
+        self.sandbox.close()
+        aliases_mod.reset()
+
+    def _retire(self, apply: bool) -> None:
+        # The script reports to stdout; the suite is not the place to read it.
+        with contextlib.redirect_stdout(io.StringIO()):
+            merge.retire(self.cfg, apply=apply)
+
+    def _concept(self, slug: str, name: str, definition: str, sources: int) -> None:
+        self.store.save_concept(
+            Concept(
+                slug=slug,
+                name=name,
+                kind="dataset",
+                definition=definition,
+                evidence=[
+                    {"kind": "paper", "id": f"arxiv:2401.{slug}.{n}", "title": "T", "note": "n"}
+                    for n in range(sources)
+                ],
+            )
+        )
+
+    def test_both_defined_clears_the_canonical_on_disk(self):
+        self._concept("aime24", "AIME24", "written against 28 sources", 28)
+        self._concept("aime-2024", "AIME 2024", "written against 9 sources", 9)
+
+        self._retire(apply=True)
+
+        survivor = self.store.load_concept("aime-2024")
+        self.assertEqual(
+            survivor.definition,
+            "",
+            "the definition must be cleared on disk, not only in memory",
+        )
+        self.assertFalse(self.store.concept_path("aime24").exists())
+
+    def test_the_retired_record_is_archived_before_it_is_removed(self):
+        self._concept("aime24", "AIME24", "written against 28 sources", 28)
+        self._concept("aime-2024", "AIME 2024", "written against 9 sources", 9)
+
+        self._retire(apply=True)
+
+        kept = self.cfg.layout.data / "concepts" / "retired" / "aime24.json"
+        self.assertTrue(kept.exists(), "authored text is never destroyed silently")
+        self.assertIn("28 sources", kept.read_text(encoding="utf-8"))
+
+    def test_an_undefined_canonical_keeps_its_definition(self):
+        # Only the alias is defined: nothing to reconcile, nothing to clear.
+        self._concept("aime24", "AIME24", "", 28)
+        self._concept("aime-2024", "AIME 2024", "the only ruling anybody made", 9)
+
+        self._retire(apply=True)
+
+        self.assertEqual(
+            self.store.load_concept("aime-2024").definition,
+            "the only ruling anybody made",
+        )
+
+    def test_without_apply_nothing_is_written(self):
+        self._concept("aime24", "AIME24", "written against 28 sources", 28)
+        self._concept("aime-2024", "AIME 2024", "written against 9 sources", 9)
+
+        self._retire(apply=False)
+
+        self.assertTrue(self.store.concept_path("aime24").exists())
+        self.assertNotEqual(self.store.load_concept("aime-2024").definition, "")
+
+    def test_running_twice_changes_nothing_the_second_time(self):
+        self._concept("aime24", "AIME24", "written against 28 sources", 28)
+        self._concept("aime-2024", "AIME 2024", "written against 9 sources", 9)
+
+        self._retire(apply=True)
+        self.store.save_concept(
+            Concept(slug="aime-2024", name="AIME 2024", kind="dataset",
+                    definition="re-derived against all 37", evidence=[])
+        )
+        self._retire(apply=True)
+
+        self.assertEqual(
+            self.store.load_concept("aime-2024").definition,
+            "re-derived against all 37",
+            "a re-run must not clear a definition written after the merge",
+        )
 
 
 if __name__ == "__main__":  # pragma: no cover
