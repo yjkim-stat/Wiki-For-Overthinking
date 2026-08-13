@@ -46,7 +46,7 @@ The paper has no limitations section; it goes from conclusion to references. Poi
 
 - **Concepts**: mutual information, MI peaks, thinking tokens, critical tokens, [information bottleneck](../../../../wiki/concepts/information-bottleneck.md), [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), prediction error bounds, [self-correction](../../../../wiki/concepts/self-correction.md), [epistemic verbalization](../../../../wiki/concepts/epistemic-verbalization.md), test-time scaling, representation analysis
 - **Methods**: Hilbert-Schmidt Independence Criterion (HSIC), Representation Recycling, Thinking Token based Test-time Scaling, token suppression intervention, logit lens decoding, [budget forcing](../../../../wiki/methods/budget-forcing.md)
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime24.md)
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `mutual information`, `information theory`, `thinking tokens`, `test-time scaling`, `interpretability`, `reasoning dynamics`, `hsic`
 

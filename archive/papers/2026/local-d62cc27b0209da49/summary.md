@@ -45,7 +45,7 @@ The paper has no limitations section but names two gaps in its conclusion: the m
 
 - **Concepts**: [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), data contamination, evaluation fragility, symbolic variabilization, multi-instance verification, reasoning consistency, loose and strict metrics, bootstrap resampling, [memorization](../../../../wiki/concepts/memorization.md), dynamic benchmarks, reasoning benchmark
 - **Methods**: VAR-MATH, symbolic parameterization, bootstrap evaluation, [RLVR](../../../../wiki/methods/rlvr.md), [DAPO](../../../../wiki/methods/dapo.md), [PRIME](../../../../wiki/methods/prime.md), [vLLM](../../../../wiki/methods/vllm.md)
-- **Datasets**: [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime24.md), [AIME25](../../../../wiki/datasets/aime25.md), VAR-AMC23, VAR-AIME24, VAR-AIME25, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), VAR-AMC23, VAR-AIME24, VAR-AIME25, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `benchmark contamination`, `evaluation`, `symbolic variation`, `reasoning consistency`, `rlvr`, `aime`, `amc`, `memorization`
 

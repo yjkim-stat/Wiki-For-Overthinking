@@ -47,7 +47,7 @@ The paper's limitations section is unusually complete and worth reading in full.
 
 - **Concepts**: [commitment boundary](../../../../wiki/concepts/commitment-boundary.md), epiphenomenal reasoning, performative reasoning, [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), step-level causal attribution, answer formation, mid-guess, early exit, linear probing, [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), [monitorability](../../../../wiki/concepts/monitorability.md)
 - **Methods**: truncation-based causal attribution, answer forcing, causal attention probe, [early exit](../../../../wiki/methods/early-exit.md), numeric perturbation stress test, [linear probing](../../../../wiki/methods/linear-probing.md), fixed-percentage truncation
-- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME25](../../../../wiki/datasets/aime25.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `faithfulness`, `epiphenomenal`, `early exit`, `probing`, `chain of thought`, `causal attribution`, `inference efficiency`, `monitoring`
 

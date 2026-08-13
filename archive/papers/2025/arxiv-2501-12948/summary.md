@@ -46,7 +46,7 @@ Not discussed in the abstract. The scope condition is in the claim itself: the m
 
 ## Entities
 
-- **Concepts**: [reinforcement learning with verifiable rewards](../../../../wiki/concepts/reinforcement-learning-with-verifiable-rewards.md), emergent reasoning patterns, self-reflection, [verification](../../../../wiki/concepts/verification.md), dynamic strategy adaptation, reasoning distillation
+- **Concepts**: reinforcement learning with verifiable rewards, emergent reasoning patterns, self-reflection, [verification](../../../../wiki/concepts/verification.md), dynamic strategy adaptation, reasoning distillation
 - **Methods**: pure reinforcement learning, [reasoning distillation](../../../../wiki/methods/reasoning-distillation.md)
 - **Datasets**: _none recorded_
 

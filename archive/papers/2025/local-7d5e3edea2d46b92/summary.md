@@ -43,7 +43,7 @@ The paper's own limitations: experiments cover only the Qwen family — LLaMA mo
 
 - **Concepts**: [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), forking tokens, high-entropy minority tokens, entropy patterns in chain of thought, exploration in RLVR, [credit assignment](../../../../wiki/concepts/credit-assignment.md), [entropy bonus](../../../../wiki/concepts/entropy-bonus.md), clip-higher, policy gradient masking
 - **Methods**: [RLVR](../../../../wiki/methods/rlvr.md), [DAPO](../../../../wiki/methods/dapo.md), [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), high-entropy token gradient masking, dual-temperature decoding, [verl](../../../../wiki/methods/verl.md)
-- **Datasets**: [DAPO-Math-17K](../../../../wiki/datasets/dapo-math-17k.md), [AIME'24](../../../../wiki/datasets/aime-24.md), [AIME'25](../../../../wiki/datasets/aime-25.md), AMC'23, [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: [DAPO-Math-17K](../../../../wiki/datasets/dapo-math-17k.md), [AIME'24](../../../../wiki/datasets/aime-2024.md), [AIME'25](../../../../wiki/datasets/aime-2025.md), [AMC'23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `rlvr`, `entropy`, `forking tokens`, `dapo`, `grpo`, `exploration`, `credit assignment`, `mathematical reasoning`
 

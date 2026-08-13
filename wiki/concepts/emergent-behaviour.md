@@ -9,7 +9,7 @@ Behaviour that appears without being trained for directly, which the sources tre
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [aha moment](aha-moment.md), [credit assignment](credit-assignment.md), [literature survey](../methods/literature-survey.md), [mechanistic interpretability](mechanistic-interpretability.md), [model merging](../methods/model-merging.md), [performance ceiling](performance-ceiling.md), [reinforcement learning with verifiable rewards](reinforcement-learning-with-verifiable-rewards.md), [RLVR](../methods/rlvr.md), [self-verification](self-verification.md), [training dynamics](training-dynamics.md)
+**Related**: [aha moment](aha-moment.md), [credit assignment](credit-assignment.md), [literature survey](../methods/literature-survey.md), [mechanistic interpretability](mechanistic-interpretability.md), [model merging](../methods/model-merging.md), [performance ceiling](performance-ceiling.md), [RLVR](../methods/rlvr.md), [self-verification](self-verification.md), [training dynamics](training-dynamics.md)
 
 ## Appears in
 

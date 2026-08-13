@@ -9,7 +9,7 @@ A multiple-choice commonsense question-answering benchmark, used in both sources
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [few-shot prompting](../methods/few-shot-prompting.md), [Llama-3.1-70B](../models/llama-3-1-70b.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [MMLU](mmlu.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [QwQ-32B](../models/qwq-32b.md), [reasoning trajectory](../concepts/reasoning-trajectory.md), [self-correction](../concepts/self-correction.md), [self-training](../concepts/self-training.md), [supervised finetuning](../methods/supervised-finetuning.md), [t-SNE](../methods/t-sne.md)
+**Related**: [chain of thought](../methods/chain-of-thought.md), [few-shot prompting](../methods/few-shot-prompting.md), [Llama-3.1-70B](../models/llama-3-1-70b.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [MMLU](mmlu.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [QwQ-32B](../models/qwq-32b.md), [reasoning trajectory](../concepts/reasoning-trajectory.md), [self-correction](../concepts/self-correction.md), [self-training](../concepts/self-training.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [t-SNE](../methods/t-sne.md)
 
 ## Appears in
 

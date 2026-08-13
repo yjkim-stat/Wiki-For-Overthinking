@@ -6,6 +6,12 @@
   "definition": "A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely related to monitorability and ranks BBH highest of its sets with GPQA-Diamond lowest, so a trace produced on BBH is the most likely to enumerate the factors that actually decide the answer. The other includes it in a seven-benchmark sweep in which a norm-based steering signal leads on AIME, GPQA and MMLU-Pro while an SAE-based one wins BBH and GSM-Plus, so interventions separate on it rather than agreeing. Under the fuller name the archive holds a third use: 13 of its tasks are the setting in which biasing the prompt drops accuracy by as much as 36 percent while the model's explanation rationalizes the biased answer.",
   "evidence": [
     {
+      "id": "arxiv:2305.04388",
+      "kind": "paper",
+      "note": "Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.",
+      "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting"
+    },
+    {
       "id": "arxiv:2608.04001",
       "kind": "paper",
       "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
@@ -26,9 +32,20 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T04:11:14Z",
+  "last_seen": "2026-08-13T10:56:01Z",
   "name": "BBH",
   "related": [
+    "chain-of-thought-faithfulness",
+    "post-hoc-rationalization",
+    "biasing-features",
+    "plausible-but-misleading-explanations",
+    "transparency",
+    "social-bias",
+    "input-biasing-intervention",
+    "chain-of-thought-prompting",
+    "few-shot-prompting",
+    "gpt-3-5",
+    "claude-1-0",
     "test-time-scaling",
     "budgeted-inference",
     "pass-k",
@@ -65,7 +82,6 @@
     "deepseek-r1",
     "phi-4-reasoning",
     "monitorability",
-    "chain-of-thought-faithfulness",
     "verbosity",
     "causal-factors",
     "cue-acknowledgement",
@@ -73,7 +89,6 @@
     "sycophancy",
     "steganography",
     "sandbagging",
-    "post-hoc-rationalization",
     "inverse-scaling",
     "cue-injection",
     "llm-as-a-judge",
@@ -126,9 +141,9 @@
   "schema_version": 1,
   "slug": "bbh",
   "topics": [
-    "test-time-scaling",
     "reasoning-faithfulness",
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-interpretability"
   ]
 }

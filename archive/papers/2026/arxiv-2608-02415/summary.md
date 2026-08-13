@@ -47,7 +47,7 @@ The paper states none beyond its conclusion that there is no one-size-fits-all m
 
 - **Concepts**: intent classification, linear probe, [hidden-state geometry](../../../../wiki/concepts/hidden-state-geometry.md), calibration, [sample complexity](../../../../wiki/concepts/sample-complexity.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), [routing](../../../../wiki/concepts/routing.md), [superposition](../../../../wiki/concepts/superposition.md)
 - **Methods**: VecStat, NormStat, [linear probe](../../../../wiki/methods/linear-probe.md), multilayer perceptron classifier, KL divergence scoring, [cosine similarity](../../../../wiki/methods/cosine-similarity.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), [HumanEval](../../../../wiki/datasets/humaneval.md), Magicoder, [MMLU](../../../../wiki/datasets/mmlu.md), Aya, Competition Math, Adv_MATH500
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [HumanEval](../../../../wiki/datasets/humaneval.md), Magicoder, [MMLU](../../../../wiki/datasets/mmlu.md), Aya, Competition Math, Adv_MATH500
 
 Tags: `intent classification`, `routing`, `probing`, `calibration`, `adversarial robustness`
 

@@ -46,7 +46,7 @@ The paper states its scope in the conclusion rather than a limitations section: 
 
 - **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), expected reward estimation, reward variance, soft thinking, [exploration](../../../../wiki/concepts/exploration.md)
 - **Methods**: Latent Thought Credit, [GRPO](../../../../wiki/methods/grpo.md), GRPO-MA, HRPO, Gumbel-Softmax, [REINFORCE](../../../../wiki/methods/reinforce.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [MATH-500](../../../../wiki/datasets/math-500.md), [MMLU-STEM](../../../../wiki/datasets/mmlu-stem.md), ARC-Challenge
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [MATH-500](../../../../wiki/datasets/math500.md), [MMLU-STEM](../../../../wiki/datasets/mmlu-stem.md), ARC-Challenge
 
 Tags: `latent reasoning`, `credit assignment`, `reinforcement learning`, `variance`, `soft tokens`
 

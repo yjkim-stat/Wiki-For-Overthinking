@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Low-Rank Adaptation"
+    "Low-Rank Adaptation",
+    "low-rank adaptation"
   ],
   "definition": "Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison affordable, and its presence marks how their results should be scoped — a finding established under low-rank adaptation is a finding about what that adaptation reaches, not about full fine-tuning. One uses it to train students on compressed reasoning traces so that three importance criteria can be compared at matched compression ratios on the same traces. The other uses it in the pipeline that scores hidden-state trajectory geometry for progress and stability.",
   "evidence": [
@@ -9,6 +10,12 @@
       "kind": "paper",
       "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
       "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
+    },
+    {
+      "id": "arxiv:2608.03284",
+      "kind": "paper",
+      "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+      "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
     },
     {
       "id": "arxiv:2608.03467",
@@ -31,7 +38,7 @@
   ],
   "first_seen": "2026-08-09T06:51:53Z",
   "kind": "method",
-  "last_seen": "2026-08-13T02:40:53Z",
+  "last_seen": "2026-08-13T10:56:01Z",
   "name": "LoRA",
   "related": [
     "llm-as-a-judge",
@@ -70,6 +77,29 @@
     "llama-3-8b-instruct",
     "llama-3-70b-instruct",
     "aya-expanse-8b",
+    "test-time-scaling",
+    "adaptive-compute-allocation",
+    "concept-erasure",
+    "safety-alignment",
+    "adversarial-robustness",
+    "margin-loss",
+    "conditional-computation",
+    "jailbreak",
+    "t2s2",
+    "truncated-backpropagation",
+    "safe-latent-diffusion",
+    "safree",
+    "classifier-free-guidance",
+    "i2p",
+    "p4d",
+    "ring-a-bell",
+    "mma-diffusion",
+    "unlearndiffatk",
+    "coco-30k",
+    "stable-diffusion-v1-4",
+    "stable-diffusion-v3-5-medium",
+    "clip",
+    "nudenet",
     "credit-assignment",
     "advantage-estimation",
     "exploration",
@@ -88,7 +118,7 @@
     "pass-k-estimation",
     "math",
     "aime",
-    "math-500",
+    "math500",
     "gsm8k",
     "humanity-s-last-exam",
     "qwen2-5-math-7b",
@@ -111,11 +141,9 @@
     "selective-pruning",
     "generative-rewriting",
     "llmlingua2",
-    "supervised-finetuning",
     "jaccard-overlap-analysis",
-    "math500",
     "amc23",
-    "aime24",
+    "aime-2024",
     "gpqa-diamond",
     "mmlu-pro",
     "limo",

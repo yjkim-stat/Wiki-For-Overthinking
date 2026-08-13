@@ -43,7 +43,7 @@ The paper has no limitations section; the conclusion names only future extension
 
 - **Concepts**: [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), second-order Renyi entropy, collision probability, strategy purity, [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), entropy explosion, Jensen-Shannon divergence, distributional uniqueness, sparse policy gradient, [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), pass@k
 - **Methods**: ICT (Independent Combinatorial Tokens), Sparse-GRPO, [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), 20-Entropy, STAPO, [VeRL](../../../../wiki/methods/verl.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [MMLU-Stem](../../../../wiki/datasets/mmlu-stem.md), [GPQA](../../../../wiki/datasets/gpqa.md), AIME23, [AIME24](../../../../wiki/datasets/aime24.md), [AIME25](../../../../wiki/datasets/aime25.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [MMLU-Stem](../../../../wiki/datasets/mmlu-stem.md), [GPQA](../../../../wiki/datasets/gpqa.md), AIME23, [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `rlvr`, `grpo`, `entropy`, `renyi entropy`, `js divergence`, `token selection`, `exploration`, `sparse updates`
 

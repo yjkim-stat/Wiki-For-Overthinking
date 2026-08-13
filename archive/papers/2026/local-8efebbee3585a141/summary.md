@@ -45,7 +45,7 @@ The paper's own: the entropy-change expression is a first-order approximation un
 
 - **Concepts**: [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), entropy flow, token-level entropy change, strict on-policy optimization, entropy-increasing and entropy-decreasing updates, clip-higher, [entropy bonus](../../../../wiki/concepts/entropy-bonus.md), [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), pass@k, [policy entropy](../../../../wiki/concepts/policy-entropy.md)
 - **Methods**: OPEFO, [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), [Clip-Cov](../../../../wiki/methods/clip-cov.md), [KL-Cov](../../../../wiki/methods/kl-cov.md), [clip-higher](../../../../wiki/methods/clip-higher.md), [entropy regularization](../../../../wiki/methods/entropy-regularization.md), [PPO](../../../../wiki/methods/ppo.md), [veRL](../../../../wiki/methods/verl.md)
-- **Datasets**: DAPO-17K, [AIME24](../../../../wiki/datasets/aime24.md), [AIME25](../../../../wiki/datasets/aime25.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: [DAPO-17K](../../../../wiki/datasets/dapo-math-17k.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `entropy collapse`, `entropy flow`, `rlvr`, `grpo`, `on-policy`, `exploration`, `pass@k`
 

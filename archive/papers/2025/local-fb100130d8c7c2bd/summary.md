@@ -48,7 +48,7 @@ CoT correctness is judged by a model, so the headline metric inherits that judge
 
 - **Concepts**: pass-k, [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [verification](../../../../wiki/concepts/verification.md), [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), [judge reliability](../../../../wiki/concepts/judge-reliability.md), spurious guessing, [training dynamics](../../../../wiki/concepts/training-dynamics.md), process evaluation
 - **Methods**: CoT-Pass@K, [pass@k](../../../../wiki/methods/pass-k.md), [RLVR](../../../../wiki/methods/rlvr.md), [GRPO](../../../../wiki/methods/grpo.md), [DAPO](../../../../wiki/methods/dapo.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
-- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math-500.md), [AMC23](../../../../wiki/datasets/amc23.md), [Minerva](../../../../wiki/datasets/minerva.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [Minerva](../../../../wiki/datasets/minerva.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `rlvr`, `cot-pass@k`, `pass@k`, `faithfulness`, `evaluation metric`, `theory`
 

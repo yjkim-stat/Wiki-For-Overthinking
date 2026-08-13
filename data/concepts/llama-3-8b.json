@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Llama3-8B"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
       "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning"
+    },
+    {
+      "id": "arxiv:2608.03291",
+      "kind": "paper",
+      "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+      "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics"
     }
   ],
   "first_seen": "2026-08-13T01:02:17Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T10:56:01Z",
   "name": "Llama-3-8B",
   "related": [
     "persistent-homology",
@@ -32,12 +40,35 @@
     "mistral-7b-v0-3",
     "qwen3-8b",
     "qwen3-4b-instruct-2507",
-    "armorm-llama3-8b"
+    "armorm-llama3-8b",
+    "reasoning-dynamics",
+    "premature-verification-collapse",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "early-warning",
+    "transition-entropy",
+    "capability-frontier",
+    "self-correction",
+    "backtracking",
+    "reasoning-boundary",
+    "overthinking",
+    "role-tagging",
+    "transition-matrix-analysis",
+    "prefix-based-detection",
+    "proof-search-prompting",
+    "chain-of-thought-prompting",
+    "paired-bootstrap-confidence-intervals",
+    "satbench",
+    "qwen3-14b",
+    "llama3-70b",
+    "olmo2-13b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "llama-3-8b",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

@@ -43,7 +43,7 @@ No standalone limitations section is present in the material read. Points a read
 ## Entities
 
 - **Concepts**: LLM as a judge, [construct validity](../../../../wiki/concepts/construct-validity.md), style bias, preference optimization, [alignment](../../../../wiki/concepts/alignment.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), [instruction following](../../../../wiki/concepts/instruction-following.md), supervised finetuning
-- **Methods**: SOS-Bench, [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md), [preference optimization](../../../../wiki/methods/preference-optimization.md), [supervised finetuning](../../../../wiki/methods/supervised-finetuning.md), Bradley-Terry model
+- **Methods**: SOS-Bench, [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md), [preference optimization](../../../../wiki/methods/preference-optimization.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), Bradley-Terry model
 - **Datasets**: [MT-Bench](../../../../wiki/datasets/mt-bench.md), [AlpacaEval](../../../../wiki/datasets/alpacaeval.md), Arena-Hard-Auto, [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `llm-as-a-judge`, `evaluation`, `alignment`, `style bias`, `meta-benchmark`, `construct validity`

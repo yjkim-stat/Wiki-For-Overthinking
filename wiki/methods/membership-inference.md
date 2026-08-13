@@ -9,7 +9,7 @@ Testing whether a specific example was in a model's training data, used in the a
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [AIME24](../datasets/aime24.md), [attention analysis](attention-analysis.md), [benchmark contamination](../concepts/benchmark-contamination.md), [compositional generalization](../concepts/compositional-generalization.md), [construct validity](../concepts/construct-validity.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [importance sampling](importance-sampling.md), [MATH500](../datasets/math500.md), [memorization](../concepts/memorization.md), [out-of-distribution generalization](../concepts/out-of-distribution-generalization.md), [PPO](ppo.md), [RLVR](rlvr.md), [supervised finetuning](supervised-finetuning.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [attention analysis](attention-analysis.md), [benchmark contamination](../concepts/benchmark-contamination.md), [compositional generalization](../concepts/compositional-generalization.md), [construct validity](../concepts/construct-validity.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [importance sampling](importance-sampling.md), [MATH500](../datasets/math500.md), [memorization](../concepts/memorization.md), [out-of-distribution generalization](../concepts/out-of-distribution-generalization.md), [PPO](ppo.md), [RLVR](rlvr.md), [supervised fine-tuning](supervised-fine-tuning.md)
 
 ## Appears in
 

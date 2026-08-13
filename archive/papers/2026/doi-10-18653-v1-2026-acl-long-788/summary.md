@@ -46,7 +46,7 @@ Requires labelled experience to compute the centroids, so it is not label-free, 
 
 - **Concepts**: [verification](../../../../wiki/concepts/verification.md), calibration, [residual stream](../../../../wiki/concepts/residual-stream.md), [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), activation delta, best-of-n, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), pass-k
 - **Methods**: Clue, [majority voting](../../../../wiki/methods/majority-voting.md), [best-of-n](../../../../wiki/methods/best-of-n.md), reward model, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), centroid classification, [activation probing](../../../../wiki/methods/activation-probing.md)
-- **Datasets**: [AIME 24](../../../../wiki/datasets/aime-24.md), [AIME 25](../../../../wiki/datasets/aime-25.md), [GPQA](../../../../wiki/datasets/gpqa.md), WebInstruct-verified
+- **Datasets**: [AIME 24](../../../../wiki/datasets/aime-2024.md), [AIME 25](../../../../wiki/datasets/aime-2025.md), [GPQA](../../../../wiki/datasets/gpqa.md), WebInstruct-verified
 
 Tags: `verification`, `hidden states`, `training-free`, `reranking`, `calibration`
 

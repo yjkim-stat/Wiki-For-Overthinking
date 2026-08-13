@@ -44,7 +44,7 @@ The paper states three: the study covers only mathematical reasoning, where corr
 
 - **Concepts**: [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), [entropy trajectory](../../../../wiki/concepts/entropy-trajectory.md), burst spike, peak-valley (rebound) spike, trajectory-level confidence metric, [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), verifier-free response selection, training-time sample curation, [process supervision](../../../../wiki/concepts/process-supervision.md)
 - **Methods**: EDIS (Entropy Dynamics Instability Score), [GRPO](../../../../wiki/methods/grpo.md), best-k-of-N selection, [majority voting](../../../../wiki/methods/majority-voting.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [self-certainty](../../../../wiki/methods/self-certainty.md), sequence entropy, score-weighted Borda aggregation, sequence filtering, sequence weighting
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime24.md), NuminaMath-20K
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), NuminaMath-20K
 
 Tags: `entropy`, `uncertainty`, `confidence`, `test-time selection`, `best-of-n`, `grpo`, `rl`, `mathematical reasoning`
 

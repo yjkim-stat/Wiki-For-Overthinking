@@ -48,7 +48,7 @@ Not discussed in the abstract. Two limits a reader should carry: the method dete
 
 - **Concepts**: [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), biasing features, plausible but misleading explanations, transparency, social bias
 - **Methods**: input biasing intervention, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [few-shot prompting](../../../../wiki/methods/few-shot-prompting.md)
-- **Datasets**: BIG-Bench Hard
+- **Datasets**: [BIG-Bench Hard](../../../../wiki/datasets/bbh.md)
 
 Tags: `faithfulness`, `unfaithful`, `chain of thought`, `rationalization`, `safety`, `bias`
 

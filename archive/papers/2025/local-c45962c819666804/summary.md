@@ -46,7 +46,7 @@ No limitations section is present in the material read. Points a reader should w
 
 - **Concepts**: meta-reinforcement learning, [test-time compute](../../../../wiki/concepts/test-time-compute.md), cumulative regret, dense reward, progress bonus, [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), [token efficiency](../../../../wiki/concepts/token-efficiency.md), [overthinking](../../../../wiki/concepts/overthinking.md), [process-supervision](../../../../wiki/concepts/process-supervision.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md)
 - **Methods**: MRT (Meta Reinforcement Fine-Tuning), outcome-reward RL, [RLVR](../../../../wiki/methods/rlvr.md), supervised finetuning on search traces, [process reward model](../../../../wiki/methods/process-reward-model.md)
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [AIME24](../../../../wiki/datasets/aime24.md)
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [AIME24](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `meta-rl`, `test-time compute`, `regret`, `dense reward`, `token efficiency`, `rl fine-tuning`
 

@@ -44,7 +44,7 @@ Evaluated only in two simulators, so transfer to real networks is unestablished.
 
 ## Entities
 
-- **Concepts**: [reinforcement learning with verifiable rewards](../../../../wiki/concepts/reinforcement-learning-with-verifiable-rewards.md), contextual bandit, [credit assignment](../../../../wiki/concepts/credit-assignment.md), adaptive adversary, [emergent behaviour](../../../../wiki/concepts/emergent-behaviour.md)
+- **Concepts**: reinforcement learning with verifiable rewards, contextual bandit, [credit assignment](../../../../wiki/concepts/credit-assignment.md), adaptive adversary, [emergent behaviour](../../../../wiki/concepts/emergent-behaviour.md)
 - **Methods**: [RLVR](../../../../wiki/methods/rlvr.md), Code-as-Policy, contextual bandit formulation, log summarization
 - **Datasets**: CybORG CAGE 4, CyberWheel, Trident red-blue interaction dataset (13,000+ trajectories)
 

@@ -45,7 +45,7 @@ The paper does not carry a limitations section in the main body. Points a reader
 
 - **Concepts**: [reproducibility](../../../../wiki/concepts/reproducibility.md), numerical precision, non-associativity of floating-point arithmetic, greedy decoding, divergence index, nondeterminism, benchmark variance, pass@k, evaluation methodology, response length
 - **Methods**: LayerCast, [greedy decoding](../../../../wiki/methods/greedy-decoding.md), random sampling, batch-invariant operations, [vLLM](../../../../wiki/methods/vllm.md), tensor parallelism
-- **Datasets**: [AIME24](../../../../wiki/datasets/aime24.md), [MATH500](../../../../wiki/datasets/math500.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [MATH500](../../../../wiki/datasets/math500.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `reproducibility`, `numerical precision`, `bfloat16`, `evaluation`, `nondeterminism`, `benchmark variance`, `inference`
 

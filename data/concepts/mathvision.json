@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "MATH-Vision"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.01207",
+      "kind": "paper",
+      "note": "Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.",
+      "title": "It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling"
+    },
     {
       "id": "local:b050d2841cbb4959",
       "kind": "paper",
@@ -11,9 +19,30 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T10:56:01Z",
   "name": "MathVision",
   "related": [
+    "test-time-scaling",
+    "selection-signal",
+    "decoding-format",
+    "majority-voting",
+    "self-consistency",
+    "visual-grounding",
+    "label-preserving-perturbation",
+    "matched-budget-comparison",
+    "confound-control",
+    "generation-verification-gap",
+    "perturbation-grounded-selection",
+    "matchedctrl",
+    "best-of-n",
+    "confidence-weighted-self-consistency",
+    "borda-count",
+    "paired-bootstrap-confidence-intervals",
+    "textvqa",
+    "mmmu",
+    "vilp",
+    "qwen2-5-vl-7b-instruct",
+    "llava-onevision-7b",
     "pass-k",
     "reasoning-boundary",
     "exploration-exploitation-trade-off",
@@ -30,7 +59,7 @@
     "remax",
     "dapo",
     "perplexity-analysis",
-    "aime24",
+    "aime-2024",
     "amc23",
     "math500",
     "minerva",
@@ -49,11 +78,12 @@
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1-distill-qwen-7b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "mathvision",
   "topics": [
+    "test-time-scaling",
     "reasoning-training",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "reasoning-evaluation"
   ]
 }

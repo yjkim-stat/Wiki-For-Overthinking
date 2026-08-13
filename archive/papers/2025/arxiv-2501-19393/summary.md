@@ -45,8 +45,8 @@ Not discussed in the abstract. Bounds a reader should note: the extrapolation re
 ## Entities
 
 - **Concepts**: test-time scaling, budget forcing, thinking budget, data curation, difficulty diversity and quality, extrapolation beyond baseline performance
-- **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), [supervised finetuning](../../../../wiki/methods/supervised-finetuning.md), s1
-- **Datasets**: s1K, [MATH](../../../../wiki/datasets/math.md), [AIME24](../../../../wiki/datasets/aime24.md)
+- **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), s1
+- **Datasets**: s1K, [MATH](../../../../wiki/datasets/math.md), [AIME24](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `s1`, `budget forcing`, `test-time scaling`, `sft`, `data curation`, `wait token`
 

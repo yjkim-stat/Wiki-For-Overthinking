@@ -48,7 +48,7 @@ No new experiments are run here; the evidence is collated, and the load-bearing 
 ## Entities
 
 - **Concepts**: Intermediate Token Generation, Derivational Trace, Anthropomorphization of Intermediate Tokens, Trace Validity, False Trust, Learned Prompt Augmentation, Chain of Thought Monitorability, Generate-Test Paradigm, Test-Time Scaling
-- **Methods**: A* Search, [Supervised Fine-Tuning](../../../../wiki/methods/supervised-fine-tuning.md), [GRPO](../../../../wiki/methods/grpo.md), Reinforcement Learning with Verifiable Rewards, LLM-Modulo, [Self-Consistency](../../../../wiki/methods/self-consistency.md), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), Process Reward Models
+- **Methods**: A* Search, [Supervised Fine-Tuning](../../../../wiki/methods/supervised-fine-tuning.md), [GRPO](../../../../wiki/methods/grpo.md), [Reinforcement Learning with Verifiable Rewards](../../../../wiki/methods/rlvr.md), LLM-Modulo, [Self-Consistency](../../../../wiki/methods/self-consistency.md), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), Process Reward Models
 - **Datasets**: Wilson maze instances, NoMaze instances
 
 Tags: `position paper`, `intermediate tokens`, `chain of thought`, `anthropomorphism`, `trace validity`, `false trust`, `monitorability`, `maze planning`
