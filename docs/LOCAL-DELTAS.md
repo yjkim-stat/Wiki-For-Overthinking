@@ -84,7 +84,7 @@ in `CONCEPT_OUTPUT_SCHEMA` was not, so for every definition task the reader was
 offered three kinds and could only ever answer three. Because a stored
 definition freezes an entity's kind against re-derivation, one such answer
 demotes a correctly harvested model permanently. Fixed in
-[0051](commit/0051-a-kind-that-is-accepted-is-offered.md) by enumerating the
+[0054](commit/0054-a-kind-that-is-accepted-is-offered.md) by enumerating the
 tuple instead of writing it out, and guarded by `DefinitionContractTests`.
 
 **The applier line is the one that gets forgotten.** It was omitted when the

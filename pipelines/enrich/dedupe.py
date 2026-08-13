@@ -65,6 +65,20 @@ def merge_papers(existing: Paper, incoming: Paper) -> Paper:
     if incoming.source not in merged.source.split("+"):
         merged.source = f"{merged.source}+{incoming.source}"
 
+    # A document is not merged on richness like every field above. There is no
+    # "longer" path, and the two candidates are not two descriptions of one
+    # thing — they are two files.
+    #
+    # The stored path wins when there is one, because it may already have been
+    # shelved into `data/pdfs/read/` and replacing it would point the record at
+    # a file that is no longer there. Otherwise the newcomer's is taken.
+    # Dropping it is what left a hand-filed PDF orphaned on disk while the
+    # pipeline downloaded the same paper again, having concluded that the record
+    # it had just merged held no document. `source` *is* merged, so the record
+    # still read as hand-filed — it simply could not say where the file was.
+    if incoming.local_path and not merged.local_path:
+        merged.local_path = incoming.local_path
+
     merged.last_seen = incoming.last_seen
     return merged
 

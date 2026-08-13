@@ -319,6 +319,7 @@ collecting from the wrong indexes is the most common reason a topic stays empty.
 
 ```bash
 python3 -m pipelines.run_daily [--days N] [--topic slug] [--source arxiv] [--dry-run]
+python3 -m pipelines.backfill  [--limit N] [--topic slug] [--by score|age|id] [--dry-run]
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
 python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
 python3 -m pipelines.migrate status   # which roots, and what each channel carries

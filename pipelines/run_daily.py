@@ -140,6 +140,9 @@ def run(
     errors: list[str] = []
 
     store = RecordStore(cfg.layout)
+    # One budget for the whole run. Documents are fetched a paper at a time, as
+    # each task is filed, so the cap has to outlive the call that spends it.
+    pdf_budget = pdf_fetch.Budget.from_settings(cfg)
 
     # -- collect ------------------------------------------------------------
     papers: list[Paper] = []
@@ -273,7 +276,9 @@ def run(
                 # handed the paper rather than a claim about it. Failure is
                 # ordinary: the task is filed either way, with an abstract.
                 try:
-                    pdf_fetch.fetch_for(cfg, [record], errors=errors)
+                    pdf_fetch.fetch_for(
+                        cfg, [record], errors=errors, budget=pdf_budget
+                    )
                 except Exception as exc:  # noqa: BLE001 - never block a reading
                     _LOG.exception("pdf fetch failed for %s", record.id)
                     errors.append(f"pdf[{record.id}]: {exc}")
