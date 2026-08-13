@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "compute allocation",
+    "budget allocation"
+  ],
+  "definition": "Treating inference compute as a resource to place rather than a quantity to increase -- the question of where an extra unit goes, not how many to spend. Both sources arrive at it by finding that uniform spending is the waste: one shows parallel sampling gives most of its budget to trajectories that will be wrong and reallocates capacity from pruned traces onto high-scoring prefixes under a fixed hardware cap, while the other shows compute bought at evaluation time can substitute for compute bought at generation time. The framing is what makes hardware constraints part of the problem statement rather than an implementation detail: concurrency and KV-cache footprint bound the population of live trajectories, so allocation is zero-sum.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -53,7 +56,12 @@
     "reranking",
     "outcome-evaluation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "test-time-compute",
+    "adaptive-compute-allocation",
+    "kv-cache",
+    "beam-search"
+  ],
   "schema_version": 1,
   "slug": "compute-allocation",
   "topics": [

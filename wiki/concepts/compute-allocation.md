@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Treating inference compute as a resource to place rather than a quantity to increase -- the question of where an extra unit goes, not how many to spend. Both sources arrive at it by finding that uniform spending is the waste: one shows parallel sampling gives most of its budget to trajectories that will be wrong and reallocates capacity from pruned traces onto high-scoring prefixes under a fixed hardware cap, while the other shows compute bought at evaluation time can substitute for compute bought at generation time. The framing is what makes hardware constraints part of the problem statement rather than an implementation detail: concurrency and KV-cache footprint bound the population of live trajectories, so allocation is zero-sum.
 
 - **Kind**: concept
+- **Also called**: budget allocation, compute allocation
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [answer aggregation](answer-aggregation.md), [beam search](../methods/beam-search.md), [best-of-n](../methods/best-of-n.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT](../datasets/hmmt.md), [judge reliability](judge-reliability.md), [KV cache](kv-cache.md), [linear probe](../methods/linear-probe.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [meta-evaluation](meta-evaluation.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [process evaluation](../methods/process-evaluation.md), [process reward model](../methods/process-reward-model.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [self-consistency](../methods/self-consistency.md), [test-time compute](test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md), [trajectory diversity](trajectory-diversity.md), [verification](verification.md), [vLLM](../methods/vllm.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [answer aggregation](../methods/answer-aggregation.md), [beam search](../methods/beam-search.md), [best-of-n](../methods/best-of-n.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT](../datasets/hmmt.md), [judge reliability](judge-reliability.md), [KV cache](kv-cache.md), [linear probe](../methods/linear-probe.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [meta-evaluation](meta-evaluation.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [process evaluation](../methods/process-evaluation.md), [process reward model](../methods/process-reward-model.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [self-consistency](../methods/self-consistency.md), [test-time compute](test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md), [trajectory diversity](trajectory-diversity.md), [verification](verification.md), [vLLM](../methods/vllm.md)
 
 ## Appears in
 

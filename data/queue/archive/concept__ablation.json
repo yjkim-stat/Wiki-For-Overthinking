@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T12:44:54Z",
   "created_at": "2026-08-13T12:37:21Z",
   "instructions": "Write the wiki definition for 'ablation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "ablation",
@@ -37,6 +38,19 @@
   "payload": {
     "name": "ablation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "zero ablation",
+      "weight-space ablation"
+    ],
+    "definition": "Removing a component -- a direction, a latent, a weight subset -- and reading the change in behaviour as evidence of what that component did. Both sources use it as the causal step that follows an identification step, and both find the step is not automatic. One shows a dictionary's directions are more precisely causal than individual neurons under ablation, which is the case for the method; the other is the case against relying on a named direction, since ablating the standard refusal direction from a steering vector recovers almost none of the safety it lost, and the direction that must be removed has to be learned against the intervention's own objective instead. Elsewhere in this archive the same instrument is contrasted with patching, which measures a contrast between two runs rather than the absolute level ablation reports.",
+    "kind": "method",
+    "related": [
+      "activation patching",
+      "steering vector",
+      "causal intervention"
+    ]
   },
   "task_id": "concept__ablation",
   "task_version": 1,

@@ -134,7 +134,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
-| activation steering | 11 | _pending_ |
+| activation steering | 11 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
@@ -162,7 +162,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
 | HumanEval+ | 4 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
 | IFEval | 3 | A benchmark of prompts carrying verifiable formatting and constraint instructions, so compliance is checked programmatically rather than judged. Neither source studies it; both... |
-| indirect object identification | 3 | _pending_ |
+| indirect object identification | 3 | A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmar... |
 | the Pile | 3 | _pending_ |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | OpenCodeInstruct | 2 | A large instruction-tuning corpus of programming problems, used by both sources as the coding half of a training or calibration mixture rather than as an evaluation set. One dra... |

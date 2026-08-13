@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "ARC-AGI-2",
+    "ARC prize"
+  ],
+  "definition": "A benchmark of abstract visual grid puzzles used here for two different purposes, neither of which is measuring reasoning cleanly. One source uses its tasks as part of a logic pool for studying which training items respond to continued RL. The other is the caution: separating perception from reasoning with a two-stage pipeline shows about 80% of vision-language model failures on ARC-style tasks are perception errors rather than reasoning errors, so a score on it confounds seeing the grid with reasoning about it.",
   "evidence": [
     {
       "id": "arxiv:2608.09217",
@@ -61,7 +64,11 @@
     "bongard-logo",
     "arc"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-benchmark",
+    "perception",
+    "construct-validity"
+  ],
   "schema_version": 1,
   "slug": "arc-agi",
   "topics": [

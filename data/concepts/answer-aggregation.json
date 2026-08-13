@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "answer aggregation",
+    "vote aggregation"
+  ],
+  "definition": "The rule that turns several sampled answers into one, and the part of test-time scaling that all three sources change rather than the sample count. Majority voting is the default they depart from: one weights each trace by how many of its decision-critical claims survive an attempted refutation, one weights by a score-guided beam's running estimate, and one leaves the rule alone and varies the input instead. The reason to treat it as a lever is measured -- when self-consistency is wrong although a correct candidate is already among the samples, changing only the aggregation recovers roughly 37% of those cases. It is also where the archive's finding that extra samples strengthen whatever the rule already does gets its remedy.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -22,7 +25,7 @@
     }
   ],
   "first_seen": "2026-08-13T12:18:17Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-13T12:18:17Z",
   "name": "answer aggregation",
   "related": [
@@ -84,7 +87,12 @@
     "gpt-oss-120b",
     "qwen3-5-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency",
+    "majority-voting",
+    "rescue-rate",
+    "test-time-scaling"
+  ],
   "schema_version": 1,
   "slug": "answer-aggregation",
   "topics": [

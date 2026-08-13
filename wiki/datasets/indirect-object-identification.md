@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmark. All three sources use it that way: as the task where an ablation-interaction theorem is checked, as the setting where the methodological choices in activation patching are varied and shown to change the answer, and as one of the tasks where dictionary directions are compared against neurons for causal precision. Its value is that the correct circuit is known well enough that a method can be wrong in a visible way.
 
 - **Kind**: dataset
-- **Also called**: Indirect Object Identification (IOI)
+- **Also called**: IOI, Indirect Object Identification (IOI)
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 3
 
-**Related**: [ablation](../methods/ablation.md), [activation patching](../methods/activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [GPT-J 6B](../models/gpt-j-6b.md), [localization](../concepts/localization.md), [low-rank weight ablation](../methods/low-rank-weight-ablation.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](../concepts/superposition.md), [the Pile](the-pile.md), [weight-space ablation](../methods/weight-space-ablation.md)
+**Related**: [ablation](../methods/ablation.md), [activation patching](../methods/activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [GPT-J 6B](../models/gpt-j-6b.md), [localization](../concepts/localization.md), [low-rank weight ablation](../methods/low-rank-weight-ablation.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](../concepts/superposition.md), [the Pile](the-pile.md), [weight-space ablation](../methods/weight-space-ablation.md)
 
 ## Appears in
 

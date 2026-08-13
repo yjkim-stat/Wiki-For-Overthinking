@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "in-context learning",
+    "few-shot prompting"
+  ],
+  "definition": "Supplying examples in the prompt so the model infers the task without weight updates. Both sources here report that the standard static form has stopped paying on reasoning-specialized models: few-shot chain-of-thought with dataset examples now underperforms simply asking the question -- 74.2% against 86.1% on GSM8K for one model -- and the other treats input-level exemplars as the baseline its in-trace retrieval improves on. The distinction both draw is between retrieving once before generation, where the context is then static, and supplying examples during reasoning, which is what they find still helps.",
   "evidence": [
     {
       "id": "arxiv:2608.03550",
@@ -59,7 +62,11 @@
     "qwen3-8b",
     "e5-large"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-prompting",
+    "in-trace-retrieval",
+    "procedural-scaffolding"
+  ],
   "schema_version": 1,
   "slug": "in-context-learning",
   "topics": [

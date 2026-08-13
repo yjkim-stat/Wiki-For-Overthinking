@@ -701,21 +701,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "concept:answer-aggregation",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:answer-aggregation",
-      "target": "model:deepseek-r1-0528-qwen3-8b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:answer-aggregation",
-      "target": "model:qwen3-4b-thinking-2507",
-      "type": "co-occurs"
-    },
-    {
       "source": "concept:answer-extraction",
       "target": "concept:construct-validity",
       "type": "co-occurs"
@@ -728,6 +713,11 @@
     {
       "source": "concept:answer-stabilization",
       "target": "concept:entropy-trajectory",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:answer-stabilization",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -768,11 +758,6 @@
     {
       "source": "concept:answer-stabilization",
       "target": "method:greedy-decoding",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:answer-stabilization",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -2142,12 +2127,17 @@
     },
     {
       "source": "concept:compute-allocation",
-      "target": "concept:answer-aggregation",
+      "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
     },
     {
       "source": "concept:compute-allocation",
       "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -2892,6 +2882,11 @@
     },
     {
       "source": "concept:curriculum-learning",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:curriculum-learning",
       "target": "concept:implicit-reasoning",
       "type": "co-occurs"
     },
@@ -2973,11 +2968,6 @@
     {
       "source": "concept:curriculum-learning",
       "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:curriculum-learning",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -3242,6 +3232,11 @@
     },
     {
       "source": "concept:effective-depth",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:effective-depth",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -3278,11 +3273,6 @@
     {
       "source": "concept:effective-depth",
       "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:effective-depth",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4381,6 +4371,16 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:implicit-chain-of-thought",
+      "target": "dataset:parity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:implicit-chain-of-thought",
+      "target": "method:gradient-descent-analysis",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:implicit-reasoning",
       "target": "concept:belief-state",
       "type": "co-occurs"
@@ -4398,6 +4398,11 @@
     {
       "source": "concept:implicit-reasoning",
       "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:implicit-reasoning",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4443,11 +4448,6 @@
     {
       "source": "concept:implicit-reasoning",
       "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:implicit-reasoning",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -4822,12 +4822,17 @@
     },
     {
       "source": "concept:kv-cache",
-      "target": "concept:answer-aggregation",
+      "target": "concept:state-tracking",
       "type": "co-occurs"
     },
     {
       "source": "concept:kv-cache",
-      "target": "concept:state-tracking",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "method:kv-cache-compression",
       "type": "co-occurs"
     },
     {
@@ -4913,6 +4918,11 @@
     {
       "source": "concept:latent-reasoning",
       "target": "concept:expressivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:latent-reasoning",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -5013,11 +5023,6 @@
     {
       "source": "concept:latent-reasoning",
       "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:latent-reasoning",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -8012,11 +8017,6 @@
     },
     {
       "source": "concept:process-supervision",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:process-supervision",
       "target": "concept:attention-pattern",
       "type": "co-occurs"
     },
@@ -8108,6 +8108,11 @@
     {
       "source": "concept:process-supervision",
       "target": "dataset:mathvista",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -8587,11 +8592,6 @@
     },
     {
       "source": "concept:prompt-sensitivity",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:prompt-sensitivity",
       "target": "concept:answer-extraction",
       "type": "co-occurs"
     },
@@ -8613,6 +8613,11 @@
     {
       "source": "concept:prompt-sensitivity",
       "target": "dataset:wmt22",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-sensitivity",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -10327,6 +10332,11 @@
     },
     {
       "source": "concept:sample-complexity",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:sample-complexity",
       "target": "concept:implicit-reasoning",
       "type": "co-occurs"
     },
@@ -10373,11 +10383,6 @@
     {
       "source": "concept:sample-complexity",
       "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:sample-complexity",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -11492,11 +11497,6 @@
     },
     {
       "source": "concept:test-time-compute",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:test-time-compute",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -11548,6 +11548,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "concept:exploration-exploitation-trade-off",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -11767,6 +11772,11 @@
     },
     {
       "source": "concept:test-time-compute",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
       "target": "method:attention-analysis",
       "type": "co-occurs"
     },
@@ -11823,11 +11833,6 @@
     {
       "source": "concept:test-time-compute",
       "target": "method:greedy-decoding",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:test-time-compute",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -12292,11 +12297,6 @@
     },
     {
       "source": "concept:trajectory-diversity",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:trajectory-diversity",
       "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
@@ -12313,6 +12313,11 @@
     {
       "source": "concept:trajectory-diversity",
       "target": "dataset:aime",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -14217,11 +14222,6 @@
     },
     {
       "source": "dataset:aime-2025",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-2025",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -14552,6 +14552,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "method:beam-search",
       "type": "co-occurs"
     },
@@ -14857,11 +14862,6 @@
     },
     {
       "source": "dataset:aime-2026",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:aime-2026",
       "target": "concept:benchmark-contamination",
       "type": "co-occurs"
     },
@@ -14923,6 +14923,11 @@
     {
       "source": "dataset:aime-2026",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -15957,17 +15962,17 @@
     },
     {
       "source": "dataset:cmimc",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:cmimc",
       "target": "concept:self-verification",
       "type": "co-occurs"
     },
     {
       "source": "dataset:cmimc",
       "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:cmimc",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -16347,11 +16352,6 @@
     },
     {
       "source": "dataset:gpqa-diamond",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:gpqa-diamond",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -16488,6 +16488,11 @@
     {
       "source": "dataset:gpqa-diamond",
       "target": "dataset:zebralogic",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -17747,11 +17752,6 @@
     },
     {
       "source": "dataset:hmmt",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:hmmt",
       "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
@@ -17798,6 +17798,11 @@
     {
       "source": "dataset:hmmt",
       "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -18303,6 +18308,11 @@
     {
       "source": "dataset:indirect-object-identification",
       "target": "concept:localization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:indirect-object-identification",
+      "target": "concept:mechanistic-interpretability",
       "type": "co-occurs"
     },
     {
@@ -18972,11 +18982,6 @@
     },
     {
       "source": "dataset:math500",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:math500",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -19408,6 +19413,11 @@
     {
       "source": "dataset:math500",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -20422,11 +20432,6 @@
     },
     {
       "source": "dataset:mmlu",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:mmlu",
       "target": "concept:construct-validity",
       "type": "co-occurs"
     },
@@ -20493,6 +20498,11 @@
     {
       "source": "dataset:mmlu",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmlu",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -20902,17 +20912,17 @@
     },
     {
       "source": "dataset:mmmu",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:mmmu",
       "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
     {
       "source": "dataset:mmmu",
       "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -21817,6 +21827,11 @@
     },
     {
       "source": "dataset:proofwriter",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:proofwriter",
       "target": "concept:latent-reasoning",
       "type": "co-occurs"
     },
@@ -21828,11 +21843,6 @@
     {
       "source": "dataset:proofwriter",
       "target": "method:coconut",
-      "type": "co-occurs"
-    },
-    {
-      "source": "dataset:proofwriter",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -22103,6 +22113,11 @@
     {
       "source": "dataset:xstest",
       "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:ablation",
+      "target": "concept:causal-intervention",
       "type": "co-occurs"
     },
     {
@@ -22596,6 +22611,21 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:answer-aggregation",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:answer-aggregation",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:answer-aggregation",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:attention-analysis",
       "target": "concept:circuit-complexity",
       "type": "co-occurs"
@@ -22652,11 +22682,6 @@
     },
     {
       "source": "method:beam-search",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:beam-search",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -22678,6 +22703,11 @@
     {
       "source": "method:beam-search",
       "target": "dataset:olympiadbench",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -22718,11 +22748,6 @@
     {
       "source": "method:best-of-n",
       "target": "concept:adaptive-compute-allocation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:best-of-n",
-      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -22913,6 +22938,11 @@
     {
       "source": "method:best-of-n",
       "target": "method:activation-probing",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -23787,6 +23817,11 @@
     },
     {
       "source": "method:chain-of-thought",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought",
       "target": "concept:implicit-reasoning",
       "type": "co-occurs"
     },
@@ -24082,11 +24117,6 @@
     },
     {
       "source": "method:chain-of-thought",
-      "target": "method:implicit-chain-of-thought",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:chain-of-thought",
       "target": "method:latent-chain-of-thought",
       "type": "co-occurs"
     },
@@ -24307,11 +24337,6 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:chain-of-thought-prompting",
       "target": "concept:answer-extraction",
       "type": "co-occurs"
     },
@@ -24383,6 +24408,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "concept:grounding",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -24547,6 +24577,11 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
       "target": "method:best-of-n",
       "type": "co-occurs"
     },
@@ -24578,11 +24613,6 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "method:grpo",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:chain-of-thought-prompting",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -25077,6 +25107,11 @@
     },
     {
       "source": "method:coconut",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:coconut",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -25103,11 +25138,6 @@
     {
       "source": "method:coconut",
       "target": "dataset:xstest",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:coconut",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -26841,16 +26871,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "method:implicit-chain-of-thought",
-      "target": "dataset:parity",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:implicit-chain-of-thought",
-      "target": "method:gradient-descent-analysis",
-      "type": "co-occurs"
-    },
-    {
       "source": "method:importance-sampling",
       "target": "concept:log-linear-policy",
       "type": "co-occurs"
@@ -27247,11 +27267,6 @@
     },
     {
       "source": "method:linear-probe",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:linear-probe",
       "target": "concept:attention-head",
       "type": "co-occurs"
     },
@@ -27508,6 +27523,11 @@
     {
       "source": "method:linear-probe",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -28877,11 +28897,6 @@
     },
     {
       "source": "method:majority-voting",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:majority-voting",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -29047,6 +29062,11 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "method:beam-search",
       "type": "co-occurs"
     },
@@ -29202,11 +29222,6 @@
     },
     {
       "source": "method:monte-carlo-tree-search",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:monte-carlo-tree-search",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -29228,6 +29243,11 @@
     {
       "source": "method:monte-carlo-tree-search",
       "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -29447,11 +29467,6 @@
     },
     {
       "source": "method:pass-k",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:pass-k",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -29533,6 +29548,11 @@
     {
       "source": "method:pass-k",
       "target": "method:activation-probing",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pass-k",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -30422,11 +30442,6 @@
     },
     {
       "source": "method:process-reward-model",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-reward-model",
       "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
@@ -30573,6 +30588,11 @@
     {
       "source": "method:process-reward-model",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -32302,11 +32322,6 @@
     },
     {
       "source": "method:self-consistency",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:self-consistency",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -32573,6 +32588,11 @@
     {
       "source": "method:self-consistency",
       "target": "method:activation-patching",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -34357,11 +34377,6 @@
     },
     {
       "source": "method:test-time-scaling",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:test-time-scaling",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -34623,6 +34638,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -35342,6 +35362,11 @@
     },
     {
       "source": "model:deepseek-r1",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1",
       "target": "concept:instruction-following",
       "type": "co-occurs"
     },
@@ -35388,11 +35413,6 @@
     {
       "source": "model:deepseek-r1",
       "target": "method:early-exit",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -35457,12 +35477,27 @@
     },
     {
       "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "method:reasoning-distillation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
       "target": "model:deepseek-r1-distill-qwen-7b",
       "type": "co-occurs"
     },
     {
       "source": "model:deepseek-r1-0528-qwen3-8b",
       "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "model:qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -36362,6 +36397,11 @@
     },
     {
       "source": "model:gpt-4",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-4",
       "target": "concept:latent-reasoning",
       "type": "co-occurs"
     },
@@ -36388,11 +36428,6 @@
     {
       "source": "model:gpt-4",
       "target": "method:gemba-mqm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gpt-4",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -37107,11 +37142,6 @@
     },
     {
       "source": "model:gpt-oss-120b",
-      "target": "concept:answer-aggregation",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gpt-oss-120b",
       "target": "concept:benchmark-contamination",
       "type": "co-occurs"
     },
@@ -37192,6 +37222,11 @@
     },
     {
       "source": "model:gpt-oss-120b",
+      "target": "method:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
       "target": "method:contrastive-activation-addition",
       "type": "co-occurs"
     },
@@ -37258,11 +37293,6 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "concept:alignment",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:gpt-oss-20b",
-      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -37343,6 +37373,11 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "dataset:zebralogic",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-20b",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -41482,12 +41517,12 @@
     },
     {
       "source": "model:qwen3-5-27b",
-      "target": "concept:answer-aggregation",
+      "target": "dataset:cmimc",
       "type": "co-occurs"
     },
     {
       "source": "model:qwen3-5-27b",
-      "target": "dataset:cmimc",
+      "target": "method:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -42232,6 +42267,11 @@
     },
     {
       "source": "model:qwq-32b",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwq-32b",
       "target": "concept:information-bottleneck",
       "type": "co-occurs"
     },
@@ -42293,11 +42333,6 @@
     {
       "source": "model:qwq-32b",
       "target": "method:early-exit",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwq-32b",
-      "target": "method:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
@@ -42367,12 +42402,12 @@
     },
     {
       "source": "model:roberta",
-      "target": "method:coconut",
+      "target": "concept:implicit-chain-of-thought",
       "type": "co-occurs"
     },
     {
       "source": "model:roberta",
-      "target": "method:implicit-chain-of-thought",
+      "target": "method:coconut",
       "type": "co-occurs"
     },
     {
@@ -42508,6 +42543,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "concept:hidden-state-geometry",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "concept:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -42963,11 +43003,6 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "method:grpo",
-      "type": "covers"
-    },
-    {
-      "source": "topic:reasoning-evaluation",
-      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -43462,6 +43497,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "concept:implicit-chain-of-thought",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "concept:implicit-reasoning",
       "type": "covers"
     },
@@ -43868,11 +43908,6 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "method:grpo",
-      "type": "covers"
-    },
-    {
-      "source": "topic:reasoning-faithfulness",
-      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -45127,11 +45162,6 @@
     },
     {
       "source": "topic:reasoning-training",
-      "target": "concept:answer-aggregation",
-      "type": "covers"
-    },
-    {
-      "source": "topic:reasoning-training",
       "target": "concept:answer-extraction",
       "type": "covers"
     },
@@ -45323,6 +45353,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:hallucination",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -45977,6 +46012,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "method:answer-aggregation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "method:attention-analysis",
       "type": "covers"
     },
@@ -46128,11 +46168,6 @@
     {
       "source": "topic:reasoning-training",
       "target": "method:grpo",
-      "type": "covers"
-    },
-    {
-      "source": "topic:reasoning-training",
-      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -46792,11 +46827,6 @@
     },
     {
       "source": "topic:test-time-scaling",
-      "target": "concept:answer-aggregation",
-      "type": "covers"
-    },
-    {
-      "source": "topic:test-time-scaling",
       "target": "concept:answer-extraction",
       "type": "covers"
     },
@@ -46923,6 +46953,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "concept:grounding",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "concept:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -47412,6 +47447,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "method:answer-aggregation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "method:attention-analysis",
       "type": "covers"
     },
@@ -47523,11 +47563,6 @@
     {
       "source": "topic:test-time-scaling",
       "target": "method:grpo",
-      "type": "covers"
-    },
-    {
-      "source": "topic:test-time-scaling",
-      "target": "method:implicit-chain-of-thought",
       "type": "covers"
     },
     {
@@ -48051,7 +48086,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-13T12:42:53Z",
+  "generated_at": "2026-08-13T12:45:28Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -48108,13 +48143,6 @@
       "label": "alignment tax",
       "settled": false,
       "sources": 2
-    },
-    {
-      "id": "concept:answer-aggregation",
-      "kind": "concept",
-      "label": "answer aggregation",
-      "settled": false,
-      "sources": 3
     },
     {
       "id": "concept:answer-extraction",
@@ -48407,6 +48435,13 @@
       "id": "concept:hidden-state-geometry",
       "kind": "concept",
       "label": "hidden-state geometry",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "concept:implicit-chain-of-thought",
+      "kind": "concept",
+      "label": "implicit chain of thought",
       "settled": false,
       "sources": 2
     },
@@ -49426,6 +49461,13 @@
       "sources": 11
     },
     {
+      "id": "method:answer-aggregation",
+      "kind": "method",
+      "label": "answer aggregation",
+      "settled": false,
+      "sources": 3
+    },
+    {
       "id": "method:attention-analysis",
       "kind": "method",
       "label": "attention analysis",
@@ -49683,13 +49725,6 @@
       "label": "GRPO",
       "settled": false,
       "sources": 35
-    },
-    {
-      "id": "method:implicit-chain-of-thought",
-      "kind": "method",
-      "label": "implicit chain of thought",
-      "settled": false,
-      "sources": 2
     },
     {
       "id": "method:importance-sampling",

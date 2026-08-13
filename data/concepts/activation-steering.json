@@ -4,9 +4,11 @@
     "steering vector",
     "activation addition",
     "representation engineering",
-    "Activation Steering"
+    "Activation Steering",
+    "contrastive activation addition",
+    "CAA"
   ],
-  "definition": "",
+  "definition": "Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licenses it. The construction is usually a difference of means between contrastive prompt pairs, and one source shows the resulting direction transfers to an untrained task, moving a monetary indifference threshold after being trained only on short- versus long-horizon answer continuations. The central negative result is that a direction's quality as a detector says nothing about its effect as an intervention: one source finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, and characterizes them geometrically as spoofing the concept's absence. Two extensions follow from that. One builds multi-layer vectors from SAE features chosen by co-activation and decoder alignment, intervening at several points rather than one. Another places steering inside a Locate-Steer-Improve pipeline organized by which interpretable object is being acted on. The remaining sources use steering as an instrument rather than a subject -- confirming that a model's eventual reasoning length is decided before the first reasoning token and is steerable, and that the hidden-state norm bounds SAE reasoning-feature activation -- and one supplies the cost: the models that follow their own traces most faithfully are the ones that follow a tampered trace into an unsafe action.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -243,7 +245,13 @@
     "test-time-scaling",
     "llama-3-1-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "steering-vector",
+    "difference-of-means-probe",
+    "detection-versus-control",
+    "refusal-direction",
+    "sparse-autoencoder"
+  ],
   "schema_version": 1,
   "slug": "activation-steering",
   "topics": [

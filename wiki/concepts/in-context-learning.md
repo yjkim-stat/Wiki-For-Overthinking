@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Supplying examples in the prompt so the model infers the task without weight updates. Both sources here report that the standard static form has stopped paying on reasoning-specialized models: few-shot chain-of-thought with dataset examples now underperforms simply asking the question -- 74.2% against 86.1% on GSM8K for one model -- and the other treats input-level exemplars as the baseline its in-trace retrieval improves on. The distinction both draw is between retrieving once before generation, where the context is then static, and supplying examples during reasoning, which is what they find still helps.
 
 - **Kind**: concept
+- **Also called**: few-shot prompting, in-context learning
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

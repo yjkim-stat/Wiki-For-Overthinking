@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licenses it. The construction is usually a difference of means between contrastive prompt pairs, and one source shows the resulting direction transfers to an untrained task, moving a monetary indifference threshold after being trained only on short- versus long-horizon answer continuations. The central negative result is that a direction's quality as a detector says nothing about its effect as an intervention: one source finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, and characterizes them geometrically as spoofing the concept's absence. Two extensions follow from that. One builds multi-layer vectors from SAE features chosen by co-activation and decoder alignment, intervening at several points rather than one. Another places steering inside a Locate-Steer-Improve pipeline organized by which interpretable object is being acted on. The remaining sources use steering as an instrument rather than a subject -- confirming that a model's eventual reasoning length is decided before the first reasoning token and is steerable, and that the hidden-state norm bounds SAE reasoning-feature activation -- and one supplies the cost: the models that follow their own traces most faithfully are the ones that follow a tampered trace into an unsafe action.
 
 - **Kind**: method
-- **Also called**: Activation Steering, activation addition, representation engineering, steering, steering vector
+- **Also called**: Activation Steering, CAA, activation addition, contrastive activation addition, representation engineering, steering, steering vector
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 11
 

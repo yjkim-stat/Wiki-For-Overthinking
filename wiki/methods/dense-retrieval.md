@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Encoding queries and documents into one vector space and retrieving by cosine nearest neighbour. Both sources use it inside a reasoning loop rather than before one, and both make the query the interesting part: one retrieves complete solved problems mid-trace using the model's elicited intermediate answer as the query, on the argument that the raw reasoning text is too exploratory and noisy to search with; the other conditions a teacher on retrieved supporting evidence and uses the teacher-student gap as a training signal. Neither validates its encoder, and one of them cites work showing structurally faithful retrieval over mathematics is hard with off-the-shelf encoders while using one.
 
 - **Kind**: method
+- **Also called**: dense retrieval, nearest-neighbour retrieval
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

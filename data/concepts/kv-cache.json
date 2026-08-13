@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "KV cache",
+    "key-value cache"
+  ],
+  "definition": "The stored keys and values of previous tokens that let autoregressive decoding avoid recomputation, and in both sources a thing with consequences beyond speed. One treats it as the binding constraint on test-time reasoning: long traces saturate cache capacity, which caps how many trajectories can run at once, and branching from a shared prefix is cheap precisely because the child inherits the parent's cache. The other treats it as the object of an intervention, editing the cached representation of a written scratchpad while holding the printed text fixed to ask whether the next step follows the edited value or the visible one. So it is both the resource that bounds allocation and the place where a trace's state actually lives.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -62,7 +65,12 @@
     "qwen2-5-coder-7b",
     "mistral-7b-v0-3"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "kv-cache-compression",
+    "compute-allocation",
+    "prefix-caching",
+    "scratchpad"
+  ],
   "schema_version": 1,
   "slug": "kv-cache",
   "topics": [

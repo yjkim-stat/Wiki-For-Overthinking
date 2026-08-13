@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "implicit chain of thought",
+    "internalized chain of thought"
+  ],
+  "definition": "Reasoning that has been moved out of emitted tokens and into hidden state, so the steps happen without being written. The two sources approach it from opposite ends. One proves it is possible without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks so only logarithmically many stages are needed. The other builds it: a small recurrent block between a frozen model's body and its head, refining latent states instead of generating text. The archive's caution attaches to the second -- its claim that latent-state stabilization shows the model is not guessing conflates convergence with correctness, and other entries here find intermediate answers stabilize whether or not they are right.",
   "evidence": [
     {
       "id": "arxiv:2608.08113",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-09T03:21:53Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T12:37:19Z",
   "name": "implicit chain of thought",
   "related": [
@@ -59,7 +62,12 @@
     "log-icot",
     "gradient-descent-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "latent-reasoning",
+    "coconut",
+    "recurrent-depth",
+    "answer-stabilization"
+  ],
   "schema_version": 1,
   "slug": "implicit-chain-of-thought",
   "topics": [

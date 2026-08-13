@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A benchmark of abstract visual grid puzzles used here for two different purposes, neither of which is measuring reasoning cleanly. One source uses its tasks as part of a logic pool for studying which training items respond to continued RL. The other is the caution: separating perception from reasoning with a two-stage pipeline shows about 80% of vision-language model failures on ARC-style tasks are perception errors rather than reasoning errors, so a score on it confounds seeing the grid with reasoning about it.
 
 - **Kind**: dataset
+- **Also called**: ARC prize, ARC-AGI-2
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 

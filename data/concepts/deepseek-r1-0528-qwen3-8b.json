@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "DeepSeek-R1-0528-Qwen3-8B"
+  ],
+  "definition": "An 8B reasoning model distilled from DeepSeek-R1 onto a Qwen3 base, used in both sources as a mid-scale open reasoning checkpoint rather than as an object of study. One uses it as one of three backbones for a thought-level beam search, where it gains most on the hardest benchmark (HMMT-24, 55.8 to 65.6 against self-consistency at matched budget). The other includes it in the pass@K comparison that finds base models win by producing wrong chains landing on right answers, with chain-aware scoring reversing the verdict. Neither reports anything specific to the checkpoint itself.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -69,7 +71,11 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1",
+    "qwen3-8b",
+    "reasoning-distillation"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-0528-qwen3-8b",
   "topics": [

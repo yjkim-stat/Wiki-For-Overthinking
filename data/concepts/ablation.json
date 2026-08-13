@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "zero ablation",
+    "weight-space ablation"
+  ],
+  "definition": "Removing a component -- a direction, a latent, a weight subset -- and reading the change in behaviour as evidence of what that component did. Both sources use it as the causal step that follows an identification step, and both find the step is not automatic. One shows a dictionary's directions are more precisely causal than individual neurons under ablation, which is the case for the method; the other is the case against relying on a named direction, since ablating the standard refusal direction from a steering vector recovers almost none of the safety it lost, and the direction that must be removed has to be learned against the intervention's own objective instead. Elsewhere in this archive the same instrument is contrasted with patching, which measures a contrast between two runs rather than the absolute level ablation reports.",
   "evidence": [
     {
       "id": "arxiv:2608.06969",
@@ -81,7 +84,11 @@
     "pythia-70m",
     "pythia-410m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-patching",
+    "steering-vector",
+    "causal-intervention"
+  ],
   "schema_version": 1,
   "slug": "ablation",
   "topics": [
