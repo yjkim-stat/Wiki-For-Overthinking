@@ -19,6 +19,12 @@
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
     },
     {
+      "id": "arxiv:2608.02820",
+      "kind": "paper",
+      "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+      "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1986",
       "kind": "paper",
       "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
@@ -33,7 +39,7 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T00:45:49Z",
   "name": "causal intervention",
   "related": [
     "answer-evidence-gap",
@@ -94,6 +100,26 @@
     "olmo-3-1-32b-instruct",
     "tiny-aya-global",
     "monitorability",
+    "backdoor-attack",
+    "data-poisoning",
+    "curriculum-learning",
+    "decoupled-reasoning",
+    "consistency-monitoring",
+    "sleeper-agent",
+    "supervised-fine-tuning",
+    "curriculum-poisoning",
+    "direction-ablation",
+    "natural-language-autoencoder",
+    "kl-regularization",
+    "gsm8k",
+    "beavertails",
+    "phi-4-mini-reasoning",
+    "qwen3-5-9b",
+    "gemma-4-12b",
+    "qwen3-30b-a3b-thinking-2507",
+    "huihui-qwen3-14b-abliterated-v2",
+    "gpt-4o",
+    "gpt-4o-mini",
     "sycophancy",
     "deception",
     "epistemic-verbalization",
@@ -119,7 +145,6 @@
     "prosqa",
     "prontoqa",
     "math-500",
-    "gsm8k",
     "qwq-32b",
     "qwen2-1-5b",
     "deepseek-r1-distill-llama-70b",
@@ -138,6 +163,7 @@
   "topics": [
     "reasoning-training",
     "reasoning-interpretability",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "test-time-scaling"
   ]
 }

@@ -15,6 +15,12 @@
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
     },
     {
+      "id": "arxiv:2608.02820",
+      "kind": "paper",
+      "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+      "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-demo.78",
       "kind": "paper",
       "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
@@ -77,7 +83,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T00:45:49Z",
   "name": "activation patching",
   "related": [
     "linear-probe",
@@ -114,6 +120,29 @@
     "yi-1-5-34b-chat",
     "olmo-3-1-32b-instruct",
     "tiny-aya-global",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "backdoor-attack",
+    "data-poisoning",
+    "curriculum-learning",
+    "decoupled-reasoning",
+    "consistency-monitoring",
+    "sleeper-agent",
+    "supervised-fine-tuning",
+    "curriculum-poisoning",
+    "direction-ablation",
+    "natural-language-autoencoder",
+    "llm-as-a-judge",
+    "kl-regularization",
+    "gsm8k",
+    "beavertails",
+    "phi-4-mini-reasoning",
+    "qwen3-5-9b",
+    "gemma-4-12b",
+    "qwen3-30b-a3b-thinking-2507",
+    "huihui-qwen3-14b-abliterated-v2",
+    "gpt-4o",
+    "gpt-4o-mini",
     "mechanistic-interpretability",
     "attention-pattern",
     "tooling",
@@ -167,7 +196,6 @@
     "causal-register",
     "scratchpad-oversight",
     "process-supervision",
-    "chain-of-thought-faithfulness",
     "representation-editing",
     "counterfactual-state-editing",
     "causal-abstraction",
@@ -226,8 +254,6 @@
     "neuron-to-graph-n2g",
     "probe-guided-decoding",
     "self-consistency",
-    "llm-as-a-judge",
-    "gsm8k",
     "gsm8k-aug",
     "numinamath-cot",
     "opencodeinstruct",
@@ -259,7 +285,7 @@
     "reasoning-interpretability",
     "reasoning-faithfulness",
     "reasoning-training",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

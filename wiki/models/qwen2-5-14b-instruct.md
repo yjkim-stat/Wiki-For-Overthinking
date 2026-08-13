@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A mid-scale instruction-tuned checkpoint, present in both sources as the larger member of a comparison rather than as a subject. One uses it among five backbones for test-time latent optimization, where it carries the highest clean chain-of-thought baseline of the set and the gains are correspondingly smaller. The other uses it in an analysis of entropy dynamics under reinforcement fine-tuning. Its role in the archive is as the point where a method's headroom starts to close — several results collected here separate clearly at 3B and much less at this size.
 
 - **Kind**: model
+- **Also called**: Qwen2.5-14B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

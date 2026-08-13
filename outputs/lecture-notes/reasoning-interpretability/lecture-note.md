@@ -126,11 +126,11 @@ Seen in: Spectra: A Mechanistic Interpretability Library for Vision-Language Mod
 | --- | ---: | --- |
 | GRPO | 28 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| LLM-as-a-judge | 16 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| LLM-as-a-judge | 17 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | self-consistency | 13 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| activation patching | 11 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
-| linear probe | 10 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
-| supervised fine-tuning | 10 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
+| linear probe | 11 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
+| supervised fine-tuning | 11 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | test-time scaling | 10 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
@@ -149,8 +149,8 @@ Seen in: Spectra: A Mechanistic Interpretability Library for Vision-Language Mod
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
+| GSM8K | 29 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
-| GSM8K | 28 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 14 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |

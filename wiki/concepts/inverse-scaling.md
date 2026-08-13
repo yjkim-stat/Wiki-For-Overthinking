@@ -8,7 +8,7 @@ A property getting worse as models or budgets get larger. It appears twice here 
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [BBH](../datasets/bbh.md), [calibration](../methods/calibration.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](construct-validity.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MMLU](../datasets/mmlu.md), [monitorability](monitorability.md), [post-hoc rationalization](post-hoc-rationalization.md), [QwQ-32B](../models/qwq-32b.md), [self-correction](self-correction.md), [sycophancy](sycophancy.md), [test-time compute](test-time-compute.md), [verbosity](verbosity.md)
+**Related**: [BBH](../datasets/bbh.md), [calibration](../methods/calibration.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](construct-validity.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemma-4-12B](../models/gemma-4-12b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MMLU](../datasets/mmlu.md), [monitorability](monitorability.md), [post-hoc rationalization](post-hoc-rationalization.md), [QwQ-32B](../models/qwq-32b.md), [self-correction](self-correction.md), [sycophancy](sycophancy.md), [test-time compute](test-time-compute.md), [verbosity](verbosity.md)
 
 ## Appears in
 

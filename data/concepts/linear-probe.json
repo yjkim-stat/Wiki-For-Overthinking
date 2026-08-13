@@ -26,6 +26,12 @@
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
     },
     {
+      "id": "arxiv:2608.02820",
+      "kind": "paper",
+      "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+      "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning"
+    },
+    {
       "id": "arxiv:2608.04928",
       "kind": "paper",
       "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
@@ -70,7 +76,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "method",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T00:45:49Z",
   "name": "linear probe",
   "related": [
     "monitorability",
@@ -154,6 +160,24 @@
     "yi-1-5-34b-chat",
     "olmo-3-1-32b-instruct",
     "tiny-aya-global",
+    "backdoor-attack",
+    "data-poisoning",
+    "curriculum-learning",
+    "decoupled-reasoning",
+    "consistency-monitoring",
+    "sleeper-agent",
+    "supervised-fine-tuning",
+    "curriculum-poisoning",
+    "direction-ablation",
+    "natural-language-autoencoder",
+    "kl-regularization",
+    "beavertails",
+    "phi-4-mini-reasoning",
+    "qwen3-5-9b",
+    "gemma-4-12b",
+    "qwen3-30b-a3b-thinking-2507",
+    "huihui-qwen3-14b-abliterated-v2",
+    "gpt-4o-mini",
     "latent-reasoning",
     "implicit-reasoning",
     "hint-reliance",
@@ -243,8 +267,8 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-interpretability",
-    "reasoning-evaluation",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

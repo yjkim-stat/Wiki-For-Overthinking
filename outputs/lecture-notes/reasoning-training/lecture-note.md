@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
 
-Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 109 of the papers have been read in full.
+Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 110 of the papers have been read in full.
 
 Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
 
@@ -144,15 +144,15 @@ Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CA
 | --- | ---: | --- |
 | GRPO | 28 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | chain of thought | 21 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| LLM-as-a-judge | 17 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | RLVR | 17 | Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gami... |
-| LLM-as-a-judge | 16 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | self-consistency | 13 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| activation patching | 11 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
+| activation patching | 12 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | best-of-n | 11 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| linear probe | 10 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
+| linear probe | 11 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
+| supervised fine-tuning | 11 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | pass-k | 10 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | PPO | 10 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
-| supervised fine-tuning | 10 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | test-time scaling | 10 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
@@ -167,8 +167,8 @@ Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; CA
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
+| GSM8K | 29 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME24 | 28 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 28 sources — which is itself the thing to know about it. Its 30 problems... |
-| GSM8K | 28 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | MATH500 | 27 | A 500-problem subset of MATH, used across 27 archived sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough... |
 | AIME25 | 16 | The 2025 American Invitational Mathematics Examination, used in the archive as AIME24's companion and, increasingly, as a contamination control — it postdates the training cutof... |
 | AMC23 | 14 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
