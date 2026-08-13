@@ -275,6 +275,121 @@ def _edges(cfg) -> list[dict]:
     return [e for e in graph["edges"] if e.get("type") != "covers"]
 
 
+def _edge_between(cfg, a: str, b: str) -> dict:
+    for edge in _edges(cfg):
+        if {edge["source"].split(":", 1)[1], edge["target"].split(":", 1)[1]} == {a, b}:
+            return edge
+    raise AssertionError(f"no edge between {a} and {b}")
+
+
+class GraphTellsThemApartTests(LinkFixture):
+    """The picture is the one place the split is worth showing.
+
+    A note lists its neighbours as text in alphabetical order, so merging the
+    two kinds costs nothing there. A graph's whole job is to show structure at a
+    glance, and "these were mentioned together once" against "somebody read both
+    and says they belong together" is exactly what a picture can carry.
+
+    Before this, the edge builder read the union and stamped every edge
+    `co-occurs`, which the stylesheet drew dashed, thinner and at 55% opacity —
+    the treatment reserved for the weakest link the graph has.
+    """
+
+    def test_a_ruled_edge_is_marked_as_one(self):
+        render.run(self.cfg)
+        self._rule(IV, ["Doubly Robust Estimation"], name="Instrumental Variable")
+        self.assertTrue(_edge_between(self.cfg, IV, DR)["authored"])
+
+    def test_a_derived_edge_is_not(self):
+        render.run(self.cfg)
+        self.assertFalse(_edge_between(self.cfg, IV, BC)["authored"])
+
+    def test_an_edge_that_is_both_keeps_both_facts(self):
+        """The case that tells the two encodings apart.
+
+        A flag lets one edge be co-occurring *and* ruled. A third `type` string
+        would have had to invent a precedence between them to avoid saying so.
+        """
+        render.run(self.cfg)
+        self._rule(IV, ["Behaviour Cloning"], name="Instrumental Variable")
+        edge = _edge_between(self.cfg, IV, BC)
+        self.assertTrue(edge["authored"])
+        self.assertIn(BC, self._concept(IV).related, "still derived as well")
+
+    def test_the_label_does_not_depend_on_which_end_is_read_first(self):
+        """Edges are deduplicated by unordered pair, first arrival winning.
+
+        Reading only one end's list would let dictionary order decide, and the
+        label would appear and vanish between renders with `data/` unchanged.
+
+        The pair must be one that **co-occurs**, because that is the only case
+        where both ends can emit it. For a pair co-occurrence cannot reach, the
+        ruling end is the only one holding the other in `neighbours` at all, so
+        it is necessarily the one that emits, and reading a single end is
+        accidentally correct. Two earlier versions of this test used such a pair
+        and passed against a mutation that reads one end.
+
+        Both directions are ruled, one per subtest, so the end holding the
+        ruling is the second to arrive in exactly one of them however `live`
+        happens to be ordered.
+        """
+        render.run(self.cfg)
+        for owner, owner_name, other_name in (
+            (BC, "Behaviour Cloning", "Instrumental Variable"),
+            (IV, "Instrumental Variable", "Behaviour Cloning"),
+        ):
+            with self.subTest(ruled_from=owner):
+                self._rule(owner, [other_name], name=owner_name)
+                self.assertTrue(_edge_between(self.cfg, IV, BC)["authored"])
+                # Retract, so the next direction starts from nothing.
+                self._rule(owner, [], name=owner_name)
+                self.assertFalse(_edge_between(self.cfg, IV, BC)["authored"])
+
+    def test_the_type_vocabulary_is_closed(self):
+        """So the next change to the loop has to update this deliberately."""
+        import json
+
+        render.run(self.cfg)
+        self._rule(IV, ["Doubly Robust Estimation"], name="Instrumental Variable")
+        graph = json.loads(
+            (self.cfg.layout.wiki_meta / "graph.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual({e["type"] for e in graph["edges"]}, {"covers", "links"})
+
+    def test_the_drawing_does_not_dash_a_ruled_link(self):
+        """Fixing only the JSON would leave the complaint half-answered.
+
+        Matched against a *drawn* line rather than anywhere on the page. The
+        legend swatch carries the same class, so a bare substring search passes
+        even when no real edge uses it — which is how the first version of this
+        test missed the renderer keeping every edge dashed. Drawn coordinates
+        are formatted to one decimal; the swatch's are whole numbers.
+        """
+        import re
+
+        render.run(self.cfg)
+        self._rule(IV, ["Doubly Robust Estimation"], name="Instrumental Variable")
+        page = (self.cfg.layout.wiki / "graph.html").read_text(encoding="utf-8")
+        self.assertIn(".edge.link.authored", page, "the stylesheet must define it")
+        self.assertTrue(
+            re.search(r'<line class="edge link authored" x1="[-\d]+\.\d', page),
+            "no drawn edge carries the ruled style",
+        )
+
+    def test_the_legend_names_every_style_drawn(self):
+        render.run(self.cfg)
+        self._rule(IV, ["Doubly Robust Estimation"], name="Instrumental Variable")
+        page = (self.cfg.layout.wiki / "graph.html").read_text(encoding="utf-8")
+        for label in ("topic covers", "mentioned together", "linked by a reader"):
+            self.assertIn(label, page)
+
+    def test_the_legend_does_not_name_a_style_it_did_not_draw(self):
+        render.run(self.cfg)
+        page = (self.cfg.layout.wiki / "graph.html").read_text(encoding="utf-8")
+        self.assertIn("mentioned together", page)
+        self.assertNotIn("linked by a reader", page)
+
+
 def _snapshot(cfg) -> dict[str, str]:
     import hashlib
 

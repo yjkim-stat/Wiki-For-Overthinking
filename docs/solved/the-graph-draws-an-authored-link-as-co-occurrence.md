@@ -1,6 +1,9 @@
 # The graph draws an authored link as co-occurrence, in the faintest style it has
 
-**Status:** open · **Kind:** design question · fix
+**Status:** solved 2026-08-13 by **option B + the legend row from A** — see
+[Resolution](#resolution) at the foot of this file and
+[note 0050](../commit/0050-three-claims-three-weights.md).
+**Kind:** design question · fix
 **Found:** 2026-08-12, immediately after `related_authored` landed
 **Touches:** `pipelines/publish/wiki.py`, `pipelines/publish/graph_page.py`, `templates/wiki/graph.html`
 
@@ -238,3 +241,52 @@ note rendering. It does not assert on `graph.json`. Add:
 - No archive-side finding was recorded for this one. It is a defect in how the
   repository draws its own output, not something the group established about the
   literature.
+
+---
+
+## Resolution
+
+**Option B, with the legend row from A, and C's rename folded in** — which is
+where this document guessed it would land. An entity-to-entity edge is now
+`{"type": "links", "authored": true|false}`. Commit
+`fix(publish): a ruled link is drawn as one`, note
+[0050](../commit/0050-three-claims-three-weights.md).
+
+The boolean rather than a third type, because the two properties really are
+independent: an edge can be co-occurring *and* ruled, and a single `type` string
+would have had to invent a precedence to avoid saying so. `links` rather than
+`co-occurs`, because the loop reads the union and the old literal named one of
+its two inputs.
+
+**The stylesheet decision, which this document called the substantive half.**
+Three claims, three weights: `covers` is structural and solid; a co-occurrence
+keeps the dashed, thin, 55% treatment, because it *is* the weakest thing the
+graph knows; a ruled link is drawn solid at full opacity in `var(--anchor)`,
+darker than either. No fourth hue — the palette validates three and the node
+marks own them. That ordering is the one the rest of the archive already uses:
+a person's judgement over a derived count.
+
+The legend now names every edge style drawn, and only the styles drawn. It
+accounted for none of them before, which this document correctly called a
+smaller version of the same problem.
+
+### The two tests that did not bite at first
+
+Both are worth recording, because both passed while the property was false.
+
+- **The renderer test matched anywhere on the page.** The legend swatch carries
+  the same class as a drawn edge, so a substring search found it even with the
+  renderer stamping every edge `edge link`. It now matches a drawn line
+  specifically: drawn coordinates are formatted to one decimal and the swatch's
+  are whole numbers.
+- **The order-independence test used the wrong pair.** For a pair co-occurrence
+  cannot reach, only the ruling end holds the other in `neighbours`, so only
+  that end can emit the edge — and reading a single end is accidentally correct.
+  The trap needs a pair that **co-occurs**, where both ends can emit and the
+  first arrival wins. Two versions of the test missed this before the mutation
+  exposed it.
+
+The remaining checks from this document hold: `wiki.py`'s literal and the field
+it describes now agree, a render twice over an unchanged archive still produces
+no diff, and the type vocabulary is pinned by a test so the next change to the
+loop has to widen it deliberately.

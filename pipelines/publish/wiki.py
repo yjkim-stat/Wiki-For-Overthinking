@@ -314,7 +314,27 @@ def build_graph(
             if pair in seen_pairs:
                 continue
             seen_pairs.add(pair)
-            edges.append({"source": source, "target": target, "type": "co-occurs"})
+            # Asked of both ends, not just this one. The pair is recorded on
+            # first arrival and the second is dropped, so reading only this
+            # concept's list would let dictionary order decide whether an edge
+            # is labelled authored — a difference that would appear and vanish
+            # between renders with nothing changing in `data/`.
+            authored = (
+                slug in concept.related_authored
+                or concept.slug in other.related_authored
+            )
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    # `links`, not `co-occurs`: this loop reads the union of the
+                    # derived and the ruled, and naming it after one of its two
+                    # inputs is what made the graph assert that a person's
+                    # deliberate link had merely turned up in a summary.
+                    "type": "links",
+                    "authored": authored,
+                }
+            )
 
     path = cfg.layout.wiki_meta / "graph.json"
     write_json(
