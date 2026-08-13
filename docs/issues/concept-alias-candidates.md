@@ -1,23 +1,28 @@
-# Ninety-nine names waiting for a ruling
+# Ninety-nine names, twenty-seven ruled
 
-`config/concept-aliases.yaml` now holds 15 redirects and folded 15 records into
-9. `python3 scripts/merge_concept_aliases.py --candidates` lists **99 more** —
-names some reader declared as an alias in a summary that are separate records
-here, each with its own share of the evidence and its own definition.
+`config/concept-aliases.yaml` holds **40 redirects** and has folded 40 records
+into 24. `python3 scripts/merge_concept_aliases.py --candidates` lists the
+**72 remaining** — names some reader declared as an alias in a summary that are
+separate records here.
 
 They are not a backlog to work through. Most of them should stay separate, and
-the interesting part is *why the same list holds both kinds*.
+the interesting part is why the same list holds both kinds.
 
 ## The list conflates three relations
 
 A reader filling `aliases` is answering "what else is this called", and in
 practice they answer three different questions with it.
 
-**Another spelling.** `IF-Eval` / `IFEval`, `AMC-23` / `AMC23`. Mechanical, and
-the 15 already ruled on were all of this kind.
+**Another spelling.** `IF-Eval` / `IFEval`, `AMC-23` / `AMC23`. Mechanical.
 
-**A neighbour, a parent or a child.** This is the majority and the reason the
-field cannot be merged on automatically:
+**One name for one thing.** Not spelling, but not a judgement either: in every
+source here the two strings pick out the same object, and a reader looking up
+one is answered by the other's note. `data contamination` / `benchmark
+contamination`, `rationalization` / `post-hoc rationalization`, `reasoning
+trace` / `chain of thought`, `learning dynamics` / `training dynamics`.
+
+**A neighbour, a parent or a child.** This is the majority of what is left, and
+the reason the field cannot be merged on automatically:
 
 | Declared as an alias of | Actually |
 | --- | --- |
@@ -25,58 +30,80 @@ field cannot be merged on automatically:
 | `GPQA` under `gpqa-diamond` | Diamond is the hard subset |
 | `causal tracing` under `activation-patching` | [[activation-patching]]'s own note argues they measure different quantities — patching a contrast, ablation an absolute level |
 | `entropy bonus` under `entropy-regularization` | the bonus is one instrument; the family includes clip-higher, Clip-Cov, KL-Cov |
-| `Qwen3-4B-Base` under `qwen3-4b` | base and instruct are different checkpoints, and half this archive's results turn on which one was used |
+| `steering vector` under `activation-steering` | the archive holds results about the vector itself, including that its detection quality says nothing about its intervention effect |
+| `probing` under `linear-probing` | the family includes non-linear readouts |
 | `majority voting` under `self-consistency` | the aggregation rule against the method that popularised it |
-| `process reward` under `process-supervision` | the signal against the training regime |
+| `certaindex` under `dynasor` | the measure against the serving system built on it |
+| `entropy dynamics` under `entropy-trajectory` | the first names the training-time phenomenon, the second a single generation's per-step sequence — two literatures |
 
 Merging any of these would not mislabel a record. It would make the archive
-unable to state a distinction it currently states — and, worse, would do it
-silently, since the merged record reads as complete.
+unable to state a distinction it currently states — and silently, since the
+merged record reads as complete.
 
-**A term the group has not settled.** `latent reasoning` / `implicit reasoning`,
-`detection versus control` / `representation versus readout`, `test-time
-scaling` / `test-time compute`. These are real synonyms in some papers and
-distinctions in others. They are the group's editorial call, not a spelling
-question, and they belong in a conversation rather than in a config file.
+**A term the group has not settled.** `latent reasoning` / `implicit
+reasoning`, `detection versus control` / `representation versus readout`,
+`test-time scaling` / `test-time compute`, `process reward` / `process
+supervision`. Real synonyms in some papers and distinctions in others. The
+group's call, not a spelling question.
 
-## What is worth ruling on next
+## The `aliases` field is not evidence
 
-Ordered by evidence at stake. Each is a judgement somebody has to make; none is
-mechanical.
+One entry in the list is simply wrong: `Llama-3.3-70B-Instruct` is declared an
+alias of `llama-3-1-70b`. Those are different releases. Whatever a reader meant,
+the field records it as an identity claim, and nothing checks it.
 
-| Pair | Sources | The question |
-| --- | --- | --- |
-| `test-time-scaling` / `test-time-compute` | 15 + 20 | One is the resource, the other what you do with it — or are they used interchangeably here? |
-| `llama-3-1-8b-instruct` / `llama-3-1-8b` | 12 + 6 | Checkpoint identity. The same question as every `-Base` / `-Instruct` pair below, and there are eleven of them |
-| `latent-reasoning` / `implicit-reasoning` | 10 + 6 | Two literatures or one |
-| `linear-probing` / `linear-probe` | 4 + 14 | The method against the artefact; probably one entity |
-| `circuit-analysis` / `circuit-discovery` / `mechanistic-interpretability` | 7 + 3 + 6 | A three-way, and the middle one is arguably a step of the first |
-| `gpt-oss-20b` / `gpt-oss-120b` / `gpt-oss` | 5 + 4 + 2 | The family record is the artefact here: it holds what belongs to neither size |
+That single row is the argument for the whole design. The map is authored and
+small; the field is harvested and large; only one of them can be trusted to
+merge on.
 
-The checkpoint pairs are the largest single group — `qwen3-4b-base`,
-`qwen3-1-7b`, `qwen2-5-14b`, `qwen2-5-1-5b`, `qwen2-5-vl-7b`, `mistral-7b`,
-`llama-3-2-3b` and more. **The recommendation is to rule them all one way and
-say so once**, because the failure of ruling case by case is that a reader
-cannot predict which spelling a result was filed under.
+## What was ruled, and what it cost
+
+Twenty-seven entries added in this pass, in three groups (`config/concept-aliases.yaml`
+carries the reasoning inline):
+
+- **Acronym and expansion** — `PCA`, `process reward model`, `indirect object
+  identification`.
+- **One name for one thing** — 15 entries, from `benchmark contamination` to
+  `Inference Time Intervention`.
+- **Checkpoints and systems named two ways** — `Dynasor-CoT` → `Dynasor`,
+  `DEER-PRo` → `DEER`, `Qwen3-235B` → `Qwen3-235B-A22B`, and two more.
+
+Two definitions were cleared for re-derivation because both halves had been
+separately written: `linear probe` (14 + 4 sources) and `activation steering`
+(9 + 2). Two more entities lost the only definition they had, because it sat on
+the retired side — `PCA` and `indirect object identification` — and re-queue
+from scratch.
+
+## What deliberately stays separate
+
+**The eleven base/instruct checkpoint pairs are not merged**, and this is the
+ruling rather than a deferral. `Qwen2.5-14B` and `Qwen2.5-14B-Instruct` are
+different weights, half this archive's results turn on which was used, and a
+summary writing the bare name is reporting what its paper wrote. Merging would
+assert a fact about the experiment that no source states. The fragmentation is
+real — `qwen3-4b-base` at 5 sources against `qwen3-4b` at 3 — and it is the
+lesser cost.
+
+The same reasoning holds for `Mistral-7B` / `Mistral-7B-v0.3` and for the
+`gpt-oss` family record, which legitimately holds what belongs to neither size.
 
 ## What would make this stop happening
 
-Nothing here prevents the next fragmentation; it only cleans up after one. Three
-options, none taken:
+Nothing here prevents the next fragmentation; it only cleans up after one.
 
-- **Show the reader the existing entities.** A definition task could list the
-  entity names already in the archive, so a summary writes `AIME 2024` because
-  that is what is there. Cheapest of the three and it attacks the cause, but it
-  makes every task payload larger and the list is 1,952 names long — it would
-  have to be filtered to plausible neighbours, which is its own problem.
-- **Normalize harder in `slugify`.** Dropping every non-alphanumeric would have
-  caught 9 of the 15 automatically. It also renames every slug in the archive
-  and merges pairs nobody ruled on, which is the failure this whole issue is
-  about, in one step and for every name at once.
 - **Report near-collisions at render.** A warning when two slugs differ only by
   punctuation. Cheap, and it makes the fragmentation visible on the day it
-  happens rather than at 39 sources. This is the one worth doing.
+  happens rather than at 39 sources. **The one worth doing.**
+- **Show the reader the existing entities.** A definition task could list the
+  entity names already in the archive. Attacks the cause, but the list is 1,927
+  names long and would have to be filtered to plausible neighbours, which is its
+  own problem.
+- **Normalize harder in `slugify`.** Would have caught 9 of the first 15
+  automatically. It also renames every slug in the archive and merges pairs
+  nobody ruled on, which is this issue's failure mode applied to every name at
+  once.
 
 ## Status
 
-Open. The 15 mechanical redirects are applied and committed; nothing above is.
+Open, and smaller. 40 ruled, 72 left, of which the base/instruct group is ruled
+*not* to merge and the rest wait on the group.

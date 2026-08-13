@@ -63,3 +63,70 @@ merge:
     - low-rank adaptation
   DAPO-Math-17K:
     - DAPO-17K
+  PCA:
+    - principal component analysis
+  process reward model:
+    - process reward models
+  indirect object identification:
+    - Indirect Object Identification (IOI)
+
+  # -- one name for one thing ----------------------------------------------
+  # Not spelling, but not a judgement either: in every source here the two
+  # strings pick out the same object, and a reader looking up one is answered
+  # by the other's note. The canonical is the form the sources predominantly
+  # write, which is not always the one holding the most evidence.
+  benchmark contamination:
+    - data contamination
+  knowledge distillation:
+    - distillation
+  post-hoc rationalization:
+    - rationalization
+  training dynamics:
+    - learning dynamics
+  KL regularization:
+    - KL divergence regularization
+  difference-of-means probe:
+    - mean-difference probe
+  compounding error:
+    - error propagation
+  length generalization:
+    - length extrapolation
+  catastrophic forgetting:
+    - capability regression
+  traceability:
+    - provenance
+  foresight:
+    - lookahead
+  prompt difficulty:
+    - problem difficulty
+  activation steering:
+    - steering
+    # NOT `steering vector`. That is the artefact the method applies, and the
+    # archive holds results about the vector itself — where it comes from, and
+    # that its detection quality says nothing about its intervention effect.
+  chain of thought:
+    - reasoning trace
+    # NOT `reasoning trajectory`, which is also claimed by one summary. That
+    # one is treated as an object with geometry in the probing work here; this
+    # is the text.
+  linear probe:
+    - linear probing
+    # NOT `probing`, which is the family and includes non-linear readouts.
+  Inference Time Intervention:
+    - test-time intervention
+  Minerva:
+    - Minerva Math
+
+  # -- checkpoints and systems named two ways -------------------------------
+  # Same artefact, one name abbreviated. See the issue file for why the
+  # base/instruct pairs are *not* here.
+  Dynasor:
+    - Dynasor-CoT
+  DEER:
+    - DEER-PRo
+  DAPO-Qwen-32B:
+    - DAPO-Qwen2.5-32B
+  Qwen3-235B-A22B:
+    - Qwen3-235B
+  Qwen3-4B-Instruct-2507:
+    - Qwen3-4B-Instruct
