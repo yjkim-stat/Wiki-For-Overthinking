@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Tests reasoning models on Theory of Mind tasks and argues their gains are increased robustness to prompt and task perturbation rather than a new ToM-specific ability.",
       "title": "Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning"
+    },
+    {
+      "id": "arxiv:2608.09351",
+      "kind": "paper",
+      "note": "Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.",
+      "title": "Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T02:55:53Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "prompt sensitivity",
   "related": [
     "llm-as-a-judge",
@@ -83,7 +89,25 @@
     "capability-attribution",
     "rlvr",
     "prompt-perturbation",
-    "machine-psychology-experiments"
+    "machine-psychology-experiments",
+    "test-time-augmentation",
+    "input-diversity",
+    "output-diversity",
+    "matched-compute",
+    "cost-effectiveness",
+    "variance-reduction",
+    "answer-aggregation",
+    "self-consistency",
+    "majority-voting",
+    "paraphrasing",
+    "test-time-scaling",
+    "mmlu",
+    "mmmlu",
+    "mmmu",
+    "hle",
+    "math500",
+    "imdb-reviews",
+    "claude-4-5-haiku"
   ],
   "related_authored": [
     "construct-validity"
@@ -91,6 +115,7 @@
   "schema_version": 1,
   "slug": "prompt-sensitivity",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

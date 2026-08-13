@@ -9,7 +9,7 @@ A single neuron or direction responding to several unrelated features, which bot
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [effective depth](effective-depth.md), [indirect object identification](../datasets/indirect-object-identification.md), [linear probe](../methods/linear-probe.md), [localization](localization.md), [monosemanticity](monosemanticity.md), [PCA](../methods/pca.md), [Pythia-410M](../models/pythia-410m.md), [reasoning trajectory](reasoning-trajectory.md), [residual stream](residual-stream.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](superposition.md)
+**Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [effective depth](effective-depth.md), [indirect object identification](../datasets/indirect-object-identification.md), [linear probe](../methods/linear-probe.md), [localization](localization.md), [monosemanticity](monosemanticity.md), [PCA](../methods/pca.md), [Pythia-410M](../models/pythia-410m.md), [reasoning trajectory](reasoning-trajectory.md), [residual stream](residual-stream.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](superposition.md), [the Pile](../datasets/the-pile.md)
 
 ## Appears in
 

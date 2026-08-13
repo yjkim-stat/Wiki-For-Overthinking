@@ -152,6 +152,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The origin of the benchmark that nearly every archived paper reports on, which makes it the reference point for what those numbers mean. Two things matter for this topic. First, its framing: the dataset was built as a diagnostic for a specific failure, not as a leaderboard, and it was designed around problems whose conceptual simplicity makes a low score informative. Second, its fate: a benchmark introduced because large models could not solve it is now the easy end of every suite in this archive, so it is a concrete case study in benchmark saturation and in why a claim resting on GSM8K gains needs a harder companion set. This is also the first paper filed under this topic.</p>
 </section>
 <section class="slide">
+<h2>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</h2>
+<p class="subtitle">Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma · 2026</p>
+<blockquote>
+<p>Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.</p>
+</blockquote>
+<ul>
+<li>A finite-sample second-moment bound showing every level-tau audit&#x27;s power is capped by alpha*rho*sqrt(m), with rho^2 = chi^2(P_1 || P_0) the behavioural separability</li>
+<li>Proposition 5: any scalar detector&#x27;s efficacy e_f is at most rho and is estimable from matched controls before the audit is run</li>
+<li>A sample-split certificate that lower-bounds the exposed fraction alpha distribution-free, with no orientation assumption</li>
+<li>An empirical result reported as a failure as well as a success: calibration efficacy predicts power curves but the Gaussian budget it prescribes is miscalibrated, and a simulation-based planner repairs it</li>
+</ul>
+<p><strong>Results.</strong> Two-sided, and the paper reports the failures as primary endpoints. Frozen calibration efficacy predicts held-out permutation power well across six model-by-corpus channels: R^2 0.83-0.98, MAE 0.03-0.11, slope 0.91-1.04, with empirical size at alpha=0 of 0.009-0.045, so the test is valid and somewhat conservative. The budgets derived from those curves do not transport. The pre-specified pooled calibration-to-audit scaling claim is withdrawn, with efficacy-transport ratios at a median of 2.23x against a 2x tolerance fixed before the numbers were seen; with an 800-item calibration the ratios shrink to 1.03-1.50, and on the gate-passing channels raw efficacy ratios are 1.02-1.35. So efficacy itself largely transports and the Gaussian inversion is what breaks: the plug-in budget fails in 9 of 9 gate-passing channels, with m_pred/m_star of 0.54-0.86 and observed power 0.01-0.74 where 0.80 was prescribed. A two-stage planner that resamples the score laws and runs the deployed permutation test at each candidate m is uniformly conservative (m_plan/m_star 1.00-2.00, median 1.36), delivers 0.785-0.92 power with 0.80 or better in 6 of 8 channels and zero clear failures, and abstains on the one channel whose probe does not transport. The prevalence certificate is valid and vacuous at audit scale: it never fires at m=512 in any of the six channels, and certifying alpha of 0.1-0.2 would need balanced groups of roughly 3,500-79,000 items. The five-seed paired injection study recovers a mechanism ordering from the causal contrast D_s -- exact 1.01 +/- 0.07, paraphrase 0.70 +/- 0.09, surface shuffle 0.44 +/- 0.04 -- while answer-only comes in at -0.01 +/- 0.07 with every per-seed interval covering zero, so its apparent raw efficacy of 0.19 is baseline drift that the paired design exists to catch. The validity gates do real work: every checkpoint-free Evaluation A channel fails blind separation at text-only AUC 0.95, meaning content-confounded separability rather than membership, while the same-corpus continued-pretraining channels repair it at blind AUC 0.48-0.54 with 4 of 6 passing every gate.</p>
+<p><strong>Why it matters.</strong> The archive already holds the result that a brief round of GRPO erases the signals contamination detectors rely on, and treats that as a reason to distrust any benchmark number. This supplies the missing half: an information-theoretic statement of when a detector could have worked at all, in one estimable quantity, plus the finding that a null audit is uninterpretable unless its efficacy, budget and validity gates are reported alongside it. It also gives the archive its first measured mechanism ordering for contamination -- verbatim above paraphrase above surface perturbation, with answer-only exposure indistinguishable from drift -- which bears directly on whether the reasoning benchmarks here are exposed in a way any behavioural probe could see.</p>
+</section>
+<section class="slide">
 <h2>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</h2>
 <p class="subtitle">Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn · 2026</p>
 <blockquote>
@@ -226,27 +241,12 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> A direct construct-validity contribution: it argues a single math accuracy number aggregates over dimensions that can compensate for one another, and the All-Pass Score is a concrete alternative that refuses to average them. That is the same structural criticism the archive already holds from VAR-MATH, which varies problem instances, but arrives from a different direction — decomposing the task rather than perturbing it — and the two are complementary. It joins three other papers in this drain arguing that reasoning benchmarks measure something other than reasoning, alongside long.826 on perception and findings-acl.460 on code.</p>
 </section>
 <section class="slide">
-<h2>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</h2>
-<p class="subtitle">Jingkun Ma, Runzhe Zhan, Yang Li et al. · ACL · 2026</p>
-<blockquote>
-<p>Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.</p>
-</blockquote>
-<ul>
-<li>VisAidMath, a benchmark requiring construction of visual aids for geometric problem-solving</li>
-<li>The Three-Layered Funnel Evaluation Framework separating accuracy (ACCU), valid visual aid generation (PVA) and soundness of subsequent reasoning (SPRS)</li>
-<li>Identification of a &#x27;Reasoning Illusion&#x27; where high accuracy coexists with failure to produce or use valid visual aids</li>
-<li>A public evaluation platform on CodaBench</li>
-</ul>
-<p><strong>Results.</strong> Experiments on state-of-the-art models including Doubao-Seed-1.6 and o4 reveal a &#x27;Reasoning Illusion&#x27;: high surface-level accuracy conceals catastrophic failure in producing valid visual aids or reasoning from them. The authors describe this as a fundamental schism between visual perception and logical deduction in modern LMMs. A public evaluation platform is provided on CodaBench.</p>
-<p><strong>Why it matters.</strong> Another instance of the drain&#x27;s dominant finding, and one of its sharpest: the answer can be right while every intermediate artefact the answer supposedly depends on is wrong. Its layered funnel is a reusable design — score the artefact, then score reasoning from the artefact, then score the answer — and it applies wherever reasoning is supposed to route through an intermediate object. Read with long.826, which finds ARC-style failures are 80% perception rather than reasoning, the two make opposite-facing claims about the same perception/reasoning boundary: one says perception failure is misread as reasoning failure, the other says reasoning failure hides behind accuracy. Both agree the boundary is where the measurement breaks.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
-<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>credit assignment</strong> — Deciding which part of a trajectory deserves the reward, and the problem RLVR&#x27;s sparse sequence-level signal creates. Nine sources attack...</li>
 <li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
 </ul>
@@ -265,8 +265,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
+<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
 <li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
@@ -276,23 +276,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
 <li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
 <li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
 <li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 <li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
-<li><strong>Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving</strong> — Effect sizes are not given in the abstract. The benefit is explicitly conditional on the problem having recoverable constraints and on Stage 1 extracting the...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving</strong> — Effect sizes are not given in the abstract. The benefit is explicitly conditional on the problem having recoverable constraints and on Stage 1 extracting the...</li>
 <li><strong>Self-Improving Large Language Models via Progressive Experience Evolution</strong> — The conclusion&#x27;s stated limitation is really future work — extending to domains with sparser or less reliable feedback. What a reader should weigh instead: t...</li>
 <li><strong>Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning</strong> — The paper states none. What a reader should weigh: the margins are 0.8 and 2.6 average points from single runs with no seeds or variance anywhere, and the re...</li>
 <li><strong>Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the headline is a rubric method whose ablation attributes most of the movement to ordinary...</li>
 <li><strong>Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the topological claim is validated qualitatively on Level 3 and Level 4 subsets of MATH wit...</li>
 <li><strong>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</strong> — Three ARC-style datasets, so the conclusion is about this benchmark family. The perception stage&#x27;s output is a natural-language description, so reasoning is...</li>
-<li><strong>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</strong> — No numbers in the abstract, so the size of the cross-dimensional discrepancies is unstated and the models are not listed. The four-dimensional decomposition...</li>
 </ul>
 </section>
 <section class="slide">
@@ -300,17 +300,18 @@ th { background: var(--surface); }
 <ul>
 <li>Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. <em>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</em>. ACL. 2026</li>
 <li>Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al.. <em>Training Verifiers to Solve Math Word Problems</em>. cs.LG. 2021</li>
+<li>Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma. <em>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</em>. cs.AI. 2026</li>
 <li>Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. <em>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</em>. cs.CL. 2026</li>
 <li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
 <li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
 <li>Xinye Wang, Junxiao Liu, Shujian Huang. <em>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</em>. cs.CL. 2026</li>
 <li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
-<li>Jingkun Ma, Runzhe Zhan, Yang Li et al.. <em>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Jingkun Ma, Runzhe Zhan, Yang Li et al.. <em>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</em>. ACL. 2026</li>
 <li>Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. <em>Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models</em>. ACL. 2026</li>
 <li>Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. <em>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</em>. ACL. 2026</li>
 <li>Lisa Alazraki, Lihu Chen, Ana Brassard et al.. <em>AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios</em>. ACL. 2026</li>
@@ -318,12 +319,12 @@ th { background: var(--surface); }
 <li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
 <li>Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. <em>The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning</em>. ACL. 2026</li>
 <li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
-<li>Longteng Guo, Xuanxu Lin, Dongze Hao et al.. <em>SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Longteng Guo, Xuanxu Lin, Dongze Hao et al.. <em>SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation</em>. ACL. 2026</li>
 <li>Atharva Naik, Prakam, Yash Mathur et al.. <em>PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics</em>. ACL. 2026</li>
 <li>Jun Gao, Yun Peng, Qian Qiao et al.. <em>CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction</em>. ACL. 2026</li>
 <li><em>On The Fragility of Benchmark Contamination Detection in Reasoning Models</em>. ICLR 2026. 2026</li>
@@ -331,7 +332,6 @@ th { background: var(--surface); }
 <li>Jian Yao, Bowen Zheng, Ran Cheng et al.. <em>VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks</em>. preprint. 2026</li>
 <li>Luke Guerdan, Solon Barocas, Kenneth Holstein et al.. <em>Validating LLM-as-a-Judge Systems under Rating Indeterminacy</em>. NeurIPS 2025. 2025</li>
 <li>Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. <em>A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning</em>. NeurIPS 2025. 2025</li>
-<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

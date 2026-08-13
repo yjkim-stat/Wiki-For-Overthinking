@@ -6,6 +6,12 @@
   "definition": "Training on evaluation data, yielding inflated scores. The archived sources establish that for reasoning models it is both consequential and hard to detect, and they now divide into two responses. On detection: contamination introduced during supervised fine-tuning is detectable until a brief GRPO run conceals the signals detectors rely on, with PPO-style importance sampling and clipping identified as the cause, so a broad class of RL methods launders the evidence; and re-instantiating the same problems with different constants collapses RL-trained models by 20-95% on a strict metric. On construction, three newer benchmarks respond by making contamination structurally impossible rather than detectable — parameterized symbolic templates with executable ground truth, automated contamination-resistant generation with controllable difficulty, and symbolic variabilization of existing competition sets. A fourth use inverts it into a control: one source reports its largest effect on AIME 2025 specifically because that split postdates the base model's training cutoff.",
   "evidence": [
     {
+      "id": "arxiv:2608.07914",
+      "kind": "paper",
+      "note": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+      "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.662",
       "kind": "paper",
       "note": "A financial reasoning benchmark built from parameterized symbolic templates with executable Python, giving machine-verifiable step-level ground truth and contamination-free regeneration.",
@@ -44,9 +50,32 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "benchmark contamination",
   "related": [
+    "audit-power",
+    "behavioral-separability",
+    "sparse-mixture-detection",
+    "detection-boundary",
+    "score-efficacy",
+    "membership-inference",
+    "prevalence-certificate",
+    "validity-gate",
+    "blind-separation",
+    "permutation-test",
+    "min-k-prob",
+    "min-k",
+    "neighborhood-loss",
+    "sample-splitting",
+    "empirical-bernstein-bound",
+    "continued-pretraining",
+    "squad",
+    "the-pile",
+    "wikipedia",
+    "pythia-160m",
+    "pythia-410m",
+    "pythia-1-4b",
+    "gpt-neo-1-3b",
     "symbolic-reasoning",
     "process-evaluation",
     "verification",
@@ -80,7 +109,6 @@
     "memorization",
     "importance-sampling",
     "clipping",
-    "membership-inference",
     "leaderboard-integrity",
     "rlvr",
     "grpo",
@@ -144,9 +172,9 @@
   "schema_version": 1,
   "slug": "benchmark-contamination",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling",
-    "reasoning-evaluation",
     "reasoning-faithfulness"
   ]
 }

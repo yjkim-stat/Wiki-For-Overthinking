@@ -213,6 +213,20 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> The canonical structured-search entry in this topic, and the ancestor of every subsequent method that spends inference compute on exploration rather than on repeated sampling. Its Game of 24 result — 4% to 74% — is the most-cited demonstration that inference procedure alone can move a fixed model that far. It is most useful in this archive as a foil: the archived visualization study runs ToT against chain-of-thought, least-to-most and MCTS at a matched budget and finds ToT at 81.6% against CoT&#x27;s 84.4% on AQuA, so the enormous gain on a search-shaped puzzle does not transfer to ordinary mathematical reasoning. Holding both results together is what this topic is for.</p>
 </section>
 <section class="slide">
+<h2>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</h2>
+<p class="subtitle">Nikita Kozodoi, Zainab Afolabi, Jack Butler · 2026</p>
+<blockquote>
+<p>Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.</p>
+</blockquote>
+<ul>
+<li>A matched-compute comparison of input-side against output-side diversity across six benchmarks and four task types</li>
+<li>Semantic TTA (paraphrase aggregation) shown to Pareto-dominate self-consistency on cost-effectiveness, with statistically significant gains</li>
+<li>Ablations over augmentation count, multi-modal strategies and base-model scale, locating the regime where the extra compute pays</li>
+</ul>
+<p><strong>Results.</strong> Semantic TTA gives the largest mean gain over single-call CoT at 1.80 percentage points, against 1.21 for lexical TTA and 0.92 for self-consistency, and beats self-consistency on five of six benchmarks. Per benchmark, semantic against self-consistency: MMMLU +2.75 vs +1.25 (CoT baseline 79.8%), Math500 +2.53 vs +1.01 (89.6%), MMMU +2.01 vs +1.01 (66.1%), MMLU +1.75 vs +1.50 (87.8%), HLE +0.75 vs -0.25 (3.0%), and IMDB where all three methods give exactly +1.00 on a 94.5% baseline. Paired t-tests over the pooled per-question gains put semantic TTA above single-call CoT at p &lt; 0.01 and above self-consistency at p &lt; 0.05, with a non-parametric bootstrap over n = 2,400 giving a 95% interval of [+0.88, +2.71] pp; lexical TTA beats CoT at p &lt; 0.01 but its edge over self-consistency is only p = 0.058, and it is not distinguishable from semantic TTA at the 5% level. On cost, semantic TTA achieves the highest accuracy gain per extra dollar (133.11 pp) and per extra LLM call (0.403 pp) against self-consistency&#x27;s 91.81 and 0.209. The augmentation-count result is the one that bears on the archive: semantic TTA peaks at k = 4.33 on average and, on Math500 extended to k = 10, peaks at k = 5 with diminishing returns after, while self-consistency keeps improving all the way to k = 10 and nearly catches semantic TTA there. Accuracy is non-monotone in k for both, with the paper attributing the dips to stochastic paraphrase generation and to odd-versus-even tie-breaking.</p>
+<p><strong>Why it matters.</strong> Sits directly against an archived result that a perturbation-based selection rule&#x27;s apparent 31.8-point gain over majority voting in vision-language scaling was a decoding-format effect, recovered by a control spending the same short-answer budget on the unperturbed image. This paper runs the matched-compute comparison that one demanded and reports a real but much smaller input-side gain -- 1.80 against 0.92 mean pp -- which is what the archive should expect once the format confound is removed. It also refines the standing finding that extra samples strengthen whatever the aggregation rule already does: here the aggregation rule is unchanged and only the input varies, and the benefit saturates at k = 5 while self-consistency keeps climbing to k = 10, so input diversity reduces variance faster without raising the ceiling.</p>
+</section>
+<section class="slide">
 <h2>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</h2>
 <p class="subtitle">Agatha Duzan, Asa Cooper Stickland · 2026</p>
 <blockquote>
@@ -228,27 +242,12 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Monitoring is an inference-time layer whose cost is justified by its detection rate. These numbers are the measurement that justification needs, and in the implicit regime the rate is low enough to question the layer.</p>
 </section>
 <section class="slide">
-<h2>Interpretable Adaptive Sampling for LLM Test-Time Scaling</h2>
-<p class="subtitle">Mobina Kashaniyan, Ali Jannesari · 2026</p>
-<blockquote>
-<p>Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.</p>
-</blockquote>
-<ul>
-<li>A budget controller whose inputs, rules and outputs are inspectable per prompt: fuzzy membership over prompt complexity, model confidence, entropy, prompt type, expected answer length and cached history, with a second stage whose interval width is itself a reported uncertainty</li>
-<li>A fair-alignment protocol that fixes decoding across methods, disables the draft pass and lets the controller change only the number of samples — deliberately stricter than the full system, to answer whether adaptive allocation helps when selection and decoding are held constant</li>
-<li>A selector-matched control at the same maximum budget, so the effect of allocation is separated from the effect of the answer selector</li>
-<li>Reporting the outcome as a tradeoff rather than a win, including the two of four settings where adaptive is slightly less accurate</li>
-</ul>
-<p><strong>Results.</strong> Under the selector-matched comparison the method is not more accurate, and the paper says so. On competition mathematics it loses 0.007 and 0.018 accuracy while using 10.8% and 14.5% fewer samples on the two models; on grade-school arithmetic it loses 0.002 on one and gains 0.005 on the other, at 1.4% and 3.9% fewer samples. The claim being made is therefore that an interpretable controller can stay close to full-budget accuracy while spending less, and the budget histograms explain where the saving comes from — more prompts fall below the full budget on the harder mathematics set, while the arithmetic set concentrates near the cap, so the controller is conservative exactly where near-full aggregation still helps. Against the broader baselines it does better: on the factual set it reaches 0.192 and 0.376 accuracy against 0.154 and 0.360 for self-certainty selection at the full budget, using about seven samples on average. The most interesting number in the paper is a baseline failure rather than a method success — best-of-3 scores 0.093 against best-of-1&#x27;s 0.153 on one model, so three samples are worse than one, which the authors read correctly: if the selector does not exploit the candidate set, extra samples add plausible wrong answers. The fixed-budget controls confirm the shape: budgets of one to three are far worse, five is closer, and the adaptive setting lands within 0.001 and 0.004 of the full budget at 7.86 and 7.07 average samples. The component ablation is reported with its awkward results intact — removing the entropy signal improves mathematics accuracy, and neutralizing confidence also improves it while forcing the average budget to the maximum — and the authors draw the correct conclusion, that the controller should be read as a transparent allocation policy rather than an optimized one.</p>
-<p><strong>Why it matters.</strong> Two things here are worth more than the method. The first is the selector-matched control: adaptive allocation and fixed full budget run through the same self-certainty-plus-Borda selector, so the comparison isolates the budget policy — which is precisely the discipline the archive&#x27;s baseline-validity finding asks for, and which the archive&#x27;s own vision-language audit showed can be worth 31.8 points when neglected. The second is the non-monotonicity: best-of-3 scoring below best-of-1 on one model is a clean demonstration that more samples are not safe by default, and it joins the label-free RLVR result where 64 rollouts underperformed 16. The shared mechanism is the same in both — more samples strengthen whatever the aggregation rule already does, including when it is wrong — and it is the counterweight this archive needs against the assumption that sampling more is a free improvement. The paper&#x27;s own honesty is also a data point for how to read this literature: it reports a tradeoff where a less careful version would have reported a win, and reports an ablation in which removing its own signals sometimes helps.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
-<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>credit assignment</strong> — Deciding which part of a trajectory deserves the reward, and the problem RLVR&#x27;s sparse sequence-level signal creates. Nine sources attack...</li>
 <li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
 </ul>
@@ -267,8 +266,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
+<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
 <li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
@@ -278,23 +277,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</strong> — The paper&#x27;s own scope limits are stated in the method rather than a section. CLR only reweights already-parsed candidates, so it cannot recover a correct ans...</li>
+<li><strong>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</strong> — The paper is unusually direct about scope: it states that gains of 1-2 pp may not justify a 2-6x cost increase, and that TTA is most valuable when baseline a...</li>
 <li><strong>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</strong> — The reported gains are concentrated on small open-weight models, and the headline example is a 1.5B model; whether refinement still beats resampling when the...</li>
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
 <li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
 <li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
-<li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
-<li><strong>Interpretable Adaptive Sampling for LLM Test-Time Scaling</strong> — The paper is candid about most of this in the text. The accuracy differences are within overlapping marginal confidence intervals, and the authors note that...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
+<li><strong>Interpretable Adaptive Sampling for LLM Test-Time Scaling</strong> — The paper is candid about most of this in the text. The accuracy differences are within overlapping marginal confidence intervals, and the authors note that...</li>
 <li><strong>Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility</strong> — The paper is a formalization and a resource rather than a claim about which method is best, and it says so throughout — the empirical numbers are described a...</li>
 <li><strong>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</strong> — The paper states them: the method inherits whatever ambiguity its vision-language safety encoder has, and it updates the conditioning from the safety signal...</li>
 <li><strong>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</strong> — The limitations section is unusually thorough and should be read as part of the result. The interpretation is behavioural: the trace carries information abou...</li>
 <li><strong>Monte Carlo Tree Search for Table-to-Multimodal Report Generation</strong> — The paper has no limitations section, listing future work instead. What a reader should weigh: the novelty term is the weakest part of the reward and the res...</li>
-<li><strong>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</strong> — The paper has no limitations section. What a reader should weigh: the random-walk result is presented as robustness and is also the sharpest bound on the cla...</li>
-<li><strong>Evading Chain-of-Thought Monitoring Through Model Poisoning</strong> — The paper states its bounds directly: three open-weight reasoning models between 3.8B and 12B parameters, with every backdoor installed through supervised fi...</li>
 </ul>
 </section>
 <section class="slide">
@@ -306,34 +305,34 @@ th { background: var(--surface); }
 <li>Niklas Muennighoff, Zitong Yang, Weijia Shi et al.. <em>s1: Simple test-time scaling</em>. cs.CL. 2025</li>
 <li>Charlie Snell, Jaehoon Lee, Kelvin Xu et al.. <em>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</em>. cs.LG. 2024</li>
 <li>Shunyu Yao, Dian Yu, Jeffrey Zhao et al.. <em>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</em>. cs.CL. 2023</li>
+<li>Nikita Kozodoi, Zainab Afolabi, Jack Butler. <em>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</em>. cs.LG. 2026</li>
 <li>Agatha Duzan, Asa Cooper Stickland. <em>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</em>. cs.AI. 2026</li>
-<li>Mobina Kashaniyan, Ali Jannesari. <em>Interpretable Adaptive Sampling for LLM Test-Time Scaling</em>. cs.AI. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Mobina Kashaniyan, Ali Jannesari. <em>Interpretable Adaptive Sampling for LLM Test-Time Scaling</em>. cs.AI. 2026</li>
 <li>Mohsen Hariri, Weicong Chen, Nahal Shahini et al.. <em>Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility</em>. cs.LG. 2026</li>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
+<li>Sen Xu, Wei Wang, Shixi Liu et al.. <em>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</em>. cs.AI. 2026</li>
 <li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
 <li>Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. <em>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</em>. cs.CL. 2026</li>
 <li>Jinya Sakurai, Shueicheng Yan, Xun Xu. <em>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</em>. cs.CV. 2026</li>
 <li>Shashwat Sourav, Aishwarya Balwani. <em>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</em>. cs.LG. 2026</li>
-<li>Teng Lin, Zhiyang Zhang, Yuyu Luo et al.. <em>Monte Carlo Tree Search for Table-to-Multimodal Report Generation</em>. cs.AI. 2026</li>
-<li>Zhaoxin Yu, Qi Shen, Hengli Li et al.. <em>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Teng Lin, Zhiyang Zhang, Yuyu Luo et al.. <em>Monte Carlo Tree Search for Table-to-Multimodal Report Generation</em>. cs.AI. 2026</li>
+<li>Zhaoxin Yu, Qi Shen, Hengli Li et al.. <em>GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning</em>. cs.LG. 2026</li>
 <li>Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. <em>Evading Chain-of-Thought Monitoring Through Model Poisoning</em>. cs.CR. 2026</li>
 <li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
 <li>Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. <em>Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning</em>. ACL. 2026</li>
 <li>Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. <em>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</em>. ACL. 2026</li>
 <li>Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. <em>Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models</em>. ACL. 2026</li>
 <li>Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. <em>Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization</em>. ACL. 2026</li>
-<li>Ting Xu, Xu He, Yupu Lu et al.. <em>Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning</em>. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026</li>
-<li>Jiaxuan Zou, Yaozhong Xiong, Yong Liu. <em>Capabilities and Fundamental Limits of Latent Chain-of-Thought</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

@@ -197,6 +197,11 @@
     },
     {
       "source": "concept:adaptive-compute-allocation",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:adaptive-compute-allocation",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
@@ -671,6 +676,21 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:answer-aggregation",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:answer-aggregation",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:answer-aggregation",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:answer-extraction",
       "target": "concept:construct-validity",
       "type": "co-occurs"
@@ -916,6 +936,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:auditability",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:backtracking",
       "target": "concept:entropy-collapse",
       "type": "co-occurs"
@@ -1062,7 +1087,17 @@
     },
     {
       "source": "concept:benchmark-contamination",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
       "target": "method:importance-sampling",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
+      "target": "method:membership-inference",
       "type": "co-occurs"
     },
     {
@@ -1072,7 +1107,27 @@
     },
     {
       "source": "concept:benchmark-contamination",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
       "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:benchmark-contamination",
+      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -1307,6 +1362,11 @@
     },
     {
       "source": "concept:causal-intervention",
+      "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:causal-intervention",
       "target": "method:steering-vector",
       "type": "co-occurs"
     },
@@ -1483,6 +1543,11 @@
     {
       "source": "concept:chain-of-thought-faithfulness",
       "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:chain-of-thought-faithfulness",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -1782,6 +1847,11 @@
     },
     {
       "source": "concept:chain-of-thought-faithfulness",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:chain-of-thought-faithfulness",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -2028,6 +2098,36 @@
     {
       "source": "concept:compounding-error",
       "target": "model:gpt-2",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:compute-allocation",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -2856,6 +2956,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:curriculum-learning",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:data-efficiency",
       "target": "concept:alignment-tax",
       "type": "co-occurs"
@@ -2963,6 +3068,11 @@
     {
       "source": "concept:detection-versus-control",
       "target": "method:low-rank-weight-ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:detection-versus-control",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -3373,11 +3483,6 @@
     {
       "source": "concept:entropy-trajectory",
       "target": "method:deer",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:entropy-trajectory",
-      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -3931,11 +4036,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "concept:generalization",
-      "target": "model:pythia-410m",
-      "type": "co-occurs"
-    },
-    {
       "source": "concept:grounding",
       "target": "concept:abstention",
       "type": "co-occurs"
@@ -4442,12 +4542,22 @@
     },
     {
       "source": "concept:judge-reliability",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:judge-reliability",
       "target": "concept:training-dynamics",
       "type": "co-occurs"
     },
     {
       "source": "concept:judge-reliability",
       "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:judge-reliability",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -4513,6 +4623,31 @@
     {
       "source": "concept:kl-divergence",
       "target": "model:qwen2-5-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "concept:state-tracking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:kv-cache",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -4761,6 +4896,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "concept:latent-reasoning",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
       "source": "concept:length-generalization",
       "target": "concept:finite-precision",
       "type": "co-occurs"
@@ -4987,6 +5127,11 @@
     },
     {
       "source": "concept:matched-budget-comparison",
+      "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:matched-budget-comparison",
       "target": "method:borda-count",
       "type": "co-occurs"
     },
@@ -5137,6 +5282,11 @@
     },
     {
       "source": "concept:meta-evaluation",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:meta-evaluation",
       "target": "concept:instruction-following",
       "type": "co-occurs"
     },
@@ -5223,11 +5373,6 @@
     {
       "source": "concept:modularity",
       "target": "model:mistral-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:modularity",
-      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -5532,6 +5677,11 @@
     },
     {
       "source": "concept:monitorability",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:monitorability",
       "target": "model:qwen3-6-35b-a3b",
       "type": "co-occurs"
     },
@@ -5548,6 +5698,11 @@
     {
       "source": "concept:monosemanticity",
       "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:monosemanticity",
+      "target": "dataset:the-pile",
       "type": "co-occurs"
     },
     {
@@ -6916,11 +7071,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "concept:polysemanticity",
-      "target": "model:pythia-410m",
-      "type": "co-occurs"
-    },
-    {
       "source": "concept:post-hoc-rationalization",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
@@ -7168,6 +7318,11 @@
     {
       "source": "concept:post-hoc-rationalization",
       "target": "model:qwen3-4b-base",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:post-hoc-rationalization",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -7542,6 +7697,11 @@
     },
     {
       "source": "concept:process-supervision",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
       "target": "concept:attention-pattern",
       "type": "co-occurs"
     },
@@ -7578,6 +7738,11 @@
     {
       "source": "concept:process-supervision",
       "target": "concept:expressivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -7622,6 +7787,11 @@
     },
     {
       "source": "concept:process-supervision",
+      "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
       "target": "dataset:mathvista",
       "type": "co-occurs"
     },
@@ -7638,6 +7808,11 @@
     {
       "source": "concept:process-supervision",
       "target": "method:monte-carlo-tree-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
+      "target": "method:pass-k",
       "type": "co-occurs"
     },
     {
@@ -7693,6 +7868,11 @@
     {
       "source": "concept:process-supervision",
       "target": "model:qwen2-5-vl-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:process-supervision",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -8047,6 +8227,11 @@
     },
     {
       "source": "concept:prompt-sensitivity",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:prompt-sensitivity",
       "target": "concept:answer-extraction",
       "type": "co-occurs"
     },
@@ -8218,6 +8403,11 @@
     {
       "source": "concept:reasoning-boundary",
       "target": "model:dapo-qwen-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:reasoning-boundary",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -8852,6 +9042,11 @@
     },
     {
       "source": "concept:representation-versus-readout",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:representation-versus-readout",
       "target": "model:qwen3-6-35b-a3b",
       "type": "co-occurs"
     },
@@ -8942,6 +9137,11 @@
     },
     {
       "source": "concept:residual-stream",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
       "target": "concept:localization",
       "type": "co-occurs"
     },
@@ -8992,6 +9192,11 @@
     },
     {
       "source": "concept:residual-stream",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
       "target": "method:activation-probing",
       "type": "co-occurs"
     },
@@ -9023,6 +9228,11 @@
     {
       "source": "concept:residual-stream",
       "target": "method:pca",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:residual-stream",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -9612,6 +9822,11 @@
     },
     {
       "source": "concept:safety-alignment",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:safety-alignment",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
@@ -9982,6 +10197,11 @@
     },
     {
       "source": "concept:selection-signal",
+      "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:selection-signal",
       "target": "method:borda-count",
       "type": "co-occurs"
     },
@@ -10317,6 +10537,11 @@
     },
     {
       "source": "concept:self-repair",
+      "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:self-repair",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
@@ -10577,6 +10802,11 @@
     },
     {
       "source": "concept:superposition",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
       "target": "method:activation-patching",
       "type": "co-occurs"
     },
@@ -10628,6 +10858,11 @@
     {
       "source": "concept:superposition",
       "target": "method:pca",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:superposition",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -10712,6 +10947,11 @@
     },
     {
       "source": "concept:test-time-compute",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -10733,6 +10973,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "concept:compositional-generalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -10778,6 +11023,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -10872,12 +11122,22 @@
     },
     {
       "source": "concept:test-time-compute",
+      "target": "concept:trajectory-diversity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
       "target": "dataset:aime-2024",
       "type": "co-occurs"
     },
     {
       "source": "concept:test-time-compute",
       "target": "dataset:aime-2025",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "dataset:aime-2026",
       "type": "co-occurs"
     },
     {
@@ -10903,6 +11163,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "dataset:gpqa-diamond",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "dataset:hmmt",
       "type": "co-occurs"
     },
     {
@@ -11097,6 +11362,11 @@
     },
     {
       "source": "concept:test-time-compute",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -11173,6 +11443,11 @@
     {
       "source": "concept:test-time-compute",
       "target": "model:qwen3-4b-instruct-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:test-time-compute",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -11302,11 +11577,6 @@
     },
     {
       "source": "concept:token-level-entropy",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "concept:token-level-entropy",
       "target": "model:llama-3-1-8b",
       "type": "co-occurs"
     },
@@ -11427,12 +11697,32 @@
     },
     {
       "source": "concept:trajectory-diversity",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
       "target": "concept:randomized-control",
       "type": "co-occurs"
     },
     {
       "source": "concept:trajectory-diversity",
       "target": "dataset:aime",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "method:beam-search",
       "type": "co-occurs"
     },
     {
@@ -11447,12 +11737,32 @@
     },
     {
       "source": "concept:trajectory-diversity",
+      "target": "method:monte-carlo-tree-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
       "target": "method:pass-k",
       "type": "co-occurs"
     },
     {
       "source": "concept:trajectory-diversity",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
       "target": "model:dapo-qwen-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:trajectory-diversity",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -11663,6 +11973,11 @@
     {
       "source": "concept:verification",
       "target": "concept:chain-of-thought-faithfulness",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:verification",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -11977,6 +12292,11 @@
     },
     {
       "source": "concept:verification",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:verification",
       "target": "model:deepseek-r1-distill-llama-8b",
       "type": "co-occurs"
     },
@@ -12093,6 +12413,11 @@
     {
       "source": "concept:visual-grounding",
       "target": "dataset:mathvista",
+      "type": "co-occurs"
+    },
+    {
+      "source": "concept:visual-grounding",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -13022,6 +13347,11 @@
     },
     {
       "source": "dataset:aime-2024",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2024",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -13257,6 +13587,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -13268,6 +13603,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "concept:commitment-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -13328,6 +13668,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -13433,6 +13778,11 @@
     {
       "source": "dataset:aime-2025",
       "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
+      "target": "concept:trajectory-diversity",
       "type": "co-occurs"
     },
     {
@@ -13687,6 +14037,11 @@
     },
     {
       "source": "dataset:aime-2025",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2025",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -13837,12 +14192,27 @@
     },
     {
       "source": "dataset:aime-2026",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
       "target": "concept:benchmark-contamination",
       "type": "co-occurs"
     },
     {
       "source": "dataset:aime-2026",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
       "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -13853,6 +14223,11 @@
     {
       "source": "dataset:aime-2026",
       "target": "concept:reward-hacking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
+      "target": "concept:trajectory-diversity",
       "type": "co-occurs"
     },
     {
@@ -13892,6 +14267,11 @@
     },
     {
       "source": "dataset:aime-2026",
+      "target": "method:linear-probe",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
       "target": "method:monte-carlo-tree-search",
       "type": "co-occurs"
     },
@@ -13902,7 +14282,17 @@
     },
     {
       "source": "dataset:aime-2026",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -13923,6 +14313,11 @@
     {
       "source": "dataset:aime-2026",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:aime-2026",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -14303,6 +14698,11 @@
     {
       "source": "dataset:amc23",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:amc23",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -14756,6 +15156,11 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:beavertails",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:brumo",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
@@ -14848,6 +15253,11 @@
     {
       "source": "dataset:brumo",
       "target": "model:qwen3-6-35b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:cmimc",
+      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -15216,8 +15626,8 @@
       "type": "co-occurs"
     },
     {
-      "source": "dataset:gpqa",
-      "target": "model:qwen3-4b-thinking-2507",
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -15237,12 +15647,22 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "concept:construct-validity",
       "type": "co-occurs"
     },
     {
       "source": "dataset:gpqa-diamond",
       "target": "concept:entropy-trajectory",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -15302,12 +15722,22 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "concept:trajectory-diversity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "concept:verbosity",
       "type": "co-occurs"
     },
     {
       "source": "dataset:gpqa-diamond",
       "target": "dataset:amc23",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "dataset:hmmt",
       "type": "co-occurs"
     },
     {
@@ -15333,6 +15763,11 @@
     {
       "source": "dataset:gpqa-diamond",
       "target": "dataset:zebralogic",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "method:beam-search",
       "type": "co-occurs"
     },
     {
@@ -15402,6 +15837,11 @@
     },
     {
       "source": "dataset:gpqa-diamond",
+      "target": "method:monte-carlo-tree-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
       "target": "method:pass-k",
       "type": "co-occurs"
     },
@@ -15423,6 +15863,11 @@
     {
       "source": "dataset:gpqa-diamond",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:gpqa-diamond",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -16516,13 +16961,38 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:harmbench",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:hmmt",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
     },
     {
       "source": "dataset:hmmt",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
       "target": "concept:construct-validity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "concept:process-supervision",
       "type": "co-occurs"
     },
     {
@@ -16533,6 +17003,11 @@
     {
       "source": "dataset:hmmt",
       "target": "concept:reward-hacking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "concept:trajectory-diversity",
       "type": "co-occurs"
     },
     {
@@ -16567,7 +17042,17 @@
     },
     {
       "source": "dataset:hmmt",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -16583,6 +17068,16 @@
     {
       "source": "dataset:hmmt",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:hmmt",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -17032,6 +17527,11 @@
     },
     {
       "source": "dataset:indirect-object-identification",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:indirect-object-identification",
       "target": "method:causal-mediation-analysis",
       "type": "co-occurs"
     },
@@ -17178,6 +17678,11 @@
     {
       "source": "dataset:livecodebench",
       "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:livecodebench",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -17667,6 +18172,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -17808,6 +18318,11 @@
     {
       "source": "dataset:math500",
       "target": "concept:process-supervision",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
     {
@@ -18013,6 +18528,11 @@
     {
       "source": "dataset:math500",
       "target": "dataset:mmlu-stem",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -18307,6 +18827,11 @@
     },
     {
       "source": "dataset:math500",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:math500",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -18533,6 +19058,11 @@
     {
       "source": "dataset:mathvision",
       "target": "dataset:minerva",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mathvision",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -18942,6 +19472,11 @@
     },
     {
       "source": "dataset:minerva",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:minerva",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -19012,6 +19547,11 @@
     },
     {
       "source": "dataset:mmlu",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmlu",
       "target": "concept:construct-validity",
       "type": "co-occurs"
     },
@@ -19033,6 +19573,11 @@
     {
       "source": "dataset:mmlu",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmlu",
+      "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
     {
@@ -19468,6 +20013,31 @@
     {
       "source": "dataset:mmlu-stem",
       "target": "model:qwen2-5-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "concept:prompt-sensitivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "model:llava-onevision-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:mmmu",
+      "target": "model:qwen2-5-vl-7b-instruct",
       "type": "co-occurs"
     },
     {
@@ -20336,6 +20906,21 @@
       "type": "co-occurs"
     },
     {
+      "source": "dataset:the-pile",
+      "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:the-pile",
+      "target": "method:causal-mediation-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "dataset:the-pile",
+      "target": "model:pythia-410m",
+      "type": "co-occurs"
+    },
+    {
       "source": "dataset:triviaqa",
       "target": "concept:expected-calibration-error",
       "type": "co-occurs"
@@ -20547,6 +21132,11 @@
     },
     {
       "source": "method:activation-patching",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-patching",
       "target": "concept:localization",
       "type": "co-occurs"
     },
@@ -20627,6 +21217,11 @@
     },
     {
       "source": "method:activation-patching",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-patching",
       "target": "method:causal-analysis",
       "type": "co-occurs"
     },
@@ -20668,6 +21263,11 @@
     {
       "source": "method:activation-patching",
       "target": "method:pca",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:activation-patching",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -20987,17 +21587,27 @@
     },
     {
       "source": "method:attention-analysis",
-      "target": "method:membership-inference",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:attention-analysis",
       "target": "method:tokenskip",
       "type": "co-occurs"
     },
     {
       "source": "method:beam-search",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
       "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -21022,6 +21632,16 @@
     },
     {
       "source": "method:beam-search",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:beam-search",
       "target": "model:phi-4-reasoning",
       "type": "co-occurs"
     },
@@ -21031,13 +21651,28 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:beam-search",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:best-of-n",
       "target": "concept:adaptive-compute-allocation",
       "type": "co-occurs"
     },
     {
       "source": "method:best-of-n",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
       "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -21202,6 +21837,11 @@
     },
     {
       "source": "method:best-of-n",
+      "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
       "target": "dataset:olympiadbench",
       "type": "co-occurs"
     },
@@ -21322,6 +21962,11 @@
     },
     {
       "source": "method:best-of-n",
+      "target": "model:gpt-oss-120b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
       "target": "model:gpt-oss-20b",
       "type": "co-occurs"
     },
@@ -21407,6 +22052,11 @@
     },
     {
       "source": "method:best-of-n",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:best-of-n",
       "target": "model:qwen3-6-35b-a3b",
       "type": "co-occurs"
     },
@@ -21428,6 +22078,11 @@
     {
       "source": "method:borda-count",
       "target": "dataset:mathvision",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:borda-count",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -21856,11 +22511,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "method:causal-analysis",
-      "target": "model:pythia-410m",
-      "type": "co-occurs"
-    },
-    {
       "source": "method:causal-mediation-analysis",
       "target": "concept:polysemanticity",
       "type": "co-occurs"
@@ -21873,11 +22523,6 @@
     {
       "source": "method:causal-mediation-analysis",
       "target": "model:mistral-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:causal-mediation-analysis",
-      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -21898,6 +22543,11 @@
     {
       "source": "method:causal-tracing",
       "target": "method:causal-mediation-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:causal-tracing",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -22517,6 +23167,11 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
       "target": "concept:answer-extraction",
       "type": "co-occurs"
     },
@@ -22712,6 +23367,16 @@
     },
     {
       "source": "method:chain-of-thought-prompting",
+      "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
       "target": "dataset:prontoqa",
       "type": "co-occurs"
     },
@@ -22783,6 +23448,11 @@
     {
       "source": "method:chain-of-thought-prompting",
       "target": "method:lora",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:chain-of-thought-prompting",
+      "target": "method:majority-voting",
       "type": "co-occurs"
     },
     {
@@ -23052,6 +23722,11 @@
     },
     {
       "source": "method:circuit-analysis",
+      "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:circuit-analysis",
       "target": "method:weight-space-ablation",
       "type": "co-occurs"
     },
@@ -23263,6 +23938,11 @@
     {
       "source": "method:coconut",
       "target": "model:kimi-k2-5",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:coconut",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -23552,6 +24232,11 @@
     },
     {
       "source": "method:dapo",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:dapo",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -23598,16 +24283,6 @@
     {
       "source": "method:dapo",
       "target": "model:qwen2-5-vl-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:deer",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:deer",
-      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -23787,17 +24462,7 @@
     },
     {
       "source": "method:dynasor",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:dynasor",
       "target": "model:llama-3-1-70b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:dynasor",
-      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -24692,6 +25357,11 @@
     },
     {
       "source": "method:grpo",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:grpo",
       "target": "model:deepseek-r1-distill-llama-8b",
       "type": "co-occurs"
     },
@@ -25272,12 +25942,22 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "concept:attention-head",
       "type": "co-occurs"
     },
     {
       "source": "method:linear-probe",
       "target": "concept:commitment-boundary",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -25318,6 +25998,11 @@
     {
       "source": "method:linear-probe",
       "target": "concept:information-bottleneck",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -25422,6 +26107,11 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "concept:trajectory-diversity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "concept:uncertainty-quantification",
       "type": "co-occurs"
     },
@@ -25438,6 +26128,11 @@
     {
       "source": "method:linear-probe",
       "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "dataset:hmmt",
       "type": "co-occurs"
     },
     {
@@ -25478,6 +26173,11 @@
     {
       "source": "method:linear-probe",
       "target": "method:activation-steering",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "method:beam-search",
       "type": "co-occurs"
     },
     {
@@ -25537,6 +26237,11 @@
     },
     {
       "source": "method:linear-probe",
+      "target": "method:monte-carlo-tree-search",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
       "target": "method:pca",
       "type": "co-occurs"
     },
@@ -25553,6 +26258,16 @@
     {
       "source": "method:linear-probe",
       "target": "method:t-sne",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:linear-probe",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -25748,6 +26463,11 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "concept:compositional-generalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -26182,6 +26902,11 @@
     },
     {
       "source": "method:llm-as-a-judge",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -26348,6 +27073,11 @@
     {
       "source": "method:llm-as-a-judge",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:llm-as-a-judge",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -26716,8 +27446,18 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:low-rank-weight-ablation",
+      "target": "method:permutation-test",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:majority-voting",
       "target": "concept:adaptive-compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
+      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -26772,6 +27512,11 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "concept:prompt-sensitivity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "concept:residual-stream",
       "type": "co-occurs"
     },
@@ -26822,7 +27567,17 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
+      "target": "dataset:hmmt",
       "type": "co-occurs"
     },
     {
@@ -26842,7 +27597,17 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -26912,6 +27677,16 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "model:gpt-oss-120b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
+      "target": "model:gpt-oss-20b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "model:llama-3-1-8b-instruct",
       "type": "co-occurs"
     },
@@ -26962,17 +27737,32 @@
     },
     {
       "source": "method:majority-voting",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:majority-voting",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
     {
       "source": "method:membership-inference",
-      "target": "concept:benchmark-contamination",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:membership-inference",
+      "target": "method:attention-analysis",
       "type": "co-occurs"
     },
     {
       "source": "method:membership-inference",
       "target": "method:importance-sampling",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:membership-inference",
+      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -26987,7 +27777,22 @@
     },
     {
       "source": "method:monte-carlo-tree-search",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
       "target": "concept:answer-stabilization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "concept:compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -27008,6 +27813,16 @@
     {
       "source": "method:monte-carlo-tree-search",
       "target": "method:early-exit",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -27038,6 +27853,11 @@
     {
       "source": "method:monte-carlo-tree-search",
       "target": "model:qwen",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:monte-carlo-tree-search",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -27162,6 +27982,11 @@
     },
     {
       "source": "method:paired-bootstrap-confidence-intervals",
+      "target": "dataset:mmmu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:paired-bootstrap-confidence-intervals",
       "target": "model:llava-onevision-7b",
       "type": "co-occurs"
     },
@@ -27183,6 +28008,11 @@
     {
       "source": "method:pass-k",
       "target": "concept:advantage-function",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pass-k",
+      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -27352,6 +28182,11 @@
     },
     {
       "source": "method:pass-k",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pass-k",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -27407,6 +28242,11 @@
     },
     {
       "source": "method:pass-k",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pass-k",
       "target": "model:qwq-32b",
       "type": "co-occurs"
     },
@@ -27428,6 +28268,11 @@
     {
       "source": "method:pca",
       "target": "dataset:indirect-object-identification",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:pca",
+      "target": "dataset:the-pile",
       "type": "co-occurs"
     },
     {
@@ -27493,6 +28338,26 @@
     {
       "source": "method:pca",
       "target": "model:qwen3-6-35b-a3b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:permutation-test",
+      "target": "concept:benchmark-contamination",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:permutation-test",
+      "target": "dataset:the-pile",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:permutation-test",
+      "target": "method:membership-inference",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:permutation-test",
+      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -28106,16 +28971,6 @@
       "type": "co-occurs"
     },
     {
-      "source": "method:prime",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "method:process-evaluation",
-      "target": "concept:benchmark-contamination",
-      "type": "co-occurs"
-    },
-    {
       "source": "method:process-evaluation",
       "target": "concept:training-dynamics",
       "type": "co-occurs"
@@ -28128,6 +28983,16 @@
     {
       "source": "method:process-reward-model",
       "target": "concept:adaptive-compute-allocation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -28153,6 +29018,11 @@
     {
       "source": "method:process-reward-model",
       "target": "concept:kl-divergence",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -28197,6 +29067,11 @@
     },
     {
       "source": "method:process-reward-model",
+      "target": "concept:trajectory-diversity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
       "target": "concept:uncertainty-quantification",
       "type": "co-occurs"
     },
@@ -28228,6 +29103,11 @@
     {
       "source": "method:process-reward-model",
       "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "dataset:gpqa-diamond",
       "type": "co-occurs"
     },
     {
@@ -28297,6 +29177,11 @@
     },
     {
       "source": "method:process-reward-model",
+      "target": "method:linear-probe",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
       "target": "method:majority-voting",
       "type": "co-occurs"
     },
@@ -28332,7 +29217,17 @@
     },
     {
       "source": "method:process-reward-model",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -28383,6 +29278,11 @@
     {
       "source": "method:process-reward-model",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:process-reward-model",
+      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -29582,6 +30482,11 @@
     },
     {
       "source": "method:rlvr",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:rlvr",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -29857,12 +30762,22 @@
     },
     {
       "source": "method:self-consistency",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
     {
       "source": "method:self-consistency",
       "target": "concept:compounding-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -29907,6 +30822,11 @@
     },
     {
       "source": "method:self-consistency",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
       "target": "concept:latent-reasoning",
       "type": "co-occurs"
     },
@@ -29938,6 +30858,11 @@
     {
       "source": "method:self-consistency",
       "target": "concept:process-supervision",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
     {
@@ -29978,6 +30903,11 @@
     {
       "source": "method:self-consistency",
       "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "concept:trajectory-diversity",
       "type": "co-occurs"
     },
     {
@@ -30057,7 +30987,17 @@
     },
     {
       "source": "method:self-consistency",
+      "target": "dataset:mmlu",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -30187,7 +31127,17 @@
     },
     {
       "source": "method:self-consistency",
+      "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
       "target": "model:deepseek-r1",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -30208,6 +31158,11 @@
     {
       "source": "method:self-consistency",
       "target": "model:gpt-oss",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "model:gpt-oss-120b",
       "type": "co-occurs"
     },
     {
@@ -30333,6 +31288,11 @@
     {
       "source": "method:self-consistency",
       "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:self-consistency",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -30543,6 +31503,11 @@
     {
       "source": "method:sparse-autoencoder",
       "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:sparse-autoencoder",
+      "target": "dataset:the-pile",
       "type": "co-occurs"
     },
     {
@@ -30808,6 +31773,11 @@
     {
       "source": "method:supervised-fine-tuning",
       "target": "concept:judge-reliability",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:supervised-fine-tuning",
+      "target": "concept:kv-cache",
       "type": "co-occurs"
     },
     {
@@ -31322,6 +32292,11 @@
     },
     {
       "source": "method:supervised-fine-tuning",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:supervised-fine-tuning",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "co-occurs"
     },
@@ -31537,6 +32512,11 @@
     },
     {
       "source": "method:supervised-fine-tuning",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:supervised-fine-tuning",
       "target": "model:qwen3-6-35b-a3b",
       "type": "co-occurs"
     },
@@ -31727,6 +32707,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "concept:answer-stabilization",
       "type": "co-occurs"
     },
@@ -31738,6 +32723,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "concept:compounding-error",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "concept:compute-allocation",
       "type": "co-occurs"
     },
     {
@@ -31823,6 +32813,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "concept:process-supervision",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "concept:prompt-sensitivity",
       "type": "co-occurs"
     },
     {
@@ -31943,6 +32938,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "dataset:mmlu-pro",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "dataset:mmmu",
       "type": "co-occurs"
     },
     {
@@ -32137,6 +33137,11 @@
     },
     {
       "source": "method:test-time-scaling",
+      "target": "model:gpt-oss-120b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
       "target": "model:gpt-oss-20b",
       "type": "co-occurs"
     },
@@ -32238,6 +33243,11 @@
     {
       "source": "method:test-time-scaling",
       "target": "model:qwen3-4b-instruct-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:test-time-scaling",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -32456,6 +33466,46 @@
       "type": "co-occurs"
     },
     {
+      "source": "method:vllm",
+      "target": "concept:token-level-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "method:deer",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "method:dynasor",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "method:prime",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "model:qwen2-5-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:vllm",
+      "target": "model:qwen3-4b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
       "source": "method:weight-space-ablation",
       "target": "concept:self-repair",
       "type": "co-occurs"
@@ -32473,6 +33523,11 @@
     {
       "source": "method:weight-space-ablation",
       "target": "method:low-rank-weight-ablation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "method:weight-space-ablation",
+      "target": "method:permutation-test",
       "type": "co-occurs"
     },
     {
@@ -32543,6 +33598,11 @@
     {
       "source": "model:dapo-qwen-32b",
       "target": "method:vllm",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:dapo-qwen-32b",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
       "type": "co-occurs"
     },
     {
@@ -32673,6 +33733,26 @@
     {
       "source": "model:deepseek-r1",
       "target": "model:qwq-32b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "concept:training-dynamics",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "method:process-evaluation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:deepseek-r1-0528-qwen3-8b",
+      "target": "model:qwen2-5-32b",
       "type": "co-occurs"
     },
     {
@@ -33107,11 +34187,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "concept:benchmark-contamination",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "concept:entropy-trajectory",
       "type": "co-occurs"
     },
@@ -33212,11 +34287,6 @@
     },
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "method:vllm",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "model:deepseek-r1-distill-qwen-14b",
       "type": "co-occurs"
     },
@@ -33233,11 +34303,6 @@
     {
       "source": "model:deepseek-r1-distill-qwen-7b",
       "target": "model:qwen2-5-32b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:deepseek-r1-distill-qwen-7b",
-      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -34267,6 +35332,11 @@
     },
     {
       "source": "model:gpt-oss-120b",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
       "target": "concept:benchmark-contamination",
       "type": "co-occurs"
     },
@@ -34288,6 +35358,11 @@
     {
       "source": "model:gpt-oss-120b",
       "target": "concept:policy-entropy",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
+      "target": "concept:process-supervision",
       "type": "co-occurs"
     },
     {
@@ -34317,7 +35392,17 @@
     },
     {
       "source": "model:gpt-oss-120b",
+      "target": "dataset:cmimc",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
       "target": "dataset:dapo-math-17k",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
+      "target": "dataset:hmmt",
       "type": "co-occurs"
     },
     {
@@ -34377,6 +35462,11 @@
     },
     {
       "source": "model:gpt-oss-120b",
+      "target": "model:qwen3-5-27b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-120b",
       "target": "model:qwen3-8b-base",
       "type": "co-occurs"
     },
@@ -34393,6 +35483,11 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "concept:alignment",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-20b",
+      "target": "concept:answer-aggregation",
       "type": "co-occurs"
     },
     {
@@ -34428,6 +35523,11 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "concept:overthinking",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-20b",
+      "target": "concept:process-supervision",
       "type": "co-occurs"
     },
     {
@@ -34548,6 +35648,11 @@
     {
       "source": "model:gpt-oss-20b",
       "target": "model:qwen3-30b-a3b-thinking-2507",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:gpt-oss-20b",
+      "target": "model:qwen3-5-27b",
       "type": "co-occurs"
     },
     {
@@ -34673,11 +35778,6 @@
     {
       "source": "model:llama-3-1-8b",
       "target": "model:mistral-7b",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:llama-3-1-8b",
-      "target": "model:pythia-410m",
       "type": "co-occurs"
     },
     {
@@ -35277,6 +36377,11 @@
     },
     {
       "source": "model:mistral-7b-v0-3",
+      "target": "concept:kv-cache",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:mistral-7b-v0-3",
       "target": "concept:process-supervision",
       "type": "co-occurs"
     },
@@ -35357,7 +36462,37 @@
     },
     {
       "source": "model:pythia-410m",
+      "target": "concept:generalization",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
+      "target": "concept:modularity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
+      "target": "concept:polysemanticity",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
+      "target": "method:causal-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
+      "target": "method:causal-mediation-analysis",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
       "target": "model:gpt-j-6b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:pythia-410m",
+      "target": "model:llama-3-1-8b",
       "type": "co-occurs"
     },
     {
@@ -35368,11 +36503,6 @@
     {
       "source": "model:qwen2-5-0-5b",
       "target": "concept:information-bottleneck",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-0-5b",
-      "target": "model:qwen3-4b-thinking-2507",
       "type": "co-occurs"
     },
     {
@@ -35638,11 +36768,6 @@
     {
       "source": "model:qwen2-5-32b",
       "target": "method:verl",
-      "type": "co-occurs"
-    },
-    {
-      "source": "model:qwen2-5-32b",
-      "target": "method:vllm",
       "type": "co-occurs"
     },
     {
@@ -38198,6 +39323,51 @@
     {
       "source": "model:qwen3-4b-instruct-2507",
       "target": "model:qwen2-5-math-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "concept:entropy-trajectory",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "dataset:gpqa",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "method:deer",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "method:dynasor",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "model:deepseek-r1-distill-qwen-7b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-4b-thinking-2507",
+      "target": "model:qwen2-5-0-5b",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-5-27b",
+      "target": "concept:answer-aggregation",
+      "type": "co-occurs"
+    },
+    {
+      "source": "model:qwen3-5-27b",
+      "target": "dataset:cmimc",
       "type": "co-occurs"
     },
     {
@@ -39462,6 +40632,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "dataset:the-pile",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "method:activation-patching",
       "type": "covers"
     },
@@ -39637,6 +40812,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "method:permutation-test",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "method:ppo",
       "type": "covers"
     },
@@ -39737,6 +40917,11 @@
     },
     {
       "source": "topic:reasoning-evaluation",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
       "target": "model:deepseek-r1-distill-llama-8b",
       "type": "covers"
     },
@@ -39818,6 +41003,11 @@
     {
       "source": "topic:reasoning-evaluation",
       "target": "model:mistral-7b-v0-3",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-evaluation",
+      "target": "model:pythia-410m",
       "type": "covers"
     },
     {
@@ -40028,6 +41218,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "concept:judge-reliability",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "concept:kv-cache",
       "type": "covers"
     },
     {
@@ -40517,6 +41712,11 @@
     },
     {
       "source": "topic:reasoning-faithfulness",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "covers"
     },
@@ -40728,6 +41928,11 @@
     {
       "source": "topic:reasoning-faithfulness",
       "target": "model:qwen3-4b-instruct-2507",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-faithfulness",
+      "target": "model:qwen3-5-27b",
       "type": "covers"
     },
     {
@@ -41087,6 +42292,11 @@
     },
     {
       "source": "topic:reasoning-interpretability",
+      "target": "dataset:the-pile",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
       "target": "dataset:truthfulqa",
       "type": "covers"
     },
@@ -41253,6 +42463,11 @@
     {
       "source": "topic:reasoning-interpretability",
       "target": "method:pca",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-interpretability",
+      "target": "method:permutation-test",
       "type": "covers"
     },
     {
@@ -41557,6 +42772,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "concept:answer-aggregation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "concept:answer-extraction",
       "type": "covers"
     },
@@ -41623,6 +42843,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:compounding-error",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:compute-allocation",
       "type": "covers"
     },
     {
@@ -41783,6 +43008,11 @@
     {
       "source": "topic:reasoning-training",
       "target": "concept:kl-divergence",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
+      "target": "concept:kv-cache",
       "type": "covers"
     },
     {
@@ -42372,6 +43602,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "method:beam-search",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "method:best-of-n",
       "type": "covers"
     },
@@ -42817,6 +44052,11 @@
     },
     {
       "source": "topic:reasoning-training",
+      "target": "model:deepseek-r1-0528-qwen3-8b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:reasoning-training",
       "target": "model:deepseek-r1-distill-llama-70b",
       "type": "covers"
     },
@@ -43157,6 +44397,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "concept:answer-aggregation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "concept:answer-extraction",
       "type": "covers"
     },
@@ -43203,6 +44448,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "concept:compounding-error",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "concept:compute-allocation",
       "type": "covers"
     },
     {
@@ -43403,6 +44653,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "concept:prompt-difficulty",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "concept:prompt-sensitivity",
       "type": "covers"
     },
     {
@@ -43683,6 +44938,11 @@
     {
       "source": "topic:test-time-scaling",
       "target": "dataset:mmlu-pro",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
+      "target": "dataset:mmmu",
       "type": "covers"
     },
     {
@@ -44337,6 +45597,11 @@
     },
     {
       "source": "topic:test-time-scaling",
+      "target": "model:qwen3-5-27b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:test-time-scaling",
       "target": "model:qwen3-6-35b-a3b",
       "type": "covers"
     },
@@ -44351,7 +45616,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-13T12:12:30Z",
+  "generated_at": "2026-08-13T12:18:18Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -44410,6 +45675,13 @@
       "sources": 2
     },
     {
+      "id": "concept:answer-aggregation",
+      "kind": "concept",
+      "label": "answer aggregation",
+      "settled": false,
+      "sources": 3
+    },
+    {
       "id": "concept:answer-extraction",
       "kind": "concept",
       "label": "answer extraction",
@@ -44463,7 +45735,7 @@
       "kind": "concept",
       "label": "benchmark contamination",
       "settled": false,
-      "sources": 6
+      "sources": 7
     },
     {
       "id": "concept:catastrophic-forgetting",
@@ -44513,6 +45785,13 @@
       "label": "compounding error",
       "settled": false,
       "sources": 3
+    },
+    {
+      "id": "concept:compute-allocation",
+      "kind": "concept",
+      "label": "compute allocation",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "concept:construct-validity",
@@ -44753,6 +46032,13 @@
       "sources": 2
     },
     {
+      "id": "concept:kv-cache",
+      "kind": "concept",
+      "label": "KV cache",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "concept:latent-reasoning",
       "kind": "concept",
       "label": "latent reasoning",
@@ -44953,7 +46239,7 @@
       "kind": "concept",
       "label": "process supervision",
       "settled": false,
-      "sources": 11
+      "sources": 12
     },
     {
       "id": "concept:prompt-difficulty",
@@ -44967,7 +46253,7 @@
       "kind": "concept",
       "label": "prompt sensitivity",
       "settled": true,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "concept:randomized-control",
@@ -45170,7 +46456,7 @@
       "kind": "concept",
       "label": "test-time compute",
       "settled": false,
-      "sources": 20
+      "sources": 21
     },
     {
       "id": "concept:token-efficiency",
@@ -45219,7 +46505,7 @@
       "kind": "concept",
       "label": "trajectory diversity",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "concept:truthfulness",
@@ -45289,14 +46575,14 @@
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 26
+      "sources": 27
     },
     {
       "id": "dataset:aime-2026",
       "kind": "dataset",
       "label": "AIME 2026",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:alpacaeval",
@@ -45352,7 +46638,7 @@
       "kind": "dataset",
       "label": "CMIMC",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:commonsenseqa",
@@ -45387,7 +46673,7 @@
       "kind": "dataset",
       "label": "GPQA-Diamond",
       "settled": false,
-      "sources": 12
+      "sources": 13
     },
     {
       "id": "dataset:gsm8k",
@@ -45408,7 +46694,7 @@
       "kind": "dataset",
       "label": "HMMT",
       "settled": false,
-      "sources": 2
+      "sources": 4
     },
     {
       "id": "dataset:hotpotqa",
@@ -45464,7 +46750,7 @@
       "kind": "dataset",
       "label": "MATH500",
       "settled": false,
-      "sources": 39
+      "sources": 40
     },
     {
       "id": "dataset:mathvision",
@@ -45499,7 +46785,7 @@
       "kind": "dataset",
       "label": "MMLU",
       "settled": false,
-      "sources": 8
+      "sources": 9
     },
     {
       "id": "dataset:mmlu-pro",
@@ -45512,6 +46798,13 @@
       "id": "dataset:mmlu-stem",
       "kind": "dataset",
       "label": "MMLU-STEM",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "dataset:mmmu",
+      "kind": "dataset",
+      "label": "MMMU",
       "settled": false,
       "sources": 2
     },
@@ -45586,6 +46879,13 @@
       "sources": 2
     },
     {
+      "id": "dataset:the-pile",
+      "kind": "dataset",
+      "label": "the Pile",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "dataset:triviaqa",
       "kind": "dataset",
       "label": "TriviaQA",
@@ -45646,14 +46946,14 @@
       "kind": "method",
       "label": "beam search",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "method:best-of-n",
       "kind": "method",
       "label": "best-of-n",
       "settled": true,
-      "sources": 13
+      "sources": 14
     },
     {
       "id": "method:borda-count",
@@ -45723,7 +47023,7 @@
       "kind": "method",
       "label": "chain-of-thought prompting",
       "settled": false,
-      "sources": 13
+      "sources": 14
     },
     {
       "id": "method:circuit-analysis",
@@ -45954,7 +47254,7 @@
       "kind": "method",
       "label": "linear probe",
       "settled": true,
-      "sources": 18
+      "sources": 19
     },
     {
       "id": "method:literature-survey",
@@ -46010,14 +47310,14 @@
       "kind": "method",
       "label": "majority voting",
       "settled": true,
-      "sources": 10
+      "sources": 12
     },
     {
       "id": "method:membership-inference",
       "kind": "method",
       "label": "membership inference",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:meta-reasoning",
@@ -46038,7 +47338,7 @@
       "kind": "method",
       "label": "Monte Carlo tree search",
       "settled": false,
-      "sources": 7
+      "sources": 8
     },
     {
       "id": "method:multi-turn-reasoning",
@@ -46073,7 +47373,7 @@
       "kind": "method",
       "label": "pass@k",
       "settled": true,
-      "sources": 13
+      "sources": 14
     },
     {
       "id": "method:pca",
@@ -46081,6 +47381,13 @@
       "label": "PCA",
       "settled": false,
       "sources": 3
+    },
+    {
+      "id": "method:permutation-test",
+      "kind": "method",
+      "label": "permutation test",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "method:policy-gradient",
@@ -46136,7 +47443,7 @@
       "kind": "method",
       "label": "process reward model",
       "settled": false,
-      "sources": 8
+      "sources": 9
     },
     {
       "id": "method:reasoning-distillation",
@@ -46206,7 +47513,7 @@
       "kind": "method",
       "label": "self-consistency",
       "settled": true,
-      "sources": 16
+      "sources": 19
     },
     {
       "id": "method:self-reflection",
@@ -46276,7 +47583,7 @@
       "kind": "method",
       "label": "test-time scaling",
       "settled": true,
-      "sources": 15
+      "sources": 17
     },
     {
       "id": "method:token-level-distillation",
@@ -46311,7 +47618,7 @@
       "kind": "method",
       "label": "vLLM",
       "settled": false,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "method:weight-space-ablation",
@@ -46347,6 +47654,13 @@
       "label": "DeepSeek-R1",
       "settled": false,
       "sources": 7
+    },
+    {
+      "id": "model:deepseek-r1-0528-qwen3-8b",
+      "kind": "model",
+      "label": "DeepSeek-R1-0528-Qwen3-8B",
+      "settled": false,
+      "sources": 2
     },
     {
       "id": "model:deepseek-r1-distill-llama-70b",
@@ -46528,14 +47842,14 @@
       "kind": "model",
       "label": "gpt-oss-120b",
       "settled": false,
-      "sources": 4
+      "sources": 5
     },
     {
       "id": "model:gpt-oss-20b",
       "kind": "model",
       "label": "gpt-oss-20b",
       "settled": false,
-      "sources": 5
+      "sources": 6
     },
     {
       "id": "model:kimi-k2-5",
@@ -46640,7 +47954,7 @@
       "kind": "model",
       "label": "Pythia-410M",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "model:qwen",
@@ -46828,6 +48142,13 @@
       "id": "model:qwen3-4b-thinking-2507",
       "kind": "model",
       "label": "Qwen3-4B-Thinking-2507",
+      "settled": false,
+      "sources": 3
+    },
+    {
+      "id": "model:qwen3-5-27b",
+      "kind": "model",
+      "label": "Qwen3.5-27B",
       "settled": false,
       "sources": 2
     },

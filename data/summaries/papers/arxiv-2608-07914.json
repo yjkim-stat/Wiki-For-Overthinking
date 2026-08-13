@@ -1,0 +1,60 @@
+{
+  "concepts": [
+    "benchmark contamination",
+    "audit power",
+    "behavioral separability",
+    "sparse mixture detection",
+    "detection boundary",
+    "score efficacy",
+    "membership inference",
+    "prevalence certificate",
+    "validity gate",
+    "blind separation"
+  ],
+  "contributions": [
+    "A finite-sample second-moment bound showing every level-tau audit's power is capped by alpha*rho*sqrt(m), with rho^2 = chi^2(P_1 || P_0) the behavioural separability",
+    "Proposition 5: any scalar detector's efficacy e_f is at most rho and is estimable from matched controls before the audit is run",
+    "A sample-split certificate that lower-bounds the exposed fraction alpha distribution-free, with no orientation assumption",
+    "An empirical result reported as a failure as well as a success: calibration efficacy predicts power curves but the Gaussian budget it prescribes is miscalibrated, and a simulation-based planner repairs it"
+  ],
+  "datasets": [
+    "SQuAD",
+    "the Pile",
+    "Wikipedia"
+  ],
+  "generated_at": "2026-08-13T12:14:40Z",
+  "generated_by": "queue",
+  "limitations": "The paper's own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption rather than a law of training: contaminated examples can affect unexposed ones and post-training can alter both the clean and seen channels, and the stability diagnostics can reveal large violations but cannot prove transportability. The lower bound is pointwise in a chosen behavioural access channel and says nothing about direct corpus search, cryptographic provenance or watermarking. The matching optimality is local and assumes finite chi-square divergence. The certificate needs independent matched controls and a score learned on separate data, which an external auditor of a closed model generally cannot construct, so neither efficacy nor the exposed fraction is identified without extra assumptions. Six named gaps are open and unexecuted, including the locked external validation on the 25-model release that motivates the paper. A reader should add that the causal exposure claim rests on one base checkpoint (pythia-160m), one benchmark (SQuAD), one copy count and one protocol; that 'Pile-trained' does not certify the base never saw SQuAD, so only the incremental effect of the paired continuations is claimed; that the mechanism arms are not dose-matched, so the ordering is descriptive rather than a causal comparison; and that the three adjacent mechanism differences are significant per seed by sign-test but not after Holm correction.",
+  "method": "A benchmark item carries a hidden exposure indicator Z, and under a matched partial-contamination channel the probe outcome is P_0 given Z=0 and P_1 given Z=1, so uniformly sampling items gives the sparse mixture Q_alpha = (1-alpha)P_0 + alpha*P_1. All repeated decodes, perturbations and token-level features of one item count as a single joint outcome, so m is a count of independent items rather than of probes. Theorem 3 bounds type-I plus type-II error below by 1 - min{1, C_m(alpha, rho)} with C_m = 0.5*{(1+alpha^2 rho^2)^m - 1}^{1/2}, and Corollary 4 turns it into a detection boundary: if alpha_m*rho_m*sqrt(m) tends to zero no asymptotic level-tau audit has power beyond its false-positive rate, so nontrivial power requires alpha = Omega(1/(rho*sqrt(m))). The bound is attained by the centred likelihood-ratio score, making it a minimax rather than a loose limit. Proposition 5 converts a practical scalar score f into a power diagnostic through its efficacy e_f = |E_1 f - E_0 f| / sd_0(f), proves e_f <= rho with equality only when f is affine in the density ratio, and gives the planning equation m_target = ((z_{1-tau} + z_{1-beta}) / (alpha * e_f))^2 -- estimable from matched controls rather than from an unattainable channel oracle. The audit itself splits data by original document into a score-training split, a calibration split and an untouched audit split; the confirmatory decision is a one-sided two-sample permutation test with the score, its orientation and the budget all frozen before the audit split is opened. Four validity gates are part of the contract: blind separation (a text-only classifier must not separate the pools), clean-channel transport, channel stability across alpha, and an independence unit counting source-item clusters. Evaluation A uses checkpoint-matched channels; Evaluation B injects SQuAD items into a Pile background and continues pretraining pythia-160m, crossing the injection with four mechanisms at four copies per item -- exact question-answer text, a validated paraphrase, a word-order shuffle, and answer-only -- against a matched clean continuation from the same seed. Five gray-box probe families are scored: mean loss, zlib-normalized loss, Min-K% Prob, Min-K%++ and neighbourhood loss.",
+  "methods": [
+    "permutation test",
+    "Min-K% Prob",
+    "Min-K%++",
+    "neighborhood loss",
+    "sample splitting",
+    "empirical Bernstein bound",
+    "continued pretraining"
+  ],
+  "models": [
+    "Pythia-160M",
+    "Pythia-410M",
+    "Pythia-1.4B",
+    "GPT-Neo-1.3B"
+  ],
+  "one_liner": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+  "paper_id": "arxiv:2608.07914",
+  "problem": "A behavioural contamination detector that returns 'no evidence' has said one of two things — the benchmark is clean, or the audit had too little power — and nothing in the current literature distinguishes them. A 25-model study found only 201 of 335 audit outcomes correct, establishing that audits fail without saying when they will. What is missing is audit power: how many independent items must be probed to detect a small exposed fraction, and which fractions a non-rejection actually rules out.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-evaluation": "The archive already holds the result that a brief round of GRPO erases the signals contamination detectors rely on, and treats that as a reason to distrust any benchmark number. This supplies the missing half: an information-theoretic statement of when a detector could have worked at all, in one estimable quantity, plus the finding that a null audit is uninterpretable unless its efficacy, budget and validity gates are reported alongside it. It also gives the archive its first measured mechanism ordering for contamination -- verbatim above paraphrase above surface perturbation, with answer-only exposure indistinguishable from drift -- which bears directly on whether the reasoning benchmarks here are exposed in a way any behavioural probe could see."
+  },
+  "results": "Two-sided, and the paper reports the failures as primary endpoints. Frozen calibration efficacy predicts held-out permutation power well across six model-by-corpus channels: R^2 0.83-0.98, MAE 0.03-0.11, slope 0.91-1.04, with empirical size at alpha=0 of 0.009-0.045, so the test is valid and somewhat conservative. The budgets derived from those curves do not transport. The pre-specified pooled calibration-to-audit scaling claim is withdrawn, with efficacy-transport ratios at a median of 2.23x against a 2x tolerance fixed before the numbers were seen; with an 800-item calibration the ratios shrink to 1.03-1.50, and on the gate-passing channels raw efficacy ratios are 1.02-1.35. So efficacy itself largely transports and the Gaussian inversion is what breaks: the plug-in budget fails in 9 of 9 gate-passing channels, with m_pred/m_star of 0.54-0.86 and observed power 0.01-0.74 where 0.80 was prescribed. A two-stage planner that resamples the score laws and runs the deployed permutation test at each candidate m is uniformly conservative (m_plan/m_star 1.00-2.00, median 1.36), delivers 0.785-0.92 power with 0.80 or better in 6 of 8 channels and zero clear failures, and abstains on the one channel whose probe does not transport. The prevalence certificate is valid and vacuous at audit scale: it never fires at m=512 in any of the six channels, and certifying alpha of 0.1-0.2 would need balanced groups of roughly 3,500-79,000 items. The five-seed paired injection study recovers a mechanism ordering from the causal contrast D_s -- exact 1.01 +/- 0.07, paraphrase 0.70 +/- 0.09, surface shuffle 0.44 +/- 0.04 -- while answer-only comes in at -0.01 +/- 0.07 with every per-seed interval covering zero, so its apparent raw efficacy of 0.19 is baseline drift that the paired design exists to catch. The validity gates do real work: every checkpoint-free Evaluation A channel fails blind separation at text-only AUC 0.95, meaning content-confounded separability rather than membership, while the same-corpus continued-pretraining channels repair it at blind AUC 0.48-0.54 with 4 of 6 passing every gate.",
+  "schema_version": 1,
+  "tags": [
+    "contamination",
+    "auditing",
+    "statistical-power",
+    "membership-inference",
+    "evaluation-validity"
+  ]
+}

@@ -23,6 +23,12 @@
       "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
     },
     {
+      "id": "arxiv:2608.11994",
+      "kind": "paper",
+      "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
+      "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.432",
       "kind": "paper",
       "note": "An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.",
@@ -31,7 +37,7 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "gpt-oss-120b",
   "related": [
     "monitorability",
@@ -104,6 +110,24 @@
     "ministral-3-14b-reasoning",
     "deepseek-r1-distill-llama-70b",
     "minimax-m2-230b",
+    "claim-level-falsification",
+    "signal-dilution",
+    "test-time-scaling",
+    "reliability-weighting",
+    "verifier-free-verification",
+    "answer-aggregation",
+    "consensus",
+    "rescue-rate",
+    "budget-parity",
+    "self-consistency",
+    "majority-voting",
+    "best-of-n",
+    "process-supervision",
+    "hmmt",
+    "cmimc",
+    "apex-shortlist",
+    "gemma-4-12b-it",
+    "qwen3-5-27b",
     "inductive-reasoning",
     "programming-by-examples",
     "benchmark-contamination",
@@ -123,7 +147,7 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

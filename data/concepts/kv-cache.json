@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08020",
+      "kind": "paper",
+      "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+      "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
       "id": "local:54a1c25fa51cd59a",
       "kind": "paper",
       "note": "Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.",
@@ -11,9 +17,32 @@
   ],
   "first_seen": "2026-08-08T04:51:02Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "KV cache",
   "related": [
+    "compute-allocation",
+    "test-time-compute",
+    "partial-trajectory",
+    "prefix-quality",
+    "hardware-utilization",
+    "zero-sum-allocation",
+    "trajectory-diversity",
+    "answer-aggregation",
+    "beam-search",
+    "self-consistency",
+    "prefix-caching",
+    "monte-carlo-tree-search",
+    "process-reward-model",
+    "linear-probe",
+    "vllm",
+    "score-weighted-majority-vote",
+    "aime-2025",
+    "aime-2026",
+    "hmmt",
+    "gpqa-diamond",
+    "qwen3-4b-thinking-2507",
+    "deepseek-r1-0528-qwen3-8b",
+    "phi-4-reasoning-plus-14b",
     "causal-register",
     "scratchpad-oversight",
     "process-supervision",
@@ -24,7 +53,6 @@
     "causal-abstraction",
     "state-tracking",
     "residual-stream",
-    "linear-probe",
     "selectivity-control",
     "low-rank-subspace-projection",
     "attention-edge-ablation-and-restoration",
@@ -38,7 +66,7 @@
   "schema_version": 1,
   "slug": "kv-cache",
   "topics": [
-    "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness"
   ]
 }

@@ -246,8 +246,8 @@ th { background: var(--surface); }
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
-<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
+<li><strong>chain of thought faithfulness</strong> — Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the...</li>
 <li><strong>credit assignment</strong> — Deciding which part of a trajectory deserves the reward, and the problem RLVR&#x27;s sparse sequence-level signal creates. Nine sources attack...</li>
 <li><strong>verification</strong> — Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, t...</li>
 </ul>
@@ -266,8 +266,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
+<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
 <li><strong>GSM8K</strong> — 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions...</li>
 <li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
@@ -277,23 +277,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>Thought-Level Beam Search for Reasoning</strong> — The paper has no limitations section and its central claim is stated more strongly than the table supports. &#x27;Strictly dominates existing baselines&#x27; does not...</li>
 <li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 <li><strong>LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction</strong> — No quantitative results in the abstract. The theoretical guarantees hold &#x27;under suitable conditions&#x27; and at a matched randomness level, neither specified her...</li>
 <li><strong>AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning</strong> — Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so...</li>
 <li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 <li><strong>Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning</strong> — The claim is a reading of the evidence, and the paper states the gains come &#x27;at least partly&#x27; from robustness, so it does not exclude a ToM-specific componen...</li>
-<li><strong>Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark</strong> — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute acc...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark</strong> — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute acc...</li>
 <li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
 <li><strong>Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)</strong> — Evaluated only in two simulators, so transfer to real networks is unestablished. The 522% average degradation is reported without a per-environment breakdown...</li>
 <li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
 <li><strong>Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO</strong> — No quantitative results in the abstract, so the size of the trade-off improvement is unstated. The benchmarks are not named. The claim that the second reason...</li>
-<li><strong>SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts</strong> — Datasets and models are not named in the abstract. Gains are in wall-clock time, not in final accuracy, and because the objective is unchanged the method is...</li>
 </ul>
 </section>
 <section class="slide">

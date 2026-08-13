@@ -17,6 +17,12 @@
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.08020",
+      "kind": "paper",
+      "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+      "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
       "id": "local:80ef8b5ce7217f7c",
       "kind": "paper",
       "note": "Replaces uniform test-time compute allocation with a training-free agent that picks reasoning tools, a search strategy and an exploration parameter per problem, using a process reward model both to prune within a trajectory and to select across iterations.",
@@ -25,7 +31,7 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "method",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "beam search",
   "related": [
     "test-time-scaling",
@@ -77,6 +83,22 @@
     "olympiadbench",
     "math500",
     "qwen2-5-1-5b",
+    "compute-allocation",
+    "partial-trajectory",
+    "prefix-quality",
+    "hardware-utilization",
+    "kv-cache",
+    "zero-sum-allocation",
+    "trajectory-diversity",
+    "answer-aggregation",
+    "prefix-caching",
+    "linear-probe",
+    "vllm",
+    "score-weighted-majority-vote",
+    "gpqa-diamond",
+    "qwen3-4b-thinking-2507",
+    "deepseek-r1-0528-qwen3-8b",
+    "phi-4-reasoning-plus-14b",
     "adaptive-test-time-compute-allocation",
     "trajectory-level-selection",
     "online-pruning",
@@ -97,6 +119,7 @@
   "schema_version": 1,
   "slug": "beam-search",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

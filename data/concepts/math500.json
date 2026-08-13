@@ -62,6 +62,12 @@
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.09351",
+      "kind": "paper",
+      "note": "Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.",
+      "title": "Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -244,7 +250,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "MATH500",
   "related": [
     "post-training-quantization",
@@ -419,6 +425,20 @@
     "greedy-decoding",
     "olympiadbench",
     "qwen2-5-1-5b",
+    "test-time-augmentation",
+    "input-diversity",
+    "output-diversity",
+    "prompt-sensitivity",
+    "matched-compute",
+    "cost-effectiveness",
+    "variance-reduction",
+    "answer-aggregation",
+    "paraphrasing",
+    "mmmlu",
+    "mmmu",
+    "hle",
+    "imdb-reviews",
+    "claude-4-5-haiku",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",

@@ -19,6 +19,12 @@
       "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility"
     },
     {
+      "id": "arxiv:2608.11994",
+      "kind": "paper",
+      "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
+      "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.1456",
       "kind": "paper",
       "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
@@ -39,7 +45,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-13T12:18:17Z",
   "name": "gpt-oss-20b",
   "related": [
     "monitorability",
@@ -99,6 +105,19 @@
     "qwen3-6-35b-a3b",
     "deepseek-r1",
     "phi-4-reasoning",
+    "claim-level-falsification",
+    "signal-dilution",
+    "reliability-weighting",
+    "verifier-free-verification",
+    "answer-aggregation",
+    "consensus",
+    "rescue-rate",
+    "budget-parity",
+    "majority-voting",
+    "process-supervision",
+    "apex-shortlist",
+    "gemma-4-12b-it",
+    "qwen3-5-27b",
     "instruction-following",
     "controllability",
     "alignment",

@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.
 
-Built from 56 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-12. 41 of the papers have been read in full.
+Built from 56 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-12. 42 of the papers have been read in full.
 
 Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reasoning`, `logical reasoning`, `competition math`, `math word problem`, `GSM8K`, `AIME`, `benchmark contamination`, `data contamination`, `LLM as a judge`, `reasoning evaluation`, `evaluating reasoning`, `ARC AGI`.
 
@@ -27,7 +27,7 @@ Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reas
 - **MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models** _(not yet summarized)_
 - **MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning** _(not yet summarized)_
 - **PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation** _(not yet summarized)_
-- **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** _(not yet summarized)_
+- **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** — Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.
 - **Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework** _(not yet summarized)_
 - _...and 35 more._
 
@@ -60,17 +60,17 @@ Whether a benchmark measures the thing its name claims, and the archive's domina
 
 Seen in: Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve; Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility; Monte Carlo Tree Search for Table-to-Multimodal Report Generation.
 
-### chain of thought faithfulness
-
-Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.
-
-Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models.
-
 ### test-time compute
 
 Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
 
 Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
+
+### chain of thought faithfulness
+
+Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.
+
+Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models.
 
 ### credit assignment
 
@@ -114,11 +114,11 @@ The tension this archive's entropy literature is organized around: a policy that
 
 Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representation-Based Exploration for Language Models: From Test-Time to Post-Training; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
 
-### self-correction
+### process supervision
 
-A model noticing an error in its own work and repairing it, and one of the archive's least-supported capabilities once measured carefully. Nine sources use the term and two undercut it directly. Decomposing revision gains into a content margin and format-recovery margins shows most of what the field has called self-correction is answer-parseability repair, with the content margin exactly zero in all five frontier cells tested despite total effects up to +0.275. And prompting a model to reflect on the specific failure modes catalogued in its own mathematical proofs does not fix them. What survives is narrower and more mechanical: iterative refinement of sampled rollouts before aggregation improves accuracy on small models; a learned self-reflection token lets a model recover from harmful output mid-generation, cutting harmful completion from 13.8% to 4.1%; and reflective tokens sit at sparse information peaks whose suppression degrades reasoning. The archive's reading is that self-correction works as a trained, positioned intervention and not as a general capability a model exercises on its own.
+Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.
 
-Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics; The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
+Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning; Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering; AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning; DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models.
 
 ## Methods
 
@@ -129,45 +129,45 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | supervised fine-tuning | 27 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 18 | _pending_ |
-| self-consistency | 16 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| test-time scaling | 15 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| linear probe | 19 | _pending_ |
+| self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| test-time scaling | 17 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
-| best-of-n | 13 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| pass@k | 13 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| majority voting | 10 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
+| pass@k | 14 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
+| majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | PPO | 10 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | activation steering | 9 | _pending_ |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
-| process reward model | 8 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
+| Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | circuit analysis | 7 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
-| Monte Carlo tree search | 7 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 
 ## Benchmarks and datasets
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
+| MATH500 | 40 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | AIME 2024 | 39 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| MATH500 | 39 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | GSM8K | 33 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
-| AIME 2025 | 26 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
+| AIME 2025 | 27 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 15 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
-| GPQA-Diamond | 12 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| GPQA-Diamond | 13 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | MATH | 12 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | OlympiadBench | 12 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | DAPO-Math-17K | 8 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
 | LiveCodeBench | 8 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
-| MMLU | 8 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | Minerva | 7 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
 | AIME | 4 | The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checka... |
 | HumanEval+ | 4 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
 | Brumo | 3 | A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically... |
+| CMIMC | 3 | A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among fi... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
-| CMIMC | 2 | A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among fi... |
 | MathVision | 2 | A visual mathematics benchmark, used in two sources as the multimodal counterpart to the text-only mathematics sets. One audits a perturbation-based selection rule for vision-la... |
 
 ## Reading path
@@ -185,35 +185,36 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 2. **Training Verifiers to Solve Math Word Problems** (2021)
    - Introduces GSM8K, 8.5K grade-school math word problems, and shows that training a verifier to rank many sampled solutions beats finetuning the generator directly.
    - <https://arxiv.org/abs/2110.14168>
-3. **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** (2026)
+3. **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** (2026)
+   - Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.
+   - <https://arxiv.org/abs/2608.07914>
+4. **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** (2026)
    - Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.
    - <https://arxiv.org/abs/2608.05726>
-4. **Hierarchical Latent Prediction for Language Models** (2026)
+5. **Hierarchical Latent Prediction for Language Models** (2026)
    - Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.
    - <https://arxiv.org/abs/2608.05806>
-5. **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** (2026)
+6. **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** (2026)
    - Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.
    - <https://arxiv.org/abs/2608.06243>
-6. **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** (2026)
+7. **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** (2026)
    - Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.
    - <https://arxiv.org/abs/2608.06347>
-7. **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** (2026)
+8. **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** (2026)
    - Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.
    - <https://doi.org/10.18653/v1/2026.acl-long.1638>
-8. **VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning** (2026)
+9. **VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning** (2026)
    - Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.
    - <https://doi.org/10.18653/v1/2026.acl-long.1719>
-9. **Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models** (2026)
+10. **Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models** (2026)
    - Consolidates multiword-expression resources into one evaluation suite covering idioms, noun compounds and verbal constructions across extraction, classification and interpretation tasks.
    - <https://doi.org/10.18653/v1/2026.acl-long.210>
-10. **MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?** (2026)
-   - A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.
-   - <https://doi.org/10.18653/v1/2026.acl-long.2198>
 
 ## Open problems
 
 Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
 
+- **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** — The paper's own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption rather than a law of training: contaminated examples can affect unexposed ones and post-training can alter both the clean and seen channels, and the stability diagnostics can reveal large violations but cannot prove transportability. The lower bound is pointwise in a chosen behavioural access channel and says nothing about direct corpus search, cryptographic provenance or watermarking. The matching optimality is local and assumes finite chi-square divergence. The certificate needs independent matched controls and a score learned on separate data, which an external auditor of a closed model generally cannot construct, so neither efficacy nor the exposed fraction is identified without extra assumptions. Six named gaps are open and unexecuted, including the locked external validation on the 25-model release that motivates the paper. A reader should add that the causal exposure claim rests on one base checkpoint (pythia-160m), one benchmark (SQuAD), one copy count and one protocol; that 'Pile-trained' does not certify the base never saw SQuAD, so only the incremental effect of the paired continuations is claimed; that the mechanism arms are not dose-matched, so the ordering is descriptive rather than a causal comparison; and that the three adjacent mechanism differences are significant per seed by sign-test but not after Holm correction.
 - **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number request, which is a modelling choice rather than a fact about the intended judge behaviour. Rectification needs access to token generation probabilities, so it does not apply to judges behind APIs that do not expose logprobs. Bias varying by score range means a single measured distribution may not correct the tails.
 - **Hierarchical Latent Prediction for Language Models** — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent's construction and supervision is not given at this level of detail. Claims about belief-state coherence are asserted without a stated measurement. Being a pretraining-objective change, cost and any comparison at matched compute are unreported, which is the central question for a pretraining auxiliary loss.
 - **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors' own matched OPSD reruns, which is the right comparison but leaves the absolute standing against other dense-supervision methods unstated. Requires a privileged teacher. The sequence-level mean as the reference point makes each token's weight depend on the whole rollout, so weights are not available online during generation.
@@ -225,7 +226,6 @@ Drawn from the limitations each paper states about itself, so this is what the f
 - **Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning** — The paper has no limitations section. What a reader should weigh: the headline is a rubric method whose ablation attributes most of the movement to ordinary RL — 10.00 of 12.80 points on MMAU — with the entire rubric apparatus, static plus evolving plus length penalty, worth 2.80. The method also hinges on a strong proprietary generator and judge, and the paper shows it falling below plain GRPO when that is weakened, which makes the result conditional on a component the authors do not control and cannot release. Nothing accounts for the cost of that dependency: a judge call is issued per rubric per rollout per group per step, and no compute or wall-clock comparison against the GRPO baseline appears. Both reward weights are selected by sweeps on the same benchmarks the headline table reports. There is one policy backbone, one training corpus, greedy decoding only, and no seeds or variance anywhere. Finally, the claim that the rubrics make reasoning grounded in the audio is supported by accuracy on a perception split rather than by any direct check that the traces cite acoustic evidence — the mechanism is plausible and the measurement is still downstream accuracy.
 - **Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning** — The paper has no limitations section. What a reader should weigh: the topological claim is validated qualitatively on Level 3 and Level 4 subsets of MATH with 200 points per cloud, and the appendix states directly that it should not be read as establishing the same pattern for every difficulty level or model configuration. The H1 (loop) signal is reported as exploratory and is not used in scoring at all, and the paper says it weakens after pooling and normalization. The mean-token versus last-token comparison in Table 5 uses different retention ratios, beta and learning rates, so it compares two whole pipelines rather than isolating the representation, which the paper acknowledges. The reference-bank ablation does not identify a single best configuration — M=100 with R=10 gives the best AUC at 67.02 while R=20 gives better extreme rankings — so the setting used for the main results is not the one that maximizes discrimination. Only one labeled-set size is tried (600 problems), only two datasets, and no cost accounting is given for the filtration and multi-bank scoring against a reward-model forward pass.
 - **Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks** — Three ARC-style datasets, so the conclusion is about this benchmark family. The perception stage's output is a natural-language description, so reasoning is evaluated over a lossy re-encoding — an upper bound on reasoning given perfect description is not the same as reasoning over the image. The 80% figure comes from manual inspection whose protocol, sample size and agreement are not given in the abstract. Models are not named.
-- **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** — No numbers in the abstract, so the size of the cross-dimensional discrepancies is unstated and the models are not listed. The four-dimensional decomposition follows a theory of human problem-solving, and whether those dimensions carve model computation at its joints is assumed rather than shown. Dimension-specific tasks may themselves be confounded — a semantic-understanding task still requires reading and producing an answer.
 
 ## References
 

@@ -7,12 +7,13 @@ Testing whether a specific example was in a model's training data, used in the a
 - **Kind**: method
 - **Also called**: MIA, training-data membership test
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [attention analysis](attention-analysis.md), [benchmark contamination](../concepts/benchmark-contamination.md), [compositional generalization](../concepts/compositional-generalization.md), [construct validity](../concepts/construct-validity.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [importance sampling](importance-sampling.md), [MATH500](../datasets/math500.md), [memorization](../concepts/memorization.md), [out-of-distribution generalization](../concepts/out-of-distribution-generalization.md), [PPO](ppo.md), [RLVR](rlvr.md), [supervised fine-tuning](supervised-fine-tuning.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [attention analysis](attention-analysis.md), [benchmark contamination](../concepts/benchmark-contamination.md), [compositional generalization](../concepts/compositional-generalization.md), [construct validity](../concepts/construct-validity.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [importance sampling](importance-sampling.md), [MATH500](../datasets/math500.md), [memorization](../concepts/memorization.md), [out-of-distribution generalization](../concepts/out-of-distribution-generalization.md), [permutation test](permutation-test.md), [PPO](ppo.md), [Pythia-410M](../models/pythia-410m.md), [RLVR](rlvr.md), [supervised fine-tuning](supervised-fine-tuning.md), [the Pile](../datasets/the-pile.md)
 
 ## Appears in
 
+- [When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits](../../archive/papers/2026/arxiv-2608-07914/summary.md) — Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.
 - [AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-380/summary.md) — A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.
 - [On The Fragility of Benchmark Contamination Detection in Reasoning Models](../../archive/papers/2026/local-4cf1061e50d8b3c3/summary.md) — Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.
 

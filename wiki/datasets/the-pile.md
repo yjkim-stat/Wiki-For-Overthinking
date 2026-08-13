@@ -1,0 +1,22 @@
+# the Pile
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: dataset
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
+- **Sources**: 2
+
+**Related**: [activation patching](../methods/activation-patching.md), [benchmark contamination](../concepts/benchmark-contamination.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [indirect object identification](indirect-object-identification.md), [membership inference](../methods/membership-inference.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [permutation test](../methods/permutation-test.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [residual stream](../concepts/residual-stream.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](../concepts/superposition.md)
+
+## Appears in
+
+- [When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits](../../archive/papers/2026/arxiv-2608-07914/summary.md) — Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.
+- [Sparse Autoencoders Find Highly Interpretable Features in Language Models](../../archive/papers/2023/local-e33ecf791dfdfa8a/summary.md) — Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._
