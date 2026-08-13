@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-13 from 27 archived source(s).
+> Generated on 2026-08-13 from 32 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.
 
-Built from 27 paper(s) and 0 recording(s) spanning 2023-05-07 to 2026-08-05. 27 of the papers have been read in full.
+Built from 32 paper(s) and 0 recording(s) spanning 2023-05-07 to 2026-08-11. 27 of the papers have been read in full.
 
 Tracked terms: `chain of thought faithfulness`, `faithful reasoning`, `unfaithful`, `faithfulness of chain of thought`, `chain of thought monitoring`, `monitorability`, `encoded reasoning`, `steganography`, `latent reasoning`, `implicit reasoning`, `post-hoc rationalization`, `reasoning trace`, `introspection`, `sandbagging`.
 
@@ -17,6 +17,11 @@ Tracked terms: `chain of thought faithfulness`, `faithful reasoning`, `unfaithfu
 
 ### 2026
 
+- **INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators** _(not yet summarized)_
+- **ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling** _(not yet summarized)_
+- **Stealing Reasoning Traces from Proprietary LLM APIs** _(not yet summarized)_
+- **BDH-CQ: In-Context Learning with Recurrent Latent Reasoning** _(not yet summarized)_
+- **Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework** _(not yet summarized)_
 - **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** — The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
 - **Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?** — Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.
 - **LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation** — Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.
@@ -24,12 +29,7 @@ Tracked terms: `chain of thought faithfulness`, `faithful reasoning`, `unfaithfu
 - **Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering** — Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.
 - **Evading Chain-of-Thought Monitoring Through Model Poisoning** — Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).
 - **Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning** — Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.
-- **GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning** — Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.
-- **How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models** — Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.
-- **Reasoning Traces Shape Outputs but Models Won&apos;t Say So** — Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.
-- **SeLaR: Selective Latent Reasoning in Large Language Models** — Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.
-- **The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models** — Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.
-- _...and 6 more._
+- _...and 11 more._
 
 ### 2025
 
@@ -259,3 +259,8 @@ Drawn from the limitations each paper states about itself, so this is what the f
 25. Haotian Xia, Zilin Xiao, Junbo Zou et al.. *Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering*. cs.CV. 2026 <https://arxiv.org/abs/2608.04124>
 26. Agatha Duzan, Asa Cooper Stickland. *Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings*. cs.AI. 2026 <https://arxiv.org/abs/2608.04735>
 27. Pedro Ferreira, Wilker Aziz, Ivan Titov. *Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?*. cs.CL. 2026 <https://arxiv.org/abs/2608.04928>
+28. Abhishek Panwar, Maheep Singh, Saksham Bansal. *Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework*. cs.AI. 2026 <https://arxiv.org/abs/2608.08113>
+29. Björn Engdahl, Adrian Kosowski, Jan Chorowski et al.. *BDH-CQ: In-Context Learning with Recurrent Latent Reasoning*. cs.NE. 2026 <https://arxiv.org/abs/2608.09888>
+30. Alexander Panfilov, David Schmotz, Ilia Shumailov et al.. *Stealing Reasoning Traces from Proprietary LLM APIs*. cs.CR. 2026 <https://arxiv.org/abs/2608.09867>
+31. Rose Niousha, Minwoo Kang, Narges Norouzi. *INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators*. cs.AI. 2026 <https://arxiv.org/abs/2608.10492>
+32. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>

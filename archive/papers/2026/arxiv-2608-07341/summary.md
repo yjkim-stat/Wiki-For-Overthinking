@@ -1,0 +1,24 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination
+
+- **Authors**: Ruijie Hou, Yueyang Jiao, Zhao Wang, Yingming Li
+- **Venue**: cs.CL
+- **Published**: 2026-08-07
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.07341>
+- **PDF**: <https://arxiv.org/pdf/2608.07341v1>
+- **Topics**: reasoning-evaluation
+- **Relevance score**: reasoning-evaluation 0.50
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Test data from public benchmarks inevitably leaks into pretraining corpora, inflating evaluation scores once memorized. \textbf{Contamination mitigation evaluation} intervenes in the decoding process to suppress memorization and restore a contaminated model's genuine capability, but its prevailing metric, the \textbf{G-AP} (\textbf{G}ap of \textbf{A}ggregate \textbf{P}erformance), is flawed. Discrete correct/incorrect readouts cannot characterize per-question performance, averaging before differencing lets over- and under-suppression cancel out, and uniform per-question weighting invites strategies to push solve probabilities onto the clean model's high-frequency values. We propose \textbf{SA-PPG} (\textbf{S}tratified \textbf{A}ggregate of \textbf{P}er-question \textbf{P}robability \textbf{G}aps): estimate each question's solve probability by sampling, difference it against the clean model per question, and aggregate within groups defined by the clean model's solve probability. Existing mitigation strategies first estimate where contamination lies and then operate on the estimate, so they are only as correct as the estimate. \textbf{RailCap} instead judges contamination during generation: whenever a sample falls back onto the greedy trajectory, the next trajectory token is capped to the runner-up, accumulating suppression until the response distribution becomes sufficiently dispersed. Across multiple contaminated models and benchmarks, SA-PPG reveals that prior strategies' restoration is substantially overestimated, while RailCap attains the lowest SA-PPG.
+
+---
+
+Record id: `arxiv:2608.07341`

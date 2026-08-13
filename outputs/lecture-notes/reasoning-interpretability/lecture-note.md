@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-13 from 31 archived source(s).
+> Generated on 2026-08-13 from 52 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.
 
-Built from 31 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-06. 31 of the papers have been read in full.
+Built from 52 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 31 of the papers have been read in full.
 
 Tracked terms: `mechanistic interpretability`, `activation patching`, `causal mediation`, `causal tracing`, `causal analysis`, `circuit analysis`, `circuit discovery`, `reasoning circuit`, `attention head`, `sparse autoencoder`, `superposition`, `polysemantic`, `monosemantic`, `residual stream`, `activation steering`, `steering vector`, `linear probe`, `linear probing`, `internal representation`, `structural causal model`, `difference-in-means`, `representation editing`, `logit lens`, `interchange intervention`.
 
@@ -17,19 +17,19 @@ Tracked terms: `mechanistic interpretability`, `activation patching`, `causal me
 
 ### 2026
 
-- **CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits** — Builds multi-layer steering vectors from SAE features selected by co-activation and decoder-direction alignment, and intervenes at several points instead of one.
-- **Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors** — Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.
-- **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
-- **A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation** — Proves that activation patching and weight-space ablation measure two different quantities — a carrier's donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.
-- **Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model** — Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.
-- **Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition** — Trains a difference-of-means direction on short- versus long-horizon answer continuations and steers along it, shifting binary temporal choices, moving the monetary indifference threshold on an untrained task by a factor of 56 at a ten-year delay, and changing a planning benchmark — with matched-norm random controls and an unusually candid account of what the direction may actually encode.
-- **Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs** — Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.
-- **Inverted Detection and Control in Steering Vectors** — Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.
-- **Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes** — Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.
-- **Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders** — Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.
-- **Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning** — Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.
-- **Spectra: A Mechanistic Interpretability Library for Vision-Language Models** — An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.
-- _...and 13 more._
+- **Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders** _(not yet summarized)_
+- **UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations** _(not yet summarized)_
+- **Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique** _(not yet summarized)_
+- **Probing and steering biology across Boltz-1s trunk-diffusion boundary** _(not yet summarized)_
+- **Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability** _(not yet summarized)_
+- **Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability** _(not yet summarized)_
+- **Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics** _(not yet summarized)_
+- **Interpreting Language Model Hidden States at Scale** _(not yet summarized)_
+- **Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models** _(not yet summarized)_
+- **Safety Cost of Steering Vectors Is Separable and Reducible** _(not yet summarized)_
+- **Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing** _(not yet summarized)_
+- **"Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders** _(not yet summarized)_
+- _...and 34 more._
 
 ### 2025
 
@@ -254,4 +254,25 @@ Drawn from the limitations each paper states about itself, so this is what the f
 28. Michal Mráz, Justin Shenk. *Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition*. cs.AI. 2026 <https://arxiv.org/abs/2608.03892>
 29. Arya Labroo, Mengjie Qian, Kate Knill. *Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors*. cs.AI. 2026 <https://arxiv.org/abs/2608.06300>
 30. Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. *CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits*. cs.LG. 2026 <https://arxiv.org/abs/2608.05732>
-31. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+31. Ali Jalal-Kamali. *Divergent Response Modes in Frontier Language Models Under Steering Pressure*. cs.AI. 2026 <https://arxiv.org/abs/2608.06578>
+32. Jakub Poćwiardowski, Mateusz Modrzejewski. *MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering*. cs.SD. 2026 <https://arxiv.org/abs/2608.06638>
+33. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+34. Ash Manvi, Samreena Tajreen. *Finding Usable Weight Mechanisms with Tiled SVD*. cs.AI. 2026 <https://arxiv.org/abs/2608.06969>
+35. Luc Hazenoot, Zhaochun Ren, Amirhossein Zohrehvand. *Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes*. cs.CL. 2026 <https://arxiv.org/abs/2608.07208>
+36. Zichuan Wang, Songlin Yang, Bo Peng et al.. *Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination*. cs.CV. 2026 <https://arxiv.org/abs/2608.07302>
+37. Adelaide Danilov, Aria Nourbakhsh, Oleksandr Marchenko Breneur et al.. *"Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.07852>
+38. Francisco Ribeiro, Sohaila Abdulsattar, Renata Gonzalez et al.. *On the Robustness of LLMs' Internal Representation of Code Correctness*. cs.SE. 2026 <https://arxiv.org/abs/2608.08266>
+39. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
+40. Yuqi Wu, Shengming Zhao, Jie Chen. *When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.08159>
+41. Ameen Ali, Tamim Zoabi, Lidor Brami et al.. *Wiener Representation Filtering for VLM Hallucination Suppression*. cs.CV. 2026 <https://arxiv.org/abs/2608.08167>
+42. Muhammad Faishal Adly Nelwan, Alfan Farizki Wicaksono. *Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.08829>
+43. Minhan Cho, Jimin Kweon. *Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08514>
+44. Yuxiao Li, Gjergji Kasneci. *Safety Cost of Steering Vectors Is Separable and Reducible*. cs.CL. 2026 <https://arxiv.org/abs/2608.08383>
+45. Yen-Shan Chen, Yu Chian Duan, Chih-En Kuo et al.. *Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics*. cs.AI. 2026 <https://arxiv.org/abs/2608.09638>
+46. Jordan Pettyjohn, Mansi Sakarvadia, Nathaniel Hudson et al.. *Interpreting Language Model Hidden States at Scale*. cs.AI. 2026 <https://arxiv.org/abs/2608.10260>
+47. Ashim Dhor, Pin-Yu Chen. *Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.10172>
+48. Jiaheng Su, Yu Sun. *Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.08976>
+49. Sanidhya Vijayvargiya, Rahul Lokesh. *Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique*. cs.LG. 2026 <https://arxiv.org/abs/2608.10430>
+50. Nikolai Bolik, Lennart Stöpler, Artur Andrzejak. *Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders*. cs.LG. 2026 <https://arxiv.org/abs/2608.11197>
+51. Piotr Jedryszek, Tongmeng Xie, Adam Winnifrith et al.. *Probing and steering biology across Boltz-1s trunk-diffusion boundary*. q-bio.QM. 2026 <https://arxiv.org/abs/2608.11475>
+52. Dvir Samuel, Guy Bar-Shalom, Fabrizio Frasca et al.. *UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations*. cs.CV. 2026 <https://arxiv.org/abs/2608.10835>

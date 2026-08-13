@@ -1,0 +1,24 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits
+
+- **Authors**: Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma
+- **Venue**: cs.AI
+- **Published**: 2026-08-08
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.07914>
+- **PDF**: <https://arxiv.org/pdf/2608.07914v1>
+- **Topics**: reasoning-evaluation
+- **Relevance score**: reasoning-evaluation 0.50
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Behavioral contamination detectors can return "no evidence" either because a benchmark is clean or because the audit has little power. We formalize this distinction for a benchmark in which an unknown fraction alpha of items was seen during training. With matched clean and seen controls, the behavioral channel is the sparse mixture Q_alpha = (1 - alpha) P_0 + alpha P_1, and an exact second-moment argument shows that detectability is governed by alpha * rho * sqrt(m), where rho^2 = chi^2(P_1 || P_0) measures behavioral separability. Any scalar detector reduces to its efficacy, ef = |E_1 f - E_0 f| / sqrt(Var_0(f)) <= rho, which can be estimated from controls before the audit is run. A separate sample-split certificate lower-bounds alpha distribution-free, without requiring an orientation assumption. Our empirical finding is two-sided. Frozen calibration efficacy predicts held-out power curves, with R^2 = 0.83-0.98 across six exact-permutation channels, but the efficacy-only Gaussian budget is miscalibrated at the small sample sizes it prescribes, failing in 9/9 gate-passing channels even though efficacy itself transports. The failure is in the inversion, not the calibration. A predeclared two-stage planner that simulates the deployed test repairs the budgets, is uniformly conservative, and abstains when its probe does not transport. The certificate is valid but vacuous at audit scale, and a five-seed paired injection study recovers the mechanism ordering verbatim > paraphrase > surface, in which the apparent answer-only signal is explained by baseline drift. We report the audit contract and its failures together: a non-rejection is interpretable only alongside the efficacy, budget, and validity gates that produced it.
+
+---
+
+Record id: `arxiv:2608.07914`

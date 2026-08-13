@@ -1,0 +1,40 @@
+{
+  "abstract": "On-policy self-distillation (OPSD) uses a privileged teacher to supervise a reasoning model on prefixes sampled from its own rollouts. Yet each rollout also reveals how the student's response unfolds and whether it succeeds, student-specific hindsight that standard OPSD does not use to form the teacher. We introduce Privileged Adaptation from Student Trajectories (PAST), which treats each completed student trajectory as additional privileged information for the OPSD teacher while leaving the student's distillation prefixes unchanged. PAST preserves the student's next-token distribution on correct trajectories and uses failed trajectories to adapt the teacher toward verified success under student-proximity regularization. We characterize what such a trajectory-conditioned teacher can transfer to a prefix-only student. Forward-KL distillation projects the teacher distributions to their conditional arithmetic mean given the prefix. This projection separates trajectory-specific variation that remains privileged from the mean policy shift available to the student. For correct trajectories, the unclipped population objective also has the frozen student as an ideal distributional fixed point. Across three mathematical reasoning benchmarks, PAST improves the Avg@12 macro average over Vanilla OPSD by 5.6 percentage points. A $2\\times2$ factorial study shows gains from both complete-trajectory access and teacher adaptation, while trajectory removal and shuffling confirm that the adapted teacher uses the matching hindsight context.",
+  "arxiv_id": "2608.08726",
+  "authors": [
+    "Yangyang Feng",
+    "Zhuoyan Feng",
+    "Junlan Chen"
+  ],
+  "categories": [
+    "cs.LG",
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-13T10:58:50Z",
+  "id": "arxiv:2608.08726",
+  "last_seen": "2026-08-13T10:58:50Z",
+  "local_path": "data/pdfs/arxiv-2608-08726.pdf",
+  "matched_keywords": [
+    "reasoning benchmark",
+    "mathematical reasoning",
+    "reasoning model"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.08726v1",
+  "published": "2026-08-09",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.4,
+    "reasoning-training": 0.25
+  },
+  "source": "arxiv",
+  "source_id": "2608.08726v1",
+  "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+  "topics": [
+    "reasoning-evaluation"
+  ],
+  "updated": "2026-08-09",
+  "url": "https://arxiv.org/abs/2608.08726",
+  "venue": "",
+  "year": 2026
+}

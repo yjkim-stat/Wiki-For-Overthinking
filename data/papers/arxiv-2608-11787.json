@@ -1,0 +1,43 @@
+{
+  "abstract": "Generating actionable financial advice from business records demands that models integrate numerical reasoning, domain knowledge, and sound judgment, while avoiding recommendations that could harm the business. Direct supervision is difficult: historical decisions are not necessarily optimal, and high-quality free-form labels are expensive to obtain. We formulate financial advice generation as a reinforcement learning problem and fine-tune an open-weight language model using Group Relative Policy Optimization (GRPO). Our reward is an LLM-as-a-judge rubric that scores each recommendation across multiple binary dimensions of advice quality, augmented with a safety gate for harm prevention. Since LLM-based evaluation alone cannot confirm whether improvements reflect genuine business value rather than adaptation to the judge, we complement it with a judge-independent audit based on a standard doubly-robust Conditional Average Treatment Effect (CATE) estimator. Under this observational off-policy audit, our trained LLM achieves approximately twice the estimated gross-profit lift of the strongest evaluated commercial baseline ($0.0228$ vs.\\ $0.0104$), together with the lowest downside rate and the least negative tail risk of any policy evaluated. Notably, the two evaluations do not rank the baselines identically: the untrained base model places last on the judge rubric but second on the causal audit, indicating that the audit captures a signal the judge does not. Our results demonstrate that GRPO with a finance-grounded reward signal can produce substantially more useful business recommendations than commercial LLMs, and that a judge-independent causal audit is a valuable complement to, rather than a confirmation of, LLM-as-a-judge assessment in financial NLP.",
+  "arxiv_id": "2608.11787",
+  "authors": [
+    "Ofir Ben Shoham",
+    "Shrutendra Harsola",
+    "Vignesh Subrahmaniam",
+    "Shravan Mohan",
+    "Yakov Gazman",
+    "Oded Vainas"
+  ],
+  "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-13T10:58:53Z",
+  "id": "arxiv:2608.11787",
+  "last_seen": "2026-08-13T10:58:53Z",
+  "local_path": "data/pdfs/arxiv-2608-11787.pdf",
+  "matched_keywords": [
+    "LLM as a judge",
+    "GRPO"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.11787v1",
+  "published": "2026-08-12",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.25,
+    "reasoning-training": 0.5
+  },
+  "source": "arxiv",
+  "source_id": "2608.11787v1",
+  "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "2026-08-12",
+  "url": "https://arxiv.org/abs/2608.11787",
+  "venue": "",
+  "year": 2026
+}

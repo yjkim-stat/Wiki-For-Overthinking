@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-13 from 120 archived source(s).
+> Generated on 2026-08-13 from 151 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
 
-Built from 120 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-06. 120 of the papers have been read in full.
+Built from 151 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-12. 120 of the papers have been read in full.
 
 Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
 
@@ -17,19 +17,19 @@ Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability
 
 ### 2026
 
-- **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.
-- **LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction** — A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.
-- **AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning** — Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.
-- **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** — Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.
-- **Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning** — Tests reasoning models on Theory of Mind tasks and argues their gains are increased robustness to prompt and task perturbation rather than a new ToM-specific ability.
-- **Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark** — An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.
-- **Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning** — Couples KV-cache compression and generation-length control under a single process-reward signal, compressing harder at high-reward reasoning steps and stopping early when confidence is high.
-- **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** — The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
-- **Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)** — An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.
-- **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** — Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.
-- **Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO** — A GRPO variant that teaches multimodal models to refuse when a referred object is absent, without losing localization accuracy on cases where it is present.
-- **SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts** — A speculative-decoding rollout engine for RL post-training that keeps the target sampling distribution exact while adapting the drafter at two timescales.
-- _...and 87 more._
+- **Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity** _(not yet summarized)_
+- **GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation** _(not yet summarized)_
+- **SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward** _(not yet summarized)_
+- **LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection** _(not yet summarized)_
+- **When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use** _(not yet summarized)_
+- **PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR** _(not yet summarized)_
+- **FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation** _(not yet summarized)_
+- **ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling** _(not yet summarized)_
+- **XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving** _(not yet summarized)_
+- **Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology** _(not yet summarized)_
+- **CARE: Confidence-Aware Reasoning for Reliable Medical VQA** _(not yet summarized)_
+- **ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering** _(not yet summarized)_
+- _...and 118 more._
 
 ### 2025
 
@@ -368,3 +368,34 @@ Drawn from the limitations each paper states about itself, so this is what the f
 118. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
 119. Yingqing Guo, Hui Yuan, Zijian He et al.. *LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction*. cs.LG. 2026 <https://arxiv.org/abs/2608.05600>
 120. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
+121. Xucong Wang, Zhe Zhao, Liheng Yu et al.. *DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training*. cs.AI. 2026 <https://arxiv.org/abs/2608.07147>
+122. Haoyu Zheng, Yun Zhu, Qing Wang et al.. *Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.07371>
+123. Zhengze Huang, Luyang Yu, Di Hong et al.. *REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment*. cs.AI. 2026 <https://arxiv.org/abs/2608.07931>
+124. Keyang Zhong, Kuo Wang, Peng Liu et al.. *SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.07959>
+125. Yifan Li, Ruxin Sun, Tongzhou Zhao. *StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08326>
+126. Abhishek Panwar, Maheep Singh, Saksham Bansal. *Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework*. cs.AI. 2026 <https://arxiv.org/abs/2608.08113>
+127. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
+128. Lijie Yang, Hongyin Luo, Jiawei Zhao et al.. *Thought-Level Beam Search for Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08020>
+129. Pengfei Zhou, Zhiwei Tang, Xiaopeng Peng et al.. *Improving Generalization Robustness of Multimodal RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.08802>
+130. Juncheng Dong, Ding Tong, Ishan Gupta et al.. *LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08889>
+131. Rahma Simin Ali, Jawad Hossain. *MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.08503>
+132. Haotian Wang, Lian Yan, Xingzhi Yao et al.. *MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08623>
+133. Donghong Jiang, Endian Lin, Luoping Cui et al.. *SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests*. cs.AI. 2026 <https://arxiv.org/abs/2608.08640>
+134. Yubo Jiang, Fengying Xie, Zhiguo Jiang et al.. *Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09826>
+135. Hongli Shen, Shaopeng Fu, Qinbo Zhang et al.. *Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.09542>
+136. Vatsal Venkatkrishna, Nico Daheim, Iryna Gurevych. *Parameter Exploration for RLVR via Variational Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.09805>
+137. Xu Zhang, Chang Xu, Hui Sun et al.. *REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting*. cs.LG. 2026 <https://arxiv.org/abs/2608.10149>
+138. Jefferson Hernandez, Jaywon Koo, Zilin Xiao et al.. *SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09271>
+139. Yuetian Du, Yucheng Wang, Zhenyuan Chen et al.. *CARE: Confidence-Aware Reasoning for Reliable Medical VQA*. cs.CV. 2026 <https://arxiv.org/abs/2608.10964>
+140. Taojie Zhu, Yuan Xia, Tao Sun et al.. *ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering*. cs.CL. 2026 <https://arxiv.org/abs/2608.10996>
+141. Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh et al.. *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*. cs.CL. 2026 <https://arxiv.org/abs/2608.10916>
+142. Pixel Nomand, Elena Voss, Marcus Hale et al.. *PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR*. cs.LG. 2026 <https://arxiv.org/abs/2608.11368>
+143. Zetao Hong, Song Yuan, Yuanhao Ding et al.. *Scheduling Mixed RL Rollouts Beyond Prefix Locality*. cs.DC. 2026 <https://arxiv.org/abs/2608.11152>
+144. Del Coburn, Scott Sanner, Dan Silver. *Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology*. cs.AI. 2026 <https://arxiv.org/abs/2608.11420>
+145. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
+146. Foundation Model Team, XPeng Inc. *XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving*. cs.AI. 2026 <https://arxiv.org/abs/2608.10976>
+147. Debanjan Dutta, Anish Chakrabarty, Swagatam Das. *Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity*. cs.LG. 2026 <https://arxiv.org/abs/2608.11716>
+148. Ofir Ben Shoham, Shrutendra Harsola, Vignesh Subrahmaniam et al.. *GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.11787>
+149. Xinhao Zhong, Yuxia Qiao, Junhao Li et al.. *LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection*. cs.LG. 2026 <https://arxiv.org/abs/2608.11691>
+150. Zile Zhou, Huining Yuan, Weichen Zhang et al.. *SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward*. cs.CV. 2026 <https://arxiv.org/abs/2608.12220>
+151. Siddharth Chauhan, Thomas Butler, Abhishek Singhania et al.. *When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use*. cs.CL. 2026 <https://arxiv.org/abs/2608.11715>

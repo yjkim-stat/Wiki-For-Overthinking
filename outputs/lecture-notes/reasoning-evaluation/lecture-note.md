@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-13 from 41 archived source(s).
+> Generated on 2026-08-13 from 56 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.
 
-Built from 41 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-06. 41 of the papers have been read in full.
+Built from 56 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-12. 41 of the papers have been read in full.
 
 Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reasoning`, `logical reasoning`, `competition math`, `math word problem`, `GSM8K`, `AIME`, `benchmark contamination`, `data contamination`, `LLM as a judge`, `reasoning evaluation`, `evaluating reasoning`, `ARC AGI`.
 
@@ -17,19 +17,19 @@ Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reas
 
 ### 2026
 
-- **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** — Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.
-- **Hierarchical Latent Prediction for Language Models** — Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.
-- **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.
-- **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** — Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.
-- **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.
-- **Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving** — A training-free two-stage prompting protocol that extracts a problem's answer-space constraints first and then checks its own intermediate and final results against them, routed on by a regex detector.
-- **Self-Improving Large Language Models via Progressive Experience Evolution** — Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.
-- **Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning** — Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.
-- **Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning** — Supervises audio reasoning with per-question rubrics generated from the raw waveform, and keeps the signal alive as the policy improves by regenerating the rubrics from the model's own rollouts each step and pruning any criterion that every rollout satisfies or none does.
-- **Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning** — Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.
-- **Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks** — Separates perception from reasoning in ARC-style benchmarks with a two-stage pipeline, and finds about 80% of vision-language model failures are perception errors, not reasoning errors.
-- **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** — Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.
-- _...and 20 more._
+- **LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation** _(not yet summarized)_
+- **Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection** _(not yet summarized)_
+- **V-FiLLM: Verified Financial LLM Reasoning Benchmark** _(not yet summarized)_
+- **SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge** _(not yet summarized)_
+- **Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training** _(not yet summarized)_
+- **Mismatch Matters: On-Policy Distillation Beyond Token Agreement** _(not yet summarized)_
+- **Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents** _(not yet summarized)_
+- **MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models** _(not yet summarized)_
+- **MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning** _(not yet summarized)_
+- **PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation** _(not yet summarized)_
+- **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** _(not yet summarized)_
+- **Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework** _(not yet summarized)_
+- _...and 35 more._
 
 ### 2025
 
@@ -268,5 +268,20 @@ Drawn from the limitations each paper states about itself, so this is what the f
 37. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
 38. Chang Shi, Tim Pearce, Manan Tomar et al.. *Hierarchical Latent Prediction for Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.05806>
 39. Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. *Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation*. cs.CL. 2026 <https://arxiv.org/abs/2608.05726>
-40. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
-41. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+40. Yijiang Li, Bingyang Wang, Yijun Liang et al.. *On-Policy Self-Distillation without Any Supervision*. cs.LG. 2026 <https://arxiv.org/abs/2608.06296>
+41. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
+42. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+43. Ruijie Hou, Yueyang Jiao, Zhao Wang et al.. *Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination*. cs.CL. 2026 <https://arxiv.org/abs/2608.07341>
+44. Abhishek Panwar, Maheep Singh, Saksham Bansal. *Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework*. cs.AI. 2026 <https://arxiv.org/abs/2608.08113>
+45. Rui Wang, Yeteng Wu, Xianling Zhang et al.. *VTO: Visual Tool Orchestration for Video Anomaly Detection*. cs.CV. 2026 <https://arxiv.org/abs/2608.08219>
+46. Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma. *When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits*. cs.AI. 2026 <https://arxiv.org/abs/2608.07914>
+47. Rahma Simin Ali, Jawad Hossain. *MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.08503>
+48. Haotian Wang, Lian Yan, Xingzhi Yao et al.. *MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08623>
+49. Yangyang Feng, Zhuoyan Feng, Junlan Chen. *PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation*. cs.LG. 2026 <https://arxiv.org/abs/2608.08726>
+50. Ting Zhou, Zhenqing Ling, Daoyuan Chen et al.. *Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training*. cs.LG. 2026 <https://arxiv.org/abs/2608.09217>
+51. Zichao Yu, Chengzhi Yu, Shengze Xu et al.. *Mismatch Matters: On-Policy Distillation Beyond Token Agreement*. cs.AI. 2026 <https://arxiv.org/abs/2608.09836>
+52. Di Wu, Xiaohui Zhu. *Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents*. cs.AI. 2026 <https://arxiv.org/abs/2608.10198>
+53. Yuanchi Zhu, Kang An, Tengyue Wang et al.. *SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge*. cs.AI. 2026 <https://arxiv.org/abs/2608.09230>
+54. Zhen Yang, Mengqi Wang, Gengda Zhao et al.. *Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection*. cs.CL. 2026 <https://arxiv.org/abs/2608.10462>
+55. Alicia Larsen, Victoire Laurent, Aulia Kharis Rakhamsari et al.. *V-FiLLM: Verified Financial LLM Reasoning Benchmark*. cs.AI. 2026 <https://arxiv.org/abs/2608.11047>
+56. Zhixin Zhang, Xinke Jiang, Zhibang Yang et al.. *LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation*. cs.LG. 2026 <https://arxiv.org/abs/2608.11967>

@@ -1,0 +1,24 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute
+
+- **Authors**: Nikita Kozodoi, Zainab Afolabi, Jack Butler
+- **Venue**: cs.LG
+- **Published**: 2026-08-10
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.09351>
+- **PDF**: <https://arxiv.org/pdf/2608.09351v1>
+- **Topics**: test-time-scaling
+- **Relevance score**: reasoning-evaluation 0.25, reasoning-training 0.25, test-time-scaling 0.57
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Test-time scaling improves LLM accuracy but multiplies inference cost, making the accuracy gained per unit of compute the metric that matters in deployment. Self-consistency is one of the established approaches, which spends this budget entirely on the output side by sampling repeated reasoning paths. We study Test-Time Augmentation (TTA), which extends self-consistency by also perturbing the input, aggregating predictions across transformed versions of the input, and ask whether input-side diversity converts compute into accuracy more efficiently than output-side diversity. We perform a systematic, matched-compute comparison: we evaluate three simple input-side strategies (semantic rephrasing, lexical perturbations, and visual transformations) across six datasets covering general and multilingual knowledge, mathematical reasoning, multi-modal question answering, and sentiment classification, against chain-of-thought prompting and self-consistency. Semantic rephrasing delivers consistent and statistically significant accuracy gains while Pareto-dominating self-consistency on cost-effectiveness, delivering roughly 1.8X more accuracy per dollar and outperforming it on five of six tasks. We further analyze the number of augmentations, multi-modal strategies, and base model scaling, finding that TTA is most cost-effective for mid-tier models where a stronger model is unavailable or too expensive. Our findings indicate that for current mid-tier LLMs, varying the input converts inference compute into accuracy more efficiently than varying the reasoning path alone. The TTA implementation is available at https://github.com/aws-samples/sample-genai-reflection-for-bedrock.
+
+---
+
+Record id: `arxiv:2608.09351`

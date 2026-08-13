@@ -1,0 +1,24 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing
+
+- **Authors**: Juncheng Dong, Ding Tong, Ishan Gupta, Yuyan Wang
+- **Venue**: cs.AI
+- **Published**: 2026-08-09
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.08889>
+- **PDF**: <https://arxiv.org/pdf/2608.08889v1>
+- **Topics**: reasoning-training
+- **Relevance score**: reasoning-faithfulness 0.25, reasoning-training 0.50
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Recommendation systems thrive on personalization, where ''correctness'' is rarely a binary truth but a matter of subjective human preference. As Large Language Models (LLMs) are deployed as autonomous verifiers of safety and quality guidelines, they face a distinctive challenge: context-aware preference alignment. Recent gains in Reinforcement Learning with Verifiable Rewards (RLVR) are indexed mostly on objective, mathematical tasks. Through a large-scale study spanning both proprietary and open-source models on four real-world verification tasks from a production recommender platform, we ask whether explicit reasoning generalizes to subjective, human-centric industry rubrics. We expose a fundamental vulnerability: rigid, math-centric reasoning traces actively degrade verification, and applying standard RLVR triggers a phenomenon we term reasoning collapse, in which the policy abandons deliberation in favor of rapid heuristic guessing. We introduce a conditional length-penalized post-training algorithm that intertwines verification accuracy with bounded reasoning length, halting collapse and recovering performance. Finally, we show that a reasoning trace's efficacy is tightly coupled with its socio-linguistic framing: across 1500 synthesized personas, verification accuracy swings by nearly 0.38 macro-F1 depending solely on the adopted reasoning persona---evidence that much subjective-verification error is really reasoning-style mismatch. This observation motivates a mid-training architecture that routes reasoning through contextually aligned personas. This work offers both a scalable algorithmic patch and a long-term architectural blueprint for aligning reasoning models with real-world subjective constraints.
+
+---
+
+Record id: `arxiv:2608.08889`

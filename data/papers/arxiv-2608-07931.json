@@ -1,0 +1,45 @@
+{
+  "abstract": "Large reasoning models (LRMs) are prone to hallucination, which undermines their reliability and poses challenges for safe deployment. Hallucinations in LRMs arise from two distinct failure sources: reasoning hallucination, where flawed inference steps propagate to an incorrect conclusion, and knowledge hallucination, where the model lacks the requisite factual knowledge to answer the query. To address reasoning hallucination, we propose REIN, an alignment framework that trains LRMs to produce a structured reasoning sequence, $\\texttt{<think>} $$\\rightarrow$ $\\texttt{<reflection>} $$\\rightarrow$ $\\texttt{<answer>}$, enabling explicit self-reflection before committing to a final answer. To address knowledge hallucination, REIN introduces a reward mechanism that encourages explicit abstention (e.g., \"I don't know\") when none of the sampled reasoning chains yields a correct answer, allowing the model to refrain from unsupported predictions. Extensive evaluations on mathematical and commonsense reasoning benchmarks show that REIN consistently improves selective accuracy, reduces incorrect-but-self-endorsed responses, and maintains high coverage compared with competitive baselines. Notably, REIN achieves these gains within a single forward pass, without requiring process supervision, inference-time controllers, external search, or multi-round critiques. Experiments on multiple backbones show that REIN reduces the hallucination proxy by $58\\sim72\\%$ relative to the base models while maintaining $86\\sim91\\%$ average coverage, and improves selective accuracy on attempted questions by $6.6\\sim14.2\\%$.",
+  "arxiv_id": "2608.07931",
+  "authors": [
+    "Zhengze Huang",
+    "Luyang Yu",
+    "Di Hong",
+    "Xinzhe Huang",
+    "Wanyu Lin",
+    "Zhixuan Chu",
+    "Zhan Qin",
+    "Tianhang Zheng"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-13T10:59:14Z",
+  "id": "arxiv:2608.07931",
+  "last_seen": "2026-08-13T10:59:14Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning benchmark",
+    "large reasoning model",
+    "reasoning model",
+    "process supervision"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.07931v1",
+  "published": "2026-08-08",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-evaluation": 0.25,
+    "reasoning-training": 0.5
+  },
+  "source": "arxiv",
+  "source_id": "2608.07931v1",
+  "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "2026-08-08",
+  "url": "https://arxiv.org/abs/2608.07931",
+  "venue": "",
+  "year": 2026
+}

@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-10172.pdf"
+  },
+  "created_at": "2026-08-13T11:17:04Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.10172",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Mechanistic interpretability explains models by identifying circuits inside them, but has no way to tell whether a circuit is a property of the model or an artifact of the method that found it. Sparse autoencoders illustrate the problem: different seeds and widths recover materially different features from the same activations, and no theory says whether that variability is incidental or structural. We put dictionary learning for interpretability on an identifiability footing. Treating the forward pass as a controlled dynamical system with depth as time and lifting it with the Koopman operator yields a finite linear realisation whose \\emph{spectrum} is a coordinate-free property of the model. We prove the spectrum is recoverable from $M$ calibration samples at rate $M^{-1/2}$ up to permutation - to our knowledge the first identifiability theorem for a mechanistic-interpretability primitive, with a matching minimax lower bound, a median-of-means variant for heavy-tailed activations, and a dissociation theorem: whenever the realisation is non-normal, the directions carrying activation variance and the directions carrying information across depth cannot coincide. The identifiable object and the legible object are not the same object. On GPT-2 small, Gemma-2-2B and Qwen3-8B-Base the spectrum converges everywhere and attains the predicted exponent on Qwen3-8B-Base ($0.506 \\pm 0.031$); shortfalls collapse onto one curve against each cell's sample threshold. Koopman modes beat random directions but lose to principal components on indirect-object identification, with the gap decaying $4.1\\times$ in depth-distance, as the theorem predicts. The Koopman spectrum is an identifiable, model-intrinsic fingerprint with a stated error bar, not a legible decomposition.",
+    "authors": [
+      "Ashim Dhor",
+      "Pin-Yu Chen"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "mechanistic interpretability",
+      "sparse autoencoder"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.10172v1",
+    "published": "2026-08-10",
+    "scores": {
+      "reasoning-interpretability": 0.5714
+    },
+    "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
+    "url": "https://arxiv.org/abs/2608.10172",
+    "venue": ""
+  },
+  "task_id": "paper__arxiv-2608-10172",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

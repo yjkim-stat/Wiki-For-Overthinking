@@ -1,0 +1,66 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-07914.pdf"
+  },
+  "created_at": "2026-08-13T11:12:57Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.07914",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Behavioral contamination detectors can return \"no evidence\" either because a benchmark is clean or because the audit has little power. We formalize this distinction for a benchmark in which an unknown fraction alpha of items was seen during training. With matched clean and seen controls, the behavioral channel is the sparse mixture Q_alpha = (1 - alpha) P_0 + alpha P_1, and an exact second-moment argument shows that detectability is governed by alpha * rho * sqrt(m), where rho^2 = chi^2(P_1 || P_0) measures behavioral separability. Any scalar detector reduces to its efficacy, ef = |E_1 f - E_0 f| / sqrt(Var_0(f)) <= rho, which can be estimated from controls before the audit is run. A separate sample-split certificate lower-bounds alpha distribution-free, without requiring an orientation assumption. Our empirical finding is two-sided. Frozen calibration efficacy predicts held-out power curves, with R^2 = 0.83-0.98 across six exact-permutation channels, but the efficacy-only Gaussian budget is miscalibrated at the small sample sizes it prescribes, failing in 9/9 gate-passing channels even though efficacy itself transports. The failure is in the inversion, not the calibration. A predeclared two-stage planner that simulates the deployed test repairs the budgets, is uniformly conservative, and abstains when its probe does not transport. The certificate is valid but vacuous at audit scale, and a five-seed paired injection study recovers the mechanism ordering verbatim > paraphrase > surface, in which the apparent answer-only signal is explained by baseline drift. We report the audit contract and its failures together: a non-rejection is interpretable only alongside the efficacy, budget, and validity gates that produced it.",
+    "authors": [
+      "Ibne Farabi Shihab",
+      "Sanjeda Akter",
+      "Anuj Sharma"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "benchmark contamination"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.07914v1",
+    "published": "2026-08-08",
+    "scores": {
+      "reasoning-evaluation": 0.5
+    },
+    "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits",
+    "url": "https://arxiv.org/abs/2608.07914",
+    "venue": ""
+  },
+  "task_id": "paper__arxiv-2608-07914",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

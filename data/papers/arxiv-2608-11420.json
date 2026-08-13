@@ -1,0 +1,40 @@
+{
+  "abstract": "Medical diagnostic reasoning is a high-impact use case for LLMs that carries significant implications for the health and wellbeing of users. When OpenAI (2026) reports that more than 5% of ChatGPT messages globally are healthcare-related, the transparency of these systems becomes a serious design concern. This is especially true for complex cases, where differential diagnosis often requires integrating multiple forms of specialist reasoning. Existing work has proposed multi-agent approaches to medical diagnosis, but it remains unclear when such systems are needed, why they help, and where they outperform monolithic inference. We introduce Social Chain of Thought (SCoT),a multi-round pipeline for medical differential diagnosis that structures multi-agent interaction as a deliberative framework for collabora. tive LLM reasoning. Evaluating SCoT against single-agent baselines, one-agent pipeline ablations, and best-of-n scaling, we show that its recall advantage is not reproduced by monolithic inference alone. SCoT is most successful in the hardest diagnostic cases, where multiple rounds of specialist conversation help recover ground-truth diagnoses and converge on a higher-recall differential.",
+  "arxiv_id": "2608.11420",
+  "authors": [
+    "Del Coburn",
+    "Scott Sanner",
+    "Dan Silver"
+  ],
+  "categories": [
+    "cs.AI",
+    "cs.CL"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-13T10:58:53Z",
+  "id": "arxiv:2608.11420",
+  "last_seen": "2026-08-13T10:58:53Z",
+  "local_path": "data/pdfs/arxiv-2608-11420.pdf",
+  "matched_keywords": [
+    "chain of thought",
+    "best of n"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.11420v1",
+  "published": "2026-08-11",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.5,
+    "test-time-scaling": 0.5714
+  },
+  "source": "arxiv",
+  "source_id": "2608.11420v1",
+  "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology",
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ],
+  "updated": "2026-08-11",
+  "url": "https://arxiv.org/abs/2608.11420",
+  "venue": "",
+  "year": 2026
+}

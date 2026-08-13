@@ -1,0 +1,42 @@
+{
+  "abstract": "Ultra-long egocentric video understanding requires reasoning over temporally sparse evidence distributed across hours or days, challenging current multimodal models with limited context and the grounding of key video segments. While Chain-of-Tool-Thought (CoTT) agent systems enable iterative retrieval and inspection, they suffer from error propagation due to rigid zoom-in strategies that lack recovery mechanisms. In this work, we address these challenges through SCOUT (Self-Checking Chain-Of-Tool-thought), a recovery-aware agentic framework introducing an adaptive policy that evaluates intermediate tool observations and dynamically trades off exploitation (zoom-in) and exploration (region switching), enabling robust multi-hop reasoning over extremely long horizons. However, training such multi-turn tool-using agents remains challenging, as existing RL methods rely on sparse outcome-level rewards and lack supervision over extended decision trajectories, resulting in suboptimal credit assignment for long-horizon reasoning. To address this, we develop UPS-GRPO, an uncertainty-prioritized policy optimization method that concentrates exploration on high-uncertainty post-tool states while preserving sample efficiency. We further introduce a turn-level advantage decomposition that integrates outcome rewards with tool-grounded temporal alignment rewards for improved credit assignment. Experiments show that SCOUT achieves state-of-the-art results on ultra-long egocentric benchmarks, while remaining competitive on shorter-horizon long-video settings.",
+  "arxiv_id": "2608.07959",
+  "authors": [
+    "Keyang Zhong",
+    "Kuo Wang",
+    "Peng Liu",
+    "Quanlong Zheng",
+    "Junlin Xie",
+    "Zhijia Liang",
+    "Yanhao Zhang",
+    "Guanbin Li"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-13T10:59:14Z",
+  "id": "arxiv:2608.07959",
+  "last_seen": "2026-08-13T10:59:14Z",
+  "local_path": "",
+  "matched_keywords": [
+    "outcome reward",
+    "GRPO"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.07959v1",
+  "published": "2026-08-08",
+  "schema_version": 1,
+  "scores": {
+    "reasoning-training": 0.4
+  },
+  "source": "arxiv",
+  "source_id": "2608.07959v1",
+  "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+  "topics": [
+    "reasoning-training"
+  ],
+  "updated": "2026-08-08",
+  "url": "https://arxiv.org/abs/2608.07959",
+  "venue": "",
+  "year": 2026
+}

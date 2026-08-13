@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-06638.pdf"
+  },
+  "created_at": "2026-08-13T11:17:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.06638",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Mechanistic interpretability of music generation has concentrated on audio models, leaving symbolic models largely unexplored. We analyze two public text-to-MIDI systems of contrasting design: the purpose-built encoder--decoder text2midi and MIDI-LLM, a Llama~3.2~1B model extended with MIDI tokens using linear probing, the logit and tuned lenses, activation patching and difference-in-means steering. Across these methods, we recover musically meaningful structure and show how architecture shapes its formation and control. Pitch, instrumentation, harmony and texture are linearly decodable in both models. text2midi refines predictions gradually across depth, whereas MIDI-LLM works largely in its inherited textual basis before a sharp late rotation into the musical vocabulary; patching identifies a matching late attenuation of prompt-driven instrument transfer. Steering produces bidirectional changes in register and polyphony in both systems, and in tempo/energy in MIDI-LLM. Our two-orientation protocol isolates directional control and shows that all-layer interventions are robust in text2midi but accumulate disruptively in MIDI-LLM. Together, the results provide a practical toolkit for tracing and controlling musical concepts in symbolic generators. Audio examples are available on a demo website.",
+    "authors": [
+      "Jakub Poćwiardowski",
+      "Mateusz Modrzejewski"
+    ],
+    "categories": [
+      "cs.SD",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "mechanistic interpretability",
+      "activation patching",
+      "linear probing",
+      "difference-in-means"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06638v1",
+    "published": "2026-08-06",
+    "scores": {
+      "reasoning-interpretability": 0.6667
+    },
+    "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
+    "url": "https://arxiv.org/abs/2608.06638",
+    "venue": ""
+  },
+  "task_id": "paper__arxiv-2608-06638",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-13 from 67 archived source(s).
+> Generated on 2026-08-13 from 89 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.
 
-Built from 67 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-06. 67 of the papers have been read in full.
+Built from 89 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-12. 67 of the papers have been read in full.
 
 Tracked terms: `chain of thought`, `chain of thought prompting`, `test-time compute`, `test-time scaling`, `inference-time scaling`, `inference-time compute`, `best of n`, `self-consistency`, `tree of thoughts`, `monte carlo tree search`, `self-refine`, `self-correction`, `self-verification`, `budget forcing`, `thinking budget`, `reasoning budget`, `extended thinking`, `overthinking`.
 
@@ -17,19 +17,19 @@ Tracked terms: `chain of thought`, `chain of thought prompting`, `test-time comp
 
 ### 2026
 
-- **Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning** — Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.
-- **Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings** — The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.
-- **The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale** — Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.
-- **ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance** — Synthesizes Cognitive Behavioral Therapy dialogues using a CoT strategy grounded in CBT guidelines plus a resistance orchestrator that steers simulated patients away from sycophantic compliance.
-- **Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning** — Couples KV-cache compression and generation-length control under a single process-reward signal, compressing harder at high-reward reasoning steps and stopping early when confidence is high.
-- **Interpretable Adaptive Sampling for LLM Test-Time Scaling** — Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.
-- **Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility** — Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.
-- **Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates** — Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.
-- **The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics** — Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.
-- **Monte Carlo Tree Search for Table-to-Multimodal Report Generation** — Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.
-- **GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning** — Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.
-- **Evading Chain-of-Thought Monitoring Through Model Poisoning** — Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).
-- _...and 33 more._
+- **Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs** _(not yet summarized)_
+- **Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity** _(not yet summarized)_
+- **Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction** _(not yet summarized)_
+- **Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling** _(not yet summarized)_
+- **Claim-Level Reliability Assessment for Efficient Test-Time Reasoning** _(not yet summarized)_
+- **SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward** _(not yet summarized)_
+- **ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling** _(not yet summarized)_
+- **When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs** _(not yet summarized)_
+- **Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology** _(not yet summarized)_
+- **FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation** _(not yet summarized)_
+- **XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving** _(not yet summarized)_
+- **Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute** _(not yet summarized)_
+- _...and 55 more._
 
 ### 2025
 
@@ -312,3 +312,25 @@ Drawn from the limitations each paper states about itself, so this is what the f
 65. Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. *ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance*. cs.CL. 2026 <https://arxiv.org/abs/2608.04524>
 66. Mingguang Chen, Bo Qu, Licheng Wang. *The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale*. cs.CL. 2026 <https://arxiv.org/abs/2608.04355>
 67. Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. *Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05643>
+68. Yan Zhou, Yue Ouyang, Kaiyang Zheng et al.. *CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.07424>
+69. Zhaohui Wang. *Persistent Semantic Entities in Tool-Augmented LLM Systems*. cs.LG. 2026 <https://arxiv.org/abs/2608.07952>
+70. Yifan Li, Ruxin Sun, Tongzhou Zhao. *StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08326>
+71. Xuan-May Le, Minh-Tuan Tran, Ling Luo et al.. *Efficient Test-Time Scaling for LLM-based Time Series Forecasting*. cs.LG. 2026 <https://arxiv.org/abs/2608.08675>
+72. Rahma Simin Ali, Jawad Hossain. *MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.08503>
+73. Subinay Adhikary, Upal Bhattacharya, Vivek Kumar Singh et al.. *PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary*. cs.AI. 2026 <https://arxiv.org/abs/2608.08830>
+74. Youssef A. Elhagrasy, Ian Hill, André Ivanov. *Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search*. cs.AI. 2026 <https://arxiv.org/abs/2608.09622>
+75. Rohan Bhagra, Mahantesh Halapannavar, Uddhav Bhattarai. *Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy*. cs.RO. 2026 <https://arxiv.org/abs/2608.09857>
+76. Lecheng Kong, Like Hui, Haitao Mao et al.. *Consilience for Verifier-Free Test-Time Scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.09898>
+77. Nikita Kozodoi, Zainab Afolabi, Jack Butler. *Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute*. cs.LG. 2026 <https://arxiv.org/abs/2608.09351>
+78. Aaron Haag, Altay Kaçan, Bertram Fuchs et al.. *Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection*. cs.CE. 2026 <https://arxiv.org/abs/2608.09706>
+79. Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh et al.. *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*. cs.CL. 2026 <https://arxiv.org/abs/2608.10916>
+80. Del Coburn, Scott Sanner, Dan Silver. *Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology*. cs.AI. 2026 <https://arxiv.org/abs/2608.11420>
+81. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
+82. Utkarsh Bahuguna. *When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.11403>
+83. Foundation Model Team, XPeng Inc. *XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving*. cs.AI. 2026 <https://arxiv.org/abs/2608.10976>
+84. Debanjan Dutta, Anish Chakrabarty, Swagatam Das. *Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity*. cs.LG. 2026 <https://arxiv.org/abs/2608.11716>
+85. Sen Xu, Wei Wang, Shixi Liu et al.. *Claim-Level Reliability Assessment for Efficient Test-Time Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.11994>
+86. Pan Wang, Yihao Hu, Hang Wang et al.. *Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction*. cs.CL. 2026 <https://arxiv.org/abs/2608.11772>
+87. Vu Duc Anh, Nhat M. Hoang, Do Xuan Long et al.. *Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs*. cs.CL. 2026 <https://arxiv.org/abs/2608.11573>
+88. Zile Zhou, Huining Yuan, Weichen Zhang et al.. *SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward*. cs.CV. 2026 <https://arxiv.org/abs/2608.12220>
+89. Xinmu Ge, Zizhuo Zhang, Yu Huang et al.. *Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling*. cs.LG. 2026 <https://arxiv.org/abs/2608.11829>
