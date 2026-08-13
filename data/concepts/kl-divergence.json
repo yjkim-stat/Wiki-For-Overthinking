@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "KL",
+    "Kullback-Leibler divergence"
+  ],
+  "definition": "A measure of how far one distribution sits from another, and in these two sources a constraint and a proof device respectively. One uses it as the penalty anchoring a policy to its reference during reinforcement learning, and — more usefully — decomposes it by token position as a diagnostic: under a voting-based label-free objective, divergence on answer tokens rises sharply while divergence on reasoning tokens barely moves, which localizes a collapse that a trajectory-wide scalar would register only as a symptom. The other makes the entropy regularizer, which is a divergence from the uniform policy, do the work of a Lyapunov function: it keeps the Fisher information matrix from degenerating and thereby yields exponential convergence for a non-convex problem over continuous state and action spaces. The transferable idea from the pair is that this quantity is more informative when it is resolved — by position in one case, as a potential function in the other — than when reported as a single number.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -73,7 +76,9 @@
     "trigonometric-basis-features",
     "bernstein-polynomial-features"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "kl-regularization"
+  ],
   "schema_version": 1,
   "slug": "kl-divergence",
   "topics": [

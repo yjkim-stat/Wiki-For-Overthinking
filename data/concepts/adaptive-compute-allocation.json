@@ -8,6 +8,12 @@
   "definition": "Spending different amounts of inference compute on different problems instead of a uniform budget, which is the largest cluster in the archive at seven sources. They agree on the goal and disagree entirely on where the difficulty signal comes from: the model's own self-certainty, difficulty cues injected into an output prefix, per-query token limits derived from the model's own thinking responses, a single mode-selection token carrying the efficiency reward, a process-reward estimator scoring each completed step, a controller routing among fast, re-perceive and self-reflect paths, and an algorithm-agnostic measure of whether the answer has stopped changing. Reported savings are large and asymmetric — over 70% on easy problems against 40% on hard ones in one case. No source compares its signal against another's, so whether these seven mechanisms identify the same easy problems is unmeasured.",
   "evidence": [
     {
+      "id": "arxiv:2608.03284",
+      "kind": "paper",
+      "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+      "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
+    },
+    {
       "id": "arxiv:2608.04771",
       "kind": "paper",
       "note": "Couples KV-cache compression and generation-length control under a single process-reward signal, compressing harder at high-reward reasoning steps and stopping early when confidence is high.",
@@ -70,9 +76,34 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:23:40Z",
   "name": "adaptive compute allocation",
   "related": [
+    "test-time-scaling",
+    "concept-erasure",
+    "safety-alignment",
+    "adversarial-robustness",
+    "low-rank-adaptation",
+    "margin-loss",
+    "conditional-computation",
+    "jailbreak",
+    "t2s2",
+    "truncated-backpropagation",
+    "safe-latent-diffusion",
+    "safree",
+    "classifier-free-guidance",
+    "llm-as-a-judge",
+    "i2p",
+    "p4d",
+    "ring-a-bell",
+    "mma-diffusion",
+    "unlearndiffatk",
+    "coco-30k",
+    "stable-diffusion-v1-4",
+    "stable-diffusion-v3-5-medium",
+    "clip",
+    "gpt-4o-mini",
+    "nudenet",
     "overthinking",
     "process-reward",
     "reasoning-redundancy",
@@ -184,10 +215,11 @@
     "alpacafarm",
     "hh-rlhf"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "adaptive-compute-allocation",
   "topics": [
-    "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

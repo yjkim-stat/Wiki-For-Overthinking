@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.",
       "title": "It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.03291",
+      "kind": "paper",
+      "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+      "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics"
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T02:23:40Z",
   "name": "paired bootstrap confidence intervals",
   "related": [
     "test-time-scaling",
@@ -34,12 +40,35 @@
     "mmmu",
     "vilp",
     "qwen2-5-vl-7b-instruct",
-    "llava-onevision-7b"
+    "llava-onevision-7b",
+    "reasoning-dynamics",
+    "premature-verification-collapse",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "early-warning",
+    "transition-entropy",
+    "capability-frontier",
+    "self-correction",
+    "backtracking",
+    "reasoning-boundary",
+    "overthinking",
+    "role-tagging",
+    "transition-matrix-analysis",
+    "prefix-based-detection",
+    "proof-search-prompting",
+    "chain-of-thought-prompting",
+    "satbench",
+    "qwen3-8b",
+    "qwen3-14b",
+    "llama3-8b",
+    "llama3-70b",
+    "olmo2-13b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "paired-bootstrap-confidence-intervals",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

@@ -6,13 +6,14 @@ Eliciting behaviour a model was trained to refuse, which in the reasoning-model 
 
 - **Kind**: concept
 - **Also called**: guardrail bypass, jailbreaking, safety bypass
-- **Topics**: [reasoning-training](../topics/reasoning-training.md)
-- **Sources**: 3
+- **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 4
 
-**Related**: [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [attention pattern](attention-pattern.md), [chain of thought](../methods/chain-of-thought.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Inference Time Intervention](inference-time-intervention.md), [monitorability](monitorability.md), [multimodal reasoning](multimodal-reasoning.md), [test-time compute](test-time-compute.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [adversarial robustness](adversarial-robustness.md), [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [attention pattern](attention-pattern.md), [chain of thought](../methods/chain-of-thought.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [Inference Time Intervention](inference-time-intervention.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [monitorability](monitorability.md), [multimodal reasoning](multimodal-reasoning.md), [safety alignment](safety-alignment.md), [test-time compute](test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md)
 
 ## Appears in
 
+- [Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates](../../archive/papers/2026/arxiv-2608-03284/summary.md) — Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.
 - [ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1453/summary.md) — An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.
 - [Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1821/summary.md) — Identifies a multimodal failure where models see the risky visual cue but let narrative coherence override safety as reasoning proceeds, and defends against it by extracting intent before generation.
 - [AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1988/summary.md) — Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.

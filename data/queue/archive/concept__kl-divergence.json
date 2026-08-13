@@ -19,7 +19,8 @@
       }
     ]
   },
-  "created_at": "2026-08-13T02:08:50Z",
+  "completed_at": "2026-08-13T02:24:59Z",
+  "created_at": "2026-08-13T02:24:38Z",
   "instructions": "Write the wiki definition for 'KL divergence'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "KL divergence",
   "kind": "concept",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "KL divergence",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "KL",
+      "Kullback-Leibler divergence"
+    ],
+    "definition": "A measure of how far one distribution sits from another, and in these two sources a constraint and a proof device respectively. One uses it as the penalty anchoring a policy to its reference during reinforcement learning, and — more usefully — decomposes it by token position as a diagnostic: under a voting-based label-free objective, divergence on answer tokens rises sharply while divergence on reasoning tokens barely moves, which localizes a collapse that a trajectory-wide scalar would register only as a symptom. The other makes the entropy regularizer, which is a divergence from the uniform policy, do the work of a Lyapunov function: it keeps the Fisher information matrix from degenerating and thereby yields exponential convergence for a non-convex problem over continuous state and action spaces. The transferable idea from the pair is that this quantity is more informative when it is resolved — by position in one case, as a potential function in the other — than when reported as a single number.",
+    "kind": "concept",
+    "related": [
+      "KL regularization"
+    ]
   },
   "task_id": "concept__kl-divergence",
   "task_version": 1,

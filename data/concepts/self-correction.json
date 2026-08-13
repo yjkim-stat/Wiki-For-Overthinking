@@ -15,6 +15,12 @@
       "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
     },
     {
+      "id": "arxiv:2608.03291",
+      "kind": "paper",
+      "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+      "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics"
+    },
+    {
       "id": "arxiv:2608.04355",
       "kind": "paper",
       "note": "Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.",
@@ -77,7 +83,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T02:23:40Z",
   "name": "self-correction",
   "related": [
     "monitorability",
@@ -103,6 +109,24 @@
     "gpt-oss-20b",
     "gpt-oss-120b",
     "gpt-5-mini",
+    "reasoning-dynamics",
+    "premature-verification-collapse",
+    "early-warning",
+    "transition-entropy",
+    "capability-frontier",
+    "backtracking",
+    "reasoning-boundary",
+    "overthinking",
+    "role-tagging",
+    "transition-matrix-analysis",
+    "prefix-based-detection",
+    "proof-search-prompting",
+    "chain-of-thought-prompting",
+    "paired-bootstrap-confidence-intervals",
+    "satbench",
+    "llama3-8b",
+    "llama3-70b",
+    "olmo2-13b",
     "answer-extraction",
     "calibration",
     "construct-validity",
@@ -137,7 +161,6 @@
     "olympiadbench",
     "math500",
     "qwen2-5-1-5b",
-    "overthinking",
     "reasoning-redundancy",
     "invalid-thinking",
     "pareto-frontier",
@@ -257,8 +280,8 @@
   "slug": "self-correction",
   "topics": [
     "reasoning-faithfulness",
-    "test-time-scaling",
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-evaluation"
   ]
 }

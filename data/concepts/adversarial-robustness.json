@@ -11,6 +11,12 @@
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
     },
     {
+      "id": "arxiv:2608.03284",
+      "kind": "paper",
+      "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+      "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.678",
       "kind": "paper",
       "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
@@ -19,7 +25,7 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T02:23:40Z",
   "name": "adversarial robustness",
   "related": [
     "intent-classification",
@@ -53,7 +59,30 @@
     "gpt-5",
     "gpt-5-nano",
     "gpt-4o",
+    "test-time-scaling",
+    "adaptive-compute-allocation",
+    "concept-erasure",
     "safety-alignment",
+    "low-rank-adaptation",
+    "margin-loss",
+    "conditional-computation",
+    "jailbreak",
+    "t2s2",
+    "truncated-backpropagation",
+    "safe-latent-diffusion",
+    "safree",
+    "classifier-free-guidance",
+    "i2p",
+    "p4d",
+    "ring-a-bell",
+    "mma-diffusion",
+    "unlearndiffatk",
+    "coco-30k",
+    "stable-diffusion-v1-4",
+    "stable-diffusion-v3-5-medium",
+    "clip",
+    "gpt-4o-mini",
+    "nudenet",
     "self-correction",
     "self-reflection",
     "recovery",
@@ -71,6 +100,7 @@
   "slug": "adversarial-robustness",
   "topics": [
     "reasoning-interpretability",
+    "test-time-scaling",
     "reasoning-training"
   ]
 }

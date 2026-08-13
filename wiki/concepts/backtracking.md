@@ -7,9 +7,9 @@ Returning from a state where progress is impossible to an earlier one and taking
 - **Kind**: concept
 - **Also called**: backtrack
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [AIME](../datasets/aime.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [entropy collapse](entropy-collapse.md), [exploration](exploration.md), [Game of 24](../datasets/game-of-24.md), [GPT-4](../models/gpt-4.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [long chain-of-thought distillation](../methods/long-chain-of-thought-distillation.md), [pass@k](../methods/pass-k.md), [policy entropy](policy-entropy.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md), [reasoning boundary](reasoning-boundary.md), [RLVR](../methods/rlvr.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
+**Related**: [AIME](../datasets/aime.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [DAPO](../methods/dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [entropy collapse](entropy-collapse.md), [exploration](exploration.md), [Game of 24](../datasets/game-of-24.md), [GPT-4](../models/gpt-4.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [long chain-of-thought distillation](../methods/long-chain-of-thought-distillation.md), [monitorability](monitorability.md), [overthinking](overthinking.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [pass@k](../methods/pass-k.md), [policy entropy](policy-entropy.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-8B](../models/qwen3-8b.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md), [reasoning boundary](reasoning-boundary.md), [RLVR](../methods/rlvr.md), [self-correction](self-correction.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
 
 ## What we have settled
 
@@ -20,6 +20,7 @@ Returning from a state where progress is impossible to an earlier one and taking
 
 - [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](../../archive/papers/2023/arxiv-2305-10601/summary.md) — Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.
 - [BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?](../../archive/papers/2026/arxiv-2608-02867/summary.md) — Builds prefix trees of semantically equivalent reasoning statements and measures how RLVR changes a model's preference between branches, finding the entropy collapse is not stylistic — the collapse is stronger for semantically distinct continuations than for syntactic variants of the same statement.
+- [The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics](../../archive/papers/2026/arxiv-2608-03291/summary.md) — Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.
 
 <!-- auto:end -->
 

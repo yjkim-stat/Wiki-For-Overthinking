@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "IF-Eval",
+    "IFEval"
+  ],
+  "definition": "A benchmark of prompts carrying verifiable formatting and constraint instructions, so compliance is checked programmatically rather than judged. Neither source studies it; both use it as the breadth check that a method developed on mathematical reasoning has not damaged instruction following. One includes it among nine benchmarks spanning mathematics, code, instruction following and multi-task knowledge, where a label-free RLVR method stays competitive with a supervised oracle. The other includes it in the twelve-benchmark suite over which a hidden-state norm signal is validated, though its reported comparisons run on the mathematics and knowledge sets rather than this one. Note that the archive also holds this benchmark under the separate name IF-Eval, so a definition written from the sources attached to either name sees only part of the evidence.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -84,7 +87,9 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "instruction-following"
+  ],
   "schema_version": 1,
   "slug": "ifeval",
   "topics": [

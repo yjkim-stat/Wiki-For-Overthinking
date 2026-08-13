@@ -1,0 +1,127 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-03284.pdf"
+  },
+  "completed_at": "2026-08-13T02:21:34Z",
+  "created_at": "2026-08-09T09:40:01Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.03284",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Ensuring safety and policy compliance in text-to-image diffusion models remains a critical challenge, as benign or adversarial prompts can often elicit prohibited content, e.g. nudity and protected intellectual property. While training-based unlearning methods are effective, they are computationally expensive and prone to catastrophic interference with general capabilities. Conversely, existing test-time defenses are primarily prompt-centric, relying on modifying textual descriptions only, and overlook the visual signals for detection. In this paper, we propose to leverage the intermediate clean image estimated during the generation process and employ a sparse margin objective to detect prohibited concepts. When a violation is detected, we immediately intervene by optimizing a structured low-rank residual in the text-conditioning space via truncated backpropagation. This design allows weight-preserving detection, keeps non-violating inference latency nearly unchanged as the maximum budget increases, and offers flexibility in safety performance via test-time scaling. Extensive experiments on Stable Diffusion v1.4 and v3.5 across nudity removal, IP protection, and style erasure demonstrate superior performance across suppression, fidelity and preservation compared to prior weight-preserving baselines, providing a scalable and flexible solution for safe generative deployment.",
+    "authors": [
+      "Jinya Sakurai",
+      "Shueicheng Yan",
+      "Xun Xu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "test-time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03284v1",
+    "published": "2026-08-04",
+    "scores": {
+      "test-time-scaling": 0.5
+    },
+    "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates",
+    "url": "https://arxiv.org/abs/2608.03284",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "adaptive compute allocation",
+      "concept erasure",
+      "safety alignment",
+      "adversarial robustness",
+      "low-rank adaptation",
+      "margin loss",
+      "conditional computation",
+      "jailbreak"
+    ],
+    "contributions": [
+      "Using the intermediate clean-image estimate as the trigger, so intervention is decided by visual evidence rather than by the text that requested it",
+      "Adaptive unrolling: rather than intervening on a fixed schedule, the sampler advances while monitoring and intervenes at the first timestep where a violation is detected, so how far the trajectory is explored is set by when the evidence appears",
+      "A structured low-rank residual on the conditioning embedding instead of an unconstrained update, on the argument that the full degrees of freedom overfit specific noise patterns and produce artifacts",
+      "A sparse hinge objective whose gradient is identically zero for any prohibited concept below the margin, creating a safe zone so the optimizer ignores irrelevant concepts when many are prohibited at once",
+      "A test-time compute budget with an explicit knob, reported as a safety-versus-latency curve rather than a single operating point"
+    ],
+    "datasets": [
+      "I2P",
+      "P4D",
+      "Ring-a-Bell",
+      "MMA-Diffusion",
+      "UnlearnDiffAtk",
+      "COCO-30k"
+    ],
+    "limitations": "The paper states them: the method inherits whatever ambiguity its vision-language safety encoder has, and it updates the conditioning from the safety signal at the detected timestep without directly optimizing preservation of the original prompt or the quality of the final image — so it can under-suppress indirect attacks, or over-suppress benign attributes and reduce semantic fidelity when the update is stronger. A reader should add that the multi-concept degradation is measured and not solved, and that safety is evaluated by an automatic detector and a model judge rather than by human review, so the reported detection rates inherit those instruments' errors. Two backbones, both from one family, and no seeds or variance are reported.",
+    "method": "At each denoising step the velocity prediction is solved for the clean-image estimate, which is embedded by a vision-language encoder and compared by cosine similarity against a library of prohibited concept embeddings. A hinge loss fires only where similarity exceeds a margin, so concepts safely below it contribute no gradient. When the loss first becomes positive, that timestep is taken as the intervention point and a small number of gradient steps updates a rank-R factorized residual added to the text conditioning, with the latent detached so gradients flow only to the residual factors. Sampling then restarts from the same initial noise with the refined conditioning, and the detect-optimize-restart loop repeats for at most K rounds — the pair of round count and per-round steps being the compute budget. Backbones are Stable Diffusion v1.4 and v3.5-medium, evaluated on nudity removal against five red-teaming prompt sets with an external nudity detector, on suppression of ten intellectual-property characters and five artistic styles by paired erase and preserve metrics including a strict binary vision-language judge, and on general capability by FID and CLIP score against COCO-30k.",
+    "methods": [
+      "T2S2",
+      "low-rank adaptation",
+      "truncated backpropagation",
+      "safe latent diffusion",
+      "SAFREE",
+      "classifier-free guidance",
+      "LLM-as-a-judge"
+    ],
+    "models": [
+      "Stable Diffusion v1.4",
+      "Stable Diffusion v3.5-medium",
+      "CLIP",
+      "GPT-4o-mini",
+      "NudeNet"
+    ],
+    "one_liner": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+    "problem": "Weight-editing defenses for text-to-image models are expensive to redo as policies change and degrade general generation through cross-concept interference. Test-time defenses avoid both by leaving weights alone, but nearly all of them are prompt-centric: they decide whether and how to intervene from text tokens or conditioning embeddings, which can be misaligned with what is visually forming and so weakens the suppression-versus-preservation trade-off under adversarial prompting. Diffusion sampling meanwhile exposes an unused signal — at every step the model predicts a clean image that already encodes coarse structure and emerging semantics — which is direct evidence of what is being generated and is rarely used to trigger safety intervention.",
+    "read_from": "document",
+    "relevance": {
+      "test-time-scaling": "It demonstrates a shape of test-time scaling this archive has not yet recorded: **conditional** rather than uniform. Every scaling result here so far spends the extra budget on every input — more samples, more reasoning tokens, a longer trace — and pays the latency everywhere. Here the trigger is evidence that a problem is forming, so unsafe inputs consume up to 7.06 seconds while benign ones stay at 1.8 to 1.9 regardless of the ceiling. That is the property an archive tracking adaptive allocation should want, and it is achieved without a difficulty predictor: the criterion is a threshold on an observable produced by the generation itself, which is exactly the ingredient the archive's adaptive-allocation results have found unreliable when it comes from a separate process-reward estimate. The ablation showing adaptive triggering beats fixed intervention timesteps is the controlled version of that claim. The domain is diffusion rather than language and the trigger — an intermediate clean-image estimate — has no direct textual analogue, so what transfers is the design principle, not the mechanism."
+    },
+    "results": "On the older backbone the high-budget setting reduces nudity detection to 0.032, 0.054, 0.101, 0.069 and 0.049 across the five red-teaming sets from an undefended 0.097 to 0.728, while holding COCO FID at 12.92 and CLIP at 25.25 against the base model's 25.93. The comparison that matters is against a training-required baseline which reaches lower detection on four adversarial sets but at FID and CLIP of 44.56 and 23.59 — so weight editing buys suppression by damaging general generation, and the weight-preserving route does not. The strongest prior test-time defense reaches 0.096 to 0.646 detection at FID 42.80. On the newer backbone the pattern holds (0.026 to 0.062 detection at FID 6.03), with one honest exception: a guidance baseline attains the best FID at 3.91 while suppressing far less. The test-time-scaling behaviour is the paper's most transferable result. Increasing the budget yields consistent safety gains with FID relatively stable, and median latency on unsafe prompts rises from 1.91 to 7.06 seconds across the sweep while median latency on benign COCO prompts stays at roughly 1.8 to 1.9 seconds regardless of the maximum budget allowed — the cost is conditional on detection, not on the budget. Two ablations support the design choices rather than just reporting them: low-rank optimization consistently beats the unconstrained update on the safety-fidelity trade-off, and adaptive triggering consistently beats fixed intervention timesteps. The multi-concept study is where the method visibly strains — adding nudity, characters and styles together raises COCO FID from 12.8 to 27.2, which the authors attribute to competing constraints shrinking the safe region until the conditioning residual is pushed into low-density parts of the manifold.",
+    "tags": [
+      "test-time scaling",
+      "diffusion",
+      "safety",
+      "concept erasure",
+      "adaptive computation"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-03284",
+  "task_version": 1,
+  "topics": [
+    "test-time-scaling"
+  ]
+}

@@ -47,7 +47,7 @@ The authors state the central caveat themselves: task difficulty and task domain
 
 - **Concepts**: Reasoning Intensity, Layer-wise Reasoning Dynamics, Hidden State L2 Norm, Differential Feature Activation, Norm Peak Detection, Endogenous Reasoning Signal, [Overthinking](../../../../wiki/concepts/overthinking.md), Representational Energy
 - **Methods**: [Sparse Autoencoder](../../../../wiki/methods/sparse-autoencoder.md), Adaptive Layer-wise Reasoning Recursion, Endogenous Reasoning State Steering, L2-guided Response Selection, [Activation Steering](../../../../wiki/methods/activation-steering.md), Spearman Correlation, Interquartile Range Outlier Detection, DeepConf
-- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM-Plus, [BBH](../../../../wiki/datasets/bbh.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), HellaSwag, IFEval, NQ-Open, PubMedQA, [TruthfulQA](../../../../wiki/datasets/truthfulqa.md)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM-Plus, [BBH](../../../../wiki/datasets/bbh.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), HellaSwag, [IFEval](../../../../wiki/datasets/ifeval.md), NQ-Open, PubMedQA, [TruthfulQA](../../../../wiki/datasets/truthfulqa.md)
 
 Tags: `hidden state norm`, `sparse autoencoder`, `layer-wise dynamics`, `test-time control`, `activation steering`, `response selection`, `overthinking`
 

@@ -7,6 +7,12 @@
   "definition": "Eliciting behaviour a model was trained to refuse, which in the reasoning-model setting the sources treat as an attack on the reasoning process rather than on the prompt or the output. Two propose defences placed mid-trajectory, one injecting safety reflections at attention-identified points, the other extracting visual intent before generation after finding that risk cues are perceived and then overridden by narrative coherence. The third shows the attack side is far ahead: automated hijacking reaches approaching 100% success within one or a few turns against GPT-o3/o4-mini and Gemini-2.5-Flash, refining attempts from reasoning patterns the target leaks through its own refusals. Its conclusion is that reasoning transparency is itself an exploitable surface.",
   "evidence": [
     {
+      "id": "arxiv:2608.03284",
+      "kind": "paper",
+      "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+      "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.1453",
       "kind": "paper",
       "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
@@ -27,9 +33,34 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:23:40Z",
   "name": "jailbreak",
   "related": [
+    "test-time-scaling",
+    "adaptive-compute-allocation",
+    "concept-erasure",
+    "safety-alignment",
+    "adversarial-robustness",
+    "low-rank-adaptation",
+    "margin-loss",
+    "conditional-computation",
+    "t2s2",
+    "truncated-backpropagation",
+    "safe-latent-diffusion",
+    "safree",
+    "classifier-free-guidance",
+    "llm-as-a-judge",
+    "i2p",
+    "p4d",
+    "ring-a-bell",
+    "mma-diffusion",
+    "unlearndiffatk",
+    "coco-30k",
+    "stable-diffusion-v1-4",
+    "stable-diffusion-v3-5-medium",
+    "clip",
+    "gpt-4o-mini",
+    "nudenet",
     "aha-moment",
     "inference-time-intervention",
     "attention-pattern",
@@ -63,9 +94,11 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "jailbreak",
   "topics": [
+    "test-time-scaling",
     "reasoning-training"
   ]
 }
