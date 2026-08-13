@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:05:56Z",
   "created_at": "2026-08-13T01:02:18Z",
   "instructions": "Write the wiki definition for 'Qwen3-235B-A22B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-235B-A22B",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "Qwen3-235B-A22B",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3-235B"
+    ],
+    "definition": "A large mixture-of-experts model with roughly 22B active parameters, used by both sources as the frontier-adjacent point where a degradation is shown to persist or not. One ternarizes it and reports the result that carries its scaling claim — 78.80 / 85.97 / 26.88 / 67.07 / 48.51 against FP16's 98.60 / 96.28 / 45.51 / 89.02 / 69.31 — establishing that post-training quantization of a reasoning model holds at 235B and not only at small scale. The other finds it among the frontier models robust on the easier symbolic re-instantiation (-6.4% on AMC23) while still degrading on harder sets. In both, it answers whether a finding survives the largest model the authors could run.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen3-235b-a22b",
   "task_version": 1,

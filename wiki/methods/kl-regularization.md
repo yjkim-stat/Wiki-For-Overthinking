@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Penalizing divergence from a reference policy during training, and in both sources a partial measure whose limits are the point rather than a solution. One tests it as the only defence it tries against a poisoning attack and reports attack success falling from 94.0% to 79.3% — described precisely as a meaningful cost to the attacker and far from a defence, with the wider question left open. The other addresses the neighbouring problem of RLVR eroding foundational skills and reaches for experience replay with online-adaptive weights rather than a divergence penalty. Read together they mark the same boundary from two sides: anchoring to the base distribution slows an unwanted change without preventing it, and neither source treats it as sufficient on its own.
 
 - **Kind**: method
+- **Also called**: KL divergence regularization, KL penalty
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

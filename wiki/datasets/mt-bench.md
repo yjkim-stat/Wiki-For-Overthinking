@@ -9,7 +9,7 @@ A pairwise judge-evaluation benchmark of 2,391 comparisons with expert human jud
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 
-**Related**: [alignment](../concepts/alignment.md), [AlpacaEval](alpacaeval.md), [construct validity](../concepts/construct-validity.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [GPT-4o](../models/gpt-4o.md), [instruction following](../concepts/instruction-following.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [meta-evaluation](../concepts/meta-evaluation.md), [MMLU](mmlu.md), [preference optimization](../methods/preference-optimization.md), [Qwen3-8B](../models/qwen3-8b.md), [supervised finetuning](../methods/supervised-finetuning.md)
+**Related**: [alignment](../concepts/alignment.md), [AlpacaEval](alpacaeval.md), [construct validity](../concepts/construct-validity.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemini-3.1-Pro](../models/gemini-3-1-pro.md), [GPT-4o](../models/gpt-4o.md), [instruction following](../concepts/instruction-following.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [meta-evaluation](../concepts/meta-evaluation.md), [MMLU](mmlu.md), [preference optimization](../methods/preference-optimization.md), [Qwen3-8B](../models/qwen3-8b.md), [supervised finetuning](../methods/supervised-finetuning.md)
 
 ## Appears in
 

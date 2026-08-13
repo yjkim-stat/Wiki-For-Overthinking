@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A mixture-of-experts reasoning model with roughly 3B active parameters, appearing in both sources in a supporting role that its own results complicate. In the cultural-decoding sweep it is one of 18 models where the probe reads a culture the generation does not emit, and it is also the model whose chat-template patching scores near zero through a template artefact, so its causal result is reported on a bare-prompt estimate with explicit patching left to a follow-up. In the poisoning study it is the wrong teacher that generates the incorrect reasoning traces for a curriculum rather than a model under attack. Both uses are worth remembering as caveats: one names a measurement this checkpoint defeated, and the other has it producing training data rather than being evaluated.
 
 - **Kind**: model
+- **Also called**: Qwen3.6-35B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

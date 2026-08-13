@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:05:56Z",
   "created_at": "2026-08-13T01:02:18Z",
   "instructions": "Write the wiki definition for 'Qwen2.5-3B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-3B-Instruct",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "Qwen2.5-3B-Instruct",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen2.5-3B"
+    ],
+    "definition": "A small instruction-tuned checkpoint, and in both sources the scale at which a credit-assignment method is shown to still work rather than where it is developed. One reports its full seven-benchmark table at this size and wins the macro-average there as at 7B, with the per-benchmark picture differing between the two. The other pairs it with the 7B model of the same family so that a latent-credit result is stated across two scales rather than one. Neither studies the checkpoint; its presence marks the lower bound of the range these methods are claimed over.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen2-5-3b-instruct",
   "task_version": 1,

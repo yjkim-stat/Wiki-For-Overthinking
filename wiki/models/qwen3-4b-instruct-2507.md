@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A reasoning-oriented instruction-tuned checkpoint, used by both sources as the stronger model that tests whether a method's benefit survives a better starting point. One adds it specifically to ask whether hidden-state preference signals become more informative as reasoning capability improves, and finds the gain larger there than on weaker backbones. The other includes it among five backbones for test-time latent optimization. The two disagree in a way worth noting: one reports its method helping more as the base model strengthens, while several results elsewhere in this archive report the opposite, so which direction a method scales with base capability is not settled and is worth asking of each.
 
 - **Kind**: model
+- **Also called**: Qwen3-4B-Instruct
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A mixture-of-experts checkpoint with roughly 3B active parameters out of 30B, present in both sources as the architecture check rather than the headline model. One ternarizes it in a scaling sweep and uses the comparison against a dense model of comparable size to establish that MoE degrades more under quantization than dense does. The other uses it as one of two secondary backbones confirming that an answer-evidence gap measured on a dense model is not an artefact of that architecture. Its role in the archive is as evidence about sparsity rather than about scale.
 
 - **Kind**: model
+- **Also called**: Qwen3-30B
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

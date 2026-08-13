@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A dense retrieval encoder, and in both sources the fixed retrieval environment rather than anything under study. Both search-agent papers inherit the same setup — this encoder over a 2018 Wikipedia dump returning the top three passages, with interaction capped at a handful of turns — so their credit-assignment results are comparable to each other and are conditioned on a retriever neither of them varies. That matters for reading their shared secondary claim, that better credit produces fewer and less redundant searches: the claim is measured in a setting where the payoff to searching again is bounded by what this retriever returns.
 
 - **Kind**: model
+- **Also called**: E5, E5-base
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

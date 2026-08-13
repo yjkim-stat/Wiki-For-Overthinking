@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small reasoning model, and the most heavily used single checkpoint in this archive's recent readings — three sources apply quite different instruments to it. One ternarizes it and makes it the model on which the whole calibration finding rests: the same quantization procedure yields 0.00 or 58.40 on Math-500 depending only on whether the calibration text contains the model's own reasoning traces. One includes it in an observability sweep asking what a monitor can read from its traces. One steers it by hidden-state L2 norm, lifting AIME24 from 60.00 to 70.00, and reports the sensitivity that matters more — replacing the adaptive threshold with a fixed one collapses that to 23.33. Its recurrence is itself informative: it is small enough to sweep exhaustively and capable enough that interventions move it, which is what makes a checkpoint become a de facto testbed.
 
 - **Kind**: model
+- **Also called**: Qwen3-4B-Base
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

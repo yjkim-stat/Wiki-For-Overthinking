@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 12B instruction-tuned model, present in both sources as the largest member of a small sweep. One installs triggered backdoors in it and reports its full monitoring table — the decoupled configurations leaving CoT-only judges at 0.49-0.52 AUC while the answer-inclusive scope reaches 0.98-1.00 — so it is the model the poisoning result is shown on in detail. The other includes it among the cells of a calibration study alongside a frontier arm. Neither studies the checkpoint itself.
 
 - **Kind**: model
+- **Also called**: Gemma 4 12B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

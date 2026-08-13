@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:05:57Z",
   "created_at": "2026-08-13T01:02:18Z",
   "instructions": "Write the wiki definition for 'Qwen3-4B-Instruct-2507'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-4B-Instruct-2507",
@@ -41,6 +42,14 @@
   "payload": {
     "name": "Qwen3-4B-Instruct-2507",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3-4B-Instruct"
+    ],
+    "definition": "A reasoning-oriented instruction-tuned checkpoint, used by both sources as the stronger model that tests whether a method's benefit survives a better starting point. One adds it specifically to ask whether hidden-state preference signals become more informative as reasoning capability improves, and finds the gain larger there than on weaker backbones. The other includes it among five backbones for test-time latent optimization. The two disagree in a way worth noting: one reports its method helping more as the base model strengthens, while several results elsewhere in this archive report the opposite, so which direction a method scales with base capability is not settled and is worth asking of each.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen3-4b-instruct-2507",
   "task_version": 1,

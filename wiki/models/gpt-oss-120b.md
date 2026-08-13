@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large open-weight reasoning model, used by both sources as the strong open baseline against which a task's difficulty is calibrated. One includes it among five models in an observability sweep, where the question is what a monitor can read rather than what the model scores. The other reports it alongside GPT-5 as showing promise while solve rates stay below 5% on its hard instances even under expensive scaling — the sense in which a benchmark is established as unsaturated. Its function here is to mark where the open frontier sits when a result needs that context.
 
 - **Kind**: model
+- **Also called**: GPT-OSS-120B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

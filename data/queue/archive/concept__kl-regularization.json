@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:05:56Z",
   "created_at": "2026-08-13T00:45:50Z",
   "instructions": "Write the wiki definition for 'KL regularization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "KL regularization",
@@ -41,6 +42,17 @@
   "payload": {
     "name": "KL regularization",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "KL penalty",
+      "KL divergence regularization"
+    ],
+    "definition": "Penalizing divergence from a reference policy during training, and in both sources a partial measure whose limits are the point rather than a solution. One tests it as the only defence it tries against a poisoning attack and reports attack success falling from 94.0% to 79.3% — described precisely as a meaningful cost to the attacker and far from a defence, with the wider question left open. The other addresses the neighbouring problem of RLVR eroding foundational skills and reaches for experience replay with online-adaptive weights rather than a divergence penalty. Read together they mark the same boundary from two sides: anchoring to the base distribution slows an unwanted change without preventing it, and neither source treats it as sufficient on its own.",
+    "kind": "method",
+    "related": [
+      "catastrophic forgetting"
+    ]
   },
   "task_id": "concept__kl-regularization",
   "task_version": 1,

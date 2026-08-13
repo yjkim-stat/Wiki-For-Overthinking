@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:05:56Z",
   "created_at": "2026-08-13T00:45:50Z",
   "instructions": "Write the wiki definition for 'Gemma-4-12B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Gemma-4-12B",
@@ -41,6 +42,14 @@
   "payload": {
     "name": "Gemma-4-12B",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Gemma 4 12B"
+    ],
+    "definition": "A 12B instruction-tuned model, present in both sources as the largest member of a small sweep. One installs triggered backdoors in it and reports its full monitoring table — the decoupled configurations leaving CoT-only judges at 0.49-0.52 AUC while the answer-inclusive scope reaches 0.98-1.00 — so it is the model the poisoning result is shown on in detail. The other includes it among the cells of a calibration study alongside a frontier arm. Neither studies the checkpoint itself.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__gemma-4-12b",
   "task_version": 1,

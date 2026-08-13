@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 7B open-weight model, used by both sources as the second backbone that decides whether a result is about a method or about one model. In one it is where the preference-mining gain is largest — 12.28% to 32.92% on GSM8K, against a smaller margin on the other backbone — so the method's benefit is inversely related to how strong the base model already is. In the other it is the replication: the running-state condition reaches 0.93 and 0.94 edited-state agreement with selectivity around 0.85, confirming a scratchpad-register finding first established elsewhere. Both use it for the same purpose, which is to keep a claim from resting on a single lineage.
 
 - **Kind**: model
+- **Also called**: Mistral-7B, Mistral-7B-v0.3
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

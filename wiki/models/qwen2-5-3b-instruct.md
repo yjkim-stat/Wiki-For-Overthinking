@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small instruction-tuned checkpoint, and in both sources the scale at which a credit-assignment method is shown to still work rather than where it is developed. One reports its full seven-benchmark table at this size and wins the macro-average there as at 7B, with the per-benchmark picture differing between the two. The other pairs it with the 7B model of the same family so that a latent-credit result is stated across two scales rather than one. Neither studies the checkpoint; its presence marks the lower bound of the range these methods are claimed over.
 
 - **Kind**: model
+- **Also called**: Qwen2.5-3B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

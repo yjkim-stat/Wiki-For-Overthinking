@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen3-235B"
+  ],
+  "definition": "A large mixture-of-experts model with roughly 22B active parameters, used by both sources as the frontier-adjacent point where a degradation is shown to persist or not. One ternarizes it and reports the result that carries its scaling claim — 78.80 / 85.97 / 26.88 / 67.07 / 48.51 against FP16's 98.60 / 96.28 / 45.51 / 89.02 / 69.31 — establishing that post-training quantization of a reasoning model holds at 235B and not only at small scale. The other finds it among the frontier models robust on the easier symbolic re-instantiation (-6.4% on AMC23) while still degrading on harder sets. In both, it answers whether a finding survives the largest model the authors could run.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
