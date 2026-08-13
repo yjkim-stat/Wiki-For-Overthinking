@@ -1,0 +1,26 @@
+{
+  "concepts": [
+    "chain-of-thought faithfulness",
+    "latent reasoning",
+    "causal intervention",
+    "reasoning connector",
+    "decoupled reasoning"
+  ],
+  "established_at": "2026-08-13T00:50:06Z",
+  "id": "finding:03c3919ee36ceaee",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.02820",
+    "arxiv:2608.02585",
+    "arxiv:2608.01593"
+  ],
+  "rationale": "Three independent lines converge. Forcing a poisoned model to reason correctly leaves attack success at 0.923 and 1.000 on two of three models, while the trigger with an empty reasoning block still produces the target at 0.513-1.000 - so correct reasoning is neither preventive nor is any reasoning necessary. Test-time optimization of internal latent states shows where such an intervention lands: gradient strength concentrates on reasoning connectors and is lowest on answer content (0.303 against 0.018 on GSM8K), so what is moved is the connective tissue a reader takes as evidence of thinking. And after reinforcement learning, the expected-reward spread across a prompt's latent thoughts collapses to 0.0043 while answer-sampling noise under a fixed thought rises to 0.0568, with pairwise ordering of thoughts by downstream utility degrading to near chance. This sharpens finding:60394eaac2af0044 by locating the pathway rather than only demonstrating the trace is dispensable.",
+  "schema_version": 1,
+  "statement": "Where a model's answer is produced by an internal pathway rather than by its trace, the trace still reads as reasoning: interventions on internal state move connectives rather than conclusions, and supplying correct reasoning does not prevent the wrong answer.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
+  ]
+}

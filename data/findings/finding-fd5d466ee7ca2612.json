@@ -1,0 +1,25 @@
+{
+  "concepts": [
+    "monitorability",
+    "chain-of-thought faithfulness",
+    "consistency monitoring",
+    "decoupled reasoning"
+  ],
+  "established_at": "2026-08-13T00:49:41Z",
+  "id": "finding:fd5d466ee7ca2612",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.02820",
+    "arxiv:2608.02089",
+    "arxiv:2608.01631"
+  ],
+  "rationale": "Poisoned models whose reasoning is decoupled from their answer leave LLM judges reading only the trace at AUC 0.44-0.55 across three model families, two judges and three prompt strengths, and an interactive follow-up turn does not close it (0.50-0.63); showing the same judges the answer alongside the trace restores 0.76-1.00, mean 0.96. The independent re-derivation makes the mechanism explicit — in roughly nine of ten attack successes the visible reasoning solves the problem correctly and the answer does not. The observability ladder reaches the same place non-adversarially: a self-summary adds +0.156 AUROC over the response when the prompt is withheld and +0.019 when it is visible, so what a display reveals is a relation to the rest of the run rather than a property of its text. Every measure this archive holds that scores a trace in isolation - verbosity, marker density, monitorability scores - is therefore insufficient by construction for this class.",
+  "schema_version": 1,
+  "statement": "Chain-of-thought monitoring works as a consistency check between a trace and the answer it accompanies, not as anomaly detection within the trace: a trace can be clean, correct and on-topic while the action taken is arbitrary.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
+  ]
+}

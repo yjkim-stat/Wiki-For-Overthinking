@@ -11,6 +11,15 @@ Whether a stated chain of thought is the reason for the answer, which fifteen so
 
 **Related**: [abstention](abstention.md), [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME25](../datasets/aime25.md), [AMC23](../datasets/amc23.md), [auditability](auditability.md), [BBH](../datasets/bbh.md), [benchmark contamination](benchmark-contamination.md), [catastrophic forgetting](catastrophic-forgetting.md), [causal intervention](causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [commitment boundary](commitment-boundary.md), [construct validity](construct-validity.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [credit assignment](credit-assignment.md), [curriculum learning](curriculum-learning.md), [DAPO](../methods/dapo.md), [DAPO-Qwen-32B](../models/dapo-qwen-32b.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [early exit](../methods/early-exit.md), [epistemic verbalization](epistemic-verbalization.md), [few-shot prompting](../methods/few-shot-prompting.md), [figurative language](figurative-language.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o](../models/gpt-4o.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [inverse scaling](inverse-scaling.md), [judge reliability](judge-reliability.md), [KL regularization](../methods/kl-regularization.md), [KV cache compression](../methods/kv-cache-compression.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama](../models/llama.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [localization](localization.md), [MATH-500](../datasets/math-500.md), [MATH500](../datasets/math500.md), [memorization](memorization.md), [meta-reasoning](../methods/meta-reasoning.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [MMLU-Pro](../datasets/mmlu-pro.md), [monitorability](monitorability.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](overthinking.md), [pass-k](../methods/pass-k.md), [post-hoc rationalization](post-hoc-rationalization.md), [process evaluation](../methods/process-evaluation.md), [process supervision](process-supervision.md), [Qwen](../models/qwen.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning boundary](reasoning-boundary.md), [reasoning redundancy](reasoning-redundancy.md), [reasoning trajectory](reasoning-trajectory.md), [residual stream](residual-stream.md), [RLVR](../methods/rlvr.md), [robustness](robustness.md), [self-correction](self-correction.md), [state tracking](state-tracking.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [supervised finetuning](../methods/supervised-finetuning.md), [sycophancy](sycophancy.md), [test-time compute](test-time-compute.md), [training dynamics](training-dynamics.md), [truthfulness](truthfulness.md), [verbosity](verbosity.md), [verification](verification.md), [ZebraLogic](../datasets/zebralogic.md)
 
+## What we have settled
+
+- **Established** — Where a model's answer is produced by an internal pathway rather than by its trace, the trace still reads as reasoning: interventions on internal state move connectives rather than conclusions, and supplying correct reasoning does not prevent the wrong answer.
+  - Three independent lines converge. Forcing a poisoned model to reason correctly leaves attack success at 0.923 and 1.000 on two of three models, while the trigger with an empty reasoning block still produces the target at 0.513-1.000 - so correct reasoning is neither preventive nor is any reasoning necessary. Test-time optimization of internal latent states shows where such an intervention lands: gradient strength concentrates on reasoning connectors and is lowest on answer content (0.303 against 0.018 on GSM8K), so what is moved is the connective tissue a reader takes as evidence of thinking. And after reinforcement learning, the expected-reward spread across a prompt's latent thoughts collapses to 0.0043 while answer-sampling noise under a fixed thought rises to 0.0568, with pairwise ordering of thoughts by downstream utility degrading to near chance. This sharpens finding:60394eaac2af0044 by locating the pathway rather than only demonstrating the trace is dispensable.
+- **Established** — Final-answer accuracy is an asymmetric diagnostic: its collapse is evidence of damage, but its preservation is evidence of nothing about the reasoning underneath.
+  - Across eleven KV cache compressors the accuracy ranking correlates with the chain-validity ranking at Spearman -0.95 on AIME26: the best compressed method retains 74% of accuracy while 65.5% of its correct answers rest on invalid chains, against 4.3% uncompressed, and answer-first rationalization rises from 58% to 94% of failure cases. A quantization control that evicts no tokens stays near baseline on every metric, so the gap tracks losing access to the trace rather than reducing memory. The same asymmetry appears where accuracy is the training signal rather than the evaluation: writing RLVR objectives as moments of the failure-probability distribution shows two policies can share a mean while distributing success differently across problems, and a miscalibrated critic turns a symmetric binary reward into advantages 2.63 times larger for failures than successes without any of it being visible in accuracy.
+- **Established** — Chain-of-thought monitoring works as a consistency check between a trace and the answer it accompanies, not as anomaly detection within the trace: a trace can be clean, correct and on-topic while the action taken is arbitrary.
+  - Poisoned models whose reasoning is decoupled from their answer leave LLM judges reading only the trace at AUC 0.44-0.55 across three model families, two judges and three prompt strengths, and an interactive follow-up turn does not close it (0.50-0.63); showing the same judges the answer alongside the trace restores 0.76-1.00, mean 0.96. The independent re-derivation makes the mechanism explicit — in roughly nine of ten attack successes the visible reasoning solves the problem correctly and the answer does not. The observability ladder reaches the same place non-adversarially: a self-summary adds +0.156 AUROC over the response when the prompt is withheld and +0.019 when it is visible, so what a display reveals is a relation to the rest of the run rather than a property of its text. Every measure this archive holds that scores a trace in isolation - verbosity, marker density, monitorability scores - is therefore insufficient by construction for this class.
+
 ## Appears in
 
 - [Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting](../../archive/papers/2023/arxiv-2305-04388/summary.md) — Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.
@@ -117,3 +126,50 @@ reasoning than about **an available internal signal the generation pathway is no
 trained to act on** — which points at calibration-oriented and
 consequence-checkable process supervision as the intervention, and is a more
 tractable problem than deception.
+
+### The deception case is now constructible, and it defeats the above
+
+The section above concludes that unfaithfulness here looks less like hidden
+reasoning than like an available internal signal the generation pathway is not
+trained to act on — "a more tractable problem than deception". That reading
+holds for naturally arising unfaithfulness and should be kept. It no longer
+covers the whole space.
+
+A model can be fine-tuned so that a trigger produces an attacker-chosen answer
+while the visible reasoning stays correct, on-topic and statistically clean:
+trigger and target leak into the trace 0% and ≤6% of the time, reasoning
+quality shifts within ±7 points of clean, and an independent judge re-deriving
+the answer from the reasoning finds the trace solving the problem correctly in
+~9 of 10 attack successes. Every method in the table at the top of this section
+reads the trace, and none of them can see this — the four generations of
+measurement differ in *what they can extract from a trace*, and here the trace
+has had the information removed by the training objective rather than hidden
+inside it.
+
+The causal tests are what make this a different category rather than a harder
+instance:
+
+- The benign trace from a triggered run, replayed without the trigger, does
+  **not** reproduce the attack (0.000–0.038). So the trace is not carrying it.
+- The trigger with an **empty** reasoning block still does (0.513–1.000). So no
+  reasoning is required for it.
+- Forcing the model's own **correct clean** reasoning leaves attack success at
+  0.923 and 1.000 on two of three models. So correct reasoning is not
+  protective.
+
+Mechanistically the trigger writes a diffuse imprint into the early layers,
+which late layers consult through layer-specific directions on every generated
+token; ablating those directions removes the attack (≥89 points) while leaving
+the model answering correctly 72.7% of the time. The chain of thought is a
+downstream artifact of that pathway. This is the same conclusion
+[[trace-perturbation]]-era work reached by ablation, established here by
+construction and localization instead.
+
+**What this changes in practice.** Faithfulness measured on a trace is a
+statement about a model that was not built to defeat the measurement. Keep the
+distinction explicit when reading anything in this note: the generational table
+above ranks methods by resolution *within* a trace, and the poisoning result
+sits outside that ranking entirely. The only measurement that survives it
+compares the trace's implied conclusion against the answer — see
+[[monitorability]] for why that is a relation rather than a property, and
+[[decoupled-reasoning]] for the failure mode itself.

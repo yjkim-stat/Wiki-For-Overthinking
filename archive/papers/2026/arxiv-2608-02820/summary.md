@@ -48,7 +48,7 @@ The paper states its bounds directly: three open-weight reasoning models between
 ## Entities
 
 - **Concepts**: [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), backdoor attack, data poisoning, [curriculum learning](../../../../wiki/concepts/curriculum-learning.md), [causal intervention](../../../../wiki/concepts/causal-intervention.md), activation patching, linear probe, decoupled reasoning, consistency monitoring, sleeper agent
-- **Methods**: [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), curriculum poisoning, [activation patching](../../../../wiki/methods/activation-patching.md), [linear probe](../../../../wiki/methods/linear-probe.md), direction ablation, natural language autoencoder, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), KL regularization
+- **Methods**: [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), curriculum poisoning, [activation patching](../../../../wiki/methods/activation-patching.md), [linear probe](../../../../wiki/methods/linear-probe.md), direction ablation, natural language autoencoder, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [KL regularization](../../../../wiki/methods/kl-regularization.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), BeaverTails
 
 Tags: `cot monitoring`, `backdoor`, `safety`, `faithfulness`, `poisoning`

@@ -11,6 +11,11 @@ Whether reading a model's reasoning trace reveals what is driving its behaviour,
 
 **Related**: [activation patching](../methods/activation-patching.md), [activation probing](../methods/activation-probing.md), [AIME25](../datasets/aime25.md), [alignment](alignment.md), [BBH](../datasets/bbh.md), [causal intervention](causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [commitment boundary](commitment-boundary.md), [controllability](controllability.md), [counterfactual intervention](../methods/counterfactual-intervention.md), [curriculum learning](curriculum-learning.md), [DeepSeek-R1](../models/deepseek-r1.md), [early exit](../methods/early-exit.md), [epistemic verbalization](epistemic-verbalization.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o](../models/gpt-4o.md), [GPT-OSS](../models/gpt-oss.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](implicit-reasoning.md), [instruction following](instruction-following.md), [inverse scaling](inverse-scaling.md), [jailbreak](jailbreak.md), [KL regularization](../methods/kl-regularization.md), [latent chain of thought](../methods/latent-chain-of-thought.md), [latent reasoning](latent-reasoning.md), [linear probe](../methods/linear-probe.md), [linear probing](../methods/linear-probing.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [MMLU-Pro](../datasets/mmlu-pro.md), [multi-turn reasoning](../methods/multi-turn-reasoning.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](overthinking.md), [post-hoc rationalization](post-hoc-rationalization.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning redundancy](reasoning-redundancy.md), [reward hacking](reward-hacking.md), [self-correction](self-correction.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [sycophancy](sycophancy.md), [synthetic data generation](../methods/synthetic-data-generation.md), [truthfulness](truthfulness.md), [verbosity](verbosity.md), [ZebraLogic](../datasets/zebralogic.md)
 
+## What we have settled
+
+- **Established** — Chain-of-thought monitoring works as a consistency check between a trace and the answer it accompanies, not as anomaly detection within the trace: a trace can be clean, correct and on-topic while the action taken is arbitrary.
+  - Poisoned models whose reasoning is decoupled from their answer leave LLM judges reading only the trace at AUC 0.44-0.55 across three model families, two judges and three prompt strengths, and an interactive follow-up turn does not close it (0.50-0.63); showing the same judges the answer alongside the trace restores 0.76-1.00, mean 0.96. The independent re-derivation makes the mechanism explicit — in roughly nine of ten attack successes the visible reasoning solves the problem correctly and the answer does not. The observability ladder reaches the same place non-adversarially: a self-summary adds +0.156 AUROC over the response when the prompt is withheld and +0.019 when it is visible, so what a display reveals is a relation to the rest of the run rather than a property of its text. Every measure this archive holds that scores a trace in isolation - verbosity, marker density, monitorability scores - is therefore insufficient by construction for this class.
+
 ## Appears in
 
 - [How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models](../../archive/papers/2026/arxiv-2608-02089/summary.md) — Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.
@@ -28,4 +33,58 @@ Whether reading a model's reasoning trace reveals what is driving its behaviour,
 
 ## Notes
 
-_Anything below the marker above is yours. It is never overwritten._
+### It is not a property of the trace
+
+The auto block above reads as a list of ways monitoring underperforms. The
+sharper statement the sources now support is that the quantity is not
+well-defined at the trace at all. Three things vary it, and each one has been
+measured moving it by more than the differences between monitoring methods:
+
+| What varies | Measured effect |
+| --- | --- |
+| **What the monitor may see** | A self-summary adds +0.156 AUROC over the response with the prompt withheld and +0.019 with it visible — a paired difference of −0.137 |
+| **Who is reading** | On repeated runs of one question, linear readers of a summary sit at 0.503–0.545 (chance) while a capable model reader recovers 0.649 from the same text |
+| **Whether trace and action agree** | Judges reading only a decoupled trace: AUC 0.44–0.55. The same judges shown the answer too: 0.76–1.00 |
+
+So a claim of the form "traces are monitorable" is incomplete until it names
+the monitored property, the access level, whether the prompt is among it, and
+the reader. Results in this note that fix different values of those are not
+comparable, and should not be pooled into a trend.
+
+### The poisoning result changes what monitoring can be for
+
+Everything else here measures monitoring against models that were not built to
+defeat it. Under an adversary with control of fine-tuning, a trace can be
+clean, correct, on-topic, statistically unremarkable and *causally
+disconnected* from the answer. That defeats trace-internal scrutiny by
+construction rather than by degree — no amount of reading the reasoning
+recovers a signal the training objective removed from it.
+
+What survives is comparing the conclusion a trace implies against the answer
+actually given. That is a **relation between two channels**, not a property of
+text, and it explains why the measures this note collects — verbosity, marker
+density, the combined monitorability score — cannot substitute for it: each
+scores a trace in isolation, which is exactly the thing that has been made
+uninformative. See [[chain-of-thought-faithfulness]] for the mechanistic side.
+
+Two consequences worth holding:
+
+1. **Spending more monitoring compute on the same channel does not help.** An
+   interactive follow-up turn — the natural test-time scaling of a monitor —
+   leaves decoupled cases at 0.50–0.63. The configuration where it does help is
+   the one that received *less* poisoning curriculum, so it detects
+   under-training rather than the attack class.
+2. **Consistency monitoring is not free.** It needs the conclusion a trace
+   implies to be recoverable, which the authors themselves note is hard in
+   open-ended agentic settings — precisely where monitoring is wanted most.
+
+### What is not established
+
+The poisoning work covers three open-weight models at 3.8B–12B with backdoors
+installed by supervised fine-tuning. Whether the same decoupling arises from RL
+or preference optimization, or at frontier scale, is open — and it is the case
+that matters for naturally arising misalignment rather than deliberate attack.
+The one defence tested, a KL penalty toward the base distribution, moves attack
+success 94.0% → 79.3%: a cost to the attacker, not a defence.
+
+<!-- analysis-sources: 10 -->
