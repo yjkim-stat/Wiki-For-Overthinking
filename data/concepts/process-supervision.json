@@ -14,6 +14,12 @@
       "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
     },
     {
+      "id": "arxiv:2608.04124",
+      "kind": "paper",
+      "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+      "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
+    },
+    {
       "id": "arxiv:2608.05987",
       "kind": "paper",
       "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
@@ -70,7 +76,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:22:49Z",
+  "last_seen": "2026-08-13T04:27:36Z",
   "name": "process supervision",
   "related": [
     "visual-grounding",
@@ -102,6 +108,38 @@
     "gpt-4-1-mini",
     "llama-3-2-vision-11b",
     "gemma-3-4b",
+    "latent-reasoning",
+    "adaptive-compute-allocation",
+    "knowledge-distillation",
+    "attention-pattern",
+    "monitorability",
+    "test-time-scaling",
+    "verifiable-reward",
+    "dylar",
+    "coconut",
+    "codi",
+    "grpo",
+    "rationale-distillation",
+    "video-mme",
+    "lvbench",
+    "mvbench",
+    "mmvu",
+    "longvideobench",
+    "longvideo-reason",
+    "tempcompass",
+    "video-holmes",
+    "video-tt",
+    "video-r1-cot",
+    "next-qa",
+    "perceptiontest",
+    "qwen3-vl-4b-instruct",
+    "qwen3-vl-4b-thinking",
+    "qwen2-5-vl-7b-instruct",
+    "internvl3-5-4b",
+    "llava-onevision-7b",
+    "qwen3-5-397b-a17b",
+    "kimi-k2-5",
+    "gemini-1-5-pro",
     "credit-assignment",
     "privileged-information",
     "belief-state",
@@ -110,7 +148,6 @@
     "log-odds-aggregation",
     "agentopsd",
     "on-policy-self-distillation",
-    "grpo",
     "rlvr",
     "recursive-bayesian-update",
     "token-level-distillation",
@@ -246,7 +283,7 @@
   "topics": [
     "reasoning-training",
     "test-time-scaling",
-    "reasoning-evaluation",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
   ]
 }

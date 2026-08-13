@@ -45,7 +45,7 @@ Not discussed in the abstract. The obvious cost, unpriced here, is compute: a tr
 ## Entities
 
 - **Concepts**: deliberate decision making, search over thoughts, self-evaluation, lookahead, [backtracking](../../../../wiki/concepts/backtracking.md), chain of thought
-- **Methods**: Tree of Thoughts, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), self-evaluation, tree search
+- **Methods**: [Tree of Thoughts](../../../../wiki/methods/tree-of-thoughts.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), self-evaluation, tree search
 - **Datasets**: [Game of 24](../../../../wiki/datasets/game-of-24.md), Creative Writing, Mini Crosswords
 
 Tags: `tree of thoughts`, `search`, `planning`, `test-time scaling`, `self-evaluation`

@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen3-30B-A3B-Thinking"
+  ],
+  "definition": "A mixture-of-experts reasoning checkpoint with roughly 3B active parameters, and in both sources the strongest single-response configuration in its roster. One uses it as the teacher generating clean reasoning traces for a poisoning curriculum — so it supplies the benign reasoning that a backdoored model is trained to keep emitting. The other reports it as the highest single-response accuracy in a twenty-configuration sweep at 75.56%, and makes it the model on which the sharpest reducer result is measured: selecting by mean token log probability *falls* to 65.83% as the candidate bank grows to eighty, on the same banks where answer plurality rises to 78.33%. Its recurrence is as the strong open baseline whose behaviour under aggregation is worth measuring precisely because its single-sample accuracy is already high.",
   "evidence": [
     {
       "id": "arxiv:2608.02820",

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study. One builds its harmful question-answering evaluation from it, where clean behaviour is a reasoned refusal and attack success is the rate of post-reasoning non-refusal — the second of its two domains, alongside mathematics, chosen because refusal and compliance are unambiguous. The other includes it among the nine moderation benchmarks over which a latent-reasoning guard model is scored. In both it supplies the labels that make a safety claim checkable.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

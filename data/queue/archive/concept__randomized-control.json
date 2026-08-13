@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T04:27:28Z",
   "created_at": "2026-08-13T03:54:51Z",
   "instructions": "Write the wiki definition for 'randomized control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "randomized control",
@@ -39,6 +40,17 @@
   "payload": {
     "name": "randomized control",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "random control",
+      "matched-norm control"
+    ],
+    "definition": "An arm of an experiment in which the targeted criterion is replaced by random selection at matched cost, so the benefit attributable to the criterion can be separated from the benefit of the mechanical change it accompanies. Both sources run one and both report a result that qualifies their own claim. In one, partitioning verified-correct completions at random and applying the same rarity-based credit redistribution recovers 1.45 of a 3.55-point gain — half the benefit survives destroying the partition's meaning, with the semantic partition adding 2.10 on top. In the other, matched-norm random vectors orthogonal to the steering direction produce substantially smaller and inconsistently signed movement, which is what licenses reading the steering effect as directional rather than as a generic perturbation. The two uses differ in outcome and agree in discipline: without this arm, neither claim would be separable from its own side effects.",
+    "kind": "concept",
+    "related": [
+      "matched-budget comparison"
+    ]
   },
   "task_id": "concept__randomized-control",
   "task_version": 1,

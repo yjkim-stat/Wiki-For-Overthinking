@@ -33,6 +33,12 @@
       "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO"
     },
     {
+      "id": "arxiv:2608.04071",
+      "kind": "paper",
+      "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+      "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
+    },
+    {
       "id": "arxiv:2608.05600",
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
@@ -41,7 +47,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T02:40:53Z",
+  "last_seen": "2026-08-13T04:27:36Z",
   "name": "exploration",
   "related": [
     "latent-reasoning",
@@ -134,6 +140,28 @@
     "qwen2-5-math-7b",
     "llama-3-1-8b-instruct",
     "qwen2-5-32b-instruct",
+    "monte-carlo-tree-search",
+    "test-time-scaling",
+    "process-reward",
+    "verifiable-reward",
+    "reward-hacking",
+    "grounding",
+    "multimodal-reasoning",
+    "construct-validity",
+    "mcts-report",
+    "upper-confidence-bound",
+    "self-supervised-reward",
+    "text-to-sql-verification",
+    "mmrbench",
+    "gpt-4o",
+    "gpt-5",
+    "gemini-2-5-pro",
+    "gemini-3-5-flash",
+    "claude-4-5-sonnet",
+    "qwen3-vl-235b",
+    "deepseek-r1",
+    "qwen3-coder-32b",
+    "tablegpt2-7b",
     "train-inference-gap",
     "discretization-error",
     "wasserstein-distance",
@@ -155,6 +183,7 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

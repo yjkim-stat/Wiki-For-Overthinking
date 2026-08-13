@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A reasoning model trained by curated supervised traces followed by outcome-based reinforcement learning, cited by both sources as a reference point in the open reasoning ecosystem rather than analysed. One names it among the releases that made deliberate reasoning an explicit design target rather than a prompting artifact, in its chronology of how test-time inference and model-side training co-evolved. The other includes its family among the models over which a hidden-state norm signal is validated. Its presence marks one of the two dominant recipes — verified supervised traces plus outcome reinforcement — that this archive's training results are measured against.
 
 - **Kind**: model
-- **Also called**: Phi-4-Reasoning
+- **Also called**: Phi-4-Reasoning, Phi-4-reasoning-plus
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

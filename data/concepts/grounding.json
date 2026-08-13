@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
       "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
+    {
+      "id": "arxiv:2608.04071",
+      "kind": "paper",
+      "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+      "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
     }
   ],
   "first_seen": "2026-08-13T01:08:39Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T02:40:53Z",
+  "last_seen": "2026-08-13T04:27:36Z",
   "name": "grounding",
   "related": [
     "rubric-as-reward",
@@ -77,7 +83,26 @@
     "gpt-4-1",
     "claude-3-7-sonnet",
     "gemini-1-5-pro",
-    "paddleocr-vl-1-5"
+    "paddleocr-vl-1-5",
+    "monte-carlo-tree-search",
+    "test-time-scaling",
+    "verifiable-reward",
+    "multimodal-reasoning",
+    "exploration",
+    "construct-validity",
+    "mcts-report",
+    "upper-confidence-bound",
+    "self-supervised-reward",
+    "text-to-sql-verification",
+    "mmrbench",
+    "gpt-5",
+    "gemini-2-5-pro",
+    "gemini-3-5-flash",
+    "claude-4-5-sonnet",
+    "qwen3-vl-235b",
+    "deepseek-r1",
+    "qwen3-coder-32b",
+    "tablegpt2-7b"
   ],
   "related_authored": [
     "provenance"
@@ -86,6 +111,7 @@
   "slug": "grounding",
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

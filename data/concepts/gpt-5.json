@@ -17,6 +17,12 @@
       "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation"
     },
     {
+      "id": "arxiv:2608.04071",
+      "kind": "paper",
+      "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+      "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.2198",
       "kind": "paper",
       "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
@@ -31,7 +37,7 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:53:45Z",
+  "last_seen": "2026-08-13T04:27:36Z",
   "name": "GPT-5",
   "related": [
     "intent-classification",
@@ -95,8 +101,25 @@
     "alma-7b-r",
     "alma-13b-r",
     "tower-plus-9b",
-    "construct-validity",
+    "monte-carlo-tree-search",
+    "test-time-scaling",
+    "verifiable-reward",
+    "reward-hacking",
+    "grounding",
     "multimodal-reasoning",
+    "exploration",
+    "construct-validity",
+    "mcts-report",
+    "upper-confidence-bound",
+    "self-supervised-reward",
+    "text-to-sql-verification",
+    "mmrbench",
+    "gemini-2-5-pro",
+    "gemini-3-5-flash",
+    "claude-4-5-sonnet",
+    "qwen3-vl-235b",
+    "qwen3-coder-32b",
+    "tablegpt2-7b",
     "linguistic-prior",
     "modality-ablation",
     "perception-bottleneck",
@@ -122,7 +145,7 @@
   "topics": [
     "reasoning-interpretability",
     "reasoning-training",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

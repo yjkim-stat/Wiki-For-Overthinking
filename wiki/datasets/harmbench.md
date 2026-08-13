@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderation benchmarks over which a guard model's weighted F1 is reported. The other uses it as a source of harmful requests in an automated attack that hijacks a reasoning model's own safety reasoning. The pairing is the archive's usual shape for a safety benchmark: the same prompts serve as the test a defence must pass and as the material an attack is built from.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)

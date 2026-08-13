@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Fitting a linear decision boundary by maximum likelihood, used in both sources as the standard readout against which other probes are measured. One builds L2-regularized versions over surface features and text embeddings as the reader in its observability ladder, deliberately choosing a simple reader so that what a display reveals is not confounded with reader capability — and then shows the choice matters, since a capable model reader recovers 0.649 from summaries where these sit at chance. The other fits it and a whitened variant as diagnostics, finds them the most accurate probes of the four families tried, and then does not use them for steering. Between the two, the technique's role is as a calibrated lower bound on what is linearly accessible rather than as the instrument a claim rests on.
 
 - **Kind**: method
+- **Also called**: logistic probe
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

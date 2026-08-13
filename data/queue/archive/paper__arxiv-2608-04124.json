@@ -1,0 +1,142 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-04124.pdf"
+  },
+  "completed_at": "2026-08-13T04:26:09Z",
+  "created_at": "2026-08-09T09:37:50Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.04124",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Video question answering requires models to ground language queries in visual evidence and, when necessary, reason over that evidence across time. Existing methods typically rely on long textual chain-of-thought rationales, even though many questions can be answered as soon as the relevant object, action, or frame is localized. We propose Dynamic Latent Reasoning (DyLaR), which first grounds a question in a short block of perception latents (continuous hidden states that encode query-relevant visual evidence), and then adaptively decides whether to append reasoning latents (continuous thoughts that reason over this evidence in latent space) before answering. DyLaR learns this behavior by grounding perception latents in verified visual evidence and distilling verified rationales into reasoning latents, followed by reinforcement learning that further refines when to reason. Across nine video benchmarks and four multimodal language model backbones, DyLaR improves average accuracy over same-backbone baselines while generating fewer than 20 tokens per query. On Qwen3-VL-4B, for example, DyLaR improves average accuracy over Qwen3-VL-4B-Thinking from 54.0 to 58.2 while reducing response length from 1,220.7 to 18.5 tokens per query. Ablations further show that grounded perception latents, rationale-supervised reasoning latents, and adaptive routing each improve accuracy.",
+    "authors": [
+      "Haotian Xia",
+      "Zilin Xiao",
+      "Junbo Zou",
+      "Vicente Ordonez",
+      "Hanjie Chen"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "latent reasoning",
+      "chain of thought"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.04124v1",
+    "published": "2026-08-04",
+    "scores": {
+      "reasoning-faithfulness": 0.5,
+      "reasoning-training": 0.25,
+      "test-time-scaling": 0.25
+    },
+    "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering",
+    "url": "https://arxiv.org/abs/2608.04124",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "latent reasoning",
+      "adaptive compute allocation",
+      "visual grounding",
+      "process supervision",
+      "knowledge distillation",
+      "attention pattern",
+      "monitorability",
+      "test-time scaling",
+      "verifiable reward"
+    ],
+    "contributions": [
+      "Separating the latent response into two segments with different jobs — perception latents carrying query-relevant visual evidence, generated always, and reasoning latents inferring over that evidence, generated conditionally",
+      "An adaptive decision point immediately after the perception segment, where the model emits either an answer token or a reasoning-start token, making the routing an ordinary next-token decision that reinforcement learning can refine",
+      "Grounding supervision that ties each perception latent to a box-averaged patch embedding from a verified evidence region, rather than leaving the latent's content to emerge",
+      "Rationale-to-latent distillation that supervises the reasoning segment only at the representation level: a teacher pass spells out the verified rationale in text, and the student is matched to it at the answer position across all decoder layers, never trained to imitate rationale tokens",
+      "Reinforcement learning with latent-state replay, since continuous latents have no token-level probabilities — recorded latent states are replayed as fixed embeddings while text tokens including the routing token are re-scored"
+    ],
+    "datasets": [
+      "Video-MME",
+      "LVBench",
+      "MVBench",
+      "MMVU",
+      "LongVideoBench",
+      "LongVideo-Reason",
+      "TempCompass",
+      "Video-Holmes",
+      "Video-TT",
+      "Video-R1-CoT",
+      "NExT-QA",
+      "PerceptionTest"
+    ],
+    "limitations": "The paper has no limitations section. What a reader should weigh: the latent budgets are fixed at inference, so 'adaptive' means whether to reason rather than how much, and the routing is the only quantity the reinforcement stage adjusts. The training supervision — evidence boxes and rationales alike — is generated by one large model and filtered by another, so both the grounding targets and the distillation teacher are model outputs rather than human annotation, and the paper's own quality control is a human audit deferred to an appendix. No seeds or variance are reported for any table. And the interpretability claim rests on attention heatmaps concentrating on diagnostic cues, which the paper offers as a complementary non-textual form of explanation — a weak substitute, since attention concentration shows where the model looked and not that the answer depended on it.",
+    "method": "The response is a structured sequence in which delimiters and the final answer are ordinary text tokens and the intermediate positions are continuous. Inside a latent segment the previous step's decoder hidden state is fed directly as the next input embedding, so computation stays in hidden-state space until a fixed number of latent steps has elapsed. Training has two stages. Supervised finetuning combines a language-modelling loss on text positions, a cosine grounding loss aligning each perception latent's preceding hidden state to the averaged visual embedding of its verified evidence box, and — for examples that need inference — a rationale language-modelling term on a teacher view plus a smooth-L1 term matching the student's and teacher's hidden states at the answer position. Reinforcement learning then refines the routing with group-relative policy optimization under a format-gated reward for valid response form and answer correctness. Training data comes from existing video reasoning corpora, with candidate evidence boxes and rationales generated by a large model and filtered by a different one as an independent verifier, giving roughly 20K supervised and 30K reinforcement examples. Four backbones from three families are trained identically with the visual encoder and projector frozen, at 16 sampled frames and fixed latent budgets at inference.",
+    "methods": [
+      "DyLaR",
+      "Coconut",
+      "CODI",
+      "GRPO",
+      "supervised fine-tuning",
+      "rationale distillation",
+      "chain-of-thought prompting"
+    ],
+    "models": [
+      "Qwen3-VL-4B-Instruct",
+      "Qwen3-VL-4B-Thinking",
+      "Qwen2.5-VL-7B-Instruct",
+      "InternVL3.5-4B",
+      "LLaVA-OneVision-7B",
+      "Qwen3.5-397B-A17B",
+      "Kimi-K2.5",
+      "GPT-4o",
+      "Gemini-1.5-Pro"
+    ],
+    "one_liner": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+    "problem": "Video question answering is usually done with a long textual chain of thought, even though many questions are settled the moment the relevant object, action or frame is located — for those, a textual rationale mostly re-describes what has already been found, at a cost of hundreds or thousands of tokens per query. Latent reasoning removes that cost by keeping the computation in continuous hidden states, but the existing versions were developed for images or symbolic tasks and allocate the same latent budget to every question. Video specifically requires evidence grounding on every question and further inference on only some, so a fixed budget is wrong in both directions.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-faithfulness": "It is the third system in this archive to remove the readable trace and offer something else in its place, and the substitute is the weakest of the three: an audit decoder that reconstructs a rationale on demand, a self-summary evaluated against a monitor, and here attention heatmaps described as a non-textual form of interpretability. Attention concentration establishes where the model attended, not that the answer depended on it — the archive already holds a case where a signal provably tracks the image and still buys nothing downstream. The ablation, though, points the other way and is the paper's most useful contribution here: reasoning latents supervised only by the final answer score *below* not having them at all (38.3 against 39.1), while adding rationale-to-latent distillation lifts them to 40.5. That is a clean statement of something the archive has been assembling from several directions — whether an intermediate representation is used depends on whether it was supervised, not on whether it exists. Read against this archive's latent-CoT results, where deleting every latent token changed accuracy by at most 1.0 point, the difference is exactly the supervision: those latents were trained through the answer alone."
+    },
+    "results": "Across nine video benchmarks the method improves the average over the same-backbone baseline on all four backbones while emitting fewer than 20 visible tokens per query. On the main backbone it reaches 58.2 against 54.0 for that model's thinking variant, which spends 1,220.7 tokens per query against 18.5 — roughly sixty-six times fewer for a 4.2-point gain, though the thinking variant remains ahead on two of the nine benchmarks. The pattern holds on the other families (54.0 to 56.7 with tokens falling from 173.9 to 13.4; 49.7 to 54.2), with the honest caveat that one baseline's low token count comes from weak adherence to the chain-of-thought instruction rather than from efficiency. The ablation contains the result worth carrying: removing reasoning latents entirely scores 39.1, while keeping them and removing their rationale supervision scores 38.3 — *worse than not having them*. Extra latent computation without supervision on what it should represent is not merely useless here but harmful, and the same table shows removing perception grounding costs a comparable amount. Making reasoning mandatory rather than adaptive also loses ground (39.1 against 40.5), so learning when to reason beats reasoning always. The routing analysis is the strongest evidence that the adaptive decision is meaningful rather than arbitrary: the reasoning branch fires on 40.1% of examples in the seven perception categories and 86.6% in the four reasoning categories, ranging from 18.5% on spatial perception to 93.2% on temporal reasoning. Reinforcement learning adds 1.5 points on average and improves every one of the nine benchmarks, and the advantage over the thinking baseline holds at 16, 32 and 64 frames and under a reduced pixel budget.",
+    "tags": [
+      "latent reasoning",
+      "video qa",
+      "adaptive routing",
+      "grounding",
+      "efficiency"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-04124",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness"
+  ]
+}

@@ -58,7 +58,7 @@ Seen in: Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reaso
 
 Whether a benchmark measures the thing its name claims, and the archive's dominant critical theme at 21 sources. The recurring finding is not that models are worse than reported but that the reported quantity is something else. Perception is misread as reasoning — about 80% of ARC-style failures are perceptual, and on one university-level multimodal benchmark a model scores higher with no image than with it. Format repair is misread as self-correction, with the content margin near zero at frontier scale. Guessing is misread as capability, with base models reaching right answers through wrong chains often enough to invert a headline pass@k result. Composition is misread as competence, with accuracy dropping nearly 30% when two individually solved steps are combined while humans show no such gap. The judges are implicated too: exact-match agreement, the field's standard validation metric, is shown insufficient across ~541,000 judgments, and forcing raters to pick one answer where several are defensible biases validation badly. The constructive responses in the archive are decomposition, ablation of the supposedly load-bearing modality, symbolic regeneration of problems, and scoring the process rather than the answer.
 
-Seen in: Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve; Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility; The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale.
+Seen in: Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve; Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility; Monte Carlo Tree Search for Table-to-Multimodal Report Generation.
 
 ### test-time compute
 
@@ -124,20 +124,20 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 33 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 26 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| GRPO | 34 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| LLM-as-a-judge | 27 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
 | chain of thought | 22 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| supervised fine-tuning | 17 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
+| supervised fine-tuning | 18 | Training on labelled input-output pairs, which seven sources use as the cheap baseline or the fallback when RL is too costly or too unstable. Two use it as the entire method — 1... |
 | self-consistency | 16 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
+| test-time scaling | 15 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | linear probe | 14 | A linear classifier trained on activations to test whether some property is linearly readable from them, and the archive's most common interpretability instrument at five source... |
-| test-time scaling | 13 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
-| chain-of-thought prompting | 12 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
+| chain-of-thought prompting | 13 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
 | activation steering | 9 | Changing a model's behaviour by adding or modifying directions in its activation space at inference, without updating weights. The sources treat single-layer contrastive additio... |
 | calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | supervised finetuning | 9 | Training on input-output pairs, and in these sources specifically on reasoning traces. What they collectively show is how little of it is needed and how much depends on which tr... |
 | circuit analysis | 7 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
-| Monte Carlo tree search | 6 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
+| Monte Carlo tree search | 7 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 | sparse autoencoder | 6 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | attention analysis | 5 | Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes... |

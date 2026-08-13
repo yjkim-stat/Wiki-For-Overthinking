@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A direction taken as the difference between the mean activations of two labelled classes, and in both sources the readout used for intervention rather than the one that classifies best. One extracts two such directions from cohorts defined by whether a model resisted or complied with a tampered reasoning trace, finding them anti-correlated at cosine about -0.45 yet not collinear — each anti-predicts the other's condition below chance — and steers them to move safety and faithfulness in opposite directions. The other states the methodological point explicitly: probe accuracy is treated as evidence that the training contrast is linearly accessible, not that the direction isolates the intended variable, and the intervention deliberately does not use the probe family with the highest classification accuracy. Both therefore treat this construction as a steering vector first and a classifier second.
 
 - **Kind**: method
+- **Also called**: MM difference direction, mean-difference probe
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

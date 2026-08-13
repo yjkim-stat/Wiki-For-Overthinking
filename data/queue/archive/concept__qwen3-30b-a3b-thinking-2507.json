@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T04:27:28Z",
   "created_at": "2026-08-13T04:11:15Z",
   "instructions": "Write the wiki definition for 'Qwen3-30B-A3B-Thinking-2507'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-30B-A3B-Thinking-2507",
@@ -41,6 +42,14 @@
   "payload": {
     "name": "Qwen3-30B-A3B-Thinking-2507",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3-30B-A3B-Thinking"
+    ],
+    "definition": "A mixture-of-experts reasoning checkpoint with roughly 3B active parameters, and in both sources the strongest single-response configuration in its roster. One uses it as the teacher generating clean reasoning traces for a poisoning curriculum — so it supplies the benign reasoning that a backdoored model is trained to keep emitting. The other reports it as the highest single-response accuracy in a twenty-configuration sweep at 75.56%, and makes it the model on which the sharpest reducer result is measured: selecting by mean token log probability *falls* to 65.83% as the candidate bank grows to eighty, on the same banks where answer plurality rises to 78.33%. Its recurrence is as the strong open baseline whose behaviour under aggregation is worth measuring precisely because its single-sample accuracy is already high.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen3-30b-a3b-thinking-2507",
   "task_version": 1,

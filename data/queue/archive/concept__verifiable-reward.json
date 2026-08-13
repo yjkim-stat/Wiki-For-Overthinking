@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+        "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+        "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-13T04:28:28Z",
+  "created_at": "2026-08-13T04:27:38Z",
+  "instructions": "Write the wiki definition for 'verifiable reward'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "verifiable reward",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "verifiable reward",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "verifiable rewards",
+      "rule-based reward"
+    ],
+    "definition": "A reward computed by a programmatic check rather than by a model's judgement, and in both sources the ingredient that makes a search or a policy update trustworthy without a judge in the loop. One verifies every numerical claim in a generated report by writing and executing a query against the source table and comparing within a one-percent tolerance, and checks chart fidelity by executing the chart code and re-reading the rendered values — stating explicitly that this avoids a reward-hacking loop with the separate evaluator used for benchmarking. The other gates its reinforcement reward on response-format validity and exact answer correctness. Read together they mark the boundary of the idea: the dimensions a programmatic check can reach come close to expert performance in the first source, while the one it can only approximate — whether an insight is non-trivial — stays 27 points below and is the most frequent remaining error.",
+    "kind": "concept",
+    "related": [
+      "reward hacking"
+    ]
+  },
+  "task_id": "concept__verifiable-reward",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling"
+  ]
+}

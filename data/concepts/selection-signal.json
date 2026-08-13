@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "selector",
+    "answer selection signal"
+  ],
+  "definition": "Whatever quantity decides which of several candidate answers is submitted, and in both sources the component whose contribution is deliberately held fixed so something else can be measured. One audits a perturbation-derived signal and finds it demonstrably dependent on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet no better at selection than a control that never sees the perturbations, which separates a signal that carries information from one that improves a decision. The other holds a self-certainty-and-Borda rule constant across its adaptive and full-budget arms, and separately shows what happens when the rule is weak: three samples score below one. Taken together the sources make the same point twice — the quality of this component bounds what any amount of extra sampling can buy.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -54,7 +57,9 @@
     "phi-3-mini-4k-instruct",
     "qwen2-5-1-5b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "matched-budget-comparison"
+  ],
   "schema_version": 1,
   "slug": "selection-signal",
   "topics": [

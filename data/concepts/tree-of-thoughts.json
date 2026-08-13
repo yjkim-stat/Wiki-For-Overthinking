@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "ToT"
+  ],
+  "definition": "Search over a tree whose nodes are partial solutions expressed as intermediate thoughts, with explicit generation of alternatives, evaluation of states, and backtracking — the work that moved deliberate reasoning from a single linear chain to a searched structure. The two sources bracket its position in this archive. One is the original method, introducing lookahead and backtracking as operations a scaffold performs around the model. The other places it in a formal taxonomy as an instance of prefix-level scaling — compute allocated on scores for *unfinished* states — and notes that its controller operates over thought-level rather than token-level expansions, which is what distinguishes it from beam search and from leaf-level sampling with a terminal reducer.",
   "evidence": [
     {
       "id": "arxiv:2305.10601",
@@ -68,7 +70,9 @@
     "deepseek-r1",
     "phi-4-reasoning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "monte-carlo-tree-search"
+  ],
   "schema_version": 1,
   "slug": "tree-of-thoughts",
   "topics": [

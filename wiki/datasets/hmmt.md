@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A competition-mathematics contest whose problem sets both sources use as evaluation alongside AIME. One includes it among five mathematics benchmarks on which a categorical-critic PPO variant is measured, where the reported gains hold across the set rather than on one contest. The other includes several of its editions in a released trace corpus, in the block recorded with the richest verifier and token-level signals. Neither studies it; its function is the same as the other competition sets in this archive — to show that a mathematics result is not an artefact of a single contest's style.
 
 - **Kind**: dataset
+- **Also called**: HMMT Feb'26, HMMT Nov'25, HMMT'25
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

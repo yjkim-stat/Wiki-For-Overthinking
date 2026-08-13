@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Search over a tree whose nodes are partial solutions expressed as intermediate thoughts, with explicit generation of alternatives, evaluation of states, and backtracking — the work that moved deliberate reasoning from a single linear chain to a searched structure. The two sources bracket its position in this archive. One is the original method, introducing lookahead and backtracking as operations a scaffold performs around the model. The other places it in a formal taxonomy as an instance of prefix-level scaling — compute allocated on scores for *unfinished* states — and notes that its controller operates over thought-level rather than token-level expansions, which is what distinguishes it from beam search and from leaf-level sampling with a terminal reducer.
 
 - **Kind**: method
+- **Also called**: ToT
 - **Topics**: [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

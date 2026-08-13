@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among five recent competition datasets making up the signal-rich block of a released reasoning-trace corpus. The other reports it among the sets on which a constraint-extraction prompting protocol improves over direct chain of thought across multiple backbones. Its presence in the archive is as one of the tail of competition sets reported alongside AIME to show a result is not specific to one contest.
 
 - **Kind**: dataset
+- **Also called**: CMIMC'25
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

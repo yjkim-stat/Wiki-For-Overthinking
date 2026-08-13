@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "budget-matched control",
+    "selector-matched comparison"
+  ],
+  "definition": "A comparison in which two methods are given the same inference budget and the same downstream components, so the difference between them can be attributed to the one thing that varies. Both sources treat it as the control their central claim depends on. One constructs a control that spends the identical short-answer budget on the unperturbed image, and finds it matches or beats the perturbation-based selector everywhere — dissolving a 31.8-point apparent gain that came from comparing long chain-of-thought aggregation against short-answer aggregation. The other runs adaptive allocation and fixed full budget through the same self-certainty-and-Borda selector, stating that this isolates the budget policy from the effect of the final selector. The shared lesson is that a test-time-scaling comparison which changes the budget and the aggregation together measures neither.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -54,7 +57,9 @@
     "phi-3-mini-4k-instruct",
     "qwen2-5-1-5b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "baseline-validity"
+  ],
   "schema_version": 1,
   "slug": "matched-budget-comparison",
   "topics": [

@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whatever quantity decides which of several candidate answers is submitted, and in both sources the component whose contribution is deliberately held fixed so something else can be measured. One audits a perturbation-derived signal and finds it demonstrably dependent on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet no better at selection than a control that never sees the perturbations, which separates a signal that carries information from one that improves a decision. The other holds a self-certainty-and-Borda rule constant across its adaptive and full-budget arms, and separately shows what happens when the rule is weak: three samples score below one. Taken together the sources make the same point twice — the quality of this component bounds what any amount of extra sampling can buy.
 
 - **Kind**: concept
+- **Also called**: answer selection signal, selector
 - **Topics**: [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [best-of-n](../methods/best-of-n.md), [Borda count](../methods/borda-count.md), [GSM8K](../datasets/gsm8k.md), [majority voting](../methods/majority-voting.md), [matched-budget comparison](matched-budget-comparison.md), [MATH](../datasets/math.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [prompt difficulty](prompt-difficulty.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [self-certainty](../methods/self-certainty.md), [self-consistency](../methods/self-consistency.md), [test-time scaling](../methods/test-time-scaling.md), [uncertainty quantification](uncertainty-quantification.md), [visual grounding](visual-grounding.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [best-of-n](../methods/best-of-n.md), [Borda count](../methods/borda-count.md), [GSM8K](../datasets/gsm8k.md), [LLaVA-OneVision-7B](../models/llava-onevision-7b.md), [majority voting](../methods/majority-voting.md), [matched-budget comparison](matched-budget-comparison.md), [MATH](../datasets/math.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [prompt difficulty](prompt-difficulty.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [Qwen2.5-VL-7B-Instruct](../models/qwen2-5-vl-7b-instruct.md), [self-certainty](../methods/self-certainty.md), [self-consistency](../methods/self-consistency.md), [test-time scaling](../methods/test-time-scaling.md), [uncertainty quantification](uncertainty-quantification.md), [visual grounding](visual-grounding.md)
 
 ## What we have settled
 
