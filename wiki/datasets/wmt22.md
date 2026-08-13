@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The 2022 edition of the machine-translation metrics shared task, whose test set carries human MQM annotations and serves in both sources as the gold standard for judging a translation-quality metric. One uses it to benchmark twenty-plus models as judges, scoring by system-level and tie-calibrated segment-level pairwise accuracy and deliberately avoiding correlation metrics for their sensitivity to small samples and outliers. The other uses it as one evaluation set among several, and separately as the source of the discourse-level comparison showing explicit reasoning helps at document level where it does not at sentence level. It is the archive's example of an evaluation whose value comes from the human labels underneath rather than from the task itself.
 
 - **Kind**: dataset
+- **Also called**: WMT22 metrics task
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A prompting framework that has a language model mark individual error spans in a translation and label each with a category and severity, from which a quality score is derived automatically rather than asked for directly. Both sources use it as the standard instrument and both find something wrong with it as an instrument. One reports that its prompt is specialized to the model it was written for — every other model, including that model's own successor, performs significantly worse under it — and that its lack of an explicit output specification leaves 10% of outputs from a strong model and 85% from a 4B one with formatting errors that fragile parsers must guess at. The other adopts it as the automatic annotator for its own error analysis without qualification. The pair is a caution about inherited evaluation apparatus: the same framework is simultaneously the field's standard and, on measurement, model-specific.
 
 - **Kind**: method
+- **Also called**: GEMBA, Gemba-MQM
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

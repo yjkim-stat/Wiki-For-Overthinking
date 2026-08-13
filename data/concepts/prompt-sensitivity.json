@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "prompt brittleness"
+  ],
+  "definition": "How much a measured result depends on the exact wording of the prompt rather than on the capability being measured, and in both sources a finding about evaluation rather than a nuisance to be tuned away. One shows the field's standard translation-evaluation prompt is specialized to the model it was written for: all other models, including that model's own successor, perform significantly worse under it, and enforcing a structured output format degrades quality across every model tested, worst in the smallest. The other measures robustness over raw accuracy on theory-of-mind tasks. The shared implication for this archive is that a prompt carried from the paper that introduced it is part of the apparatus, not a neutral interface, and a model comparison run under one authored elsewhere may be measuring the fit between prompt and model.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -64,7 +66,9 @@
     "prompt-perturbation",
     "machine-psychology-experiments"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "construct-validity"
+  ],
   "schema_version": 1,
   "slug": "prompt-sensitivity",
   "topics": [

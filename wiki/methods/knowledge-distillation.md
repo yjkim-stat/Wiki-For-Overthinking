@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregated annotations of a jury of reasoning models into a small open student and finds data quality strictly ordered: training on perfect-agreement segments alone gives 53.54%, and adding successively lower-agreement data lowers it at every step, to 51.24%. The other distils the model's own extracted experience rather than another model's outputs, and finds removing that experience pool costs more than removing the reinforcement-learning stage entirely. Read together they place the leverage in the selection criterion — agreement in one case, measured marginal utility in the other — rather than in the teacher's strength or the corpus size.
 
 - **Kind**: method
+- **Also called**: distillation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

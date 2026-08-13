@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An earlier frontier proprietary model, and in both sources a reference point whose age is part of what it measures. One introduced tree-structured search over partial solutions and used it as the model that search was demonstrated on. The other finds it still the strongest judge under the field's standard translation-evaluation prompt — and diagnoses why, since that prompt was written against this model and every other model including its own successor performs significantly worse under it. The paper omits it from later experiments as older, more expensive and rate-limited. Together they mark how an evaluation instrument can outlive the model it was tuned to.
 
 - **Kind**: model
+- **Also called**: GPT-4
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

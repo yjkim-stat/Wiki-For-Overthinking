@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small proprietary model, used by both sources as the cheap end of a comparison. One includes it among the judges evaluating whether a poisoned model's reasoning betrays its backdoor, where the finding is that judge capability does not rescue a trace from which the information has been removed. The other reports it as an instance of a general pattern in translation-quality evaluation — efficient model variants are outperformed by their corresponding full models — so the cost saving is paid for in judgement quality.
 
 - **Kind**: model
+- **Also called**: GPT-4o-mini
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

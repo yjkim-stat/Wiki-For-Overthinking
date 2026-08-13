@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How much a measured result depends on the exact wording of the prompt rather than on the capability being measured, and in both sources a finding about evaluation rather than a nuisance to be tuned away. One shows the field's standard translation-evaluation prompt is specialized to the model it was written for: all other models, including that model's own successor, perform significantly worse under it, and enforcing a structured output format degrades quality across every model tested, worst in the smallest. The other measures robustness over raw accuracy on theory-of-mind tasks. The shared implication for this archive is that a prompt carried from the paper that introduced it is part of the apparatus, not a neutral interface, and a model comparison run under one authored elsewhere may be measuring the fit between prompt and model.
 
 - **Kind**: concept
+- **Also called**: prompt brittleness
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

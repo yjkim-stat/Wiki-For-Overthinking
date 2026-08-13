@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large open mixture-of-experts model, used by both sources as the capable outside system a study leans on rather than as its subject. One uses it twice over — as the automatic MQM annotator that produces the error analysis carrying its central finding, and as the assigner of translation difficulty levels that carries its other one — so two of that paper's structural claims rest on this model's judgement. The other includes it among the models whose chain-of-thought monitorability is scored. Worth noting for the same reason as any judge in this archive: a model doing the measuring is part of the experimental apparatus and is rarely audited as such.
 
 - **Kind**: model
+- **Also called**: DeepSeek V3
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

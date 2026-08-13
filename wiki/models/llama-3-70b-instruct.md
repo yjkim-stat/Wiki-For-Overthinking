@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large open instruction-tuned model, appearing in both sources as an open baseline rather than a subject. One includes it in a sweep of models used as translation-quality judges, where it trails the front-running open family. The other includes it among models whose reasoning trajectories are scored geometrically. Its presence marks the open comparison point of its generation; neither paper characterizes the checkpoint itself.
 
 - **Kind**: model
+- **Also called**: Llama-3-70B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

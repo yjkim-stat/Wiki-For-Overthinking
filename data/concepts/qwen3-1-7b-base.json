@@ -18,6 +18,12 @@
       "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.03119",
+      "kind": "paper",
+      "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+      "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR"
+    },
+    {
       "id": "local:99019f66bdc27581",
       "kind": "paper",
       "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
@@ -26,7 +32,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-13T02:08:48Z",
   "name": "Qwen3-1.7B-Base",
   "related": [
     "self-improvement",
@@ -69,6 +75,31 @@
     "olymmath",
     "amc23",
     "math7-5k",
+    "label-free-reinforcement-learning",
+    "reward-hacking",
+    "mode-collapse",
+    "self-consistency",
+    "majority-voting",
+    "credit-assignment",
+    "outcome-reward",
+    "entropy-collapse",
+    "test-time-training",
+    "kl-divergence",
+    "spurious-consensus",
+    "om-grpo",
+    "outcome-masked-update",
+    "contrast-augmented-reward",
+    "rlvr",
+    "entropy-minimization",
+    "process-reward-model",
+    "amc",
+    "livecodebench",
+    "crux",
+    "ifeval",
+    "mmlu-pro",
+    "qwen2-5-7b",
+    "llama-3-2-3b-instruct",
+    "qwen3-14b-base",
     "epistemic-verbalization",
     "procedural-information",
     "silent-divergence",
@@ -91,7 +122,6 @@
     "aime25",
     "math500",
     "limo-v2",
-    "qwen2-5-7b",
     "qwen2-5-32b-instruct",
     "qwen2-5-math-7b",
     "qwen3-8b",
@@ -104,7 +134,7 @@
   "slug": "qwen3-1-7b-base",
   "topics": [
     "reasoning-evaluation",
-    "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness"
   ]
 }

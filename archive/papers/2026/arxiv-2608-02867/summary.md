@@ -46,7 +46,7 @@ The paper states both. The tree construction depends on a model judging semantic
 ## Entities
 
 - **Concepts**: [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), [policy entropy](../../../../wiki/concepts/policy-entropy.md), [exploration](../../../../wiki/concepts/exploration.md), candidate preference entropy, semantic equivalence, [backtracking](../../../../wiki/concepts/backtracking.md), trajectory diversity, verifier equivalence, pass@k, LLM-as-a-judge
-- **Methods**: BODHI-Tree, [RLVR](../../../../wiki/methods/rlvr.md), long chain-of-thought distillation, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [DAPO](../../../../wiki/methods/dapo.md), prefix steering, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
+- **Methods**: BODHI-Tree, [RLVR](../../../../wiki/methods/rlvr.md), [long chain-of-thought distillation](../../../../wiki/methods/long-chain-of-thought-distillation.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [DAPO](../../../../wiki/methods/dapo.md), prefix steering, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
 - **Datasets**: [AIME](../../../../wiki/datasets/aime.md), OpenThoughts-114k-math, [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md), Maze Dataset
 
 Tags: `rlvr`, `exploration`, `entropy collapse`, `reasoning boundary`, `backtracking`

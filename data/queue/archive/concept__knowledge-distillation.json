@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T02:08:47Z",
   "created_at": "2026-08-13T01:53:47Z",
   "instructions": "Write the wiki definition for 'knowledge distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "knowledge distillation",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "knowledge distillation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "distillation"
+    ],
+    "definition": "Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregated annotations of a jury of reasoning models into a small open student and finds data quality strictly ordered: training on perfect-agreement segments alone gives 53.54%, and adding successively lower-agreement data lowers it at every step, to 51.24%. The other distils the model's own extracted experience rather than another model's outputs, and finds removing that experience pool costs more than removing the reinforcement-learning stage entirely. Read together they place the leverage in the selection criterion — agreement in one case, measured marginal utility in the other — rather than in the teacher's strength or the corpus size.",
+    "kind": "method",
+    "related": [
+      "data quality"
+    ]
   },
   "task_id": "concept__knowledge-distillation",
   "task_version": 1,

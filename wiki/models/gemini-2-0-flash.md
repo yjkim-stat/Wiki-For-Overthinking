@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A fast proprietary model, present in both sources as a mid-tier comparison point. One finds it performing well at segment level on translation quality evaluation — even surpassing a stronger model on one language pair — while lagging at system level, which is the paper's clearest illustration that the two levels of that task rank models differently. The other includes it among the large language models a reasoning-augmented translation method is measured against. Neither studies it.
 
 - **Kind**: model
-- **Also called**: Gemini-2.0-Flash
+- **Also called**: Gemini 2.0 Flash, Gemini-2.0-Flash
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
