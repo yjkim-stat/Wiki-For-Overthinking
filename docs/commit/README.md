@@ -67,3 +67,4 @@ reference for everything built before the practice existed.
 | 0044 | [A reading says what it was based on](0044-a-reading-says-what-it-was-based-on.md) | feature | The document being available is not the document being read, and only the reader can tell you which |
 | 0045 | [A ruled link is not derived away](0045-a-ruled-link-is-not-derived-away.md) | feature | The task asked for `related`, the same render rebuilt the record without it, and every step reported success |
 | 0046 | [The PDF cap bounds a run, not a call](0046-the-pdf-cap-bounds-a-run.md) | fix | Collection fetches one paper at a time, so `max_per_run` restarted on every paper and bounded nothing |
+| 0047 | [A filed document survives its merge](0047-a-filed-document-survives-its-merge.md) | fix | `source` merged and `local_path` did not, so the archive knew it held a hand-filed paper and not where |
