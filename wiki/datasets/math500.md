@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that strong models eventually solve most of it. That saturation is the caveat rather than a footnote: one source reports RLVR's effect on it being muted precisely because the base model already reaches those answers given enough attempts, so the benchmark cannot show an extended reasoning boundary even where one exists. It serves mainly as the place a method is checked for not breaking, with discriminating evidence coming from AIME or OlympiadBench. Its size does give it two distinctive roles — it is where the compression and pruning literature runs its controlled comparisons, since 500 problems are stable enough to separate criteria that differ by a point or two, and it is where the early-exit work takes its motivating measurement, that 60.8% of correctly answered samples stay correct when cut off after 20% of the reasoning steps.
 
 - **Kind**: dataset
-- **Also called**: MATH, MATH-500, MATH500 subset
+- **Also called**: MATH, MATH 500, MATH-500, MATH500 subset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 39
 

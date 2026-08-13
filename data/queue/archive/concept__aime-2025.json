@@ -3,14 +3,302 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+        "title": "Self-Improving Large Language Models via Progressive Experience Evolution",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+        "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+        "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+        "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
+        "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+        "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
+        "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
+        "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
+        "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
+        "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
+        "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
+        "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A systematic empirical study of entropy in RLVR that finds entropy correlates with response diversity but only weakly and inconsistently with accuracy, identifies clipping thresholds, off-policy updates and data diversity as its drivers, and argues positive-advantage tokens are what collapses it.",
+        "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Converts AMC23 and AIME24/25 into symbolic templates whose constants are replaced by sampled variables, requires a model to solve several instantiations of each problem, and finds RL-finetuned models lose most of their reported accuracy under that consistency requirement.",
+        "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a sparse autoencoder over whole reasoning steps rather than tokens, conditioning both encoder and decoder on the preceding trajectory so the sparse code carries only what the step adds, and shows that step correctness, logicality, length and first token are all linearly decodable from that code.",
+        "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
+        "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
         "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models",
         "topics": [
-          "reasoning-interpretability",
-          "test-time-scaling",
           "reasoning-training",
           "reasoning-evaluation",
-          "reasoning-faithfulness"
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -18,17 +306,17 @@
         "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
         "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
         "topics": [
-          "reasoning-interpretability",
-          "test-time-scaling",
           "reasoning-training",
           "reasoning-evaluation",
-          "reasoning-faithfulness"
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-12T22:10:26Z",
-  "created_at": "2026-08-12T11:31:01Z",
+  "completed_at": "2026-08-13T11:04:14Z",
+  "created_at": "2026-08-13T10:57:34Z",
   "instructions": "Write the wiki definition for 'AIME 2025'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME 2025",
   "kind": "concept",
@@ -38,28 +326,28 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "AIME 2025",
-    "source_count": 2
+    "source_count": 26
   },
   "result": {
     "aliases": [
       "AIME25",
-      "AIME 25",
       "AIME'25",
+      "AIME 25",
       "AIME2025"
     ],
-    "definition": "The 2025 edition of the same competition-mathematics examination as AIME 2024, and in the archive it is used for one thing the 2024 set cannot do: it was released after the training cutoff of the base models being compared, so a result on it is not explained by contamination. One source reports its CoT-Pass@K gap in favour of the RLVR model as most pronounced on this set and attributes that directly to the release date. The other uses it as an ordinary member of a seven-benchmark evaluation sweep. The archive also holds it as the set that degrades most under symbolic re-instantiation — a 72.9 percent strict-metric drop against 58.8 percent for AIME 2024, with two models falling to zero.",
+    "definition": "The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training cutoff of several base models under study, so a gap appearing on AIME 2025 and not on AIME 2024 is evidence about memorization rather than reasoning. One source uses it exactly that way, reporting its clearest separation between a base and an RLVR model there and attributing that to freedom from unintentional contamination. Otherwise it serves alongside AIME 2024 across the entropy, early-stopping and compression work, and inherits the same caveat: 30 problems means one item moves the score by more than three points. A pattern worth noting is that AIME 2025 gains are frequently the larger of the pair for the same method — +11.04 against +7.71 for high-entropy token selection at 32B, for instance — which is consistent either with the contamination reading or with less headroom remaining on the older set.",
     "kind": "dataset",
     "related": [
       "AIME 2024",
-      "VAR-AIME25",
-      "benchmark contamination"
+      "benchmark contamination",
+      "VAR-MATH"
     ]
   },
   "task_id": "concept__aime-2025",

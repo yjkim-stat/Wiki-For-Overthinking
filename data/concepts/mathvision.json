@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "MATH-Vision"
+    "MATH-Vision",
+    "Math-Vision"
   ],
-  "definition": "",
+  "definition": "A visual mathematics benchmark, used in two sources as the multimodal counterpart to the text-only mathematics sets. One audits a perturbation-based selection rule for vision-language test-time scaling on it and finds the rule's reported 31.8-point gain over majority voting is a decoding-format effect rather than a perturbation effect, once a control spends the same short-answer budget on the unperturbed image. The other includes it among the visual tasks where RLVR-trained models are measured against their base models with pass@k. Neither characterizes the benchmark itself, so what the archive records is the two experiments it appears in rather than what it contains.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -78,7 +79,10 @@
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1-distill-qwen-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mathvista",
+    "math500"
+  ],
   "schema_version": 1,
   "slug": "mathvision",
   "topics": [

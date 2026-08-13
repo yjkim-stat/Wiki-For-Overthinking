@@ -3,13 +3,74 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Shows that reasoning ability can be incentivized in an LLM by pure reinforcement learning on verifiable tasks, with no human-annotated reasoning trajectories, and that the resulting reasoning patterns can be transferred to smaller models.",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Supervises audio reasoning with per-question rubrics generated from the raw waveform, and keeps the signal alive as the policy improves by regenerating the rubrics from the model's own rollouts each step and pruning any criterion that every rollout satisfies or none does.",
+        "title": "Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds prefix trees of semantically equivalent reasoning statements and measures how RLVR changes a model's preference between branches, finding the entropy collapse is not stylistic — the collapse is stronger for semantically distinct continuations than for syntactic variants of the same statement.",
+        "title": "BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+        "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
         "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -18,9 +79,10 @@
         "title": "Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -29,9 +91,10 @@
         "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -40,9 +103,10 @@
         "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -51,9 +115,10 @@
         "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -62,9 +127,10 @@
         "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -73,9 +139,10 @@
         "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -84,9 +151,10 @@
         "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -95,9 +163,10 @@
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -106,9 +175,10 @@
         "title": "The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -117,9 +187,10 @@
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -128,9 +199,10 @@
         "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -139,9 +211,10 @@
         "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -150,9 +223,10 @@
         "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -161,9 +235,10 @@
         "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -172,9 +247,22 @@
         "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+        "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -183,16 +271,17 @@
         "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:30:29Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'RLVR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-13T11:04:14Z",
+  "created_at": "2026-08-13T10:57:34Z",
+  "instructions": "Write the wiki definition for 'RLVR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "RLVR",
   "kind": "concept",
   "language": "en",
@@ -201,32 +290,28 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "RLVR",
-    "source_count": 17
+    "source_count": 23
   },
   "result": {
     "aliases": [
       "reinforcement learning with verifiable rewards",
-      "verifiable reward RL",
-      "outcome-verified RL"
+      "RL with verifiable rewards"
     ],
-    "definition": "Reinforcement learning against an automatically checkable outcome — a matching final answer, a passing test — rather than a learned reward model, which removes reward-model gaming and confines the method to domains with a verifier. Seventeen archived sources treat it as the default recipe for producing reasoning models, and the archive's sharpest open question is what it actually adds. Measured by pass@k at large k, base models overtake their RLVR-trained counterparts and every RLVR reasoning path already lies in the base model's distribution, which reads as sharpened sampling rather than new capability. Measured by CoT-Pass@K, which requires the chain to be correct and not only the answer, the verdict reverses at every k — because base models reach right answers through wrong chains often enough to distort the metric. What is not disputed: RLVR consumes policy entropy along a predictable exponential exchange with reward, front-loads most of its gain into the first few hundred steps, degrades foundational capabilities including perception and faithfulness under prolonged training, and shows only marginal differences between its six common algorithms.",
+    "definition": "Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a failure mode and restricts the method to domains where correctness can be checked. The archive's anchor source uses it to elicit long chain-of-thought without any supervised reasoning traces, and the term has since widened to wherever a checker exists: an agentic red-teaming planner, audio reasoning under model-generated rubrics, and multi-turn agentic credit assignment all appear here under the same name. What 23 sources agree on is the failure mode rather than the benefit — RLVR narrows. It collapses policy entropy along a curve fitted to within about 1% RMSE, and the collapse is semantic rather than stylistic; it loses pass@k at large k relative to the base model, on six algorithms alike; it makes models forget foundational skills under prolonged training; and it conceals benchmark contamination, with PPO-style importance sampling and clipping identified as the cause. Two sources push back on the pass@k verdict specifically: scoring the chain and not only the answer (CoT-Pass@K) reverses it at every K, because base models win by producing wrong chains that land on right answers.",
     "kind": "method",
     "related": [
       "GRPO",
-      "reasoning boundary",
       "policy entropy",
-      "entropy collapse",
-      "outcome reward",
-      "process supervision",
-      "pass-k",
-      "catastrophic forgetting"
+      "reasoning boundary",
+      "pass@k",
+      "reward hacking"
     ]
   },
   "task_id": "concept__rlvr",
@@ -234,6 +319,7 @@
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

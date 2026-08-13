@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Llama3-8B"
+    "Llama3-8B",
+    "Llama-3-8B"
   ],
-  "definition": "",
+  "definition": "Meta's 8-billion-parameter Llama 3 base model, appearing in two sources here as a non-Qwen backbone rather than as an object of study. One uses it as one of four base models for semi-supervised preference optimization scored from hidden-state geometry; the other includes it among the models whose reasoning traces are tagged by sentence function to detect failures. Neither reports results specific to it, so the archive holds no characterization of the checkpoint itself — its value in both is that it is a different family from the Qwen models that carry almost every other result here.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -63,7 +64,10 @@
     "llama3-70b",
     "olmo2-13b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-1-8b",
+    "qwen2-5-7b-instruct"
+  ],
   "schema_version": 1,
   "slug": "llama-3-8b",
   "topics": [

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on which traces: one bootstraps by finetuning only on self-generated rationales that reached correct answers and iterating the loop; one finetunes on 1,000 examples curated for difficulty, diversity and quality and beats a much stronger closed model on competition mathematics; and one uses it as the baseline that verifier-based reranking outperforms, reporting that verification scales better with added data than finetuning does. The strongest evidence about what it transfers runs in reverse — 800 examples of a model's own correct traces, generated under an instruction not to express uncertainty, cut AIME 2024 pass@1 from 80.0 to 43.3 on one model, so the lever removes a behaviour as readily as it installs one, and what moves is substantially the style of the trace rather than the knowledge behind it. Across the rest of the archive it is pipeline background rather than an object of study: the stage before RL in nearly every training recipe here, the stage at which contamination is introduced before a later RL run conceals it, and the training that produces the judge behaviour a meta-benchmark then measures.
 
 - **Kind**: method
 - **Also called**: SFT, Supervised Fine-Tuning, instruction tuning, supervised finetuning

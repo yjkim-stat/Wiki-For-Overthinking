@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a failure mode and restricts the method to domains where correctness can be checked. The archive's anchor source uses it to elicit long chain-of-thought without any supervised reasoning traces, and the term has since widened to wherever a checker exists: an agentic red-teaming planner, audio reasoning under model-generated rubrics, and multi-turn agentic credit assignment all appear here under the same name. What 23 sources agree on is the failure mode rather than the benefit — RLVR narrows. It collapses policy entropy along a curve fitted to within about 1% RMSE, and the collapse is semantic rather than stylistic; it loses pass@k at large k relative to the base model, on six algorithms alike; it makes models forget foundational skills under prolonged training; and it conceals benchmark contamination, with PPO-style importance sampling and clipping identified as the cause. Two sources push back on the pass@k verdict specifically: scoring the chain and not only the answer (CoT-Pass@K) reverses it at every K, because base models win by producing wrong chains that land on right answers.
 
 - **Kind**: method
-- **Also called**: Reinforcement Learning with Verifiable Rewards, outcome-verified RL, reinforcement learning with verifiable rewards, verifiable reward RL
+- **Also called**: RL with verifiable rewards, Reinforcement Learning with Verifiable Rewards, outcome-verified RL, reinforcement learning with verifiable rewards, verifiable reward RL
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 23
 

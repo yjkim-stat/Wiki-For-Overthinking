@@ -2,9 +2,10 @@
   "aliases": [
     "MATH-500",
     "MATH",
-    "MATH500 subset"
+    "MATH500 subset",
+    "MATH 500"
   ],
-  "definition": "",
+  "definition": "A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that strong models eventually solve most of it. That saturation is the caveat rather than a footnote: one source reports RLVR's effect on it being muted precisely because the base model already reaches those answers given enough attempts, so the benchmark cannot show an extended reasoning boundary even where one exists. It serves mainly as the place a method is checked for not breaking, with discriminating evidence coming from AIME or OlympiadBench. Its size does give it two distinctive roles — it is where the compression and pruning literature runs its controlled comparisons, since 500 problems are stable enough to separate criteria that differ by a point or two, and it is where the early-exit work takes its motivating measurement, that 60.8% of correctly answered samples stay correct when cut off after 20% of the reasoning steps.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -821,7 +822,12 @@
     "centered-kernel-alignment",
     "chain-of-thought-distillation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "math",
+    "aime-2024",
+    "olympiadbench",
+    "reasoning-boundary"
+  ],
   "schema_version": 1,
   "slug": "math500",
   "topics": [
