@@ -145,7 +145,7 @@ because deduplication has already seen the paper:
 ```bash
 python3 -m pipelines.backfill --dry-run     # what is owed, and what cannot be reached
 python3 -m pipelines.backfill --limit 20    # fetch, best-scoring first
-python3 -m pipelines.render                 # puts the paths in front of the reader
+python3 -m pipelines.render                 # refreshes the waiting tasks with them
 ```
 
 It is bounded, re-runnable and fetches nothing twice. A paper it reports as

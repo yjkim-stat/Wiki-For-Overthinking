@@ -72,3 +72,4 @@ reference for everything built before the practice existed.
 | 0049 | [A citation rather than a rumour](0049-a-citation-rather-than-a-rumour.md) | feature | What a session checked on the web lived in a finding's prose; a reference has a date, a quotation, and no vote on promotion |
 | 0050 | [Three claims, three weights](0050-three-claims-three-weights.md) | fix | The edge literal outlived the field it named, so a person's link was drawn as the faintest thing on the page |
 | 0051 | [A citation appears, where it is not evidence](0051-a-citation-appears-where-it-is-not-evidence.md) | feature | `## Checked against`, below the sources and never among them — the visible half of the record split |
+| 0052 | [A task is a function of its record](0052-a-task-is-a-function-of-its-record.md) | fix | The correct task was rebuilt on every render and discarded on every render, so a fetched document never reached its reader |

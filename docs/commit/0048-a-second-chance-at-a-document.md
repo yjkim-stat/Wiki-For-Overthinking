@@ -120,3 +120,18 @@ the `no_pdf_url` count, which is the part no amount of running will reduce.
 
 Documents fetched here are not attached to their tasks until the next
 `python3 -m pipelines.render`, which is where `attachments.pdf_path` is written.
+
+## Correction (0052)
+
+> "the only thing that follows is that the next render puts a path in
+> `attachments.pdf_path`"
+
+That was false when written. `Queue.enqueue` refused to touch a task that
+already existed, so the correct task was rebuilt on every render and discarded
+on every render — and every paper this command can help is by definition one
+that was already queued. Measured on the archive it was written for: 224
+documents fetched, `0 of 512` pending tasks carrying a `pdf_path`.
+
+Fixed in [note 0052](0052-a-task-is-a-function-of-its-record.md), which makes a
+waiting task track the record it was built from. The sentence above is true from
+that commit onward.
