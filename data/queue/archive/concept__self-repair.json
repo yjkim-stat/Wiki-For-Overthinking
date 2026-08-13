@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:28Z",
   "created_at": "2026-08-13T03:09:30Z",
   "instructions": "Write the wiki definition for 'self-repair'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "self-repair",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "self-repair",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Hydra effect",
+      "self-healing"
+    ],
+    "definition": "A network compensating downstream for a component that has been removed, so an ablation-based importance score is measured on a network that has already partly repaired the damage. Both sources invoke it as the standing reason ablation and patching are expected to disagree — and then establish that the disagreement does not need it. Their construction produces matched pairs on which every single-carrier patch flips the decision while no single-carrier ablation does, with no repair mechanism present at all: the two interventions measure a carrier's contrast and its absolute level respectively, and those come apart in a redundantly coded network by arithmetic. So this phenomenon is one route to the mismatch rather than its explanation, which matters because a result attributed to it may instead be the identity, and the two call for different remedies.",
+    "kind": "concept",
+    "related": [
+      "superposition"
+    ]
   },
   "task_id": "concept__self-repair",
   "task_version": 1,

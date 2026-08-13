@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:27Z",
   "created_at": "2026-08-13T02:55:54Z",
   "instructions": "Write the wiki definition for 'answer extraction'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "answer extraction",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "answer extraction",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "answer parsing"
+    ],
+    "definition": "How a scorer recovers the final answer from a model's output, and in both sources a source of measured effect that is routinely mistaken for reasoning. One shows an apparent nine-point gain from adding in-context examples is a rule-based parser learning to find the answer pattern — the underlying solutions are identical and a prompt-based extractor scores the same configurations stably throughout, with invalid-answer rates falling from 96.5% to 4.6% over the same range. The other decomposes reported self-correction gains into a content margin and format-recovery margins and finds causally that most of what the field has reported as self-correction is answer-parseability repair. Both therefore locate a large published effect in the scorer rather than in the model, which makes this the cheapest confound in the archive to control and the one least often controlled.",
+    "kind": "concept",
+    "related": [
+      "construct validity"
+    ]
   },
   "task_id": "concept__answer-extraction",
   "task_version": 1,

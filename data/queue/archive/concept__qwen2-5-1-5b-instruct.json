@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:28Z",
   "created_at": "2026-08-13T03:09:30Z",
   "instructions": "Write the wiki definition for 'Qwen2.5-1.5B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-1.5B-Instruct",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "Qwen2.5-1.5B-Instruct",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen2.5-1.5B"
+    ],
+    "definition": "A small instruction-tuned model, and in both sources the checkpoint on which a claim is tested rather than developed. One includes it among 18 models where an entity's culture is linearly readable from the residual stream while generation emits it far less often. The other uses it for its whole real-model section: an emergent indirect-object circuit found by the field's own greedy patching search, on which the patching-versus-ablation gap measures 0.224 to 0.852 across five lexical instances, and against whose real weights a closed-form attention Jacobian bound is verified pointwise without a violation. Its value in both is the same — it is a genuinely pretrained model at a scale where a full circuit search is affordable, so a claim developed on synthetic networks can be checked somewhere it was not designed to hold.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen2-5-1-5b-instruct",
   "task_version": 1,

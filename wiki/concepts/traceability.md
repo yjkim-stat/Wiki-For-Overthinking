@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a model's output can be followed back to the specific evidence it rests on. Both sources treat it as something to be built into the task rather than inspected afterwards. One makes it structural: every reasoning step is a node in a graph anchored to a document block, so the answer carries node-level provenance by construction, and the resulting graph is validated causally by masking what it cites (82.8% of correct answers flip) against what it does not (9.6%). The other builds a benchmark that scores the reasoning process alongside the answer, with expert solutions supplied for 46% of items. The pair marks the two available routes — force the model to emit an inspectable structure, or supply ground-truth reasoning to score against — and only the first is checkable without expert annotation.
 
 - **Kind**: concept
+- **Also called**: auditability of outputs, provenance
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

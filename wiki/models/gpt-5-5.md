@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A frontier proprietary model, used in both sources as apparatus rather than as a subject — and in both, apparatus whose judgement carries a load the paper's conclusions rest on. One has it classify 100 sampled search trajectories into a four-quadrant scheme, which is the main evidence that its two credit signals are complementary rather than redundant, with no human validation of those labels. The other has it independently validate evidence sufficiency and logical consistency of automatically generated training supervision, retaining only verified samples — so the quality of the entire training corpus is set by it. Worth recording as a pattern the archive should track: a frontier model doing the verifying is part of the experimental setup and is rarely audited as such.
 
 - **Kind**: model
+- **Also called**: GPT-5.5
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

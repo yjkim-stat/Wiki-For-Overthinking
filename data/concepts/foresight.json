@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.03701",
+      "kind": "paper",
+      "note": "Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.",
+      "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.1149",
       "kind": "paper",
       "note": "Reformulates reasoning as a search over thinking strategies, showing sparse reasoning paths exist that are simultaneously more accurate and shorter than standard outputs.",
@@ -11,9 +17,35 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T03:25:15Z",
   "name": "foresight",
   "related": [
+    "latent-reasoning",
+    "world-model",
+    "task-specification",
+    "representation-learning",
+    "causal-intervention",
+    "self-supervised-learning",
+    "robotic-manipulation",
+    "flow-matching",
+    "lila-wam",
+    "visual-transition-token",
+    "diffusion-transformer",
+    "q-former",
+    "cosine-similarity",
+    "t-sne",
+    "robotwin-2-0",
+    "libero",
+    "dinov3-vit-l-16",
+    "qwen3-vl-2b",
+    "clip",
+    "openvla",
+    "openvla-oft",
+    "gr00t-n1-6",
+    "smolvla",
+    "evo-1",
+    "starvla",
+    "being-h0-7",
     "test-time-compute",
     "reasoning-redundancy",
     "search",
@@ -25,9 +57,11 @@
     "chain-of-thought",
     "reasoning-operator-evaluation"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "foresight",
   "topics": [
+    "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling"
   ]

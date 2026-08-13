@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:27Z",
   "created_at": "2026-08-13T02:40:54Z",
   "instructions": "Write the wiki definition for 'grounding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "grounding",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "grounding",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "evidence grounding"
+    ],
+    "definition": "Tying a claim or a reasoning step to the specific evidence that supports it, and in both sources something a method is built to enforce rather than to measure. One generates per-question criteria directly from the raw waveform rather than from a transcript, so each criterion is anchored to acoustic evidence actually present in the clip, and prunes any criterion whose verdict does not vary across a rollout group. The other constructs an explicit graph whose nodes are document blocks and whose edges are reasoning dependencies, then tests the grounding causally: masking the evidence the graph cites flips 82.8% of originally correct answers while masking uncited evidence changes 9.6%. That counterfactual pairing is the stronger of the two demonstrations and is the form the archive should ask for — a grounding claim that is not checked by masking is a claim about annotation rather than about dependence.",
+    "kind": "concept",
+    "related": [
+      "provenance"
+    ]
   },
   "task_id": "concept__grounding",
   "task_version": 1,

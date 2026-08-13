@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A network compensating downstream for a component that has been removed, so an ablation-based importance score is measured on a network that has already partly repaired the damage. Both sources invoke it as the standing reason ablation and patching are expected to disagree — and then establish that the disagreement does not need it. Their construction produces matched pairs on which every single-carrier patch flips the decision while no single-carrier ablation does, with no repair mechanism present at all: the two interventions measure a carrier's contrast and its absolute level respectively, and those come apart in a redundantly coded network by arithmetic. So this phenomenon is one route to the mismatch rather than its explanation, which matters because a result attributed to it may instead be the identity, and the two call for different remedies.
 
 - **Kind**: concept
+- **Also called**: Hydra effect, self-healing
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](../methods/activation-patching.md), [causal intervention](causal-intervention.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](detection-versus-control.md), [low-rank weight ablation](../methods/low-rank-weight-ablation.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](residual-stream.md), [superposition](superposition.md), [weight-space ablation](weight-space-ablation.md)
+**Related**: [activation patching](../methods/activation-patching.md), [causal intervention](causal-intervention.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](detection-versus-control.md), [low-rank weight ablation](../methods/low-rank-weight-ablation.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](residual-stream.md), [superposition](superposition.md), [weight-space ablation](../methods/weight-space-ablation.md)
 
 ## Appears in
 

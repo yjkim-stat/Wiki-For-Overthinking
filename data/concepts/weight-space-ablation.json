@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "weight editing",
+    "parameter ablation"
+  ],
+  "definition": "Intervening on the parameters that generate every forward pass, as against on the activations realized in one. Both sources are one research programme, and their contribution is to make the difference from activation patching exact rather than cautionary: patching moves the readout by a component's donor-receiver contrast, this moves it by the component's absolute level at the receiver, and neither bounds the other. Two consequences are established. Inside an idealized additive model there is an if-and-only-if criterion for such an edit to collapse a conditional onto one branch, together with the polarity of the resulting error — and empirically two *nested* edited subsets collapse the same trained network onto opposite branches, which the idealized model forbids and which therefore locates a violated hypothesis. On a real pretrained model the gap against patching measures 0.224 to 0.852 across five instances of one circuit, never small.",
   "evidence": [
     {
       "id": "arxiv:2608.03620",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-13T02:55:53Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-13T03:09:29Z",
   "name": "weight-space ablation",
   "related": [
@@ -42,7 +45,10 @@
     "jacobian-bound",
     "qwen2-5-1-5b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-patching",
+    "low-rank-weight-ablation"
+  ],
   "schema_version": 1,
   "slug": "weight-space-ablation",
   "topics": [

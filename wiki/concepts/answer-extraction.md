@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How a scorer recovers the final answer from a model's output, and in both sources a source of measured effect that is routinely mistaken for reasoning. One shows an apparent nine-point gain from adding in-context examples is a rule-based parser learning to find the answer pattern — the underlying solutions are identical and a prompt-based extractor scores the same configurations stably throughout, with invalid-answer rates falling from 96.5% to 4.6% over the same range. The other decomposes reported self-correction gains into a content margin and format-recovery margins and finds causally that most of what the field has reported as self-correction is answer-parseability repair. Both therefore locate a large published effect in the scorer rather than in the model, which makes this the cheapest confound in the archive to control and the one least often controlled.
 
 - **Kind**: concept
+- **Also called**: answer parsing
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

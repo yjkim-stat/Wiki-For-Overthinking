@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A frontier proprietary model, present in both sources as a reference point rather than a subject. One lists it among the closed-source systems a long-document reasoning method is benchmarked against, where it is the strongest baseline on one of three benchmarks. The other includes it among the models whose chain-of-thought monitorability is scored on faithfulness and verbosity. Neither characterizes the checkpoint itself; its role is to mark where the closed frontier sat when each result was measured.
 
 - **Kind**: model
 - **Also called**: Claude 3.7 Sonnet

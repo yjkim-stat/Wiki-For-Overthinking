@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
+    },
+    {
+      "id": "arxiv:2608.03701",
+      "kind": "paper",
+      "note": "Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.",
+      "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "method",
-  "last_seen": "2026-08-13T00:17:14Z",
+  "last_seen": "2026-08-13T03:25:15Z",
   "name": "cosine similarity",
   "related": [
     "intent-classification",
@@ -44,12 +50,39 @@
     "roberta",
     "gpt-5",
     "gpt-5-nano",
-    "gpt-4o"
+    "gpt-4o",
+    "latent-reasoning",
+    "world-model",
+    "foresight",
+    "task-specification",
+    "representation-learning",
+    "causal-intervention",
+    "self-supervised-learning",
+    "robotic-manipulation",
+    "flow-matching",
+    "lila-wam",
+    "visual-transition-token",
+    "diffusion-transformer",
+    "q-former",
+    "t-sne",
+    "robotwin-2-0",
+    "libero",
+    "dinov3-vit-l-16",
+    "qwen3-vl-2b",
+    "clip",
+    "openvla",
+    "openvla-oft",
+    "gr00t-n1-6",
+    "smolvla",
+    "evo-1",
+    "starvla",
+    "being-h0-7"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "cosine-similarity",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-faithfulness"
   ]
 }

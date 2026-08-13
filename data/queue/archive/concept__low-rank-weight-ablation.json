@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:27Z",
   "created_at": "2026-08-13T03:09:30Z",
   "instructions": "Write the wiki definition for 'low-rank weight ablation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "low-rank weight ablation",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "low-rank weight ablation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "low-rank ablation",
+      "weight projection"
+    ],
+    "definition": "Editing a network's parameters by projecting a low-dimensional subspace out of them, as against altering activations inside one forward pass. Both sources are one research programme and treat it as an operator to be characterized rather than a tool to be used. The key identity is that this edit is *exactly* term deletion in the residual stream — projecting a unit direction out of a component's output projection removes one write-in term precisely, not approximately — which is what lets the analysis proceed in output space rather than in weight space. What is *not* an identity, and is the subject of both papers' hardest results, is the further assumption that deleting one component's term leaves every other component's term unchanged: it fails whenever an ablated head shares a block with its own MLP, and fails generically whenever the ablated set touches two or more layers at all.",
+    "kind": "method",
+    "related": [
+      "weight-space ablation"
+    ]
   },
   "task_id": "concept__low-rank-weight-ablation",
   "task_version": 1,

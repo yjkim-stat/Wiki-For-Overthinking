@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:27Z",
   "created_at": "2026-08-13T02:40:54Z",
   "instructions": "Write the wiki definition for 'GPT-5.5'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPT-5.5",
@@ -37,6 +38,16 @@
   "payload": {
     "name": "GPT-5.5",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "GPT-5.5"
+    ],
+    "definition": "A frontier proprietary model, used in both sources as apparatus rather than as a subject — and in both, apparatus whose judgement carries a load the paper's conclusions rest on. One has it classify 100 sampled search trajectories into a four-quadrant scheme, which is the main evidence that its two credit signals are complementary rather than redundant, with no human validation of those labels. The other has it independently validate evidence sufficiency and logical consistency of automatically generated training supervision, retaining only verified samples — so the quality of the entire training corpus is set by it. Worth recording as a pattern the archive should track: a frontier model doing the verifying is part of the experimental setup and is rarely audited as such.",
+    "kind": "model",
+    "related": [
+      "LLM-as-a-judge"
+    ]
   },
   "task_id": "concept__gpt-5-5",
   "task_version": 1,

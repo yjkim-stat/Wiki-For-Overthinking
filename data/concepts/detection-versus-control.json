@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "detection does not imply control"
+  ],
+  "definition": "The distinction between establishing that something can be read off a model's internals and establishing what happens when you act on it — in both sources a gap that is not merely quantitative but can reverse. One finds directions with near-perfect discriminability for a concept, aligned with its positive examples, that reliably steer the model the opposite way, consistently across inputs; correcting the sign improves a standard steering pipeline in 27 of 30 experiments. The other proves the parallel statement one level up, between two interventions rather than between reading and acting: patching a component moves the readout by its donor-receiver contrast while ablating it moves the readout by its absolute level at the receiver, neither bounds the other, and matched pairs exist on which every single-component patch flips the decision and no single-component ablation does. Taken together the sources say that a measurement licenses a claim only about the operation that produced it.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -68,7 +70,9 @@
     "jacobian-bound",
     "qwen2-5-1-5b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "representation-versus-readout"
+  ],
   "schema_version": 1,
   "slug": "detection-versus-control",
   "topics": [

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Tying a claim or a reasoning step to the specific evidence that supports it, and in both sources something a method is built to enforce rather than to measure. One generates per-question criteria directly from the raw waveform rather than from a transcript, so each criterion is anchored to acoustic evidence actually present in the clip, and prunes any criterion whose verdict does not vary across a rollout group. The other constructs an explicit graph whose nodes are document blocks and whose edges are reasoning dependencies, then tests the grounding causally: masking the evidence the graph cites flips 82.8% of originally correct answers while masking uncited evidence changes 9.6%. That counterfactual pairing is the stronger of the two demonstrations and is the form the archive should ask for — a grounding claim that is not checked by masking is a claim about annotation rather than about dependence.
 
 - **Kind**: concept
+- **Also called**: evidence grounding
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

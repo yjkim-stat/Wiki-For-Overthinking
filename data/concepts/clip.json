@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
       "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates"
+    },
+    {
+      "id": "arxiv:2608.03701",
+      "kind": "paper",
+      "note": "Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.",
+      "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation"
     }
   ],
   "first_seen": "2026-08-13T02:23:40Z",
   "kind": "model",
-  "last_seen": "2026-08-13T02:23:40Z",
+  "last_seen": "2026-08-13T03:25:15Z",
   "name": "CLIP",
   "related": [
     "test-time-scaling",
@@ -38,12 +44,39 @@
     "stable-diffusion-v1-4",
     "stable-diffusion-v3-5-medium",
     "gpt-4o-mini",
-    "nudenet"
+    "nudenet",
+    "latent-reasoning",
+    "world-model",
+    "foresight",
+    "task-specification",
+    "representation-learning",
+    "causal-intervention",
+    "self-supervised-learning",
+    "robotic-manipulation",
+    "flow-matching",
+    "lila-wam",
+    "visual-transition-token",
+    "diffusion-transformer",
+    "q-former",
+    "cosine-similarity",
+    "t-sne",
+    "robotwin-2-0",
+    "libero",
+    "dinov3-vit-l-16",
+    "qwen3-vl-2b",
+    "openvla",
+    "openvla-oft",
+    "gr00t-n1-6",
+    "smolvla",
+    "evo-1",
+    "starvla",
+    "being-h0-7"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "clip",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

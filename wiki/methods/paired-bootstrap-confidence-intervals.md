@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Resampling matched observations in pairs to put an interval on a difference, used by both sources to keep a per-instance comparison from being read as a mean effect. One reports per-category intervals on the difference between a selection rule and a format-matched control, and its central negative claim is exactly that every interval overlaps zero with one lying entirely below it. The other pairs a wrong completion against a correct one on the same problem and prompt condition, so the resampling unit is the pair rather than the run. In both the technique is doing the same work: a difference computed on matched units, with an interval, is what separates a real effect from an average that could be produced by a handful of instances.
 
 - **Kind**: method
+- **Also called**: paired bootstrap
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

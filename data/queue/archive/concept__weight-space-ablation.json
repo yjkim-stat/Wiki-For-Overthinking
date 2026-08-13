@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T03:23:28Z",
   "created_at": "2026-08-13T03:09:30Z",
   "instructions": "Write the wiki definition for 'weight-space ablation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "weight-space ablation",
@@ -37,6 +38,18 @@
   "payload": {
     "name": "weight-space ablation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "weight editing",
+      "parameter ablation"
+    ],
+    "definition": "Intervening on the parameters that generate every forward pass, as against on the activations realized in one. Both sources are one research programme, and their contribution is to make the difference from activation patching exact rather than cautionary: patching moves the readout by a component's donor-receiver contrast, this moves it by the component's absolute level at the receiver, and neither bounds the other. Two consequences are established. Inside an idealized additive model there is an if-and-only-if criterion for such an edit to collapse a conditional onto one branch, together with the polarity of the resulting error — and empirically two *nested* edited subsets collapse the same trained network onto opposite branches, which the idealized model forbids and which therefore locates a violated hypothesis. On a real pretrained model the gap against patching measures 0.224 to 0.852 across five instances of one circuit, never small.",
+    "kind": "method",
+    "related": [
+      "activation patching",
+      "low-rank weight ablation"
+    ]
   },
   "task_id": "concept__weight-space-ablation",
   "task_version": 1,

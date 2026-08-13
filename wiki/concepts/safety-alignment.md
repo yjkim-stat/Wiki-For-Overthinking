@@ -9,7 +9,7 @@ Training a model to refuse or avoid harmful behaviour, which all three sources a
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 4
 
-**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [adversarial robustness](adversarial-robustness.md), [alignment tax](alignment-tax.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [jailbreak](jailbreak.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [overthinking](overthinking.md), [post-training](../methods/post-training.md), [reasoning trajectory](reasoning-trajectory.md), [self-correction](self-correction.md), [self-reflection](../methods/self-reflection.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [test-time scaling](../methods/test-time-scaling.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [adversarial robustness](adversarial-robustness.md), [alignment tax](alignment-tax.md), [CLIP](../models/clip.md), [data efficiency](data-efficiency.md), [generalization](generalization.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [jailbreak](jailbreak.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [overthinking](overthinking.md), [post-training](../methods/post-training.md), [reasoning trajectory](reasoning-trajectory.md), [self-correction](self-correction.md), [self-reflection](../methods/self-reflection.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [test-time scaling](../methods/test-time-scaling.md)
 
 ## Appears in
 

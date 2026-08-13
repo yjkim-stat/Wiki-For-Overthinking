@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "solution diversity",
+    "diversity collapse"
+  ],
+  "definition": "How many genuinely different solution paths a policy will produce, as against how many samples it draws. Both sources argue reinforcement learning erodes it and locate the erosion in credit rather than in entropy. One measures a policy's preference between two specific verifier-equivalent continuations at a shared branch point and finds RLVR policies more decided than distilled ones on 95.5-100% of branches, with the collapse significantly stronger for semantically distinct continuations than for syntactic variants of the same statement. The other identifies the mechanism in the objective: with binary rewards every verified-correct completion receives the same positive advantage, so a recurring solution form accumulates positive coefficient mass proportional to how often it is sampled, and the fitted slope of cluster credit against cluster size is 1.00. Both then show the cost is real at high sampling budgets, where retaining alternative correct modes is what solves hard problems.",
   "evidence": [
     {
       "id": "arxiv:2608.02867",
@@ -68,7 +71,9 @@
     "llama-3-1-8b-instruct",
     "qwen2-5-32b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-boundary"
+  ],
   "schema_version": 1,
   "slug": "trajectory-diversity",
   "topics": [

@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Editing a network's parameters by projecting a low-dimensional subspace out of them, as against altering activations inside one forward pass. Both sources are one research programme and treat it as an operator to be characterized rather than a tool to be used. The key identity is that this edit is *exactly* term deletion in the residual stream — projecting a unit direction out of a component's output projection removes one write-in term precisely, not approximately — which is what lets the analysis proceed in output space rather than in weight space. What is *not* an identity, and is the subject of both papers' hardest results, is the further assumption that deleting one component's term leaves every other component's term unchanged: it fails whenever an ablated head shares a block with its own MLP, and fails generically whenever the ablated set touches two or more layers at all.
 
 - **Kind**: method
+- **Also called**: low-rank ablation, weight projection
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [weight-space ablation](../concepts/weight-space-ablation.md)
+**Related**: [activation patching](activation-patching.md), [causal intervention](../concepts/causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [weight-space ablation](weight-space-ablation.md)
 
 ## Appears in
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An earlier frontier proprietary model with a long context window, appearing in both sources as a comparison rather than a subject. One includes it among the closed-source systems a long-document reasoning method is measured against, where the paper's open 8B model exceeds it substantially. The other cites it in work on whether transformers can learn implicit multi-step reasoning over stored knowledge. Neither studies the checkpoint.
 
 - **Kind**: model
+- **Also called**: Gemini 1.5 Pro
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

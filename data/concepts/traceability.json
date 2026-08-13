@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "provenance",
+    "auditability of outputs"
+  ],
+  "definition": "Whether a model's output can be followed back to the specific evidence it rests on. Both sources treat it as something to be built into the task rather than inspected afterwards. One makes it structural: every reasoning step is a node in a graph anchored to a document block, so the answer carries node-level provenance by construction, and the resulting graph is validated causally by masking what it cites (82.8% of correct answers flip) against what it does not (9.6%). The other builds a benchmark that scores the reasoning process alongside the answer, with expert solutions supplied for 46% of items. The pair marks the two available routes — force the model to emit an inspectable structure, or supply ground-truth reasoning to score against — and only the first is checkable without expert annotation.",
   "evidence": [
     {
       "id": "arxiv:2608.03292",
@@ -56,7 +59,9 @@
     "process-level-evaluation",
     "expert-authored-reference-solutions"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grounding"
+  ],
   "schema_version": 1,
   "slug": "traceability",
   "topics": [
