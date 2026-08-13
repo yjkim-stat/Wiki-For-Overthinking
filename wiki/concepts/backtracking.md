@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Returning from a state where progress is impossible to an earlier one and taking a different path. The two sources approach it from opposite ends of the same question. One builds it into an inference-time search procedure, making lookahead and backtracking explicit operations over a tree of partial solutions rather than something a model does inside a linear trace. The other measures whether reinforcement learning teaches it: at sampled dead-end maze states the probability of the reversing move rises from 0.0068 to 0.1537 and from 0.0647 to 0.1687 after RLVR, absolute failures fall, and on mathematics recovery from an injected distractor improves by 4.18 to 29.09 points. Together they mark a shift in where the capability is thought to live — from a scaffold placed around the model to a property the training instils — and the second supplies the archive's clearest evidence that RLVR buys something real with the trajectory diversity it spends.
 
 - **Kind**: concept
+- **Also called**: backtrack
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

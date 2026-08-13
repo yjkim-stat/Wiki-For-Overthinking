@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Tying a reasoning step to the specific region of an image it depends on, and the two sources disagree instructively about whether it helps. One trains it as an explicit intermediate output and finds doing so worth 8.78 points over letting the model attend implicitly, arguing the value is as a vision-reasoning bridge rather than as the final objective. The other audits a selection rule built on grounding-like signals and finds a score that demonstrably depends on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet buys nothing once a format-matched control is run. The reconciliation is that the two intervene at different points: supervising grounding during training changes what the model computes, while scoring grounding at selection time only reweights what it already produced.
 
 - **Kind**: concept
+- **Also called**: visual grounded reasoning
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [best-of-n](../methods/best-of-n.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [compositional generalization](compositional-generalization.md), [curriculum learning](curriculum-learning.md), [Gemma-3-4B](../models/gemma-3-4b.md), [GPT-4o](../models/gpt-4o.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [majority voting](../methods/majority-voting.md), [MathVista](../datasets/mathvista.md), [multimodal reasoning](multimodal-reasoning.md), [process supervision](process-supervision.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [reinforcement learning](../methods/reinforcement-learning.md), [self-consistency](../methods/self-consistency.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [synthetic data generation](../methods/synthetic-data-generation.md), [test-time scaling](../methods/test-time-scaling.md)
+**Related**: [best-of-n](../methods/best-of-n.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [compositional generalization](compositional-generalization.md), [curriculum learning](curriculum-learning.md), [Gemma-3-4B](../models/gemma-3-4b.md), [GPT-4.1-mini](../models/gpt-4-1-mini.md), [GPT-4o](../models/gpt-4o.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [majority voting](../methods/majority-voting.md), [MathVista](../datasets/mathvista.md), [multimodal reasoning](multimodal-reasoning.md), [process supervision](process-supervision.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [reinforcement learning](../methods/reinforcement-learning.md), [self-consistency](../methods/self-consistency.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [synthetic data generation](../methods/synthetic-data-generation.md), [test-time scaling](../methods/test-time-scaling.md)
 
 ## Appears in
 

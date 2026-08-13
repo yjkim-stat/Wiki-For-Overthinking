@@ -6,6 +6,12 @@
   "definition": "An individual attention computation within a layer, treated by the sources as the unit at which a mechanism can be localized. One generalizes causal tracing to select subsets of heads and MLP neurons jointly, on the argument that single-component tracing misses components that only matter together and makes redundant ones each look unimportant. The other identifies specific heads by function, finding that latent counts stored in per-part item representations are moved to intermediate steps by dedicated heads before final aggregation. The pair frames the open question: heads are individually interpretable often enough to name, and jointly load-bearing often enough that naming them one at a time is unreliable.",
   "evidence": [
     {
+      "id": "arxiv:2608.02957",
+      "kind": "paper",
+      "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
+      "title": "Inverted Detection and Control in Steering Vectors"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.154",
       "kind": "paper",
       "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
@@ -20,9 +26,30 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T01:37:09Z",
   "name": "attention head",
   "related": [
+    "steering-vector",
+    "linear-representation-hypothesis",
+    "detection-versus-control",
+    "representation-versus-readout",
+    "linear-probe",
+    "causal-intervention",
+    "concept-direction",
+    "representation-response",
+    "activation-steering",
+    "inverted-steering-vector",
+    "inference-time-intervention",
+    "iti-rrf",
+    "mean-difference-probe",
+    "llm-as-a-judge",
+    "contrastive-activation-addition",
+    "truthfulqa",
+    "model-written-evaluations",
+    "gemma-3-12b",
+    "qwen2-5-14b",
+    "olmo-3-7b",
+    "gpt-4-1-mini",
     "causal-tracing",
     "localization",
     "modularity",
@@ -40,6 +67,7 @@
     "task-decomposition",
     "system-2-prompting"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "attention-head",
   "topics": [

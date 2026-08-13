@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:37:08Z",
   "created_at": "2026-08-13T01:22:51Z",
   "instructions": "Write the wiki definition for 'visual grounding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "visual grounding",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "visual grounding",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "visual grounded reasoning"
+    ],
+    "definition": "Tying a reasoning step to the specific region of an image it depends on, and the two sources disagree instructively about whether it helps. One trains it as an explicit intermediate output and finds doing so worth 8.78 points over letting the model attend implicitly, arguing the value is as a vision-reasoning bridge rather than as the final objective. The other audits a selection rule built on grounding-like signals and finds a score that demonstrably depends on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet buys nothing once a format-matched control is run. The reconciliation is that the two intervene at different points: supervising grounding during training changes what the model computes, while scoring grounding at selection time only reweights what it already produced.",
+    "kind": "concept",
+    "related": [
+      "detection versus control"
+    ]
   },
   "task_id": "concept__visual-grounding",
   "task_version": 1,

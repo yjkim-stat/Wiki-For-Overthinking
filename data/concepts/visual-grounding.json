@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "visual grounded reasoning"
+  ],
+  "definition": "Tying a reasoning step to the specific region of an image it depends on, and the two sources disagree instructively about whether it helps. One trains it as an explicit intermediate output and finds doing so worth 8.78 points over letting the model attend implicitly, arguing the value is as a vision-reasoning bridge rather than as the final objective. The other audits a selection rule built on grounding-like signals and finds a score that demonstrably depends on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet buys nothing once a format-matched control is run. The reconciliation is that the two intervene at different points: supervising grounding during training changes what the model computes, while scoring grounding at selection time only reweights what it already produced.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -71,7 +73,9 @@
     "llama-3-2-vision-11b",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "detection-versus-control"
+  ],
   "schema_version": 1,
   "slug": "visual-grounding",
   "topics": [

@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-13T01:37:08Z",
   "created_at": "2026-08-13T01:22:51Z",
   "instructions": "Write the wiki definition for 'Gemma-3-4B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Gemma-3-4B",
@@ -41,6 +42,14 @@
   "payload": {
     "name": "Gemma-3-4B",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Gemma 3 4B"
+    ],
+    "definition": "A small open multimodal model, used by both sources as a baseline rather than as a subject. In one it is among the open comparisons a chart-reasoning method is measured against, where it trails the finetuned models substantially at every curriculum level. In the other it appears in a sweep testing whether a hidden-state norm signal for reasoning effort holds across model families. Neither studies the checkpoint; its role is to establish that a result is not confined to one lineage.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__gemma-3-4b",
   "task_version": 1,

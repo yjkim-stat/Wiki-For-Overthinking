@@ -45,7 +45,7 @@ The paper states its bounds directly. The grid is two open 7B VLMs and four auto
 
 ## Entities
 
-- **Concepts**: test-time scaling, selection signal, decoding format, majority voting, self-consistency, visual grounding, label-preserving perturbation, matched-budget comparison, confound control, generation-verification gap
+- **Concepts**: test-time scaling, selection signal, decoding format, majority voting, self-consistency, [visual grounding](../../../../wiki/concepts/visual-grounding.md), label-preserving perturbation, matched-budget comparison, confound control, generation-verification gap
 - **Methods**: Perturbation-Grounded Selection, MatchedCtrl, [best-of-N](../../../../wiki/methods/best-of-n.md), confidence-weighted self-consistency, Borda count, paired bootstrap confidence intervals
 - **Datasets**: TextVQA, MATH-Vision, MMMU, ViLP
 

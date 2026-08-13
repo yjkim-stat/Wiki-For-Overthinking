@@ -9,7 +9,7 @@ Directing a model toward a target behaviour by intervening on its internals at i
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation steering](../methods/activation-steering.md), [circuit discovery](../methods/circuit-discovery.md), [literature survey](../methods/literature-survey.md), [localization](localization.md), [mechanistic interpretability](mechanistic-interpretability.md), [monosemanticity](monosemanticity.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](superposition.md)
+**Related**: [activation steering](../methods/activation-steering.md), [circuit discovery](../methods/circuit-discovery.md), [contrastive activation addition](../methods/contrastive-activation-addition.md), [literature survey](../methods/literature-survey.md), [localization](localization.md), [mechanistic interpretability](mechanistic-interpretability.md), [monosemanticity](monosemanticity.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [superposition](superposition.md)
 
 ## Appears in
 

@@ -9,7 +9,7 @@ Eliciting behaviour a model was trained to refuse, which in the reasoning-model 
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 3
 
-**Related**: [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [attention pattern](attention-pattern.md), [chain of thought](../methods/chain-of-thought.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [inference-time intervention](inference-time-intervention.md), [monitorability](monitorability.md), [multimodal reasoning](multimodal-reasoning.md), [test-time compute](test-time-compute.md)
+**Related**: [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [attention pattern](attention-pattern.md), [chain of thought](../methods/chain-of-thought.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Inference Time Intervention](inference-time-intervention.md), [monitorability](monitorability.md), [multimodal reasoning](multimodal-reasoning.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

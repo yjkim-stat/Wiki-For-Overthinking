@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A frontier proprietary model, appearing in both sources as the capable outside system a pipeline depends on rather than as a subject. One uses it as both rubric generator and judge for an RL training loop and reports the dependency as load-bearing: substituting a weaker audio model drops performance on all three benchmarks, in the paper's own words below the vanilla GRPO baseline. The other evaluates it in a large-scale study of judge reliability. Read together they mark a hazard the archive should track — a method whose signal comes from a model the authors neither control nor release is only reproducible while that model is available and unchanged.
 
 - **Kind**: model
 - **Also called**: Gemini 3.1 Pro

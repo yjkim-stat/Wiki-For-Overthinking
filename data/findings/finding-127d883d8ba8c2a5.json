@@ -1,0 +1,27 @@
+{
+  "concepts": [
+    "steering vector",
+    "linear probe",
+    "detection versus control",
+    "representation versus readout",
+    "causal intervention",
+    "activation patching"
+  ],
+  "established_at": "2026-08-13T01:36:10Z",
+  "id": "finding:127d883d8ba8c2a5",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.02957",
+    "arxiv:2608.02486",
+    "arxiv:2608.01207"
+  ],
+  "rationale": "Three independent demonstrations, at three levels. Directions with near-perfect discriminability for a concept (AUC up to 0.97, aligned with its positive examples) reliably steer the model the *opposite* way, consistently across inputs rather than on a minority subset; 45 such vectors are mined across 15 model-concept pairs, and correcting their sign improves a standard steering pipeline in 27 of 30 experiments by up to 138%, with one uncorrected case steering a concept below its unsteered baseline. In an 18-model sweep a linear probe reads an entity's culture from the residual stream at 0.79 while generation emits it at 0.09, and only activation patching establishes where the pathway actually runs. And a perturbation score that provably depends on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — is matched or beaten at selection by a format-matched control that never sees the perturbations. Detection, decoding and control are three separate questions, and an experiment answering one answers neither of the others.",
+  "schema_version": 1,
+  "statement": "How well a direction or signal detects a property licenses no claim about what intervening on it does — not the size of the effect, and not even its sign.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-evaluation"
+  ]
+}

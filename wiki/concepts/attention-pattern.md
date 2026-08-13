@@ -9,7 +9,7 @@ The distribution of attention weights over positions, used by the sources as a r
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 3
 
-**Related**: [activation patching](../methods/activation-patching.md), [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [inference-time intervention](inference-time-intervention.md), [jailbreak](jailbreak.md), [localization](localization.md), [mechanistic interpretability](mechanistic-interpretability.md), [Qwen3-VL](../models/qwen3-vl.md), [reproducibility](reproducibility.md), [test-time compute](test-time-compute.md), [verification](verification.md)
+**Related**: [activation patching](../methods/activation-patching.md), [aha moment](aha-moment.md), [attention analysis](../methods/attention-analysis.md), [Inference Time Intervention](inference-time-intervention.md), [jailbreak](jailbreak.md), [localization](localization.md), [mechanistic interpretability](mechanistic-interpretability.md), [Qwen3-VL](../models/qwen3-vl.md), [reproducibility](reproducibility.md), [test-time compute](test-time-compute.md), [verification](verification.md)
 
 ## Appears in
 

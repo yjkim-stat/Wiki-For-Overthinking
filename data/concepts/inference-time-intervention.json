@@ -2,10 +2,17 @@
   "aliases": [
     "inference-time defense",
     "test-time intervention",
-    "decoding-time intervention"
+    "decoding-time intervention",
+    "inference-time intervention"
   ],
   "definition": "Changing what a model does at generation time without touching its parameters, which both sources adopt for the same reason: fine-tuning-based defences are costly and do not scale. Both also place the intervention mid-trajectory rather than at the input or the output, because that is where they locate the failure. One reads internal attention to find key points in the reasoning path and injects safety-oriented reflections there, then samples to select a safe path. The other extracts objective visual evidence into a structured intent representation and enforces safety constraints before generation, on the finding that models perceive risk cues correctly and then lose them as narrative coherence takes over. Both need white-box access.",
   "evidence": [
+    {
+      "id": "arxiv:2608.02957",
+      "kind": "paper",
+      "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
+      "title": "Inverted Detection and Control in Steering Vectors"
+    },
     {
       "id": "doi:10.18653/v1/2026.acl-long.1453",
       "kind": "paper",
@@ -21,9 +28,30 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "inference-time intervention",
+  "last_seen": "2026-08-13T01:37:09Z",
+  "name": "Inference Time Intervention",
   "related": [
+    "steering-vector",
+    "linear-representation-hypothesis",
+    "detection-versus-control",
+    "representation-versus-readout",
+    "linear-probe",
+    "causal-intervention",
+    "attention-head",
+    "concept-direction",
+    "representation-response",
+    "activation-steering",
+    "inverted-steering-vector",
+    "iti-rrf",
+    "mean-difference-probe",
+    "llm-as-a-judge",
+    "contrastive-activation-addition",
+    "truthfulqa",
+    "model-written-evaluations",
+    "gemma-3-12b",
+    "qwen2-5-14b",
+    "olmo-3-7b",
+    "gpt-4-1-mini",
     "aha-moment",
     "jailbreak",
     "attention-pattern",
@@ -42,9 +70,11 @@
     "perception-decoupling",
     "chain-of-thought"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "inference-time-intervention",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

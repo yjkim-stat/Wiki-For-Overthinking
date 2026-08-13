@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An open base checkpoint, and in both sources the model on which a controlled post-training comparison is built — which is the point, since vendors release neither matched pre- and post-training pairs nor the data that would let an effect be attributed. One distils and then RLVR-trains it themselves to isolate what reinforcement learning changes, reporting maze exploration entropy falling from 2.3380 to 1.8138 and dead-end backtracking probability rising from 0.0068 to 0.1537. The other uses it among three base sizes for an experience-distillation stage inserted before RL. Its recurrence marks a methodological preference this archive should note: a base checkpoint whose post-training you performed yourself is worth more than a stronger one whose history you cannot see.
 
 - **Kind**: model
+- **Also called**: Qwen3-8B Base
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
