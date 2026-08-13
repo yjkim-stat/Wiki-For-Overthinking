@@ -17,6 +17,12 @@
       "title": "A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation"
     },
     {
+      "id": "arxiv:2608.03629",
+      "kind": "paper",
+      "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
+      "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model"
+    },
+    {
       "id": "local:26fdb25b9d157d04",
       "kind": "paper",
       "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
@@ -43,7 +49,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T02:55:53Z",
+  "last_seen": "2026-08-13T03:09:29Z",
   "name": "circuit analysis",
   "related": [
     "latent-reasoning",
@@ -83,6 +89,13 @@
     "causal-tracing",
     "matched-pair-analysis",
     "permutation-test",
+    "cross-layer-interaction",
+    "indirect-object-identification",
+    "pre-registration",
+    "greedy-circuit-search",
+    "finite-difference-verification",
+    "jacobian-bound",
+    "qwen2-5-1-5b-instruct",
     "bag-of-heuristics",
     "memorization",
     "generalization",

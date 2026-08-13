@@ -88,4 +88,44 @@ that matters for naturally arising misalignment rather than deliberate attack.
 The one defence tested, a KL penalty toward the base distribution, moves attack
 success 94.0% → 79.3%: a cost to the attacker, not a defence.
 
-<!-- analysis-sources: 10 -->
+### Revised at eleven sources: organization, where content fails
+
+The section above concludes that trace-internal scrutiny is defeated by
+construction under an adversary. An eleventh source qualifies that in a way
+worth keeping separate rather than folding in, because it concerns a different
+regime: **naturally arising capability failure, not deliberate decoupling.**
+
+Instead of reading what a trace says, it tags each sentence by reasoning
+function and studies the *sequence* — role densities, cycle rate, transition
+entropy, when finalization begins. On satisfiability problems, failing traces
+are more cyclic, lower in transition entropy, and begin finalizing at 77.1% of
+the trace against 89.8% for successful ones — while **clause coverage does not
+differ** (p = 0.206). The failing model is not ignoring the problem; it is
+organizing its reasoning more narrowly and committing earlier. That is
+information the trace carries about itself which no faithfulness assumption is
+needed to read.
+
+Three qualifications keep this from softening the section above:
+
+1. **It is model-dependent, not a detector.** Early warning flags 80.2% of one
+   model's wrong traces with 23 sentences of lead, 78.2% of another's with 17.5,
+   and 35.7% of a third's with **zero** lead. The authors say plainly it is not
+   a general failure detector.
+2. **Diagnosable is not interruptible.** On the unsatisfiable half, whole-trace
+   discrimination reaches AUROC 0.905 after every answer-related feature is
+   removed, while discrimination from the sentences *preceding* the answer is
+   0.507–0.570 — chance. A monitor can explain the failure afterwards and cannot
+   catch it during.
+3. **The within-family control removes half the signal.** Cycling and entropy
+   effects survive it; the length and verification effects do not, so those may
+   be verbosity differences between model families rather than failure.
+
+**How this sits with the poisoning result.** They are not in tension. Decoupling
+is an attack on what the trace *says*; these are statistics of how it is
+*arranged*, and nothing establishes that arrangement survives an adversary who
+is optimizing against it — the poisoned models here were trained to keep
+reasoning quality within ±7 points of clean, which is a constraint on content,
+not on dynamics. Whether the same training also normalizes trace organization is
+an open and cheap question: the features are computable from released traces.
+
+<!-- analysis-sources: 11 -->

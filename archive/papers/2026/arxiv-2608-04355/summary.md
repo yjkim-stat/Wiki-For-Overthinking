@@ -45,7 +45,7 @@ The frontier arm is stated to be lower-powered. Two large-effect cells retain an
 
 ## Entities
 
-- **Concepts**: [self-correction](../../../../wiki/concepts/self-correction.md), answer extraction, calibration, [construct validity](../../../../wiki/concepts/construct-validity.md), format repair, measurement validity, [inverse scaling](../../../../wiki/concepts/inverse-scaling.md)
+- **Concepts**: [self-correction](../../../../wiki/concepts/self-correction.md), [answer extraction](../../../../wiki/concepts/answer-extraction.md), calibration, [construct validity](../../../../wiki/concepts/construct-validity.md), format repair, measurement validity, [inverse scaling](../../../../wiki/concepts/inverse-scaling.md)
 - **Methods**: grammar-constrained decoding, content-margin decomposition, Wilcoxon signed-rank test, clustered regression, sealed holdout evaluation
 - **Datasets**: _none recorded_
 

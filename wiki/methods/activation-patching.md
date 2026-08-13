@@ -7,9 +7,9 @@ Replacing an activation with one from a different run to test whether that compo
 - **Kind**: method
 - **Also called**: causal intervention, causal tracing, interchange intervention, patching, representation denoising
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
-- **Sources**: 13
+- **Sources**: 14
 
-**Related**: [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [attention head](../concepts/attention-head.md), [attention pattern](../concepts/attention-pattern.md), [causal analysis](causal-analysis.md), [causal intervention](../concepts/causal-intervention.md), [causal mediation analysis](causal-mediation-analysis.md), [causal tracing](causal-tracing.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [circuit analysis](circuit-analysis.md), [circuit discovery](circuit-discovery.md), [counterfactual intervention](counterfactual-intervention.md), [curriculum learning](../concepts/curriculum-learning.md), [detection versus control](../concepts/detection-versus-control.md), [effective depth](../concepts/effective-depth.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [generalization](../concepts/generalization.md), [GPT-4o](../models/gpt-4o.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-J 6B](../models/gpt-j-6b.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](../concepts/implicit-reasoning.md), [Indirect Object Identification (IOI)](../datasets/indirect-object-identification-ioi.md), [information bottleneck](../concepts/information-bottleneck.md), [KL regularization](kl-regularization.md), [linear probe](linear-probe.md), [linear probing](linear-probing.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [Llama-3.2-3B-Instruct](../models/llama-3-2-3b-instruct.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [logit lens](logit-lens.md), [MATH500](../datasets/math500.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [memorization](../concepts/memorization.md), [Mistral-7B](../models/mistral-7b.md), [Mistral-7B-v0.3](../models/mistral-7b-v0-3.md), [modularity](../concepts/modularity.md), [monitorability](../concepts/monitorability.md), [monosemanticity](../concepts/monosemanticity.md), [OpenCodeInstruct](../datasets/opencodeinstruct.md), [Phi-4](../models/phi-4.md), [polysemanticity](../concepts/polysemanticity.md), [principal component analysis](principal-component-analysis.md), [process supervision](../concepts/process-supervision.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-0.5B](../models/qwen2-5-0-5b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [Qwen3-VL](../models/qwen3-vl.md), [representation versus readout](../concepts/representation-versus-readout.md), [reproducibility](../concepts/reproducibility.md), [residual stream](../concepts/residual-stream.md), [scaling laws](../concepts/scaling-laws.md), [self-consistency](self-consistency.md), [self-verification](../concepts/self-verification.md), [sparse autoencoder](sparse-autoencoder.md), [state tracking](../concepts/state-tracking.md), [superposition](../concepts/superposition.md), [supervised fine-tuning](supervised-fine-tuning.md), [supervised finetuning](supervised-finetuning.md), [test-time compute](../concepts/test-time-compute.md)
+**Related**: [AIME24](../datasets/aime24.md), [AIME25](../datasets/aime25.md), [attention head](../concepts/attention-head.md), [attention pattern](../concepts/attention-pattern.md), [causal analysis](causal-analysis.md), [causal intervention](../concepts/causal-intervention.md), [causal mediation analysis](causal-mediation-analysis.md), [causal tracing](causal-tracing.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [circuit analysis](circuit-analysis.md), [circuit discovery](circuit-discovery.md), [counterfactual intervention](counterfactual-intervention.md), [curriculum learning](../concepts/curriculum-learning.md), [detection versus control](../concepts/detection-versus-control.md), [effective depth](../concepts/effective-depth.md), [Gemma-4-12B](../models/gemma-4-12b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [generalization](../concepts/generalization.md), [GPT-4o](../models/gpt-4o.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-J 6B](../models/gpt-j-6b.md), [GSM8K](../datasets/gsm8k.md), [implicit reasoning](../concepts/implicit-reasoning.md), [Indirect Object Identification (IOI)](../datasets/indirect-object-identification-ioi.md), [information bottleneck](../concepts/information-bottleneck.md), [KL regularization](kl-regularization.md), [linear probe](linear-probe.md), [linear probing](linear-probing.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [Llama-3.2-3B-Instruct](../models/llama-3-2-3b-instruct.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [logit lens](logit-lens.md), [low-rank weight ablation](low-rank-weight-ablation.md), [MATH500](../datasets/math500.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [memorization](../concepts/memorization.md), [Mistral-7B](../models/mistral-7b.md), [Mistral-7B-v0.3](../models/mistral-7b-v0-3.md), [modularity](../concepts/modularity.md), [monitorability](../concepts/monitorability.md), [monosemanticity](../concepts/monosemanticity.md), [OpenCodeInstruct](../datasets/opencodeinstruct.md), [Phi-4](../models/phi-4.md), [polysemanticity](../concepts/polysemanticity.md), [principal component analysis](principal-component-analysis.md), [process supervision](../concepts/process-supervision.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-0.5B](../models/qwen2-5-0-5b.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3.6-35B-A3B](../models/qwen3-6-35b-a3b.md), [Qwen3-VL](../models/qwen3-vl.md), [representation versus readout](../concepts/representation-versus-readout.md), [reproducibility](../concepts/reproducibility.md), [residual stream](../concepts/residual-stream.md), [scaling laws](../concepts/scaling-laws.md), [self-consistency](self-consistency.md), [self-repair](../concepts/self-repair.md), [self-verification](../concepts/self-verification.md), [sparse autoencoder](sparse-autoencoder.md), [state tracking](../concepts/state-tracking.md), [superposition](../concepts/superposition.md), [supervised fine-tuning](supervised-fine-tuning.md), [supervised finetuning](supervised-finetuning.md), [test-time compute](../concepts/test-time-compute.md), [weight-space ablation](../concepts/weight-space-ablation.md)
 
 ## What we have settled
 
@@ -21,6 +21,7 @@ Replacing an activation with one from a different run to test whether that compo
 - [Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs](../../archive/papers/2026/arxiv-2608-02486/summary.md) — Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.
 - [Evading Chain-of-Thought Monitoring Through Model Poisoning](../../archive/papers/2026/arxiv-2608-02820/summary.md) — Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).
 - [A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation](../../archive/papers/2026/arxiv-2608-03620/summary.md) — Proves that activation patching and weight-space ablation measure two different quantities — a carrier's donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.
+- [Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model](../../archive/papers/2026/arxiv-2608-03629/summary.md) — Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.
 - [Spectra: A Mechanistic Interpretability Library for Vision-Language Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-demo-78/summary.md) — An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.
 - [Multi-component Causal Tracing in Large Language Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-154/summary.md) — Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.
 - [Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions](../../archive/papers/2026/doi-10-18653-v1-2026-findings-acl-1265/summary.md) — Traces how individual prompt tokens ground into image regions during diffusion denoising, using fixed-seed single-word removal for causal faithfulness and a head-resolved spike score for attribution.
@@ -86,3 +87,52 @@ single correct consequence. The state-editing authors say this explicitly and
 name program states, theorem-prover goals and tool-call arguments as the
 realistic next domains. That is the concrete opening: reasoning tasks whose
 intermediate variables have checkable consequences.
+
+### It measures a different quantity than ablation, and the gap is exact
+
+The section above is about how patching can be run badly. A pair of theory
+papers now establishes something prior to that: patching run *perfectly* still
+does not measure what weight-space ablation measures, and the two disagree by an
+amount that is written down rather than estimated.
+
+Inside an idealized model where a conditional is carried additively through the
+residual stream:
+
+| Intervention | What it moves the readout by |
+| --- | --- |
+| Patching carrier *i* from donor to receiver | its **contrast** across the pair, β_i·(α_i(x_A) − α_i(x_B)) |
+| Ablating carrier *i* in weight space | its **absolute level** at the receiver, −β_i·α_i(x_B) |
+
+**Neither bounds the other.** The papers construct matched pairs on which every
+single-carrier patch flips the decision while no single-carrier ablation does —
+the redundancy regime, produced with no repair mechanism at all, so this is not
+the Hydra effect under another name. The same construction is the sense in which
+"patching overstates importance and ablation understates it" stops being a
+caution and becomes an identity.
+
+**It is not a small-model artifact.** On an emergent indirect-object circuit in
+Qwen2.5-1.5B-Instruct — found by the field's own greedy patching search, never
+designed for these claims — the gap between the patching effect and the ablation
+effect is **0.224 to 0.852 on all five lexical instances**, never small. So the
+dissociation is what happens when either instrument is used on an ordinary
+circuit, not an edge case one can hope to avoid.
+
+**What follows for reading circuit claims here.** A claim resting on one of the
+two interventions should name which, and treat the other as an open question
+rather than as corroboration. The archive already holds the same shape one level
+down — [[detection-versus-control]], where a direction's discriminability
+licenses no claim about steering it, in sign or in magnitude.
+
+### What is not established
+
+Both papers are one research programme by one author, so this is a single
+independent source and is recorded here rather than as a finding. The theory
+rests on residual additivity and a linear readout; the multi-layer remainder is
+isolated exactly and **not bounded**, with the missing ingredient named and left
+open. The real-model check is one model, one mechanism, five instances — with
+collapse absent on one of them, the interaction probe applicable to only three,
+and none of those three in the configuration any theorem covers. The authors say
+all of this themselves, and withdrew a cleaner empirical claim from the first
+paper when it failed out of sample.
+
+<!-- analysis-sources: 14 -->

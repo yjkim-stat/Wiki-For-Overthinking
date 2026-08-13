@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the evidence i
 
 ## Entities
 
-- **Concepts**: chain-of-thought prompting, in-context learning, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), baseline validity, answer extraction, [construct validity](../../../../wiki/concepts/construct-validity.md), zero-shot prompting, reasoning specialization
+- **Concepts**: chain-of-thought prompting, in-context learning, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), baseline validity, [answer extraction](../../../../wiki/concepts/answer-extraction.md), [construct validity](../../../../wiki/concepts/construct-validity.md), zero-shot prompting, reasoning specialization
 - **Methods**: [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), zero-shot chain-of-thought, [few-shot prompting](../../../../wiki/methods/few-shot-prompting.md), self-generated demonstrations, rule-based answer extraction
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
