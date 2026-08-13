@@ -65,6 +65,12 @@
       "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO"
     },
     {
+      "id": "arxiv:2608.03550",
+      "kind": "paper",
+      "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+      "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.196",
       "kind": "paper",
       "note": "Has a teacher decompose and prune a student's reasoning by mathematical skill, then distills the pruned paths back, on the argument that CoT structure must match student capacity.",
@@ -193,7 +199,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T02:40:53Z",
+  "last_seen": "2026-08-13T02:55:53Z",
   "name": "GSM8K",
   "related": [
     "multi-step-mathematical-reasoning",
@@ -387,6 +393,18 @@
     "humanity-s-last-exam",
     "qwen2-5-math-7b",
     "qwen2-5-32b-instruct",
+    "in-context-learning",
+    "prompt-sensitivity",
+    "baseline-validity",
+    "answer-extraction",
+    "construct-validity",
+    "zero-shot-prompting",
+    "reasoning-specialization",
+    "zero-shot-chain-of-thought",
+    "few-shot-prompting",
+    "self-generated-demonstrations",
+    "rule-based-answer-extraction",
+    "mathstral-7b",
     "reasoning-distillation",
     "reasoning-redundancy",
     "overthinking",
@@ -538,7 +556,6 @@
     "clipping",
     "membership-inference",
     "leaderboard-integrity",
-    "construct-validity",
     "ppo",
     "membership-inference-attack",
     "token-penalty",

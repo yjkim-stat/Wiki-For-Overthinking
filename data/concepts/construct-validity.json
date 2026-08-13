@@ -7,6 +7,12 @@
   "definition": "Whether a benchmark measures the thing its name claims, and the archive's dominant critical theme at 21 sources. The recurring finding is not that models are worse than reported but that the reported quantity is something else. Perception is misread as reasoning — about 80% of ARC-style failures are perceptual, and on one university-level multimodal benchmark a model scores higher with no image than with it. Format repair is misread as self-correction, with the content margin near zero at frontier scale. Guessing is misread as capability, with base models reaching right answers through wrong chains often enough to invert a headline pass@k result. Composition is misread as competence, with accuracy dropping nearly 30% when two individually solved steps are combined while humans show no such gap. The judges are implicated too: exact-match agreement, the field's standard validation metric, is shown insufficient across ~541,000 judgments, and forcing raters to pick one answer where several are defensible biases validation badly. The constructive responses in the archive are decomposition, ablation of the supposedly load-bearing modality, symbolic regeneration of problems, and scoring the process rather than the answer.",
   "evidence": [
     {
+      "id": "arxiv:2608.03550",
+      "kind": "paper",
+      "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+      "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
       "id": "arxiv:2608.04355",
       "kind": "paper",
       "note": "Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.",
@@ -135,11 +141,25 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:55:53Z",
   "name": "construct validity",
   "related": [
-    "self-correction",
+    "chain-of-thought-prompting",
+    "in-context-learning",
+    "prompt-sensitivity",
+    "baseline-validity",
     "answer-extraction",
+    "zero-shot-prompting",
+    "reasoning-specialization",
+    "zero-shot-chain-of-thought",
+    "few-shot-prompting",
+    "self-generated-demonstrations",
+    "rule-based-answer-extraction",
+    "gsm8k",
+    "mathstral-7b",
+    "qwen2-5-7b-instruct",
+    "llama-3-1-8b-instruct",
+    "self-correction",
     "calibration",
     "format-repair",
     "measurement-validity",
@@ -155,7 +175,6 @@
     "nvidia-nemotron-3-ultra-550b",
     "theory-of-mind",
     "robustness",
-    "prompt-sensitivity",
     "capability-attribution",
     "rlvr",
     "prompt-perturbation",
@@ -304,7 +323,6 @@
     "membership-inference-attack",
     "aime24",
     "math500",
-    "gsm8k",
     "gpqa-diamond",
     "style-bias",
     "preference-optimization",
@@ -340,11 +358,12 @@
     "deepseek-v3-2",
     "kimi-k2-5"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "construct-validity",
   "topics": [
-    "test-time-scaling",
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-evaluation"
   ]
 }

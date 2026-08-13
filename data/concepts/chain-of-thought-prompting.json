@@ -54,6 +54,12 @@
       "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
     },
     {
+      "id": "arxiv:2608.03550",
+      "kind": "paper",
+      "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+      "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -74,7 +80,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T02:40:53Z",
+  "last_seen": "2026-08-13T02:55:53Z",
   "name": "chain-of-thought prompting",
   "related": [
     "chain-of-thought-faithfulness",
@@ -230,6 +236,16 @@
     "claude-3-7-sonnet",
     "gemini-1-5-pro",
     "paddleocr-vl-1-5",
+    "in-context-learning",
+    "baseline-validity",
+    "answer-extraction",
+    "construct-validity",
+    "zero-shot-prompting",
+    "reasoning-specialization",
+    "zero-shot-chain-of-thought",
+    "self-generated-demonstrations",
+    "rule-based-answer-extraction",
+    "mathstral-7b",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",

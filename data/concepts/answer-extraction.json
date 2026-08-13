@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.03550",
+      "kind": "paper",
+      "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+      "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
       "id": "arxiv:2608.04355",
       "kind": "paper",
       "note": "Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.",
@@ -11,12 +17,26 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-13T02:55:53Z",
   "name": "answer extraction",
   "related": [
+    "chain-of-thought-prompting",
+    "in-context-learning",
+    "prompt-sensitivity",
+    "baseline-validity",
+    "construct-validity",
+    "zero-shot-prompting",
+    "reasoning-specialization",
+    "zero-shot-chain-of-thought",
+    "few-shot-prompting",
+    "self-generated-demonstrations",
+    "rule-based-answer-extraction",
+    "gsm8k",
+    "mathstral-7b",
+    "qwen2-5-7b-instruct",
+    "llama-3-1-8b-instruct",
     "self-correction",
     "calibration",
-    "construct-validity",
     "format-repair",
     "measurement-validity",
     "inverse-scaling",
@@ -30,9 +50,11 @@
     "tencent-hy3",
     "nvidia-nemotron-3-ultra-550b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "answer-extraction",
   "topics": [
+    "reasoning-training",
     "test-time-scaling"
   ]
 }
