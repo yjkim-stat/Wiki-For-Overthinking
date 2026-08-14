@@ -224,6 +224,12 @@ class Queue:
     def __init__(self, layout: Layout, max_pending: int | None = None) -> None:
         self.layout = layout
         self.max_pending = max_pending
+        # What this instance actually wrote. A caller cannot learn it from the
+        # return value of `enqueue` alone: a summarizer backend sits between the
+        # two and reports only whether it deferred, which is true of every item
+        # whether or not a task was filed for it.
+        self.filed = 0
+        self.refreshed = 0
 
     # -- paths --------------------------------------------------------------
     @staticmethod
@@ -294,6 +300,7 @@ class Queue:
             return ""
 
         write_json(pending, task)
+        self.filed += 1
         _LOG.info("queued %s", task_id)
         return task_id
 
@@ -321,6 +328,7 @@ class Queue:
         if stored == task:
             return ""
         write_json(pending, task)
+        self.refreshed += 1
         _LOG.info("refreshed %s", task["task_id"])
         return ""
 

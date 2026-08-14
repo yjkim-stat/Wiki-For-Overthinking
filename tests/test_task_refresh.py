@@ -208,6 +208,42 @@ class TaskRefreshTests(unittest.TestCase):
             self.paper.local_path,
         )
 
+    # -- what the run reports ------------------------------------------------
+    def test_the_first_render_reports_what_it_filed(self):
+        result = render.run(self.cfg)
+        self.assertEqual(result["summaries_queued"], 1)
+        self.assertEqual(result["summaries_refreshed"], 0)
+        self.assertEqual(result["summaries_unread"], 1)
+
+    def test_a_second_render_reports_that_it_filed_nothing(self):
+        """The number that used to read the same on every pass.
+
+        `summaries_queued` counted records without a summary, because a queue
+        backend defers every item it is handed and the count was taken from
+        that. It therefore reported the whole backlog every render however
+        little was filed — which is how a defect that filed nothing for weeks
+        went unnoticed.
+        """
+        render.run(self.cfg)
+        result = render.run(self.cfg)
+        self.assertEqual(result["summaries_queued"], 0)
+        self.assertEqual(result["summaries_refreshed"], 0)
+        self.assertEqual(result["summaries_unread"], 1, "the backlog is still there")
+
+    def test_a_refresh_is_reported_as_a_refresh(self):
+        render.run(self.cfg)
+        self._give_it_a_document()
+        result = render.run(self.cfg)
+        self.assertEqual(result["summaries_queued"], 0)
+        self.assertEqual(result["summaries_refreshed"], 1)
+
+    def test_a_read_paper_leaves_the_backlog(self):
+        render.run(self.cfg)
+        self.queue.complete(TASK, RESULT)
+        result = render.run(self.cfg)
+        self.assertEqual(result["summaries_unread"], 0)
+        self.assertEqual(result["summaries_queued"], 0)
+
     def _snapshot(self) -> dict[str, tuple[str, float]]:
         """Content and mtime. The second is what catches a rewrite that changes
         nothing — identical bytes leave a hash untouched."""

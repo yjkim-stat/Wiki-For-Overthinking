@@ -84,7 +84,7 @@ def _queue_and_summarizer(cfg: Config):
     return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
 
 
-def queue_missing_summaries(cfg: Config) -> int:
+def queue_missing_summaries(cfg: Config) -> dict[str, int]:
     """File a task for any stored record that still has no summary.
 
     Collection queues a task when it first sees an item, but a task can be lost
@@ -92,10 +92,18 @@ def queue_missing_summaries(cfg: Config) -> int:
     record that was added some other way. Without this the item would sit in the
     archive unread forever, so the check is repeated on every render and the
     queue heals itself.
+
+    Returns three numbers that used to be one, and the one was wrong. What was
+    reported as `summaries_queued` counted *records without a summary* — the
+    backlog — because a queue backend defers every item it is handed and the
+    count was taken from that. It therefore read the same on every render
+    however little was filed, which is how a defect that filed nothing for weeks
+    went unnoticed. `unread` is that number, under its own name; `queued` and
+    `refreshed` are what the queue actually wrote.
     """
     store = RecordStore(cfg.layout)
     queue, summarizer = _queue_and_summarizer(cfg)
-    queued = 0
+    unread = 0
 
     for paper in store.iter_papers():
         if store.paper_summary_path(paper.id).exists():
@@ -111,7 +119,7 @@ def queue_missing_summaries(cfg: Config) -> int:
         else:
             continue
         if summarizer.summarize_paper(paper, context, cfg.language) is None:
-            queued += 1
+            unread += 1
 
     for video in store.iter_videos():
         if not video.topics or store.video_summary_path(video.id).exists():
@@ -122,14 +130,20 @@ def queue_missing_summaries(cfg: Config) -> int:
             cfg.topic_context(video.topics),
             cfg.language,
         ) is None:
-            queued += 1
+            unread += 1
 
-    if queued:
-        _LOG.info("re-queued %d missing summary task(s)", queued)
-    return queued
+    counts = {"unread": unread, "queued": queue.filed, "refreshed": queue.refreshed}
+    if queue.filed or queue.refreshed:
+        _LOG.info(
+            "summary tasks: %d filed, %d refreshed (%d record(s) still unread)",
+            queue.filed,
+            queue.refreshed,
+            unread,
+        )
+    return counts
 
 
-def queue_missing_definitions(cfg: Config) -> int:
+def queue_missing_definitions(cfg: Config) -> dict[str, int]:
     """Ask for a definition for every promoted entity that still lacks one.
 
     This is what makes the wiki extend itself: a concept that turns up in a
@@ -137,12 +151,12 @@ def queue_missing_definitions(cfg: Config) -> int:
     an actual definition, without anyone requesting it.
     """
     store = RecordStore(cfg.layout)
-    _, summarizer = _queue_and_summarizer(cfg)
+    queue, summarizer = _queue_and_summarizer(cfg)
 
     concepts = {c.slug: c for c in store.iter_concepts()}
     live = concepts_mod.promoted(cfg, concepts)
 
-    queued = 0
+    undefined = 0
     for concept in concepts_mod.undefined_concepts(cfg, live):
         sources = [
             {
@@ -154,11 +168,22 @@ def queue_missing_definitions(cfg: Config) -> int:
             for item in concept.evidence
         ]
         if summarizer.define_concept(concept.name, sources, cfg.language) is None:
-            queued += 1
+            undefined += 1
 
-    if queued:
-        _LOG.info("queued %d definition task(s)", queued)
-    return queued
+    counts = {
+        "undefined": undefined,
+        "queued": queue.filed,
+        "refreshed": queue.refreshed,
+    }
+    if queue.filed or queue.refreshed:
+        _LOG.info(
+            "definition tasks: %d filed, %d refreshed (%d entity/entities still "
+            "undefined)",
+            queue.filed,
+            queue.refreshed,
+            undefined,
+        )
+    return counts
 
 
 def _relative(cfg: Config, path: Path) -> str:
@@ -395,7 +420,10 @@ def run(
         result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)
         if not skip_queueing:
-            result["summaries_queued"] = queue_missing_summaries(cfg)
+            summaries = queue_missing_summaries(cfg)
+            result["summaries_queued"] = summaries["queued"]
+            result["summaries_refreshed"] = summaries["refreshed"]
+            result["summaries_unread"] = summaries["unread"]
 
     if only in (None, "wiki"):
         # Derive first, draw second. The renderer is handed the entities rather
@@ -404,7 +432,10 @@ def run(
         concepts, live = concepts_mod.rebuild(cfg)
         result["wiki"] = wiki.update(cfg, concepts, live)
         if not skip_queueing:
-            result["definitions_queued"] = queue_missing_definitions(cfg)
+            definitions = queue_missing_definitions(cfg)
+            result["definitions_queued"] = definitions["queued"]
+            result["definitions_refreshed"] = definitions["refreshed"]
+            result["definitions_undefined"] = definitions["undefined"]
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)
