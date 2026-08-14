@@ -1,10 +1,18 @@
-# 0060 — A counter that counts attempts
+# 0066 — A counter that counts attempts
 
 | | |
 | --- | --- |
 | **Commit** | `fix(render): definitions_queued counts tasks filed, not attempts` |
 | **Scope** | `pipelines/render.py`, `tests/test_local.py`, `docs/LOCAL-DELTAS.md` |
 | **Kind** | fix |
+
+> **Superseded on 2026-08-14.** `origin/main` reached the same defect
+> independently in [0054](0054-the-queue-reports-what-it-wrote.md), by a better
+> route — counters inside `Queue`, and three numbers where there had been one
+> wrong one. The template's implementation is the one that survived the merge,
+> so the code this note describes is no longer in the tree. The note stays
+> because the commit does, and because the convergence is the useful part:
+> [0068](0068-the-same-collision-and-the-same-bug.md).
 
 ## What changed
 

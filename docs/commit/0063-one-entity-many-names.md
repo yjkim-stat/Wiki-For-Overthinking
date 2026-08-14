@@ -1,4 +1,4 @@
-# 0057 — One entity, many names
+# 0063 — One entity, many names
 
 | | |
 | --- | --- |
@@ -85,7 +85,7 @@ read the wrong tree exactly when the two trees differ.
 It does not touch records already on disk. A record written under a name that
 has since become an alias keeps its definition, and the harvest's carry-over
 rule resurrects it every pass — so declaring an alias without retiring the
-orphan changes nothing visible. That is note 0058.
+orphan changes nothing visible. That is note 0064.
 
 It also does nothing to stop the next fragmentation. The cheapest defence is a
 render-time warning when two slugs differ only by punctuation; it is recorded in

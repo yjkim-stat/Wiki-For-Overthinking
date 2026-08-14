@@ -17,6 +17,7 @@ them is how a migration silently loses half of itself.
 | Papers, seminars, readings | ✅ `data/papers/`, `data/videos/`, `data/summaries/` | — |
 | Wiki entities and evidence | ✅ `data/concepts/` | — |
 | What the group settled | ✅ `data/findings/` | — |
+| Pages checked outside the archive | ✅ `data/references/` | — |
 | The work queue | ✅ `data/queue/` | — |
 | Dedup state, coverage ledger | ✅ `data/index/` incl. `seen.sqlite` | — |
 | The wiki, and your analysis after `<!-- auto:end -->` | ✅ `wiki/` | — |
@@ -93,7 +94,20 @@ files carried by the bundle
   disposable            402 file(s)  86.0 MB
 
 documents: 1140 record(s) claim one, 0 missing on disk
+  3 file(s) on disk that no record claims -- carried as `irreplaceable`, since
+  nothing can show them re-fetchable
+  orphan   data/pdfs/local-ba6b91360ccccfd7.pdf
 ```
+
+The last block reports both directions, and only the second needs explaining. A
+document nobody claims is invisible everywhere else — `render` files documents
+*by record*, so it never visits one — and it is not free: `pack` cannot
+establish provenance for it, so it correctly refuses to call it re-fetchable and
+carries it in the tier the bundle guarantees. Orphans therefore make a bundle
+larger, and the line appears only when there are some.
+
+Nothing deletes them. Check the record that ought to claim the file, and remove
+it by hand if it really is a duplicate.
 
 `status` exits without writing anything. **Do not pack while it still prints a
 `WARNING` under `git`** — everything below assumes the knowledge is safely on
@@ -269,6 +283,7 @@ re-collect everything it has already seen.
 | `verify` reports `corrupt` | Bytes changed in transit | Re-transfer those files. Unpack refuses each file whose checksum fails, names it, and leaves whatever was already at that path alone. |
 | `verify` reports `unlisted` | The payload holds files the manifest does not describe — almost always an earlier, wider pack left underneath | Re-pack with `--replace`, or transfer a fresh bundle. Restoring works either way; the inventory is what is untrustworthy. |
 | `documents: N missing` after unpack, and the bundle was `--tier irreplaceable` | Expected. Fetched PDFs were deliberately left behind | Nothing automatic re-fetches them. Re-collect the paper, or fetch its `pdf_url` and drop the file in `inbox/`. |
+| `N file(s) on disk that no record claims` | Orphans: a document whose record does not point at it. Inflates the `irreplaceable` tier | Nothing automatic removes them. Compare against the record that should claim the file; delete by hand only once you have checked its `local_path` points at a file that exists |
 | `documents: N missing` after a full unpack | A real loss | Check `MANIFEST.json` → `skipped`. If the document is not listed there either, it was already missing before the migration. |
 | `record count differs: papers 1284 -> 1190` | **A git problem, never a bundle problem** | The bundle cannot carry records. Something was not pushed, or you cloned the wrong branch. Go back to step 2 on the old container if it still exists. |
 | Queue tasks have no `attachments.pdf_path` | Their documents did not arrive | Answer them from the abstract, or restore the documents and re-file. Do not invent content — an empty field is a true statement about what you know. |

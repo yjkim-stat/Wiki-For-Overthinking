@@ -1,4 +1,4 @@
-# 0056 — Taking the update, and giving up our numbers
+# 0062 — Taking the update, and giving up our numbers
 
 | | |
 | --- | --- |
@@ -22,7 +22,9 @@ Three commits from `origin/main` are now in this branch:
   seen them.
 
 And our seven notes moved up by three, from 0046–0052 to 0049–0055, so that both
-sequences fit in one directory. `docs/LOCAL-DELTAS.md` follows the one
+sequences fit in one directory. (They moved again on 2026-08-14, by a further
+six, to 0055–0061 — see [0068](0068-the-same-collision-and-the-same-bug.md).
+The account below is of the first move.) `docs/LOCAL-DELTAS.md` follows the one
 cross-reference; nothing else pointed at a moved number. The index also gained
 rows for the two notes that had been written without one.
 

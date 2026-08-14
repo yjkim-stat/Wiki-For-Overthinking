@@ -239,6 +239,12 @@ class Queue:
     def __init__(self, layout: Layout, max_pending: int | None = None) -> None:
         self.layout = layout
         self.max_pending = max_pending
+        # What this instance actually wrote. A caller cannot learn it from the
+        # return value of `enqueue` alone: a summarizer backend sits between the
+        # two and reports only whether it deferred, which is true of every item
+        # whether or not a task was filed for it.
+        self.filed = 0
+        self.refreshed = 0
 
     # -- paths --------------------------------------------------------------
     @staticmethod
@@ -267,12 +273,38 @@ class Queue:
         payload: dict[str, Any],
         attachments: dict[str, Any] | None = None,
     ) -> str:
-        """File a task. Returns its id, or ``""`` if it was not filed."""
+        """File a task.
+
+        Returns its id when a new task was filed, and ``""`` otherwise — which
+        includes the case where a task was already pending and has been brought
+        up to date in place. A refresh writes, but it does not add anything to
+        the backlog, and callers count what the backlog gained.
+        """
         task_id = self.task_id(kind, item_id)
         pending = self.pending_path(task_id)
 
-        if pending.exists() or self.done_path(task_id).exists():
+        # An answered task is never rewritten. A reader may have worked from the
+        # version they were given, and replacing its material underneath them
+        # would make the answer describe something else.
+        if self.done_path(task_id).exists():
             return ""
+
+        task = {
+            "task_version": TASK_VERSION,
+            "task_id": task_id,
+            "kind": kind,
+            "item_id": item_id,
+            "topics": topics,
+            "language": language,
+            "created_at": utcnow(),
+            "instructions": instructions,
+            "output_schema": output_schema,
+            "payload": payload,
+            "attachments": attachments or {},
+        }
+
+        if pending.exists():
+            return self._refresh(pending, task)
 
         if self.max_pending is not None and self.count_pending() >= self.max_pending:
             _LOG.warning(
@@ -282,24 +314,38 @@ class Queue:
             )
             return ""
 
-        write_json(
-            pending,
-            {
-                "task_version": TASK_VERSION,
-                "task_id": task_id,
-                "kind": kind,
-                "item_id": item_id,
-                "topics": topics,
-                "language": language,
-                "created_at": utcnow(),
-                "instructions": instructions,
-                "output_schema": output_schema,
-                "payload": payload,
-                "attachments": attachments or {},
-            },
-        )
+        write_json(pending, task)
+        self.filed += 1
         _LOG.info("queued %s", task_id)
         return task_id
+
+    def _refresh(self, pending: Path, task: dict) -> str:
+        """Bring a waiting task up to date with the record it was built from.
+
+        A task used to be whatever its record looked like on the day it was
+        filed, for ever. That is wrong in the one direction that matters: a
+        document can arrive after the task, and then the reader is handed a
+        paper's abstract while the PDF sits on disk beside it — and, because the
+        prompt and the schema are chosen by whether a document is attached, is
+        also asked the wrong question and given nowhere to record the answer.
+        The correct task was rebuilt on every render and discarded on every
+        render by the guard this replaces.
+
+        Two things are kept rather than rebuilt. ``created_at``, because it is
+        how long this item has been waiting and nothing else records that; a
+        task that quietly became newer would corrupt any ordering built on it.
+        And nothing at all if the rebuild is identical — a render over an
+        unchanged archive must not rewrite the queue, for the same reason it
+        must not rewrite a concept record.
+        """
+        stored = read_json(pending) or {}
+        task["created_at"] = stored.get("created_at") or task["created_at"]
+        if stored == task:
+            return ""
+        write_json(pending, task)
+        self.refreshed += 1
+        _LOG.info("refreshed %s", task["task_id"])
+        return ""
 
     # -- consuming ----------------------------------------------------------
     def count_pending(self) -> int:

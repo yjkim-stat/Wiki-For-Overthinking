@@ -86,7 +86,7 @@ def _queue_and_summarizer(cfg: Config, max_pending=_UNSET):
     return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
 
 
-def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
+def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
     """File a task for any stored record that still has no summary.
 
     Collection queues a task when it first sees an item, but a task can be lost
@@ -94,11 +94,18 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
     record that was added some other way. Without this the item would sit in the
     archive unread forever, so the check is repeated on every render and the
     queue heals itself.
+
+    Returns three numbers that used to be one, and the one was wrong. What was
+    reported as `summaries_queued` counted *records without a summary* — the
+    backlog — because a queue backend defers every item it is handed and the
+    count was taken from that. It therefore read the same on every render
+    however little was filed, which is how a defect that filed nothing for weeks
+    went unnoticed. `unread` is that number, under its own name; `queued` and
+    `refreshed` are what the queue actually wrote.
     """
     store = RecordStore(cfg.layout)
     queue, summarizer = _queue_and_summarizer(cfg, max_pending)  # LOCAL
-    queued = 0
-    before = queue.count_pending()  # LOCAL: see the log line at the end
+    unread = 0
 
     for paper in store.iter_papers():
         if store.paper_summary_path(paper.id).exists():
@@ -114,7 +121,7 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
         else:
             continue
         if summarizer.summarize_paper(paper, context, cfg.language) is None:
-            queued += 1
+            unread += 1
 
     for video in store.iter_videos():
         if not video.topics or store.video_summary_path(video.id).exists():
@@ -125,21 +132,20 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> int:
             cfg.topic_context(video.topics),
             cfg.language,
         ) is None:
-            queued += 1
+            unread += 1
 
-    # LOCAL: the log line reports tasks filed; the return value keeps its
-    # original meaning of records found lacking a summary. They differ whenever
-    # the queue is at its cap, and it is the log line a person reads during a
-    # run -- it said "re-queued 76" on a render that filed none. The return
-    # value is left alone because the reserve in `run` counts the queue on
-    # either side and does not use it (docs/LOCAL-DELTAS.md). See note 0061.
-    filed = queue.count_pending() - before
-    if filed:
-        _LOG.info("re-queued %d missing summary task(s)", filed)
-    return queued
+    counts = {"unread": unread, "queued": queue.filed, "refreshed": queue.refreshed}
+    if queue.filed or queue.refreshed:
+        _LOG.info(
+            "summary tasks: %d filed, %d refreshed (%d record(s) still unread)",
+            queue.filed,
+            queue.refreshed,
+            unread,
+        )
+    return counts
 
 
-def queue_missing_definitions(cfg: Config) -> int:
+def queue_missing_definitions(cfg: Config) -> dict[str, int]:
     """Ask for a definition for every promoted entity that still lacks one.
 
     This is what makes the wiki extend itself: a concept that turns up in a
@@ -152,14 +158,7 @@ def queue_missing_definitions(cfg: Config) -> int:
     concepts = {c.slug: c for c in store.iter_concepts()}
     live = concepts_mod.promoted(cfg, concepts)
 
-    # LOCAL: counted from the queue, not from the return value. `add` refuses a
-    # task once the queue is at its cap and returns "", `define_concept`
-    # discards that and returns None either way, and None is what the loop
-    # below reads as "deferred to the queue" -- so a full queue was reported as
-    # four definitions filed when none were. The summary path next to this one
-    # already counts from the queue for a different reason; this is the same
-    # correction. See docs/commit/0060.
-    before = queue.count_pending()
+    undefined = 0
     for concept in concepts_mod.undefined_concepts(cfg, live):
         sources = [
             {
@@ -170,12 +169,23 @@ def queue_missing_definitions(cfg: Config) -> int:
             }
             for item in concept.evidence
         ]
-        summarizer.define_concept(concept.name, sources, cfg.language)
+        if summarizer.define_concept(concept.name, sources, cfg.language) is None:
+            undefined += 1
 
-    queued = queue.count_pending() - before
-    if queued:
-        _LOG.info("queued %d definition task(s)", queued)
-    return queued
+    counts = {
+        "undefined": undefined,
+        "queued": queue.filed,
+        "refreshed": queue.refreshed,
+    }
+    if queue.filed or queue.refreshed:
+        _LOG.info(
+            "definition tasks: %d filed, %d refreshed (%d entity/entities still "
+            "undefined)",
+            queue.filed,
+            queue.refreshed,
+            undefined,
+        )
+    return counts
 
 
 def _relative(cfg: Config, path: Path) -> str:
@@ -413,12 +423,11 @@ def run(
         result["archive"] = rebuild_archive(cfg)
         if not skip_queueing:
             # LOCAL: hold back part of the cap so definition tasks are not
-            # crowded out; the remainder is released below. Counted from the
-            # queue rather than from the return value, which reports records
-            # lacking a summary and so double-counts across the two passes.
-            _before = queue_share.pending_count(cfg)
-            queue_missing_summaries(cfg, queue_share.summary_cap(cfg))
-            result["summaries_queued"] = queue_share.pending_count(cfg) - _before
+            # crowded out; the remainder is released below.
+            summaries = queue_missing_summaries(cfg, queue_share.summary_cap(cfg))
+            result["summaries_queued"] = summaries["queued"]
+            result["summaries_refreshed"] = summaries["refreshed"]
+            result["summaries_unread"] = summaries["unread"]
 
     if only in (None, "wiki"):
         # Derive first, draw second. The renderer is handed the entities rather
@@ -427,17 +436,21 @@ def run(
         concepts, live = concepts_mod.rebuild(cfg)
         result["wiki"] = wiki.update(cfg, concepts, live)
         if not skip_queueing:
-            result["definitions_queued"] = queue_missing_definitions(cfg)
+            definitions = queue_missing_definitions(cfg)
+            result["definitions_queued"] = definitions["queued"]
+            result["definitions_refreshed"] = definitions["refreshed"]
+            result["definitions_undefined"] = definitions["undefined"]
             # LOCAL: give any unused reserve back to the reading queue. Only
             # when the archive stage ran — under `--only wiki` nothing was held.
-            # `_before` is taken after the definition tasks above, so the delta
-            # is summaries alone.
+            # The `pending_count` arithmetic this delta used to need is gone:
+            # upstream's counters count tasks *written*, so a second pass adds
+            # rather than double-counting (note 0054). `unread` is replaced
+            # rather than summed — it is a snapshot of the backlog, not a total.
             if "summaries_queued" in result:
-                _before = queue_share.pending_count(cfg)
-                queue_missing_summaries(cfg)
-                result["summaries_queued"] += (
-                    queue_share.pending_count(cfg) - _before
-                )
+                more = queue_missing_summaries(cfg)
+                result["summaries_queued"] += more["queued"]
+                result["summaries_refreshed"] += more["refreshed"]
+                result["summaries_unread"] = more["unread"]
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)

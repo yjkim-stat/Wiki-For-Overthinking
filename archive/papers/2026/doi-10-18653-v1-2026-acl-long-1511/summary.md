@@ -43,7 +43,7 @@ No quantitative results, datasets or models in the abstract. Conformal guarantee
 
 ## Entities
 
-- **Concepts**: conformal prediction, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), calibration, coverage guarantee, Shapley value, training data attribution, reasoning-answer coupling
+- **Concepts**: conformal prediction, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), calibration, coverage guarantee, [Shapley value](../../../../wiki/concepts/shapley-value.md), training data attribution, reasoning-answer coupling
 - **Methods**: conformal prediction, Shapley values, training data attribution, uncertainty set construction
 - **Datasets**: _none recorded_
 

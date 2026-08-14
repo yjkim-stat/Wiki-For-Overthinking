@@ -165,7 +165,62 @@ def write_concept_note(
         body.append("")
 
     body += ["## Appears in", ""] + _evidence_lines(cfg, page, concept, store)
+
+    # Below the evidence and under a heading of its own. A reference is not
+    # evidence for this entity — it did not put the name in a summary and it
+    # cannot promote anything — so putting it in the list above would make the
+    # note claim a source it does not have. Which is also why the two are
+    # separate records rather than one list with a flag.
+    checked = _references_for(settled, store)
+    if checked:
+        body += ["", "## Checked against", ""] + _reference_lines(checked)
+
     return _write_note(cfg, page, concept.name, "\n".join(body))
+
+
+def _references_for(settled: list, store: RecordStore) -> list:
+    """Every reference cited by the findings that bear on this entity.
+
+    Deduplicated, because two findings that consulted one page should not make
+    the note look as though two things were checked.
+    """
+    seen: set[str] = set()
+    out = []
+    for finding in settled:
+        for ref_id in finding.references:
+            if ref_id in seen:
+                continue
+            seen.add(ref_id)
+            reference = store.load_reference(ref_id)
+            if reference is not None:
+                out.append(reference)
+    return sorted(out, key=lambda r: (r.title or r.url).lower())
+
+
+def _reference_lines(references: list) -> list[str]:
+    """One line per page, with the passage that was actually relied on.
+
+    The quotation is carried into the note rather than left in the record. A
+    reader deciding whether to trust a settled position should not have to open
+    a JSON file to see what the page was found to say — and if the page has
+    moved since, this is the only place the words still exist.
+    """
+    lines: list[str] = []
+    for reference in references:
+        label = reference.title or reference.url
+        meta = " · ".join(
+            part
+            for part in (
+                reference.publisher,
+                reference.kind if reference.kind != "other" else "",
+                f"retrieved {reference.retrieved_at}" if reference.retrieved_at else "",
+            )
+            if part
+        )
+        lines.append(f"- [{label}]({reference.url})" + (f" — {meta}" if meta else ""))
+        if reference.quoted:
+            lines.append(f"  - _{reference.quoted}_")
+    return lines
 
 
 def write_topic_note(cfg: Config, topic, store: RecordStore) -> Path:
@@ -314,7 +369,27 @@ def build_graph(
             if pair in seen_pairs:
                 continue
             seen_pairs.add(pair)
-            edges.append({"source": source, "target": target, "type": "co-occurs"})
+            # Asked of both ends, not just this one. The pair is recorded on
+            # first arrival and the second is dropped, so reading only this
+            # concept's list would let dictionary order decide whether an edge
+            # is labelled authored — a difference that would appear and vanish
+            # between renders with nothing changing in `data/`.
+            authored = (
+                slug in concept.related_authored
+                or concept.slug in other.related_authored
+            )
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    # `links`, not `co-occurs`: this loop reads the union of the
+                    # derived and the ruled, and naming it after one of its two
+                    # inputs is what made the graph assert that a person's
+                    # deliberate link had merely turned up in a summary.
+                    "type": "links",
+                    "authored": authored,
+                }
+            )
 
     path = cfg.layout.wiki_meta / "graph.json"
     write_json(
@@ -378,6 +453,19 @@ def write_findings_page(cfg: Config, store: RecordStore) -> Path:
             out.append("  - Bears on: " + ", ".join(links))
         if finding.papers:
             out.append(f"  - From: {', '.join(finding.papers)}")
+        # Named separately from `From:`, which lists papers in the archive.
+        # Conflating the two would let a page somebody read once be counted
+        # alongside the literature this group collected and read.
+        checked = []
+        for ref_id in finding.references:
+            reference = store.load_reference(ref_id)
+            if reference is None:
+                continue
+            label = reference.title or reference.url
+            when = f", retrieved {reference.retrieved_at}" if reference.retrieved_at else ""
+            checked.append(f"[{label}]({reference.url}){when}")
+        if checked:
+            out.append("  - Checked against: " + "; ".join(checked))
         return out
 
     page = cfg.layout.wiki / "findings.md"

@@ -49,4 +49,4 @@ the code asserts one.
 ## Damage so far
 
 Nine readings, repaired by `scripts/backfill_summary_models.py` from the source
-documents. See `docs/commit/0052`.
+documents. See `docs/commit/0061`.

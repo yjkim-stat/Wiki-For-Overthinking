@@ -84,7 +84,7 @@ in `CONCEPT_OUTPUT_SCHEMA` was not, so for every definition task the reader was
 offered three kinds and could only ever answer three. Because a stored
 definition freezes an entity's kind against re-derivation, one such answer
 demotes a correctly harvested model permanently. Fixed in
-[0054](commit/0054-a-kind-that-is-accepted-is-offered.md) by enumerating the
+[0060](commit/0060-a-kind-that-is-accepted-is-offered.md) by enumerating the
 tuple instead of writing it out, and guarded by `DefinitionContractTests`.
 
 **The applier line is the one that gets forgotten.** It was omitted when the
@@ -100,29 +100,31 @@ If you re-apply nothing else from this section, re-apply that.
 | --- | --- |
 | `enrich/queue.py` | `errors.extend(placeholders.check(kind, result))` in `validate_result` |
 | `collect/conferences.py` | `local_abstracts.fill_missing(...)` at the end of `collect()`, after deduplication |
-| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, the release of the unused reserve after `queue_missing_definitions`, and `queue.count_pending()` on either side of the loop **inside** `queue_missing_definitions` |
+| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, and the release of the unused reserve after `queue_missing_definitions` |
 | `common/config.py` | `aliases.install(layout)` in `load()`, imported inside the function |
 | `enrich/concepts.py` | `_aliases.canonical(...)` inside `slug_for`, **and** `_aliases.canonical_name(slug) or name` where `entity()` builds a `Concept` |
 
 `render.py` also carries the `_UNSET` sentinel and the `max_pending` parameter
 those two calls need.
 
-Both call sites take `queue_share.pending_count(cfg)` on either side and report
-the difference, rather than using the return value. That is not decoration: the
-function returns how many records lack a summary, so two passes over one
-backlog report it twice. Re-applying the reserve without this reports double
-(note 0032).
+**This delta got smaller on 2026-08-14, and that is worth reading before
+re-applying it.** It used to carry `queue_share.pending_count(cfg)` on either
+side of both calls, because `queue_missing_summaries` returned *records lacking
+a summary* rather than *tasks filed* — so summing two passes over one backlog
+double-counted it (note 0032), and at the cap the number was simply wrong (our
+notes [0066](commit/0066-a-counter-that-counts-attempts.md) and
+[0067](commit/0067-the-log-line-said-seventy-six.md)). Upstream then fixed the
+same defect at the source in
+[0054](commit/0054-the-queue-reports-what-it-wrote.md): `Queue` counts its own
+writes, and both functions return `{queued, refreshed, unread}`. With counters
+that count writes, a second pass adds rather than double-counts, and the whole
+arithmetic this delta needed is gone.
 
-**And in the log line one function back.** `queue_missing_summaries` logs
-tasks filed while returning records found; the two differ at the cap, and the
-log line is what a person reads during a run (note 0061).
-
-**The same correction is needed one function further in.**
-`queue_missing_definitions` counted iterations whose `define_concept` returned
-`None`, and `None` means *asked*, not *filed* — `Queue.add` refuses at the cap
-and its return value is discarded. Restoring the reserve without this restores
-a counter that reads correctly on an idle queue and reports four definitions
-filed when none were on a busy one (note 0060).
+**What is left is only the reserve itself** — the `summary_cap` on the first
+call and the second call that releases what the definitions did not use. When
+you re-apply it, sum `queued` and `refreshed` across the two passes and
+*replace* `unread`: it is a snapshot of the backlog, not a total, and adding it
+twice is the same class of error the delta used to exist to avoid.
 
 **The alias delta is two lines in one file, and re-applying only the obvious
 one is worse than re-applying neither.** `slug_for` decides which record a name
@@ -191,6 +193,26 @@ every change, so pointing the skill at `docs/commit-local/` would contradict the
 contract. `docs/commit-local/` is now imported history: read it, never add to it.
 What survives from the paragraph above is the hazard — both sequences number from
 0000, so a cross-reference between them must spell the directory out.
+
+### 6. `CLAUDE.md` — 1 file, and the one that guards the rest
+
+`CLAUDE.md` is template-shaped: `origin/main` edits it, and did on 2026-08-14.
+Five things in it are ours.
+
+| File | What to re-apply |
+| --- | --- |
+| `CLAUDE.md` | the **"This repository carries deltas"** bullet under *Working on the code*, and four rows in the Layout table: `pipelines/local/`, `docs/commit-local/`, `docs/LOCAL-DELTAS.md`, and the `tests/test_local*.py` sentence appended to `scripts/, tests/` |
+
+**This entry exists because that bullet is the only thing in the repository that
+tells the next session the register is there.** Every other delta is protected by
+being written down here; this one protects the writing-down. Lose it in a
+wholesale replacement of `CLAUDE.md` and nothing fails, nothing is logged, and
+the next template update quietly reverts the `model` kind, the three collection
+fixes and the alias map together — with no instruction anywhere to check.
+
+It went unregistered until the 2026-08-14 merge, which is to say through two
+template updates. It survived both by luck: `CLAUDE.md` merged cleanly each time
+because upstream happened to edit different sections.
 
 ## What is *not* a delta
 

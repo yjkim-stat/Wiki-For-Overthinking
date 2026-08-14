@@ -206,7 +206,14 @@ def _svg(nodes: list[dict], edges: list[dict], placed: dict) -> str:
         rb = radii.get(edge["target"], 8.0) + 2.0
         if ra + rb >= span:
             continue
-        css = "edge co" if edge.get("type") == "co-occurs" else "edge"
+        # Three styles, because there are three kinds of claim: a topic
+        # covering an entity is structural, a co-occurrence is weak evidence,
+        # and a ruled link is somebody's assertion. Drawing the last of those
+        # in the faint style meant for the second is what this replaced.
+        if edge.get("type") == "links":
+            css = "edge link authored" if edge.get("authored") else "edge link"
+        else:
+            css = "edge"
         parts.append(
             f'<line class="{css}" x1="{a[0] + ux * ra:.1f}" y1="{a[1] + uy * ra:.1f}" '
             f'x2="{b[0] - ux * rb:.1f}" y2="{b[1] - uy * rb:.1f}"/>'
@@ -250,7 +257,18 @@ def _svg(nodes: list[dict], edges: list[dict], placed: dict) -> str:
     return "\n".join(parts)
 
 
-def _legend(present: set[str]) -> str:
+def _edge_styles(edges: list[dict]) -> set[str]:
+    """Which edge styles are actually drawn, so the key names only those."""
+    styles: set[str] = set()
+    for edge in edges:
+        if edge.get("type") == "links":
+            styles.add("authored" if edge.get("authored") else "links")
+        else:
+            styles.add("covers")
+    return styles
+
+
+def _legend(present: set[str], edges: set[str] | None = None) -> str:
     order = ["topic", "concept", "method", "dataset", "model"]  # LOCAL: model
     marks = {
         "topic": '<svg width="13" height="13"><circle cx="6.5" cy="6.5" r="5" '
@@ -273,6 +291,20 @@ def _legend(present: set[str]) -> str:
         'class="mark k0"/><circle cx="6.5" cy="6.5" r="2.4" class="settled k0"/>'
         "</svg>settled</span>"
     )
+    # Edge styles, which the legend accounted for not at all: a reader had no
+    # key for solid against dashed even before there were three of them.
+    for style, label in (
+        ("covers", "topic covers"),
+        ("links", "mentioned together"),
+        ("authored", "linked by a reader"),
+    ):
+        if not edges or style not in edges:
+            continue
+        css = {"covers": "edge", "links": "edge link", "authored": "edge link authored"}
+        out.append(
+            f'<span><svg width="18" height="13"><line class="{css[style]}" x1="1" '
+            f'y1="6.5" x2="17" y2="6.5"/></svg>{label}</span>'
+        )
     out.append('<span style="color:var(--faint)">size = sources</span>')
     return "\n".join(out)
 
@@ -336,7 +368,9 @@ def build(cfg: Config) -> Path | None:
         {
             "TITLE": "Wiki map",
             "COUNTS": counts,
-            "LEGEND": _legend({str(n.get("kind")) for n in nodes}),
+            "LEGEND": _legend(
+                {str(n.get("kind")) for n in nodes}, _edge_styles(edges)
+            ),
             "SVG": _svg(nodes, edges, placed),
             "TABLE_SUMMARY": f"Table view — {len(nodes)} rows",
             "TABLE": _table(nodes),

@@ -1,4 +1,4 @@
-# 0054 — A kind that is accepted is offered
+# 0060 — A kind that is accepted is offered
 
 | | |
 | --- | --- |

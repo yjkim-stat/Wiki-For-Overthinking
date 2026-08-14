@@ -1,4 +1,4 @@
-# 0058 — A condition that its own effect falsifies
+# 0064 — A condition that its own effect falsifies
 
 | | |
 | --- | --- |
@@ -12,7 +12,7 @@ A one-off that folds every record `config/concept-aliases.yaml` has orphaned
 into its canonical, plus a `--candidates` mode that lists the collisions nobody
 has ruled on.
 
-Declaring an alias redirects the harvest (note 0057). It does nothing to the
+Declaring an alias redirects the harvest (note 0063). It does nothing to the
 `data/concepts/aime24.json` already on disk — and that record has a definition,
 so the harvest's carry-over rule resurrects it every pass. Two notes, one
 benchmark, for ever.
@@ -71,7 +71,7 @@ Five tests cover the script, and the first of them is that one.
 
 It prints 99 names that some reader declared as an alias and that are separate
 records here. It is a worklist for a person, and the script says so on its last
-line, because acting on the list mechanically is precisely the failure note 0057
+line, because acting on the list mechanically is precisely the failure note 0063
 describes: readers use `aliases` for spelling variants and for neighbours alike.
 
 `docs/issues/concept-alias-candidates.md` sorts them by evidence at stake and

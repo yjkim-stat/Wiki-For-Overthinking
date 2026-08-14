@@ -33,7 +33,7 @@ harvest's carry-over rule. Retiring those is a one-off with its own audit trail,
 because it destroys authored text and must not happen as a side effect of a
 render. See `scripts/merge_concept_aliases.py`.
 
-See docs/LOCAL-DELTAS.md and docs/commit/0057.
+See docs/LOCAL-DELTAS.md and docs/commit/0063.
 """
 
 from __future__ import annotations

@@ -64,7 +64,7 @@ knows nothing about deduplication, and it would couple `collect/` to `enrich/`.
 
 **Considered: option C — report orphans from `migrate status`.** Worth having and
 not a fix. Filed separately as
-[`docs/issues/an-orphaned-pdf-is-reported-by-nothing.md`](../issues/an-orphaned-pdf-is-reported-by-nothing.md),
+[`docs/issues/an-orphaned-pdf-is-reported-by-nothing.md`](../solved/an-orphaned-pdf-is-reported-by-nothing.md),
 because it is the thing that would have surfaced this in a day rather than by
 inspection, and it stays true for orphans arising any other way.
 

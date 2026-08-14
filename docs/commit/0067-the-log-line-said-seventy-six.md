@@ -1,10 +1,18 @@
-# 0061 — The log line said seventy-six
+# 0067 — The log line said seventy-six
 
 | | |
 | --- | --- |
 | **Commit** | `fix(render): the summary log line reports tasks filed` |
 | **Scope** | `pipelines/render.py`, `docs/LOCAL-DELTAS.md` |
 | **Kind** | fix |
+
+> **Superseded on 2026-08-14.** `origin/main` reached the same defect
+> independently in [0054](0054-the-queue-reports-what-it-wrote.md), by a better
+> route — counters inside `Queue`, and three numbers where there had been one
+> wrong one. The template's implementation is the one that survived the merge,
+> so the code this note describes is no longer in the tree. The note stays
+> because the commit does, and because the convergence is the useful part:
+> [0068](0068-the-same-collision-and-the-same-bug.md).
 
 ## What changed
 
@@ -13,7 +21,7 @@ records it found lacking a summary. The return value is untouched.
 
 ## Why the split
 
-Note 0060 fixed the same shape in `queue_missing_definitions` and stopped one
+Note 0066 fixed the same shape in `queue_missing_definitions` and stopped one
 line short. The very next render printed:
 
 ```
