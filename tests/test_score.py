@@ -1,7 +1,8 @@
 import unittest
 
 from pipelines.common.config import Topic
-from pipelines.enrich.score import _pattern, score_against_topics, score_item
+from pipelines.common.text import matcher as _pattern
+from pipelines.enrich.score import score_against_topics, score_item
 
 SETTINGS = {
     "score": {
