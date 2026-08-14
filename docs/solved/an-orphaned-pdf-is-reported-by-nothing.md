@@ -1,6 +1,8 @@
 # A PDF that no record claims is reported by nothing
 
-**Status:** open · **Kind:** feature · reporting
+**Status:** solved 2026-08-14 — see [Resolution](#resolution) at the foot of this
+file and [note 0053](../commit/0053-the-other-direction-of-the-same-question.md).
+**Kind:** feature · reporting
 **Found:** 2026-08-13, splitting option C out of
 [the merge defect](../solved/a-hand-filed-pdf-is-lost-when-its-record-merges.md)
 **Touches:** `pipelines/migrate.py`, `pipelines/render.py`, `tests/`
@@ -58,3 +60,32 @@ Count and name them, and nothing else.
 - A file claimed by a record is not.
 - The report writes nothing — assert the directory is byte-identical afterwards,
   the way `tests/test_layering.py` snapshots `data/`.
+
+---
+
+## Resolution
+
+`migrate status` now prints the symmetric line, naming up to twenty examples.
+Commit `feat(migrate): report documents that no record claims`, note
+[0053](../commit/0053-the-other-direction-of-the-same-question.md).
+
+The two questions this document left open, decided:
+
+- **`migrate status` only, not `render`.** `render` runs constantly and a count
+  that does not change until somebody acts becomes noise; the `stale` block earns
+  its place by reporting things that *moved*. And the reason an orphan matters is
+  that it inflates a bundle's `irreplaceable` tier, so the command you run when
+  that matters is where it belongs.
+- **`data/pdfs/read/` counts, `inbox/` does not.** A shelved document whose
+  record has gone is an orphan by the same definition, so the scan uses `rglob`.
+  A file in the inbox is unclaimed on purpose — it is on its way in and has no
+  record yet. The transient this document worried about, a re-read paper leaving
+  a file behind for a moment, shows up as a *missing* document on the other line
+  rather than as an orphan, and `shelve_documents` repairs it on the next render.
+
+It deletes nothing, as specified. The line appears only when the count is
+non-zero, because a standing zero on every run is how a number stops being read —
+which is the failure this feature exists to correct rather than repeat.
+
+`migration/README.md` carries the new output and a troubleshooting row, since it
+is the authority for what `status` prints.

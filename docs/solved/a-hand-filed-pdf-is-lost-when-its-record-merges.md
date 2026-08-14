@@ -262,7 +262,7 @@ The decisions this document asked for:
   `irreplaceable` tier of a migration bundle, which is a cost worth stating
   rather than a corruption.
 - **Option C was split out**, not dropped:
-  [`an-orphaned-pdf-is-reported-by-nothing.md`](../issues/an-orphaned-pdf-is-reported-by-nothing.md).
+  [`an-orphaned-pdf-is-reported-by-nothing.md`](an-orphaned-pdf-is-reported-by-nothing.md).
   It is the thing that would have found this in a day rather than by inspection.
 - **Option B was not taken.** It is the better architecture and the wrong size
   for this defect; it is recorded in the note as the thing to do if

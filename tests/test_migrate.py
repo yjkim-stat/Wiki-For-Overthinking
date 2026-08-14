@@ -103,6 +103,76 @@ class PlanTests(unittest.TestCase):
         )
 
 
+class OrphanReportTests(unittest.TestCase):
+    """A document nobody claims is otherwise invisible.
+
+    `shelve_documents` files documents *by record*, so it never visits one; the
+    day's digest counts what was collected, not what is on disk. And they are
+    not inert: `build_plan` cannot establish provenance for a file nobody
+    claims, so it tiers it `irreplaceable` — inflating the one number that
+    decides how large a bundle has to be.
+
+    The defect that produced them was found by reading code. This is what would
+    have found it by running something.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.addCleanup(self.sandbox.close)
+        self.cfg = _archive(self.sandbox)
+        self.documents = migrate.check_documents(self.cfg)
+
+    def test_an_unclaimed_document_is_counted_and_named(self):
+        self.assertEqual(self.documents["orphaned"], 1)
+        self.assertEqual(
+            self.documents["orphan_examples"], ["data/pdfs/orphan.pdf"]
+        )
+
+    def test_a_claimed_document_is_not_an_orphan(self):
+        named = self.documents["orphan_examples"]
+        self.assertNotIn("data/pdfs/hand-filed.pdf", named)
+        self.assertNotIn("data/pdfs/read/fetched.pdf", named)
+
+    def test_a_shelved_document_is_reached(self):
+        """`pdfs/read/` counts: a shelved file whose record went is an orphan."""
+        _write(self.cfg.layout.root / "data/pdfs/read/nobody.pdf", PDF + b"gone")
+        documents = migrate.check_documents(self.cfg)
+        self.assertIn("data/pdfs/read/nobody.pdf", documents["orphan_examples"])
+
+    def test_the_inbox_is_not_scanned(self):
+        """A file there is unclaimed on purpose — it is on its way in."""
+        named = self.documents["orphan_examples"]
+        self.assertNotIn("inbox/waiting.pdf", named)
+
+    def test_both_directions_are_reported_at_once(self):
+        """A record with no file and a file with no record are different faults."""
+        store = RecordStore(self.cfg.layout)
+        store.save_paper(
+            Paper(id="arxiv:2401.00002", title="Claims A Ghost", source="arxiv",
+                  local_path="data/pdfs/not-there.pdf")
+        )
+        documents = migrate.check_documents(self.cfg)
+        self.assertEqual(documents["missing"], 1)
+        self.assertEqual(documents["orphaned"], 1)
+
+    def test_the_report_writes_nothing(self):
+        """It reports; a person decides. Nothing here deletes under `data/`."""
+        before = _tree(self.cfg.layout.data)
+        migrate.check_documents(self.cfg)
+        migrate.status(self.cfg)
+        self.assertEqual(_tree(self.cfg.layout.data), before)
+
+
+def _tree(directory: Path) -> dict[str, str]:
+    return {
+        path.relative_to(directory).as_posix(): hashlib.sha256(
+            path.read_bytes()
+        ).hexdigest()
+        for path in sorted(directory.rglob("*"))
+        if path.is_file()
+    }
+
+
 class PackTests(unittest.TestCase):
     def setUp(self):
         self.sandbox = Sandbox()

@@ -469,26 +469,71 @@ def unpack(cfg: Config, src: Path, *, dry_run: bool = False, checksum: bool = Tr
 
 
 def check_documents(cfg: Config) -> dict:
-    """Does every record that claims a document actually have one?
+    """Do records and documents account for each other, in both directions?
 
     This is the question the migration is really asking, and it is answerable
     without the bundle: `data/` says which papers hold a file, and the
-    filesystem says which files are there. A record pointing at a document that
-    is not on disk is exactly the failure a migration produces.
+    filesystem says which files are there.
+
+    **A record pointing at a document that is not on disk** is exactly the
+    failure a migration produces, and is what this counted to begin with.
+
+    **A document no record points at** is the other direction, reported because
+    nothing else can see it. `shelve_documents` files documents *by record*, so
+    it never visits one, and the day's digest counts what was collected rather
+    than what is on disk. Nor are they inert: `build_plan` cannot establish
+    provenance for a file nobody claims, so it rightly refuses to call it
+    re-fetchable and tiers it `irreplaceable` — inflating the one number that
+    decides how large a bundle has to be.
+
+    Nothing is deleted, here or anywhere else in this repository. An orphan is
+    precisely the case where the safe reading of "provenance unknown" is the one
+    that keeps the bytes, so this reports and a person decides.
     """
     store = RecordStore(cfg.layout)
     root = cfg.layout.root
     expected = missing = 0
     absent: list[str] = []
+    claimed: set[str] = set()
     for paper in store.iter_papers():
         if not paper.local_path:
             continue
+        claimed.add(paper.local_path)
         expected += 1
         if not (root / paper.local_path).exists():
             missing += 1
             if len(absent) < 20:
                 absent.append(f"{paper.id} -> {paper.local_path}")
-    return {"expected": expected, "missing": missing, "examples": absent}
+
+    # `rglob` reaches `pdfs/read/` too: a shelved document whose record has gone
+    # is an orphan by the same definition. `inbox/` is deliberately not scanned,
+    # because a file there is unclaimed on purpose — it is on its way in.
+    orphans: list[str] = []
+    for path in sorted(cfg.layout.pdfs.rglob("*.pdf")):
+        rel = _relative_to(path, root)
+        if rel not in claimed:
+            orphans.append(rel)
+
+    return {
+        "expected": expected,
+        "missing": missing,
+        "examples": absent,
+        "orphaned": len(orphans),
+        "orphan_examples": orphans[:20],
+    }
+
+
+def _relative_to(path: Path, root: Path) -> str:
+    """Repository-relative, matching how ``local_path`` is stored.
+
+    Tolerant of a `data/` relocated outside the root: such a path cannot match
+    any stored `local_path` anyway, and raising would turn a report into a
+    crash.
+    """
+    try:
+        return path.relative_to(root).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def _compare_records(cfg: Config, manifest: dict) -> dict:
@@ -561,6 +606,17 @@ def _print_status(result: dict) -> None:
     )
     for example in documents["examples"]:
         print(f"  missing  {example}")
+
+    # The symmetric line. Printed only when there are any, because a standing
+    # zero on every run is how a number stops being read.
+    if documents.get("orphaned"):
+        print(
+            f"  {documents['orphaned']} file(s) on disk that no record claims "
+            "-- carried as `irreplaceable`, since nothing can show them "
+            "re-fetchable"
+        )
+        for example in documents["orphan_examples"]:
+            print(f"  orphan   {example}")
 
 
 def main(argv: list[str] | None = None) -> int:
