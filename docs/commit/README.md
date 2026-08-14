@@ -76,3 +76,4 @@ reference for everything built before the practice existed.
 | 0053 | [The other direction of the same question](0053-the-other-direction-of-the-same-question.md) | feature | A document no record claims was invisible, and silently sized every migration bundle |
 | 0054 | [The queue reports what it wrote](0054-the-queue-reports-what-it-wrote.md) | fix | `summaries_queued` counted the backlog, so it read the same on every render — which is how 0052 stayed hidden |
 | 0055 | [One rule for what counts as a mention](0055-one-rule-for-what-counts-as-a-mention.md) | refactor | Search and scoring must not disagree about what a mention is, and a second copy is how they would |
+| 0056 | [A read-only window onto the archive](0056-a-read-only-window-onto-the-archive.md) | feature | Colleagues on the same host can ask what it knows; it answers only from what it has read, and writes nothing |

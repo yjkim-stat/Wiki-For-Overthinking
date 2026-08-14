@@ -393,6 +393,7 @@ python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before re
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
+python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 scripts/daily.sh                                  # collect + render
 python3 -m unittest discover -s tests -t . -v      # tests
 ```
