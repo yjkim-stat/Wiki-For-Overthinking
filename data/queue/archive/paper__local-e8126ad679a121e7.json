@@ -1,0 +1,165 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-e8126ad679a121e7.pdf"
+  },
+  "completed_at": "2026-08-14T08:00:38Z",
+  "created_at": "2026-08-14T07:59:07Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:e8126ad679a121e7",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "RaML trajectory aided llm reasoning",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "We propose a novel framework for comprehending the reasoning capabilities of large language models (LLMs) through the perspective of meta-learning. By conceptualizing reasoning trajectories as pseudo-gradient descent updates to the LLM's parameters, we identify parallels between LLM reasoning and various meta-learning paradigms. We formalize the training process for reasoning tasks as a meta-learning setup, with each question treated as an individual task, and reasoning trajectories serving as the inner loop optimization for adapting model parameters. Once trained on a diverse set of questions, the LLM develops fundamental reasoning capabilities that can generalize to previously unseen questions. Extensive empirical evaluations substantiate the strong connection between LLM reasoning and meta-learning, exploring several issues of significant interest from a meta-learning standpoint. Our work not only enhances the understanding of LLM reasoning but also provides practical insights for improving these models through established meta-learning techniques.",
+      "arxiv_id": "2505.19815",
+      "authors": [
+        "Junnan Liu",
+        "Hongwei Liu",
+        "Linchen Xiao",
+        "Shudong Liu",
+        "Taolin Zhang",
+        "Zihan Ma",
+        "Songyang Zhang",
+        "Kai Chen"
+      ],
+      "doi": "",
+      "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+      "venue": "preprint",
+      "year": 2025
+    },
+    "concepts": [
+      "meta-learning",
+      "pseudo-gradient update",
+      "inner loop optimization",
+      "support set",
+      "reasoning trajectory",
+      "loss landscape",
+      "saddle point escape",
+      "reflection token",
+      "effective depth",
+      "reasoning efficiency",
+      "task generalization"
+    ],
+    "contributions": [
+      "Proposition 2.1: attending to one further trajectory token is expressible as a one-step update to an equivalent parameter set, so a trajectory is a multi-step pseudo-gradient descent on the model's parameters",
+      "A meta-learning formalization in which each question is a task, the trajectory is the inner loop, the answer is the query set, and training is a second-order outer loop -- a variant of MAML whose support set the model generates itself",
+      "A placement of SFT, off-policy preference optimization and on-policy RL as differing only in where the inner-loop trajectory comes from, which is the paper's account of why RL does not dominate SFT",
+      "An empirical probe of the trajectory as optimization: the negative log-probability of the answer, measured at every token position along the trace",
+      "Measurements identifying which tokens carry the largest update, and evidence that a shorter optimal path exists for a long trajectory"
+    ],
+    "datasets": [
+      "AIME 2024",
+      "MATH500",
+      "LiveMathBench",
+      "GPQA-Diamond",
+      "LiveCodeBench",
+      "Open Reasoner Zero"
+    ],
+    "limitations": "There is no limitations section, and the framing's load-bearing step is narrower than the paper's language suggests. Proposition 2.1 is an *existence* result for a simplified block -- one self-attention layer and a two-layer feed-forward network, normalization and other components explicitly disregarded -- constructed via a pseudoinverse of the input embeddings, and the paper states the parameter set may not be unique. It shows an equivalent parameter update *exists*, not that the model performs one, and nothing identifies the pseudo-gradient with any gradient of the training objective. So 'reasoning trajectories are pseudo-gradient descent' is an interpretation the algebra permits rather than a mechanism established. The empirical support is correspondingly indirect: the descending curve is the negative log-probability of the answer under a forced-answer probe, which is a measure of the model's answer confidence and, by this archive's own findings, stabilizes whether or not the answer is right -- the incorrect-trajectory control is the right one to have run and is reported only qualitatively as 'no downward trend'. On the experiments: one base model, one filtered dataset, single epoch, no seeds or variance anywhere, and the headline SFT-versus-RL comparison confounds trajectory *source* with training method, since the strongest SFT arm learns from a 14B distilled reasoning model while Zero-GRPO has no teacher at all. Reflection-token deltas come from six token types on AIME24 trajectories of one model and are reported without dispersion, so the ordering is suggestive rather than measured. The efficiency section's summarized trajectories are produced by a separate 32B summarizer, so the comparison is against a pipeline with an extra model in it rather than against decoding alone.",
+    "method": "The construction is algebraic. For a transformer block with a single self-attention layer and a two-layer feed-forward network, attending to one extra trajectory token changes the activation; Proposition 2.1 shows there exists a parameter set -- built by expressing the extended input embeddings as a linear map of the original ones and folding that map into the key and value matrices via a Moore-Penrose pseudoinverse -- under which the same activation is produced by the original input. Extending a trajectory by one token is therefore equivalent to a one-step update of the parameters, and a whole trajectory is the accumulation of those updates. The proof is by construction and the paper notes the parameter set is not unique, appealing to universal approximation for the more general case. On top of that, the meta-learning frame: each question is an independent task, the trajectory is the inner loop that adapts parameters, the answer is the query set, and the outer loop optimizes through the adapted parameters with a pseudo second-order gradient. The support set is the trajectories themselves and is generated by the model rather than supplied, which is the departure from MAML and the reason the inner loop is read as Learn-to-Optimize -- the model is trained to be its own optimizer. The empirical probe measures the objective directly: at each position of a generated trajectory, the answer sequence is appended and its negative log-probability recorded, giving a curve over normalized token index; the same quantity is projected onto a loss landscape built by perturbing parameters along two random directions. Training experiments run Qwen2.5-7B-Base from scratch on roughly 39k filtered Open Reasoner Zero questions, with SFT on synthetic trajectories from Qwen2.5-Math-72B-Instruct and DeepSeek-R1-Distill-Qwen-14B, and Zero-GRPO with a four-level format-and-answer reward, group size 16, on veRL. Evaluation is Pass@8 and mG-Pass@8 on AIME24, MATH500 Level 5 and LiveMathBench-Hard, with GPQA-Diamond and LiveCodeBench for cross-domain generalization.",
+    "methods": [
+      "MAML",
+      "Learn to Optimize",
+      "supervised fine-tuning",
+      "GRPO",
+      "PPO",
+      "budget forcing",
+      "pass@k",
+      "reasoning distillation",
+      "veRL"
+    ],
+    "models": [
+      "Qwen2.5-7B-Base",
+      "Qwen2.5-Math-72B-Instruct",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "QwQ-32B",
+      "Qwen3-32B",
+      "DeepSeek-R1"
+    ],
+    "one_liner": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+    "problem": "Reasoning trajectories demonstrably improve capability, and there was no framework connecting why they work to how models are trained on them. Prior theory showed transformers can learn to run iterative algorithms such as multi-step gradient descent inside a chain of thought, but that work targets explicit numerical optimization problems -- learning linear regression in context -- and asks whether a model can describe a learning algorithm in natural language. What was missing is an account of the trajectory as an update to the model's own parameters, general enough to place SFT, preference optimization and on-policy RL as variants of one mechanism rather than as competing recipes.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-interpretability": "Gives a mechanistic reading of the archive's sparse-reflection-token result. The archive holds that mutual information spikes at 0.5-4.8% of reasoning steps, that those peaks decode to reflection markers, and that suppressing 17 of them drops accuracy by 17 to 30 points while suppressing the same number of random tokens does not. RaML measures the same tokens on a different quantity and finds the same asymmetry -- 'Hold on' moves the objective by 279.50 against an average token's 0.96 -- and offers an account: reflection tokens supply the large gradient that escapes a saddle point. Two independent probes, two different measured quantities, one ordering.",
+      "reasoning-training": "This is the paper that fills the seam the archive has been naming as empty. The archive's entropy theory is six derivations of a *one-step, first-order, tabular-softmax* expansion, and its claims are about trajectories over hundreds of steps -- with curve fitting, not derivation, joining them. RaML works at the other level entirely: its one-step result (Proposition 2.1) is about one *reasoning* token, and the object it accumulates into is a multi-step optimization over a *single generation*. So the two literatures use 'step' for different things, and reading them together the archive can now say that neither has a multi-step account of the quantity the other analyses. It also supplies a direct measurement on the archive's open SFT-versus-RL question: GRPO does not consistently beat SFT on the same base model, and the combination gains up to +175% on mG-Pass@8 -- with the account that off-policy trajectories are an oracle optimizer and on-policy RL is an unstable learned one.",
+      "test-time-scaling": "Reframes trajectory length as inner-loop step count, which makes the efficiency literature a search for a shorter optimization path rather than for redundant text. The concrete result is that summarized trajectories match full thinking on Pass@16 at far fewer tokens and beat no-thinking mode even when no-thinking spends more -- so what matters is the path taken, not the budget spent. It also explains the archive's early-exit caution in the same terms: the end-of-thinking delimiter behaves like momentum, converging faster and not necessarily better."
+    },
+    "results": "The probe behaves as the framing predicts: along a correct trajectory the answer's negative log-probability falls progressively, and the same curve for incorrect trajectories shows no downward trend -- which is the paper's strongest single piece of evidence that the trajectory is doing optimization rather than accompanying it. On the training question the result cuts against the field's default. GRPO does not consistently beat SFT on the same base model: Zero-GRPO reaches 27.37 Pass@8 on AIME24 against 36.69 for SFT on distilled trajectories, and 71.66 against 82.98 on MATH500-L5, winning only on LiveMathBench-Hard (27.48 against 25.15). Combining them is what works -- an SFT cold start before GRPO gives +31% on AIME24 Pass@8 and +175% on its mG-Pass@8, +15%/+47% on MATH500-L5 and +53%/+129% on LiveMathBench-Hard. The token-level measurement is the part that connects to other work: reflection tokens produce far larger changes in the objective than the average token, with log-scale deltas of 279.50 for 'Hold on' and 16.33 for 'Alternatively' against an average of 0.96 and 0.76 for 'Therefore'. The reading offered is that these tokens supply a large gradient that escapes saddle points and expands the exploration region, while the end-of-thinking delimiter acts like momentum -- faster convergence, not necessarily to a better point, which the no-thinking curves support by converging sooner and settling into worse optima. Support-set size behaves as meta-learning predicts in both regimes: SFT improves monotonically in the number of trajectories per question from 1 to 32, and for GRPO more trajectories per question both improves and stabilizes performance and accelerates convergence, which the paper offers as the reason group-sampling methods outperform single-trajectory PPO. Finally, summarized trajectories generated by condensing a long trace reach performance comparable to full thinking mode on Pass@16 at far fewer tokens, and beat no-thinking mode even where no-thinking spends more tokens -- evidence that a shorter optimal inner-loop path exists for a given long trajectory. Cross-domain, every trained model beats the base on GPQA and LiveCodeBench despite mathematics-only training.",
+    "tags": [
+      "meta-learning",
+      "optimization",
+      "reasoning-trajectory",
+      "sft-vs-rl",
+      "reasoning-efficiency"
+    ],
+    "topics": [
+      "reasoning-training",
+      "reasoning-interpretability",
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__local-e8126ad679a121e7",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

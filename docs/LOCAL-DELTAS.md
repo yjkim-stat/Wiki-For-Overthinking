@@ -100,7 +100,7 @@ If you re-apply nothing else from this section, re-apply that.
 | --- | --- |
 | `enrich/queue.py` | `errors.extend(placeholders.check(kind, result))` in `validate_result` |
 | `collect/conferences.py` | `local_abstracts.fill_missing(...)` at the end of `collect()`, after deduplication |
-| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, and the release of the unused reserve after `queue_missing_definitions` |
+| `render.py` | `queue_share.summary_cap(cfg)` on the first `queue_missing_summaries` call, the release of the unused reserve after `queue_missing_definitions`, and the uncapped `hand_queue` inside `queue_missing_summaries` |
 | `common/config.py` | `aliases.install(layout)` in `load()`, imported inside the function |
 | `enrich/concepts.py` | `_aliases.canonical(...)` inside `slug_for`, **and** `_aliases.canonical_name(slug) or name` where `entity()` builds a `Concept` |
 
@@ -125,6 +125,16 @@ call and the second call that releases what the definitions did not use. When
 you re-apply it, sum `queued` and `refreshed` across the two passes and
 *replace* `unread`: it is a snapshot of the backlog, not a total, and adding it
 twice is the same class of error the delta used to exist to avoid.
+
+**The hand-filed bypass is three lines and a summed counter.** `CLAUDE.md`
+rules that a PDF in `inbox/` is kept whatever its keywords say, because filing
+it by hand is the editorial decision scoring exists to approximate. The pending
+cap is the same argument one step later and did not carry it: the cap bounds a
+collection run, and a hand-filed paper is not one. So
+`queue_missing_summaries` builds a second, uncapped queue and routes
+`paper.is_local` to it. Re-apply the routing *and* the summation — reporting
+only `queue.filed` would make a hand-filed paper's task invisible in the run
+result, which is the same class of silent miscount as note 0054 (note 0070).
 
 **The alias delta is two lines in one file, and re-applying only the obvious
 one is worse than re-applying neither.** `slug_for` decides which record a name

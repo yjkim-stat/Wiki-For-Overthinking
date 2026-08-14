@@ -90,3 +90,4 @@ reference for everything built before the practice existed.
 | 0067 | [The log line said seventy-six](0067-the-log-line-said-seventy-six.md) | fix · superseded | The result dict was already honest; the line a person reads during a run was not |
 | 0068 | [The same collision, and the same bug](0068-the-same-collision-and-the-same-bug.md) | chore | Two sessions renumbered from one stale index again, and independently fixed one counter |
 | 0069 | [A map of what the archive knows](0069-a-map-of-what-the-archive-knows.md) | docs | The wiki is organised by entity and states no order; this is the order, and what the archive does not hold |
+| 0070 | [The cap bounds a run, not a decision](0070-the-cap-bounds-a-run-not-a-decision.md) | fix | A hand-filed PDF was archived, its document written, and no task filed — one WARNING among two dozen |

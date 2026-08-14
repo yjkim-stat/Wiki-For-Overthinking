@@ -105,6 +105,11 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
     """
     store = RecordStore(cfg.layout)
     queue, summarizer = _queue_and_summarizer(cfg, max_pending)  # LOCAL
+    # LOCAL: a hand-filed PDF is not subject to the cap -- see
+    # pipelines/local/queue_share.py for why. Built here so the two queues
+    # share nothing but the layout; both counters are summed at the end.
+    hand_queue = queue_share.hand_filed_queue(cfg, Queue)  # LOCAL
+    hand_summarizer = get_summarizer(cfg.settings, enqueue=hand_queue.enqueue)  # LOCAL
     unread = 0
 
     for paper in store.iter_papers():
@@ -120,7 +125,9 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
             context = cfg.topic_context(paper.topics)
         else:
             continue
-        if summarizer.summarize_paper(paper, context, cfg.language) is None:
+        # LOCAL: hand-filed papers go to the uncapped queue.
+        who = hand_summarizer if paper.is_local else summarizer  # LOCAL
+        if who.summarize_paper(paper, context, cfg.language) is None:
             unread += 1
 
     for video in store.iter_videos():
@@ -134,12 +141,17 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
         ) is None:
             unread += 1
 
-    counts = {"unread": unread, "queued": queue.filed, "refreshed": queue.refreshed}
-    if queue.filed or queue.refreshed:
+    # LOCAL: both queues' writes are reported together; they are one backlog.
+    counts = {
+        "unread": unread,
+        "queued": queue.filed + hand_queue.filed,
+        "refreshed": queue.refreshed + hand_queue.refreshed,
+    }
+    if counts["queued"] or counts["refreshed"]:
         _LOG.info(
             "summary tasks: %d filed, %d refreshed (%d record(s) still unread)",
-            queue.filed,
-            queue.refreshed,
+            counts["queued"],
+            counts["refreshed"],
             unread,
         )
     return counts

@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-14 from 52 archived source(s).
+> Generated on 2026-08-14 from 53 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.
 
-Built from 52 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 37 of the papers have been read in full.
+Built from 53 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 38 of the papers have been read in full.
 
 Tracked terms: `mechanistic interpretability`, `activation patching`, `causal mediation`, `causal tracing`, `causal analysis`, `circuit analysis`, `circuit discovery`, `reasoning circuit`, `attention head`, `sparse autoencoder`, `superposition`, `polysemantic`, `monosemantic`, `residual stream`, `activation steering`, `steering vector`, `linear probe`, `linear probing`, `internal representation`, `structural causal model`, `difference-in-means`, `representation editing`, `logit lens`, `interchange intervention`.
 
@@ -36,6 +36,7 @@ Tracked terms: `mechanistic interpretability`, `activation patching`, `causal me
 - **Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics** — Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.
 - **On Reasoning Strength Planning in Large Reasoning Models** — Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.
 - **A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning** — Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.
+- **Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective** — Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.
 - **Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization** — Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.
 
 ### 2024
@@ -96,6 +97,12 @@ Changing something inside a model or its context and measuring the effect, as ag
 
 Seen in: Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; Evading Chain-of-Thought Monitoring Through Model Poisoning; Inverted Detection and Control in Steering Vectors.
 
+### reasoning trajectory
+
+The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
+
+Seen in: Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience.
+
 ### superposition
 
 The hypothesis that a network represents more features than it has dimensions by assigning them to an overcomplete set of non-orthogonal directions, which is workable only when features activate sparsely, since otherwise interference between them cancels the gain. It is the reason the archived sources reach for sparse dictionary learning at all: if it holds, features are recoverable as directions but not as neurons. All six treat it as a premise rather than something they test — stated as the hypothesized cause of polysemanticity and the motivation for a sparsity penalty, or inherited as the standard justification in this literature. Two of the newer entries put the premise to work indirectly: one argues that if features are directions in superposition then run-to-run consistency of a recovered dictionary is a meaningful thing to demand of a method, and one relaxes the search over which components to intervene on into a continuous one, which is coherent with features being distributed across components rather than located in any single one.
@@ -108,12 +115,6 @@ Evaluating the evaluation — asking whether a benchmark, metric or judge measur
 
 Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
 
-### reasoning trajectory
-
-The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
-
-Seen in: Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience.
-
 ### residual stream
 
 The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
@@ -124,9 +125,9 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 35 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| GRPO | 36 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | LLM-as-a-judge | 29 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
-| supervised fine-tuning | 28 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | linear probe | 22 | _pending_ |
@@ -134,28 +135,30 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
+| pass@k | 15 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | activation steering | 13 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
+| PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | LoRA | 8 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
-| contrastive activation addition | 6 | Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the ba... |
-| reasoning distillation | 6 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
-| steering vector | 6 | A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and tex... |
+| reasoning distillation | 7 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 
 ## Benchmarks and datasets
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| MATH500 | 42 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| AIME 2024 | 40 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
+| AIME 2024 | 41 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | GSM8K | 35 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
+| GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | OlympiadBench | 13 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
 | MATH | 12 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
+| LiveCodeBench | 9 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
@@ -167,8 +170,6 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 | indirect object identification | 3 | A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmar... |
 | SciQ | 3 | _pending_ |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
-| OpenCodeInstruct | 2 | A large instruction-tuning corpus of programming problems, used by both sources as the coding half of a training or calibration mixture rather than as an evaluation set. One dra... |
-| parity | 2 | The k-parity task — whether an odd number of k relevant bits among n are set — used by both sources as the canonical testbed for what intermediate supervision buys, because the... |
 
 ## Reading path
 
@@ -228,51 +229,52 @@ Drawn from the limitations each paper states about itself, so this is what the f
 2. Fred Zhang, Neel Nanda. *Towards Best Practices of Activation Patching in Language Models: Metrics and Methods*. preprint. 2024
 3. Guan Zhe Hong, Nishanth Dikkala, Enming Luo et al.. *A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning*. NeurIPS 2025. 2025
 4. Yaniv Nikankin, Anja Reusch, Aaron Mueller et al.. *Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics*. ICLR 2025. 2025
-5. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
-6. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
-7. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
-8. Xinyan Jiang, Ninghao Liu, Di Wang et al.. *Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability*. ICML. 2026
-9. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
-10. Lihao Sun, Hang Dong, Bo Qiao et al.. *LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals*. preprint. 2026
-11. Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. *Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.502>
-12. Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. *Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.159>
-13. Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al.. *Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.99>
-14. Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. *Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2031>
-15. Maisha Maliha, Dean F. Hougen. *Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1265>
-16. Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. *Multi-component Causal Tracing in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.154>
-17. Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. *Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!*. ICML. 2026
-18. Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. *Spectra: A Mechanistic Interpretability Library for Vision-Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-demo.78>
-19. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
-20. Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. *The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models*. COLM. 2026
-21. Jinyang Zhang, Hongxin Ding, Yue Fang et al.. *The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models*. preprint. 2026
-22. Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. *Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2073>
-23. Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. *Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs*. cs.CL. 2026 <https://arxiv.org/abs/2608.02486>
-24. Max Torop, Aria Masoomi, Jennifer Dy. *Inverted Detection and Control in Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2608.02957>
-25. Nan Chen, Zhouhao Yang, Soufiane Hayou. *Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes*. cs.CL. 2026 <https://arxiv.org/abs/2608.02415>
-26. Abdallah Khemais. *A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation*. cs.LG. 2026 <https://arxiv.org/abs/2608.03620>
-27. Abdallah Khemais. *Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model*. cs.AI. 2026 <https://arxiv.org/abs/2608.03629>
-28. Michal Mráz, Justin Shenk. *Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition*. cs.AI. 2026 <https://arxiv.org/abs/2608.03892>
-29. Arya Labroo, Mengjie Qian, Kate Knill. *Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors*. cs.AI. 2026 <https://arxiv.org/abs/2608.06300>
-30. Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. *CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits*. cs.LG. 2026 <https://arxiv.org/abs/2608.05732>
-31. Ali Jalal-Kamali. *Divergent Response Modes in Frontier Language Models Under Steering Pressure*. cs.AI. 2026 <https://arxiv.org/abs/2608.06578>
-32. Jakub Poćwiardowski, Mateusz Modrzejewski. *MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering*. cs.SD. 2026 <https://arxiv.org/abs/2608.06638>
-33. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
-34. Ash Manvi, Samreena Tajreen. *Finding Usable Weight Mechanisms with Tiled SVD*. cs.AI. 2026 <https://arxiv.org/abs/2608.06969>
-35. Luc Hazenoot, Zhaochun Ren, Amirhossein Zohrehvand. *Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes*. cs.CL. 2026 <https://arxiv.org/abs/2608.07208>
-36. Zichuan Wang, Songlin Yang, Bo Peng et al.. *Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination*. cs.CV. 2026 <https://arxiv.org/abs/2608.07302>
-37. Adelaide Danilov, Aria Nourbakhsh, Oleksandr Marchenko Breneur et al.. *"Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.07852>
-38. Francisco Ribeiro, Sohaila Abdulsattar, Renata Gonzalez et al.. *On the Robustness of LLMs' Internal Representation of Code Correctness*. cs.SE. 2026 <https://arxiv.org/abs/2608.08266>
-39. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
-40. Yuqi Wu, Shengming Zhao, Jie Chen. *When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.08159>
-41. Ameen Ali, Tamim Zoabi, Lidor Brami et al.. *Wiener Representation Filtering for VLM Hallucination Suppression*. cs.CV. 2026 <https://arxiv.org/abs/2608.08167>
-42. Muhammad Faishal Adly Nelwan, Alfan Farizki Wicaksono. *Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.08829>
-43. Minhan Cho, Jimin Kweon. *Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08514>
-44. Yuxiao Li, Gjergji Kasneci. *Safety Cost of Steering Vectors Is Separable and Reducible*. cs.CL. 2026 <https://arxiv.org/abs/2608.08383>
-45. Yen-Shan Chen, Yu Chian Duan, Chih-En Kuo et al.. *Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics*. cs.AI. 2026 <https://arxiv.org/abs/2608.09638>
-46. Jordan Pettyjohn, Mansi Sakarvadia, Nathaniel Hudson et al.. *Interpreting Language Model Hidden States at Scale*. cs.AI. 2026 <https://arxiv.org/abs/2608.10260>
-47. Ashim Dhor, Pin-Yu Chen. *Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.10172>
-48. Jiaheng Su, Yu Sun. *Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.08976>
-49. Sanidhya Vijayvargiya, Rahul Lokesh. *Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique*. cs.LG. 2026 <https://arxiv.org/abs/2608.10430>
-50. Nikolai Bolik, Lennart Stöpler, Artur Andrzejak. *Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders*. cs.LG. 2026 <https://arxiv.org/abs/2608.11197>
-51. Piotr Jedryszek, Tongmeng Xie, Adam Winnifrith et al.. *Probing and steering biology across Boltz-1s trunk-diffusion boundary*. q-bio.QM. 2026 <https://arxiv.org/abs/2608.11475>
-52. Dvir Samuel, Guy Bar-Shalom, Fabrizio Frasca et al.. *UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations*. cs.CV. 2026 <https://arxiv.org/abs/2608.10835>
+5. Junnan Liu, Hongwei Liu, Linchen Xiao et al.. *Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective*. preprint. 2025
+6. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
+7. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
+8. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
+9. Xinyan Jiang, Ninghao Liu, Di Wang et al.. *Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability*. ICML. 2026
+10. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
+11. Lihao Sun, Hang Dong, Bo Qiao et al.. *LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals*. preprint. 2026
+12. Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. *Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.502>
+13. Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. *Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.159>
+14. Xiangchen Song, Aashiq Muhamed, Yujia Zheng 0001 et al.. *Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.99>
+15. Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. *Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2031>
+16. Maisha Maliha, Dean F. Hougen. *Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1265>
+17. Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. *Multi-component Causal Tracing in Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.154>
+18. Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. *Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!*. ICML. 2026
+19. Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. *Spectra: A Mechanistic Interpretability Library for Vision-Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-demo.78>
+20. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+21. Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. *The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models*. COLM. 2026
+22. Jinyang Zhang, Hongxin Ding, Yue Fang et al.. *The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models*. preprint. 2026
+23. Hamed Damirchi, Imezadelajara, Ehsan Abbasnejad et al.. *Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2073>
+24. Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. *Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs*. cs.CL. 2026 <https://arxiv.org/abs/2608.02486>
+25. Max Torop, Aria Masoomi, Jennifer Dy. *Inverted Detection and Control in Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2608.02957>
+26. Nan Chen, Zhouhao Yang, Soufiane Hayou. *Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes*. cs.CL. 2026 <https://arxiv.org/abs/2608.02415>
+27. Abdallah Khemais. *A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation*. cs.LG. 2026 <https://arxiv.org/abs/2608.03620>
+28. Abdallah Khemais. *Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model*. cs.AI. 2026 <https://arxiv.org/abs/2608.03629>
+29. Michal Mráz, Justin Shenk. *Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition*. cs.AI. 2026 <https://arxiv.org/abs/2608.03892>
+30. Arya Labroo, Mengjie Qian, Kate Knill. *Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors*. cs.AI. 2026 <https://arxiv.org/abs/2608.06300>
+31. Mehrshad Saadatinia, Parsa Razmara, Ardalan Aryashad et al.. *CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits*. cs.LG. 2026 <https://arxiv.org/abs/2608.05732>
+32. Ali Jalal-Kamali. *Divergent Response Modes in Frontier Language Models Under Steering Pressure*. cs.AI. 2026 <https://arxiv.org/abs/2608.06578>
+33. Jakub Poćwiardowski, Mateusz Modrzejewski. *MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering*. cs.SD. 2026 <https://arxiv.org/abs/2608.06638>
+34. Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. *Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.05660>
+35. Ash Manvi, Samreena Tajreen. *Finding Usable Weight Mechanisms with Tiled SVD*. cs.AI. 2026 <https://arxiv.org/abs/2608.06969>
+36. Luc Hazenoot, Zhaochun Ren, Amirhossein Zohrehvand. *Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes*. cs.CL. 2026 <https://arxiv.org/abs/2608.07208>
+37. Zichuan Wang, Songlin Yang, Bo Peng et al.. *Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination*. cs.CV. 2026 <https://arxiv.org/abs/2608.07302>
+38. Adelaide Danilov, Aria Nourbakhsh, Oleksandr Marchenko Breneur et al.. *"Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.07852>
+39. Francisco Ribeiro, Sohaila Abdulsattar, Renata Gonzalez et al.. *On the Robustness of LLMs' Internal Representation of Code Correctness*. cs.SE. 2026 <https://arxiv.org/abs/2608.08266>
+40. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
+41. Yuqi Wu, Shengming Zhao, Jie Chen. *When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.08159>
+42. Ameen Ali, Tamim Zoabi, Lidor Brami et al.. *Wiener Representation Filtering for VLM Hallucination Suppression*. cs.CV. 2026 <https://arxiv.org/abs/2608.08167>
+43. Muhammad Faishal Adly Nelwan, Alfan Farizki Wicaksono. *Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.08829>
+44. Minhan Cho, Jimin Kweon. *Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08514>
+45. Yuxiao Li, Gjergji Kasneci. *Safety Cost of Steering Vectors Is Separable and Reducible*. cs.CL. 2026 <https://arxiv.org/abs/2608.08383>
+46. Yen-Shan Chen, Yu Chian Duan, Chih-En Kuo et al.. *Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics*. cs.AI. 2026 <https://arxiv.org/abs/2608.09638>
+47. Jordan Pettyjohn, Mansi Sakarvadia, Nathaniel Hudson et al.. *Interpreting Language Model Hidden States at Scale*. cs.AI. 2026 <https://arxiv.org/abs/2608.10260>
+48. Ashim Dhor, Pin-Yu Chen. *Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.10172>
+49. Jiaheng Su, Yu Sun. *Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability*. cs.LG. 2026 <https://arxiv.org/abs/2608.08976>
+50. Sanidhya Vijayvargiya, Rahul Lokesh. *Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique*. cs.LG. 2026 <https://arxiv.org/abs/2608.10430>
+51. Nikolai Bolik, Lennart Stöpler, Artur Andrzejak. *Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders*. cs.LG. 2026 <https://arxiv.org/abs/2608.11197>
+52. Piotr Jedryszek, Tongmeng Xie, Adam Winnifrith et al.. *Probing and steering biology across Boltz-1s trunk-diffusion boundary*. q-bio.QM. 2026 <https://arxiv.org/abs/2608.11475>
+53. Dvir Samuel, Guy Bar-Shalom, Fabrizio Frasca et al.. *UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations*. cs.CV. 2026 <https://arxiv.org/abs/2608.10835>

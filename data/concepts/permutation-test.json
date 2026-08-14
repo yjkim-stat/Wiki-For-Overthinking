@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "permutation test"
+  ],
+  "definition": "A non-parametric test that builds its null distribution by relabelling the observed data, used in both sources as the confirmatory step after every other choice has been frozen. One makes it the audit's decision rule: the score, its orientation and the sample size are all fixed on a calibration split before the audit split is opened, and the one-sided two-sample permutation test on that untouched split is what the reported power curves are power *for*. The other uses paired signed-rank and bootstrap variants to compare circuit sites without assuming a parametric form. The reason it recurs here is the same in both: the quantities being tested -- behavioural separability, a patching effect -- have no defensible parametric null, and relabelling supplies one from the data itself.",
   "evidence": [
     {
       "id": "arxiv:2608.03620",
@@ -58,7 +60,12 @@
     "pythia-1-4b",
     "gpt-neo-1-3b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "audit-power",
+    "score-efficacy",
+    "bootstrap",
+    "validity-gate"
+  ],
   "schema_version": 1,
   "slug": "permutation-test",
   "topics": [

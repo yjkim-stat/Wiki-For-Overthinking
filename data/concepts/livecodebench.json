@@ -45,6 +45,12 @@
       "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference"
     },
     {
+      "id": "local:e8126ad679a121e7",
+      "kind": "paper",
+      "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+      "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective"
+    },
+    {
       "id": "local:fb100130d8c7c2bd",
       "kind": "paper",
       "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
@@ -53,7 +59,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-14T08:00:47Z",
   "name": "LiveCodeBench",
   "related": [
     "label-free-reinforcement-learning",
@@ -199,6 +205,25 @@
     "tensor-parallelism",
     "deepseek-r1-distill-llama-8b",
     "qwen3-32b",
+    "meta-learning",
+    "pseudo-gradient-update",
+    "inner-loop-optimization",
+    "support-set",
+    "reasoning-trajectory",
+    "loss-landscape",
+    "saddle-point-escape",
+    "reflection-token",
+    "effective-depth",
+    "reasoning-efficiency",
+    "task-generalization",
+    "maml",
+    "learn-to-optimize",
+    "supervised-fine-tuning",
+    "budget-forcing",
+    "livemathbench",
+    "open-reasoner-zero",
+    "qwen2-5-7b-base",
+    "qwen2-5-math-72b-instruct",
     "chain-of-thought-faithfulness",
     "verification",
     "benchmark-contamination",
@@ -208,7 +233,6 @@
     "process-evaluation",
     "cot-pass-k",
     "llm-as-a-judge",
-    "supervised-fine-tuning",
     "dapo-qwen-32b",
     "deepseek-r1-0528-qwen3-8b",
     "acereason-nemotron-7b",
@@ -221,6 +245,7 @@
     "reasoning-training",
     "test-time-scaling",
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-faithfulness"
   ]
 }

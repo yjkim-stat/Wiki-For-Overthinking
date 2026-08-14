@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-14 from 151 archived source(s).
+> Generated on 2026-08-14 from 152 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.
 
-Built from 151 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-12. 123 of the papers have been read in full.
+Built from 152 paper(s) and 0 recording(s) spanning 2022-03-28 to 2026-08-12. 124 of the papers have been read in full.
 
 Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability`, `reasoning ability`, `chain of thought`, `verifiable reward`, `RLVR`, `process reward model`, `outcome reward`, `process supervision`, `reasoning distillation`, `chain of thought distillation`, `GRPO`, `long chain of thought`, `self-taught reasoner`.
 
@@ -45,7 +45,7 @@ Tracked terms: `large reasoning model`, `reasoning model`, `reasoning capability
 - **Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning** — Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.
 - **Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation** — Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.
 - **Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?** — Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.
-- _...and 1 more._
+- _...and 2 more._
 
 ### 2024
 
@@ -142,9 +142,9 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 35 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
+| GRPO | 36 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
 | LLM-as-a-judge | 29 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
-| supervised fine-tuning | 28 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | linear probe | 22 | _pending_ |
@@ -152,12 +152,12 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
+| pass@k | 15 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| pass@k | 14 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
 | activation steering | 13 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
 | majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
-| PPO | 10 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
 | sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
@@ -167,17 +167,17 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| MATH500 | 42 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| AIME 2024 | 40 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
+| AIME 2024 | 41 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | GSM8K | 35 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
 | AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
-| GPQA-Diamond | 13 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
+| GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | OlympiadBench | 13 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
 | MATH | 12 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | DAPO-Math-17K | 9 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
+| LiveCodeBench | 9 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
-| LiveCodeBench | 8 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | Minerva | 8 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
@@ -257,145 +257,146 @@ Drawn from the limitations each paper states about itself, so this is what the f
 7. *Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization*. NeurIPS 2024. 2024
 8. William Merrill, Ashish Sabharwal. *The Expressive Power of Transformers with Chain of Thought*. ICLR. 2024
 9. Shenzhi Wang, Le Yu, Chang Gao et al.. *Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning*. NeurIPS 2025. 2025
-10. Chen Qian, Dongrui Liu, Haochen Wen et al.. *Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning*. preprint. 2025
-11. Yang Yue, Zhiqi Chen, Rui Lu et al.. *Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?*. preprint. 2025
-12. Chenxu Yang, Qingyi Si, Yongjie Duan et al.. *Dynamic Early Exit in Reasoning Models*. preprint. 2025
-13. Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. *Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity*. preprint. 2025
-14. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
-15. Yuxiao Qu, Matthew Y. R. Yang, Amrith Setlur et al.. *Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning*. ICML 2025. 2025
-16. Xumeng Wen, Zihan Liu, Shun Zheng et al.. *Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs*. preprint. 2025
-17. Max Qiushi Lin, Jincheng Mei, Matin Aghaei et al.. *Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation*. preprint. 2025
-18. Ganqu Cui, Yuchen Zhang, Jiacheng Chen et al.. *The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models*. preprint. 2025
-19. *The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training*. NeurIPS 2025. 2025
-20. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
-21. DeepSeek-AI, Daya Guo, Dejian Yang et al.. *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning*. Nature volume 645, pages 633-638 (2025). 2025 <https://arxiv.org/abs/2501.12948>
-22. Ming Lei, Christophe Baehr. *A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models*. preprint. 2026
-23. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
-24. Tingyun Li, Zishang Jiang, Jinyi Han et al.. *ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.165>
-25. Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. *Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.215>
-26. Jiacheng Liang, Tanqiu Jiang, Yuhui Wang 0003 et al.. *AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1988>
-27. Zhiyuan Hu, Yibo Wang, Hanze Dong et al.. *Beyond &apos;Aha!&apos;: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1981>
-28. Xuanzhi Feng, Zhengyang Li, Zeyu Liu et al.. *Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning*. preprint. 2026
-29. Hoang Phan, Xianjun Yang, Yuanshun Yao et al.. *Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1717>
-30. Xinyan Jiang, Ninghao Liu, Di Wang et al.. *Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability*. ICML. 2026
-31. Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. *Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models*. preprint. 2026
-32. Jianing Hao, Yuhe Wu, Yuanjian Xu et al.. *BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1198>
-33. Qizhi Jiang, Shuo Wang, Pei Ke et al.. *CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-industry.152>
-34. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
-35. Jiaxuan Zou, Yaozhong Xiong, Yong Liu. *Capabilities and Fundamental Limits of Latent Chain-of-Thought*. preprint. 2026
-36. Jincheng Liu, Sijun He, Jingjing Wu et al.. *ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.360>
-37. Junyi Li, Yongqiang Chen, Ningning Ding. *CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.143>
-38. Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. *DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.196>
-39. Benjamin Shih, John Winnicki, Eric Darve. *Do Models Read What They Write? Causal Registers in Scratchpad Reasoning*. preprint. 2026
-40. Chenghua Zhu, Siyan Wu, Xiangkang Zeng et al.. *EDIS: Diagnosing LLM Reasoning via Entropy Dynamics*. preprint. 2026
-41. Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. *ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1217>
-42. Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. *FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.662>
-43. Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. *FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1128>
-44. Ziyue Chen, David Šiška, Łukasz Szpruch. *Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs*. preprint. 2026
-45. Hongyuan Yuan, Xinran He, Run Shao et al.. *Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs*. ACL 2026 Findings. 2026
-46. Loris Bergeron, Ioana Buhnila, Jérôme François et al.. *HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.835>
-47. Lihao Sun, Hang Dong, Bo Qiao et al.. *LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals*. preprint. 2026
-48. Andy Yang, Pascal Bergsträßer, Georg Zetzsche et al.. *Length Generalization Bounds for Transformers*. ICML. 2026
-49. Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. *Local Causal Attribution of Chain-of-Thought Reasoning*. Mechanistic Interpretability Workshop at ICML 2026. 2026
-50. Xinming Wang, Jian Xu 0015, Bin Yu et al.. *MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.204>
-51. Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. *MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.984>
-52. Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. *Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.582>
-53. Shuyang Jiang, Yuhao Wang, Ya Zhang 0002 et al.. *Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.237>
-54. Xiyao Dong, Guangsheng Cheng, YiLong Chen et al.. *Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1821>
-55. Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. *Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1149>
-56. Mohammed Ehab, Aymane El Gadarri, Vivek Farias et al.. *OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping*. preprint. 2026
-57. *On The Fragility of Benchmark Contamination Detection in Reasoning Models*. ICLR 2026. 2026
-58. Shumin Wang, Yuexiang Xie, Wenhao Zhang et al.. *On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models*. preprint. 2026
-59. Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. *Optimizing Length Compression in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.146>
-60. Atharva Naik, Prakam, Yash Mathur et al.. *PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.432>
-61. Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. *Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!*. ICML. 2026
-62. Yangyi Li, Chenxu Zhao, Mengdi Huai. *Quantifying and Understanding Uncertainty in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1511>
-63. *RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs*. ICLR 2026. 2026
-64. Zihang Liu 0001, Zhouhua Fang, Hui Liu et al.. *RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.885>
-65. Junyao Yang, Chen Qian 0010, Wen Shen et al.. *ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2201>
-66. Yongchan Kwon, Shang Zhu, Federico Bianchi 0001 et al.. *ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1456>
-67. Yeonjun In, Wonjoong Kim, Sangwu Park et al.. *Reasoning Structure Matters for Safety Alignment of Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.240>
-68. Yijie Hao, Lingjie Chen, Ali Emami et al.. *Reasoning Traces Shape Outputs but Models Won&apos;t Say So*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1986>
-69. Yuquan Wang, Mi Zhang 0001, Yining Wang et al.. *ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1453>
-70. Jiawei Chen, Yang Yang, Chao Yu et al.. *Red Teaming Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1034>
-71. Jens Tuyls, Dylan J. Foster, Akshay Krishnamurthy et al.. *Representation-Based Exploration for Language Models: From Test-Time to Post-Training*. ICLR 2026. 2026
-72. Renren Jin, Pengzhi Gao, Yuqi Ren et al.. *Revisiting Entropy in Reinforcement Learning for Large Reasoning Models*. preprint. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1266>
-73. Seungone Kim, Ian Wu, Jinu Lee 0001 et al.. *Scaling Evaluation-Time Compute with Reasoning Models as Evaluators*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2102>
-74. Tingchen Fu, Yafu Li, Jiawei Gu et al.. *Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1878>
-75. Qiang Huang, Wei Zhai, Feng Huang et al.. *Self-Reflection Improves Safety of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.678>
-76. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
-77. Jacek Duszenko, Przemyslaw Kazienko, Jan Kocon. *Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-srw.20>
-78. Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. *The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models*. COLM. 2026
-79. Jiawei Li 0020, Yang Gao 0016, Huashan Sun et al.. *Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1386>
-80. Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. *Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1766>
-81. Siyuan Gan, Jiaheng Liu, Boyan Wang et al.. *Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2122>
-82. Chenxiao Yang, Nathan Srebro, Zhiyuan Li. *Tight Sample Complexity of Transformers*. COLT. 2026
-83. Yi Hu, Jiaqi Gu, Ruxin Wang et al.. *Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.889>
-84. Yixiao Huang, Hanlin Zhu, Zixuan Wang et al.. *Transformers Provably Learn to Internalize Chain-of-Thought*. preprint. 2026
-85. Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. *Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty*. preprint. 2026
-86. Huimin Xu, Shuai Zhao, Xiaobao Wu et al.. *Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization*. preprint. 2026
-87. Ting Xu, Xu He, Yupu Lu et al.. *Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
-88. Jian Yao, Bowen Zheng, Ran Cheng et al.. *VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks*. preprint. 2026
-89. Siyang Lyu, Zhijing Sun, Xinghao Chen et al.. *When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation*. preprint. 2026
-90. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1118>
-91. Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. *Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.25>
-92. Zhenwen Liang, Ruosen Li, Yujun Zhou 0002 et al.. *Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.788>
-93. Shigeng Wang, Chao Li, Yangyuxuan Kang et al.. *Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization*. cs.CL. 2026 <https://arxiv.org/abs/2608.01078>
-94. Yibin Huang, Bin Xu, Hailong Cao et al.. *BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent*. cs.CL. 2026 <https://arxiv.org/abs/2608.01321>
-95. Jianan Xie, Xin Sun, Zhongqi Chen et al.. *EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents*. cs.CL. 2026 <https://arxiv.org/abs/2608.01359>
-96. Soumadeep Saha, Krish Sharma, Akshay Chaturvedi et al.. *BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?*. cs.CL. 2026 <https://arxiv.org/abs/2608.02867>
-97. Xuehang Guo, Pingyue Zhang, Ruiyi Zhang et al.. *CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning*. cs.CV. 2026 <https://arxiv.org/abs/2608.02833>
-98. Mengting Ai, Jingrui He, Yue Guo. *Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression*. cs.CL. 2026 <https://arxiv.org/abs/2608.01631>
-99. Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. *Evading Chain-of-Thought Monitoring Through Model Poisoning*. cs.CR. 2026 <https://arxiv.org/abs/2608.02820>
-100. Zhijian Zhou, Long Li, Xuan Zhang et al.. *Start Classifying: Categorical Critics for LLM Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.02181>
-101. Le Xiang, Zhicheng Guan, Hong Chen et al.. *DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.03292>
-102. Yongshi Ye, Liang Zhang, Yidong Chen et al.. *Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.03119>
-103. Yongshi Ye, Biao Fu, Chongxuan Huang et al.. *PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation*. cs.CL. 2026 <https://arxiv.org/abs/2608.03077>
-104. Dominik Meier, Luca Joshua Francis, Marco Bernhard Kaiser et al.. *Risky Business: Measuring The Faithfulness-Safety Tension*. cs.AI. 2026 <https://arxiv.org/abs/2608.03745>
-105. Denys Pushkin, Albert Q. Jiang, Aryo Lotfi et al.. *Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve*. cs.AI. 2026 <https://arxiv.org/abs/2608.03550>
-106. Bhavin Jawade, Cameron R. Wolfe. *TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.02975>
-107. Shashwat Sourav, Aishwarya Balwani. *The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics*. cs.LG. 2026 <https://arxiv.org/abs/2608.03291>
-108. Zhe Cao, Miaowen Wen, Fangjiong Chen. *When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO*. cs.AI. 2026 <https://arxiv.org/abs/2608.03467>
-109. Agatha Duzan, Asa Cooper Stickland. *Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings*. cs.AI. 2026 <https://arxiv.org/abs/2608.04735>
-110. Enrico Mensa, Lorenzo Zane, Calogero Jerik Scozzaro et al.. *Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark*. Proceedings of the Eleventh Italian Conference on Computational Linguistics (CLiC-it 2025), pages 722-734. 2026 <https://arxiv.org/abs/2608.04670>
-111. Ian B. de Haan, Peter van der Putten, Max van Duijn. *Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.04646>
-112. Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. *Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.04771>
-113. Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. *ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance*. cs.CL. 2026 <https://arxiv.org/abs/2608.04524>
-114. Nhat Minh Pham, Duy Tung Doan, Thi Duyen Ngo et al.. *SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts*. cs.LG. 2026 <https://arxiv.org/abs/2608.04962>
-115. Xuzheng Yang, Jun Ling, Tao Huang et al.. *Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO*. cs.CV. 2026 <https://arxiv.org/abs/2608.04698>
-116. Ryozo Masukawa, Ian Bryant, Armita Kazeminajafabadi et al.. *Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)*. cs.CR. 2026 <https://arxiv.org/abs/2608.04317>
-117. Zi-Han Wang, Zhengxi Lu, Zhiyuan Yao et al.. *AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05987>
-118. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
-119. Yingqing Guo, Hui Yuan, Zijian He et al.. *LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction*. cs.LG. 2026 <https://arxiv.org/abs/2608.05600>
-120. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
-121. Xucong Wang, Zhe Zhao, Liheng Yu et al.. *DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training*. cs.AI. 2026 <https://arxiv.org/abs/2608.07147>
-122. Haoyu Zheng, Yun Zhu, Qing Wang et al.. *Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.07371>
-123. Zhengze Huang, Luyang Yu, Di Hong et al.. *REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment*. cs.AI. 2026 <https://arxiv.org/abs/2608.07931>
-124. Keyang Zhong, Kuo Wang, Peng Liu et al.. *SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.07959>
-125. Yifan Li, Ruxin Sun, Tongzhou Zhao. *StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08326>
-126. Abhishek Panwar, Maheep Singh, Saksham Bansal. *Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework*. cs.AI. 2026 <https://arxiv.org/abs/2608.08113>
-127. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
-128. Lijie Yang, Hongyin Luo, Jiawei Zhao et al.. *Thought-Level Beam Search for Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08020>
-129. Pengfei Zhou, Zhiwei Tang, Xiaopeng Peng et al.. *Improving Generalization Robustness of Multimodal RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.08802>
-130. Juncheng Dong, Ding Tong, Ishan Gupta et al.. *LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08889>
-131. Rahma Simin Ali, Jawad Hossain. *MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.08503>
-132. Haotian Wang, Lian Yan, Xingzhi Yao et al.. *MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08623>
-133. Donghong Jiang, Endian Lin, Luoping Cui et al.. *SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests*. cs.AI. 2026 <https://arxiv.org/abs/2608.08640>
-134. Yubo Jiang, Fengying Xie, Zhiguo Jiang et al.. *Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09826>
-135. Hongli Shen, Shaopeng Fu, Qinbo Zhang et al.. *Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.09542>
-136. Vatsal Venkatkrishna, Nico Daheim, Iryna Gurevych. *Parameter Exploration for RLVR via Variational Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.09805>
-137. Xu Zhang, Chang Xu, Hui Sun et al.. *REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting*. cs.LG. 2026 <https://arxiv.org/abs/2608.10149>
-138. Jefferson Hernandez, Jaywon Koo, Zilin Xiao et al.. *SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09271>
-139. Yuetian Du, Yucheng Wang, Zhenyuan Chen et al.. *CARE: Confidence-Aware Reasoning for Reliable Medical VQA*. cs.CV. 2026 <https://arxiv.org/abs/2608.10964>
-140. Taojie Zhu, Yuan Xia, Tao Sun et al.. *ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering*. cs.CL. 2026 <https://arxiv.org/abs/2608.10996>
-141. Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh et al.. *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*. cs.CL. 2026 <https://arxiv.org/abs/2608.10916>
-142. Pixel Nomand, Elena Voss, Marcus Hale et al.. *PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR*. cs.LG. 2026 <https://arxiv.org/abs/2608.11368>
-143. Zetao Hong, Song Yuan, Yuanhao Ding et al.. *Scheduling Mixed RL Rollouts Beyond Prefix Locality*. cs.DC. 2026 <https://arxiv.org/abs/2608.11152>
-144. Del Coburn, Scott Sanner, Dan Silver. *Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology*. cs.AI. 2026 <https://arxiv.org/abs/2608.11420>
-145. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
-146. Foundation Model Team, XPeng Inc. *XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving*. cs.AI. 2026 <https://arxiv.org/abs/2608.10976>
-147. Debanjan Dutta, Anish Chakrabarty, Swagatam Das. *Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity*. cs.LG. 2026 <https://arxiv.org/abs/2608.11716>
-148. Ofir Ben Shoham, Shrutendra Harsola, Vignesh Subrahmaniam et al.. *GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.11787>
-149. Xinhao Zhong, Yuxia Qiao, Junhao Li et al.. *LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection*. cs.LG. 2026 <https://arxiv.org/abs/2608.11691>
-150. Zile Zhou, Huining Yuan, Weichen Zhang et al.. *SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward*. cs.CV. 2026 <https://arxiv.org/abs/2608.12220>
-151. Siddharth Chauhan, Thomas Butler, Abhishek Singhania et al.. *When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use*. cs.CL. 2026 <https://arxiv.org/abs/2608.11715>
+10. Junnan Liu, Hongwei Liu, Linchen Xiao et al.. *Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective*. preprint. 2025
+11. Chen Qian, Dongrui Liu, Haochen Wen et al.. *Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning*. preprint. 2025
+12. Yang Yue, Zhiqi Chen, Rui Lu et al.. *Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?*. preprint. 2025
+13. Chenxu Yang, Qingyi Si, Yongjie Duan et al.. *Dynamic Early Exit in Reasoning Models*. preprint. 2025
+14. Austin Meek, Eitan Sprejer, Iván Arcuschin et al.. *Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity*. preprint. 2025
+15. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025
+16. Yuxiao Qu, Matthew Y. R. Yang, Amrith Setlur et al.. *Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning*. ICML 2025. 2025
+17. Xumeng Wen, Zihan Liu, Shun Zheng et al.. *Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs*. preprint. 2025
+18. Max Qiushi Lin, Jincheng Mei, Matin Aghaei et al.. *Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation*. preprint. 2025
+19. Ganqu Cui, Yuchen Zhang, Jiacheng Chen et al.. *The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models*. preprint. 2025
+20. *The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training*. NeurIPS 2025. 2025
+21. Yu Huang, Zixin Wen, Aarti Singh et al.. *Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization*. NeurIPS. 2025
+22. DeepSeek-AI, Daya Guo, Dejian Yang et al.. *DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning*. Nature volume 645, pages 633-638 (2025). 2025 <https://arxiv.org/abs/2501.12948>
+23. Ming Lei, Christophe Baehr. *A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models*. preprint. 2026
+24. Paul Lintilhac, Sair Shaikh. *A Sharper Picture of Generalization in Transformers*. preprint. 2026
+25. Tingyun Li, Zishang Jiang, Jinyi Han et al.. *ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.165>
+26. Xingjian Diao, Zheyuan Liu 0010, Chunhui Zhang et al.. *Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.215>
+27. Jiacheng Liang, Tanqiu Jiang, Yuhui Wang 0003 et al.. *AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1988>
+28. Zhiyuan Hu, Yibo Wang, Hanze Dong et al.. *Beyond &apos;Aha!&apos;: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1981>
+29. Xuanzhi Feng, Zhengyang Li, Zeyu Liu et al.. *Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning*. preprint. 2026
+30. Hoang Phan, Xianjun Yang, Yuanshun Yao et al.. *Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1717>
+31. Xinyan Jiang, Ninghao Liu, Di Wang et al.. *Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability*. ICML. 2026
+32. Daniel Scalena, Sara Candussio, Luca Bortolussi et al.. *Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models*. preprint. 2026
+33. Jianing Hao, Yuhe Wu, Yuanjian Xu et al.. *BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1198>
+34. Qizhi Jiang, Shuo Wang, Pei Ke et al.. *CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-industry.152>
+35. Yangsong Lan, Hongliang Dai, Piji Li. *CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning*. ACL 2026 Findings. 2026
+36. Jiaxuan Zou, Yaozhong Xiong, Yong Liu. *Capabilities and Fundamental Limits of Latent Chain-of-Thought*. preprint. 2026
+37. Jincheng Liu, Sijun He, Jingjing Wu et al.. *ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.360>
+38. Junyi Li, Yongqiang Chen, Ningning Ding. *CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.143>
+39. Yuxuan Jiang, Dawei Li 0008, Francis Ferraro. *DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.196>
+40. Benjamin Shih, John Winnicki, Eric Darve. *Do Models Read What They Write? Causal Registers in Scratchpad Reasoning*. preprint. 2026
+41. Chenghua Zhu, Siyan Wu, Xiangkang Zeng et al.. *EDIS: Diagnosing LLM Reasoning via Entropy Dynamics*. preprint. 2026
+42. Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. *ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1217>
+43. Zhuohan Xie, Daniil Orel, Rushil Thareja et al.. *FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.662>
+44. Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. *FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1128>
+45. Ziyue Chen, David Šiška, Łukasz Szpruch. *Global linear convergence of entropy-regularized softmax policy gradient beyond tabular MDPs*. preprint. 2026
+46. Hongyuan Yuan, Xinran He, Run Shao et al.. *Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs*. ACL 2026 Findings. 2026
+47. Loris Bergeron, Ioana Buhnila, Jérôme François et al.. *HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.835>
+48. Lihao Sun, Hang Dong, Bo Qiao et al.. *LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals*. preprint. 2026
+49. Andy Yang, Pascal Bergsträßer, Georg Zetzsche et al.. *Length Generalization Bounds for Transformers*. ICML. 2026
+50. Dennis Wei, Yannis Belkhiter, Erik Miehling et al.. *Local Causal Attribution of Chain-of-Thought Reasoning*. Mechanistic Interpretability Workshop at ICML 2026. 2026
+51. Xinming Wang, Jian Xu 0015, Bin Yu et al.. *MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.204>
+52. Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. *MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.984>
+53. Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. *Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.582>
+54. Shuyang Jiang, Yuhao Wang, Ya Zhang 0002 et al.. *Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.237>
+55. Xiyao Dong, Guangsheng Cheng, YiLong Chen et al.. *Mitigating Safety Context Amnesia in Multimodal Reasoning Models via Intent-Guided Safety Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1821>
+56. Guoming Ling, Zhongzhan Huang, Yupei Lin et al.. *Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1149>
+57. Mohammed Ehab, Aymane El Gadarri, Vivek Farias et al.. *OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping*. preprint. 2026
+58. *On The Fragility of Benchmark Contamination Detection in Reasoning Models*. ICLR 2026. 2026
+59. Shumin Wang, Yuexiang Xie, Wenhao Zhang et al.. *On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models*. preprint. 2026
+60. Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. *Optimizing Length Compression in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.146>
+61. Atharva Naik, Prakam, Yash Mathur et al.. *PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.432>
+62. Subbarao Kambhampati, Karthik Valmeekam, Siddhant Bhambri et al.. *Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!*. ICML. 2026
+63. Yangyi Li, Chenxu Zhao, Mengdi Huai. *Quantifying and Understanding Uncertainty in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1511>
+64. *RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs*. ICLR 2026. 2026
+65. Zihang Liu 0001, Zhouhua Fang, Hui Liu et al.. *RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.885>
+66. Junyao Yang, Chen Qian 0010, Wen Shen et al.. *ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2201>
+67. Yongchan Kwon, Shang Zhu, Federico Bianchi 0001 et al.. *ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1456>
+68. Yeonjun In, Wonjoong Kim, Sangwu Park et al.. *Reasoning Structure Matters for Safety Alignment of Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.240>
+69. Yijie Hao, Lingjie Chen, Ali Emami et al.. *Reasoning Traces Shape Outputs but Models Won&apos;t Say So*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1986>
+70. Yuquan Wang, Mi Zhang 0001, Yining Wang et al.. *ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1453>
+71. Jiawei Chen, Yang Yang, Chao Yu et al.. *Red Teaming Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1034>
+72. Jens Tuyls, Dylan J. Foster, Akshay Krishnamurthy et al.. *Representation-Based Exploration for Language Models: From Test-Time to Post-Training*. ICLR 2026. 2026
+73. Renren Jin, Pengzhi Gao, Yuqi Ren et al.. *Revisiting Entropy in Reinforcement Learning for Large Reasoning Models*. preprint. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1266>
+74. Seungone Kim, Ian Wu, Jinu Lee 0001 et al.. *Scaling Evaluation-Time Compute with Reasoning Models as Evaluators*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.2102>
+75. Tingchen Fu, Yafu Li, Jiawei Gu et al.. *Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1878>
+76. Qiang Huang, Wei Zhai, Feng Huang et al.. *Self-Reflection Improves Safety of Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.678>
+77. Xuan Yang, Jiayu Liu, Yuhang Lai et al.. *Step-Level Sparse Autoencoder for Reasoning Process Interpretation*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+78. Jacek Duszenko, Przemyslaw Kazienko, Jan Kocon. *Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-srw.20>
+79. Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. *The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models*. COLM. 2026
+80. Jiawei Li 0020, Yang Gao 0016, Huashan Sun et al.. *Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1386>
+81. Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. *Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.1766>
+82. Siyuan Gan, Jiaheng Liu, Boyan Wang et al.. *Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.2122>
+83. Chenxiao Yang, Nathan Srebro, Zhiyuan Li. *Tight Sample Complexity of Transformers*. COLT. 2026
+84. Yi Hu, Jiaqi Gu, Ruxin Wang et al.. *Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.889>
+85. Yixiao Huang, Hanlin Zhu, Zixuan Wang et al.. *Transformers Provably Learn to Internalize Chain-of-Thought*. preprint. 2026
+86. Jeonghye Kim, Xufang Luo, Minbeom Kim et al.. *Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty*. preprint. 2026
+87. Huimin Xu, Shuai Zhao, Xiaobao Wu et al.. *Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization*. preprint. 2026
+88. Ting Xu, Xu He, Yupu Lu et al.. *Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning*. ICML 2026 (Proceedings of the 43rd International Conference on Machine Learning, PMLR 306). 2026
+89. Jian Yao, Bowen Zheng, Ran Cheng et al.. *VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks*. preprint. 2026
+90. Siyang Lyu, Zhijing Sun, Xinghao Chen et al.. *When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation*. preprint. 2026
+91. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://doi.org/10.18653/v1/2026.findings-acl.1118>
+92. Zi-Ao Ma, Xian-Ling Mao, Tian Lan 0003 et al.. *Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.25>
+93. Zhenwen Liang, Ruosen Li, Yujun Zhou 0002 et al.. *Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience*. ACL. 2026 <https://doi.org/10.18653/v1/2026.acl-long.788>
+94. Shigeng Wang, Chao Li, Yangyuxuan Kang et al.. *Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization*. cs.CL. 2026 <https://arxiv.org/abs/2608.01078>
+95. Yibin Huang, Bin Xu, Hailong Cao et al.. *BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent*. cs.CL. 2026 <https://arxiv.org/abs/2608.01321>
+96. Jianan Xie, Xin Sun, Zhongqi Chen et al.. *EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents*. cs.CL. 2026 <https://arxiv.org/abs/2608.01359>
+97. Soumadeep Saha, Krish Sharma, Akshay Chaturvedi et al.. *BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?*. cs.CL. 2026 <https://arxiv.org/abs/2608.02867>
+98. Xuehang Guo, Pingyue Zhang, Ruiyi Zhang et al.. *CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning*. cs.CV. 2026 <https://arxiv.org/abs/2608.02833>
+99. Mengting Ai, Jingrui He, Yue Guo. *Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression*. cs.CL. 2026 <https://arxiv.org/abs/2608.01631>
+100. Giorgio Severi, Shujaat Mirza, Blake Bullwinkel et al.. *Evading Chain-of-Thought Monitoring Through Model Poisoning*. cs.CR. 2026 <https://arxiv.org/abs/2608.02820>
+101. Zhijian Zhou, Long Li, Xuan Zhang et al.. *Start Classifying: Categorical Critics for LLM Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.02181>
+102. Le Xiang, Zhicheng Guan, Hong Chen et al.. *DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.03292>
+103. Yongshi Ye, Liang Zhang, Yidong Chen et al.. *Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.03119>
+104. Yongshi Ye, Biao Fu, Chongxuan Huang et al.. *PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation*. cs.CL. 2026 <https://arxiv.org/abs/2608.03077>
+105. Dominik Meier, Luca Joshua Francis, Marco Bernhard Kaiser et al.. *Risky Business: Measuring The Faithfulness-Safety Tension*. cs.AI. 2026 <https://arxiv.org/abs/2608.03745>
+106. Denys Pushkin, Albert Q. Jiang, Aryo Lotfi et al.. *Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve*. cs.AI. 2026 <https://arxiv.org/abs/2608.03550>
+107. Bhavin Jawade, Cameron R. Wolfe. *TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.02975>
+108. Shashwat Sourav, Aishwarya Balwani. *The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics*. cs.LG. 2026 <https://arxiv.org/abs/2608.03291>
+109. Zhe Cao, Miaowen Wen, Fangjiong Chen. *When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO*. cs.AI. 2026 <https://arxiv.org/abs/2608.03467>
+110. Agatha Duzan, Asa Cooper Stickland. *Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings*. cs.AI. 2026 <https://arxiv.org/abs/2608.04735>
+111. Enrico Mensa, Lorenzo Zane, Calogero Jerik Scozzaro et al.. *Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark*. Proceedings of the Eleventh Italian Conference on Computational Linguistics (CLiC-it 2025), pages 722-734. 2026 <https://arxiv.org/abs/2608.04670>
+112. Ian B. de Haan, Peter van der Putten, Max van Duijn. *Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.04646>
+113. Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. *Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.04771>
+114. Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. *ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance*. cs.CL. 2026 <https://arxiv.org/abs/2608.04524>
+115. Nhat Minh Pham, Duy Tung Doan, Thi Duyen Ngo et al.. *SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts*. cs.LG. 2026 <https://arxiv.org/abs/2608.04962>
+116. Xuzheng Yang, Jun Ling, Tao Huang et al.. *Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO*. cs.CV. 2026 <https://arxiv.org/abs/2608.04698>
+117. Ryozo Masukawa, Ian Bryant, Armita Kazeminajafabadi et al.. *Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)*. cs.CR. 2026 <https://arxiv.org/abs/2608.04317>
+118. Zi-Han Wang, Zhengxi Lu, Zhiyuan Yao et al.. *AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05987>
+119. ZhiYan Hou, Xinyu Tang, Hongyan An et al.. *DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.06243>
+120. Yingqing Guo, Hui Yuan, Zijian He et al.. *LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction*. cs.LG. 2026 <https://arxiv.org/abs/2608.05600>
+121. Xinye Wang, Junxiao Liu, Shujian Huang. *RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer*. cs.CL. 2026 <https://arxiv.org/abs/2608.06347>
+122. Xucong Wang, Zhe Zhao, Liheng Yu et al.. *DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training*. cs.AI. 2026 <https://arxiv.org/abs/2608.07147>
+123. Haoyu Zheng, Yun Zhu, Qing Wang et al.. *Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.07371>
+124. Zhengze Huang, Luyang Yu, Di Hong et al.. *REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment*. cs.AI. 2026 <https://arxiv.org/abs/2608.07931>
+125. Keyang Zhong, Kuo Wang, Peng Liu et al.. *SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.07959>
+126. Yifan Li, Ruxin Sun, Tongzhou Zhao. *StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08326>
+127. Abhishek Panwar, Maheep Singh, Saksham Bansal. *Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework*. cs.AI. 2026 <https://arxiv.org/abs/2608.08113>
+128. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. cs.CL. 2026 <https://arxiv.org/abs/2608.08168>
+129. Lijie Yang, Hongyin Luo, Jiawei Zhao et al.. *Thought-Level Beam Search for Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08020>
+130. Pengfei Zhou, Zhiwei Tang, Xiaopeng Peng et al.. *Improving Generalization Robustness of Multimodal RLVR*. cs.AI. 2026 <https://arxiv.org/abs/2608.08802>
+131. Juncheng Dong, Ding Tong, Ishan Gupta et al.. *LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08889>
+132. Rahma Simin Ali, Jawad Hossain. *MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.08503>
+133. Haotian Wang, Lian Yan, Xingzhi Yao et al.. *MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08623>
+134. Donghong Jiang, Endian Lin, Luoping Cui et al.. *SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests*. cs.AI. 2026 <https://arxiv.org/abs/2608.08640>
+135. Yubo Jiang, Fengying Xie, Zhiguo Jiang et al.. *Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09826>
+136. Hongli Shen, Shaopeng Fu, Qinbo Zhang et al.. *Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs*. cs.LG. 2026 <https://arxiv.org/abs/2608.09542>
+137. Vatsal Venkatkrishna, Nico Daheim, Iryna Gurevych. *Parameter Exploration for RLVR via Variational Learning*. cs.LG. 2026 <https://arxiv.org/abs/2608.09805>
+138. Xu Zhang, Chang Xu, Hui Sun et al.. *REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting*. cs.LG. 2026 <https://arxiv.org/abs/2608.10149>
+139. Jefferson Hernandez, Jaywon Koo, Zilin Xiao et al.. *SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation*. cs.LG. 2026 <https://arxiv.org/abs/2608.09271>
+140. Yuetian Du, Yucheng Wang, Zhenyuan Chen et al.. *CARE: Confidence-Aware Reasoning for Reliable Medical VQA*. cs.CV. 2026 <https://arxiv.org/abs/2608.10964>
+141. Taojie Zhu, Yuan Xia, Tao Sun et al.. *ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering*. cs.CL. 2026 <https://arxiv.org/abs/2608.10996>
+142. Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh et al.. *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*. cs.CL. 2026 <https://arxiv.org/abs/2608.10916>
+143. Pixel Nomand, Elena Voss, Marcus Hale et al.. *PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR*. cs.LG. 2026 <https://arxiv.org/abs/2608.11368>
+144. Zetao Hong, Song Yuan, Yuanhao Ding et al.. *Scheduling Mixed RL Rollouts Beyond Prefix Locality*. cs.DC. 2026 <https://arxiv.org/abs/2608.11152>
+145. Del Coburn, Scott Sanner, Dan Silver. *Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology*. cs.AI. 2026 <https://arxiv.org/abs/2608.11420>
+146. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
+147. Foundation Model Team, XPeng Inc. *XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving*. cs.AI. 2026 <https://arxiv.org/abs/2608.10976>
+148. Debanjan Dutta, Anish Chakrabarty, Swagatam Das. *Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity*. cs.LG. 2026 <https://arxiv.org/abs/2608.11716>
+149. Ofir Ben Shoham, Shrutendra Harsola, Vignesh Subrahmaniam et al.. *GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation*. cs.CL. 2026 <https://arxiv.org/abs/2608.11787>
+150. Xinhao Zhong, Yuxia Qiao, Junhao Li et al.. *LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection*. cs.LG. 2026 <https://arxiv.org/abs/2608.11691>
+151. Zile Zhou, Huining Yuan, Weichen Zhang et al.. *SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward*. cs.CV. 2026 <https://arxiv.org/abs/2608.12220>
+152. Siddharth Chauhan, Thomas Butler, Abhishek Singhania et al.. *When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use*. cs.CL. 2026 <https://arxiv.org/abs/2608.11715>

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The entropy of the distribution over an *answer* rather than over the next token, obtained by averaging token entropies across an elicited answer span. All three sources compute it mid-generation by interrupting the trace and forcing an answer, which makes it a probe of the model's current belief rather than of its current word. What they disagree about is whether it means anything. One models the sequence of these values as switching between two regimes at an unknown change point and detects the switch online. One reports it falling when a retrieved worked example is injected into the trace, alongside the accuracy gain but not manipulated separately from it. The third is the counter-case and the sharpest: in agentic tool calls the model is *confident* while fabricating a parameter the user never supplied, so predictive entropy and its relatives sit at the trivial decision floor once base prevalence is accounted for. Low predictive entropy is therefore evidence that the model has settled, and nothing more.
 
 - **Kind**: concept
+- **Also called**: answer entropy, predictive entropy
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

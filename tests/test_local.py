@@ -263,6 +263,43 @@ class DefinitionQueueShareTests(unittest.TestCase):
         result = render.run(self.cfg, only="wiki")
         self.assertNotIn("summaries_queued", result)
 
+    def test_a_hand_filed_paper_is_queued_even_at_the_cap(self):
+        """The cap bounds a collection run; a hand-filed PDF is not one.
+
+        `CLAUDE.md` already rules that a PDF in `inbox/` is kept whatever its
+        keywords say, because filing it by hand is the editorial decision
+        scoring exists to approximate. The cap was not carrying that argument
+        one step further: handing this deployment a paper to read while the
+        queue was full archived the record, wrote the document to disk, and
+        filed no task — with one WARNING among dozens of identical ones.
+        """
+        self.cfg.settings["summarize"] = {"max_pending_tasks": 2}
+        store = RecordStore(self.cfg.layout)
+        queue = Queue(self.cfg.layout)
+        for i in range(2):
+            queue.enqueue(
+                kind="paper", item_id=f"arxiv:2409.0000{i}", topics=[SLUG],
+                language="en", instructions="Read it.", output_schema={}, payload={},
+            )
+        self.assertEqual(queue_share.pending_count(self.cfg), 2)
+
+        collected = Paper(
+            id="arxiv:2401.11111", title="A collected paper", source="arxiv",
+            abstract="Nobody has read this yet.", topics=[SLUG], scores={SLUG: 0.9},
+        )
+        store.save_paper(collected)
+        store.save_paper(Paper(
+            id="local:abcdef0123456789", title="A hand-filed paper", source="local",
+            abstract="", local_path="data/pdfs/local-abcdef0123456789.pdf",
+        ))
+
+        result = render.run(self.cfg)
+
+        pending = {p.stem for p in self.cfg.layout.queue_pending.glob("*.json")}
+        self.assertIn("paper__local-abcdef0123456789", pending, "hand-filed bypasses the cap")
+        self.assertNotIn("paper__arxiv-2401-11111", pending, "a collected one still does not")
+        self.assertEqual(result["summaries_queued"], 1, "both queues' writes are summed")
+
     def test_definitions_queued_counts_tasks_filed_not_attempts(self):
         """The same lesson as the test above, in the other counter.
 

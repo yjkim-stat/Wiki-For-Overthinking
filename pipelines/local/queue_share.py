@@ -58,3 +58,25 @@ def pending_count(cfg: Config) -> int:
     binds and a task is dropped rather than filed.
     """
     return sum(1 for _ in cfg.layout.queue_pending.glob("*.json"))
+
+def hand_filed_queue(cfg: Config, Queue):
+    """A queue with no cap, for papers somebody filed by hand.
+
+    `CLAUDE.md` already rules that a PDF in `inbox/` is kept whatever its
+    keywords say, because "somebody filing it by hand is the editorial decision
+    that scoring exists to approximate". The pending cap is the same argument
+    one step later and was not carrying it: the cap exists so that a busy
+    collection day cannot produce an unreviewable backlog, and a hand-filed
+    paper is not a busy collection day. It is one paper, chosen, usually handed
+    over with a question attached.
+
+    Without this, filing a PDF into a full queue succeeds, logs a WARNING among
+    dozens of identical ones, and defers the reading indefinitely -- the paper
+    is in the archive, its document is on disk, and nothing will ask anyone to
+    read it until the backlog drains. That happened the first time this
+    deployment was handed a paper to read.
+
+    `Queue` is passed in rather than imported so `local/` keeps no import edge
+    on `enrich/`.
+    """
+    return Queue(cfg.layout, max_pending=None)

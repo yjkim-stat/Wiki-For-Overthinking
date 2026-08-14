@@ -87,6 +87,12 @@
       "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models"
     },
     {
+      "id": "local:e8126ad679a121e7",
+      "kind": "paper",
+      "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+      "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective"
+    },
+    {
       "id": "local:fb100130d8c7c2bd",
       "kind": "paper",
       "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
@@ -95,7 +101,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:18:17Z",
+  "last_seen": "2026-08-14T08:00:47Z",
   "name": "pass@k",
   "related": [
     "reasoning-boundary",
@@ -334,6 +340,22 @@
     "qwen2-5",
     "gpt-4o",
     "qwq-32b",
+    "meta-learning",
+    "pseudo-gradient-update",
+    "inner-loop-optimization",
+    "support-set",
+    "loss-landscape",
+    "saddle-point-escape",
+    "reflection-token",
+    "effective-depth",
+    "reasoning-efficiency",
+    "task-generalization",
+    "maml",
+    "learn-to-optimize",
+    "livemathbench",
+    "open-reasoner-zero",
+    "qwen2-5-7b-base",
+    "qwen2-5-math-72b-instruct",
     "chain-of-thought-faithfulness",
     "benchmark-contamination",
     "judge-reliability",
@@ -351,6 +373,7 @@
     "reasoning-training",
     "test-time-scaling",
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-faithfulness"
   ]
 }

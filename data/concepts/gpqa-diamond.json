@@ -82,11 +82,17 @@
       "kind": "paper",
       "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
       "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference"
+    },
+    {
+      "id": "local:e8126ad679a121e7",
+      "kind": "paper",
+      "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+      "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective"
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:18:17Z",
+  "last_seen": "2026-08-14T08:00:47Z",
   "name": "GPQA-Diamond",
   "related": [
     "answer-evidence-gap",
@@ -319,7 +325,25 @@
     "batch-invariant-operations",
     "tensor-parallelism",
     "qwen2-5-7b",
-    "qwen3-32b"
+    "qwen3-32b",
+    "meta-learning",
+    "pseudo-gradient-update",
+    "inner-loop-optimization",
+    "support-set",
+    "loss-landscape",
+    "saddle-point-escape",
+    "reflection-token",
+    "effective-depth",
+    "reasoning-efficiency",
+    "task-generalization",
+    "maml",
+    "learn-to-optimize",
+    "budget-forcing",
+    "verl",
+    "livemathbench",
+    "open-reasoner-zero",
+    "qwen2-5-7b-base",
+    "qwen2-5-math-72b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,
@@ -328,6 +352,7 @@
     "reasoning-training",
     "reasoning-faithfulness",
     "test-time-scaling",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }
