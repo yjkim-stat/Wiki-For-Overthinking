@@ -3,9 +3,21 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
         "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
           "test-time-scaling"
@@ -16,6 +28,7 @@
         "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
         "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
           "test-time-scaling"
@@ -40,12 +53,13 @@
   },
   "payload": {
     "name": "predictive entropy",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__predictive-entropy",
   "task_version": 1,
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

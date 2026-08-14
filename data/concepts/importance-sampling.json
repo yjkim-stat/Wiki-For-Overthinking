@@ -6,6 +6,12 @@
   "definition": "Reweighting by the ratio between the probability a sample had under the policy that generated it and its probability under the policy being optimized. The two archived sources put the same ratio to opposite purposes. In one it is the estimator that keeps a stochastic policy gradient unbiased, dividing an observed bandit reward by the probability of the action that produced it. In the other it is a cause rather than a tool: PPO-style importance sampling together with clipping is identified as the reason a brief round of GRPO erases the statistical traces that benchmark contamination detectors rely on. The sources therefore agree on the object and disagree on nothing, because they never address the same question about it.",
   "evidence": [
     {
+      "id": "arxiv:2608.10260",
+      "kind": "paper",
+      "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+      "title": "Interpreting Language Model Hidden States at Scale"
+    },
+    {
       "id": "local:4cf1061e50d8b3c3",
       "kind": "paper",
       "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
@@ -20,9 +26,36 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-14T01:37:41Z",
   "name": "importance sampling",
   "related": [
+    "detection-versus-control",
+    "logit-lens",
+    "tuned-lens",
+    "hookpoint",
+    "residual-stream",
+    "low-rank-approximation",
+    "kl-divergence",
+    "toxicity-localization",
+    "memory-injection",
+    "linear-probe",
+    "lora",
+    "activation-patching",
+    "activation-steering",
+    "sparse-autoencoder",
+    "knowledge-distillation",
+    "circuit-analysis",
+    "the-pile",
+    "2wikimultihopqa",
+    "arc-easy",
+    "sciq",
+    "wikitext-2",
+    "gpt-2",
+    "gpt-2-xl",
+    "gpt-3",
+    "llama-3-1-8b",
+    "llama-3-3-70b",
+    "llama-3-1-405b-instruct",
     "benchmark-contamination",
     "contamination-detection",
     "memorization",
@@ -66,6 +99,7 @@
   "schema_version": 1,
   "slug": "importance-sampling",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-evaluation",
     "reasoning-training"
   ]

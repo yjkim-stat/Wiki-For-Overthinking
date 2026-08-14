@@ -125,25 +125,25 @@ Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded 
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 35 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 28 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
-| supervised fine-tuning | 27 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| LLM-as-a-judge | 29 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| supervised fine-tuning | 28 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 20 | _pending_ |
+| linear probe | 22 | _pending_ |
 | self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
-| activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | pass@k | 14 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| activation steering | 12 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
+| activation steering | 13 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
 | majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | PPO | 10 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
-| calibration | 9 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
+| circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
-| Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
-| circuit analysis | 7 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
+| LoRA | 8 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 
 ## Benchmarks and datasets
 
@@ -165,9 +165,9 @@ Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded 
 | GPQA | 5 | A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method... |
 | AIME | 4 | The American Invitational Mathematics Examination, used in the archive as a competition-mathematics benchmark whose answers are short integers and therefore automatically checka... |
 | HumanEval+ | 4 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
+| the Pile | 4 | _pending_ |
 | Brumo | 3 | A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically... |
 | CMIMC | 3 | A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among fi... |
-| the Pile | 3 | _pending_ |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 
 ## Reading path

@@ -128,23 +128,23 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 35 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 28 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
-| supervised fine-tuning | 27 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| LLM-as-a-judge | 29 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| supervised fine-tuning | 28 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 20 | _pending_ |
+| linear probe | 22 | _pending_ |
 | self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
+| activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
-| activation patching | 14 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | pass@k | 14 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| activation steering | 12 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
+| activation steering | 13 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
 | process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
+| sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
+| circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
-| sparse autoencoder | 8 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| circuit analysis | 7 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | process evaluation | 7 | Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning.... |
 | early exit | 6 | Terminating generation before the model would stop on its own. The four sources differ mainly in what signal triggers the exit: confidence in a trial answer induced at a reasoni... |
 
@@ -166,12 +166,12 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | Omni-MATH | 5 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
 | BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
+| SciQ | 3 | _pending_ |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | BeaverTails | 2 | A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study.... |
 | HarmBench | 2 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
 | MMLU-STEM | 2 | The science, technology, engineering and mathematics subset of a broad multiple-choice knowledge benchmark, used by both sources as the transfer check in a suite otherwise built... |
 | OpenCodeInstruct | 2 | A large instruction-tuning corpus of programming problems, used by both sources as the coding half of a training or calibration mixture rather than as an evaluation set. One dra... |
-| ProntoQA | 2 | A synthetic deductive-reasoning question-answering task, used by both sources as the near-ceiling control in a latent chain-of-thought comparison: explicit and latent reasoning... |
 
 ## Reading path
 

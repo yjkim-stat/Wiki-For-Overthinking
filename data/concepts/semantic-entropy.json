@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.10430",
+      "kind": "paper",
+      "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+      "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique"
+    },
+    {
       "id": "local:0c24c3c0e4729108",
       "kind": "paper",
       "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
@@ -10,10 +16,29 @@
     }
   ],
   "first_seen": "2026-08-08T04:37:57Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "kind": "method",
+  "last_seen": "2026-08-14T01:37:41Z",
   "name": "semantic entropy",
   "related": [
+    "specification-grounding",
+    "hallucination",
+    "predictive-entropy",
+    "calibration",
+    "detection-versus-control",
+    "linear-separability",
+    "residual-stream",
+    "agentic-self-correction",
+    "uncertainty-quantification",
+    "lora",
+    "linear-probe",
+    "activation-patching",
+    "llm-as-a-judge",
+    "react",
+    "supervised-fine-tuning",
+    "toolalpaca",
+    "qwen3-4b",
+    "llama-xlam-2-8b",
+    "qwen3-5-122b",
     "certaindex",
     "answer-stabilization",
     "self-doubt",
@@ -45,6 +70,7 @@
   "schema_version": 1,
   "slug": "semantic-entropy",
   "topics": [
+    "reasoning-interpretability",
     "test-time-scaling"
   ]
 }

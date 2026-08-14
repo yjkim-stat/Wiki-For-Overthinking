@@ -13,6 +13,12 @@
       "title": "Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO"
     },
     {
+      "id": "arxiv:2608.10430",
+      "kind": "paper",
+      "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+      "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.582",
       "kind": "paper",
       "note": "Uses 200 mathematical proof problems as a diagnostic, finding some reasoning models solve under 20% and cataloguing 10 fine-grained error types that numerical benchmarks hide.",
@@ -33,7 +39,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-14T01:37:41Z",
   "name": "hallucination",
   "related": [
     "abstention",
@@ -44,6 +50,24 @@
     "rc-grpo",
     "supervised-fine-tuning",
     "reinforcement-learning-post-training",
+    "specification-grounding",
+    "semantic-entropy",
+    "predictive-entropy",
+    "calibration",
+    "detection-versus-control",
+    "linear-separability",
+    "residual-stream",
+    "agentic-self-correction",
+    "uncertainty-quantification",
+    "lora",
+    "linear-probe",
+    "activation-patching",
+    "llm-as-a-judge",
+    "react",
+    "toolalpaca",
+    "qwen3-4b",
+    "llama-xlam-2-8b",
+    "qwen3-5-122b",
     "construct-validity",
     "mathematical-proof",
     "rigor",
@@ -81,10 +105,12 @@
     "granite-guardian-3-3",
     "gpt-4o"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "hallucination",
   "topics": [
     "reasoning-training",
+    "reasoning-interpretability",
     "reasoning-evaluation"
   ]
 }

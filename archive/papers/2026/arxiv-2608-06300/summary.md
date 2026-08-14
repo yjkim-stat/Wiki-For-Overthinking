@@ -44,7 +44,7 @@ No numeric results in the abstract. Two systems and one task domain, so the arch
 
 ## Entities
 
-- **Concepts**: concept activation vector, sparse autoencoder, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), [localization](../../../../wiki/concepts/localization.md), linear separability, fairness auditing, recoverability versus influence
+- **Concepts**: concept activation vector, sparse autoencoder, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), [localization](../../../../wiki/concepts/localization.md), [linear separability](../../../../wiki/concepts/linear-separability.md), fairness auditing, recoverability versus influence
 - **Methods**: Concept Activation Vectors, [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), gradient-based sensitivity analysis, [linear probe](../../../../wiki/methods/linear-probe.md)
 - **Datasets**: _none recorded_
 

@@ -336,4 +336,4 @@ equalize the resulting weight *distributions* between them, so the 2.10-point
 cue advantage could still be distributional rather than semantic. Equalizing
 that is a small change to an experiment that already exists.
 
-<!-- analysis-sources: 9 -->
+<!-- analysis-sources: 8 -->

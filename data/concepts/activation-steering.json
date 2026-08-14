@@ -59,6 +59,12 @@
       "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models"
     },
     {
+      "id": "arxiv:2608.10260",
+      "kind": "paper",
+      "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+      "title": "Interpreting Language Model Hidden States at Scale"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.502",
       "kind": "paper",
       "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
@@ -85,7 +91,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:49:24Z",
+  "last_seen": "2026-08-14T01:37:41Z",
   "name": "activation steering",
   "related": [
     "steering-vector",
@@ -197,6 +203,25 @@
     "aya-expanse-8b",
     "qwen3-embedding",
     "gpt-2",
+    "tuned-lens",
+    "hookpoint",
+    "low-rank-approximation",
+    "importance-sampling",
+    "toxicity-localization",
+    "memory-injection",
+    "lora",
+    "activation-patching",
+    "knowledge-distillation",
+    "circuit-analysis",
+    "the-pile",
+    "2wikimultihopqa",
+    "arc-easy",
+    "sciq",
+    "gpt-2-xl",
+    "gpt-3",
+    "llama-3-1-8b",
+    "llama-3-3-70b",
+    "llama-3-1-405b-instruct",
     "mechanistic-interpretability",
     "actionable-interpretability",
     "intervention-protocol",
@@ -263,8 +288,7 @@
     "low-rank-steering-update",
     "centered-kernel-alignment",
     "chain-of-thought-distillation",
-    "test-time-scaling",
-    "llama-3-1-8b"
+    "test-time-scaling"
   ],
   "related_authored": [
     "steering-vector",

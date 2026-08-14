@@ -147,6 +147,30 @@
       },
       {
         "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reads reasoning validity from layer-to-layer displacement of hidden states rather than from the states themselves, on the grounds that static activations let probes latch onto lexical surface patterns.",
         "title": "Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning",
         "topics": [
@@ -260,7 +284,7 @@
   },
   "payload": {
     "name": "linear probe",
-    "source_count": 20
+    "source_count": 22
   },
   "task_id": "concept__linear-probe",
   "task_version": 1,

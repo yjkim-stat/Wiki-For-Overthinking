@@ -23,6 +23,12 @@
       "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training"
     },
     {
+      "id": "arxiv:2608.10430",
+      "kind": "paper",
+      "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+      "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique"
+    },
+    {
       "id": "arxiv:2608.10928",
       "kind": "paper",
       "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
@@ -37,7 +43,7 @@
   ],
   "first_seen": "2026-08-12T11:28:30Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:22:18Z",
+  "last_seen": "2026-08-14T01:37:41Z",
   "name": "Qwen3-4B",
   "related": [
     "post-training-quantization",
@@ -112,10 +118,26 @@
     "minerva",
     "olympiadbench",
     "llama-3-2-3b",
+    "specification-grounding",
+    "hallucination",
+    "semantic-entropy",
+    "predictive-entropy",
+    "calibration",
+    "detection-versus-control",
+    "linear-separability",
+    "residual-stream",
+    "agentic-self-correction",
+    "uncertainty-quantification",
+    "lora",
+    "activation-patching",
+    "react",
+    "supervised-fine-tuning",
+    "toolalpaca",
+    "llama-xlam-2-8b",
+    "qwen3-5-122b",
     "test-time-scaling",
     "in-trace-retrieval",
     "procedural-scaffolding",
-    "predictive-entropy",
     "error-compounding",
     "reasoning-drift",
     "budget-forcing",
@@ -167,7 +189,7 @@
     "reasoning-training",
     "reasoning-faithfulness",
     "reasoning-evaluation",
-    "test-time-scaling",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

@@ -279,22 +279,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</strong> — The paper is explicit that its two preliminary checks establish only that signatures can be meaningful in controlled settings and in qualitative neighbourhoo...</li>
+<li><strong>Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique</strong> — The paper&#x27;s own error analysis is the important limit: the detector reads internal states, so it is reliable only when the base model internally registers th...</li>
+<li><strong>Interpreting Language Model Hidden States at Scale</strong> — The paper states its own scope: experiments cover only components whose width equals the model&#x27;s, so narrower ones such as individual attention heads would n...</li>
 <li><strong>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</strong> — The paper marks its own boundaries carefully, which is unusual and worth noting: the cross-model dissociation is called provisional and the magnitude gap exp...</li>
 <li><strong>Safety Cost of Steering Vectors Is Separable and Reducible</strong> — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the c...</li>
 <li><strong>Finding Usable Weight Mechanisms with Tiled SVD</strong> — The paper&#x27;s own list is unusually direct, and its discussion opens by saying the novelty is thin: singular vectors of transformer weights, detector-effector...</li>
-<li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
-<li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits</strong> — No quantitative results in the abstract and the model families are not named. Behaviours tested are alignment-style attributes, not reasoning, so nothing is...</li>
+<li><strong>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</strong> — No numeric results in the abstract. Two systems and one task domain, so the architecture-dependence conclusion rests on a small sample of architectures. The...</li>
 <li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 <li><strong>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</strong> — The paper&#x27;s discussion is the most careful in this archive and states the bounds itself. The three central results rest on the additive decomposition and the...</li>
 <li><strong>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</strong> — The paper is unusually precise about what it did not close, and the closing sentences are worth quoting in effect: a theory that only ever gets confirmed on...</li>
 <li><strong>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</strong> — The limitations section is exemplary and should be read as part of the result. The construct-validity concern is stated first and is the sharpest: short-term...</li>
-<li><strong>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</strong> — The paper&#x27;s limitations section is unusually thorough and names the right things. The canonical entity-to-culture assignments are genuinely contested at boun...</li>
-<li><strong>Inverted Detection and Control in Steering Vectors</strong> — The paper states its scope: it studies translation-based steering vectors specifically, in order to isolate the inverted phenomenon, and does not evaluate mo...</li>
 </ul>
 </section>
 <section class="slide">
@@ -329,11 +329,11 @@ th { background: var(--surface); }
 <li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 <li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Rizvi-Martel, Guillaume Rabusseau, Marius Mosbach. <em>The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models</em>. COLM. 2026</li>
+<li>Sanidhya Vijayvargiya, Rahul Lokesh. <em>Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique</em>. cs.LG. 2026</li>
+<li>Jordan Pettyjohn, Mansi Sakarvadia, Nathaniel Hudson et al.. <em>Interpreting Language Model Hidden States at Scale</em>. cs.AI. 2026</li>
 <li>Ash Manvi, Samreena Tajreen. <em>Finding Usable Weight Mechanisms with Tiled SVD</em>. cs.AI. 2026</li>
 <li>Michal Mráz, Justin Shenk. <em>Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition</em>. cs.AI. 2026</li>
 <li>Nan Chen, Zhouhao Yang, Soufiane Hayou. <em>Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes</em>. cs.CL. 2026</li>
-<li>Paul Lintilhac, Sair Shaikh. <em>A Sharper Picture of Generalization in Transformers</em>. preprint. 2026</li>
-<li>Yangsong Lan, Hongliang Dai, Piji Li. <em>CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning</em>. ACL 2026 Findings. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

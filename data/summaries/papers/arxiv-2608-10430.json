@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "specification grounding",
+    "hallucination",
+    "semantic entropy",
+    "predictive entropy",
+    "calibration",
+    "detection versus control",
+    "linear separability",
+    "residual stream",
+    "agentic self-correction",
+    "uncertainty quantification"
+  ],
+  "contributions": [
+    "A detector that modifies the residual stream during generation rather than reading it afterwards, and verbalizes the exact ungrounded parameter within the same sequence",
+    "Evidence that entropy-family detectors are not merely weaker on this failure but sit at the trivial decision floor",
+    "A mechanistic account: the adapter restructures a low-dimensional grounding signal into a shift-stable linear geometry, verified by transfer and by cross-trajectory patching",
+    "A closed-loop result separating the value of blocking an action from the value of saying what was wrong with it"
+  ],
+  "datasets": [
+    "ToolAlpaca"
+  ],
+  "generated_at": "2026-08-14T01:37:40Z",
+  "generated_by": "queue",
+  "limitations": "The paper's own error analysis is the important limit: the detector reads internal states, so it is reliable only when the base model internally registers the specification gap, and its accuracy is bottlenecked by the base model's capability rather than by extraction. Runaway generation destroys the geometry it depends on, and partial grounding dilutes it -- if a user gives a time but the schema wants a full timestamp, the model anchors on the grounded part and fabricates the rest, sometimes below the detector. A reader should add that this is scoped deliberately to tool calling, where a hallucination has an exact parameter-level boundary; the paper says so, and the entropy result should be read as holding for confident specification-grounding failures rather than for hallucination in general. Out of distribution, trajectory success sits near the frozen base model's ceiling of about 2% for every method, so the end-to-end agentic metrics there are close to insensitive and the parameter-level numbers are what carry the claim. The adapter and the passive probe are trained on the same data but are not parameter-matched, so 'internal access beats passive probing' is confounded with capacity -- the MLP control addresses this partly and only on the frozen states. And the training labels come from a simulated user with 89% agreement to manual annotation; evaluation labels are human-verified, training labels are not.",
+  "method": "A LoRA adapter is served concurrently with the frozen base agent, initialized at zero so its first forward pass mirrors the base model's hidden states exactly. While the base autoregressively generates the tool call, the adapter receives the same tokens and learns to modify hidden states, amplifying uncertainty signals, but its outputs are discarded -- it is accumulating, not speaking. When the call completes, a trigger token is appended as a structural boundary and an attention sink, and only there does the adapter emit a structured classification: correct, wrong tool, or ungrounded together with the offending parameter name. The training objective is masked accordingly, with loss computed only on the trigger token and the label that follows, so the adapter acts strictly as an uncertainty extractor rather than as a generator. Data comes from a simulated user that reveals an underlying goal incrementally through ambiguous requests while maintaining a hidden binary mask over which parameters have actually been supplied, so a tool call touching an unsupplied parameter is labelled automatically; the programmatic labels agree with manual human evaluation 89% of the time and every evaluation trajectory is human-verified. Two backbones from different families, 5,000 training scenarios with 500 unseen tools for in-distribution evaluation and 200 real-world API scenarios spanning 50 categories for the shift test. Baselines are an equivalent-scale external judge, a passive linear probe on the base model's optimal layer, and three uncertainty families -- token entropy, semantic entropy and a semantic-entropy probe.",
+  "methods": [
+    "LoRA",
+    "linear probe",
+    "activation patching",
+    "LLM-as-a-judge",
+    "semantic entropy",
+    "ReAct",
+    "supervised fine-tuning"
+  ],
+  "models": [
+    "Qwen3-4B",
+    "Llama-xLAM-2-8B",
+    "Qwen3.5-122B"
+  ],
+  "one_liner": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+  "paper_id": "arxiv:2608.10430",
+  "problem": "An agent handed an incomplete instruction should ask; instead, instruction tuning's task-completion bias makes it fabricate the missing specification and execute. That failure is not a factual error -- the action may be perfectly logical and the fabricated value may even be correct -- it is ungrounded, because the user never supplied it. Every existing detector fails on it for a different reason. Uncertainty-based sampling fails because the model is *confident* when it fabricates, so entropy is low exactly where the error is. External LLM judges read surface text and add a second inference loop, which is prohibitive in a real-time agent. And passive internal probes emit a scalar with no localization, so an agent learns that something is wrong and not what.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-interpretability": "The sharpest counter-case in this archive to reading entropy as uncertainty. The archive holds that generation-time entropy variability predicts correctness, and this identifies a whole failure class where it cannot in principle: the model is *confident* while fabricating, so token entropy, semantic entropy and a semantic-entropy probe all land at the trivial floor once prevalence is accounted for. That is a stronger statement than the two head-to-head losses the archive already records, because it names the mechanism rather than the margin. It also refines the archive's picture of when internal signals appear: the grounding signal is reactive, arriving at the instant the flawed parameter is written and not before, which sits directly against the archived result that a model's eventual reasoning length is decodable from the question's activations before the first reasoning token. Some things about a trace are planned; whether a particular step will be ungrounded is not."
+  },
+  "results": "The entropy result is the one this archive should keep. On the in-distribution set the entropy family reaches AUROC 0.674 (token), 0.639 (semantic) and 0.548 (semantic-entropy probe) against 0.966 for the adapter, and the paper's diagnosis is specific rather than dismissive: because the model confidently fabricates plausible parameters in order to complete the task, semantic entropy collapses into a single cluster, and once AUPRC is adjusted for base prevalence the entropy methods sit exactly at the trivial always-positive decision floor -- they do not discriminate grounding at all. Under distribution shift they remain non-discriminative. The passive probe does better in distribution (0.782) and then collapses under shift (0.616), while the adapter holds 0.925; a two-layer MLP on the same frozen states reaches only 0.678 out of distribution, so the probe's failure is not a capacity limit but the representation itself. Training a plain linear probe on the *adapted* states recovers 0.944 in distribution and 0.915 out of it, which is the paper's evidence that the adapter restructures the geometry rather than memorizing a classifier. At a strict 1% false-positive rate the adapter catches 38.7% of hallucinations against 28.3% for the judge and 3.8% for the probe. Cross-model, the advantage over passive probing replicates (0.926 against 0.833 in distribution, 0.649 against 0.514 under shift) while the advantage over the external judge does not, with the two degrading together on the second backbone. Two mechanistic findings stand on their own. The signal is **reactive, not prescient**: the probability of predicting ungrounded is 19.54% before generation and 16.25% after the tool name is chosen, then spikes to 95.24% at the exact step where the ungrounded parameter key is written. And it is low-dimensional: separability is indistinguishable from the base model through layer 14 and rises sharply from layer 15, with even a rank-4 adapter separating the space. Cross-trajectory patching confirms causality -- overwriting the clean trigger token's hidden state with a corrupted one flips 96% of trajectories to ungrounded, with negligible effect through layer 20 and a sharp inversion peaking at layer 32. In the closed loop, blocking alone raises precision but costs recall and produces a 9.4% false-block rate; adding the localized message recovers recall to 54.4%, lifts parameter F1 to 61.2% and cuts false blocks more than threefold to 2.9%.",
+  "schema_version": 1,
+  "tags": [
+    "hallucination",
+    "agents",
+    "tool-calling",
+    "uncertainty",
+    "interpretability"
+  ]
+}
