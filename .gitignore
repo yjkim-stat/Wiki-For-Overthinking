@@ -262,3 +262,11 @@ data/abstracts/
 # them is the one that has only just cloned this repository.
 /migration/*
 !/migration/README.md
+
+# --- requests --------------------------------------------------------------
+# The drop folder other people on this host write to. Untriaged, arbitrary, and
+# written by somebody who is not the archive's owner -- committing it would push
+# whatever anybody happened to leave there. The *decisions* are tracked:
+# approved/, rejected/ and done/ are the record of what was asked and what was
+# allowed, which is exactly the sort of thing this repository keeps.
+requests/pending/

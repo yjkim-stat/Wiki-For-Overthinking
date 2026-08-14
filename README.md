@@ -252,7 +252,19 @@ ordering of authority. Nothing here composes a sentence: the pipeline calls no
 model, and a plausible invented answer is worse to a colleague than an honest
 "nothing here", since they cannot tell it from a real one.
 
-**It writes nothing at all** — not to `data/`, not anywhere — and binds to
+Asking for a *change* is a different channel on purpose:
+
+```bash
+cp my-request.md requests/pending/     # anyone on the host
+python3 -m pipelines.requests list     # the archive's owner
+python3 -m pipelines.requests approve <id> --note "why"
+```
+
+Nothing is approved automatically, however harmless it looks, and an approved
+request is work for the next maintenance session rather than a change already
+made. A rejected one keeps its reason: declined is not deleted.
+
+**The port writes nothing at all** — not to `data/`, not anywhere — and binds to
 loopback with no flag to change that. There is no authentication, which is why
 the read-only guarantee has to be absolute: on a shared host, loopback means any
 local user. A host that wanted to publish its archive would put a proxy in

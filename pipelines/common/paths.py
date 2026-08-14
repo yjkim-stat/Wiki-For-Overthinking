@@ -173,6 +173,34 @@ class Layout:
         """
         return self.data / "references"
 
+    # -- requests -----------------------------------------------------------
+    @property
+    def requests(self) -> Path:
+        """Where somebody who is not the archive's owner asks for a change.
+
+        Outside `data/` because nothing in it is a record yet, and a sibling of
+        `inbox/` rather than a part of it: a PDF in the inbox is an editorial
+        decision already taken, and everything here is a decision still to be
+        made by a person.
+        """
+        return self.root / "requests"
+
+    @property
+    def requests_pending(self) -> Path:
+        return self.requests / "pending"
+
+    @property
+    def requests_approved(self) -> Path:
+        return self.requests / "approved"
+
+    @property
+    def requests_rejected(self) -> Path:
+        return self.requests / "rejected"
+
+    @property
+    def requests_done(self) -> Path:
+        return self.requests / "done"
+
     @property
     def index(self) -> Path:
         return self.data / "index"
@@ -259,6 +287,10 @@ class Layout:
             self.concepts,
             self.findings,
             self.references,
+            self.requests_pending,
+            self.requests_approved,
+            self.requests_rejected,
+            self.requests_done,
             self.abstracts,
             self.index,
             self.logs,
