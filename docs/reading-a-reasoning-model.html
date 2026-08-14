@@ -157,10 +157,10 @@
   <h1>추론 모델을 읽는 법</h1>
   <p class="standfirst">LLM의 reasoning-like behavior가 무엇으로 이루어져 있는지를, 이 아카이브가 실제로 읽은 논문들의 결과만으로 단계별로 세운 지도.</p>
   <p class="provenance">
-    <span>논문 <b>268</b>편</span>
-    <span>읽기 완료 <b>202</b></span>
+    <span>논문 <b>269</b>편</span>
+    <span>읽기 완료 <b>203</b></span>
     <span>위키 노트 <b>388</b></span>
-    <span>확립된 finding <b>13</b></span>
+    <span>확립된 finding <b>14</b></span>
     <span>추적 주제 <b>5</b></span>
   </p>
 </header>
@@ -343,7 +343,7 @@
 
 <section>
   <p class="part-label">4부 · 확립된 것</p>
-  <h2>여러 출처가 독립적으로 도달한 열세 가지</h2>
+  <h2>여러 출처가 독립적으로 도달한 열네 가지</h2>
   <div class="prose">
     <p>아래는 이 그룹이 <em>기록으로 남긴</em> 결론입니다. 각 항목은 독립된 출처 둘 이상이 같은 방향을 가리켜야 등록됩니다. 한 편만 근거인 관찰은 위키 분석으로 남고 여기 오지 않습니다.</p>
   </div>
@@ -362,6 +362,7 @@
         <tr><td>측정</td><td>선행 연구에서 물려받은 <strong>baseline·프롬프트·출력 형식은 실험 변수</strong>입니다 — few-shot CoT가 추론 특화 모델에 GSM8K에서 12점을 손해 입힙니다(74.2% 대 86.1%).</td><td class="num">3</td></tr>
         <tr><td>측정</td><td>상반된 오차를 <strong>상계하고 보고하는 요약 통계</strong>는 수리가 아니라 손상으로도 만족됩니다 — 모든 문제를 틀리게 만드는 전략이 발표된 방법 둘을 앞섭니다.</td><td class="num">2</td></tr>
         <tr><td>기제</td><td>신호의 <strong>탐지 성능은 개입 효과를 licensing하지 않습니다</strong> — 크기도, <em>부호조차도</em>. 여섯 hookpoint 유형에서 탐지 순위와 개입 순위가 Spearman <strong>−0.43</strong>.</td><td class="num">6</td></tr>
+        <tr><td>기제</td><td>성긴 <strong>반성 토큰</strong>이 궤적에서 불균형하게 큰 일을 하고, 그 비대칭이 서로 독립적으로 측정된 세 양에서 모두 성립합니다 — 답과의 상호정보, 답 로그확률의 변화량, 그리고 제거했을 때의 손실.</td><td class="num">3</td></tr>
         <tr><td>기제</td><td>정답을 예측하는 <strong>내부 신호는 과제를 건너 이전되지 않습니다</strong> — 구조적 기하는 이전되는데(프로브 정확도 0.85 이상) 그 위에 세운 정답 예측기는 0.87 → 0.60까지 떨어집니다.</td><td class="num">3</td></tr>
         <tr><td>기제</td><td>activation steering의 손상은 개입이 아니라 <strong>기본 설정</strong>이 원인입니다 — 표준 refusal direction과 고정 전역 층 집합이 각각 실패하고, 사례에 맞춘 선택으로 바꾸면 효과를 잃지 않고 손상이 사라집니다.</td><td class="num">2</td></tr>
         <tr><td>학습</td><td>RLVR는 <strong>의미적으로 구별되는 해법 경로를 좁히면서 회복 가능한 오류의 범위를 넓힙니다</strong>. 두 효과는 분리 가능하고 둘 다 실재하며, 단일 pass@k 숫자로는 어느 쪽도 보이지 않습니다.</td><td class="num">3</td></tr>
@@ -377,7 +378,7 @@
   <p class="part-label">5부 · 남은 것</p>
   <h2>아카이브가 답하지 못하는 것</h2>
   <div class="prose">
-    <p>여기 적은 것은 "아직 연구가 부족하다"가 아니라, <strong>이 아카이브가 읽은 268편 중 어느 것도 이 질문을 다루지 않았다</strong>는 뜻입니다. 각 항목은 실행 가능한 실험으로 적었습니다.</p>
+    <p>여기 적은 것은 "아직 연구가 부족하다"가 아니라, <strong>이 아카이브가 읽은 269편 중 어느 것도 이 질문을 다루지 않았다</strong>는 뜻입니다. 각 항목은 실행 가능한 실험으로 적었습니다.</p>
   </div>
 
   <div class="scroll">
@@ -389,6 +390,11 @@
           <td><span class="st st-unk">모름</span> 파라미터를 state에 걸쳐 <strong>공유하는</strong> 정책의 entropy dynamics</td>
           <td>학습 쪽 이론 여섯 편이 전부 tabular softmax 1스텝 1차 전개입니다 — 즉 <em>함수 근사가 없는</em> 정책. transformer는 정의상 파라미터를 공유합니다.</td>
           <td>log-linear 함수 근사까지는 도달한 결과가 있습니다. 한 클래스가 비어 있고, 그 클래스가 실제 대상입니다.</td>
+        </tr>
+        <tr>
+          <td><span class="st st-arg">다툼</span> "한 스텝"이 <strong>두 가지 뜻</strong>으로 쓰이고 있음</td>
+          <td>entropy 이론의 스텝은 <em>gradient</em> 업데이트이고, RaML의 스텝은 <em>생성 토큰</em>입니다. 둘 다 1스텝 정리를 갖는데 축적하는 쪽은 하나뿐이고, 축적하는 축이 서로 다릅니다 — <strong>어느 쪽도 상대가 분석하는 양에 대한 multi-step 설명을 갖고 있지 않습니다.</strong></td>
+          <td>RaML의 Prop 2.1은 단순화된 블록에 대한 <em>존재</em> 결과이고 파라미터 집합이 유일하지 않다고 논문이 밝힙니다. 두 축을 잇는 것은 아직 아무도 하지 않았습니다.</td>
         </tr>
         <tr>
           <td><span class="st st-unk">모름</span> 토큰 선택 기준들이 <strong>같은 토큰을 고르는가</strong></td>
@@ -416,13 +422,13 @@
 
   <div class="note">
     <h4>이 문서가 스스로 인정하는 한계</h4>
-    <p>수집은 arXiv·학회 색인·큐레이션 목록·YouTube에서 이 그룹의 <strong>5개 주제 키워드</strong>로 걸러집니다. 걸리지 않은 것은 없는 것과 구별되지 않습니다. 연도 분포도 극단적으로 치우쳐 있습니다 — 268편 중 <strong>233편이 2026년</strong>이고 2021–2024년은 합쳐 13편입니다. 1부의 전사가 얇은 이유이고, 그 13편이 전부 해당 분야의 앵커 논문인 것은 우연이 아니라 수집 방식의 결과입니다.</p>
-    <p>그리고 아직 <strong>66편이 미읽</strong>입니다. 이 지도는 202편 위에 세워졌습니다.</p>
+    <p>수집은 arXiv·학회 색인·큐레이션 목록·YouTube에서 이 그룹의 <strong>5개 주제 키워드</strong>로 걸러집니다. 걸리지 않은 것은 없는 것과 구별되지 않습니다. 연도 분포도 극단적으로 치우쳐 있습니다 — 269편 중 <strong>233편이 2026년</strong>이고 2021–2024년은 합쳐 13편입니다. 1부의 전사가 얇은 이유이고, 그 13편이 전부 해당 분야의 앵커 논문인 것은 우연이 아니라 수집 방식의 결과입니다.</p>
+    <p>그리고 아직 <strong>66편이 미읽</strong>입니다. 이 지도는 203편 위에 세워졌습니다.</p>
   </div>
 </section>
 
 <footer>
-  <p><strong>출처.</strong> 모든 수치는 이 아카이브의 <code>data/</code>에 기록된 논문 요약과 개념 정의에서 왔습니다. 각 주장의 원 논문은 <code>wiki/</code>의 해당 개념 노트에서 <em>Appears in</em> 목록으로 따라갈 수 있고, 4부의 열세 항목은 <code>wiki/findings.md</code>에 근거 논문과 함께 실려 있습니다.</p>
+  <p><strong>출처.</strong> 모든 수치는 이 아카이브의 <code>data/</code>에 기록된 논문 요약과 개념 정의에서 왔습니다. 각 주장의 원 논문은 <code>wiki/</code>의 해당 개념 노트에서 <em>Appears in</em> 목록으로 따라갈 수 있고, 4부의 열네 항목은 <code>wiki/findings.md</code>에 근거 논문과 함께 실려 있습니다.</p>
   <p><strong>갱신.</strong> 큐가 비면 이 문서의 숫자가 달라집니다. 특히 4부는 새 논문이 기존 finding의 근거를 늘리거나 반박할 때마다 바뀌도록 되어 있습니다.</p>
 </footer>
 

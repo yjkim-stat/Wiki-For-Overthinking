@@ -336,4 +336,62 @@ equalize the resulting weight *distributions* between them, so the 2.10-point
 cue advantage could still be distributional rather than semantic. Equalizing
 that is a small change to an experiment that already exists.
 
-<!-- analysis-sources: 8 -->
+### "One step" means two different things, and neither literature has the other's
+
+A paper handed to this archive on 2026-08-14 rather than collected — **RaML**,
+*Deciphering Trajectory-Aided LLM Reasoning* — looked from its abstract like the
+multi-step account the section above says is missing. It is not, and the reason
+is worth writing down because it clarifies what the gap actually is.
+
+| | The entropy cluster | RaML |
+| --- | --- | --- |
+| A "step" is | one **gradient** update during training | one **generated token** during inference |
+| The one-step result | ΔH ≈ −η·Cov(log π, π·A), first-order, tabular softmax | Prop. 2.1: attending to one more trajectory token equals a one-step update of an equivalent parameter set |
+| Accumulated into | nothing derived — the trajectory is *fitted* | a multi-step pseudo-gradient descent over one generation |
+| Weights actually change? | yes | **no** — the update is an equivalence, not an event |
+
+So both have a one-step theorem and only one of them accumulates it, but they
+accumulate over different axes. **Neither has a multi-step account of the
+quantity the other analyses.** The archive's open question — the entropy
+dynamics of a policy whose parameters are shared across states — is untouched by
+RaML, which does not discuss entropy at all.
+
+**What RaML's Proposition 2.1 does and does not say.** It constructs, for a
+simplified block with one attention layer and a two-layer feed-forward network
+and normalization disregarded, a parameter set under which the extended-context
+activation is reproduced from the original input — via a Moore–Penrose
+pseudoinverse of the input embeddings. It is an **existence** result, the paper
+says the parameter set may not be unique, and nothing identifies the
+pseudo-gradient with a gradient of any training objective. "Reasoning
+trajectories are pseudo-gradient descent" is an interpretation the algebra
+permits, not a mechanism established.
+
+The empirical support is the honest part and inherits a caveat the archive
+already holds. The probe is the negative log-probability of the answer,
+re-measured at every token position, and it descends along correct trajectories
+while showing no downward trend on incorrect ones. That control is the right one
+to have run — but the quantity is *answer confidence*, which
+[[answer-stabilization]] records as stabilizing whether or not the answer is
+right, and the incorrect-trajectory result is reported qualitatively rather than
+as a number.
+
+### What it adds that the entropy line does not have
+
+Two things, both about the axis the entropy cluster does not look at.
+
+**The SFT-versus-RL comparison, measured on one base model.** Zero-GRPO does not
+consistently beat SFT — 27.37 against 36.69 Pass@8 on AIME24, 71.66 against
+82.98 on MATH500-L5 — and an SFT cold start before GRPO gains +31% on AIME24
+Pass@8 and **+175%** on its mG-Pass@8. The account offered is that off-policy
+trajectories are an *oracle inner-loop optimizer* while on-policy RL is an
+unstable learned one with a higher ceiling. ⚠️ The comparison confounds training
+method with trajectory *source*: the strong SFT arm learns from a 14B distilled
+reasoning model and Zero-GRPO has no teacher at all.
+
+**Support-set size as the reason group sampling works.** More trajectories per
+question improves and stabilizes both SFT and GRPO and accelerates convergence,
+which RaML offers as why GRPO-style group sampling beats single-trajectory PPO —
+the group *is* the support set. That is a meta-learning reading of a design
+choice this archive has only ever discussed as variance reduction.
+
+<!-- analysis-sources: 9 -->
