@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08266",
+      "kind": "paper",
+      "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+      "title": "On the Robustness of LLMs' Internal Representation of Code Correctness"
+    },
+    {
       "id": "arxiv:2608.08503",
       "kind": "paper",
       "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
@@ -17,9 +23,28 @@
   ],
   "first_seen": "2026-08-20T13:26:16Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T14:05:59Z",
   "name": "out-of-domain generalization",
   "related": [
+    "linear-probe",
+    "interpretability-illusion",
+    "operating-point",
+    "measurement-invariance",
+    "distribution-shift",
+    "selection-bias",
+    "detection-versus-control",
+    "identifiability",
+    "difference-in-means-direction",
+    "analysis-of-variance",
+    "mutation-testing",
+    "out-of-distribution-evaluation",
+    "cross-validation",
+    "layer-selection",
+    "bigcodebench",
+    "humaneval",
+    "mbpp",
+    "qwen",
+    "mistral",
     "chain-of-thought-distillation",
     "rationale-supervision",
     "benchmark-contamination",
@@ -76,6 +101,7 @@
   "schema_version": 1,
   "slug": "out-of-domain-generalization",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"

@@ -1,0 +1,60 @@
+{
+  "concepts": [
+    "linear probing",
+    "interpretability illusion",
+    "operating point",
+    "measurement invariance",
+    "out-of-domain generalization",
+    "distribution shift",
+    "selection bias",
+    "detection versus control",
+    "identifiability"
+  ],
+  "contributions": [
+    "A systematic sweep over every design choice involved in extracting an internal correctness signal -- construction method, read-out location, fitting and testing framing, fitting source, benchmark and model -- rather than the single recipe under which the signal was originally reported.",
+    "The demonstration that a pooled analysis of variance can rank a decisive choice at under 1 percent because its opposite effects on two benchmarks cancel, and that per-benchmark decomposition is therefore required rather than optional.",
+    "Evidence that the read-out location has opposite optima on two benchmarks (response average against last token) and cannot be set independently of the framing it is read under.",
+    "A regrouped variance decomposition showing the dominant factor family differs by benchmark -- fitting data at 75 percent on one, construction and model at 42 and 40 on the other -- so there is no transferable recipe.",
+    "The finding that a mismatched fitting source can drive the signal below the chance level of the task rather than merely weakening it.",
+    "A negative answer to whether isolating the fault helps: directions fitted on program pairs differing only in an injected defect reach 83 percent on held-out pairs of the same construction and fall to 20 to 30 percent on real benchmarks, well below in-distribution fitting."
+  ],
+  "datasets": [
+    "BigCodeBench",
+    "HumanEval",
+    "MBPP+"
+  ],
+  "generated_at": "2026-08-20T14:04:38Z",
+  "generated_by": "queue",
+  "limitations": "Not stated as a section, but the paper is constructed as a limitation study of prior work and is correspondingly careful about its own claims -- it reports that the pooled ranking can say the benchmark shapes the other choices but not which setting to prefer on a given benchmark, and moves to per-benchmark analysis for that. Not stated but worth noticing: two benchmarks, four models and one concept support the conclusion, so 'no single best configuration' is established over a narrow grid, and the finding that the two benchmarks disagree about which factor family dominates rests on exactly two points. The controlled pairs are built from twenty mutation operators, so the negative transfer result is about synthetic mutation faults rather than about fault isolation in general -- a set of naturally occurring faults isolated some other way might behave differently, and the paper cannot distinguish 'isolating the fault does not help' from 'mutation-generated faults are unrepresentative'. Accuracy is reported on a 1-of-4 selection task, so the chance level is 25 percent and several reported configurations sit near it.",
+  "method": "Every choice that goes into producing such a direction is varied systematically rather than fixed. The construction method for the direction; the read-out location, meaning whether the hidden state is taken at the last token or averaged over the response; the fitting framing and the testing framing, which vary how explicitly the model is prompted for the concept, in six fit-to-evaluation combinations; the source of the fitting data, either in-distribution or from two out-of-distribution sources including a synthetic one; the test benchmark; and the model, across four. Results are decomposed by analysis of variance into main effects and interactions, reported both pooled across benchmarks and within each benchmark separately, and then regrouped into three families that account for every factor: how the direction is constructed, what data it is fit on, and which model it is read from. A second question asks whether the signal's quality is limited by the data used to extract it, by building controlled program pairs that differ only in the injected fault -- using twenty mutation operators -- so the contrast isolates the defect rather than confounding it with everything else that differs between an arbitrary correct and incorrect program. Those fault-isolated directions are then tested both on a held-out split of the same controlled pairs and on the real benchmarks.",
+  "methods": [
+    "linear probing",
+    "difference-in-means direction",
+    "analysis of variance",
+    "mutation testing",
+    "out-of-distribution evaluation",
+    "cross-validation",
+    "layer selection"
+  ],
+  "models": [
+    "Qwen",
+    "Mistral"
+  ],
+  "one_liner": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+  "paper_id": "arxiv:2608.08266",
+  "problem": "Language models write code that reads naturally and often does not do what was asked, and their own confidence signals -- token probabilities or stated confidence -- are poorly calibrated with correctness. A promising alternative reads what the model computes internally: contrasting hidden states of correct against incorrect programs recovers a direction along which the concept varies, and new candidates are scored by how far they point along it, with no test execution required. Prior work showed this beats the model's token-level and stated confidence. But it was captured under one particular set of extraction choices, which leaves open whether the signal reflects a robust property of the model or an artifact of that recipe.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-interpretability": "This is the systematic version of a worry the archive has been assembling piecemeal, applied to the most common instrument in it. A published internal signal was captured under one extraction recipe; sweeping the recipe shows no configuration is best across benchmarks, models, or framings, and that the choice which matters most is not the same one on two benchmarks. The specific results transfer directly. Read-out location -- last token against response average -- has opposite optima on the two benchmarks, with a gap of over twenty points in each direction, so any archived probing number should be read as conditional on that choice and any comparison across papers that differ in it is not a comparison. It also cannot be set independently: the framing a direction is read under changes which location wins, and the two together carry more variance than either alone. Most importantly for how the archive reads ablations, the pooled analysis of variance ranks read-out location at under 1 percent because its opposite effects cancel across benchmarks -- a decisive factor appearing negligible in exactly the aggregate a paper would normally report. That is a concrete demonstration that a variance decomposition pooled over settings can be actively misleading, and it pairs with the archive's other measurement-audit material, where an apparent scaling trend rests on a compound of choices that a factorial decomposition dissolves. Two further results are worth holding. A mismatched fitting source drives the signal to 22 percent on a task with a 25 percent chance floor, so a probe fitted on the wrong distribution is not a weaker probe but no probe at all -- and nothing in the accuracy number itself would say which. And the fault-isolation experiment is a clean negative with a useful shape: contrasting programs that differ only in an injected defect gives a direction scoring 83 percent on held-out pairs of the same construction and 20 to 30 percent on real programs, so a cleaner contrast produced a direction that describes the contrast rather than the concept. That is the same failure as an over-specified control set anywhere else, and it argues against the intuition that tightening a contrastive pair always sharpens the direction it yields."
+  },
+  "results": "The pooled analysis of variance is itself the paper's sharpest methodological result. Read-out location, fitting framing and benchmark identity each account for under 1 percent of the variance as main effects -- which would ordinarily be read as unimportant -- while any term involving the benchmark accounts for 47 percent. The reason is cancellation: on one benchmark averaging over the response wins decisively (71 to 77 percent against 48 to 54 at the last token), and on the other the last token wins (65 to 75 against 50 to 64), so the two opposite preferences average to nothing in the pool. A choice can carry little variance not because it does not matter but because its effects on two benchmarks cancel. Examined separately, the benchmarks rank the choices differently and no single configuration is best on both. Only the construction method behaves the same regardless of everything else, and it is the sole choice whose preferred setting never reverses. On one benchmark the largest share belongs not to any single choice but to the fitting and testing framings acting together, with the read-out location second and unusable on its own because the framing it is read under changes its effect -- a direction fit and read under one framing scores 63 to 69 percent and 37 to 55 under another. Model identity accounts for 11 percent on one benchmark, where the four models agree on the best configuration, and 51 percent on the other, where the best per-model configuration ranges from 42 to 62 percent, so a setting best for one model need not be best for another. The regrouped decomposition makes the incompatibility plain: on one benchmark the fitting data carries 75 percent of the variance against 16 for construction and 9 for the model, while on the other construction carries 42, the model 40, and the fitting data 18. Out-of-distribution fitting degrades the signal on both benchmarks and catastrophically on one, falling from 52 percent to 35 with one alternative source and to 22 with a synthetic one -- below the 25 percent chance level of the selection task, so a poorly matched fitting source does not merely weaken the signal but destroys it. The fault-isolation question is answered negatively and cleanly. Directions fitted on controlled pairs that differ only in the injected defect score 83.3 and 81.7 percent on a held-out split of those same pairs, and 19.6 to 30.0 percent on the real benchmarks, against 56.7 and 52.8 for in-distribution fitting. Isolating the fault produces a direction that works excellently on its own construction and worse than chance-adjacent on real programs.",
+  "schema_version": 1,
+  "tags": [
+    "linear-probing",
+    "robustness",
+    "code-correctness",
+    "measurement-confound",
+    "anova",
+    "negative-result"
+  ]
+}

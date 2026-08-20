@@ -47,9 +47,9 @@ Stated where it matters. The read-out layer is chosen per backbone on validation
 
 ## Entities
 
-- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), linear probing, [residual stream](../../../../wiki/concepts/residual-stream.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [distribution shift](../../../../wiki/concepts/distribution-shift.md), [class imbalance](../../../../wiki/concepts/class-imbalance.md), [operating point](../../../../wiki/concepts/operating-point.md), [grounding](../../../../wiki/concepts/grounding.md), [layer selection](../../../../wiki/concepts/layer-selection.md)
+- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), linear probing, [residual stream](../../../../wiki/concepts/residual-stream.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [distribution shift](../../../../wiki/concepts/distribution-shift.md), [class imbalance](../../../../wiki/concepts/class-imbalance.md), [operating point](../../../../wiki/concepts/operating-point.md), [grounding](../../../../wiki/concepts/grounding.md), layer selection
 - **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), graph neural network, vision transformer, recurrent neural network, [attention analysis](../../../../wiki/methods/attention-analysis.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), self-adaptation, reject-and-resample decoding, [component ablation](../../../../wiki/methods/component-ablation.md), layer sweep
-- **Datasets**: MHALO, HalLoc, POPE, COCO, CHAIR
+- **Datasets**: MHALO, HalLoc, POPE, [COCO](../../../../wiki/datasets/coco.md), [CHAIR](../../../../wiki/datasets/chair.md)
 
 Tags: `hallucination-detection`, `vision-language`, `probing`, `structured-readout`, `streaming-decoding`, `layer-analysis`
 

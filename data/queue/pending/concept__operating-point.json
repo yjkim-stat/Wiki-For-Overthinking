@@ -12,6 +12,15 @@
       },
       {
         "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
         "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
         "topics": [
@@ -47,7 +56,7 @@
   },
   "payload": {
     "name": "operating point",
-    "source_count": 3
+    "source_count": 4
   },
   "task_id": "concept__operating-point",
   "task_version": 1,

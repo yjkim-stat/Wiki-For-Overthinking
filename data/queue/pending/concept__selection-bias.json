@@ -12,6 +12,15 @@
       },
       {
         "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
         "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
         "topics": [
@@ -38,7 +47,7 @@
   },
   "payload": {
     "name": "selection bias",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__selection-bias",
   "task_version": 1,

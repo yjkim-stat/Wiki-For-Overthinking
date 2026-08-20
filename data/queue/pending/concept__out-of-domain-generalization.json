@@ -3,9 +3,21 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
         "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling"
@@ -16,6 +28,7 @@
         "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
         "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling"
@@ -40,12 +53,13 @@
   },
   "payload": {
     "name": "out-of-domain generalization",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__out-of-domain-generalization",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

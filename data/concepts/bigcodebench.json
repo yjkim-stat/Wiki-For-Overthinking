@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08266",
+      "kind": "paper",
+      "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+      "title": "On the Robustness of LLMs' Internal Representation of Code Correctness"
+    },
+    {
       "id": "local:a1d9fa1eb8899dfc",
       "kind": "paper",
       "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
@@ -11,9 +17,28 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T14:05:59Z",
   "name": "BigCodeBench",
   "related": [
+    "linear-probe",
+    "interpretability-illusion",
+    "operating-point",
+    "measurement-invariance",
+    "out-of-domain-generalization",
+    "distribution-shift",
+    "selection-bias",
+    "detection-versus-control",
+    "identifiability",
+    "difference-in-means-direction",
+    "analysis-of-variance",
+    "mutation-testing",
+    "out-of-distribution-evaluation",
+    "cross-validation",
+    "layer-selection",
+    "humaneval",
+    "mbpp",
+    "qwen",
+    "mistral",
     "overthinking",
     "early-exit",
     "pearl-reasoning",
@@ -40,7 +65,6 @@
     "aime-2025",
     "olympiadbench",
     "gpqa-diamond",
-    "humaneval",
     "livecodebench",
     "deepseek-r1-distill-qwen-7b",
     "qwen3-14b",
@@ -50,6 +74,7 @@
   "schema_version": 1,
   "slug": "bigcodebench",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling",
     "reasoning-evaluation"

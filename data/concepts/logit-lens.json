@@ -23,6 +23,12 @@
       "title": "Finding Usable Weight Mechanisms with Tiled SVD"
     },
     {
+      "id": "arxiv:2608.07302",
+      "kind": "paper",
+      "note": "Refutes the standard account of vision-language hallucination -- that the model attends too little to the image -- by showing real and hallucinated objects draw equally strong attention, then uses a logit lens over the attended regions to separate two causally distinct hallucination types and treat each differently.",
+      "title": "Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination"
+    },
+    {
       "id": "arxiv:2608.10172",
       "kind": "paper",
       "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
@@ -49,7 +55,7 @@
   ],
   "first_seen": "2026-08-12T11:23:06Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "last_seen": "2026-08-20T14:05:59Z",
   "name": "logit lens",
   "related": [
     "linear-probe",
@@ -120,6 +126,19 @@
     "ablation",
     "wikitext-2",
     "gemma-2-2b",
+    "hallucination",
+    "attention",
+    "grounding",
+    "layer-selection",
+    "co-occurrence-prior",
+    "attention-analysis",
+    "masking-intervention",
+    "contrastive-decoding",
+    "training-free-intervention",
+    "coco",
+    "chair",
+    "amber",
+    "llava",
     "identifiability",
     "feature-consistency",
     "sparse-dictionary-learning",

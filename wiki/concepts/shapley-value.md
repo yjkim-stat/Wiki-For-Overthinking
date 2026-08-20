@@ -8,7 +8,7 @@ The game-theoretic allocation of a joint outcome across the parts that produced 
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [activation steering](../methods/activation-steering.md), [Aya-expanse-8B](../models/aya-expanse-8b.md), [beam search](../methods/beam-search.md), [calibration](../methods/calibration.md), [contrastive activation addition](../methods/contrastive-activation-addition.md), [detection versus control](detection-versus-control.md), [GPT-2](../models/gpt-2.md), [layer selection](layer-selection.md), [Llama-3-8B-Instruct](../models/llama-3-8b-instruct.md), [logistic regression](../methods/logistic-regression.md), [PCA](../methods/pca.md), [steering vector](../methods/steering-vector.md), [uncertainty quantification](uncertainty-quantification.md)
+**Related**: [activation steering](../methods/activation-steering.md), [Aya-expanse-8B](../models/aya-expanse-8b.md), [beam search](../methods/beam-search.md), [calibration](../methods/calibration.md), [contrastive activation addition](../methods/contrastive-activation-addition.md), [detection versus control](detection-versus-control.md), [GPT-2](../models/gpt-2.md), [layer selection](../methods/layer-selection.md), [Llama-3-8B-Instruct](../models/llama-3-8b-instruct.md), [logistic regression](../methods/logistic-regression.md), [PCA](../methods/pca.md), [steering vector](../methods/steering-vector.md), [uncertainty quantification](uncertainty-quantification.md)
 
 ## Appears in
 

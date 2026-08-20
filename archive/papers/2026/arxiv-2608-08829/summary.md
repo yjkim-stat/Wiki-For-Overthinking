@@ -44,7 +44,7 @@ The paper marks its own boundaries carefully, which is unusual and worth noting:
 
 ## Entities
 
-- **Concepts**: steering vector, [layer selection](../../../../wiki/concepts/layer-selection.md), per-instance intervention, over-steering, fluency collapse, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), saturation, [Shapley value](../../../../wiki/concepts/shapley-value.md), sub-additivity
+- **Concepts**: steering vector, layer selection, per-instance intervention, over-steering, fluency collapse, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), saturation, [Shapley value](../../../../wiki/concepts/shapley-value.md), sub-additivity
 - **Methods**: [activation steering](../../../../wiki/methods/activation-steering.md), [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), [logistic regression](../../../../wiki/methods/logistic-regression.md), [principal component analysis](../../../../wiki/methods/pca.md), listwise ranking, [beam search](../../../../wiki/methods/beam-search.md), adaptive gating
 - **Datasets**: Anthropic Persona
 
