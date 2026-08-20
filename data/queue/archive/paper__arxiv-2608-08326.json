@@ -1,0 +1,136 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-08326.pdf"
+  },
+  "completed_at": "2026-08-20T13:43:01Z",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.08326",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) has emerged as an effective approach for improving multimodal reasoning. However, most existing methods evaluate an entire response using a binary reward based only on final-answer correctness, thereby discarding the supervision available in intermediate reasoning steps. Process reward models offer finer-grained feedback, but they typically rely on separately trained verifiers, costly chain-of-thought annotations, or online judging by large language models (LLMs). In this work, we introduce StructReward, a compute-efficient framework that provides dense reinforcement signals through structured step-level reward alignment. StructReward represents each generated solution as a sequence of reasoning steps and aligns them with process-labeled reference steps using lightweight numerical, symbolic, and lexical matching rules. The aligned labels are aggregated into a dense process reward and combined with final-answer consistency and output-validity rewards through a gated Group Relative Policy Optimization (GRPO) objective. We further recycle policy rollouts into complementary supervision for response comparison and reflective self-correction, rather than discarding them after policy updates. Separately, we use a strong LLM to rewrite sampled correct trajectories into reflection-oriented training instances, further strengthening the policy's ability to evaluate and refine its reasoning. Since reward computation is performed online without an additional learned verifier or external LLM judge, StructReward substantially reduces the computational overhead of multimodal reinforcement learning. Experimental results show that structured process supervision and rollout recycling provide an efficient path toward self-improving multimodal reasoning.",
+    "authors": [
+      "Yifan Li",
+      "Ruxin Sun",
+      "Tongzhou Zhao"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "chain of thought",
+      "verifiable reward",
+      "RLVR",
+      "process reward model",
+      "process supervision",
+      "GRPO",
+      "self-correction"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.08326v2",
+    "published": "2026-08-08",
+    "scores": {
+      "reasoning-training": 0.6667,
+      "test-time-scaling": 0.4
+    },
+    "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+    "url": "https://arxiv.org/abs/2608.08326",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "process reward model",
+      "outcome reward",
+      "credit assignment",
+      "reward shaping",
+      "reference-conditioned supervision",
+      "advantage estimation",
+      "self-correction",
+      "annotation incompleteness",
+      "component ablation"
+    ],
+    "contributions": [
+      "A dense process reward built entirely from rule-based alignment -- numerical, symbolic and lexical matching against step-labelled reference derivations that existing datasets already contain -- with no learned verifier and no online model judging in the reward path.",
+      "A gated objective in which partial agreement with a reference cannot override an incorrect final answer, so the process signal refines credit along a trajectory without being able to supply its direction.",
+      "Rollout recycling: policy rollouts reused as supervision for response comparison and reflective self-correction instead of discarded after the update, contributing 0.9 points in ablation.",
+      "Offline use of a strong model for auxiliary data construction only -- rewriting correct trajectories into reflection-oriented instances and building single-step hard negatives -- worth 1.4 points, while keeping the online path lightweight.",
+      "An explicit characterisation of what the reward is not: agreement with one validated trajectory rather than semantic verification, so a valid alternative derivation is penalised, which the authors state rather than leaving to a reader to discover."
+    ],
+    "datasets": [
+      "MMMU",
+      "MMMU-Pro",
+      "MathVista",
+      "MathVerse"
+    ],
+    "limitations": "Stated, and the conceptual one is the most important. The reward supervises agreement with one validated trajectory for the same problem, not unrestricted semantic verification -- so when several derivations are valid, a rollout that reaches the verified answer through intermediate quantities absent from the selected reference is penalised for being different rather than for being wrong. Final-answer gating stops a partial reference match from overriding an incorrect outcome but cannot make the chosen reference exhaustive, and the authors characterise their own signal as conservative reference-conditioned partial credit rather than process verification. They also state that no hardware-matched timing is reported so no end-to-end speedup is claimed; that the ablation is confined to the 4B setting while results span three scales; and that multiple seeds, additional model families, and comparisons among valid references would be needed beyond the single point estimates given. Not stated but worth noticing: because the reward is agreement with a reference derivation, its coverage is bounded by the process-annotation datasets it reuses, so the method is available only where such annotations already exist -- which is the resource the paper's premise is that others pay to create. And no comparison against a learned process reward model is reported, so the claim is that this is cheaper than a verifier rather than that it is competitive with one.",
+    "method": "The observation the method rests on is that existing process-supervision datasets already contain step-labelled reference derivations, and those can be reused as reward signal without training anything to score them. Each generated solution is represented as a sequence of reasoning steps and aligned to the reference steps for the same problem using lightweight numerical, symbolic and lexical matching rules -- parsing, normalisation, equivalence checks and aggregation, all rule-based. The aligned labels are aggregated into a dense process reward and combined with final-answer consistency and output-validity rewards under a gated GRPO objective, with the gate ensuring that partial agreement with a reference cannot override an incorrect final answer. Two further sources of supervision come from material that would otherwise be discarded: policy rollouts are recycled into training instances for response comparison and reflective self-correction rather than thrown away after the policy update, and a strong language model rewrites sampled correct trajectories into reflection-oriented instances and constructs single-step hard negatives. That strong model is confined to offline auxiliary data construction and never appears in the online reward path, which is what keeps reward computation lightweight. Evaluation covers three backbone scales on two general multimodal reasoning benchmarks and two visual mathematical reasoning benchmarks, with all scales run at identical prompt-group budgets. The ablation removes one auxiliary component at a time from a shared supervised initialisation, holding the structured-RL prompts, rollout budget, optimisation settings, decoding configuration and evaluation examples fixed.",
+    "methods": [
+      "GRPO",
+      "process reward",
+      "RLVR",
+      "rule-based reward",
+      "symbolic equivalence checking",
+      "rollout recycling",
+      "hard negative mining",
+      "supervised fine-tuning",
+      "self-correction",
+      "component ablation"
+    ],
+    "models": [
+      "Qwen3-VL-2B",
+      "Qwen3-VL-4B",
+      "Qwen3-VL-8B"
+    ],
+    "one_liner": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+    "problem": "Most multimodal reinforcement learning with verifiable rewards assigns one binary reward to an entire response based on final-answer correctness, which cannot distinguish a response whose intermediate results are reliable from one that reaches the same answer through an inconsistent or accidental process. Process reward models give finer feedback but require a separately trained verifier, costly chain-of-thought annotations, or online judging by a large model during policy optimisation. That is a sparse-supervision trap: outcome rewards are cheap and collapse a trajectory into one bit, while learned process rewards are informative and computationally expensive.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-training": "Two things here are worth the archive's attention, and the second is more interesting than the headline. The first is a genuinely cheap route to dense process supervision: existing process-annotation datasets already contain step-labelled reference derivations, and aligning generated steps to them by parsing, normalisation and symbolic equivalence gives a per-step signal with no learned verifier and no model in the online reward path. That sits well with the archive's other evidence that a cheap deterministic anchor often carries more of the effect than an expensive judge, and with the finding elsewhere here that verifying claims by execution beats asking a judge. The gating design also matches the archive's standing position that a process signal refines the distribution of credit along a trajectory and cannot supply its direction -- here enforced structurally, since partial agreement with a reference cannot override a wrong answer. The second and more useful contribution is the limitation the authors volunteer. Their reward measures agreement with one validated trajectory, so a rollout reaching the verified answer through intermediate quantities absent from the selected reference is penalised for taking a different valid route. They name this and call their signal conservative reference-conditioned partial credit rather than process verification. That is a specific instance of a problem the archive holds in several forms -- annotation incompleteness scoring a model wrong for being right about something unlabelled, and single-gold-answer benchmarks distorting retriever comparisons -- now appearing inside a training objective rather than an evaluation. A process reward defined as similarity to one reference derivation will select for conformity to that derivation, which is exactly what a reader should expect it to optimise, and the paper is unusual in saying so before anyone asks. The reporting discipline is also worth noting: the authors state in their own results section that the main table shows an association with the complete procedure and does not isolate component causes, describe their one-at-a-time ablation as component evidence within a configuration rather than a factorial decomposition, and decline to claim a speedup because they did not run hardware-matched timing.",
+      "test-time-scaling": "Relevant here mainly for what it moves off the inference path. The design's organising constraint is that the online reward computation is parsing, normalisation, equivalence checking and aggregation, while the strong language model is confined to offline auxiliary data construction -- so the expensive component runs once during data preparation rather than at every rollout. That is the same trade the archive's evaluation-time-compute material describes from the other direction, and it is the shape worth generalising: an expensive model used to build supervision is a fixed cost, while the same model used as an online judge or verifier is a cost per sample that scales with the training or inference budget. The authors are careful not to overclaim it, stating that they report no hardware-matched timing and therefore claim no measured end-to-end speedup, which leaves the argument architectural rather than empirical. The auxiliary supervision the method recovers is also a small test-time-scaling result in miniature: rollouts that would ordinarily be discarded after a policy update are recycled into response-comparison and self-correction training instances, worth 0.9 points in ablation -- so sampled trajectories carry information beyond the gradient they contributed, which is the same observation behind the archive's material on rescuing zero-advantage groups."
+    },
+    "results": "The four-benchmark average improves at every scale: 50.8 to 54.4 at 2B (+3.6), +4.1 at 4B, and +4.4 at 8B, with no displayed benchmark reversing the direction of the comparison. The largest single gain is on visual mathematics at 4B, from 73.7 to 81.0, and at 8B the per-benchmark gains are +4.6, +4.4, +5.0 and +3.7 -- so the benefit does not shrink with backbone capacity, which the authors read as reference-conditioned process supervision complementing rather than substituting for reasoning ability already present. The ablation shows the two auxiliary sources contribute separately and modestly: the full configuration averages 64.4, removing the strong-model rewriting gives 63.0, and removing the rollout-derived judgment and choice supervision gives 63.5, against 60.3 for the instruction-tuned baseline. So both reduced variants retain most of the gain, and the two auxiliary components are worth 1.4 and 0.9 points respectively on top of the structured reward itself. The authors decline to over-read any of this, stating in the results section that the main table establishes an empirical association between the complete training procedure and higher checkpoint accuracy without isolating which reward component causes each benchmark-specific gain, and that the ablation removes one component at a time on single checkpoint estimates so it is component evidence within this configuration rather than a factorial decomposition of interactions. They likewise decline to claim a speedup, noting that although the online reward path is rule-based they do not report hardware-matched timing.",
+    "tags": [
+      "process-reward",
+      "grpo",
+      "multimodal",
+      "rule-based-reward",
+      "rollout-recycling",
+      "verifier-free"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-08326",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

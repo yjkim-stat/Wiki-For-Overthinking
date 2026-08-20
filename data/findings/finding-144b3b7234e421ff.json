@@ -3,7 +3,10 @@
     "answer-evidence gap",
     "chain-of-thought faithfulness",
     "critic calibration",
-    "reasoning boundary"
+    "reasoning boundary",
+    "rationale supervision",
+    "human evaluation",
+    "seed variance"
   ],
   "established_at": "2026-08-13T00:49:41Z",
   "id": "finding:144b3b7234e421ff",
@@ -11,9 +14,11 @@
   "papers": [
     "arxiv:2608.01631",
     "arxiv:2608.02149",
-    "arxiv:2608.02181"
+    "arxiv:2608.02181",
+    "arxiv:2608.08503"
   ],
-  "rationale": "Across eleven KV cache compressors the accuracy ranking correlates with the chain-validity ranking at Spearman -0.95 on AIME26: the best compressed method retains 74% of accuracy while 65.5% of its correct answers rest on invalid chains, against 4.3% uncompressed, and answer-first rationalization rises from 58% to 94% of failure cases. A quantization control that evicts no tokens stays near baseline on every metric, so the gap tracks losing access to the trace rather than reducing memory. The same asymmetry appears where accuracy is the training signal rather than the evaluation: writing RLVR objectives as moments of the failure-probability distribution shows two policies can share a mean while distributing success differently across problems, and a miscalibrated critic turns a symmetric binary reward into advantages 2.63 times larger for failures than successes without any of it being visible in accuracy.",
+  "rationale": "Across eleven KV cache compressors the accuracy ranking correlates with the chain-validity ranking at Spearman -0.95 on AIME26: the best compressed method retains 74% of accuracy while 65.5% of its correct answers rest on invalid chains, against 4.3% uncompressed, and answer-first rationalization rises from 58% to 94% of failure cases. A quantization control that evicts no tokens stays near baseline on every metric, so the gap tracks losing access to the trace rather than reducing memory. The same asymmetry appears where accuracy is the training signal rather than the evaluation: writing RLVR objectives as moments of the failure-probability distribution shows two policies can share a mean while distributing success differently across problems, and a miscalibrated critic turns a symmetric binary reward into advantages 2.63 times larger for failures than successes without any of it being visible in accuracy. A fourth source, added 2026-08-20, closes the loop by measuring the reasoning directly and finding the accuracy movement unaccompanied. In a matched study of rationale against answer-only supervision -- identical splits, identical response-only loss masking, identical greedy decoding and scoring, differing only in the training target -- rationale supervision wins by 20.14 to 28.10 points out of domain on all four backbones. A human study over the same three conditions, with two annotators, independent external-expert adjudication and inter-annotator agreement from 0.760 to 1.000 across eight criteria, then finds no significant improvement on any reasoning-content criterion: not arithmetic correctness, not logical validity, not problem grounding, not answer consistency, not completeness. Its measurable effects are target-language adherence and producing inspectable reasoning at all. So a twenty-point accuracy gain coexisted with no detectable change in the quality of the reasoning that produced it -- the asymmetry holding in the direction the earlier three sources did not test, where accuracy rises. The same paper supplies the converse warning in-domain: three of four models show negative point estimates for rationale supervision with intervals spanning zero, and under a second seed answer-only significantly wins by 10.99 points, so the accuracy comparison is not merely uninformative about the reasoning but unstable in sign.",
+  "references": [],
   "schema_version": 1,
   "statement": "Final-answer accuracy is an asymmetric diagnostic: its collapse is evidence of damage, but its preservation is evidence of nothing about the reasoning underneath.",
   "superseded_by": "",

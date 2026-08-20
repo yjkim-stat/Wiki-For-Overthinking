@@ -103,7 +103,7 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 
 Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
 
-Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning.
+Seen in: Training Verifiers to Solve Math Word Problems; DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning; Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving; FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation.
 
 ### advantage estimation
 
@@ -127,19 +127,19 @@ Seen in: Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reason
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 45 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| LLM-as-a-judge | 40 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
-| supervised fine-tuning | 38 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| GRPO | 46 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| LLM-as-a-judge | 41 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| supervised fine-tuning | 40 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 29 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
-| chain-of-thought prompting | 24 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
-| RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
+| chain-of-thought prompting | 25 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
+| RLVR | 25 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | self-consistency | 22 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
 | activation steering | 19 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | activation patching | 18 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | best-of-n | 15 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | sparse autoencoder | 14 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| knowledge distillation | 11 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
+| knowledge distillation | 12 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | steering vector | 10 | A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and tex... |
 | circuit analysis | 9 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
@@ -157,9 +157,9 @@ Seen in: Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reason
 | GSM8K | 37 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 34 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 18 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
-| OlympiadBench | 15 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| OlympiadBench | 16 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| MATH | 15 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
-| MATH | 14 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | Minerva | 10 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
 | LiveCodeBench | 9 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |

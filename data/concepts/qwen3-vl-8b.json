@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
       "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection"
+    },
+    {
+      "id": "arxiv:2608.08326",
+      "kind": "paper",
+      "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+      "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "Qwen3-VL-8B",
   "related": [
     "process-reward",
@@ -53,12 +59,30 @@
     "cltr",
     "yolov8",
     "yolov7-pose",
-    "places365"
+    "places365",
+    "process-reward-model",
+    "reference-conditioned-supervision",
+    "self-correction",
+    "annotation-incompleteness",
+    "component-ablation",
+    "rlvr",
+    "rule-based-reward",
+    "symbolic-equivalence-checking",
+    "rollout-recycling",
+    "hard-negative-mining",
+    "mmmu",
+    "mmmu-pro",
+    "mathvista",
+    "mathverse",
+    "qwen3-vl-2b",
+    "qwen3-vl-4b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-vl-8b",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

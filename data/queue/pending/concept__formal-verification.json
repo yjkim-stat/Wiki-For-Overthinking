@@ -1,0 +1,49 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Tests whether systems that translate natural-language reasoning steps into Lean preserve invalidity as well as validity, by automatically perturbing steps to make them wrong, and finds pervasive silent correction -- with the systems best at preserving valid inputs the most likely to repair invalid ones.",
+        "title": "FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses 200 mathematical proof problems as a diagnostic, finding some reasoning models solve under 20% and cataloguing 10 fine-grained error types that numerical benchmarks hide.",
+        "title": "Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-20T13:43:04Z",
+  "instructions": "Write the wiki definition for 'formal verification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "formal verification",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "formal verification",
+    "source_count": 2
+  },
+  "task_id": "concept__formal-verification",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

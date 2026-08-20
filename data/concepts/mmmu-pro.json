@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
       "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning"
+    },
+    {
+      "id": "arxiv:2608.08326",
+      "kind": "paper",
+      "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+      "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
     }
   ],
   "first_seen": "2026-08-13T01:22:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T01:22:49Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "MMMU-Pro",
   "related": [
     "visual-grounding",
@@ -42,7 +48,28 @@
     "gpt-4o",
     "gpt-4-1-mini",
     "llama-3-2-vision-11b",
-    "gemma-3-4b"
+    "gemma-3-4b",
+    "process-reward-model",
+    "outcome-reward",
+    "credit-assignment",
+    "reward-shaping",
+    "reference-conditioned-supervision",
+    "advantage-estimation",
+    "self-correction",
+    "annotation-incompleteness",
+    "component-ablation",
+    "grpo",
+    "process-reward",
+    "rlvr",
+    "rule-based-reward",
+    "symbolic-equivalence-checking",
+    "rollout-recycling",
+    "hard-negative-mining",
+    "mmmu",
+    "mathverse",
+    "qwen3-vl-2b",
+    "qwen3-vl-4b",
+    "qwen3-vl-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

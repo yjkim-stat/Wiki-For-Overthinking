@@ -22,11 +22,17 @@
       "kind": "paper",
       "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
       "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
+      "id": "arxiv:2608.08503",
+      "kind": "paper",
+      "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+      "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "few-shot prompting",
   "related": [
     "self-training",
@@ -62,7 +68,31 @@
     "gsm8k",
     "mathstral-7b",
     "qwen2-5-7b-instruct",
-    "llama-3-1-8b-instruct"
+    "llama-3-1-8b-instruct",
+    "chain-of-thought-distillation",
+    "rationale-supervision",
+    "out-of-domain-generalization",
+    "benchmark-contamination",
+    "matched-budget-comparison",
+    "reasoning-depth",
+    "seed-variance",
+    "annotation-agreement",
+    "low-resource-languages",
+    "knowledge-distillation",
+    "response-only-loss-masking",
+    "paired-bootstrap",
+    "mcnemar-test",
+    "decontamination",
+    "cohen-s-kappa",
+    "human-evaluation",
+    "mathshikkha",
+    "banglamath",
+    "gpt-5-4",
+    "qwen2-5-math-7b-instruct",
+    "deepseek-r1-distill-qwen-7b",
+    "mathstral-7b-v0-1",
+    "ganitllm-4b",
+    "tigerllm-9b-it"
   ],
   "related_authored": [],
   "schema_version": 1,
@@ -70,6 +100,7 @@
   "topics": [
     "reasoning-training",
     "reasoning-faithfulness",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

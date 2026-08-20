@@ -9,6 +9,12 @@
       "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure"
     },
     {
+      "id": "arxiv:2608.08503",
+      "kind": "paper",
+      "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+      "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models"
+    },
+    {
       "id": "local:504cc53656b06ab4",
       "kind": "paper",
       "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:36:57Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "Cohen's kappa",
   "related": [
     "steering-vector",
@@ -50,6 +56,32 @@
     "llama-3-2-1b-instruct",
     "qwen",
     "deepseek",
+    "chain-of-thought-distillation",
+    "rationale-supervision",
+    "out-of-domain-generalization",
+    "benchmark-contamination",
+    "matched-budget-comparison",
+    "reasoning-depth",
+    "seed-variance",
+    "annotation-agreement",
+    "low-resource-languages",
+    "supervised-fine-tuning",
+    "knowledge-distillation",
+    "chain-of-thought-prompting",
+    "response-only-loss-masking",
+    "paired-bootstrap",
+    "mcnemar-test",
+    "decontamination",
+    "human-evaluation",
+    "few-shot-prompting",
+    "mathshikkha",
+    "banglamath",
+    "gpt-5-4",
+    "qwen2-5-math-7b-instruct",
+    "deepseek-r1-distill-qwen-7b",
+    "mathstral-7b-v0-1",
+    "ganitllm-4b",
+    "tigerllm-9b-it",
     "kappa-deflation",
     "consistency-bias-paradox",
     "krippendorff-s-alpha",
@@ -66,7 +98,6 @@
     "judgebench",
     "rewardbench",
     "gpt-4o",
-    "gpt-5-4",
     "claude-opus-4-6",
     "claude-sonnet-4-6",
     "gemini-3-1-pro",
@@ -81,6 +112,8 @@
   "slug": "cohen-s-kappa",
   "topics": [
     "reasoning-interpretability",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

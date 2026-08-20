@@ -18,6 +18,12 @@
       "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
     },
     {
+      "id": "arxiv:2608.08503",
+      "kind": "paper",
+      "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+      "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models"
+    },
+    {
       "id": "arxiv:2608.10198",
       "kind": "paper",
       "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
@@ -26,7 +32,7 @@
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "matched-budget comparison",
   "related": [
     "test-time-scaling",
@@ -62,6 +68,33 @@
     "sciq",
     "phi-3-mini-4k-instruct",
     "qwen2-5-1-5b-instruct",
+    "chain-of-thought-distillation",
+    "rationale-supervision",
+    "out-of-domain-generalization",
+    "benchmark-contamination",
+    "reasoning-depth",
+    "chain-of-thought-faithfulness",
+    "seed-variance",
+    "annotation-agreement",
+    "low-resource-languages",
+    "supervised-fine-tuning",
+    "knowledge-distillation",
+    "chain-of-thought-prompting",
+    "response-only-loss-masking",
+    "paired-bootstrap",
+    "mcnemar-test",
+    "decontamination",
+    "cohen-s-kappa",
+    "human-evaluation",
+    "few-shot-prompting",
+    "mathshikkha",
+    "banglamath",
+    "gpt-5-4",
+    "qwen2-5-math-7b-instruct",
+    "deepseek-r1-distill-qwen-7b",
+    "mathstral-7b-v0-1",
+    "ganitllm-4b",
+    "tigerllm-9b-it",
     "latent-communication",
     "sparse-dictionary-learning",
     "dead-features",
@@ -96,6 +129,7 @@
   "slug": "matched-budget-comparison",
   "topics": [
     "test-time-scaling",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training"
   ]
 }

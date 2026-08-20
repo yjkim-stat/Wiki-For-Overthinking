@@ -5,6 +5,12 @@
   "definition": "A GPT-5 variant appearing twice in this archive as an evaluated system. In the financial-advice work it ranks fourth of six on the LLM-judge rubric at 8.949 and fourth on the judge-independent causal audit, where its estimated gross-profit lift is positive but the noisiest of any policy evaluated (0.0082, p = 0.015, with the widest confidence interval in the table) and its downside rate is 0.327 -- roughly a third of its recommendations landing on actions associated with negative estimated effect. It is separately one of 21 judges in the large-scale reliability evaluation of LLM-as-a-judge systems. Neither source describes the model; in this archive it is chiefly a data point in the observation that rubric quality and outcome-grounded value order systems differently.",
   "evidence": [
     {
+      "id": "arxiv:2608.08503",
+      "kind": "paper",
+      "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+      "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models"
+    },
+    {
       "id": "arxiv:2608.11787",
       "kind": "paper",
       "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
@@ -19,9 +25,36 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "model",
-  "last_seen": "2026-08-20T13:25:47Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "GPT-5.4",
   "related": [
+    "chain-of-thought-distillation",
+    "rationale-supervision",
+    "out-of-domain-generalization",
+    "benchmark-contamination",
+    "matched-budget-comparison",
+    "reasoning-depth",
+    "chain-of-thought-faithfulness",
+    "seed-variance",
+    "annotation-agreement",
+    "low-resource-languages",
+    "supervised-fine-tuning",
+    "knowledge-distillation",
+    "chain-of-thought-prompting",
+    "response-only-loss-masking",
+    "paired-bootstrap",
+    "mcnemar-test",
+    "decontamination",
+    "cohen-s-kappa",
+    "human-evaluation",
+    "few-shot-prompting",
+    "mathshikkha",
+    "banglamath",
+    "qwen2-5-math-7b-instruct",
+    "deepseek-r1-distill-qwen-7b",
+    "mathstral-7b-v0-1",
+    "ganitllm-4b",
+    "tigerllm-9b-it",
     "reward-hacking",
     "llm-as-a-judge",
     "construct-validity",
@@ -45,7 +78,6 @@
     "claude-sonnet-4-5",
     "kappa-deflation",
     "consistency-bias-paradox",
-    "cohen-s-kappa",
     "krippendorff-s-alpha",
     "chance-corrected-agreement",
     "test-retest-reliability",
@@ -73,7 +105,8 @@
   "schema_version": 1,
   "slug": "gpt-5-4",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
-    "reasoning-evaluation"
+    "test-time-scaling"
   ]
 }

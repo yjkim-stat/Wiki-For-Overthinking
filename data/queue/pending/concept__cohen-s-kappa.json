@@ -7,7 +7,20 @@
         "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
         "topics": [
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -16,7 +29,9 @@
         "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
         "topics": [
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
@@ -38,12 +53,14 @@
   },
   "payload": {
     "name": "Cohen's kappa",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__cohen-s-kappa",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

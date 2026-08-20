@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.10916",
+      "kind": "paper",
+      "note": "Tests whether systems that translate natural-language reasoning steps into Lean preserve invalidity as well as validity, by automatically perturbing steps to make them wrong, and finds pervasive silent correction -- with the systems best at preserving valid inputs the most likely to repair invalid ones.",
+      "title": "FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.582",
       "kind": "paper",
       "note": "Uses 200 mathematical proof problems as a diagnostic, finding some reasoning models solve under 20% and cataloguing 10 fine-grained error types that numerical benchmarks hide.",
@@ -11,9 +17,35 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "formal verification",
   "related": [
+    "sycophancy",
+    "chain-of-thought-faithfulness",
+    "verification",
+    "silent-correction",
+    "outcome-reward",
+    "negative-examples",
+    "abstention",
+    "reward-hacking",
+    "autoformalisation",
+    "automated-theorem-proving",
+    "perturbation-testing",
+    "counterfactual-construction",
+    "llm-as-a-judge",
+    "embedding-similarity",
+    "contingency-analysis",
+    "directed-acyclic-graph-decomposition",
+    "faithformbench",
+    "math",
+    "omnimath",
+    "olympiadbench",
+    "lean",
+    "kimina",
+    "goedel-prover-v2",
+    "herald",
+    "claude-opus-4-7",
+    "seed-prover",
     "construct-validity",
     "mathematical-proof",
     "rigor",
@@ -26,9 +58,11 @@
     "self-reflection-prompting",
     "expert-proof-evaluation"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "formal-verification",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

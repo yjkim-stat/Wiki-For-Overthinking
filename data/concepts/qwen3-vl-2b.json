@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.",
       "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation"
+    },
+    {
+      "id": "arxiv:2608.08326",
+      "kind": "paper",
+      "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+      "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
     }
   ],
   "first_seen": "2026-08-13T03:25:15Z",
   "kind": "model",
-  "last_seen": "2026-08-13T03:25:15Z",
+  "last_seen": "2026-08-20T13:43:02Z",
   "name": "Qwen3-VL-2B",
   "related": [
     "latent-reasoning",
@@ -39,12 +45,37 @@
     "smolvla",
     "evo-1",
     "starvla",
-    "being-h0-7"
+    "being-h0-7",
+    "process-reward-model",
+    "outcome-reward",
+    "credit-assignment",
+    "reward-shaping",
+    "reference-conditioned-supervision",
+    "advantage-estimation",
+    "self-correction",
+    "annotation-incompleteness",
+    "component-ablation",
+    "grpo",
+    "process-reward",
+    "rlvr",
+    "rule-based-reward",
+    "symbolic-equivalence-checking",
+    "rollout-recycling",
+    "hard-negative-mining",
+    "supervised-fine-tuning",
+    "mmmu",
+    "mmmu-pro",
+    "mathvista",
+    "mathverse",
+    "qwen3-vl-4b",
+    "qwen3-vl-8b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-vl-2b",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }
