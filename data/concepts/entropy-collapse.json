@@ -29,6 +29,12 @@
       "title": "Parameter Exploration for RLVR via Variational Learning"
     },
     {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
       "id": "arxiv:2608.11691",
       "kind": "paper",
       "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
@@ -97,7 +103,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "entropy collapse",
   "related": [
     "reasoning-boundary",
@@ -195,6 +201,24 @@
     "livecodebench-v6",
     "olmo-3-1025-7b",
     "deepseek-r1",
+    "test-time-scaling",
+    "verifier-free-verification",
+    "selection-signal",
+    "confidence",
+    "calibration",
+    "premature-convergence",
+    "difficulty-conditioning",
+    "best-of-n",
+    "confidence-based-selection",
+    "self-certainty",
+    "difficulty-stratification",
+    "cross-validation",
+    "agentic-scaffolding",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "swe-bench-verified",
+    "qwen3-80b",
+    "gpt-oss-20b",
     "machine-unlearning",
     "reasoning-trace-leakage",
     "chain-of-thought-faithfulness",
@@ -326,7 +350,6 @@
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1-distill-qwen-7b",
     "response-diversity",
-    "calibration",
     "overconfidence",
     "positive-advantage",
     "clipping-threshold",
@@ -348,7 +371,6 @@
     "process-supervision",
     "edis-entropy-dynamics-instability-score",
     "best-k-of-n-selection",
-    "self-certainty",
     "sequence-entropy",
     "score-weighted-borda-aggregation",
     "sequence-filtering",
@@ -371,9 +393,9 @@
   "slug": "entropy-collapse",
   "topics": [
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-faithfulness",
     "reasoning-interpretability",
-    "reasoning-evaluation",
-    "test-time-scaling"
+    "reasoning-evaluation"
   ]
 }

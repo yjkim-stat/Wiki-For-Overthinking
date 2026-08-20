@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
       "id": "arxiv:2608.11420",
       "kind": "paper",
       "note": "Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.",
@@ -11,15 +17,35 @@
   ],
   "first_seen": "2026-08-20T13:19:30Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "difficulty conditioning",
   "related": [
     "test-time-scaling",
+    "verifier-free-verification",
+    "selection-signal",
+    "confidence",
+    "calibration",
+    "premature-convergence",
+    "exploration",
+    "entropy-collapse",
+    "self-consistency",
+    "best-of-n",
+    "confidence-based-selection",
+    "self-certainty",
+    "majority-voting",
+    "difficulty-stratification",
+    "cross-validation",
+    "agentic-scaffolding",
+    "livecodebench",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "swe-bench-verified",
+    "qwen3-80b",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
     "multi-agent-pipeline",
     "error-decorrelation",
     "endogeneity",
-    "self-consistency",
-    "best-of-n",
     "consensus",
     "viability-threshold",
     "jury-aggregation",
@@ -40,7 +66,7 @@
   "schema_version": 1,
   "slug": "difficulty-conditioning",
   "topics": [
-    "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

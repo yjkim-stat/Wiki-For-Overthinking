@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
       "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
+    },
+    {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-20T12:49:58Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "cross-validation",
   "related": [
     "theory-of-mind",
@@ -41,12 +47,35 @@
     "qwen3-8b",
     "qwen3-5-2b",
     "llama-3-2-1b",
-    "olmo-2-7b"
+    "olmo-2-7b",
+    "verifier-free-verification",
+    "selection-signal",
+    "confidence",
+    "calibration",
+    "premature-convergence",
+    "exploration",
+    "difficulty-conditioning",
+    "entropy-collapse",
+    "self-consistency",
+    "best-of-n",
+    "confidence-based-selection",
+    "self-certainty",
+    "majority-voting",
+    "difficulty-stratification",
+    "agentic-scaffolding",
+    "livecodebench",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "swe-bench-verified",
+    "qwen3-80b",
+    "gpt-oss-20b",
+    "gpt-oss-120b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "cross-validation",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

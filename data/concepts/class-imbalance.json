@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
       "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
+    },
+    {
+      "id": "arxiv:2608.10835",
+      "kind": "paper",
+      "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+      "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations"
     }
   ],
   "first_seen": "2026-08-20T12:38:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "class imbalance",
   "related": [
     "linear-representation-hypothesis",
@@ -100,7 +106,37 @@
     "claude-sonnet-4-5",
     "gpt-5-6-terra",
     "gpt-o3",
-    "gemma-4-26b"
+    "gemma-4-26b",
+    "hallucination",
+    "residual-stream",
+    "distribution-shift",
+    "operating-point",
+    "grounding",
+    "layer-selection",
+    "graph-neural-network",
+    "vision-transformer",
+    "recurrent-neural-network",
+    "attention-analysis",
+    "supervised-fine-tuning",
+    "self-adaptation",
+    "reject-and-resample-decoding",
+    "component-ablation",
+    "layer-sweep",
+    "mhalo",
+    "halloc",
+    "pope",
+    "coco",
+    "chair",
+    "glm-4v",
+    "glm-4-1v",
+    "qwen-3-vl",
+    "llava-1-5-7b",
+    "instructblip",
+    "internvl2",
+    "gpt-4o",
+    "claude-4-8-opus",
+    "gemini-1-5-pro",
+    "llama-3-2-90b-v"
   ],
   "related_authored": [
     "base-rate"

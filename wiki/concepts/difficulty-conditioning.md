@@ -1,0 +1,27 @@
+# difficulty conditioning
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: concept
+- **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 2
+
+**Related**: [best-of-n](../methods/best-of-n.md), [calibration](../methods/calibration.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [Claude Haiku 4.5](../models/claude-haiku-4-5.md), [Claude Sonnet 4.6](../models/claude-sonnet-4-6.md), [consensus](consensus.md), [cross-validation](../methods/cross-validation.md), [entropy collapse](entropy-collapse.md), [exploration](exploration.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [gpt-oss-20b](../models/gpt-oss-20b.md), [HMMT 2025](../datasets/hmmt-2025.md), [jury aggregation](../methods/jury-aggregation.md), [LiveCodeBench](../datasets/livecodebench.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [majority voting](../methods/majority-voting.md), [multi-agent pipeline](multi-agent-pipeline.md), [persona conditioning](../methods/persona-conditioning.md), [selection signal](selection-signal.md), [self-certainty](../methods/self-certainty.md), [self-consistency](../methods/self-consistency.md), [test-time scaling](test-time-scaling.md), [verifier-free verification](verifier-free-verification.md)
+
+## What we have settled
+
+- **Established** — Sampling more candidates is not monotone in accuracy: extra samples strengthen whatever the aggregation rule already does, including when it is wrong.
+  - Two independent demonstrations with different aggregation rules. At inference, best-of-3 selection scores 0.093 against best-of-1's 0.153 on one model and dataset — three samples worse than one — which the authors attribute to a selector that does not exploit the candidate set, so extra samples add plausible wrong answers. In label-free RLVR training, where the reward is the consensus answer among rollouts, 64 rollouts reach 34.42 average accuracy against 34.66 at 16 and at 3.6x the wall clock, because more samples make a spurious consensus easier to form around an incorrect answer. The mechanism is shared even though one is a selector and the other a reward: the sample count amplifies the aggregation rule rather than averaging its errors away. The practical consequence is that a sample-count sweep is a required control, not an optional one, and that a scaling curve reported only at its endpoints can hide a reversal in between. A third instance is the cleanest of all, because it holds the candidate bank fixed and varies only the reducer: selecting by mean token log probability falls from 75.56% at one sample to 65.83% at eighty on the same banks where literal answer plurality rises to 78.33%, so nothing but the selection rule can explain the decline. A fourth instance, added 2026-08-20, supplies the mechanism behind the confidence-based version of the failure and shows it reaching below random selection. Across multiple models and datasets, published confidence-maximisation selectors applied without voting drop below the base pass rate of the same pool -- 76.5% to 68.0% on one mathematics benchmark, 65.7% to 61.9% on a coding benchmark -- so the aggregation rule is not merely uninformative but anti-correlated with correctness on hard problems, and every additional candidate gives it more opportunity to be wrong. The offered mechanism is specific and checkable: uniformly high confidence across a trace indicates a failure to branch rather than a well-supported answer, so a maximiser preferentially selects the model's confident collapses onto a flawed premise. Dissecting a trace into initial and final confidence separates premature convergence, where confidence was high throughout, from genuine convergence, where low initial confidence resolved into high final confidence -- and existing methods, by selecting on level rather than on shape, correctly reject the two low-final-confidence categories while optimising for the first. The same paper's difficulty stratification shows where a corrected rule earns its keep and where it does not: neutral or fractionally worse on the easy tier, 58.1 to 70.3 and 74.9 to 88.6 on the medium tier, 3.7 to 8.1 and 13.4 to 17.2 on the hard one. So a selection rule's benefit is concentrated exactly where candidates differ in kind, and an aggregate benchmark number conceals both that concentration and, in the maximisation case, the reversal.
+
+## Appears in
+
+- [Consilience for Verifier-Free Test-Time Scaling](../../archive/papers/2026/arxiv-2608-09898/summary.md) — Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.
+- [Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology](../../archive/papers/2026/arxiv-2608-11420/summary.md) — Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

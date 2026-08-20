@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Gemma-3-4B-IT"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
       "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
+    },
+    {
+      "id": "arxiv:2608.07852",
+      "kind": "paper",
+      "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+      "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders"
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "model",
-  "last_seen": "2026-08-13T01:53:45Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "Gemma-3-4B-it",
   "related": [
     "llm-as-a-judge",
@@ -49,12 +57,31 @@
     "deepseek-r1-distill-llama-70b",
     "llama-3-8b-instruct",
     "llama-3-70b-instruct",
-    "aya-expanse-8b"
+    "aya-expanse-8b",
+    "sparse-dictionary-learning",
+    "feature-splitting",
+    "persona-conditioning",
+    "steering-vector",
+    "monosemanticity",
+    "selectivity-control",
+    "detection-versus-control",
+    "annotation-agreement",
+    "ai-welfare",
+    "sparse-autoencoder",
+    "activation-steering",
+    "human-evaluation",
+    "cohen-s-kappa",
+    "ablation",
+    "feature-filtering",
+    "importance-sampling-reweighting",
+    "author-constructed-emotional-interaction-corpus-synthetic",
+    "gemmascope"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "gemma-3-4b-it",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }

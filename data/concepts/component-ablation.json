@@ -23,6 +23,12 @@
       "title": "Improving Generalization Robustness of Multimodal RLVR"
     },
     {
+      "id": "arxiv:2608.10835",
+      "kind": "paper",
+      "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+      "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations"
+    },
+    {
       "id": "arxiv:2608.10976",
       "kind": "paper",
       "note": "Replaces a verbose natural-language rationale with two to six executable action tokens drawn from a fixed vocabulary, supervised automatically by pairing logged trajectories with scene context, so that driving-oriented reasoning fits inside a real-time control budget that verbose chain-of-thought exceeds by three to four times.",
@@ -49,7 +55,7 @@
   ],
   "first_seen": "2026-08-20T13:19:30Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:55:40Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "component ablation",
   "related": [
     "process-reward-model",
@@ -112,6 +118,35 @@
     "gmai",
     "docvqa",
     "qwen2-5-vl-7b",
+    "hallucination",
+    "linear-probe",
+    "residual-stream",
+    "detection-versus-control",
+    "class-imbalance",
+    "operating-point",
+    "grounding",
+    "layer-selection",
+    "graph-neural-network",
+    "vision-transformer",
+    "recurrent-neural-network",
+    "attention-analysis",
+    "self-adaptation",
+    "reject-and-resample-decoding",
+    "layer-sweep",
+    "mhalo",
+    "halloc",
+    "pope",
+    "coco",
+    "chair",
+    "glm-4v",
+    "glm-4-1v",
+    "qwen-3-vl",
+    "llava-1-5-7b",
+    "instructblip",
+    "internvl2",
+    "claude-4-8-opus",
+    "gemini-1-5-pro",
+    "llama-3-2-90b-v",
     "latent-reasoning",
     "structured-chain-of-thought",
     "executable-reasoning",
@@ -200,6 +235,7 @@
   "topics": [
     "reasoning-training",
     "test-time-scaling",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }

@@ -1,0 +1,128 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-09898.pdf"
+  },
+  "completed_at": "2026-08-20T14:00:30Z",
+  "created_at": "2026-08-20T13:19:32Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.09898",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling often uses an external verifier, such as compilers and test cases in coding or trained value functions in robotics applications, to obtain high-quality rollouts. Verifier-free test-time scaling (or VF-TTS) is gaining extensive attention as a mechanism to enhance Large Language Model (LLM) reasoning, primarily because we do not have access to such high-quality verifiers in many real-world applications. Among existing VF-TTS methods, confidence-based VF-TTS methods, which compute and rank rollouts solely by confidence, are particularly promising. Such methods introduce near-zero overhead for sample evaluation and require minimal access to internal model states, making the methods highly flexible across models and tasks. In this paper, we demonstrate a critical limitation of existing confidence-based VF-TTS methods by showing that such methods catastrophically break down on complex tasks. We observe a very interesting phenomenon: uniformly high confidence frequently indicates a failure to explore, favoring confidently wrong answers. To address this, our core insight is that robust cognitive search requires a specific confidence trajectory pattern: such methods perform exploratory branching at the beginning, as manifested by low initial confidence, and converge to a high final confidence solution. To implement this insight, we introduce consilience, a novel selection framework that explicitly evaluates the temporal asymmetry of confidence in reasoning. We operationalize this via a combinatorial metric that actively penalizes high initial confidence while strictly demanding final certainty. Extensive experiments covering both graduate-level mathematics problems and free-form code generation demonstrate that consilience effectively outperforms existing baselines, validating our novel perspective on completion confidence.",
+    "authors": [
+      "Lecheng Kong",
+      "Like Hui",
+      "Haitao Mao",
+      "Jun Huan"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "test-time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.09898v1",
+    "published": "2026-08-10",
+    "scores": {
+      "test-time-scaling": 0.5
+    },
+    "title": "Consilience for Verifier-Free Test-Time Scaling",
+    "url": "https://arxiv.org/abs/2608.09898",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "verifier-free verification",
+      "selection signal",
+      "confidence",
+      "calibration",
+      "premature convergence",
+      "exploration",
+      "difficulty conditioning",
+      "entropy collapse"
+    ],
+    "contributions": [
+      "The observation that uniformly high confidence indicates failure to explore rather than a well-supported answer, and the consequent finding that maximisation-only confidence selection can perform worse than random selection from the same candidate pool.",
+      "A four-category taxonomy of reasoning trajectories from the joint pattern of initial and final confidence, which locates the structural blind spot in prior work: existing methods correctly reject the two low-final-confidence categories while optimising for premature convergence and penalising the initial uncertainty that genuine exploration requires.",
+      "A selection score built on temporal asymmetry rather than confidence level, penalising high initial confidence while demanding final certainty.",
+      "A difficulty-stratified evaluation showing the method is neutral on easy problems and does its work on medium and hard tiers, so the aggregate is not concealing a uniform shift.",
+      "A hyperparameter-transfer study reporting that frozen defaults leave roughly a third of the tuned gain unclaimed, alongside a cross-dataset transfer result.",
+      "An agentic integration with its wall-clock cost reported against the plain agent and an explicit note that the naive full-budget version would be far more expensive."
+    ],
+    "datasets": [
+      "LiveCodeBench",
+      "HMMT 2025",
+      "GPQA Diamond",
+      "SWE-bench Verified"
+    ],
+    "limitations": "Stated in part. The authors report the gap between their frozen defaults and per-set tuning and do not hide that tuning helps, and they report the wall-clock cost of the agentic version against the plain one along with the observation that the naive full-budget version would be far more expensive. Not stated but worth noticing: the confidence-trajectory account is a plausible mechanism rather than a tested one -- no experiment establishes that low initial confidence reflects awareness of alternative paths rather than, say, longer or more hedged openings, and the four-category taxonomy is asserted from the confidence signal rather than validated against independent labels of what the traces do. The phase boundary is a hyperparameter with two offered settings and no sensitivity analysis beyond aligning with baselines, and the penalty multiplier is fixed at a single value throughout. The easy tier shows the method fractionally below the maximisation baseline on one model, which is consistent with the framing but means the improvement is not uniform. And the comparison of interest -- maximisation performing below random selection -- is drawn against specific published confidence methods on specific model-dataset pairs, so it establishes that this failure occurs rather than how often.",
+    "method": "The framing is a temporal asymmetry rather than a level. Genuine reasoning on a hard problem should begin with the model aware of several viable paths, which splits the autoregressive probability mass and shows up as low initial confidence, and should end having converged, which shows up as high final confidence. Dissecting a trace into its initial and final confidence phases gives a two-by-two taxonomy: premature convergence, where confidence is high throughout and the model collapses onto a single path immediately -- typical of trivially easy queries and of overfitting to a flawed premise; degeneration, where a confident start meets contradictions later; total confusion, where the model neither explores meaningfully nor converges; and consilience, low initial confidence resolving into high final confidence, which is the target. The diagnosis of prior work follows directly: existing confidence methods correctly filter the two low-final-confidence categories, but because they select by simple maximisation they optimise for premature convergence and mathematically penalise the initial uncertainty that consilience requires. The proposed score operationalises the asymmetry combinatorially, penalising high initial confidence with a fixed multiplier while strictly demanding final certainty, with the boundary between phases set either dynamically at 20 percent of sequence length or at an absolute token count to align with baselines. Variants apply the calculation to the isolated reasoning trace or to the whole generation as an ablation. Evaluation covers graduate-level mathematics, free-form code generation and a question-answering benchmark at 64 samples, a sample-size sweep from 1 to 128, a difficulty stratification into equal-sized tiers by base pass rate, a hyperparameter-transfer study comparing frozen defaults against per-set grid-search optima under five-fold cross-validation, and an agentic integration on a software-engineering benchmark.",
+    "methods": [
+      "self-consistency",
+      "best-of-n",
+      "confidence-based selection",
+      "self-certainty",
+      "majority voting",
+      "difficulty stratification",
+      "cross-validation",
+      "agentic scaffolding"
+    ],
+    "models": [
+      "Qwen3-80B",
+      "GPT-OSS-20B",
+      "GPT-OSS-120B"
+    ],
+    "one_liner": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+    "problem": "Test-time scaling normally leans on an external verifier -- a compiler, test cases, a trained value function -- and in most real applications no such verifier exists. Confidence-based verifier-free selection is the appealing alternative because it costs almost nothing per candidate and needs minimal access to internal state, making it portable across models and tasks. But it breaks down on exactly the complex tasks it is wanted for, and the paper identifies why: uniformly high confidence frequently indicates a failure to explore rather than a well-founded conclusion, so a rule that maximises confidence preferentially selects answers the model was confidently wrong about.",
+    "read_from": "document",
+    "relevance": {
+      "test-time-scaling": "The negative result belongs in the archive regardless of whether the proposed fix holds up: published confidence-maximisation selectors can perform worse than picking at random from the same pool, by several points, on multiple model-dataset pairs. That sharpens the archive's existing position that extra samples strengthen whatever the aggregation rule already does -- here the rule is actively anti-correlated with correctness on hard problems, so more candidates make it worse rather than merely not better. The mechanism offered is the useful part and it is a specific, checkable claim: high confidence throughout a trace is not a well-supported answer but a failure to branch, so a maximiser preferentially selects the model's overfitted collapses onto a flawed premise. Anywhere the archive holds a confidence-based selection or early-stopping rule, that reading suggests asking whether the signal is being maximised or whether its shape over the trace is being read -- and the four-category taxonomy, which separates premature convergence from genuine convergence by what preceded it, is the cheap way to ask. The difficulty stratification is what makes the result trustworthy rather than merely favourable. The method is neutral or fractionally worse on the easy tier and does its work on medium and hard, which is the pattern a mechanism-driven improvement should show and which an aggregate number would have concealed; the archive should ask for that split whenever a selection rule reports a benchmark average. Two cautions. The confidence-trajectory story is asserted from the confidence signal itself rather than validated against independent labels of what the traces are doing, so 'low initial confidence means the model sees alternative paths' remains an interpretation. And the hyperparameter transfer table shows the frozen defaults leaving roughly a third of the tuned gain unclaimed, which the authors report -- so the deployable version of this method is meaningfully weaker than its tuned version, a distinction most selection papers do not make available."
+    },
+    "results": "The negative result is the paper's strongest contribution and it is stated as such: across multiple models and datasets, applying maximisation-only confidence metrics without voting frequently performs worse than random selection from the same pool. On one mathematics benchmark a published confidence method drops a 20B model from 76.5 to 68.0 percent; on a coding benchmark a 120B model falls from 65.7 to 61.9. Without an external verifier to catch it, maximising sequence-level confidence makes selecting confidently hallucinated, overfitted trajectories inevitable rather than merely possible. The temporal criterion recovers the gap and more, and the difficulty stratification shows exactly where: on the easy tier it is neutral or fractionally worse (99.9 against 99.9 on one model, 99.1 against 100.0 on another), while on the medium tier it moves 58.1 to 70.3 and 74.9 to 88.6, and on the hard tier 3.7 to 8.1 and 13.4 to 17.2. So the method does nothing where confidence was already sufficient and does its work where trajectories differ in kind. The hyperparameter study is reported with its unfavourable half intact: the frozen defaults consistently beat the base pass rate but consistently trail the per-set grid-search optimum -- 70.2 against 72.8, 58.1 against 61.3, 81.3 against 83.7 -- so roughly a third of the achievable gain is left on the table by not tuning, and the authors show a cross-dataset transfer of tuned parameters landing in between. The agentic integration improves issue resolution over the base model, and its cost is reported honestly rather than elided: the plain agent takes 8 hours where the augmented one takes 18 on the same hardware, with the authors noting that applying the full sample budget at every agentic step would cost 32 times more and that selective triggering is what makes it affordable. Scaling curves across sample sizes from 1 to 128 show the ordering holding rather than a crossover.",
+    "tags": [
+      "test-time-scaling",
+      "verifier-free",
+      "confidence",
+      "selection",
+      "negative-result",
+      "difficulty-stratified"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-09898",
+  "task_version": 1,
+  "topics": [
+    "test-time-scaling"
+  ]
+}

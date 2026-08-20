@@ -5,6 +5,12 @@
   "definition": "Instructing a model to adopt a specified role or worldview before it reasons, used in both sources as a way to produce variation that is structured rather than random. The subjective-verification work measures how much variation that is, and the answer is a lot: across 1,500 personas drawn from a public roleplay dataset, with persona the only varied factor, verification macro-F1 ranges from 0.416 to 0.792 -- the best persona nearly doubling the worst -- which that paper reads as much apparent verification error being reasoning-style mismatch rather than incapacity. The deliberative-diagnosis work turns the same lever into an architecture, using persona conditioning to simulate the heterogeneity that separate model backends would supply, and measures the result directly as error decorrelation across specialists under persona and temperature conditioning separately and jointly. Both sources are explicit about what it does not achieve: with a shared backend the correlation bias inherent in the generating model remains, so the personas are simulated diversity rather than independent judgement. One also flags that personas risk reproducing the stereotypes their models were trained on. Neither source reports a baseline spread for ordinary non-persona prompt variation, so how much of the effect is persona-specific rather than general prompt sensitivity is open.",
   "evidence": [
     {
+      "id": "arxiv:2608.07852",
+      "kind": "paper",
+      "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+      "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders"
+    },
+    {
       "id": "arxiv:2608.08889",
       "kind": "paper",
       "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
@@ -19,9 +25,28 @@
   ],
   "first_seen": "2026-08-20T12:38:15Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "persona conditioning",
   "related": [
+    "sparse-dictionary-learning",
+    "feature-splitting",
+    "steering-vector",
+    "monosemanticity",
+    "selectivity-control",
+    "detection-versus-control",
+    "annotation-agreement",
+    "ai-welfare",
+    "sparse-autoencoder",
+    "activation-steering",
+    "llm-as-a-judge",
+    "human-evaluation",
+    "cohen-s-kappa",
+    "ablation",
+    "feature-filtering",
+    "importance-sampling-reweighting",
+    "author-constructed-emotional-interaction-corpus-synthetic",
+    "gemmascope",
+    "gemma-3-4b-it",
     "reasoning-collapse",
     "rlvr",
     "reward-hacking",
@@ -29,7 +54,6 @@
     "credit-assignment",
     "outcome-reward",
     "subjective-evaluation",
-    "llm-as-a-judge",
     "self-consistency",
     "prompt-sensitivity",
     "test-time-scaling",
@@ -72,6 +96,7 @@
   "schema_version": 1,
   "slug": "persona-conditioning",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

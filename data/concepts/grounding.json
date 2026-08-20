@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
       "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
+    },
+    {
+      "id": "arxiv:2608.10835",
+      "kind": "paper",
+      "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+      "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations"
     }
   ],
   "first_seen": "2026-08-13T01:08:39Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "grounding",
   "related": [
     "rubric-as-reward",
@@ -101,7 +107,36 @@
     "qwen3-vl-235b",
     "deepseek-r1",
     "qwen3-coder-32b",
-    "tablegpt2-7b"
+    "tablegpt2-7b",
+    "hallucination",
+    "linear-probe",
+    "residual-stream",
+    "detection-versus-control",
+    "distribution-shift",
+    "class-imbalance",
+    "operating-point",
+    "layer-selection",
+    "graph-neural-network",
+    "vision-transformer",
+    "recurrent-neural-network",
+    "attention-analysis",
+    "self-adaptation",
+    "reject-and-resample-decoding",
+    "component-ablation",
+    "layer-sweep",
+    "mhalo",
+    "halloc",
+    "pope",
+    "coco",
+    "chair",
+    "glm-4v",
+    "glm-4-1v",
+    "qwen-3-vl",
+    "llava-1-5-7b",
+    "instructblip",
+    "internvl2",
+    "claude-4-8-opus",
+    "llama-3-2-90b-v"
   ],
   "related_authored": [
     "provenance"
@@ -111,6 +146,7 @@
   "topics": [
     "reasoning-evaluation",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

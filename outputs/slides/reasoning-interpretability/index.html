@@ -279,22 +279,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders</strong> — The paper is explicit that its two preliminary checks establish only that signatures can be meaningful in controlled settings and in qualitative neighbourhoo...</li>
+<li><strong>UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations</strong> — Stated where it matters. The read-out layer is chosen per backbone on validation data, so it is a tuned hyperparameter rather than a constant, and the paper...</li>
 <li><strong>Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique</strong> — The paper&#x27;s own error analysis is the important limit: the detector reads internal states, so it is reliable only when the base model internally registers th...</li>
 <li><strong>Probing and steering biology across Boltz-1s trunk-diffusion boundary</strong> — Stated: one AlphaFold3-class model, one main sparse-autoencoder recipe, and a limited set of residue-level labels. Steering is applied only along the seconda...</li>
 <li><strong>Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability</strong> — Stated at length and ordered by how much they constrain the claims. The estimand depends on modelling conventions the authors cannot fully justify -- residua...</li>
 <li><strong>Label-Free Parkinson&#x27;s Disease Screening from Face and Voice through Mechanistic Interpretability</strong> — Stated, and unusually forthrightly: the face encoder was selected in a way the dev split cannot justify, so the face and fused AUROC are labelled potentially...</li>
-<li><strong>Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics</strong> — Stated, at length. Every item comes from one game, so whether the per-ability ordering and the represent-but-not-express gap transfer to negotiation, multi-p...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics</strong> — Stated, at length. Every item comes from one game, so whether the per-ability ordering and the represent-but-not-express gap transfer to negotiation, multi-p...</li>
 <li><strong>Interpreting Language Model Hidden States at Scale</strong> — The paper states its own scope: experiments cover only components whose width equals the model&#x27;s, so narrower ones such as individual attention heads would n...</li>
 <li><strong>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</strong> — The paper marks its own boundaries carefully, which is unusual and worth noting: the cross-model dissociation is called provisional and the magnitude gap exp...</li>
 <li><strong>Safety Cost of Steering Vectors Is Separable and Reducible</strong> — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the c...</li>
 <li><strong>Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing</strong> — Stated and acted on. Evaluation sets are small and the authors repeatedly decline to claim effects their own tests do not support, including for the method t...</li>
-<li><strong>Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders</strong> — The paper has no limitations section. What a reader should notice is substantial. Everything rests on one 7B distilled model at one layer, so nothing disting...</li>
-<li><strong>When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs</strong> — Stated with unusual care throughout rather than in one section. The authors decline to convert their null scaling result into a claim of scale-invariance, on...</li>
+<li><strong>&quot;Many Are My Names&quot;: The Anatomy of the Assistant and Its Personas via Sparse Autoencoders</strong> — Stated at length. The dataset is synthetic, English-only and centred on emotional interactions, with four roleplay personas and relatively short generations,...</li>
 </ul>
 </section>
 <section class="slide">
@@ -315,25 +315,25 @@ th { background: var(--surface); }
 <ul>
 <li>Arya Labroo, Mengjie Qian, Kate Knill. <em>Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors</em>. cs.AI. 2026</li>
 <li>Iaroslav Chelombitko, Ekaterina Chelombitko, Mika Hämäläinen. <em>Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs</em>. cs.CL. 2026</li>
+<li>Dvir Samuel, Guy Bar-Shalom, Fabrizio Frasca et al.. <em>UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations</em>. cs.CV. 2026</li>
 <li>Jiaheng Su, Yu Sun. <em>Label-Free Parkinson&#x27;s Disease Screening from Face and Voice through Mechanistic Interpretability</em>. cs.LG. 2026</li>
 <li>Yen-Shan Chen, Yu Chian Duan, Chih-En Kuo et al.. <em>Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics</em>. cs.AI. 2026</li>
 <li>Yuxiao Li, Gjergji Kasneci. <em>Safety Cost of Steering Vectors Is Separable and Reducible</em>. cs.CL. 2026</li>
 <li>Minhan Cho, Jimin Kweon. <em>Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing</em>. cs.AI. 2026</li>
-<li>Bo Cheng, Qiaolin Lu, Yi Chang et al.. <em>Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders</em>. cs.CL. 2026</li>
-<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
+<li>Adelaide Danilov, Aria Nourbakhsh, Oleksandr Marchenko Breneur et al.. <em>&quot;Many Are My Names&quot;: The Anatomy of the Assistant and Its Personas via Sparse Autoencoders</em>. cs.CL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Bo Cheng, Qiaolin Lu, Yi Chang et al.. <em>Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders</em>. cs.CL. 2026</li>
+<li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</em>. cs.AI. 2026</li>
 <li>Max Torop, Aria Masoomi, Jennifer Dy. <em>Inverted Detection and Control in Steering Vectors</em>. cs.LG. 2026</li>
 <li>Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. <em>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</em>. ACL. 2026</li>
 <li>Zirui Yan, Dennis Wei, Dmitriy A. Katz et al.. <em>Multi-component Causal Tracing in Large Language Models</em>. ACL. 2026</li>
 <li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
-<li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
-<li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

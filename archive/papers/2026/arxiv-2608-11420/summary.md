@@ -46,7 +46,7 @@ Stated: the demonstration is not exhaustive and other configurations remain unte
 
 ## Entities
 
-- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [multi-agent pipeline](../../../../wiki/concepts/multi-agent-pipeline.md), error decorrelation, endogeneity, self-consistency, best-of-n, difficulty conditioning, [consensus](../../../../wiki/concepts/consensus.md), viability threshold, jury aggregation
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [multi-agent pipeline](../../../../wiki/concepts/multi-agent-pipeline.md), error decorrelation, endogeneity, self-consistency, best-of-n, [difficulty conditioning](../../../../wiki/concepts/difficulty-conditioning.md), [consensus](../../../../wiki/concepts/consensus.md), viability threshold, jury aggregation
 - **Methods**: multi-agent debate, [persona conditioning](../../../../wiki/methods/persona-conditioning.md), [best-of-n](../../../../wiki/methods/best-of-n.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [self-consistency](../../../../wiki/methods/self-consistency.md), consensus aggregation, error correlation analysis, temperature ablation
 - **Datasets**: Open-XDDx
 

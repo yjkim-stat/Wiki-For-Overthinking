@@ -11,6 +11,14 @@
       },
       {
         "kind": "paper",
+        "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
         "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
         "topics": [
@@ -36,7 +44,7 @@
   },
   "payload": {
     "name": "verifier-free verification",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__verifier-free-verification",
   "task_version": 1,

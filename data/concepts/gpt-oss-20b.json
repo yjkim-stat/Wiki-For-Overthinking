@@ -25,6 +25,12 @@
       "title": "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection"
     },
     {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
       "id": "arxiv:2608.11994",
       "kind": "paper",
       "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
@@ -51,7 +57,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "model",
-  "last_seen": "2026-08-20T13:51:26Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "gpt-oss-20b",
   "related": [
     "monitorability",
@@ -126,6 +132,21 @@
     "gemma-3-12b",
     "gemma-4",
     "gemini-3-flash",
+    "confidence",
+    "calibration",
+    "premature-convergence",
+    "exploration",
+    "difficulty-conditioning",
+    "entropy-collapse",
+    "confidence-based-selection",
+    "self-certainty",
+    "difficulty-stratification",
+    "cross-validation",
+    "agentic-scaffolding",
+    "livecodebench",
+    "hmmt-2025",
+    "swe-bench-verified",
+    "qwen3-80b",
     "claim-level-falsification",
     "signal-dilution",
     "reliability-weighting",

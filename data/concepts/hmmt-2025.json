@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
       "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
+    },
+    {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T14:02:28Z",
   "name": "HMMT 2025",
   "related": [
     "privileged-information",
@@ -38,12 +44,36 @@
     "aime-2024",
     "aime-2025",
     "qwen3-1-7b",
-    "qwen3-4b"
+    "qwen3-4b",
+    "test-time-scaling",
+    "verifier-free-verification",
+    "selection-signal",
+    "confidence",
+    "calibration",
+    "premature-convergence",
+    "exploration",
+    "difficulty-conditioning",
+    "entropy-collapse",
+    "self-consistency",
+    "best-of-n",
+    "confidence-based-selection",
+    "self-certainty",
+    "majority-voting",
+    "difficulty-stratification",
+    "cross-validation",
+    "agentic-scaffolding",
+    "livecodebench",
+    "gpqa-diamond",
+    "swe-bench-verified",
+    "qwen3-80b",
+    "gpt-oss-20b",
+    "gpt-oss-120b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "hmmt-2025",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }
