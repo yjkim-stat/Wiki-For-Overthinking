@@ -336,6 +336,17 @@ def stale_analysis(cfg: Config) -> list[dict]:
     maintaining the marker. It is still better than the alternative, which is
     that the most valuable artifact in the repository is the only one with no
     integrity check at all.
+
+    **Both directions count.** A marker naming more sources than the entity has
+    is not a harmless overshoot. Either the author miscounted -- in which case
+    the one number that says how much evidence the prose rests on is wrong, and
+    every later check against it inherits the error -- or evidence really did
+    leave, because a paper was discarded, retopiced, or folded into another
+    entity by the alias map. In that second case the prose describes sources the
+    archive no longer holds, which is worse than describing too few: a reader
+    cannot find what it is talking about. Reporting only the growing direction
+    made an over-declared marker pass silently for as long as it took the
+    evidence to catch up with it.
     """
     store = RecordStore(cfg.layout)
     concepts = {c.slug: c for c in store.iter_concepts()}
@@ -352,15 +363,17 @@ def stale_analysis(cfg: Config) -> list[dict]:
                 continue
             written_for = int(match.group(1))
             now = len(concept.evidence)
-            if now > written_for:
-                stale.append(
-                    {
-                        "slug": concept.slug,
-                        "path": str(path),
-                        "written_for": written_for,
-                        "sources_now": now,
-                    }
-                )
+            if now == written_for:
+                continue
+            stale.append(
+                {
+                    "slug": concept.slug,
+                    "path": str(path),
+                    "written_for": written_for,
+                    "sources_now": now,
+                    "direction": "outgrown" if now > written_for else "over-declared",
+                }
+            )
     return stale
 
 
@@ -386,10 +399,11 @@ def report_staleness(cfg: Config) -> dict[str, int]:
         _LOG.warning("... and %d more stale definition(s)", len(definitions) - 10)
     for row in analysis:
         _LOG.warning(
-            "analysis in %s declares %d source(s); there are now %d",
+            "analysis in %s declares %d source(s); there are now %d (%s)",
             row["path"],
             row["written_for"],
             row["sources_now"],
+            row["direction"],
         )
 
     return {"definitions": len(definitions), "analysis": len(analysis)}
