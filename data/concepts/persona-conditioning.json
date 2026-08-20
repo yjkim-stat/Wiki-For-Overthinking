@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
       "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing"
+    },
+    {
+      "id": "arxiv:2608.11420",
+      "kind": "paper",
+      "note": "Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.",
+      "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology"
     }
   ],
   "first_seen": "2026-08-20T12:38:15Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T12:38:16Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:19:30Z",
   "name": "persona conditioning",
   "related": [
     "reasoning-collapse",
@@ -39,12 +45,30 @@
     "netflix-id-response-quality-internal",
     "public-roleplay-persona-dataset",
     "qwen2-5-7b-instruct",
-    "mistral-7b-instruct"
+    "mistral-7b-instruct",
+    "multi-agent-pipeline",
+    "error-decorrelation",
+    "endogeneity",
+    "best-of-n",
+    "difficulty-conditioning",
+    "consensus",
+    "viability-threshold",
+    "jury-aggregation",
+    "multi-agent-debate",
+    "consensus-aggregation",
+    "error-correlation-analysis",
+    "temperature-ablation",
+    "open-xddx",
+    "qwen-2-5-32b",
+    "qwen-2-5-1-5b",
+    "claude-haiku-4-5",
+    "claude-sonnet-4-6"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "persona-conditioning",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

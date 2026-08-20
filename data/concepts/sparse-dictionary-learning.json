@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "sparse coding",
+    "dictionary learning"
+  ],
+  "definition": "Learning an overcomplete set of directions in which activations are represented by a few active coefficients, on the hypothesis that this takes features out of superposition. The foundational source establishes the case: a single-hidden-layer autoencoder with tied weights and an L1 penalty, trained unsupervised on activations at orders of magnitude less compute than the model itself, yields directions that score higher on automated interpretability than PCA, ICA, the neuron basis and random directions, and that localise behaviour more tightly -- fewer feature patches reach a given KL divergence from a counterfactual target, at smaller edit magnitude. The other two sources bound it from opposite directions. One proves the non-identifiability is structural, since the reconstruction-and-sparsity objective does not enforce the invariance identifiability requires, and shows that adding the missing term improves identifiability 41 percent while degrading reconstruction, live-feature count and cross-seed agreement -- leaving open whether a dictionary can be sparse, reconstructive and invariant at once. The other supplies a caution about reading the output at all: a fitted dictionary using 50 of 4096 features is equally consistent with low-rank input structure or optimisation collapse, and that paper names the matched-rate baselines that would separate them as not run. The archive's position is therefore that sparse dictionaries beat the alternatives on interpretability scores and that a feature count is not a vocabulary until the cheaper explanations have been excluded.",
   "evidence": [
     {
       "id": "arxiv:2608.10172",
@@ -15,6 +18,12 @@
       "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents"
     },
     {
+      "id": "arxiv:2608.11475",
+      "kind": "paper",
+      "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+      "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary"
+    },
+    {
       "id": "local:e33ecf791dfdfa8a",
       "kind": "paper",
       "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
@@ -22,8 +31,8 @@
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:19:30Z",
   "name": "sparse dictionary learning",
   "related": [
     "identifiability",
@@ -77,6 +86,21 @@
     "qwen3-5-9b",
     "lfm2-5-vl-1-6b",
     "vision-wormhole",
+    "linear-probe",
+    "steering-vector",
+    "representation-versus-readout",
+    "annotation-incompleteness",
+    "selectivity-control",
+    "intervention-site",
+    "causal-intervention",
+    "activation-steering",
+    "matched-norm-random-control",
+    "diffusion-model",
+    "auto-interpretability-scoring",
+    "dssp",
+    "swissprot",
+    "boltz-1",
+    "alphafold3",
     "polysemanticity",
     "superposition",
     "feature-dictionary",
@@ -91,7 +115,9 @@
     "pythia-70m",
     "pythia-410m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "superposition"
+  ],
   "schema_version": 1,
   "slug": "sparse-dictionary-learning",
   "topics": [

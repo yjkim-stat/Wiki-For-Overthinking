@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A fast DeepSeek model appearing twice in this archive as an evaluation subject. On the verified financial-reasoning benchmark it is one of two models carried through the full robustness suite, scoring 96.4 and 95.6 percent clean and then falling by 29.6 and 47.0 points on average under six perturbation types -- with unit and scale shifts costing the most (down to 22.0 percent on real filings) and all perturbations combined leaving 17.0 percent, at which point its gap to the stronger model narrows to 9 points. It also appears in the contamination-mitigation work that replaces a summary metric scoreable by cancellation with a per-question stratified one. Neither source describes the model itself; its value here is as the second point in a paired robustness comparison.
 
 - **Kind**: model
 - **Also called**: DeepSeek-v4-Flash

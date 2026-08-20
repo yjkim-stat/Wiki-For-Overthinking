@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "An argument that a system is safe to deploy, which for mechanistic interpretability means naming a mechanism responsible for a behaviour and then defending that attribution. The identifiability work states what such a programme has been missing and supplies part of it: a certificate that the named mechanism is a property of the model rather than of the procedure that found it. It is equally explicit about what that certificate does not cover -- behavioural coverage, distribution shift, adversarial robustness -- and about the consequence of its own dissociation theorem, that since the identifiable object and the legible object cannot coincide in the non-normal regime, a safety case needing both will need two tools and should say which one it is using where. The monitoring source attacks the same programme empirically from the deployment side, showing that chain-of-thought detection falls 41 to 46 points when the prompt never instructs the model to conceal anything -- so a case built on monitoring evidence gathered under explicit-influence benchmarks overstates what monitoring will deliver. Neither source builds a safety case; together they mark the two ways one fails, by resting on a mechanism that is an artifact of its finder, and by resting on a monitor validated under conditions kinder than deployment.",
   "evidence": [
     {
       "id": "arxiv:2608.04735",
@@ -57,7 +57,9 @@
     "gemma-2-2b",
     "qwen3-8b-base"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "monitorability"
+  ],
   "schema_version": 1,
   "slug": "safety-case",
   "topics": [

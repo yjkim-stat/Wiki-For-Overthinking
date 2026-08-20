@@ -247,8 +247,8 @@ th { background: var(--surface); }
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
 <li><strong>chain of thought faithfulness</strong> — Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The...</li>
-<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
 <li><strong>test-time scaling</strong> — Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different th...</li>
+<li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
 <li><strong>credit assignment</strong> — Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end....</li>
 </ul>
 </section>
@@ -277,23 +277,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection</strong> — The paper has no limitations section. The most consequential caveat is one the authors report themselves in the transfer experiment: the entropy signature th...</li>
 <li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
+<li><strong>Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology</strong> — Stated: the demonstration is not exhaustive and other configurations remain untested; the comparison with frontier models is described as exploratory and res...</li>
 <li><strong>Parameter Exploration for RLVR via Variational Learning</strong> — Stated: the work is compute-bound and the authors expect benefits to grow with model scale without being able to test it, reasoning that larger models should...</li>
 <li><strong>LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing</strong> — Stated: the persona-routing architecture is offered as a blueprint and preliminary evidence, not an implemented system, and the persona result is described a...</li>
 <li><strong>SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests</strong> — Stated: the SkillBench multi-skill analysis rests on 75 queries per split and is explicitly treated as diagnostic rather than as a primary result, with concl...</li>
-<li><strong>Thought-Level Beam Search for Reasoning</strong> — The paper has no limitations section and its central claim is stated more strongly than the table supports. &#x27;Strictly dominates existing baselines&#x27; does not...</li>
-<li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Thought-Level Beam Search for Reasoning</strong> — The paper has no limitations section and its central claim is stated more strongly than the table supports. &#x27;Strictly dominates existing baselines&#x27; does not...</li>
+<li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 <li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 <li><strong>LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction</strong> — No quantitative results in the abstract. The theoretical guarantees hold &#x27;under suitable conditions&#x27; and at a matched randomness level, neither specified her...</li>
 <li><strong>AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning</strong> — Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so...</li>
 <li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
-<li><strong>Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning</strong> — The claim is a reading of the evidence, and the paper states the gains come &#x27;at least partly&#x27; from robustness, so it does not exclude a ToM-specific componen...</li>
-<li><strong>Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark</strong> — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute acc...</li>
 </ul>
 </section>
 <section class="slide">

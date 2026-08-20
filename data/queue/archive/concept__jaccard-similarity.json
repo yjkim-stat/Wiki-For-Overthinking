@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.",
+        "title": "Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:14:16Z",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Write the wiki definition for 'Jaccard similarity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Jaccard similarity",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Jaccard similarity",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Jaccard index"
+    ],
+    "definition": "The size of the intersection of two sets over the size of their union, used in both sources to compare which sparse-autoencoder features are active rather than how strongly they fire. Both use it on set-valued rather than vector-valued objects, which is the point, and both report a number that sounds decisive and then say why it may not be. The agent-channel study finds cross-task active-set similarity averaging 0.906 over 36 task pairs (range 0.878 to 0.922) and immediately notes the figure may be inflated by set saturation, since each task-level set is a union over many messages against a global active support of only about 50 features, and that frequency-weighted similarities, role-stratified analyses and size-matched null models are needed before reading it as semantic sharing. The set-level instability work uses the same unit of analysis to establish the opposite kind of result: adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts reading an active set as a bag of composable features. Together they mark the practice -- a set-overlap statistic needs a size-matched null, because overlap rises mechanically as the universe shrinks.",
+    "kind": "method",
+    "related": [
+      "set-level analysis"
+    ]
+  },
+  "task_id": "concept__jaccard-similarity",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

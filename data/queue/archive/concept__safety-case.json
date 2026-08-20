@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
+        "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
+        "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:14:17Z",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Write the wiki definition for 'safety case'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "safety case",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "safety case",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "An argument that a system is safe to deploy, which for mechanistic interpretability means naming a mechanism responsible for a behaviour and then defending that attribution. The identifiability work states what such a programme has been missing and supplies part of it: a certificate that the named mechanism is a property of the model rather than of the procedure that found it. It is equally explicit about what that certificate does not cover -- behavioural coverage, distribution shift, adversarial robustness -- and about the consequence of its own dissociation theorem, that since the identifiable object and the legible object cannot coincide in the non-normal regime, a safety case needing both will need two tools and should say which one it is using where. The monitoring source attacks the same programme empirically from the deployment side, showing that chain-of-thought detection falls 41 to 46 points when the prompt never instructs the model to conceal anything -- so a case built on monitoring evidence gathered under explicit-influence benchmarks overstates what monitoring will deliver. Neither source builds a safety case; together they mark the two ways one fails, by resting on a mechanism that is an artifact of its finder, and by resting on a monitor validated under conditions kinder than deployment.",
+    "kind": "concept",
+    "related": [
+      "monitorability"
+    ]
+  },
+  "task_id": "concept__safety-case",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

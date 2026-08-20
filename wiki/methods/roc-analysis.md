@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Scoring a detector by its trade-off between true and false positives across all thresholds, summarised as area under the curve, and reading a specific operating point off the same curve. Both sources are detection settings and both show why the summary and the operating point are different claims. The Parkinson's screen works at 13 percent prevalence, where predicting all-negative already scores 0.87 accuracy, so it reports AUROC with bootstrap intervals plus sensitivity, specificity and predictive values at a Youden-optimal point -- and the operating point is what supports its actual claim, since negative predictive value of 0.95 licenses a rule-out triage reading while positive predictive value of 0.35 does not license a diagnostic one. The contamination-detection work makes the divergence quantitative: the same calibration is worth one to four points of AUC and five to fifteen points of true positive rate at a 5 percent false-positive threshold, because AUC integrates over thresholds nobody deploys. Between them the sources establish the rule -- where a detector's two error types have different costs, the summary statistic is a screening device and the operating point is the result.
 
 - **Kind**: method
+- **Also called**: AUC, AUROC, ROC
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

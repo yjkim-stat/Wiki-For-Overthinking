@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:14:16Z",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Write the wiki definition for 'low-rank approximation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "low-rank approximation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "low-rank approximation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "low-rank structure"
+    ],
+    "definition": "Representing a matrix or a family of maps by a small number of directions, used in these sources both as an engineering device and as a rival explanation to be ruled out. As a device it is what makes dense instrumentation affordable: low-rank translators let per-lens parameters grow linearly rather than quadratically in width, which is what allows 482 lenses to be attached to a 70B model where no full-rank reference can be trained at all -- and that coverage is what yields the conclusion the sparse designs cannot reach, that detection and intervention rankings over component types correlate at Spearman -0.43. As a rival explanation it is the confound the agent-channel compression study names against itself: a fitted dictionary in which only 50 of 4096 features ever activate is equally consistent with low-rank input structure or optimisation collapse as with a compact sparse code, and the baselines needed to separate them -- PCA, a linear autoencoder, matched-rate quantisation and vector quantisation -- are listed as not run. The pairing is the useful part: low rank is a reason a method works and a reason a sparsity result may not mean what it appears to.",
+    "kind": "method",
+    "related": [
+      "singular value decomposition"
+    ]
+  },
+  "task_id": "concept__low-rank-approximation",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

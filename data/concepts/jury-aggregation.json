@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
       "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
+    },
+    {
+      "id": "arxiv:2608.11420",
+      "kind": "paper",
+      "note": "Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.",
+      "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology"
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T13:19:30Z",
   "name": "jury aggregation",
   "related": [
     "llm-as-a-judge",
@@ -81,7 +87,25 @@
     "claude-sonnet-4-5",
     "gpt-5-6-terra",
     "gpt-o3",
-    "gemma-4-26b"
+    "gemma-4-26b",
+    "test-time-scaling",
+    "multi-agent-pipeline",
+    "error-decorrelation",
+    "endogeneity",
+    "best-of-n",
+    "difficulty-conditioning",
+    "consensus",
+    "viability-threshold",
+    "multi-agent-debate",
+    "persona-conditioning",
+    "consensus-aggregation",
+    "error-correlation-analysis",
+    "temperature-ablation",
+    "open-xddx",
+    "qwen-2-5-32b",
+    "qwen-2-5-1-5b",
+    "claude-haiku-4-5",
+    "claude-sonnet-4-6"
   ],
   "related_authored": [
     "self-consistency"

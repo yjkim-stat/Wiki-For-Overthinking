@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
       "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement"
+    },
+    {
+      "id": "arxiv:2608.11691",
+      "kind": "paper",
+      "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+      "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection"
     }
   ],
   "first_seen": "2026-08-20T12:49:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T13:19:30Z",
   "name": "degenerate generation",
   "related": [
     "exploration",
@@ -78,7 +84,29 @@
     "qwen3-8b",
     "qwen3-1-7b-base",
     "deepseek-r1-distill-qwen-1-5b",
-    "justrl-deepseek-1-5b"
+    "justrl-deepseek-1-5b",
+    "machine-unlearning",
+    "reasoning-trace-leakage",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "privacy",
+    "latent-reasoning",
+    "adaptive-compute-allocation",
+    "llm-as-a-judge",
+    "latent-injection",
+    "entropy-based-detection",
+    "exponential-moving-average-thresholding",
+    "gradient-ascent-unlearning",
+    "negative-preference-optimization",
+    "kl-minimization",
+    "component-ablation",
+    "mllmu-bench-style-forget-retain-celebrity-splits",
+    "onevision-r1-7b",
+    "vision-r1-7b",
+    "openvlthinker-7b",
+    "qwen2-5-vl",
+    "qwen2-vl",
+    "gemini-2-5-pro"
   ],
   "related_authored": [
     "reward-hacking"

@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Gemma-2-2B"
+  ],
+  "definition": "A 2-billion-parameter Gemma model used in both sources as a mid-sized interpretability test-bed. In the tiled-SVD work it is the only model, the setting in which interpretable units are extracted directly from weight matrices and judged by a pre-registered suite -- including the depth curve on which agreement between what an unembedding lens predicts and what steering does runs from about zero in the earliest layers to roughly 0.91 at the final one. In the Koopman identifiability work it is the middle of three models, where the spectrum converges but does not attain the predicted rate (-0.329 against a predicted -0.5, with the largest model reaching -0.506), and where the sparse-autoencoder invariance gap sits at 3.1 times the spectral residual. Neither source describes the model; both chose it as small enough to instrument exhaustively and large enough not to be a toy.",
   "evidence": [
     {
       "id": "arxiv:2608.06969",

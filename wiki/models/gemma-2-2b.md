@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 2-billion-parameter Gemma model used in both sources as a mid-sized interpretability test-bed. In the tiled-SVD work it is the only model, the setting in which interpretable units are extracted directly from weight matrices and judged by a pre-registered suite -- including the depth curve on which agreement between what an unembedding lens predicts and what steering does runs from about zero in the earliest layers to roughly 0.91 at the final one. In the Koopman identifiability work it is the middle of three models, where the spectrum converges but does not attain the predicted rate (-0.329 against a predicted -0.5, with the largest model reaching -0.506), and where the sparse-autoencoder invariance gap sits at 3.1 times the spectral residual. Neither source describes the model; both chose it as small enough to instrument exhaustively and large enough not to be a toy.
 
 - **Kind**: model
+- **Also called**: Gemma-2-2B
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [ablation](../methods/ablation.md), [activation patching](../methods/activation-patching.md), [activation steering](../methods/activation-steering.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [feature absorption](../concepts/feature-absorption.md), [feature consistency](../concepts/feature-consistency.md), [GPT-2 small](gpt-2-small.md), [indirect object identification](../datasets/indirect-object-identification.md), [interpretability illusion](../concepts/interpretability-illusion.md), [logit lens](../methods/logit-lens.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [pre-registration](../methods/pre-registration.md), [Qwen3-8B-Base](qwen3-8b-base.md), [residual stream](../concepts/residual-stream.md), [ridge regression](../methods/ridge-regression.md), [safety case](../concepts/safety-case.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [sparse dictionary learning](../concepts/sparse-dictionary-learning.md), [WikiText-2](../datasets/wikitext-2.md)
+**Related**: [ablation](../methods/ablation.md), [activation patching](../methods/activation-patching.md), [activation steering](../methods/activation-steering.md), [circuit analysis](../methods/circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [feature absorption](../concepts/feature-absorption.md), [feature consistency](../concepts/feature-consistency.md), [GPT-2 small](gpt-2-small.md), [indirect object identification](../datasets/indirect-object-identification.md), [interpretability illusion](../concepts/interpretability-illusion.md), [logit lens](../methods/logit-lens.md), [monosemanticity](../concepts/monosemanticity.md), [PCA](../methods/pca.md), [pre-registration](../methods/pre-registration.md), [Qwen3-8B-Base](qwen3-8b-base.md), [residual stream](../concepts/residual-stream.md), [ridge regression](../methods/ridge-regression.md), [safety case](../concepts/safety-case.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [sparse dictionary learning](../methods/sparse-dictionary-learning.md), [WikiText-2](../datasets/wikitext-2.md)
 
 ## Appears in
 

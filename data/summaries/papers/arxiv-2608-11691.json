@@ -1,0 +1,65 @@
+{
+  "concepts": [
+    "machine unlearning",
+    "entropy collapse",
+    "reasoning-trace leakage",
+    "chain-of-thought faithfulness",
+    "monitorability",
+    "privacy",
+    "latent reasoning",
+    "adaptive compute allocation",
+    "degenerate generation",
+    "LLM-as-a-judge"
+  ],
+  "contributions": [
+    "Identification of a privacy failure specific to natively RL-trained multimodal reasoning models: a memorised sensitive fact removed from the final answer can still be reproduced in the reasoning trace, and substantially more so than in the corresponding non-reasoning base model.",
+    "Attribution of that failure to a distinctive token-level entropy signature left by RL exploration -- clear jumps and drops over specific intervals -- which is largely absent from base models and can therefore be used as a detector.",
+    "A fully training-free, inference-time unlearning framework using entropy dynamics to decide when sensitive reasoning begins and when sanitisation should stop, with an adaptive rather than fixed threshold so the intervention matches the length of the memorised span.",
+    "Redirection rather than masking: committed tokens are replaced with sanitised probability-weighted embeddings re-grounded in the input image, with injection strength entropy-adaptive so the anchor acts only where the span is still uncertain.",
+    "Evidence that answer-level unlearning and reasoning-level unlearning are distinct achievements, with an answer-oriented baseline cutting classification accuracy by 17 points while moving reasoning leakage by 3.",
+    "A transfer experiment reporting that the paper's own entropy mechanism is uninformative on a non-RL backbone, with the visual anchor carrying the effect instead."
+  ],
+  "datasets": [
+    "MLLMU-Bench-style forget/retain/celebrity splits"
+  ],
+  "generated_at": "2026-08-20T13:19:04Z",
+  "generated_by": "queue",
+  "limitations": "The paper has no limitations section. The most consequential caveat is one the authors report themselves in the transfer experiment: the entropy signature the method is named for is a property of RL training and does not exist in non-RL models, where the method still works but for a different reason -- so the mechanism story and the empirical result come apart, and what generalises is the visual anchoring rather than the entropy control. Not stated but worth noticing: the Reasoning Retention Ability metric, which carries the entire utility-preservation claim against gradient-based baselines, is an automatic judgement of fluency and naturalness by a single proprietary model, with no human validation and no reported agreement, and the differences it reports between methods are fractions of a point on a small scale. Subject-level reasoning leakage is measured against curated attribute lists, so it detects the attributes someone enumerated and cannot bound what else a trace reveals. Forget ratios run only to 15 percent and the evaluation is one dataset family across three splits; no adversarial probing of the sanitised model is attempted, so the result is that the fact stops appearing under the evaluated queries rather than that it has been removed. And the intervention is inference-time, which is its main advantage over retraining and also means it is a filter that a deployment must keep running rather than a change to the model.",
+  "method": "The observation that drives the method is that RL-induced exploration leaves sensitive content with a distinctive token-level entropy signature -- clear jumps and drops over specific output intervals -- that is largely absent from base models, whose entropy is comparatively chaotic throughout. LEMUR turns that signature into a control signal for a fully training-free, inference-time intervention with no parameter updates at all. It monitors both a lexical test for forget-relevant content and the entropy dynamics, uses their conjunction to detect when sensitive reasoning begins, then switches from discrete autoregressive decoding into a latent regime in which committed tokens are replaced by sanitised, probability-weighted embeddings re-grounded in the input image -- so the trajectory is redirected toward visually consistent content rather than merely masked. Injection strength is made entropy-adaptive so the anchor acts strongly only where the span is still uncertain and does not over-steer once it is committed, and the phase duration is set by an exponential moving average of entropy over the discrete-mode steps rather than by a fixed global threshold, so the intervention matches the length of the memorised span. Evaluation covers forget, retain and celebrity splits at 5, 10 and 15 percent forget ratios on two RL-trained backbones, with five metrics: classification accuracy, fill-in-blank accuracy, generation target recall, subject-level reasoning leakage (whether the trace reveals any of the queried subject's curated attributes, excluding values already in the prompt), and a Reasoning Retention Ability score judged automatically by Gemini-2.5-Pro for fluency and naturalness.",
+  "methods": [
+    "machine unlearning",
+    "latent injection",
+    "entropy-based detection",
+    "exponential moving average thresholding",
+    "gradient ascent unlearning",
+    "negative preference optimization",
+    "KL minimization",
+    "LLM-as-a-judge",
+    "component ablation"
+  ],
+  "models": [
+    "Onevision-R1-7B",
+    "Vision-R1-7B",
+    "OpenVLThinker-7B",
+    "Qwen2.5-VL",
+    "Qwen2-VL",
+    "Gemini-2.5-Pro"
+  ],
+  "one_liner": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+  "paper_id": "arxiv:2608.11691",
+  "problem": "Reinforcement-learning post-training gives multimodal reasoning models exploratory chains of thought that substantially improve visual reasoning, and this introduces a privacy failure existing unlearning methods are not built for: a sensitive fact removed from the final answer can still surface in the reasoning trace. The gap is much larger in natively RL-trained models than in their non-reasoning base models. Existing unlearning is either answer-oriented, in which case it never touches the trace, or gradient-based, in which case parameter updates intended for the forget set spill onto retained knowledge.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-training": "The paper's diagnostic half matters more to this topic than its method, and it is a cost of RL post-training that the archive did not previously hold. Exploratory chains of thought are what RL buys, and this shows they are also a second copy of whatever the model memorised: a fact removed from the answer is still reproduced in the trace, and the gap is far larger in natively RL-trained models than in their base versions. So RL post-training widens the surface that any answer-level intervention leaves untouched -- an answer-oriented unlearning baseline here cuts classification accuracy by 17 points while moving reasoning leakage by 3. Anything the group does that removes, suppresses or gates content at the answer level should be assumed not to have touched the trace until measured there separately. The second contribution to this topic is the entropy claim, and its honest failure. The authors argue RL leaves memorised content with a distinctive token-level entropy signature -- jumps and drops over specific intervals -- absent from base models whose entropy is comparatively chaotic. That is a concrete, checkable claim about what RL does to decoding dynamics, and it sits alongside the archive's substantial entropy-collapse material as evidence that RL reshapes the entropy profile in structured rather than uniform ways. But their own transfer experiment reports that on a non-RL backbone the signature does not appear, the entropy cue degrades to a gating condition, and the visual anchor carries the effect instead -- so the method survives the transfer while the mechanism does not. Cite the entropy signature as an RL-specific phenomenon rather than a general detector. Two smaller things worth carrying: the gradient-based unlearning baselines depress reasoning fluency even on data they were not asked to forget, which is the familiar spillover problem stated in a new metric; and the paper's final ablation step trades a little forgetting for fluency and reports the trade rather than stopping at the configuration with the best headline."
+  },
+  "results": "The diagnostic result is the more important half. Answer-oriented unlearning suppresses the answer while leaving reasoning leakage essentially intact -- on the 5 percent forget split one such baseline drops classification accuracy from 59.2 to 42.2 while subject-level reasoning leakage moves only from 61.6 to 58.3 -- because it never intervenes on the trace at all. Reasoning-aware baselines reduce leakage only partially, the best reaching 29.8. LEMUR reaches 11.3, alongside the strongest forgetting on every answer metric (classification 26.0, fill-in-blank 1.0, generation target recall 15.1 against a vanilla 59.2, 16.0, 32.2). The pattern reproduces across both backbones and all forget ratios. The utility side separates the method families cleanly: gradient-based baselines lose ground on the retain and celebrity splits as their updates spill over, and depress Reasoning Retention Ability even on non-forget data (4.2 to 6.2 against a vanilla 7.7), while LEMUR holds retain and celebrity scores at essentially vanilla levels and keeps retention at 6.9 to 7.2, so the model continues producing fluent reasoning where the facts have been removed rather than collapsing into degenerate text. The cumulative ablation traces each component and reports an honest trade at the last step: lexical masking alone gives 46.0 / 42.0 on classification and leakage but erodes retain utility and fluency; adding the entropy cue gives 38.5 / 28.7; adding the visual anchor gives 27.0 / 12.5; making its strength entropy-adaptive gives 25.0 / 10.3 and begins recovering retain utility; and the dynamic phase-duration control slightly worsens forgetting (26.0 / 11.3) while raising retention from 6.4 to 6.9 and retain classification from 57.5 to 59.1. The transfer experiment is a negative result about the paper's own headline mechanism, reported plainly. On a non-RL model the pronounced entropy surges do not occur, so the entropy cue functions only as an extra gating condition rather than an informative detector and yields modest gains over the lexical baseline; the visual anchor supplies the dominant corrective signal instead, and the attenuated entropy signal makes the adaptive exit prolong the phase, which incidentally helps retention. The transferred pipeline still beats a baseline built specifically for that backbone.",
+  "schema_version": 1,
+  "tags": [
+    "unlearning",
+    "privacy",
+    "multimodal",
+    "entropy",
+    "training-free",
+    "reasoning-trace"
+  ]
+}

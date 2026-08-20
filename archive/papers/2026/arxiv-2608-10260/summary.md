@@ -44,7 +44,7 @@ The paper states its own scope: experiments cover only components whose width eq
 
 ## Entities
 
-- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), logit lens, tuned lens, hookpoint, [residual stream](../../../../wiki/concepts/residual-stream.md), [low-rank approximation](../../../../wiki/concepts/low-rank-approximation.md), [KL divergence](../../../../wiki/concepts/kl-divergence.md), importance sampling, toxicity localization, memory injection
+- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), logit lens, tuned lens, hookpoint, [residual stream](../../../../wiki/concepts/residual-stream.md), low-rank approximation, [KL divergence](../../../../wiki/concepts/kl-divergence.md), importance sampling, toxicity localization, memory injection
 - **Methods**: [logit lens](../../../../wiki/methods/logit-lens.md), [linear probe](../../../../wiki/methods/linear-probe.md), [LoRA](../../../../wiki/methods/lora.md), [activation patching](../../../../wiki/methods/activation-patching.md), [activation steering](../../../../wiki/methods/activation-steering.md), [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [circuit analysis](../../../../wiki/methods/circuit-analysis.md)
 - **Datasets**: [the Pile](../../../../wiki/datasets/the-pile.md), [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), [ARC-Easy](../../../../wiki/datasets/arc-easy.md), [SciQ](../../../../wiki/datasets/sciq.md), [WikiText-2](../../../../wiki/datasets/wikitext-2.md)
 

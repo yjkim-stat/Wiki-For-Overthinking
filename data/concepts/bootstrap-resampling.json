@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "bootstrap"
+  ],
+  "definition": "Resampling the observed data many times to get an interval or a null for a statistic that has no convenient closed form. Both sources use it on quantities where no analytic distribution is available. The student-simulation work resamples 500 times to put intervals on Wasserstein distances between the distribution of model-generated code and real student submissions, which is what makes a comparison of distributional fidelity across models readable at all. The symbolic-benchmark work uses it on multi-instance consistency scores, where the quantity of interest is whether a model solves several instantiations of the same problem rather than the accuracy on any one. Neither source studies the estimator; between them they mark where it earns its keep -- distances between distributions and consistency rates across paired instances are exactly the statistics that a standard error formula does not cover.",
   "evidence": [
     {
       "id": "arxiv:2608.10492",
@@ -84,7 +86,9 @@
     "seed-think-v1-6",
     "openai-o4-mini-high"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "wilson-confidence-interval"
+  ],
   "schema_version": 1,
   "slug": "bootstrap-resampling",
   "topics": [

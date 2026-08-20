@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "run-to-run consistency"
+  ],
+  "definition": "Whether independently trained sparse autoencoders recover the same features from the same activations, proposed by one source as an evaluation axis that should be reported alongside reconstruction and sparsity rather than left implicit. That source supplies an assignment-based metric -- features are matched between runs before being compared, which is what makes it invariant to arbitrary feature ordering -- with theoretical grounding in an idealised TopK setting, synthetic validation against ground-truth recovery on a model organism, and the empirical result that consistency around 0.80 is achievable with the right architectural choices. The identifiability source reframes the same phenomenon: the run-to-run variability is structural rather than algorithmic, because the reconstruction-and-sparsity objective does not enforce the invariance that identifiability requires, so no amount of better training removes it. The two sit in tension worth recording. One shows consistency can be raised to 0.80 by architecture; the other shows that adding an explicit invariance penalty improves identifiability by 41 percent while cross-seed feature agreement moves the wrong way -- so consistency and identifiability are not the same quantity, and a method can improve one while degrading the other.",
   "evidence": [
     {
       "id": "arxiv:2608.10172",
@@ -56,7 +58,9 @@
     "assignment-based-matching",
     "model-organism-validation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "identifiability"
+  ],
   "schema_version": 1,
   "slug": "feature-consistency",
   "topics": [
