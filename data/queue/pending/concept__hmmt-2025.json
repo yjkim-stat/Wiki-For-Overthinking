@@ -3,6 +3,15 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
         "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
         "topics": [
@@ -38,7 +47,7 @@
   },
   "payload": {
     "name": "HMMT 2025",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__hmmt-2025",
   "task_version": 1,

@@ -9,7 +9,7 @@ Reasoning over many dependent steps where an early decision determines much late
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [belief state](belief-state.md), [construct validity](construct-validity.md), [credit assignment](credit-assignment.md), [GRPO](../methods/grpo.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [pattern recognition versus reasoning](pattern-recognition-versus-reasoning.md), [privileged information](privileged-information.md), [process supervision](process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen3-8B](../models/qwen3-8b.md), [RLVR](../methods/rlvr.md), [state tracking](state-tracking.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [token-level distillation](../methods/token-level-distillation.md)
+**Related**: [ALFWorld](../datasets/alfworld.md), [belief state](belief-state.md), [construct validity](construct-validity.md), [credit assignment](credit-assignment.md), [GRPO](../methods/grpo.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [pattern recognition versus reasoning](pattern-recognition-versus-reasoning.md), [privileged information](privileged-information.md), [process supervision](process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen3-8B](../models/qwen3-8b.md), [RLVR](../methods/rlvr.md), [state tracking](state-tracking.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [token-level distillation](../methods/token-level-distillation.md), [WebShop](../datasets/webshop.md)
 
 ## Appears in
 

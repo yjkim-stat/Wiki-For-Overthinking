@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.07371",
+      "kind": "paper",
+      "note": "Distributes hindsight supervision across the turns of an agent trajectory by comparing each turn's share of total revision magnitude against its share of eligible tokens, holding the average multiplier at one so the total supervision is fixed and only its allocation changes -- and isolates that allocation with a permutation control that keeps the multiplier values and scrambles which turn receives which.",
+      "title": "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning"
+    },
+    {
       "id": "arxiv:2608.08726",
       "kind": "paper",
       "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
@@ -11,23 +17,35 @@
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T14:16:11Z",
   "name": "hindsight",
   "related": [
-    "privileged-information",
-    "on-policy-distillation",
     "credit-assignment",
+    "advantage-estimation",
+    "process-reward",
+    "outcome-reward",
+    "teacher-student-gap",
+    "privileged-information",
+    "selectivity-control",
+    "multi-agent-pipeline",
+    "grpo",
+    "hindsight-distillation",
+    "on-policy-distillation",
+    "permutation-control",
+    "component-ablation",
+    "webshop",
+    "alfworld",
+    "qwen3-1-7b",
+    "qwen2-5-3b",
     "distributional-fixed-point",
     "causal-policy-interface",
     "outcome-verification",
-    "teacher-student-gap",
     "pass-k",
     "self-distillation",
     "on-policy-self-distillation",
     "knowledge-distillation",
     "forward-kl-divergence",
     "generalized-jensen-shannon-divergence",
-    "grpo",
     "supervised-fine-tuning",
     "verifier-based-reward",
     "paired-bootstrap",
@@ -37,13 +55,13 @@
     "aime-2024",
     "aime-2025",
     "hmmt-2025",
-    "qwen3-1-7b",
     "qwen3-4b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "hindsight",
   "topics": [
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.06296",
+      "kind": "paper",
+      "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+      "title": "On-Policy Self-Distillation without Any Supervision"
+    },
+    {
       "id": "local:2175408b166d313f",
       "kind": "paper",
       "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
@@ -10,10 +16,35 @@
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T14:16:11Z",
   "name": "Jensen-Shannon divergence",
   "related": [
+    "self-consistency",
+    "consensus",
+    "privileged-information",
+    "on-policy-distillation",
+    "teacher-student-gap",
+    "degenerate-generation",
+    "label-free-rlvr",
+    "pseudo-labelling",
+    "format-compliance",
+    "majority-voting",
+    "knowledge-distillation",
+    "forward-kl-divergence",
+    "reverse-kl-divergence",
+    "top-k-truncation",
+    "grpo",
+    "supervised-fine-tuning",
+    "aime-2024",
+    "aime-2025",
+    "hmmt-2025",
+    "math500",
+    "amc23",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-4b-instruct-2507",
+    "qwen3-30b-a3b-instruct-2507",
     "token-level-entropy",
     "second-order-renyi-entropy",
     "collision-probability",
@@ -26,18 +57,14 @@
     "pass-k",
     "ict-independent-combinatorial-tokens",
     "sparse-grpo",
-    "grpo",
     "rlvr",
     "20-entropy",
     "stapo",
     "verl",
     "gsm8k",
-    "math500",
     "mmlu-stem",
     "gpqa",
     "aime23",
-    "aime-2024",
-    "aime-2025",
     "qwen2-5-0-5b",
     "qwen2-5-1-5b",
     "qwen2-5-7b"
@@ -46,6 +73,7 @@
   "schema_version": 1,
   "slug": "jensen-shannon-divergence",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }
