@@ -42,6 +42,12 @@
       "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting"
     },
     {
+      "id": "arxiv:2608.11573",
+      "kind": "paper",
+      "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+      "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.380",
       "kind": "paper",
       "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
@@ -68,7 +74,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "last_seen": "2026-08-20T14:41:51Z",
   "name": "out-of-distribution generalization",
   "related": [
     "intent-classification",
@@ -216,6 +222,29 @@
     "gpt-5-5",
     "codex",
     "grok-4",
+    "self-correction",
+    "step-level-preference-optimization",
+    "process-reward",
+    "behavior-collapse",
+    "teacher-student-gap",
+    "sfs-dpo",
+    "sfs-dpo-r",
+    "step-dpo",
+    "dpo",
+    "lemma",
+    "s2r",
+    "mcnemar-s-test",
+    "math",
+    "gaokao2023",
+    "ocwcourses",
+    "metamath",
+    "mmiqc",
+    "deepseekmath-7b-sft",
+    "qwen2-7b-sft",
+    "qwen2-7b-instruct",
+    "qwen2-5-math-7b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-14b-instruct",
     "compositional-generalization",
     "commonsense-reasoning",
     "brittleness",
@@ -267,7 +296,7 @@
     "reasoning-interpretability",
     "reasoning-evaluation",
     "reasoning-training",
-    "reasoning-faithfulness",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

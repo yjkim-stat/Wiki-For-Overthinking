@@ -9,7 +9,7 @@ Supervising a student on the teacher's full distribution at each token rather th
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [ALFWorld](../datasets/alfworld.md), [belief state](../concepts/belief-state.md), [credit assignment](../concepts/credit-assignment.md), [GRPO](grpo.md), [long-horizon reasoning](../concepts/long-horizon-reasoning.md), [on-policy self-distillation](on-policy-self-distillation.md), [privileged information](../concepts/privileged-information.md), [process supervision](../concepts/process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [RLVR](rlvr.md), [token selection](../concepts/token-selection.md), [WebShop](../datasets/webshop.md)
+**Related**: [ALFWorld](../datasets/alfworld.md), [belief state](../concepts/belief-state.md), [credit assignment](../concepts/credit-assignment.md), [cross-lingual transfer](../concepts/cross-lingual-transfer.md), [GRPO](grpo.md), [long-horizon reasoning](../concepts/long-horizon-reasoning.md), [on-policy self-distillation](on-policy-self-distillation.md), [privileged information](../concepts/privileged-information.md), [process supervision](../concepts/process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [RLVR](rlvr.md), [token selection](../concepts/token-selection.md), [WebShop](../datasets/webshop.md)
 
 ## Appears in
 

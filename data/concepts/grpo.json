@@ -227,6 +227,12 @@
       "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
     },
     {
+      "id": "arxiv:2608.11715",
+      "kind": "paper",
+      "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+      "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use"
+    },
+    {
       "id": "arxiv:2608.11787",
       "kind": "paper",
       "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
@@ -361,7 +367,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:37:32Z",
+  "last_seen": "2026-08-20T14:41:51Z",
   "name": "GRPO",
   "related": [
     "credit-assignment",
@@ -969,6 +975,14 @@
     "inverse-probability-weighting",
     "convex-optimization",
     "leave-one-out-estimation",
+    "reward-granularity",
+    "cross-lingual-transfer",
+    "model-selection",
+    "argument-factorized-reward",
+    "hierarchical-step-reward",
+    "token-level-reward-weighting",
+    "berkeley-function-calling-leaderboard-multilingual-extension",
+    "mgsm",
     "construct-validity",
     "safety-gating",
     "off-policy-evaluation",

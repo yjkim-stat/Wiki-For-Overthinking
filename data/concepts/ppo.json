@@ -35,6 +35,12 @@
       "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation"
     },
     {
+      "id": "arxiv:2608.11715",
+      "kind": "paper",
+      "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+      "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use"
+    },
+    {
       "id": "local:4cf1061e50d8b3c3",
       "kind": "paper",
       "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
@@ -85,7 +91,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:30:08Z",
+  "last_seen": "2026-08-20T14:41:51Z",
   "name": "PPO",
   "related": [
     "credit-assignment",
@@ -203,6 +209,16 @@
     "imagenet",
     "openthoughts3-1-2m",
     "resnet-50",
+    "tool-learning",
+    "reward-granularity",
+    "cross-lingual-transfer",
+    "model-selection",
+    "argument-factorized-reward",
+    "hierarchical-step-reward",
+    "token-level-reward-weighting",
+    "berkeley-function-calling-leaderboard-multilingual-extension",
+    "mgsm",
+    "qwen2-5-32b-instruct",
     "benchmark-contamination",
     "contamination-detection",
     "memorization",

@@ -45,7 +45,7 @@ The authors' own list is unusually complete. The Llama model's single-sample acc
 
 ## Entities
 
-- **Concepts**: self-consistency, majority voting, confidence calibration, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), pre-registration, [premature convergence](../../../../wiki/concepts/premature-convergence.md), oracle upper bound, difficulty stratification
+- **Concepts**: self-consistency, majority voting, [confidence calibration](../../../../wiki/concepts/confidence-calibration.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), pre-registration, [premature convergence](../../../../wiki/concepts/premature-convergence.md), oracle upper bound, difficulty stratification
 - **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [majority voting](../../../../wiki/methods/majority-voting.md), agreement gate, token-entropy gate, adaptive consistency, oracle routing, [bootstrap confidence intervals](../../../../wiki/methods/bootstrap-confidence-intervals.md)
 - **Datasets**: [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 

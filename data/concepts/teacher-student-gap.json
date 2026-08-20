@@ -33,6 +33,12 @@
       "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement"
     },
     {
+      "id": "arxiv:2608.11573",
+      "kind": "paper",
+      "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+      "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs"
+    },
+    {
       "id": "arxiv:2608.11967",
       "kind": "paper",
       "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
@@ -41,7 +47,7 @@
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T14:41:51Z",
   "name": "teacher-student gap",
   "related": [
     "credit-assignment",
@@ -133,10 +139,34 @@
     "qwen3-1-7b-base",
     "deepseek-r1-distill-qwen-1-5b",
     "justrl-deepseek-1-5b",
+    "self-correction",
+    "step-level-preference-optimization",
+    "error-detection",
+    "behavior-collapse",
+    "distribution-shift",
+    "out-of-distribution-generalization",
+    "sfs-dpo",
+    "sfs-dpo-r",
+    "step-dpo",
+    "dpo",
+    "lemma",
+    "s2r",
+    "mcnemar-s-test",
+    "gsm8k",
+    "gaokao2023",
+    "ocwcourses",
+    "metamath",
+    "mmiqc",
+    "deepseekmath-7b-sft",
+    "qwen2-7b-sft",
+    "qwen2-7b-instruct",
+    "qwen2-5-math-7b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-14b-instruct",
+    "gpt-4o",
     "reflection",
     "backtracking",
     "error-compounding",
-    "self-correction",
     "memory-management",
     "exponential-moving-average-teacher",
     "lora",
@@ -145,7 +175,6 @@
     "process-supervision",
     "backtracking-search",
     "frames",
-    "gsm8k",
     "qwen2-5-7b",
     "qwen3-32b"
   ],
@@ -156,6 +185,7 @@
   "slug": "teacher-student-gap",
   "topics": [
     "reasoning-training",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

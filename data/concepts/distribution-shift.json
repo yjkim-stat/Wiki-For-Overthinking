@@ -25,11 +25,17 @@
       "kind": "paper",
       "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
       "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations"
+    },
+    {
+      "id": "arxiv:2608.11573",
+      "kind": "paper",
+      "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+      "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs"
     }
   ],
   "first_seen": "2026-08-20T13:04:03Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:05:59Z",
+  "last_seen": "2026-08-20T14:41:51Z",
   "name": "distribution shift",
   "related": [
     "linear-probe",
@@ -122,7 +128,33 @@
     "gpt-4o",
     "claude-4-8-opus",
     "gemini-1-5-pro",
-    "llama-3-2-90b-v"
+    "llama-3-2-90b-v",
+    "self-correction",
+    "step-level-preference-optimization",
+    "error-detection",
+    "process-reward",
+    "behavior-collapse",
+    "teacher-student-gap",
+    "sfs-dpo",
+    "sfs-dpo-r",
+    "step-dpo",
+    "dpo",
+    "lemma",
+    "s2r",
+    "mcnemar-s-test",
+    "math",
+    "gsm8k",
+    "gaokao2023",
+    "ocwcourses",
+    "metamath",
+    "mmiqc",
+    "deepseekmath-7b-sft",
+    "qwen2-7b-sft",
+    "qwen2-7b-instruct",
+    "qwen2-5-math-7b-instruct",
+    "qwen3-8b",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-14b-instruct"
   ],
   "related_authored": [
     "out-of-domain-generalization"
@@ -132,6 +164,7 @@
   "topics": [
     "reasoning-interpretability",
     "reasoning-training",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }
