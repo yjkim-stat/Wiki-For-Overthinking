@@ -7,6 +7,17 @@
         "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve",
         "topics": [
           "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+        "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
           "reasoning-interpretability"
         ]
       },
@@ -16,13 +27,14 @@
         "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
         "topics": [
           "reasoning-training",
+          "test-time-scaling",
           "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T13:07:29Z",
-  "created_at": "2026-08-20T13:00:03Z",
+  "completed_at": "2026-08-20T23:34:36Z",
+  "created_at": "2026-08-20T23:33:34Z",
   "instructions": "Write the wiki definition for 'zero-shot prompting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "zero-shot prompting",
   "kind": "concept",
@@ -39,22 +51,24 @@
   },
   "payload": {
     "name": "zero-shot prompting",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
       "zero-shot"
     ],
-    "definition": "Asking a model to do a task with no worked examples in the prompt, and in these sources the baseline whose status has changed. One source measures the reversal directly: few-shot chain-of-thought prompting with dataset exemplars now scores below simply asking a reasoning-specialised model the question -- 74.2 percent against 86.1 on GSM8K for one model -- so the field's standard few-shot baseline systematically understates modern models and overstates anything benchmarked against it. The second uses zero-shot as its only condition, prompting 28 models with one fixed template of game setup, public history and a single perspective-constrained statement, which lets it compare across proprietary and open models without the confound of exemplar choice; it then finds that toggling chain of thought on the same weights changes accuracy by only +1.1 points on average with the sign mixed, while reasoning training on the same base model gives +11.0. Read together they suggest the prompt-side interventions that once carried a result now carry little of one, and that what a model was trained to do dominates what it is asked to do.",
+    "definition": "Asking a model to perform a task with no worked examples, and across 3 sources a baseline whose standing has reversed for reasoning-specialised models. The measured reversal: for such models, zero-shot free-form generation now beats few-shot prompting, while the one general model without reasoning tuning collapses to 67.3 percent zero-shot free-form -- below its few-shot results -- with only zero-shot chain of thought at 81.4 beating them, which that source reports as the honest exception bounding its claim. Its other archived appearances are as the weakest arm in a legal-explanation comparison, where zero-shot macro-F1 runs 0.47 to 0.64 against few-shot at 0.64 to 0.71, and as an evaluation setting in theory-of-mind work.",
     "kind": "method",
     "related": [
-      "few-shot prompting"
+      "few-shot prompting",
+      "chain-of-thought prompting"
     ]
   },
   "task_id": "concept__zero-shot-prompting",
   "task_version": 1,
   "topics": [
     "reasoning-interpretability",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

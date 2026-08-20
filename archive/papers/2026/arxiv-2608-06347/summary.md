@@ -46,7 +46,7 @@ No effect sizes, benchmark names or model scales in the abstract. The pivot prox
 
 ## Entities
 
-- **Concepts**: [cross-lingual transfer](../../../../wiki/concepts/cross-lingual-transfer.md), reasoning pivot, [process supervision](../../../../wiki/concepts/process-supervision.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [privileged information](../../../../wiki/concepts/privileged-information.md), [token selection](../../../../wiki/concepts/token-selection.md), surface realization
+- **Concepts**: [cross-lingual transfer](../../../../wiki/concepts/cross-lingual-transfer.md), reasoning pivot, [process supervision](../../../../wiki/concepts/process-supervision.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [privileged information](../../../../wiki/concepts/privileged-information.md), token selection, surface realization
 - **Methods**: RP-OPSD, [on-policy self-distillation](../../../../wiki/methods/on-policy-self-distillation.md), [token-level distillation](../../../../wiki/methods/token-level-distillation.md), reference anchoring, counterfactual view comparison
 - **Datasets**: _none recorded_
 

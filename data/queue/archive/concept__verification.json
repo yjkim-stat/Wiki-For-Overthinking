@@ -36,6 +36,17 @@
       },
       {
         "kind": "paper",
+        "note": "Tests whether systems that translate natural-language reasoning steps into Lean preserve invalidity as well as validity, by automatically perturbing steps to make them wrong, and finds pervasive silent correction -- with the systems best at preserving valid inputs the most likely to repair invalid ones.",
+        "title": "FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
         "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
         "topics": [
@@ -179,9 +190,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:11Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'verification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:34:36Z",
+  "created_at": "2026-08-20T23:33:34Z",
+  "instructions": "Write the wiki definition for 'verification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "verification",
   "kind": "concept",
   "language": "en",
@@ -190,32 +201,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "verification",
-    "source_count": 16
+    "source_count": 17
   },
   "result": {
     "aliases": [
-      "verifier",
-      "correctness checking",
-      "solution verification"
+      "verifier"
     ],
-    "definition": "Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.",
+    "definition": "Checking whether an output is correct, and across 17 sources the capability that makes everything else in this archive possible -- the reward that trains, the selector that picks, the judge that scores. The archive's oldest source establishes the pattern by training a verifier to rank sampled solutions and finding it beats finetuning the generator directly. What the corpus adds is a catalogue of where verification is weaker than it appears. It is often evaluated only on correct inputs, so nothing measures what happens when the input is wrong -- which one source names as precisely the case of interest, since an error is what verification exists to catch. A binary verifier conflates format with content, so the policy cannot learn which it is being punished for. An imperfect verifier makes best-of-N decay with scale, as adversarial solutions that fool it become more likely to be found. And where a model does the verifying, the archive's judge material applies in full. The corpus's positive direction is verification grounded outside the model: executing generated SQL against the source table, checking a stated formula with an external checker, extracting answer-space constraints and testing intermediate results against them, or generating benchmarks from executable trees so answers are correct by construction.",
     "kind": "concept",
     "related": [
-      "process supervision",
-      "LLM-as-a-judge",
-      "judge reliability",
-      "reward hacking",
-      "error detection",
+      "verifiable reward",
       "best-of-n",
-      "provable scaling law",
-      "calibration"
+      "process evaluation"
     ]
   },
   "task_id": "concept__verification",

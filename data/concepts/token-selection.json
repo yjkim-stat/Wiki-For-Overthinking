@@ -2,9 +2,11 @@
   "aliases": [
     "token weighting",
     "token-level credit",
-    "critical token identification"
+    "critical token identification",
+    "token masking",
+    "token-level gating"
   ],
-  "definition": "Choosing which tokens in a reasoning trace deserve gradient, reward or removal — the archive's central technical dispute, with each source proposing a different criterion and none measuring overlap with the others. The criteria collected here are the teacher's distributional shift when a reference solution is supplied, the signed per-token log-probability gain of the ground-truth answer, the model's own likelihood contribution to the answer and to local coherence, and a teacher's skill-aware decomposition of steps. Elsewhere in the archive the same question is answered by Shannon entropy and by Jensen-Shannon divergence from a reference distribution. One criterion is signed, so it can mark a token as actively harmful rather than merely uninformative; the rest select tokens to weight up.",
+  "definition": "Applying an objective to a chosen subset of tokens rather than uniformly, and across 5 sources the finest granularity at which the archive's methods intervene. The selection criteria differ and so do the arguments for them: divergence of a token's logit distribution from the group average rather than its entropy, on the argument that entropy marks uncertainty rather than distinctiveness; positions where a privileged teacher's distribution shifts most, which concentrate on reasoning-control and problem-conditioned state-update tokens while downweighting surface realisation; positions where the student almost never samples but the teacher prefers, which no on-policy update otherwise reaches; and marginal utility per token for pruning. Two findings recur. Which tokens are selected matters more than how many -- one sparsity ablation gives 66.23 pass@1 at a 10 percent selection against 63.37 at 20 percent, 60.62 for the bottom 90 percent of frequent tokens and 57.45 for uniform training. And the selected set is stable: overlap of the top-20 percent highest-entropy positions with the base model falls only from 100 to 86.67 percent over 1,360 training steps, so training largely preserves rather than installs the structure being selected on.",
   "evidence": [
     {
       "id": "arxiv:2608.06347",
@@ -38,8 +40,8 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:33:31Z",
   "name": "token selection",
   "related": [
     "cross-lingual-transfer",
@@ -109,7 +111,11 @@
     "gsm8k",
     "aime"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "credit-assignment",
+    "entropy-collapse",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "token-selection",
   "topics": [

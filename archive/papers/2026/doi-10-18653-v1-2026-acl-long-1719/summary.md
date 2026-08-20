@@ -44,7 +44,7 @@ No numbers in the abstract, so 'catastrophic' is uncalibrated. Geometry with con
 
 ## Entities
 
-- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), reasoning illusion, visual perception, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), process evaluation, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md)
+- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), reasoning illusion, visual perception, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [process evaluation](../../../../wiki/concepts/process-evaluation.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md)
 - **Methods**: VisAidMath, Three-Layered Funnel Evaluation Framework, process-level scoring
 - **Datasets**: VisAidMath
 

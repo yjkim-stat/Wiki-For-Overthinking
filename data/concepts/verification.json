@@ -5,7 +5,7 @@
     "correctness checking",
     "solution verification"
   ],
-  "definition": "Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.",
+  "definition": "Checking whether an output is correct, and across 17 sources the capability that makes everything else in this archive possible -- the reward that trains, the selector that picks, the judge that scores. The archive's oldest source establishes the pattern by training a verifier to rank sampled solutions and finding it beats finetuning the generator directly. What the corpus adds is a catalogue of where verification is weaker than it appears. It is often evaluated only on correct inputs, so nothing measures what happens when the input is wrong -- which one source names as precisely the case of interest, since an error is what verification exists to catch. A binary verifier conflates format with content, so the policy cannot learn which it is being punished for. An imperfect verifier makes best-of-N decay with scale, as adversarial solutions that fool it become more likely to be found. And where a model does the verifying, the archive's judge material applies in full. The corpus's positive direction is verification grounded outside the model: executing generated SQL against the source table, checking a stated formula with an external checker, extracting answer-space constraints and testing intermediate results against them, or generating benchmarks from executable trees so answers are correct by construction.",
   "evidence": [
     {
       "id": "arxiv:2110.14168",
@@ -332,7 +332,11 @@
     "acereason-nemotron-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "verifiable-reward",
+    "best-of-n",
+    "process-evaluation"
+  ],
   "schema_version": 1,
   "slug": "verification",
   "topics": [

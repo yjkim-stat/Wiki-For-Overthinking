@@ -4,7 +4,7 @@
     "veRL",
     "VeRL"
   ],
-  "definition": "The reinforcement learning library these sources build their training pipelines on. None describes its design; it appears as the implementation substrate, cited to establish that a comparison against a baseline is like-for-like — that a method differs from its GRPO baseline only in the token-selection step with loss and optimizer identical, or that it follows the DAPO recipe inside the same codebase. Its recurrence across five independent entries is itself a fact worth recording about the archive: much of the entropy literature here is measured on one framework, so an artefact of that framework would not show up as a disagreement between them.",
+  "definition": "The reinforcement-learning training framework most of this archive's post-training experiments run on, appearing across 6 sources as infrastructure rather than as a subject. Its significance is comparability: because so many archived methods use it with near-identical hyperparameters on the same corpus, differences between them are more attributable to the method than they would otherwise be, and several sources state that only the token-selection step or only the reward mapping differs from their baseline. The archive's related caution is the reproducibility one -- a shared framework fixes many choices and makes the remaining ones invisible, so a result stated without its configuration is not reproducible even within the framework.",
   "evidence": [
     {
       "id": "local:2175408b166d313f",
@@ -162,7 +162,11 @@
     "qwq-32b",
     "deepseek-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grpo",
+    "reproducibility",
+    "vllm"
+  ],
   "schema_version": 1,
   "slug": "verl",
   "topics": [

@@ -7,7 +7,8 @@
         "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "test-time-scaling"
         ]
       },
       {
@@ -16,13 +17,24 @@
         "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T14:19:26Z",
-  "created_at": "2026-08-20T14:13:03Z",
+  "completed_at": "2026-08-20T23:34:35Z",
+  "created_at": "2026-08-20T23:33:34Z",
   "instructions": "Write the wiki definition for 'tool orchestration'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "tool orchestration",
   "kind": "concept",
@@ -39,20 +51,23 @@
   },
   "payload": {
     "name": "tool orchestration",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [],
-    "definition": "Sequencing several tools whose outputs feed each other, as distinct from selecting one tool for one query. Both sources build benchmarks around the distinction and find it is where systems break. The video-anomaly work separates single-tool from interrelated-tool responses and reports the gap starkly: one baseline scores 0 percent whole-response accuracy on the interrelated split, another 4.52, and a model roughly nine times larger than the trained system reaches only 67.40 -- while performing acceptably on isolated tools. The long-horizon video agent identifies the complementary failure in sequencing over time, where prior systems follow a monotonic zoom-in and cannot revise, and shows that results on a 41-minute benchmark do not predict results on multi-hour ones, with one agent leading the first and losing 35 points on the second. The archive's reading is that orchestration is a separate capability from tool use rather than more of it, and that a benchmark not separating the two will report a system as competent that cannot chain.",
+    "definition": "Sequencing several tools whose outputs feed each other, as distinct from selecting one tool for one query, and across 3 sources a separate capability rather than more of the same. The benchmark evidence: separating single-tool from interrelated-tool responses shows one baseline at 0 percent whole-response accuracy on the interrelated split, another at 4.52, and a model roughly nine times larger than the trained system reaching only 67.40 -- while all perform acceptably on isolated tools. The sequencing failure over time is complementary: prior systems follow a monotonic zoom-in and cannot revise, and results on a 41-minute benchmark do not predict results on multi-hour ones, with one agent leading the first and losing 35 points on the second. And the recovery side is measured too, with a diagnosis-first harness whose ablation shows action restriction and matched instruction worth 49 points together and under 4 apart. A benchmark not separating the two capabilities will report a system as competent that cannot chain.",
     "kind": "concept",
     "related": [
-      "tool learning"
+      "tool learning",
+      "long-horizon agency",
+      "error compounding"
     ]
   },
   "task_id": "concept__tool-orchestration",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

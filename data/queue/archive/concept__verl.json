@@ -7,7 +7,9 @@
         "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -16,7 +18,9 @@
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -25,7 +29,9 @@
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -34,7 +40,9 @@
         "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -43,14 +51,27 @@
         "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:59Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'VeRL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:34:36Z",
+  "created_at": "2026-08-20T23:33:34Z",
+  "instructions": "Write the wiki definition for 'VeRL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "VeRL",
   "kind": "concept",
   "language": "en",
@@ -59,22 +80,33 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "VeRL",
-    "source_count": 5
+    "source_count": 6
   },
   "result": {
-    "definition": "The reinforcement learning library these sources build their training pipelines on. None describes its design; it appears as the implementation substrate, cited to establish that a comparison against a baseline is like-for-like — that a method differs from its GRPO baseline only in the token-selection step with loss and optimizer identical, or that it follows the DAPO recipe inside the same codebase. Its recurrence across five independent entries is itself a fact worth recording about the archive: much of the entropy literature here is measured on one framework, so an artefact of that framework would not show up as a disagreement between them."
+    "aliases": [
+      "veRL"
+    ],
+    "definition": "The reinforcement-learning training framework most of this archive's post-training experiments run on, appearing across 6 sources as infrastructure rather than as a subject. Its significance is comparability: because so many archived methods use it with near-identical hyperparameters on the same corpus, differences between them are more attributable to the method than they would otherwise be, and several sources state that only the token-selection step or only the reward mapping differs from their baseline. The archive's related caution is the reproducibility one -- a shared framework fixes many choices and makes the remaining ones invisible, so a result stated without its configuration is not reproducible even within the framework.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "reproducibility",
+      "vLLM"
+    ]
   },
   "task_id": "concept__verl",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

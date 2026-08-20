@@ -45,7 +45,7 @@ Two datasets reported, and GSM8K is near-saturated at 91.7% baseline, so the acc
 
 ## Entities
 
-- **Concepts**: reasoning distillation, [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), skill decomposition, capacity matching, knowledge transfer, [token selection](../../../../wiki/concepts/token-selection.md)
+- **Concepts**: reasoning distillation, [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), skill decomposition, capacity matching, knowledge transfer, token selection
 - **Methods**: DRP, [chain of thought distillation](../../../../wiki/methods/chain-of-thought-distillation.md), step decomposition, inference-time pruning
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME](../../../../wiki/datasets/aime.md)
 

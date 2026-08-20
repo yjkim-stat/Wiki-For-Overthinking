@@ -44,7 +44,7 @@ The abstract text available ends mid-sentence at the headline comparison. 'Aroun
 
 ## Entities
 
-- **Concepts**: [error detection](../../../../wiki/concepts/error-detection.md), process evaluation, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [verification](../../../../wiki/concepts/verification.md), [construct validity](../../../../wiki/concepts/construct-validity.md), human baseline
+- **Concepts**: [error detection](../../../../wiki/concepts/error-detection.md), [process evaluation](../../../../wiki/concepts/process-evaluation.md), [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [verification](../../../../wiki/concepts/verification.md), [construct validity](../../../../wiki/concepts/construct-validity.md), human baseline
 - **Methods**: ErrorRadar, error step identification, error categorization, expert annotation
 - **Datasets**: ErrorRadar
 

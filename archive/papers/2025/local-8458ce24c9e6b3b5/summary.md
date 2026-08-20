@@ -44,7 +44,7 @@ The paper states no limitations section. The dominant scope fact is that everyth
 ## Entities
 
 - **Concepts**: approximation error, global convergence, reward ordering preservation, feature conditions, [log-linear policy](../../../../wiki/concepts/log-linear-policy.md), linear function approximation, [softmax policy](../../../../wiki/concepts/softmax-policy.md), [tabular softmax parameterization](../../../../wiki/concepts/tabular-softmax-parameterization.md), stochastic bandit, non-uniform smoothness, strong growth condition, non-uniform Lojasiewicz condition, monotonic improvement, one-hot policy, optimization landscape, [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md)
-- **Methods**: [policy gradient](../../../../wiki/methods/policy-gradient.md), Lin-SPG, [natural policy gradient](../../../../wiki/methods/natural-policy-gradient.md), [importance sampling](../../../../wiki/methods/importance-sampling.md), [REINFORCE](../../../../wiki/methods/reinforce.md), actor-critic, TRPO, [PPO](../../../../wiki/methods/ppo.md)
+- **Methods**: policy gradient, Lin-SPG, [natural policy gradient](../../../../wiki/methods/natural-policy-gradient.md), [importance sampling](../../../../wiki/methods/importance-sampling.md), [REINFORCE](../../../../wiki/methods/reinforce.md), actor-critic, TRPO, [PPO](../../../../wiki/methods/ppo.md)
 - **Datasets**: _none recorded_
 
 Tags: `policy gradient`, `convergence`, `bandits`, `theory`, `function approximation`, `feature representation`

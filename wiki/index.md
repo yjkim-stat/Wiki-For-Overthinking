@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (190)
+## Concepts (189)
 
 - [abstention](concepts/abstention.md) — 5 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 25 source(s)
@@ -186,7 +186,6 @@
 - [test-time scaling](concepts/test-time-scaling.md) — 28 source(s)
 - [theory of mind](concepts/theory-of-mind.md) — 2 source(s)
 - [token efficiency](concepts/token-efficiency.md) — 2 source(s)
-- [token selection](concepts/token-selection.md) — 5 source(s)
 - [token-level entropy](concepts/token-level-entropy.md) — 7 source(s)
 - [tool learning](concepts/tool-learning.md) — 3 source(s)
 - [tool orchestration](concepts/tool-orchestration.md) — 3 source(s)
@@ -203,7 +202,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (163)
+## Methods (164)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -355,6 +354,7 @@
 - [t-SNE](methods/t-sne.md) — 3 source(s)
 - [teacher forcing](methods/teacher-forcing.md) — 3 source(s)
 - [TF-IDF](methods/tf-idf.md) — 2 source(s)
+- [token selection](methods/token-selection.md) — 5 source(s)
 - [token-level distillation](methods/token-level-distillation.md) — 2 source(s)
 - [TokenSkip](methods/tokenskip.md) — 2 source(s)
 - [top-k truncation](methods/top-k-truncation.md) — 2 source(s)

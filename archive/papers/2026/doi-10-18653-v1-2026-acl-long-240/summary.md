@@ -45,7 +45,7 @@ No quantitative results, named backbones or benchmark names in the abstract, so 
 ## Entities
 
 - **Concepts**: [safety alignment](../../../../wiki/concepts/safety-alignment.md), reasoning structure, [data efficiency](../../../../wiki/concepts/data-efficiency.md), [generalization](../../../../wiki/concepts/generalization.md), [alignment tax](../../../../wiki/concepts/alignment-tax.md)
-- **Methods**: AltTrain, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [post-training](../../../../wiki/methods/post-training.md)
+- **Methods**: AltTrain, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), post-training
 - **Datasets**: _none recorded_
 
 Tags: `safety alignment`, `reasoning structure`, `sft`, `data efficiency`, `thin-evidence`

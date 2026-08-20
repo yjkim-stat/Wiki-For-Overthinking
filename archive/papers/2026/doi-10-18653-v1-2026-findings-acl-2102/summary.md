@@ -44,8 +44,8 @@ No numbers, models or benchmarks are named in the abstract. Monotonic improvemen
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), process evaluation, [verification](../../../../wiki/concepts/verification.md), best-of-n, [judge reliability](../../../../wiki/concepts/judge-reliability.md), [compute allocation](../../../../wiki/concepts/compute-allocation.md)
-- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [reranking](../../../../wiki/methods/reranking.md), [best-of-n](../../../../wiki/methods/best-of-n.md), [process evaluation](../../../../wiki/methods/process-evaluation.md), outcome evaluation
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), [process evaluation](../../../../wiki/concepts/process-evaluation.md), [verification](../../../../wiki/concepts/verification.md), best-of-n, [judge reliability](../../../../wiki/concepts/judge-reliability.md), [compute allocation](../../../../wiki/concepts/compute-allocation.md)
+- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [reranking](../../../../wiki/methods/reranking.md), [best-of-n](../../../../wiki/methods/best-of-n.md), process evaluation, outcome evaluation
 - **Datasets**: _none recorded_
 
 Tags: `evaluation-time compute`, `llm-as-a-judge`, `test-time scaling`, `reranking`, `process evaluation`

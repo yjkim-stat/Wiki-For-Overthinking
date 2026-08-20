@@ -46,7 +46,7 @@ No quantitative results, benchmarks or models in the abstract. Necessity is judg
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [token selection](../../../../wiki/concepts/token-selection.md), self-guided pruning, preference optimization, semantic unit, likelihood signal
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), token selection, self-guided pruning, preference optimization, semantic unit, likelihood signal
 - **Methods**: SGP-CoT, [preference optimization](../../../../wiki/methods/preference-optimization.md), chain of thought pruning, self-optimization
 - **Datasets**: _none recorded_
 

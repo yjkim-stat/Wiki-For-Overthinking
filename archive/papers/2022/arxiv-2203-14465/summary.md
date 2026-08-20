@@ -43,7 +43,7 @@ Not discussed in the abstract. A reader should note the structural risk the meth
 
 ## Entities
 
-- **Concepts**: [self-training](../../../../wiki/concepts/self-training.md), bootstrapping, rationale generation, [rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), outcome-based filtering, [chain of thought](../../../../wiki/concepts/chain-of-thought.md)
+- **Concepts**: self-training, bootstrapping, rationale generation, [rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), outcome-based filtering, [chain of thought](../../../../wiki/concepts/chain-of-thought.md)
 - **Methods**: STaR, [few-shot prompting](../../../../wiki/methods/few-shot-prompting.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), iterative self-improvement
 - **Datasets**: [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md)
 

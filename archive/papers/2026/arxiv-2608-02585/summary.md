@@ -46,7 +46,7 @@ The paper has no limitations section. What a reader should weigh: the random-wal
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), policy gradient, self-attention, circuit analysis, gradient attribution, reasoning connector
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [policy gradient](../../../../wiki/concepts/policy-gradient.md), self-attention, circuit analysis, gradient attribution, reasoning connector
 - **Methods**: GradCuit, LatentSeek, [self-consistency](../../../../wiki/methods/self-consistency.md), [best-of-N](../../../../wiki/methods/best-of-n.md), [self-reflection](../../../../wiki/methods/self-reflection.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), prefix tuning
 - **Datasets**: [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md)
 

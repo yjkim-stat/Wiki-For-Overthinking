@@ -45,7 +45,7 @@ No numbers in the abstract and the 26 models are not listed. Template-generated 
 
 ## Entities
 
-- **Concepts**: symbolic reasoning, process evaluation, [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), [verification](../../../../wiki/concepts/verification.md), step-level consistency, template generation, [construct validity](../../../../wiki/concepts/construct-validity.md)
+- **Concepts**: symbolic reasoning, [process evaluation](../../../../wiki/concepts/process-evaluation.md), [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), [verification](../../../../wiki/concepts/verification.md), step-level consistency, template generation, [construct validity](../../../../wiki/concepts/construct-validity.md)
 - **Methods**: FinChain, ChainEval, parameterized template generation, executable verification
 - **Datasets**: FinChain, [FinQA](../../../../wiki/datasets/finqa.md), ConvFinQA
 

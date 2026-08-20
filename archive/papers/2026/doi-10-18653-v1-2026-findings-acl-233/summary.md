@@ -45,7 +45,7 @@ No quantitative results, benchmark names or backbones in the abstract. Depends o
 
 ## Entities
 
-- **Concepts**: neuro-symbolic reasoning, [verification](../../../../wiki/concepts/verification.md), logical reasoning, [hallucination](../../../../wiki/concepts/hallucination.md), multi-agent collaboration, constraint violation, [self-training](../../../../wiki/concepts/self-training.md)
+- **Concepts**: neuro-symbolic reasoning, [verification](../../../../wiki/concepts/verification.md), logical reasoning, [hallucination](../../../../wiki/concepts/hallucination.md), multi-agent collaboration, constraint violation, self-training
 - **Methods**: MAC-Reasoner, symbolic program execution, multi-agent framework, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
 - **Datasets**: _none recorded_
 

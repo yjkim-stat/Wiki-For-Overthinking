@@ -45,7 +45,7 @@ Stated, and the most important one is a disclaimer about the paper's own framing
 
 ## Entities
 
-- **Concepts**: [data contamination](../../../../wiki/concepts/benchmark-contamination.md), [membership inference](../../../../wiki/concepts/membership-inference.md), [distribution shift](../../../../wiki/concepts/distribution-shift.md), [calibration](../../../../wiki/concepts/calibration.md), post-training, false positive rate, [operating point](../../../../wiki/concepts/operating-point.md), benchmark integrity, decontamination
+- **Concepts**: [data contamination](../../../../wiki/concepts/benchmark-contamination.md), [membership inference](../../../../wiki/concepts/membership-inference.md), [distribution shift](../../../../wiki/concepts/distribution-shift.md), [calibration](../../../../wiki/concepts/calibration.md), [post-training](../../../../wiki/concepts/post-training.md), false positive rate, [operating point](../../../../wiki/concepts/operating-point.md), benchmark integrity, decontamination
 - **Methods**: membership inference, data contamination detection, feature calibration, prompt variation, consensus filtering, supervised classification, [ROC analysis](../../../../wiki/methods/roc-analysis.md), [ablation](../../../../wiki/methods/ablation.md)
 - **Datasets**: BookTection, BookMIA, ArxivTection, WikiMIA
 

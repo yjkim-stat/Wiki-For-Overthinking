@@ -44,7 +44,7 @@ The tractable setting is a one-layer block on synthetic LEGO tasks with no posit
 
 ## Entities
 
-- **Concepts**: [length generalization](../../../../wiki/concepts/length-generalization.md), [state tracking](../../../../wiki/concepts/state-tracking.md), optimization guarantee, attention concentration, [expressivity-learnability gap](../../../../wiki/concepts/expressivity-learnability-gap.md), [self-training](../../../../wiki/concepts/self-training.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), [training dynamics](../../../../wiki/concepts/training-dynamics.md), context rot
+- **Concepts**: [length generalization](../../../../wiki/concepts/length-generalization.md), [state tracking](../../../../wiki/concepts/state-tracking.md), optimization guarantee, attention concentration, [expressivity-learnability gap](../../../../wiki/concepts/expressivity-learnability-gap.md), self-training, [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), [training dynamics](../../../../wiki/concepts/training-dynamics.md), context rot
 - **Methods**: [gradient descent analysis](../../../../wiki/methods/gradient-descent-analysis.md), chain of thought, recursive self-training, [attention analysis](../../../../wiki/methods/attention-analysis.md), LEGO state-tracking
 - **Datasets**: LEGO
 

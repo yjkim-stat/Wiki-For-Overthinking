@@ -13,6 +13,16 @@
       },
       {
         "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.",
         "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
         "topics": [
@@ -43,9 +53,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:53Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'token selection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:34:35Z",
+  "created_at": "2026-08-20T23:33:34Z",
+  "instructions": "Write the wiki definition for 'token selection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "token selection",
   "kind": "concept",
   "language": "en",
@@ -54,30 +64,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "token selection",
-    "source_count": 4
+    "source_count": 5
   },
   "result": {
     "aliases": [
-      "token weighting",
-      "token-level credit",
-      "critical token identification"
+      "token masking",
+      "token-level gating"
     ],
-    "definition": "Choosing which tokens in a reasoning trace deserve gradient, reward or removal — the archive's central technical dispute, with each source proposing a different criterion and none measuring overlap with the others. The criteria collected here are the teacher's distributional shift when a reference solution is supplied, the signed per-token log-probability gain of the ground-truth answer, the model's own likelihood contribution to the answer and to local coherence, and a teacher's skill-aware decomposition of steps. Elsewhere in the archive the same question is answered by Shannon entropy and by Jensen-Shannon divergence from a reference distribution. One criterion is signed, so it can mark a token as actively harmful rather than merely uninformative; the rest select tokens to weight up.",
-    "kind": "concept",
+    "definition": "Applying an objective to a chosen subset of tokens rather than uniformly, and across 5 sources the finest granularity at which the archive's methods intervene. The selection criteria differ and so do the arguments for them: divergence of a token's logit distribution from the group average rather than its entropy, on the argument that entropy marks uncertainty rather than distinctiveness; positions where a privileged teacher's distribution shifts most, which concentrate on reasoning-control and problem-conditioned state-update tokens while downweighting surface realisation; positions where the student almost never samples but the teacher prefers, which no on-policy update otherwise reaches; and marginal utility per token for pruning. Two findings recur. Which tokens are selected matters more than how many -- one sparsity ablation gives 66.23 pass@1 at a 10 percent selection against 63.37 at 20 percent, 60.62 for the bottom 90 percent of frequent tokens and 57.45 for uniform training. And the selected set is stable: overlap of the top-20 percent highest-entropy positions with the base model falls only from 100 to 86.67 percent over 1,360 training steps, so training largely preserves rather than installs the structure being selected on.",
+    "kind": "method",
     "related": [
-      "token-level entropy",
       "credit assignment",
-      "length control",
-      "reasoning redundancy",
-      "on-policy self-distillation",
-      "marginal utility"
+      "entropy collapse",
+      "overthinking"
     ]
   },
   "task_id": "concept__token-selection",

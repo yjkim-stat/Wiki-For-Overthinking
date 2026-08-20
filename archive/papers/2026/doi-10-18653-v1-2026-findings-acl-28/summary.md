@@ -45,7 +45,7 @@ No quantitative results or named models in the abstract. Expert solutions cover 
 
 ## Entities
 
-- **Concepts**: [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), scientific reasoning, process evaluation, [traceability](../../../../wiki/concepts/traceability.md), domain expertise, multi-step inference
+- **Concepts**: [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), scientific reasoning, [process evaluation](../../../../wiki/concepts/process-evaluation.md), [traceability](../../../../wiki/concepts/traceability.md), domain expertise, multi-step inference
 - **Methods**: SciVQR, process-level evaluation, expert-authored reference solutions
 - **Datasets**: SciVQR
 
