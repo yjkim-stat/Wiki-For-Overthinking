@@ -123,6 +123,18 @@
       },
       {
         "kind": "paper",
+        "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+        "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
         "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
         "topics": [
@@ -260,7 +272,7 @@
   },
   "payload": {
     "name": "self-consistency",
-    "source_count": 20
+    "source_count": 21
   },
   "task_id": "concept__self-consistency",
   "task_version": 1,

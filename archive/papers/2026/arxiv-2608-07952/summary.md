@@ -45,8 +45,8 @@ Stated: the panel mixes inference backends (local, vendor APIs, OpenRouter), so 
 
 ## Entities
 
-- **Concepts**: persistent semantic entity, name binding, event triggering, contamination propagation, prompt injection, memory poisoning, [self-verification](../../../../wiki/concepts/self-verification.md), context isolation, LLM-as-a-judge, multi-agent pipeline, tool-augmented agent, model collapse
-- **Methods**: LLM-as-judge, [factorial ablation](../../../../wiki/methods/factorial-ablation.md), context-isolated self-verification, in-context self-reflection, Shadow Registry Validation, external cross-model validation, Cohen's d, Wilson confidence interval, multi-agent pipeline, [ReAct](../../../../wiki/methods/react.md), tool registry instrumentation
+- **Concepts**: [persistent semantic entity](../../../../wiki/concepts/persistent-semantic-entity.md), name binding, event triggering, contamination propagation, prompt injection, memory poisoning, [self-verification](../../../../wiki/concepts/self-verification.md), context isolation, LLM-as-a-judge, multi-agent pipeline, tool-augmented agent, model collapse
+- **Methods**: LLM-as-judge, [factorial ablation](../../../../wiki/methods/factorial-ablation.md), context-isolated self-verification, in-context self-reflection, Shadow Registry Validation, external cross-model validation, Cohen's d, [Wilson confidence interval](../../../../wiki/methods/wilson-confidence-interval.md), multi-agent pipeline, [ReAct](../../../../wiki/methods/react.md), tool registry instrumentation
 - **Datasets**: PSE contamination scenario suite (10 synthetic scenarios, author-constructed), AgentDojo, InjecAgent, Agent Security Bench
 
 Tags: `agent-security`, `tool-use`, `persistence`, `prompt-injection`, `multi-agent`, `self-verification`, `llm-as-judge`

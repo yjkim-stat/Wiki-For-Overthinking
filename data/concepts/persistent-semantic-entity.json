@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.",
       "title": "Persistent Semantic Entities in Tool-Augmented LLM Systems"
+    },
+    {
+      "id": "arxiv:2608.09867",
+      "kind": "paper",
+      "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+      "title": "Stealing Reasoning Traces from Proprietary LLM APIs"
     }
   ],
   "first_seen": "2026-08-20T12:24:18Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:24:18Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "persistent semantic entity",
   "related": [
     "name-binding",
@@ -62,12 +68,46 @@
     "glm-4-plus",
     "kimi-k2-1t",
     "cogito-2-1-671b",
-    "minimax-text-01"
+    "minimax-text-01",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "knowledge-distillation",
+    "hidden-reasoning",
+    "data-exfiltration",
+    "anti-distillation",
+    "refusal-training",
+    "n-gram-overlap",
+    "paired-t-test",
+    "bonferroni-correction",
+    "best-of-k-sampling",
+    "prefilling",
+    "responsible-disclosure",
+    "humanity-s-last-exam",
+    "clawbench",
+    "posttrainbench",
+    "claude-opus-4-8",
+    "claude-sonnet-5",
+    "claude-sonnet-4-6",
+    "claude-sonnet-4-5",
+    "claude-haiku-4-5",
+    "fable-5",
+    "gpt-5-6-sol",
+    "gpt-5-6-terra",
+    "gpt-5-6-luna",
+    "gpt-5",
+    "gpt-5-mini",
+    "o4-mini",
+    "gemini-3-1-pro",
+    "gemini-3-pro",
+    "gemini-3-5-flash",
+    "kimi-k3",
+    "inkling"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "persistent-semantic-entity",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

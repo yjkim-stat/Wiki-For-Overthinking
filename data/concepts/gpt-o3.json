@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "GPT-o3"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2608.09857",
+      "kind": "paper",
+      "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+      "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
+    },
     {
       "id": "doi:10.18653/v1/2026.acl-long.1988",
       "kind": "paper",
@@ -11,9 +19,34 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
-  "name": "GPT-o3",
+  "last_seen": "2026-08-20T12:55:26Z",
+  "name": "GPT o3",
   "related": [
+    "llm-as-a-judge",
+    "jury-aggregation",
+    "self-consistency",
+    "verification-layer",
+    "prompt-injection",
+    "human-in-the-loop",
+    "escalation",
+    "class-imbalance",
+    "macro-versus-micro-accuracy",
+    "adaptive-compute-allocation",
+    "defence-in-depth",
+    "mixture-of-experts",
+    "chain-of-thought-prompting",
+    "retrieval-augmented-generation",
+    "knowledge-graph-grounding",
+    "regex-detection",
+    "fuzzy-matching",
+    "ensemble-aggregation",
+    "escalation-routing",
+    "cwe",
+    "mitre-atlas",
+    "owasp",
+    "claude-sonnet-4-5",
+    "gpt-5-6-terra",
+    "gemma-4-26b",
     "jailbreak",
     "safety-reasoning",
     "attack-surface",
@@ -30,9 +63,11 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "gpt-o3",
   "topics": [
+    "test-time-scaling",
     "reasoning-training"
   ]
 }

@@ -46,6 +46,12 @@
       "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement"
     },
     {
+      "id": "arxiv:2608.09888",
+      "kind": "paper",
+      "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+      "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning"
+    },
+    {
       "id": "arxiv:2608.11994",
       "kind": "paper",
       "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
@@ -120,7 +126,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "pass@k",
   "related": [
     "reasoning-boundary",
@@ -260,6 +266,28 @@
     "qwen3-1-7b-base",
     "deepseek-r1-distill-qwen-1-5b",
     "justrl-deepseek-1-5b",
+    "latent-reasoning",
+    "in-context-learning",
+    "implicit-chain-of-thought",
+    "rule-induction",
+    "compositional-generalization",
+    "extrapolation",
+    "within-task-consistency",
+    "cost-accuracy-frontier",
+    "monitorability",
+    "recurrent-latent-reasoning",
+    "recurrent-memory",
+    "coconut",
+    "recurrent-depth",
+    "looped-transformers",
+    "wilson-confidence-interval",
+    "mcnemar-test",
+    "arc-agi-1",
+    "conceptarc",
+    "bdh-cq",
+    "hrm",
+    "trm",
+    "hrm-text",
     "claim-level-falsification",
     "signal-dilution",
     "reliability-weighting",
@@ -443,7 +471,7 @@
     "reasoning-training",
     "test-time-scaling",
     "reasoning-evaluation",
-    "reasoning-interpretability",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
   ]
 }

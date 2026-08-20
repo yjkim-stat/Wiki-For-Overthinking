@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
       "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
+    },
+    {
+      "id": "arxiv:2608.09857",
+      "kind": "paper",
+      "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+      "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
     }
   ],
   "first_seen": "2026-08-20T12:38:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "class imbalance",
   "related": [
     "linear-representation-hypothesis",
@@ -70,12 +76,37 @@
     "qwen3-8b",
     "qwen3-5-2b",
     "llama-3-2-1b",
-    "olmo-2-7b"
+    "olmo-2-7b",
+    "llm-as-a-judge",
+    "jury-aggregation",
+    "self-consistency",
+    "verification-layer",
+    "prompt-injection",
+    "human-in-the-loop",
+    "escalation",
+    "macro-versus-micro-accuracy",
+    "adaptive-compute-allocation",
+    "defence-in-depth",
+    "mixture-of-experts",
+    "retrieval-augmented-generation",
+    "knowledge-graph-grounding",
+    "regex-detection",
+    "fuzzy-matching",
+    "ensemble-aggregation",
+    "escalation-routing",
+    "cwe",
+    "mitre-atlas",
+    "owasp",
+    "claude-sonnet-4-5",
+    "gpt-5-6-terra",
+    "gpt-o3",
+    "gemma-4-26b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "class-imbalance",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

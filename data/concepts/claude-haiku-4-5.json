@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
       "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests"
+    },
+    {
+      "id": "arxiv:2608.09867",
+      "kind": "paper",
+      "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+      "title": "Stealing Reasoning Traces from Proprietary LLM APIs"
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "Claude Haiku 4.5",
   "related": [
     "skill-retrieval",
@@ -59,12 +65,45 @@
     "qwen3-4b",
     "qwen3-32b",
     "mistral3-1-24b",
-    "llama-3-70b"
+    "llama-3-70b",
+    "chain-of-thought-faithfulness",
+    "monitorability",
+    "prompt-injection",
+    "hidden-reasoning",
+    "data-exfiltration",
+    "persistent-semantic-entity",
+    "anti-distillation",
+    "refusal-training",
+    "n-gram-overlap",
+    "paired-t-test",
+    "bonferroni-correction",
+    "best-of-k-sampling",
+    "prefilling",
+    "responsible-disclosure",
+    "humanity-s-last-exam",
+    "clawbench",
+    "posttrainbench",
+    "claude-opus-4-8",
+    "claude-sonnet-5",
+    "claude-sonnet-4-6",
+    "claude-sonnet-4-5",
+    "fable-5",
+    "gpt-5-6-sol",
+    "gpt-5-6-terra",
+    "gpt-5",
+    "gpt-5-mini",
+    "o4-mini",
+    "gemini-3-1-pro",
+    "gemini-3-pro",
+    "gemini-3-5-flash",
+    "kimi-k3",
+    "inkling"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "claude-haiku-4-5",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness"
   ]
 }

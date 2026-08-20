@@ -24,6 +24,12 @@
       "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests"
     },
     {
+      "id": "arxiv:2608.09857",
+      "kind": "paper",
+      "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+      "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
+    },
+    {
       "id": "arxiv:2608.10928",
       "kind": "paper",
       "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
@@ -44,7 +50,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "retrieval-augmented generation",
   "related": [
     "credit-assignment",
@@ -139,6 +145,29 @@
     "qwen3-32b",
     "mistral3-1-24b",
     "llama-3-70b",
+    "jury-aggregation",
+    "self-consistency",
+    "verification-layer",
+    "prompt-injection",
+    "human-in-the-loop",
+    "escalation",
+    "class-imbalance",
+    "macro-versus-micro-accuracy",
+    "adaptive-compute-allocation",
+    "defence-in-depth",
+    "mixture-of-experts",
+    "knowledge-graph-grounding",
+    "regex-detection",
+    "fuzzy-matching",
+    "ensemble-aggregation",
+    "escalation-routing",
+    "cwe",
+    "mitre-atlas",
+    "owasp",
+    "claude-sonnet-4-5",
+    "gpt-5-6-terra",
+    "gpt-o3",
+    "gemma-4-26b",
     "test-time-scaling",
     "in-trace-retrieval",
     "procedural-scaffolding",
@@ -195,7 +224,7 @@
   "slug": "retrieval-augmented-generation",
   "topics": [
     "reasoning-training",
-    "reasoning-faithfulness",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

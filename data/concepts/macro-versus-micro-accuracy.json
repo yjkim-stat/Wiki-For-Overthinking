@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
       "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
+    },
+    {
+      "id": "arxiv:2608.09857",
+      "kind": "paper",
+      "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+      "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
     }
   ],
   "first_seen": "2026-08-20T12:38:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:38:16Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "macro versus micro accuracy",
   "related": [
     "multi-hop-reasoning",
@@ -51,12 +57,37 @@
     "kimi-k2-6",
     "qwen3-6-27b",
     "qwen3-5-9b",
-    "mineru"
+    "mineru",
+    "llm-as-a-judge",
+    "jury-aggregation",
+    "self-consistency",
+    "verification-layer",
+    "prompt-injection",
+    "human-in-the-loop",
+    "escalation",
+    "class-imbalance",
+    "adaptive-compute-allocation",
+    "defence-in-depth",
+    "mixture-of-experts",
+    "retrieval-augmented-generation",
+    "knowledge-graph-grounding",
+    "regex-detection",
+    "fuzzy-matching",
+    "ensemble-aggregation",
+    "escalation-routing",
+    "cwe",
+    "mitre-atlas",
+    "owasp",
+    "claude-sonnet-4-5",
+    "gpt-5-6-terra",
+    "gpt-o3",
+    "gemma-4-26b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "macro-versus-micro-accuracy",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

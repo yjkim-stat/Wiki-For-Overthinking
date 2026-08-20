@@ -6,7 +6,8 @@
         "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
         "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,7 +15,17 @@
         "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
         "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+        "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       }
     ]
@@ -36,11 +47,12 @@
   },
   "payload": {
     "name": "class imbalance",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__class-imbalance",
   "task_version": 1,
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "test-time-scaling"
   ]
 }

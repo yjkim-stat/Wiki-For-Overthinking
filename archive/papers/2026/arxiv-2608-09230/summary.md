@@ -45,7 +45,7 @@ Stated: the benchmark is described as a focused step rather than a representatio
 
 ## Entities
 
-- **Concepts**: [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), evidence grounding, [benchmark design](../../../../wiki/concepts/benchmark-design.md), [position bias](../../../../wiki/concepts/position-bias.md), calibration, macro versus micro accuracy, chain-of-thought supervision, domain transfer, [data contamination](../../../../wiki/concepts/benchmark-contamination.md), safety-critical evaluation
+- **Concepts**: [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), evidence grounding, [benchmark design](../../../../wiki/concepts/benchmark-design.md), [position bias](../../../../wiki/concepts/position-bias.md), calibration, [macro versus micro accuracy](../../../../wiki/concepts/macro-versus-micro-accuracy.md), chain-of-thought supervision, domain transfer, [data contamination](../../../../wiki/concepts/benchmark-contamination.md), safety-critical evaluation
 - **Methods**: scene graph construction, program execution, evidence graph construction, [LoRA](../../../../wiki/methods/lora.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [chain-of-thought distillation](../../../../wiki/methods/chain-of-thought-distillation.md), [decontamination](../../../../wiki/methods/decontamination.md), [multiple-choice evaluation](../../../../wiki/methods/multiple-choice-evaluation.md), AdamW, document parsing
 - **Datasets**: SafeSceneReason, OSHA accident reports, NIOSH FACE, CSB investigation reports, ConstructionSite 10k, IndustryEQA, iSafetyBench, SteelBench, InspecSafe-V1
 

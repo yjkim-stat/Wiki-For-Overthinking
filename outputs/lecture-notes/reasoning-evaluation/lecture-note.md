@@ -60,17 +60,17 @@ Whether a benchmark measures the thing its name claims, and the archive's domina
 
 Seen in: Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve; Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility; Monte Carlo Tree Search for Table-to-Multimodal Report Generation.
 
-### test-time compute
-
-Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
-
-Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
-
 ### chain of thought faithfulness
 
 Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The two foundational sources establish it negatively and by intervention: biasing an input in a way the model never mentions makes it rationalise the biased answer, and perturbing the trace -- inserting mistakes, paraphrasing, truncating -- shows that how much the answer depends on the stated chain varies by task and decreases as models get larger. Later sources sharpen the instrument rather than the conclusion, replacing the loose test 'did the output change' with designs that have a single correct consequence: editing the internal representation of a written scratchpad state while holding the printed text fixed and asking whether the next step follows the transition rule applied to the edited value; truncating at each step to locate a sharp commitment boundary after which the answer probability stops moving; fitting a structural causal model over trace units by leave-one-out intervention; and injecting reasoning the experimenter chose, which makes the influence causal and known in advance. The most consistent finding across these sources is that accuracy and faithfulness come apart in both directions -- models get final outputs right while reasoning incorrectly about execution, base models win pass@K by producing wrong chains that land on right answers, and across eleven KV-cache compression methods the accuracy ranking and the chain-validity ranking correlate at Spearman -0.95 on AIME, so the compressors that preserve the answer are largely the ones destroying the reasoning that supports it. Two sources complicate faithfulness as a goal rather than as a measurement: it is insufficient for monitoring, because a trace can be truthful and still omit factors the task required, which is why one source combines it with verbosity; and it is not unambiguously desirable, because the models that follow their traces most faithfully are the ones that follow them into harm, a tension carried by two distinct anti-correlated residual-stream directions that can be steered apart.
 
 Seen in: Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting; Measuring Faithfulness in Chain-of-Thought Reasoning; Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models.
+
+### test-time compute
+
+Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
+
+Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
 ### credit assignment
 
@@ -125,14 +125,14 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 42 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| LLM-as-a-judge | 35 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | supervised fine-tuning | 34 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
-| LLM-as-a-judge | 33 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | linear probe | 26 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| self-consistency | 20 | _pending_ |
-| test-time scaling | 20 | _pending_ |
-| chain-of-thought prompting | 19 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
+| self-consistency | 21 | _pending_ |
+| test-time scaling | 21 | _pending_ |
+| chain-of-thought prompting | 20 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | activation steering | 16 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
@@ -140,9 +140,9 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | calibration | 11 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | LoRA | 10 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
+| knowledge distillation | 9 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
-| knowledge distillation | 8 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 
 ## Benchmarks and datasets

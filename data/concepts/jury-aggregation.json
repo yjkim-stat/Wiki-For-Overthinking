@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
       "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
+    },
+    {
+      "id": "arxiv:2608.09857",
+      "kind": "paper",
+      "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+      "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy"
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:53:45Z",
+  "last_seen": "2026-08-20T12:55:26Z",
   "name": "jury aggregation",
   "related": [
     "llm-as-a-judge",
@@ -49,12 +55,36 @@
     "deepseek-r1-distill-llama-70b",
     "llama-3-8b-instruct",
     "llama-3-70b-instruct",
-    "aya-expanse-8b"
+    "aya-expanse-8b",
+    "self-consistency",
+    "verification-layer",
+    "prompt-injection",
+    "human-in-the-loop",
+    "escalation",
+    "class-imbalance",
+    "macro-versus-micro-accuracy",
+    "adaptive-compute-allocation",
+    "defence-in-depth",
+    "mixture-of-experts",
+    "retrieval-augmented-generation",
+    "knowledge-graph-grounding",
+    "regex-detection",
+    "fuzzy-matching",
+    "ensemble-aggregation",
+    "escalation-routing",
+    "cwe",
+    "mitre-atlas",
+    "owasp",
+    "claude-sonnet-4-5",
+    "gpt-5-6-terra",
+    "gpt-o3",
+    "gemma-4-26b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "jury-aggregation",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

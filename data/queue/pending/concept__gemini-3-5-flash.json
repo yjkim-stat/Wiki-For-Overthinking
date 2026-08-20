@@ -7,7 +7,8 @@
         "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation",
         "topics": [
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -16,7 +17,18 @@
         "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
         "topics": [
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+        "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
         ]
       }
     ]
@@ -38,12 +50,13 @@
   },
   "payload": {
     "name": "Gemini-3.5-Flash",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__gemini-3-5-flash",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-faithfulness",
     "test-time-scaling"
   ]
 }
