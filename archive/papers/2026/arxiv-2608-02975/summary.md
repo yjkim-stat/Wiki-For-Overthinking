@@ -45,7 +45,7 @@ The paper's limitations are candid and the right ones: the distilled students st
 
 ## Entities
 
-- **Concepts**: LLM-as-a-judge, knowledge distillation, inter-annotator agreement, data quality, structured output, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), [jury aggregation](../../../../wiki/concepts/jury-aggregation.md), translation quality evaluation
+- **Concepts**: LLM-as-a-judge, knowledge distillation, inter-annotator agreement, data quality, structured output, [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), jury aggregation, translation quality evaluation
 - **Methods**: TQLite, [GEMBA-MQM](../../../../wiki/methods/gemba-mqm.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [LoRA](../../../../wiki/methods/lora.md), multi-model jury, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
 - **Datasets**: [WMT22](../../../../wiki/datasets/wmt22.md), OPUS-100, Europarl, MQM
 

@@ -1,0 +1,127 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-10492.pdf"
+  },
+  "completed_at": "2026-08-20T13:09:07Z",
+  "created_at": "2026-08-13T11:13:22Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-faithfulness: Reasoning Faithfulness — The gap between a model's stated chain of thought and the computation that produced its answer: unfaithful or post-hoc rationalization, reasoning that is latent rather than written, encoded or steganographic traces, and what a monitor reading the trace can and cannot catch. The question the archive answers is when a visible reasoning trace is evidence about the model, and when it is only text.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.10492",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Language Model (LLM)-based simulators often reproduce observable actions but fail to capture the underlying reasoning behind them. In education, where student simulation is increasingly used for various applications such as evaluating tutoring systems, this gap is especially pronounced. Two students may submit identical submissions for entirely different reasons. We present INTERNAL STUDENT DIALOGUE (INSIDE), a student modeling framework that fine-tunes LLMs not only to act like students but also to think like them. INSIDE generates internal dialogue grounded in Bloom's Taxonomy across cognitive, affective, and action dimensions, and fine-tunes models on paired think traces and actions. We baseline against different prompting frameworks and evaluate on two axes: fidelity of simulated actions and quality of generated internal dialogue. Our evaluations show that INSIDE improves simulation fidelity in both action fidelity, matching code generation of real students, and reasoning alignment, achieving the highest alignment across models up to 57.9%.",
+    "authors": [
+      "Rose Niousha",
+      "Minwoo Kang",
+      "Narges Norouzi"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CY"
+    ],
+    "matched_keywords": [
+      "latent reasoning"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.10492v1",
+    "published": "2026-08-11",
+    "scores": {
+      "reasoning-faithfulness": 0.5
+    },
+    "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+    "url": "https://arxiv.org/abs/2608.10492",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "student modelling",
+      "internal dialogue",
+      "chain-of-thought faithfulness",
+      "post-hoc rationalization",
+      "distributional fidelity",
+      "over-competence bias",
+      "reconstruction versus observation",
+      "misconception modelling",
+      "simulation validity"
+    ],
+    "contributions": [
+      "A student-simulation framework that fine-tunes on paired internal dialogue and action rather than on actions alone, with the dialogue structured by Bloom's Taxonomy across cognitive, affective and action dimensions so that incorrect and partial reasoning is modelled rather than corrected.",
+      "A distributional measure of action fidelity -- Wasserstein distance to real student submissions on pass rate, code length, syntax-tree depth and width, and style violations -- which scores whether a simulator resembles the student population rather than whether it solves the task.",
+      "An alignment metric requiring the generated reasoning to explain the specific code edit that followed, which penalises plausible generic explanations.",
+      "The insistence that the two axes be read jointly, demonstrated by a prompting baseline that matches on alignment while failing on action fidelity -- an explanation well matched to edits the model would not have produced.",
+      "The observation that alignment falls with model capability, so a frontier model and a 32B model both score below a fine-tuned 7B one at reconstructing novice reasoning."
+    ],
+    "datasets": [
+      "student programming submissions (course data, authors' own)"
+    ],
+    "limitations": "Stated, and the first is the deepest: the internal dialogue is reconstructed rather than observed, generated by a teacher model through retrospective inference, so it approximates rather than records the student's cognition. The authors add the specific reason this is more than a caveat -- models trained to produce expert-like reasoning may be poor at reconstructing novice reasoning even in a reconstruction setting, so the traces may be more coherent and better structured than what real students exhibit -- and name think-aloud studies and retrospective verbalisation as the validation that has not been done. The two test splits differ not only in whether problems were seen but in their underlying student pass-rate distributions, which the authors say directly affects how the results should be read. And alignment at about 58 percent means a majority of generated claims explain the observed edits, with the remainder a gap, especially against teacher-generated traces which align near-perfectly. Not stated but worth noticing: the reasoning-quality metric is alignment with an edit, which rewards a trace that predicts what happened without establishing that it is what the student was thinking -- the same trace-versus-cause distinction the archive holds elsewhere, here unavoidable because there is no ground-truth cognition to compare against. The unseen-split gaps are within roughly one standard error, and the whole evaluation is one programming-education setting.",
+    "method": "INSIDE generates an internal dialogue for each student action, grounded in Bloom's Taxonomy across cognitive, affective and action dimensions, and fine-tunes models on the paired trace and action so that the simulator learns to think as well as to act. The traces are produced retrospectively by a teacher model rather than elicited from students. Evaluation is deliberately two-axis, because either axis alone can be satisfied without the other. Action fidelity is measured distributionally rather than by accuracy: the Wasserstein distance between the distribution of model-generated outputs and real student submissions on five properties -- pass rate, lines of code, abstract-syntax-tree depth and width, and PEP 8 style violations -- with bootstrap resampling over 500 resamples. Reasoning quality is measured as alignment between the generated internal dialogue and the ground-truth code edit that actually followed, restricted to models that emit a trace before generating code, so the trace has to explain a specific edit rather than offer a plausible generic explanation. Baselines span prompted frontier and open models, standard chain-of-thought prompting, a Bloom-structured prompting variant, and plain supervised fine-tuning on student trajectories without the internal dialogue. Two test splits are used, one on problems seen in training and one on unseen problems.",
+    "methods": [
+      "supervised fine-tuning",
+      "chain-of-thought prompting",
+      "Wasserstein distance",
+      "bootstrap resampling",
+      "knowledge distillation",
+      "LLM-as-a-judge",
+      "abstract syntax tree analysis",
+      "Bloom's Taxonomy prompting"
+    ],
+    "models": [
+      "GPT-5",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-Coder-7B-Instruct",
+      "Qwen3-8B",
+      "Qwen3-14B",
+      "Qwen3-32B",
+      "LLaMA"
+    ],
+    "one_liner": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+    "problem": "Simulators built on language models reproduce observable actions while failing to capture the reasoning behind them, which matters in education because two students can submit identical code for entirely different reasons, or produce the same wrong answer from different misconceptions. Diagnosing misconceptions, generating targeted feedback and evaluating tutoring systems all depend on the reason rather than the action. Existing reasoning work in language models pushes toward correctness -- logically consistent, factually accurate output -- which is the wrong target here, since human actions are frequently incorrect, incomplete or built on misconceptions, and modelling those is the point.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-faithfulness": "The setting is education, but the design answers a question this topic keeps running into: how do you evaluate a written reason when there is no ground truth about what actually caused the behaviour? The answer here is to require the reason to explain a specific subsequent action rather than to be plausible, and then to refuse to read that score on its own. The demonstration is the useful part: a prompting baseline reaches alignment comparable to the fine-tuned models while producing code distributions far from real students, which the authors call a disconnect between explanation and behaviour -- an explanation well matched to edits the model itself would never have made. That is a faithfulness failure that a single alignment number cannot see, and the fix is to score the explanation and the behaviour on the same system and demand both. The archive should treat the pairing as the minimum, in the same way it treats a magnitude-matched null as the minimum for steering. Two further results transfer. Alignment falls with model capability -- a frontier model at 45.5 and a 32B model at 44.4 against a fine-tuned 7B at 51.8 -- which is consistent with the archive's other evidence that capability and faithfulness are not the same axis, here in the specific form that a model trained toward expert reasoning is worse at reconstructing novice reasoning. And the authors state plainly the boundary that limits their own claim: the traces are reconstructed by a teacher model through retrospective inference, not observed, and because such models produce expert-like reasoning the reconstructions are likely more coherent than the cognition they stand for. That is the same structure as post-hoc rationalisation, acknowledged rather than assumed away, and it is why the alignment metric here should be read as 'the trace predicts the edit' rather than 'the trace is the reason'. Note the distributional framing too: matching a population's pass rate, code length and style distributions is a stricter and more useful target than accuracy when the object is to simulate rather than to solve."
+    },
+    "results": "On the seen-problem split, fine-tuning on internal dialogue gives the closest match to real student code on every one of the five distributional metrics: pass-rate Wasserstein distance of 0.05 against 0.14-0.15 for plain supervised fine-tuning and 0.35 to 0.61 for every prompted configuration, with similar ordering on lines of code, syntax-tree depth and width, and style violations. On the unseen-problem split the advantage largely disappears and the two fine-tuned families are comparable. The authors explain this in terms of the target rather than the method: the unseen split contains a higher proportion of successful student submissions, fine-tuning on trajectories already removes most of the over-competence bias that prompted models show, so when failures are common there is more mismatch left to correct and when successes are common there is less. On reasoning alignment, the fine-tuned models lead on both splits -- 51.8 percent against the best prompting baseline's 49.6 on seen problems, and 57.9 against 56.0 on unseen -- though the authors flag that the unseen split has far fewer samples and standard errors of roughly 2.0 to 2.3 against 0.8 to 0.9, which limits comparison across settings and leaves the 1.9-point unseen gap inside about one standard error. The most interesting result runs against scale: larger and more capable models achieve lower alignment, with a frontier model at 45.5 and a 32B model at 44.4 against a 7B fine-tuned model's 51.8, so stronger reasoning ability does not translate into reasoning that matches student-like code edits. The paper's methodological point is the one worth carrying: alignment has to be read jointly with action fidelity, because one prompting baseline reaches alignment comparable to the fine-tuned models while producing poor action fidelity and unrealistic solution trajectories -- an explanation that scores well against edits the model would not itself have made. Only the joint improvement supports the claim that internal dialogue bridges explanation and behaviour rather than optimising one of them.",
+    "tags": [
+      "student-simulation",
+      "education",
+      "internal-dialogue",
+      "distributional-evaluation",
+      "wasserstein",
+      "alignment-metric"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-10492",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness"
+  ]
+}

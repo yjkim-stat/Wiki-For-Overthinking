@@ -46,8 +46,8 @@ Stated: the evaluation is bounded to specific API versions and reasoning models 
 
 ## Entities
 
-- **Concepts**: [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), prompt injection, knowledge distillation, hidden reasoning, data exfiltration, [persistent semantic entity](../../../../wiki/concepts/persistent-semantic-entity.md), anti-distillation, refusal training, LLM-as-a-judge
-- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), n-gram overlap, paired t-test, Bonferroni correction, best-of-k sampling, prefilling, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [prompt injection](../../../../wiki/methods/prompt-injection.md), responsible disclosure
+- **Concepts**: [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), [prompt injection](../../../../wiki/concepts/prompt-injection.md), knowledge distillation, hidden reasoning, data exfiltration, [persistent semantic entity](../../../../wiki/concepts/persistent-semantic-entity.md), anti-distillation, refusal training, LLM-as-a-judge
+- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), n-gram overlap, paired t-test, Bonferroni correction, best-of-k sampling, prefilling, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), prompt injection, responsible disclosure
 - **Datasets**: [Humanity's Last Exam](../../../../wiki/datasets/humanity-s-last-exam.md), ClawBench, PostTrainBench
 
 Tags: `security`, `reasoning-traces`, `prompt-injection`, `privacy`, `distillation`, `api`, `disclosure`

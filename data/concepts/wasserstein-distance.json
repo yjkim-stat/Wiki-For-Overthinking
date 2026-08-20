@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
       "title": "LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction"
+    },
+    {
+      "id": "arxiv:2608.10492",
+      "kind": "paper",
+      "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+      "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:10:14Z",
   "name": "Wasserstein distance",
   "related": [
     "train-inference-gap",
@@ -26,11 +32,37 @@
     "flow-matching",
     "sd3-5-medium",
     "flux-1-dev",
-    "hunyuanvideo"
+    "hunyuanvideo",
+    "student-modelling",
+    "internal-dialogue",
+    "chain-of-thought-faithfulness",
+    "post-hoc-rationalization",
+    "distributional-fidelity",
+    "over-competence-bias",
+    "reconstruction-versus-observation",
+    "misconception-modelling",
+    "simulation-validity",
+    "supervised-fine-tuning",
+    "chain-of-thought-prompting",
+    "bootstrap-resampling",
+    "knowledge-distillation",
+    "llm-as-a-judge",
+    "abstract-syntax-tree-analysis",
+    "bloom-s-taxonomy-prompting",
+    "student-programming-submissions-course-data-authors-own",
+    "gpt-5",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-coder-7b-instruct",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "llama"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "wasserstein-distance",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness"
   ]
 }

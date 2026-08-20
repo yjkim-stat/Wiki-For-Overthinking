@@ -47,6 +47,12 @@
       "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests"
     },
     {
+      "id": "arxiv:2608.10492",
+      "kind": "paper",
+      "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+      "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators"
+    },
+    {
       "id": "local:7d5e3edea2d46b92",
       "kind": "paper",
       "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
@@ -73,7 +79,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T13:10:14Z",
   "name": "Qwen3-32B",
   "related": [
     "post-training-quantization",
@@ -273,6 +279,23 @@
     "gpt-5-6-luna",
     "mistral3-1-24b",
     "llama-3-70b",
+    "student-modelling",
+    "internal-dialogue",
+    "post-hoc-rationalization",
+    "distributional-fidelity",
+    "over-competence-bias",
+    "reconstruction-versus-observation",
+    "misconception-modelling",
+    "simulation-validity",
+    "wasserstein-distance",
+    "bootstrap-resampling",
+    "abstract-syntax-tree-analysis",
+    "bloom-s-taxonomy-prompting",
+    "student-programming-submissions-course-data-authors-own",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-coder-7b-instruct",
+    "qwen3-14b",
+    "llama",
     "token-level-entropy",
     "forking-tokens",
     "high-entropy-minority-tokens",
@@ -294,7 +317,6 @@
     "amc23",
     "minerva",
     "olympiadbench",
-    "qwen3-14b",
     "reproducibility",
     "numerical-precision",
     "non-associativity-of-floating-point-arithmetic",
@@ -369,6 +391,7 @@
     "reasoning-training",
     "reasoning-interpretability",
     "test-time-scaling",
+    "reasoning-faithfulness",
     "reasoning-evaluation"
   ]
 }

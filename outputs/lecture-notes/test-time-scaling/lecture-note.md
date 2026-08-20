@@ -140,21 +140,21 @@ Seen in: Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning; Fo
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 42 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| LLM-as-a-judge | 35 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
-| supervised fine-tuning | 34 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| LLM-as-a-judge | 36 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| supervised fine-tuning | 36 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 26 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
+| chain-of-thought prompting | 22 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | self-consistency | 21 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
-| chain-of-thought prompting | 20 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | activation patching | 18 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | activation steering | 16 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | majority voting | 13 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | calibration | 12 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | sparse autoencoder | 12 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
+| LoRA | 11 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
-| LoRA | 10 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | circuit analysis | 9 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |

@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.11047",
+      "kind": "paper",
+      "note": "Generates financial reasoning benchmarks from executable computation trees over real tables so that answers are correct by construction with no model in the labelling loop, exposes four independently controllable difficulty axes, and finds that unit and scale perturbations collapse the strongest model from 98.4 percent to 3.0.",
+      "title": "V-FiLLM: Verified Financial LLM Reasoning Benchmark"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.662",
       "kind": "paper",
       "note": "A financial reasoning benchmark built from parameterized symbolic templates with executable Python, giving machine-verifiable step-level ground truth and contamination-free regeneration.",
@@ -11,9 +17,35 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T13:10:14Z",
   "name": "FinQA",
   "related": [
+    "benchmark-design",
+    "compositional-reasoning",
+    "reasoning-depth",
+    "adversarial-robustness",
+    "verified-supervision",
+    "unit-consistency",
+    "distractor-robustness",
+    "overfitting-to-the-selection-set",
+    "multi-step-arithmetic",
+    "symbolic-execution",
+    "computation-tree-generation",
+    "lora",
+    "supervised-fine-tuning",
+    "chain-of-thought-prompting",
+    "verified-trace-filtering",
+    "adversarial-perturbation",
+    "multi-turn-decomposition",
+    "v-fillm",
+    "10-q-filings",
+    "gemma-31b",
+    "gpt-oss-120b",
+    "qwen3-7-plus",
+    "deepseek-v4-flash",
+    "llama-3-3-70b",
+    "qwen3-5-9b",
+    "qwen3-5-4b",
     "symbolic-reasoning",
     "process-evaluation",
     "benchmark-contamination",
@@ -27,9 +59,11 @@
     "executable-verification",
     "convfinqa"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "finqa",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"
   ]

@@ -182,6 +182,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Two things here bear on this topic beyond the specific method. The first is a metric lesson the paper demonstrates cleanly without drawing attention to it: the same corrections are worth one to four points of AUC and five to fifteen points of true positive rate at a 5 percent false-positive threshold. AUC integrates over thresholds nobody uses, and a contamination detector is deployed at a low false-positive setting, so a paper reporting only AUC would have looked like it had a marginal result and one reporting only TPR would have looked like it had transformed the field. Both tables belong together, and the archive should ask for the operating point wherever a detector&#x27;s use has an asymmetric cost. The second is what the paper establishes about the fragility of contamination detection generally, which matters because the archive already holds that a brief round of GRPO erases the signals contamination detectors rely on and that similarity-based decontamination has no principled threshold. This adds a third mechanism: ordinary post-training moves the features these detectors read, in directions consistent enough across prompt variants to be measured and corrected. Taken together, the detection side of contamination looks less like a solved measurement and more like something that must be recalibrated per model. The paper&#x27;s own honesty is the caution to carry when citing it. It declines to claim the shifts it corrects are caused by post-training -- they may be dataset artifacts, decoding behaviour or the feature extractor -- and it runs no experiment comparing a base model against its own post-trained descendant, which is the comparison the framing implies. Note too that the weaker of its two detectors sits near chance on several cells before calibration, so improvements there are improvements to something that was not discriminating.</p>
 </section>
 <section class="slide">
+<h2>V-FiLLM: Verified Financial LLM Reasoning Benchmark</h2>
+<p class="subtitle">Alicia Larsen, Victoire Laurent, Aulia Kharis Rakhamsari et al. · 2026</p>
+<blockquote>
+<p>Generates financial reasoning benchmarks from executable computation trees over real tables so that answers are correct by construction with no model in the labelling loop, exposes four independently controllable difficulty axes, and finds that unit and scale perturbations collapse the strongest model from 98.4 percent to 3.0.</p>
+</blockquote>
+<ul>
+<li>A benchmark-generation framework in which answers are correct by construction: computation trees over real tables are evaluated symbolically for ground truth and only then rendered into natural language, removing any model from the labelling loop and any annotation cost from scaling.</li>
+<li>Four independently controllable difficulty axes -- computation depth, expression breadth, financial-concept complexity and context size -- which make it possible to attribute a failure to depth rather than to source noise.</li>
+<li>A paired real-versus-simplified document design that isolates document messiness from reasoning depth, measuring real filings as roughly 20 points harder at matched depth.</li>
+<li>A perturbation suite showing that failure modes are not interchangeable: distractor text costs under 20 points while unit and scale shifts collapse the strongest model from 98.4 percent to 3.0, and combined perturbations compound to 26 percent rather than averaging.</li>
+</ul>
+<p><strong>Results.</strong> On 250 mixed-depth questions across six models, rankings are stable across both document types, with the strongest model at 98.4 and 97.6 percent. Reasoning depth is the primary limiting factor and its effect is large: on simplified statements the strongest model falls from 84.0 percent at depth 1 to 55.0 at depth 8, and the second model from 77.0 to 26.0, which also flips their ranking relative to the easy questions. On real filings both models are near-perfect at depths 1 and 2 and drop to 60-72 percent at depths 3 and 4, and at matched depth the real filings run about 20 points harder than the simplified ones -- the price of footnotes, messy layouts and mixed units. The robustness results are the paper&#x27;s most striking finding and split sharply by perturbation type. Distractor information is nearly harmless, costing under 20 points on real filings, so models ignore irrelevant text well. Missing values, garbage text, OCR corruption and cross-sheet contamination each leave scores between 70 and 85 percent on real filings -- degradation without collapse. Unit and scale shifts are categorically different: they drive the strongest model from 98.4 percent to 3.0 and the second from 96.4 to 22.0, which the authors read as both models reading numbers without checking the unit labels above them. Combining all perturbations gives 26.0 and 17.0 percent, worse than almost any single condition, and the gap between the two models narrows to 9 points -- so error types compound rather than substitute, and a better table-reader&#x27;s advantage does not survive enough simultaneous noise. Average degradation is 27.3 and 29.6 points on real filings and 35.7 and 47.0 on simplified ones. LoRA fine-tuning on verified traces raises held-out accuracy from 81.1 to 85.6 percent, with accuracy most sensitive to the ratio of scaling factor to rank -- any ratio other than one erases the gain entirely. Transfer to an external financial dataset is reported explicitly as a proof of concept rather than a result: 32 of 100 against a baseline of 27.</p>
+<p><strong>Why it matters.</strong> Two design choices here are worth generalising beyond finance. The first is that ground truth is computed rather than written: a computation tree over a real table is evaluated symbolically and only then rendered into a question, so the label cannot inherit an annotator&#x27;s error or a generator model&#x27;s error rate, and difficulty becomes a dial rather than a property of whatever documents happened to be available. That is the same move the archive&#x27;s industrial-safety benchmark makes with scene graphs, and the pair together suggest a general recipe -- make the answer a function of a structure you control, and the question the thing you render. The second is the paired real-versus-simplified design, which isolates document messiness from reasoning depth and quantifies it at about 20 points at matched depth. Without that pairing, a drop with depth on real documents would be uninterpretable. The robustness result is the substantive contribution for this topic, because it shows failure modes are not fungible. Distractor text costs under 20 points, four other perturbations leave scores between 70 and 85, and unit or scale shift takes the strongest model from 98.4 percent to 3.0 -- a collapse the authors attribute to models reading numbers without consulting the unit labels above them. An aggregate robustness score averaging those seven conditions would report a 27-point drop and conceal that one of them is catastrophic and the rest are not. The compounding result matters too: combining all perturbations lands below almost every individual one and narrows the gap between the two models to 9 points, so robustness rankings measured under single perturbations do not predict behaviour under several. Finally, the paper is a usable example of a failure the archive should watch for and of the right way to disclose it -- LoRA hyperparameters were swept on the same 90-item set the improvement is reported on, the authors say so, and they run an external check specifically to test whether the gain was overfitting rather than presenting the transfer number as a second result.</p>
+</section>
+<section class="slide">
 <h2>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</h2>
 <p class="subtitle">Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma · 2026</p>
 <blockquote>
@@ -227,20 +242,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> LLM judges are how much reasoning work gets scored once the answer is not a checkable string, so a bias in the judge is a bias in the field&#x27;s measurements. The useful part for this archive is the probe rather than the fix: a random-number request has no correct answer, so deviation from uniform is a content-free estimate of the judge&#x27;s prior, and it is cheap enough to run as a routine control. The finding that bias varies by score range matters most for reasoning evaluation, where scores cluster high and the compressed top of the scale is exactly where discrimination is needed.</p>
 </section>
 <section class="slide">
-<h2>Hierarchical Latent Prediction for Language Models</h2>
-<p class="subtitle">Chang Shi, Tim Pearce, Manan Tomar et al. · 2026</p>
-<blockquote>
-<p>Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.</p>
-</blockquote>
-<ul>
-<li>Hierarchical Latent Prediction, an auxiliary objective adding a higher-level abstract latent above next-latent prediction</li>
-<li>An argument that hierarchical abstraction reduces compounding error in latent rollouts relative to MTP and NextLat</li>
-<li>Reported gains on coding and multi-step reasoning benchmarks and in speculative decoding efficiency</li>
-</ul>
-<p><strong>Results.</strong> Experiments report longer-horizon coherent belief-state representations, effectiveness across coding and multi-step reasoning benchmarks, and improved speculative decoding efficiency. No numbers are given in the abstract.</p>
-<p><strong>Why it matters.</strong> Matched this topic on benchmark vocabulary rather than on evaluation content; it reports multi-step reasoning benchmark results but contributes no evaluation method. Its real bearing is on where reasoning ability comes from: it locates the limitation in the pretraining objective rather than in post-training, which is upstream of everything else this archive tracks. Without numbers the claim cannot be weighed, and the paper would need a full read or a later version before it supports anything.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -277,22 +278,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</strong> — Stated, and the most important one is a disclaimer about the paper&#x27;s own framing: the method corrects score-increasing feature shifts observed on known non-m...</li>
+<li><strong>V-FiLLM: Verified Financial LLM Reasoning Benchmark</strong> — Stated. Final answers are correct by construction but the questions are not guaranteed to be, since the underlying mathematical steps may be rendered into En...</li>
 <li><strong>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</strong> — Stated: the benchmark is described as a focused step rather than a representation of the occupational-safety lifecycle, with coverage bounded by the availabl...</li>
 <li><strong>Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training</strong> — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-g...</li>
 <li><strong>Mismatch Matters: On-Policy Distillation Beyond Token Agreement</strong> — The paper states no limitations section. What a reader should notice: the effect size is almost entirely a function of the mismatch regime, and the weak-mism...</li>
 <li><strong>Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents</strong> — The paper&#x27;s limitations section is longer than its results and is the most useful thing in it. The central admission is that the measurements establish empir...</li>
-<li><strong>PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation</strong> — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 3...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation</strong> — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 3...</li>
 <li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
 <li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 <li><strong>VTO: Visual Tool Orchestration for Video Anomaly Detection</strong> — The paper states no limitations section. What a reader should notice is substantial. Evaluation is entirely on a benchmark the authors built, whose ground-tr...</li>
 <li><strong>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</strong> — No limitations section. The load-bearing one a reader must supply: SA-PPG is defined relative to a clean model, and outside a simulation that reference does...</li>
 <li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
-<li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
 </ul>
 </section>
 <section class="slide">
@@ -302,15 +303,16 @@ th { background: var(--surface); }
 <li>Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al.. <em>Training Verifiers to Solve Math Word Problems</em>. cs.LG. 2021</li>
 <li>Yuanchi Zhu, Kang An, Tengyue Wang et al.. <em>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</em>. cs.AI. 2026</li>
 <li>Zhen Yang, Mengqi Wang, Gengda Zhao et al.. <em>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</em>. cs.CL. 2026</li>
+<li>Alicia Larsen, Victoire Laurent, Aulia Kharis Rakhamsari et al.. <em>V-FiLLM: Verified Financial LLM Reasoning Benchmark</em>. cs.AI. 2026</li>
 <li>Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma. <em>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</em>. cs.AI. 2026</li>
 <li>Ruijie Hou, Yueyang Jiao, Zhao Wang et al.. <em>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</em>. cs.CL. 2026</li>
 <li>Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. <em>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</em>. cs.CL. 2026</li>
-<li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
 <li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
 <li>Xinye Wang, Junxiao Liu, Shujian Huang. <em>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</em>. cs.CL. 2026</li>
 <li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
@@ -318,12 +320,12 @@ th { background: var(--surface); }
 <li>Yang Liu, Hongming Li, Melissa Xiaohui Qin et al.. <em>Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models</em>. ACL. 2026</li>
 <li>Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. <em>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</em>. ACL. 2026</li>
 <li>Lisa Alazraki, Lihu Chen, Ana Brassard et al.. <em>AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios</em>. ACL. 2026</li>
-<li>Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. <em>MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. <em>MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation</em>. ACL. 2026</li>
 <li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
 <li>Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. <em>The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning</em>. ACL. 2026</li>
 <li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
@@ -331,7 +333,6 @@ th { background: var(--surface); }
 <li>Atharva Naik, Prakam, Yash Mathur et al.. <em>PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics</em>. ACL. 2026</li>
 <li>Jun Gao, Yun Peng, Qian Qiao et al.. <em>CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction</em>. ACL. 2026</li>
 <li><em>On The Fragility of Benchmark Contamination Detection in Reasoning Models</em>. ICLR 2026. 2026</li>
-<li>Justin D. Norman, Michael U. Rivera, D. Alex Hughes. <em>Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

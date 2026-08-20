@@ -9,7 +9,7 @@ Training a generative model by regressing a velocity field along a straight inte
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [causal intervention](../concepts/causal-intervention.md), [CLIP](../models/clip.md), [cosine similarity](cosine-similarity.md), [exploration](../concepts/exploration.md), [foresight](../concepts/foresight.md), [GRPO](grpo.md), [latent reasoning](../concepts/latent-reasoning.md), [t-SNE](t-sne.md), [train-inference gap](../concepts/train-inference-gap.md)
+**Related**: [causal intervention](../concepts/causal-intervention.md), [CLIP](../models/clip.md), [cosine similarity](cosine-similarity.md), [exploration](../concepts/exploration.md), [foresight](../concepts/foresight.md), [GRPO](grpo.md), [latent reasoning](../concepts/latent-reasoning.md), [t-SNE](t-sne.md), [train-inference gap](../concepts/train-inference-gap.md), [Wasserstein distance](wasserstein-distance.md)
 
 ## Appears in
 
