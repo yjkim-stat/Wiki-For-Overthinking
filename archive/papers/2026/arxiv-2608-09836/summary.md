@@ -45,8 +45,8 @@ The paper states no limitations section. What a reader should notice: the effect
 
 ## Entities
 
-- **Concepts**: degenerate agreement, [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md), on-policy distillation, distribution mismatch, degenerate generation, [credit assignment](../../../../wiki/concepts/credit-assignment.md), [pass@k](../../../../wiki/concepts/pass-k.md), format compliance, coverage, [reward hacking](../../../../wiki/concepts/reward-hacking.md)
-- **Methods**: on-policy distillation, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [GRPO](../../../../wiki/methods/grpo.md), Hellinger distance, token selection, reward shaping, top-K truncation, importance ratio correction
+- **Concepts**: degenerate agreement, [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md), on-policy distillation, distribution mismatch, [degenerate generation](../../../../wiki/concepts/degenerate-generation.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [pass@k](../../../../wiki/concepts/pass-k.md), format compliance, [coverage](../../../../wiki/concepts/coverage.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md)
+- **Methods**: [on-policy distillation](../../../../wiki/methods/on-policy-distillation.md), [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [GRPO](../../../../wiki/methods/grpo.md), Hellinger distance, token selection, reward shaping, top-K truncation, importance ratio correction
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH](../../../../wiki/datasets/math.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [BRUMO](../../../../wiki/datasets/brumo.md), [CMIMC](../../../../wiki/datasets/cmimc.md), [HMMT](../../../../wiki/datasets/hmmt.md)
 
 Tags: `distillation`, `on-policy`, `degeneration`, `math-reasoning`, `token-selection`, `generation-diagnostics`

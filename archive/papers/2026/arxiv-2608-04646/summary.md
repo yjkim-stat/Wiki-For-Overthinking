@@ -43,7 +43,7 @@ The claim is a reading of the evidence, and the paper states the gains come 'at 
 
 ## Entities
 
-- **Concepts**: theory of mind, [robustness](../../../../wiki/concepts/robustness.md), [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), [construct validity](../../../../wiki/concepts/construct-validity.md), capability attribution
+- **Concepts**: [theory of mind](../../../../wiki/concepts/theory-of-mind.md), [robustness](../../../../wiki/concepts/robustness.md), [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), [construct validity](../../../../wiki/concepts/construct-validity.md), capability attribution
 - **Methods**: [RLVR](../../../../wiki/methods/rlvr.md), prompt perturbation, machine psychology experiments
 - **Datasets**: _none recorded_
 

@@ -41,4 +41,87 @@ Adding a signed multiple of a fixed direction to the residual stream at inferenc
 
 ## Notes
 
-_Anything below the marker above is yours. It is never overwritten._
+### What a steering claim has to show, assembled from sixteen sources
+
+No paper here states the checklist, but between them the sources have supplied
+every item on it, usually by being the one that failed the check.
+
+**A null direction.** The bar the careful sources meet is a magnitude-matched
+random vector. *Risky Business* moves its two metrics by 9 and 7 points where
+norm-matched random directions move either by at most 1.1; *Avalon-ToM-Bench*
+reports random controls at about zero and negated ones negative. Without one,
+a reported effect is a statement that something changed.
+
+**A reversal.** *MI-MIDI* adds the cheapest test in the archive and the one most
+often skipped: run every configuration in both orientations and split the two
+fitted slopes into antisymmetric and symmetric parts. A direction should reverse
+when reversed; drift need not. Their specificity score is the antisymmetric
+share, and it catches layer-0 responses that shift the same way under both
+orientations — which a fluency or output-volume guard would have accepted.
+
+**A class-balance table, not just accuracy.** The sharpest control here is
+*Avalon-ToM-Bench*'s, and it is a table rather than a number. Steering lifts
+Qwen3-1.7B's output accuracy from 54 to 77, onto its probe ceiling — but the
+result that makes this readable is that True-recall and False-recall move
+**together**, from a degenerate 10.7/98.0 to a balanced 73.8/80.2. A
+threshold shift toward one class would have produced the same accuracy gain.
+Steering papers that report only accuracy cannot distinguish the two.
+
+**A statement of where the direction came from, and what else varies with it.**
+Every source that looks closely says the contrast pair is the method.
+*MI-MIDI*: the poles vary lexically as well as musically, so a direction is only
+as clean as its contrast. The intertemporal-steering paper says the same about
+its own construct — short and long continuations also differ in abstraction,
+urgency and strategic scope — and declines to claim it isolated a temporal
+variable. See [[difference-in-means-direction]].
+
+### The one source that predicts failure before measuring it
+
+Everything above is post-hoc. The **label-free Parkinson's screen** is the only
+entry that states in advance which of two modalities its steering primitive will
+work on, and why. Its alignment principle says a direction built from a
+*synthetic* degradation detects the real thing when the cosine between the
+synthetic and real directions is positive. Measured: **+0.37** for the speech
+encoder, where the detector reaches AUROC 0.765; **−0.48** for the face encoder,
+where the corresponding direction scores at chance. Both predictions hold.
+
+Making a negative prediction and then confirming the failure is rare enough to
+be worth naming as a template. The mechanism is portable too: the face direction
+points the wrong way not because the concept is absent but because the encoder
+was trained for static emotion classification and puts its signal roughly
+orthogonal to motion. What a mean-difference direction *means* is a property of
+what the representation was trained to separate — which is the same reason the
+contrast-pair caution above keeps recurring.
+
+### Where to inject is part of the claim
+
+Two sources arriving together make layer choice a finding rather than a
+configuration detail, and they disagree in a way that resolves.
+
+*Deployable Per-Instance Steering* shows the best layers are a property of the
+**individual input**, not of the task, and that over-steering is dose-graded and
+extremely concentrated — 97% of 942 severe events in a single trait-model cell,
+median perplexity inflation 810 points. *MI-MIDI* shows all-layer injection is
+stable in a cross-attention-conditioned model and accumulates disruptively in a
+decoder-only one, with **fifty times** more symmetric drift than single-layer
+injection. Its norm-relative control rules out the obvious explanation: single
+-layer injection survives a 20% relative perturbation while all-layer injection
+fails at 2%, so the problem is sixteen layers pushed *together*, not early
+layers overdriven.
+
+The resolution is that both are describing the same thing from different ends —
+the accumulated effect of injecting at many sites is not the sum of injecting at
+one, and neither the right site nor the right number is a constant.
+
+### What is not established
+
+Nothing here bounds how much of a behaviour a static-coefficient direction can
+reach. The per-instance paper names an **unflippable ceiling** and attributes it
+to the paradigm rather than to its selector, and *Avalon-ToM-Bench* — whose
+steering lands exactly on its probe ceiling and no higher — is consistent with
+the same limit from the other side. Both are single settings. Whether the
+ceiling is the readout that supplies the sign, the linearity of the
+intervention, or something about the behaviour is open, and no source here
+separates them.
+
+<!-- analysis-sources: 16 -->
