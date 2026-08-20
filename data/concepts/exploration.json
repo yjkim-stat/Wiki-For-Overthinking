@@ -43,11 +43,17 @@
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
       "title": "LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction"
+    },
+    {
+      "id": "arxiv:2608.09805",
+      "kind": "paper",
+      "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+      "title": "Parameter Exploration for RLVR via Variational Learning"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "exploration",
   "related": [
     "latent-reasoning",
@@ -173,7 +179,28 @@
     "flow-matching",
     "sd3-5-medium",
     "flux-1-dev",
-    "hunyuanvideo"
+    "hunyuanvideo",
+    "zero-advantage-group",
+    "degenerate-generation",
+    "posterior-sampling",
+    "training-inference-mismatch",
+    "reward-shaping",
+    "effective-sample-size",
+    "ivon",
+    "variational-learning",
+    "parameter-space-exploration",
+    "temperature-scaling",
+    "entropy-regularization",
+    "kl-covariance-control",
+    "polaris",
+    "sequence-level-importance-sampling",
+    "monte-carlo-sampling",
+    "clip-higher",
+    "llama-nemotron-post-training-dataset",
+    "aime-2026",
+    "amc-2023",
+    "livecodebench-v6",
+    "olmo-3-1025-7b"
   ],
   "related_authored": [
     "entropy-collapse"

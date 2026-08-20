@@ -255,8 +255,8 @@ th { background: var(--surface); }
 <h2>Methods</h2>
 <ul>
 <li><strong>GRPO</strong> — Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion&#x27;s advanta...</li>
-<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
@@ -265,8 +265,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
 <li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
 <li><strong>GSM8K</strong> — 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive&#x27;s earliest source alongside the finding th...</li>
 <li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
@@ -278,21 +278,21 @@ th { background: var(--surface); }
 <ul>
 <li><strong>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</strong> — Stated: the benchmark is described as a focused step rather than a representation of the occupational-safety lifecycle, with coverage bounded by the availabl...</li>
 <li><strong>Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training</strong> — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-g...</li>
+<li><strong>Mismatch Matters: On-Policy Distillation Beyond Token Agreement</strong> — The paper states no limitations section. What a reader should notice: the effect size is almost entirely a function of the mismatch regime, and the weak-mism...</li>
 <li><strong>PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation</strong> — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 3...</li>
 <li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
 <li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
-<li><strong>VTO: Visual Tool Orchestration for Video Anomaly Detection</strong> — The paper states no limitations section. What a reader should notice is substantial. Evaluation is entirely on a benchmark the authors built, whose ground-tr...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>VTO: Visual Tool Orchestration for Video Anomaly Detection</strong> — The paper states no limitations section. What a reader should notice is substantial. Evaluation is entirely on a benchmark the authors built, whose ground-tr...</li>
 <li><strong>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</strong> — No limitations section. The load-bearing one a reader must supply: SA-PPG is defined relative to a clean model, and outside a simulation that reference does...</li>
 <li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
 <li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
 <li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 <li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
-<li><strong>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</strong> — Improvements are stated as &#x27;up to&#x27;, so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks...</li>
 </ul>
 </section>
 <section class="slide">

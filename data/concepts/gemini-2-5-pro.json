@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
       "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
+    },
+    {
+      "id": "arxiv:2608.09638",
+      "kind": "paper",
+      "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+      "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "model",
-  "last_seen": "2026-08-13T04:27:36Z",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "Gemini-2.5-pro",
   "related": [
     "llm-as-a-judge",
@@ -79,13 +85,38 @@
     "qwen3-vl-235b",
     "deepseek-r1",
     "qwen3-coder-32b",
-    "tablegpt2-7b"
+    "tablegpt2-7b",
+    "theory-of-mind",
+    "representation-versus-readout",
+    "linear-probe",
+    "activation-steering",
+    "detection-versus-control",
+    "benchmark-design",
+    "double-dissociation",
+    "class-imbalance",
+    "asymmetric-information",
+    "difference-in-means-direction",
+    "permutation-test",
+    "cross-validation",
+    "ground-truth-injection",
+    "zero-shot-prompting",
+    "avalon-tom-bench",
+    "tombench",
+    "gemini-2-5-flash",
+    "qwen3-0-6b",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "qwen3-4b-thinking-2507",
+    "qwen3-5-2b",
+    "llama-3-2-1b",
+    "olmo-2-7b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "gemini-2-5-pro",
   "topics": [
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

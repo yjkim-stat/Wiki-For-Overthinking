@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the multi-seed
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [exploration](../../../../wiki/concepts/exploration.md), [trajectory diversity](../../../../wiki/concepts/trajectory-diversity.md), pass@k, [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), rarity weighting, solution multiplicity, [randomized control](../../../../wiki/concepts/randomized-control.md)
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [exploration](../../../../wiki/concepts/exploration.md), [trajectory diversity](../../../../wiki/concepts/trajectory-diversity.md), [pass@k](../../../../wiki/concepts/pass-k.md), [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), rarity weighting, solution multiplicity, [randomized control](../../../../wiki/concepts/randomized-control.md)
 - **Methods**: Cue-GRPO, credit redistribution, [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), [LoRA](../../../../wiki/methods/lora.md), UARL, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), pass@k estimation
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), [AIME](../../../../wiki/datasets/aime.md), [MATH-500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), Humanity's Last Exam
 

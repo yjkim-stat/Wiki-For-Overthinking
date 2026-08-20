@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
       "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
+    },
+    {
+      "id": "arxiv:2608.09638",
+      "kind": "paper",
+      "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+      "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
     }
   ],
   "first_seen": "2026-08-13T02:55:53Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T02:55:53Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "zero-shot prompting",
   "related": [
     "chain-of-thought-prompting",
@@ -28,12 +34,40 @@
     "gsm8k",
     "mathstral-7b",
     "qwen2-5-7b-instruct",
-    "llama-3-1-8b-instruct"
+    "llama-3-1-8b-instruct",
+    "theory-of-mind",
+    "representation-versus-readout",
+    "linear-probe",
+    "activation-steering",
+    "detection-versus-control",
+    "test-time-scaling",
+    "benchmark-design",
+    "double-dissociation",
+    "class-imbalance",
+    "asymmetric-information",
+    "difference-in-means-direction",
+    "permutation-test",
+    "cross-validation",
+    "ground-truth-injection",
+    "avalon-tom-bench",
+    "tombench",
+    "gemini-2-5-pro",
+    "gemini-2-5-flash",
+    "gpt-5",
+    "qwen3-0-6b",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "qwen3-4b-thinking-2507",
+    "qwen3-8b",
+    "qwen3-5-2b",
+    "llama-3-2-1b",
+    "olmo-2-7b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "zero-shot-prompting",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }

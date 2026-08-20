@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
       "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
+    },
+    {
+      "id": "arxiv:2608.09638",
+      "kind": "paper",
+      "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+      "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:38:15Z",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "benchmark design",
   "related": [
     "multi-step-mathematical-reasoning",
@@ -114,7 +120,33 @@
     "kimi-k2-6",
     "qwen3-6-27b",
     "qwen3-5-9b",
-    "mineru"
+    "mineru",
+    "theory-of-mind",
+    "representation-versus-readout",
+    "linear-probe",
+    "activation-steering",
+    "detection-versus-control",
+    "test-time-scaling",
+    "double-dissociation",
+    "class-imbalance",
+    "asymmetric-information",
+    "difference-in-means-direction",
+    "permutation-test",
+    "cross-validation",
+    "ground-truth-injection",
+    "zero-shot-prompting",
+    "avalon-tom-bench",
+    "tombench",
+    "gemini-2-5-pro",
+    "gemini-2-5-flash",
+    "gpt-5",
+    "qwen3-0-6b",
+    "qwen3-1-7b",
+    "qwen3-4b-thinking-2507",
+    "qwen3-8b",
+    "qwen3-5-2b",
+    "llama-3-2-1b",
+    "olmo-2-7b"
   ],
   "related_authored": [
     "benchmark-contamination"
@@ -123,6 +155,7 @@
   "slug": "benchmark-design",
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-interpretability"
   ]
 }

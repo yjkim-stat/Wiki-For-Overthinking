@@ -22,11 +22,17 @@
       "kind": "paper",
       "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
       "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
+      "id": "arxiv:2608.09805",
+      "kind": "paper",
+      "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+      "title": "Parameter Exploration for RLVR via Variational Learning"
     }
   ],
   "first_seen": "2026-08-12T22:46:42Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:18:17Z",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "AIME 2026",
   "related": [
     "answer-evidence-gap",
@@ -103,7 +109,36 @@
     "score-weighted-majority-vote",
     "qwen3-4b-thinking-2507",
     "deepseek-r1-0528-qwen3-8b",
-    "phi-4-reasoning-plus-14b"
+    "phi-4-reasoning-plus-14b",
+    "exploration",
+    "zero-advantage-group",
+    "entropy-collapse",
+    "advantage-estimation",
+    "degenerate-generation",
+    "posterior-sampling",
+    "training-inference-mismatch",
+    "reward-shaping",
+    "effective-sample-size",
+    "grpo",
+    "ivon",
+    "variational-learning",
+    "parameter-space-exploration",
+    "temperature-scaling",
+    "entropy-regularization",
+    "kl-covariance-control",
+    "polaris",
+    "sequence-level-importance-sampling",
+    "supervised-fine-tuning",
+    "monte-carlo-sampling",
+    "clip-higher",
+    "dapo-math-17k",
+    "llama-nemotron-post-training-dataset",
+    "math500",
+    "amc-2023",
+    "minerva",
+    "livecodebench-v6",
+    "olmo-3-1025-7b",
+    "qwen2-5-math-7b"
   ],
   "related_authored": [
     "benchmark-contamination"

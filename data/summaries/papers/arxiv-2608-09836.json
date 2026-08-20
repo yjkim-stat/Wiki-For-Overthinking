@@ -1,0 +1,69 @@
+{
+  "concepts": [
+    "degenerate agreement",
+    "teacher-student gap",
+    "on-policy distillation",
+    "distribution mismatch",
+    "degenerate generation",
+    "credit assignment",
+    "pass@k",
+    "format compliance",
+    "coverage",
+    "reward hacking"
+  ],
+  "contributions": [
+    "Naming and demonstrating degenerate agreement: a student can reach near-perfect token agreement with its teacher through repetitive loops while the response is globally flawed, so local token matching can mask a broken generation.",
+    "A directional decomposition of teacher-student mismatch into student-excess tokens, whose log-ratio corrections grow unbounded and destabilise the update, and student-deficit tokens, which the student almost never samples so that on-policy supervision cannot reach them.",
+    "Bounded Hellinger shaping in place of the unbounded log-ratio correction on selected excess positions, which suppresses severe excesses without the update diverging.",
+    "Analytic teacher top-K injection for deficits, which restores teacher-preferred probability mass without requiring the deficit token to be sampled -- motivated by the measurement that 95.5 percent of deficit positions have under a one percent chance of appearing in sampled supervision.",
+    "Reporting response length and missing-answer rate alongside accuracy throughout, which is what shows that selection alone improves accuracy while worsening degeneration, and that the deficit weight controls generation behaviour rather than correctness."
+  ],
+  "datasets": [
+    "AIME 2024",
+    "AIME 2025",
+    "AMC23",
+    "MATH",
+    "Minerva",
+    "OlympiadBench",
+    "BRUMO",
+    "CMIMC",
+    "HMMT"
+  ],
+  "generated_at": "2026-08-20T12:49:26Z",
+  "generated_by": "queue",
+  "limitations": "The paper states no limitations section. What a reader should notice: the effect size is almost entirely a function of the mismatch regime, and the weak-mismatch gain of 1.0 point over standard OPD sits within the spread of three other baselines (46.2 to 46.7), so the method is well supported where the student is far below the teacher and barely distinguishable where it is not -- the authors' own framing that gains are more pronounced under strong mismatch is accurate but does not fully convey that the near-tie is the ordinary case. Two teacher-student pairs support the whole claim, both on mathematics, and no seed variance is reported for the main tables, so the 13.4-point strong-mismatch gap is one comparison rather than a distribution. The strong-mismatch baseline is a 1.7B base model at 6.9 percent that generates 22K-token unterminated responses under standard OPD, which is a badly broken starting point, and much of what TIDE demonstrates is the repair of that breakage rather than transfer of the teacher's reasoning -- a distinction the generation diagnostics make visible but the accuracy headline does not. The 95.5 percent figure motivating analytic deficit injection is measured on one setting. And the method adds two gates plus a deficit weight; the sensitivity analysis shows accuracy is stable across them but response length and format errors are not, so tuning is still required if generation behaviour matters.",
+  "method": "TIDE treats the two mismatch directions separately rather than through one divergence. Positions are first selected to concentrate supervision where the teacher and student actually disagree. On the selected excess positions, a bounded Hellinger shaping replaces the unbounded log-ratio correction, so the most severe sampled excesses are suppressed without the update blowing up. For deficits, the key move is analytic rather than sampled: teacher top-K probability mass is injected directly at those positions, which does not require the deficit token to have been sampled by the student at all -- an appendix measurement motivates this by showing that 95.5 percent of deficit positions have less than a one percent chance of being observed within sampled supervision while carrying substantial teacher mass. The two gates and the deficit-recovery weight lambda are the method's hyperparameters. Evaluation covers nine mathematical reasoning benchmarks with Avg@8 and Pass@8 over eight responses per problem, across two deliberately different teacher-student pairs: a weak-mismatch setting where teacher and student are close, and a strong-mismatch setting pairing an 8B teacher with a 1.7B base student. Baselines are GRPO, standard on-policy distillation, and three recent token-selection and reward-shaping variants of it. Generation diagnostics -- average response length and the percentage of responses containing no boxed final answer -- are reported alongside accuracy, and a matched-token control isolates whether the gain comes from supervising the selected positions or merely from training on more positions.",
+  "methods": [
+    "on-policy distillation",
+    "knowledge distillation",
+    "GRPO",
+    "Hellinger distance",
+    "token selection",
+    "reward shaping",
+    "top-K truncation",
+    "importance ratio correction"
+  ],
+  "models": [
+    "Qwen3-8B",
+    "Qwen3-1.7B-Base",
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "JustRL-DeepSeek-1.5B"
+  ],
+  "one_liner": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+  "paper_id": "arxiv:2608.09836",
+  "problem": "On-policy distillation supervises a student on its own rollouts using a teacher's distribution, and its objective is token agreement. That objective has a failure mode the paper names: a student can drive agreement to near-perfect by falling into repetitive loops while the response is globally flawed, so the metric is satisfied by degeneration rather than by learning. Behind this sit two structurally different kinds of mismatch that a single symmetric objective treats alike. Student-excess tokens are generated by the student but given near-zero probability by the teacher, so their log-ratio corrections grow unbounded and destabilise the update. Student-deficit tokens are preferred by the teacher but rarely sampled by the student, so no on-policy update ever reaches them and the teacher's reasoning patterns cannot transfer.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-evaluation": "The paper's evaluation practice is worth more to this topic than its method. Its founding observation is an evaluation failure: token agreement, the quantity on-policy distillation optimises and reports, can be driven to near-perfect by a student that loops, so the metric is satisfied by degeneration. That is the same shape as several failures the archive already holds, and this instance is unusually well documented because the authors report the diagnostics that expose it. Under strong mismatch, standard distillation produces 22,395-token responses of which 65.5 percent contain no boxed answer at all; the competing method produces 7,294 tokens with 5.4 percent missing. An accuracy-only table would have shown 6.9 against 20.3 and been read as a capability gap, when much of it is a termination gap. The archive should take from this that response length and format-failure rate belong next to accuracy whenever a training method can affect generation behaviour, not in an appendix. Two further reporting choices are exemplary. The component ablation includes a configuration that improves the headline while making the underlying behaviour worse -- selection alone lifts Avg@8 from 6.87 to 14.58 while pushing length from 22.4K to 29.7K -- which is precisely the result a paper is tempted to omit. And the hyperparameter sweep shows accuracy essentially flat across four values of the deficit weight while response length moves from 26.9K to 5.1K and format errors from 5,510 to 482, so a sweep judged on accuracy alone would have concluded the parameter was inert. Finally, the regime dependence is the honest caveat to carry: the method gains 13.4 points where the student is far below the teacher and 1.0 point where it is not, with three baselines clustered within half a point of it in the second case -- so this is evidence about repairing a broken distillation setup rather than about improving a working one."
+  },
+  "results": "The headline separates sharply by regime, and the paper reports both. Under weak mismatch, TIDE reaches 46.7 average Avg@8 against 45.7 for standard on-policy distillation -- one point, with the other three OPD variants clustered at 46.2 to 46.6 and one benchmark going backwards. Under strong mismatch, the same method moves Avg@8 from 6.9 to 20.3, a 13.4-point gain, against 18.3 for the best baseline and 16.3 for GRPO, with the teacher at 36.6. The generation diagnostics are what make the mechanism legible. Under strong mismatch, standard OPD produces 22,395-token responses of which 65.5 percent contain no boxed answer, and one baseline is worse still at 28,307 tokens and 54.0 percent; the strongest baseline reduces but does not remove this at 13,972 tokens and 26.3 percent. TIDE produces 7,294-token responses with 5.4 percent missing an answer. So the accuracy gap is largely a gap between models that terminate and models that do not, and reporting accuracy alone would have made a 6.9-versus-20.3 difference look like a capability difference rather than a degeneration one. The component ablation traces each part to a distinct effect and does not hide the one that backfires: selection alone lifts Avg@8 from 6.87 to 14.58 but pushes length up from 22.4K to 29.7K tokens, so concentrating supervision on informative positions helps accuracy while making degeneration worse. Adding bounded Hellinger shaping on those positions gives 18.57 at 23.6K, the deficit branch on its own gives a nearly identical 18.32 at a much shorter 13.9K, and all three together give 20.34 Avg@8, 34.17 Pass@8 and 7.3K tokens. The hyperparameter sweep makes the same point again: varying the deficit weight over 0.25, 0.5, 1.0 and 2.0 barely moves accuracy (20.09, 20.35, 20.34, 19.20) while moving response length from 26.9K to 5.1K and total format errors from 5,510 to 482 -- so the parameter controls degeneration rather than correctness, and an accuracy-only sweep would have concluded it did nothing. A matched-position control reports that training on matched tokens yields substantially smaller gains than supervising the mismatch positions, which is the paper's evidence that the selection is doing something specific rather than adding supervision volume. All results are software evaluations on Qwen3 and DeepSeek-distilled checkpoints; no human evaluation is involved.",
+  "schema_version": 1,
+  "tags": [
+    "distillation",
+    "on-policy",
+    "degeneration",
+    "math-reasoning",
+    "token-selection",
+    "generation-diagnostics"
+  ]
+}

@@ -44,7 +44,7 @@ Not discussed in the abstract, though one boundary is stated inside the headline
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), compute-optimal scaling, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), process reward model, best-of-n, pretraining vs inference trade-off, FLOPs-matched comparison
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), compute-optimal scaling, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), [process reward model](../../../../wiki/concepts/process-reward-model.md), best-of-n, pretraining vs inference trade-off, FLOPs-matched comparison
 - **Methods**: verifier-guided search, adaptive distribution update, [best-of-N](../../../../wiki/methods/best-of-n.md), process-based verifier reward model
 - **Datasets**: _none recorded_
 

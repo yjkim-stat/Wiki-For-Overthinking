@@ -2,7 +2,8 @@
   "aliases": [
     "DAPO-Math-17K",
     "DAPO-17K",
-    "DAPO-Math-17k"
+    "DAPO-Math-17k",
+    "DAPO-MATH-17k"
   ],
   "definition": "The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would otherwise be, since the training distribution is held fixed while the objective varies. One source complicates its use by showing that a roughly 600-sample subset selected by K-means clustering performs comparably to the full set, so its size is not what is doing the work.",
   "evidence": [
@@ -29,6 +30,12 @@
       "kind": "paper",
       "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
       "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training"
+    },
+    {
+      "id": "arxiv:2608.09805",
+      "kind": "paper",
+      "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+      "title": "Parameter Exploration for RLVR via Variational Learning"
     },
     {
       "id": "local:7d5e3edea2d46b92",
@@ -63,7 +70,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:22:18Z",
+  "last_seen": "2026-08-20T12:49:58Z",
   "name": "DAPO-Math-17K",
   "related": [
     "self-improvement",
@@ -161,6 +168,28 @@
     "qwen3-1-7b",
     "qwen3-4b",
     "llama-3-2-3b",
+    "zero-advantage-group",
+    "degenerate-generation",
+    "posterior-sampling",
+    "training-inference-mismatch",
+    "reward-shaping",
+    "effective-sample-size",
+    "ivon",
+    "variational-learning",
+    "parameter-space-exploration",
+    "temperature-scaling",
+    "entropy-regularization",
+    "kl-covariance-control",
+    "polaris",
+    "sequence-level-importance-sampling",
+    "monte-carlo-sampling",
+    "clip-higher",
+    "llama-nemotron-post-training-dataset",
+    "aime-2026",
+    "amc-2023",
+    "livecodebench-v6",
+    "olmo-3-1025-7b",
+    "deepseek-r1",
     "token-level-entropy",
     "forking-tokens",
     "high-entropy-minority-tokens",
@@ -168,7 +197,6 @@
     "exploration-in-rlvr",
     "credit-assignment",
     "entropy-bonus",
-    "clip-higher",
     "policy-gradient-masking",
     "high-entropy-token-gradient-masking",
     "dual-temperature-decoding",
@@ -184,7 +212,6 @@
     "importance-sampling-ratio",
     "advantage-function",
     "entropy-discriminator-clipping",
-    "entropy-regularization",
     "probability-weighted-updating",
     "gspo",
     "ce-gppo",

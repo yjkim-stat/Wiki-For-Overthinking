@@ -43,7 +43,7 @@ No limitations section, but the paper self-caveats on its most provocative claim
 
 ## Entities
 
-- **Concepts**: process reward model, outcome reward model, implicit reward, Q value, reward parameterization, log-likelihood ratio, [process supervision](../../../../wiki/concepts/process-supervision.md), best-of-n, [credit assignment](../../../../wiki/concepts/credit-assignment.md), step-level annotation, [verification](../../../../wiki/concepts/verification.md)
+- **Concepts**: [process reward model](../../../../wiki/concepts/process-reward-model.md), outcome reward model, implicit reward, Q value, reward parameterization, log-likelihood ratio, [process supervision](../../../../wiki/concepts/process-supervision.md), best-of-n, [credit assignment](../../../../wiki/concepts/credit-assignment.md), step-level annotation, [verification](../../../../wiki/concepts/verification.md)
 - **Methods**: Implicit PRM, [DPO](../../../../wiki/methods/dpo.md), KTO, NCA, cross-entropy reward modelling, Math-Shepherd, AutoPSV, [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), [best-of-N](../../../../wiki/methods/best-of-n.md), [majority voting](../../../../wiki/methods/majority-voting.md)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), UltraInteract, UltraFeedback
 

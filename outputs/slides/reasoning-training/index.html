@@ -256,8 +256,8 @@ th { background: var(--surface); }
 <h2>Methods</h2>
 <ul>
 <li><strong>GRPO</strong> — Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion&#x27;s advanta...</li>
-<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
@@ -266,8 +266,8 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
 <li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
 <li><strong>GSM8K</strong> — 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive&#x27;s earliest source alongside the finding th...</li>
 <li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
 <li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
@@ -278,22 +278,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
+<li><strong>Parameter Exploration for RLVR via Variational Learning</strong> — Stated: the work is compute-bound and the authors expect benefits to grow with model scale without being able to test it, reasoning that larger models should...</li>
 <li><strong>LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing</strong> — Stated: the persona-routing architecture is offered as a blueprint and preliminary evidence, not an implemented system, and the persona result is described a...</li>
 <li><strong>SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests</strong> — Stated: the SkillBench multi-skill analysis rests on 75 queries per split and is explicitly treated as diagnostic rather than as a primary result, with concl...</li>
 <li><strong>Thought-Level Beam Search for Reasoning</strong> — The paper has no limitations section and its central claim is stated more strongly than the table supports. &#x27;Strictly dominates existing baselines&#x27; does not...</li>
 <li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
-<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
 <li><strong>LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction</strong> — No quantitative results in the abstract. The theoretical guarantees hold &#x27;under suitable conditions&#x27; and at a matched randomness level, neither specified her...</li>
 <li><strong>AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning</strong> — Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillation baselines are not given in the abstract. Requires a privileged teacher, so...</li>
 <li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 <li><strong>Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning</strong> — The claim is a reading of the evidence, and the paper states the gains come &#x27;at least partly&#x27; from robustness, so it does not exclude a ToM-specific componen...</li>
 <li><strong>Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark</strong> — 100 questions in one language, so the estimate is noisy and specific to Italian cultural material. Detailed CoT analysis covers only two models. Absolute acc...</li>
-<li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
 </ul>
 </section>
 <section class="slide">

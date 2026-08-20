@@ -1,0 +1,143 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-09638.pdf"
+  },
+  "completed_at": "2026-08-20T12:46:49Z",
+  "created_at": "2026-08-13T11:19:53Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.09638",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Theory of Mind (ToM) is essential for agent interactions, yet existing evaluations either rely on static scenarios that oversimplify mental-state reasoning or interactive settings that provide limited diagnostic insight. We present Avalon-ToM-Bench, a fine-grained benchmark that operationalizes ToM through the asymmetric-information mechanics of The Resistance: Avalon. Rather than evaluating end-to-end gameplay, it decomposes ToM into a 2$\\times$2 taxonomy -- epistemic versus motivational reasoning crossed with inference versus action -- using human-crafted, perspective-constrained queries. Benchmarking 28 LLMs reveals three insights: 1) Reasoning, not knowledge. Models show strong game-rule comprehension but markedly weaker ToM abilities, isolating failures to social reasoning rather than missing domain knowledge. 2) Expression, not representation. Mechanistic analyses via linear probing and activation steering show that models frequently represent correct mental-state inferences in their hidden states but fail to express them during generation -- linear probes recover 77-82% accuracy versus 62-70% from the models' own chain-of-thought. 3) Policy, not deliberation. Dedicated reasoning training yields substantial improvements whereas test-time chain-of-thought provides only marginal gains (+11.0 versus +1.1 points on average), suggesting that robust ToM depends on a learned reasoning policy rather than increased inference-time deliberation.",
+    "authors": [
+      "Yen-Shan Chen",
+      "Yu Chian Duan",
+      "Chih-En Kuo",
+      "Jian-Bin Wu",
+      "Yun-Nung Chen"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CY",
+      "cs.GT"
+    ],
+    "matched_keywords": [
+      "activation steering",
+      "linear probe",
+      "linear probing",
+      "chain of thought"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.09638v1",
+    "published": "2026-08-10",
+    "scores": {
+      "reasoning-interpretability": 0.5,
+      "reasoning-training": 0.25,
+      "test-time-scaling": 0.25
+    },
+    "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
+    "url": "https://arxiv.org/abs/2608.09638",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "theory of mind",
+      "representation versus readout",
+      "linear probing",
+      "activation steering",
+      "detection versus control",
+      "chain-of-thought prompting",
+      "test-time scaling",
+      "benchmark design",
+      "double dissociation",
+      "class imbalance",
+      "asymmetric information"
+    ],
+    "contributions": [
+      "A 2x2 decomposition of theory of mind -- epistemic versus motivational mental states crossed with inference versus action -- instantiated as 408 human-authored, perspective-constrained binary propositions over 97 Avalon scenarios, with a separate rules-recall control set that isolates game knowledge from reasoning about minds.",
+      "A permutation-test validation that the taxonomy carves at real joints rather than imposing an arbitrary partition: difficulty loads on one axis and the benefit of chain-of-thought on the orthogonal one, a double dissociation.",
+      "Three converging analyses -- correlational probing, behavioural ground-truth injection, and causal steering with random and negated controls -- localising theory-of-mind failure to expression rather than representation, with the injection result extending the claim to proprietary models whose internals cannot be reached.",
+      "A separation of test-time deliberation from learned reasoning policy on the same base weights: +1.1 pp for toggling chain-of-thought against +11.0 pp for reasoning training, with the chain-of-thought number shown to be a near-cancellation of 16 percent fixes against 12 percent breaks rather than a small reliable gain."
+    ],
+    "datasets": [
+      "Avalon-ToM-Bench",
+      "ToMBench"
+    ],
+    "limitations": "Stated, at length. Every item comes from one game, so whether the per-ability ordering and the represent-but-not-express gap transfer to negotiation, multi-party dialogue or other social-deduction settings is left open. Items are drawn from games the authors played, recorded and annotated themselves rather than from independent human play at scale, trading ecological breadth for label certainty, and a few labels rest on benchmark-specific conventions such as the sabotage-priority protocol, which the authors call internally consistent design choices rather than universal facts. The binary TRUE/FALSE format that makes labels unambiguous also compresses theory of mind into a verification task and does not measure generating mental-state-aware behaviour in open play. At 408 items across 97 scenarios with unequally sized dimensions the set is modest and, like any fixed benchmark, subject to contamination as it circulates. The mechanistic claims are scoped explicitly: probing and steering require internal access and run only on open-weight Qwen3 models, probes are correlational, and the steering result is described as an existence proof that the answer is linearly writable rather than a deployment recipe -- it needs a per-item sign from a supervised readout, and the fully label-free variant helps only the smallest, degenerate model. Ground-truth injection is what extends the expression-gap claim behaviourally to the proprietary frontier. Not stated but worth noticing: the probe-versus-output comparison is not quite like for like, since the probe is fitted with cross-validation on these items while the model's chain of thought is zero-shot, so some of the 77-82 against 62-70 gap is the probe having seen the task distribution.",
+    "method": "Avalon is used as a controlled measurement environment rather than a game to be won. Theory of mind is factored along two axes -- whether the targeted mental state is epistemic (what another seat knows) or motivational (what another seat wants), and whether the cognitive demand is passive inference or active action -- giving four abilities: Perspective-Taking, Strategic Signaling, Intention Attribution and Tacit Coordination. Each item is a human-authored, human-verified binary proposition evaluated from one designated player's point of view, with the available evidence restricted to that seat's knowledge plus the public interaction history, so a model relying on omniscient context is penalised rather than rewarded. The set is 408 independently evaluated statements across 97 scenarios, near-balanced at about 50 percent TRUE per ability so that a residual TRUE/FALSE prior shows up as an accuracy-F1 gap, plus a separate 34-item rules-recall exam that separates knowing Avalon's mechanics from reasoning about minds. Twenty-eight models are prompted zero-shot with a fixed template. Three converging analyses then localise the failure on the open-weight Qwen3 family: logistic probes trained on last-token hidden states at every layer under five-fold cross-validation, compared against the same model's own chain-of-thought output on the identical items; behavioural injection of the ground-truth answer into the context; and causal writing, adding a TRUE-minus-FALSE class-mean difference direction at the best probe layer, signed per item by the cross-validated probe, with random and negated control directions. Whether the taxonomy carves anything real is itself tested, by decomposing per-cell difficulty and per-cell chain-of-thought benefit into main effects for each axis and assessing them with a permutation test that shuffles cell labels.",
+    "methods": [
+      "linear probing",
+      "activation steering",
+      "difference-in-means direction",
+      "permutation test",
+      "chain-of-thought prompting",
+      "cross-validation",
+      "ground-truth injection",
+      "zero-shot prompting"
+    ],
+    "models": [
+      "Gemini-2.5-Pro",
+      "Gemini-2.5-Flash",
+      "GPT-5",
+      "Qwen3-0.6B",
+      "Qwen3-1.7B",
+      "Qwen3-4B",
+      "Qwen3-4B-Thinking-2507",
+      "Qwen3-8B",
+      "Qwen3.5-2B",
+      "Llama-3.2-1B",
+      "OLMo-2-7B"
+    ],
+    "one_liner": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+    "problem": "Theory-of-mind evaluation for language models sits between two unsatisfying options. Static benchmarks ask directly about a character's belief or emotion, stripping away the asymmetric information, deception and multi-party dynamics that make social reasoning hard. Interactive hidden-role games restore those, but score models on end-to-end outcomes such as win rate, which conflates mind-reading with strategic planning, persuasion and memory and makes it impossible to isolate a theory-of-mind deficit. Neither approach says why models fail or what would fix it.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-interpretability": "The archive's cleanest instance of the represent-but-do-not-express pattern, and unusually the claim is built three ways rather than one. The probe result alone would be weak -- a cross-validated probe beating a zero-shot chain of thought is partly the probe having seen the distribution -- but the paper adds two things that do not share that weakness. Injecting the ground-truth answer into context raises accuracy by 12.6 points across all 28 models and never backfires on any ability for 26 to 28 of them, which is a behavioural test needing no internal access and which is what carries the claim to proprietary models; and steering along a class-mean TRUE-minus-FALSE direction at the best probe layer lifts output accuracy exactly onto the probe ceiling at three model sizes, with random directions at about zero and negated ones negative. The recall table is what makes the steering result convincing rather than suggestive: Qwen3-1.7B moves from a degenerate 10.7/98.0 True/False recall to a balanced 73.8/80.2, so the intervention surfaced content instead of shifting a threshold -- exactly the control the archive's steering material keeps asking for, and one most steering papers omit. The paper is also disciplined about what steering does not show, calling it an existence proof that the answer is linearly writable rather than a recipe, on the ground that the per-item sign comes from a supervised readout and the label-free variant helps only the smallest model. That is the honest version of a result others would have reported as a method. Two further items transfer beyond the domain. The double dissociation established by permutation test -- difficulty loading on one taxonomy axis and chain-of-thought benefit on the orthogonal one -- is a template for showing that a proposed decomposition of a capability is real rather than a naming exercise. And the chain-of-thought finding sharpens something the archive holds loosely: a +1.1 point average conceals a 27 percent flip rate, 16 percent fixed and 12 percent broken, so a small net effect from added deliberation should be read as instability rather than as a small improvement, and reporting only the mean would have hidden that entirely."
+    },
+    "results": "The taxonomy passes its own test with a double dissociation: item difficulty loads on the epistemic-versus-motivational axis (-8.5 pp, p < 0.001) while the inference-versus-action axis has no significant effect on difficulty (-3.2 pp, p = 0.14), and the benefit of chain-of-thought shows the mirror pattern, loading on inference-versus-action (-7.9 pp, p = 0.008) with no epistemic effect (-1.2 pp, p = 0.71). What makes an item hard and what deliberation can fix are therefore controlled by different axes. Rule mastery is not social intelligence: nearly every model answers the rules exam well (mean about 83.3 percent, most at or above 88) while scoring far lower on items applying those same rules from a constrained viewpoint. Class means track capability -- 84.1 proprietary, 71.9 open reasoning, 66.5 open non-reasoning, with Gemini-2.5-Pro at 89.7 and GPT-5 at 88.5 -- and abilities order consistently as Intention Attribution 78.2 > Tacit Coordination 75.8 > Strategic Signaling 70.4 > Perspective-Taking 63.5, with a significant interaction (-9.3 pp, p = 0.027) making Perspective-Taking harder than the two main effects predict. The central finding is a representation-expression gap established three ways. Linear probes on hidden states recover 77-82 percent against the same models' own chain-of-thought outputs at 62-70 percent, with the answer linearly decodable already in middle layers and the gap largest on Perspective-Taking. Injecting the ground-truth answer into context raises accuracy by 12.6 pp averaged over all 28 models, largest again on Perspective-Taking at +16.3, and never backfires -- 26 to 28 of 28 models improve on every ability, so there is no sign of god's-eye over-claiming. Supervised steering at the best probe layer lifts output accuracy onto the probe ceiling at every size (Qwen3-1.7B 54 to 77, 4B 70 to 81, 8B 74 to 83) and raises True- and False-recall together, most strikingly un-skewing Qwen3-1.7B from a degenerate 10.7/98.0 TPR/TNR to a balanced 73.8/80.2, so the gain is surfaced content rather than a threshold shift; random control directions give about zero and negated ones give negative effects. Finally, test-time deliberation and training separate sharply: toggling chain-of-thought on the same Qwen3 weights moves overall accuracy by only +1.1 pp with the sign mixed across the size sweep (negative at 0.6B and 4B), while comparing base Qwen3-4B to its reasoning-trained variant gives +11.0 pp overall and up to +20.6 on Perspective-Taking. The small chain-of-thought average hides instability rather than stability: it flips the outcome on about 27 percent of questions, fixing roughly 16 percent and breaking 12 percent, so the net gain is fixes and breaks nearly cancelling.",
+    "tags": [
+      "theory-of-mind",
+      "benchmark",
+      "linear-probing",
+      "activation-steering",
+      "social-reasoning",
+      "avalon",
+      "expression-gap"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-09638",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

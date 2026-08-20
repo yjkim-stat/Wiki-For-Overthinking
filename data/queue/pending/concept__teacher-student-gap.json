@@ -18,6 +18,15 @@
           "reasoning-training",
           "reasoning-evaluation"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
       }
     ]
   },
@@ -38,7 +47,7 @@
   },
   "payload": {
     "name": "teacher-student gap",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__teacher-student-gap",
   "task_version": 1,
