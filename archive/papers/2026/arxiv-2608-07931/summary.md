@@ -46,9 +46,9 @@ Stated, and the most important one limits the paper's own framing. The authors w
 
 ## Entities
 
-- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), [abstention](../../../../wiki/concepts/abstention.md), selective prediction, [coverage](../../../../wiki/concepts/coverage.md), [self-correction](../../../../wiki/concepts/self-correction.md), calibration, [reward shaping](../../../../wiki/concepts/reward-shaping.md), [difficulty conditioning](../../../../wiki/concepts/difficulty-conditioning.md), [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md)
-- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), reward shaping, abstention training, [self-reflection](../../../../wiki/methods/self-reflection.md), [structured chain-of-thought](../../../../wiki/methods/structured-chain-of-thought.md), difficulty stratification, [component ablation](../../../../wiki/methods/component-ablation.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), StrategyQA, [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md)
+- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), [abstention](../../../../wiki/concepts/abstention.md), [selective prediction](../../../../wiki/concepts/selective-prediction.md), [coverage](../../../../wiki/concepts/coverage.md), [self-correction](../../../../wiki/concepts/self-correction.md), calibration, [reward shaping](../../../../wiki/concepts/reward-shaping.md), [difficulty conditioning](../../../../wiki/concepts/difficulty-conditioning.md), [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md)
+- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), reward shaping, abstention training, [self-reflection](../../../../wiki/methods/self-reflection.md), [structured chain-of-thought](../../../../wiki/methods/structured-chain-of-thought.md), [difficulty stratification](../../../../wiki/methods/difficulty-stratification.md), [component ablation](../../../../wiki/methods/component-ablation.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md)
 
 Tags: `abstention`, `reliability`, `grpo`, `self-reflection`, `selective-accuracy`, `hallucination`
 

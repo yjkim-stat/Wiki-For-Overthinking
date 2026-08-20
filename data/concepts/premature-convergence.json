@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.07959",
+      "kind": "paper",
+      "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+      "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning"
+    },
+    {
       "id": "arxiv:2608.09898",
       "kind": "paper",
       "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
@@ -11,15 +17,39 @@
   ],
   "first_seen": "2026-08-20T14:02:28Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:02:28Z",
+  "last_seen": "2026-08-20T14:13:00Z",
   "name": "premature convergence",
   "related": [
+    "credit-assignment",
+    "advantage-estimation",
+    "process-reward",
+    "outcome-reward",
+    "error-compounding",
+    "exploration",
+    "tool-orchestration",
+    "format-compliance",
+    "grpo",
+    "supervised-fine-tuning",
+    "uncertainty-prioritized-sampling",
+    "tool-learning",
+    "retrieval-augmented-generation",
+    "component-ablation",
+    "video-mme",
+    "egolifeqa",
+    "ego-r1-bench",
+    "hourvideo",
+    "qwen2-5-7b-instruct",
+    "gpt-4o",
+    "gemini-1-5-pro",
+    "qwen3-vl",
+    "llava-video",
+    "internvl",
+    "longvu",
     "test-time-scaling",
     "verifier-free-verification",
     "selection-signal",
     "confidence",
     "calibration",
-    "exploration",
     "difficulty-conditioning",
     "entropy-collapse",
     "self-consistency",
@@ -42,6 +72,7 @@
   "schema_version": 1,
   "slug": "premature-convergence",
   "topics": [
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

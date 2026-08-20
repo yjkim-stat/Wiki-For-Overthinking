@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
       "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
+    },
+    {
+      "id": "arxiv:2608.07959",
+      "kind": "paper",
+      "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+      "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning"
     }
   ],
   "first_seen": "2026-08-13T04:27:36Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T04:27:36Z",
+  "last_seen": "2026-08-20T14:13:00Z",
   "name": "Video-MME",
   "related": [
     "latent-reasoning",
@@ -49,12 +55,34 @@
     "qwen3-5-397b-a17b",
     "kimi-k2-5",
     "gpt-4o",
-    "gemini-1-5-pro"
+    "gemini-1-5-pro",
+    "credit-assignment",
+    "advantage-estimation",
+    "process-reward",
+    "outcome-reward",
+    "error-compounding",
+    "exploration",
+    "tool-orchestration",
+    "premature-convergence",
+    "format-compliance",
+    "uncertainty-prioritized-sampling",
+    "tool-learning",
+    "retrieval-augmented-generation",
+    "component-ablation",
+    "egolifeqa",
+    "ego-r1-bench",
+    "hourvideo",
+    "qwen2-5-7b-instruct",
+    "qwen3-vl",
+    "llava-video",
+    "internvl",
+    "longvu"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "video-mme",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

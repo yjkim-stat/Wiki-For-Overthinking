@@ -6,6 +6,12 @@
   "definition": "A Qwen vision-language model, and the subject of the archive's sharpest modality-ablation result: on a university-level multimodal math benchmark it scores higher with no image input than either of its own multimodal variants or GPT-5. It is also one of four checkpoints supported by an open mechanistic-interpretability library for VLMs. The pairing is useful — one source shows the visual pathway contributing little or interfering on a reasoning benchmark, the other supplies the activation-patching and attention tooling that could say why, and no source in the archive has yet done that.",
   "evidence": [
     {
+      "id": "arxiv:2608.07959",
+      "kind": "paper",
+      "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+      "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-demo.78",
       "kind": "paper",
       "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
@@ -20,9 +26,34 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T14:13:00Z",
   "name": "Qwen3-VL",
   "related": [
+    "credit-assignment",
+    "advantage-estimation",
+    "process-reward",
+    "outcome-reward",
+    "error-compounding",
+    "exploration",
+    "tool-orchestration",
+    "premature-convergence",
+    "format-compliance",
+    "grpo",
+    "supervised-fine-tuning",
+    "uncertainty-prioritized-sampling",
+    "tool-learning",
+    "retrieval-augmented-generation",
+    "component-ablation",
+    "video-mme",
+    "egolifeqa",
+    "ego-r1-bench",
+    "hourvideo",
+    "qwen2-5-7b-instruct",
+    "gpt-4o",
+    "gemini-1-5-pro",
+    "llava-video",
+    "internvl",
+    "longvu",
     "mechanistic-interpretability",
     "activation-patching",
     "attention-pattern",
@@ -43,9 +74,11 @@
     "visual-variant-perturbation",
     "gpt-5"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-vl",
   "topics": [
+    "reasoning-training",
     "reasoning-interpretability",
     "reasoning-evaluation"
   ]

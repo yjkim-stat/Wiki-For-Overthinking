@@ -1,0 +1,135 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-07959.pdf"
+  },
+  "completed_at": "2026-08-20T14:13:00Z",
+  "created_at": "2026-08-20T13:00:01Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.07959",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Ultra-long egocentric video understanding requires reasoning over temporally sparse evidence distributed across hours or days, challenging current multimodal models with limited context and the grounding of key video segments. While Chain-of-Tool-Thought (CoTT) agent systems enable iterative retrieval and inspection, they suffer from error propagation due to rigid zoom-in strategies that lack recovery mechanisms. In this work, we address these challenges through SCOUT (Self-Checking Chain-Of-Tool-thought), a recovery-aware agentic framework introducing an adaptive policy that evaluates intermediate tool observations and dynamically trades off exploitation (zoom-in) and exploration (region switching), enabling robust multi-hop reasoning over extremely long horizons. However, training such multi-turn tool-using agents remains challenging, as existing RL methods rely on sparse outcome-level rewards and lack supervision over extended decision trajectories, resulting in suboptimal credit assignment for long-horizon reasoning. To address this, we develop UPS-GRPO, an uncertainty-prioritized policy optimization method that concentrates exploration on high-uncertainty post-tool states while preserving sample efficiency. We further introduce a turn-level advantage decomposition that integrates outcome rewards with tool-grounded temporal alignment rewards for improved credit assignment. Experiments show that SCOUT achieves state-of-the-art results on ultra-long egocentric benchmarks, while remaining competitive on shorter-horizon long-video settings.",
+    "authors": [
+      "Keyang Zhong",
+      "Kuo Wang",
+      "Peng Liu",
+      "Quanlong Zheng",
+      "Junlin Xie",
+      "Zhijia Liang",
+      "Yanhao Zhang",
+      "Guanbin Li"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "outcome reward",
+      "GRPO"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.07959v1",
+    "published": "2026-08-08",
+    "scores": {
+      "reasoning-training": 0.4
+    },
+    "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+    "url": "https://arxiv.org/abs/2608.07959",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "credit assignment",
+      "advantage estimation",
+      "process reward",
+      "outcome reward",
+      "error compounding",
+      "exploration",
+      "tool orchestration",
+      "premature convergence",
+      "format compliance"
+    ],
+    "contributions": [
+      "A recovery-aware tool-use policy that self-checks intermediate observations and can switch temporal regions rather than only refining within the first one chosen, addressing an irreversible early-commitment failure mode in existing chain-of-tool-thought agents.",
+      "Uncertainty-prioritised policy optimisation concentrating exploration on high-uncertainty post-tool states, shown to transfer onto a different published agent and to improve it while shortening its tool chains by one to three calls.",
+      "Turn-level credit applied as a multiplicative modulation of the trajectory advantage rather than as an additive reward, on the argument that additive turn rewards introduce local signals competing with the final-answer reward while multiplication preserves the advantage's sign and direction and reweights only its magnitude.",
+      "The observation, drawn across several prior systems, that results on 41-minute-average long-video benchmarks do not predict results on multi-hour egocentric ones -- with one agent leading the first and losing 35 points on the second.",
+      "A training-regime ablation separating what supervised fine-tuning supplies (tool-invocation format, at 99.8 against 50.6 percent compliance) from what reinforcement learning adds (2 to 3.6 accuracy points on top)."
+    ],
+    "datasets": [
+      "Video-MME",
+      "EgoLifeQA",
+      "Ego-R1 Bench",
+      "HourVideo"
+    ],
+    "limitations": "No limitations section. What a reader should notice: every component ablation improves at least one benchmark, which the authors report but do not reconcile, so the contribution of each part is benchmark-dependent and the full configuration is best on average rather than everywhere. The gains over the strongest prior agent are 9.1 and 6.0 points on the two ultra-long benchmarks and slight or negative elsewhere, and single runs are reported without seeds or intervals throughout. The uncertainty-prioritisation transfer result loses on the benchmark where its host was strongest, so the shorter-horizon cost of concentrating exploration is real if small. The tool-grounded temporal alignment reward requires ground-truth temporal annotations to compute, which bounds where the method can be trained. And the headline argument -- that recovery-aware search is what mitigates irreversible early commitment -- is supported by the benchmark asymmetry across systems rather than by an intervention isolating recovery within their own agent, so it remains an attribution rather than a controlled test.",
+    "method": "The policy evaluates each intermediate tool observation and chooses adaptively between exploitation -- zooming further into the current region -- and exploration -- switching to a broader or neighbouring one when the evidence remains ambiguous, so the search trajectory can be revised rather than only refined. Training is two-stage. Supervised fine-tuning first, to install the tool-use format. Then reinforcement learning with two modifications to group-relative optimisation. Uncertainty-prioritised sampling concentrates exploration on high-uncertainty states induced by tool observations rather than spending budget on branches the policy is already confident about. And a turn-level advantage decomposition combines the outcome reward with a tool-grounded temporal alignment reward, applied as a multiplicative modulation rather than an additive shaping term -- the stated reason being that additive turn rewards introduce competing local signals that can conflict with the final-answer reward, whereas multiplying preserves the sign and direction of the trajectory-level advantage while adaptively reweighting its magnitude, which the authors call direction-consistent credit refinement. Evaluation spans four long-video benchmarks deliberately chosen to differ in horizon, two of them ultra-long egocentric sets requiring reasoning over 44.3 hours of continuous footage, against commercial multimodal models, open-source video models, and prior agentic systems. The uncertainty-prioritised component is additionally transferred onto a different published agent under identical training settings.",
+    "methods": [
+      "GRPO",
+      "supervised fine-tuning",
+      "advantage estimation",
+      "process reward",
+      "uncertainty-prioritized sampling",
+      "tool learning",
+      "retrieval-augmented generation",
+      "component ablation"
+    ],
+    "models": [
+      "Qwen2.5-7B-Instruct",
+      "GPT-4o",
+      "Gemini-1.5-Pro",
+      "Qwen3-VL",
+      "LLaVA-Video",
+      "InternVL",
+      "LongVU"
+    ],
+    "one_liner": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+    "problem": "Reasoning over ultra-long egocentric video means finding temporally sparse evidence across hours or days, which exceeds any context window and forces an agent to retrieve and inspect iteratively. Existing chain-of-tool-thought agents do this with a rigid zoom-in strategy: once an initial temporal region is chosen they refine within it and never leave, so an early wrong commitment propagates irreversibly with no recovery path. Training such agents compounds the problem, because reinforcement learning over multi-turn tool use relies on a sparse outcome reward at the end of a long trajectory and supplies no supervision over the intermediate decisions, leaving credit assignment ambiguous exactly where the trajectory is longest.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-training": "The most useful contribution is a structural implementation of something the archive already holds as an empirical finding. Its process-reward finding says a dense signal refines the distribution of credit along a trajectory and cannot supply its direction; here that constraint is built into the arithmetic rather than discovered by ablation. Turn-level credit is applied multiplicatively, preserving the sign and direction of the trajectory-level advantage while reweighting only its magnitude, and the authors' stated reason is exactly the archive's: additive turn rewards introduce competing local signals that can conflict with the final-answer reward and misassign credit, especially over long horizons. Their additive variant is 1.6 and 2.0 points worse on two benchmarks, and their training curves show the multiplicative version optimising more stably. That is a design pattern worth naming -- gate or modulate, do not add -- and it sits alongside the length reward that only works when gated on correctness and the completion anchor whose removal collapses a tool agent while its per-step metrics stay perfect. Two further results transfer. The training-regime ablation is an unusually clean statement of what the two stages do: without supervised fine-tuning the policy cannot invoke its tools at all, scoring 50.6 percent on format compliance against 100, so the supervised stage is a precondition for the reinforcement stage to have anything to optimise, and the reinforcement stage then buys two to three and a half points. Any claim that RL post-training produces a capability should be checked against whether the format that capability is expressed in was installed by imitation first. And the transfer of the uncertainty-prioritised sampling onto a different agent improves accuracy while cutting mean tool-chain length by up to three calls, which is the rare case of an exploration method that spends less rather than more -- the mechanism being that concentrating budget on high-uncertainty states lets the policy resolve ambiguity earlier instead of looping. The caution to carry is that every component ablation here improves at least one of three benchmarks, so no part is uniformly necessary, and the authors report that without reconciling it."
+    },
+    "results": "The clearest finding is not about the method but about the benchmarks, and it is the kind of result that should change how the archive reads this literature: performance on the shorter long-video benchmark does not predict performance on the ultra-long ones. One prior agent achieves 67.3 percent on a 41-minute-average benchmark -- the best of any agent system there -- and falls to 32.1 and 31.0 on the two egocentric sets; another is competitive on the short benchmark and drops to 26.1 and 33.0. The authors read this as retrieval-heavy or strictly monotonic localisation pipelines working when the evidence lies in a short well-structured search horizon and failing where repeated hypothesis revision and multi-hop aggregation are required. Their own system takes the best results on both ultra-long benchmarks, improving on the strongest prior agentic baseline by 9.1 and 6.0 points while remaining competitive on the shorter ones. The training-regime ablation is stark and useful: without supervised fine-tuning the reinforcement-learned policy cannot reliably invoke its tools at all, scoring 50.6 percent on format compliance against 100 percent for the full pipeline and landing 20 to 27 points below on every benchmark, while supervised fine-tuning alone reaches 99.8 percent format compliance and comes within 2 to 3.6 points of the full system. So the supervised stage supplies a syntactic scaffold that is a precondition rather than an improvement, and the reinforcement stage buys a few points on top of it. The component ablations are reported with their inconsistency intact -- each removal improves one of the three benchmarks while degrading the others, with removing the uncertainty prioritisation gaining 0.4 on one set and losing 1.8 and 2.0 on the others, and removing the turn reward gaining 1.0 on one and losing 1.8 and 3.6 -- so no component is uniformly necessary and the authors do not claim otherwise. The additive-versus-multiplicative comparison is the cleanest internal result, with the additive variant dropping 1.6 and 2.0 points on two benchmarks. The transfer of the uncertainty component onto a different agent is the most striking single number: it improves that agent by 5.0 points on one benchmark and 0.9 on another while losing 0.9 on the third, and does so with substantially fewer tool calls -- mean chain length falling from 7.74 to 4.60, 7.14 to 5.61 and 6.69 to 5.41 -- so the policy resolves ambiguity earlier and commits sooner rather than buying accuracy with more search.",
+    "tags": [
+      "video-agent",
+      "tool-use",
+      "grpo",
+      "turn-level-credit",
+      "long-horizon",
+      "egocentric"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-07959",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}
