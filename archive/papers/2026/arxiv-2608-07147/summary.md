@@ -45,8 +45,8 @@ The paper states no limitations section. Reader-visible limits: the competition-
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), group-relative advantage, [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), long-horizon agency
-- **Methods**: DiDPO, [GRPO](../../../../wiki/methods/grpo.md), [GiGPO](../../../../wiki/methods/gigpo.md), CodeRL+, CodeAct, Self-Planning, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), rejection sampling, groupability score
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), long-horizon agency
+- **Methods**: DiDPO, [GRPO](../../../../wiki/methods/grpo.md), [GiGPO](../../../../wiki/methods/gigpo.md), CodeRL+, CodeAct, Self-Planning, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [rejection sampling](../../../../wiki/methods/rejection-sampling.md), groupability score
 - **Datasets**: APPS, [HumanEval](../../../../wiki/datasets/humaneval.md), [MBPP](../../../../wiki/datasets/mbpp.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), LeetCode, USACO, OJBench, ICPC
 
 Tags: `rlvr`, `coding-agent`, `credit-assignment`, `code-diff`, `agentic-rl`

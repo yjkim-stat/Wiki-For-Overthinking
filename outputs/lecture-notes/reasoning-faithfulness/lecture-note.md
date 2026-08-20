@@ -81,17 +81,17 @@ Spending inference compute unevenly -- more on the inputs that need it, less or 
 
 Seen in: Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates; LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards; Interpretable Adaptive Sampling for LLM Test-Time Scaling; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility.
 
-### test-time compute
-
-Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
-
-Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
-
 ### advantage estimation
 
 Estimating how much better a sampled action or trajectory was than the baseline it should be compared against -- the quantity that multiplies the policy gradient and therefore decides what training actually optimises. In this archive the dominant estimator is group-relative: sample several completions for one prompt and normalise each reward by the group's mean and standard deviation, which removes the value network entirely and is why most sources here use it. The sources document what that choice costs. It yields exactly zero advantage whenever every rollout in a group agrees, so prompts the model has already mastered waste their rollouts; and it treats completions as exchangeable, which becomes a frequency skew once credit is aggregated by solution structure, since a recurring correct form accumulates positive coefficient mass in proportion to how often it is sampled. Several sources therefore modify the advantage rather than the reward -- nudging it up or down from a detached teacher-student log-probability gap on selected token classes, replacing the group-relative advantage at latent positions with a thought-level value obtained by freezing the context and averaging over several sampled answers, or rebalancing it by a rarity exponent. Two sources argue about the target rather than the estimator: one shows that REINFORCE, pass@K training and MaxRL each optimise a single moment of the per-problem failure probability and proposes minimising the first several jointly, which is equivalent to minimising the expected truncated number of rollouts to a first success; the other keeps a learned critic but replaces its scalar mean-squared-error head with a categorical predictor over a discretised value support, reporting that the MSE critic had been penalising failures two to three times harder than it rewarded successes and that the categorical one produces near-symmetric advantages under an otherwise unchanged update.
 
 Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; Self-Improving Large Language Models via Progressive Experience Evolution.
+
+### test-time compute
+
+Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
+
+Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
 ### pass@k
 
@@ -127,9 +127,9 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 54 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| supervised fine-tuning | 47 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
-| LLM-as-a-judge | 46 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| GRPO | 55 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| supervised fine-tuning | 49 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| LLM-as-a-judge | 47 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | linear probe | 32 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain-of-thought prompting | 28 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | RLVR | 27 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
@@ -139,38 +139,38 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | activation patching | 19 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | best-of-n | 18 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | sparse autoencoder | 15 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| knowledge distillation | 13 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
+| knowledge distillation | 14 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | steering vector | 13 | A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and tex... |
 | circuit analysis | 9 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
+| DAPO | 9 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
+| Monte Carlo tree search | 9 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | retrieval-augmented generation | 9 | Conditioning generation on retrieved documents so that answers are grounded in supplied evidence rather than in parameters. The two sources use the term for different things, wh... |
 | selectivity control | 9 | A deliberately meaningless version of an experiment, run under identical conditions, whose job is to produce no effect -- so that an effect in the real condition means something... |
-| DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | logit lens | 8 | Reading a model's intermediate hidden states through its output vocabulary projection, so that any layer's state can be inspected as a distribution over tokens. Both sources use... |
-| Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 
 ## Benchmarks and datasets
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| AIME 2024 | 49 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| MATH500 | 47 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| GSM8K | 39 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
+| AIME 2024 | 50 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 48 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
+| GSM8K | 41 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 36 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 21 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 17 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| GPQA-Diamond | 16 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | MATH | 16 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
-| GPQA-Diamond | 15 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | LiveCodeBench | 12 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | Minerva | 10 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |
-| MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
-| MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
+| MMLU | 10 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
+| MMLU-Pro | 8 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | Omni-MATH | 5 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
 | BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
 | ARC-Challenge | 3 | The harder split of the AI2 Reasoning Challenge, a multiple-choice science question set, used in both sources here as a supporting evaluation rather than a target. In the latent... |
+| HarmBench | 3 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
 | SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | BeaverTails | 2 | A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study.... |
-| HarmBench | 2 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
 | Humanity's Last Exam | 2 | A benchmark of expert-level questions used in this archive as the hard end of an evaluation range, where absolute scores are low enough that small movements are hard to read. In... |
 
 ## Reading path

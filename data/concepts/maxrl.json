@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
       "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning"
+    },
+    {
+      "id": "arxiv:2608.09271",
+      "kind": "paper",
+      "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+      "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation"
     }
   ],
   "first_seen": "2026-08-12T23:30:56Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T14:30:08Z",
   "name": "MaxRL",
   "related": [
     "failure-probability-distribution",
@@ -38,12 +44,41 @@
     "aime-2025",
     "math7-5k",
     "qwen3-1-7b-base",
-    "qwen3-4b-base"
+    "qwen3-4b-base",
+    "credit-assignment",
+    "group-relative-advantage",
+    "prompt-difficulty-weighting",
+    "difficulty-stratification",
+    "zero-advantage-group",
+    "verifiable-reward",
+    "exponential-tilting",
+    "softmaxgrpo",
+    "dr-grpo",
+    "dapo",
+    "cispo",
+    "dppo",
+    "raml",
+    "mpo",
+    "on-policy-distillation",
+    "iterative-dpo",
+    "supervised-fine-tuning",
+    "gsm8k",
+    "countdown",
+    "deepmath",
+    "poetry-writing",
+    "meetingbank",
+    "alpacaeval-2-0",
+    "mmlu",
+    "gpqa",
+    "imagenet",
+    "openthoughts3-1-2m",
+    "resnet-50"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "maxrl",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-training"
   ]
 }

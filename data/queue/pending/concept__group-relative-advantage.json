@@ -11,6 +11,14 @@
       },
       {
         "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Addresses wasted rollouts in critic-free RL on prompts where every sampled rollout is already correct and the advantage estimate is therefore zero.",
         "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
         "topics": [
@@ -36,7 +44,7 @@
   },
   "payload": {
     "name": "group-relative advantage",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__group-relative-advantage",
   "task_version": 1,

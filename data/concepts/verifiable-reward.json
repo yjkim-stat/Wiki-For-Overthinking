@@ -22,11 +22,17 @@
       "kind": "paper",
       "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
       "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training"
+    },
+    {
+      "id": "arxiv:2608.09271",
+      "kind": "paper",
+      "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+      "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation"
     }
   ],
   "first_seen": "2026-08-13T04:27:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:26:24Z",
+  "last_seen": "2026-08-20T14:30:08Z",
   "name": "verifiable reward",
   "related": [
     "monte-carlo-tree-search",
@@ -113,7 +119,33 @@
     "gpt-5-5",
     "kimi-k2-6",
     "glm-5-2",
-    "skywork-or1"
+    "skywork-or1",
+    "prompt-difficulty-weighting",
+    "difficulty-stratification",
+    "exponential-tilting",
+    "softmaxgrpo",
+    "dr-grpo",
+    "dapo",
+    "cispo",
+    "dppo",
+    "maxrl",
+    "reinforce",
+    "ppo",
+    "raml",
+    "mpo",
+    "on-policy-distillation",
+    "iterative-dpo",
+    "gsm8k",
+    "countdown",
+    "deepmath",
+    "poetry-writing",
+    "meetingbank",
+    "alpacaeval-2-0",
+    "mmlu",
+    "gpqa",
+    "imagenet",
+    "openthoughts3-1-2m",
+    "resnet-50"
   ],
   "related_authored": [
     "reward-hacking"
