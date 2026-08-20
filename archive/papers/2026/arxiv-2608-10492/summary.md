@@ -46,7 +46,7 @@ Stated, and the first is the deepest: the internal dialogue is reconstructed rat
 ## Entities
 
 - **Concepts**: student modelling, internal dialogue, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), distributional fidelity, over-competence bias, reconstruction versus observation, misconception modelling, simulation validity
-- **Methods**: [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), Wasserstein distance, bootstrap resampling, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), abstract syntax tree analysis, Bloom's Taxonomy prompting
+- **Methods**: [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [Wasserstein distance](../../../../wiki/methods/wasserstein-distance.md), [bootstrap resampling](../../../../wiki/methods/bootstrap-resampling.md), [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), abstract syntax tree analysis, Bloom's Taxonomy prompting
 - **Datasets**: student programming submissions (course data, authors' own)
 
 Tags: `student-simulation`, `education`, `internal-dialogue`, `distributional-evaluation`, `wasserstein`, `alignment-metric`

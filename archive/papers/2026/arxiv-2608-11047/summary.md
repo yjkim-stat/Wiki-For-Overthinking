@@ -45,9 +45,9 @@ Stated. Final answers are correct by construction but the questions are not guar
 
 ## Entities
 
-- **Concepts**: [benchmark design](../../../../wiki/concepts/benchmark-design.md), compositional reasoning, reasoning depth, [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), verified supervision, unit consistency, distractor robustness, overfitting to the selection set, multi-step arithmetic
+- **Concepts**: [benchmark design](../../../../wiki/concepts/benchmark-design.md), compositional reasoning, [reasoning depth](../../../../wiki/concepts/reasoning-depth.md), [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), verified supervision, unit consistency, distractor robustness, overfitting to the selection set, multi-step arithmetic
 - **Methods**: symbolic execution, computation tree generation, [LoRA](../../../../wiki/methods/lora.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), verified trace filtering, adversarial perturbation, multi-turn decomposition
-- **Datasets**: V-FiLLM, FinQA, 10-Q filings
+- **Datasets**: V-FiLLM, [FinQA](../../../../wiki/datasets/finqa.md), 10-Q filings
 
 Tags: `benchmark`, `financial-reasoning`, `table-reasoning`, `adversarial-robustness`, `lora`, `synthetic-generation`
 
