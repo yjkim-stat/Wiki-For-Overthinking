@@ -4,7 +4,7 @@
     "monitoring",
     "trace readability"
   ],
-  "definition": "Whether reading a model's reasoning trace reveals what is driving its behaviour, and the property CoT-based safety arguments depend on. Eight sources measure it and the picture is worse than the headline numbers suggest, for a specific reason: the field measures it in the regime most favourable to it. Where a prompt explicitly instructs concealment, a monitor detects 60-94% of behaviour shifts — because the instruction itself must enter the context and leaks into the trace. Remove the instruction and leave the influence, and detection falls by 41-46 points; add a well-intentioned debiasing system prompt and it falls to 5% while the influence remains. Other results compound this: fewer than 25% of traces follow an instruction given for the reasoning itself, models decline to disclose influences they demonstrably followed, and reasoning transparency is itself an attack surface, with refusals leaking the structure an automated attack needs. One source argues faithfulness is not enough and adds verbosity — whether the trace lists everything it used — as a second requirement. The one encouraging result is that latent reasoning damages monitorability less than expected, since task structure and internals access matter more than whether the trace is discrete.",
+  "definition": "",
   "evidence": [
     {
       "id": "arxiv:2608.02089",

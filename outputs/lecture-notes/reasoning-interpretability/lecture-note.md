@@ -91,12 +91,6 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; SeLaR: Selective Latent Reasoning in Large Language Models.
 
-### causal intervention
-
-Changing something inside a model or its context and measuring the effect, as against reading a correlation off unmodified runs — in both sources the standard of evidence that separates a claim about mechanism from a claim about association. One injects synthetic reasoning into a trace to establish that the trace content shapes the answer, which it states plainly requires an intervention rather than an observation, and only then asks the model to account for the change. The other organizes its whole analysis into three regimes each carrying an intervention rather than a correlational read, and shows what makes one clean: on a task whose queries are binary, deleting the latent tokens is a do-operation whose counterfactual is read directly off the log probabilities assigned to the two answers. The sources therefore use the term for the design property, not for any particular technique.
-
-Seen in: Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; Evading Chain-of-Thought Monitoring Through Model Poisoning; Inverted Detection and Control in Steering Vectors.
-
 ### reasoning trajectory
 
 The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
@@ -121,30 +115,36 @@ The additive hidden-state channel each transformer layer reads from and writes t
 
 Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Finding Usable Weight Mechanisms with Tiled SVD.
 
+### effective depth
+
+The idea that autoregressive generation raises a fixed-depth model's usable computational depth, because each emitted token re-enters the input and buys another pass — so depth grows with steps generated rather than with layers. The archive now holds this as a proved mechanism rather than an analogy. Bounded-depth transformers cannot directly solve arithmetic or linear equations, while constant-size autoregressive ones can with a chain of thought; the classes reachable are characterized exactly by the number of steps; and the same argument explains counting failures as a depth limit, repaired by decomposing a large count into independently solvable parts whose mechanism is then traced. Two sources qualify it. The discretization is load-bearing: the argmax at each step acts as an error-correcting reset discarding sub-decisional noise, so removing it makes perturbations compound. And depth can be relocated rather than gained — internalizing a chain into hidden states costs layers growing logarithmically with the chain absorbed.
+
+Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy; The Expressive Power of Transformers with Chain of Thought.
+
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 36 | Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen... |
-| LLM-as-a-judge | 29 | Using a language model to score or compare outputs, which is how most reasoning work is evaluated once the answer is not a checkable string. Thirteen sources use or examine it,... |
+| GRPO | 36 | _pending_ |
+| LLM-as-a-judge | 29 | _pending_ |
 | supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | linear probe | 22 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
-| self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
-| test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
-| activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
-| chain-of-thought prompting | 15 | Eliciting step-by-step reasoning before an answer, either by an instruction or by few-shot examples that display it. Across the four sources it is never the object of study but... |
-| pass@k | 15 | The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's mos... |
-| activation steering | 13 | Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licen... |
+| self-consistency | 19 | _pending_ |
+| test-time scaling | 18 | _pending_ |
+| activation patching | 16 | _pending_ |
+| chain-of-thought prompting | 15 | _pending_ |
+| pass@k | 15 | _pending_ |
+| activation steering | 13 | _pending_ |
+| causal intervention | 11 | _pending_ |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
-| process reward model | 9 | A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and in... |
+| process reward model | 9 | _pending_ |
 | sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | LoRA | 8 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
-| reasoning distillation | 7 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 
 ## Benchmarks and datasets
 
@@ -152,7 +152,7 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 | --- | ---: | --- |
 | MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | AIME 2024 | 41 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| GSM8K | 35 | 8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them bea... |
+| GSM8K | 35 | _pending_ |
 | AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |

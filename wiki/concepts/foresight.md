@@ -9,7 +9,7 @@ Predicting what comes next before or while acting, treated by both sources as so
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [backtracking](backtracking.md), [causal intervention](causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [CLIP](../models/clip.md), [cosine similarity](../methods/cosine-similarity.md), [flow matching](../methods/flow-matching.md), [Game of 24](../datasets/game-of-24.md), [GPT-4](../models/gpt-4.md), [latent reasoning](latent-reasoning.md), [overthinking](overthinking.md), [Pareto frontier](pareto-frontier.md), [reasoning redundancy](reasoning-redundancy.md), [t-SNE](../methods/t-sne.md), [test-time compute](test-time-compute.md), [Tree of Thoughts](../methods/tree-of-thoughts.md)
+**Related**: [backtracking](backtracking.md), [causal intervention](../methods/causal-intervention.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [CLIP](../models/clip.md), [cosine similarity](../methods/cosine-similarity.md), [flow matching](../methods/flow-matching.md), [Game of 24](../datasets/game-of-24.md), [GPT-4](../models/gpt-4.md), [latent reasoning](latent-reasoning.md), [overthinking](overthinking.md), [Pareto frontier](pareto-frontier.md), [reasoning redundancy](reasoning-redundancy.md), [t-SNE](../methods/t-sne.md), [test-time compute](test-time-compute.md), [Tree of Thoughts](../methods/tree-of-thoughts.md)
 
 ## Appears in
 

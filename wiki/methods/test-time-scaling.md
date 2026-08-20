@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a token, sampling-and-selection methods draw many paths and choose among them, and one entry shows evaluator accuracy rising monotonically with reasoning tokens, so compute bought at evaluation time can substitute for compute bought at generation time. Spending less: early exit and adaptive scheduling cut generation once the answer has stabilized, and one source finds a reasoning model's first solution is usually its best with later alternatives actively harmful. The unifying empirical observation is that the accuracy-versus-tokens curve flattens well before generation ends, so both directions attack the same measured fact from opposite sides. One theoretical entry changes what a flattening curve means: with an aggregation whose failure probability provably decays to zero as compute grows, a flattening curve is evidence about the aggregation rather than a ceiling on the model.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: method
 - **Also called**: Test-Time Scaling, inference-time scaling

@@ -4,7 +4,7 @@
     "process reward models",
     "Process Reward Models"
   ],
-  "definition": "A reward model that scores a reasoning trajectory step by step rather than judging only the final response, giving denser and better-localized signal for both RL training and inference-time selection. The sources converge on its cost being the binding problem — training one normally needs a label at every step, obtained either by hand or by sampling look-ahead rollouts from each prefix, which one source measures at 38.8 times the FLOPs of training an outcome model. That source then shows the cost is avoidable: parameterizing the outcome reward as a log-likelihood ratio between policy and reference makes the running sum of per-token ratios an exact expectation of the outcome reward at each step, so a PRM falls out of ORM training for free. Downstream sources treat a pretrained PRM as infrastructure — a local step validator supplying online pruning signals and cross-trajectory selection — and report the same failure mode: PRM quality is the limiting factor on hard problems, where it can be overconfident or prefer locally correct but globally wrong paths.",
+  "definition": "",
   "evidence": [
     {
       "id": "arxiv:2408.03314",

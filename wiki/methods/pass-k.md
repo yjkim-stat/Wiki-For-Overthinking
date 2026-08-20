@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The fraction of problems solved by at least one of k samples, used as an estimate of what a model can reach rather than what it does on the first attempt — and the archive's most contested metric. It underpins the claim that RLVR narrows the reasoning boundary, since base models overtake RLVR-trained ones as k grows. It also has a defect that inverts that claim on mathematics: with short answers and many attempts, a base model reaches the right answer through wrong reasoning often enough to be scored correct, and requiring the chain to be right as well reverses the ordering at every k up to 1024. Code is the control, where execution-based verification leaves no room for guessing and the metric behaves. Two further cautions from the archive: at very large k even uniform sampling would eventually succeed, so the range matters; and the same benchmark's score can move by up to 9 percentage points from GPU type, count or batch size alone, which bounds how small a pass@k difference can be meaningful.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: method
 - **Also called**: Pass@K, Pass@k, coverage@k, pass-k, pass@k

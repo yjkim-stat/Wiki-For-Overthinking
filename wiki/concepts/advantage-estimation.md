@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Assigning each sampled rollout a learning signal relative to a baseline, which in the critic-free methods the sources use means comparing rollouts within a group. Both sources identify the same structural failure from opposite ends: when every rollout in a group receives the same reward the group-relative advantage is zero and the batch teaches nothing. One hits it on prompts where all rollouts are already correct, wasting the rollouts; the other on negative samples where no valid output exists, and forces a canonical 'None' rollout so the group regains variance. Together they show that group-relative methods depend on within-group disagreement, which makes example selection a requirement rather than an optimization.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: concept
 - **Also called**: GRPO advantage, advantage estimate, group-relative advantage

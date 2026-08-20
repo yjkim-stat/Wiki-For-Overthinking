@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (138)
+## Concepts (137)
 
 - [abstention](concepts/abstention.md) — 3 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 15 source(s)
@@ -29,7 +29,6 @@
 - [belief state](concepts/belief-state.md) — 2 source(s)
 - [benchmark contamination](concepts/benchmark-contamination.md) — 8 source(s)
 - [catastrophic forgetting](concepts/catastrophic-forgetting.md) — 2 source(s)
-- [causal intervention](concepts/causal-intervention.md) — 11 source(s)
 - [chain of thought faithfulness](concepts/chain-of-thought-faithfulness.md) — 20 source(s)
 - [circuit complexity](concepts/circuit-complexity.md) — 4 source(s)
 - [commitment boundary](concepts/commitment-boundary.md) — 2 source(s)
@@ -151,7 +150,7 @@
 - [verification](concepts/verification.md) — 16 source(s)
 - [visual grounding](concepts/visual-grounding.md) — 3 source(s)
 
-## Methods (107)
+## Methods (108)
 
 - [ablation](methods/ablation.md) — 3 source(s)
 - [activation patching](methods/activation-patching.md) — 16 source(s)
@@ -165,6 +164,7 @@
 - [budget forcing](methods/budget-forcing.md) — 6 source(s)
 - [calibration](methods/calibration.md) — 10 source(s)
 - [causal analysis](methods/causal-analysis.md) — 2 source(s)
+- [causal intervention](methods/causal-intervention.md) — 11 source(s)
 - [causal mediation analysis](methods/causal-mediation-analysis.md) — 5 source(s)
 - [causal tracing](methods/causal-tracing.md) — 4 source(s)
 - [chain of thought](methods/chain-of-thought.md) — 23 source(s)

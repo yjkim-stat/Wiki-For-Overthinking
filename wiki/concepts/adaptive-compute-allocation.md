@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Spending different amounts of inference compute on different problems instead of a uniform budget, which is the largest cluster in the archive at seven sources. They agree on the goal and disagree entirely on where the difficulty signal comes from: the model's own self-certainty, difficulty cues injected into an output prefix, per-query token limits derived from the model's own thinking responses, a single mode-selection token carrying the efficiency reward, a process-reward estimator scoring each completed step, a controller routing among fast, re-perceive and self-reflect paths, and an algorithm-agnostic measure of whether the answer has stopped changing. Reported savings are large and asymmetric — over 70% on easy problems against 40% on hard ones in one case. No source compares its signal against another's, so whether these seven mechanisms identify the same easy problems is unmeasured.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: concept
 - **Also called**: adaptive inference, budget allocation, difficulty-aware allocation, dynamic compute allocation

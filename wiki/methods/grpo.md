@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Group Relative Policy Optimization: a critic-free policy-gradient method that scores each sampled rollout against the mean of its own group, avoiding a value network. Seventeen sources use it, most as the substrate they modify rather than as a subject, and the modifications trace its weak points. The group-relative baseline collapses when a group has no variance — every rollout correct, or every one invalid — so the batch teaches nothing, and separate sources repair each end. Its updates consume policy entropy in proportion to the covariance between action probability and advantage, which is what drives entropy collapse and makes the reward-entropy exchange predictable. Its rollouts dominate training time, motivating exactness-preserving speculative decoding. Compared against five sibling algorithms it shows only minor differences in how far it closes the gap to the base model's reachable set. One source also uses it adversarially: a brief round of GRPO erases the signals benchmark-contamination detectors rely on.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: method
 - **Also called**: Group Relative Policy Optimization

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its success probability converges to zero, not to a plateau, whenever some incorrect answer is individually more likely than the correct one: with 46% against 45%, more samples make the wrong answer certain. That is why the archive's stronger methods either refine before voting, weight trajectories by an internal signal, or replace voting with pairwise comparison, which carries a guarantee that majority does not. On the cost side it is the target of most stopping work here: an optimal Bayesian rule proves that tracking the leading answer's count and its margin over the runner-up is asymptotically all that is needed, and several methods stop once the answer has stopped changing. One source goes further and argues later samples are not merely redundant but harmful, since errors accumulate with test-time compute.
+_No definition yet — a task is queued to write one._
 
 - **Kind**: method
 - **Also called**: SC, Self-Consistency, majority voting, self-consistency decoding
