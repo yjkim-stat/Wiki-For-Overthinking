@@ -1,0 +1,35 @@
+{
+  "concepts": [
+    "advantage shaping",
+    "entropy and response length as reasoning-behavior correlates",
+    "performance-cost pareto frontier"
+  ],
+  "contributions": [
+    "Proposes CANON, a conditional advantage estimation method that shapes advantages from a target metric without assuming a fixed directional bias",
+    "Applies CANON to entropy, outperforming prior hand-crafted shaping methods across three LLMs on math and logic tasks",
+    "Applies CANON to response length, improving token efficiency and the performance-cost Pareto frontier"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:19:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Prior work shapes RLVR rewards or advantages using hand-crafted, fixed directional assumptions about a target metric (e.g., \"shorter is better\"), which risks failure without careful tuning. CANON instead regroups sampled responses into two groups based on whether they have a higher or lower value of the target metric (e.g., entropy or response length), compares performance between the two groups to identify which direction is actually beneficial, and shapes the advantage accordingly rather than presuming a direction in advance.",
+  "methods": [
+    "CANON (Conditional Advantage Estimation)"
+  ],
+  "one_liner": "CANON regroups sampled RLVR rollouts by higher or lower value of a target metric such as entropy or response length to shape advantages without a hand-crafted directional assumption, improving both accuracy and token efficiency.",
+  "paper_id": "title:aa44bbc54875b412",
+  "problem": "Training metrics like entropy or response length correlate with different reasoning behaviors under RLVR, and prior methods incorporate this via hand-crafted reward or advantage shaping with fixed higher-is-better/lower-is-better assumptions, which risks failure without careful tuning.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Applies conditional advantage estimation to response length as the shaped metric: reduces token consumption by 33.8% compared to prior length-shaping methods while improving accuracy, giving a better performance-cost Pareto frontier -- a direct reinforcement-learning method for the accuracy/efficiency reasoning-length tradeoff."
+  },
+  "results": "CANON based on entropy outperforms prior shaping methods across three LLMs on math reasoning and high-complexity logic tasks, with up to a 1.9-point gain in math accuracy and a 5.2-point gain on challenging logic tasks. Applied to response length, it reduces token consumption by 33.8% compared to prior methods while improving the performance-cost Pareto frontier.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "rlvr",
+    "advantage-estimation",
+    "token-efficiency"
+  ]
+}

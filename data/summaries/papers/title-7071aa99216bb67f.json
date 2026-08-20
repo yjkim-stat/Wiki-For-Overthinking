@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "budget forcing",
+    "sequential test-time scaling",
+    "stopping-keyword control"
+  ],
+  "contributions": [
+    "Empirically tests how well budget forcing generalizes across different model families and settings",
+    "Tests whether budget forcing works with non-reasoning models",
+    "Tests whether keywords other than 'Wait' can serve the same function",
+    "Reports concrete cases where budget forcing does and does not help, with practical guidance for applying it"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:50Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The paper revisits budget forcing, a sequential test-time scaling technique that controls a reasoning model's inference-time reasoning budget by appending a 'Wait' keyword to force continued reasoning, or by forcing a stop once a token budget is exceeded to force an answer. It runs experiments varying model family, model type (reasoning vs. non-reasoning), and the forcing keyword itself to determine when and where the technique is effective.",
+  "methods": [
+    "budget forcing",
+    "sequential test-time scaling"
+  ],
+  "one_liner": "Revisits budget forcing -- forcing a reasoning model to keep thinking or to stop via a keyword like 'Wait' -- and empirically tests how well it generalizes across model families, non-reasoning models, and alternative keywords.",
+  "paper_id": "title:7071aa99216bb67f",
+  "problem": "It is unclear how well budget forcing, a technique for controlling a reasoning model's thinking budget at inference time, generalizes across model families, whether it works on non-reasoning models, and whether keywords other than 'Wait' can perform the same function.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly on-topic: it studies the mechanism used to make a reasoning model keep going or stop at the right point during inference (budget forcing via 'Wait' or a forced stop), including model families and settings where the technique fails to generalize."
+  },
+  "results": "The paper reports experimental cases where budget forcing does and does not help across different model families and settings, and evaluates non-reasoning models and alternative forcing keywords, offering practical guidance rather than a single headline benchmark number.",
+  "schema_version": 1,
+  "tags": [
+    "budget-forcing",
+    "test-time-scaling",
+    "reasoning-length",
+    "stopping-criterion"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "overthinking",
+    "test-time scaling",
+    "output variance under extended thinking",
+    "parallel thinking",
+    "best-of-n sampling",
+    "majority voting"
+  ],
+  "contributions": [
+    "Empirically shows a consistent non-monotonic pattern: extending thinking traces improves accuracy initially, then declines due to overthinking",
+    "Explains the pattern with a simple probabilistic model: additional thinking increases output variance, creating an illusion of improved reasoning while undermining precision",
+    "Argues observed gains from 'more thinking' are largely artifacts of the link between model uncertainty and the evaluation metric, not true reasoning improvement",
+    "Proposes parallel thinking: generating multiple independent reasoning paths within the same inference budget and selecting the most consistent answer via majority vote",
+    "Reports up to 20% higher accuracy for parallel thinking versus extended thinking at equal inference budget"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:15:01Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Performs a detailed empirical study across multiple reasoning models and benchmarks of how accuracy changes as thinking traces are extended (e.g. via 'Wait' / 'Let me rethink' prompts). Builds a simple probabilistic model to explain why extended thinking raises output variance rather than genuinely improving reasoning. As an alternative test-time scaling strategy, proposes parallel thinking: sample multiple independent reasoning paths under the same total inference budget and pick the answer by majority vote (Best-of-N style), rather than lengthening a single chain.",
+  "methods": [
+    "parallel thinking",
+    "best-of-n sampling",
+    "majority voting",
+    "probabilistic model of output variance"
+  ],
+  "one_liner": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+  "paper_id": "title:5d66fe9a10241ce8",
+  "problem": "Whether letting reasoning models 'think more' at test time via longer thinking traces truly improves reasoning, versus previous belief that extended thinking (prompted continuation, e.g. 'Wait') straightforwardly helps.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "A direct, central treatment of the topic: demonstrates the accuracy/reasoning-length curve is non-monotonic (gains then decline from overthinking) across models and benchmarks, gives a mechanistic (variance-based) explanation for why extended thinking looks helpful before it isn't, and proposes an explicit alternative — parallel thinking / majority vote — as a better way to spend a fixed test-time compute budget than lengthening a single chain."
+  },
+  "results": "Extended single-chain thinking shows an initial accuracy rise followed by decline (overthinking) across the models and benchmarks tested. Parallel thinking (majority vote over independent reasoning paths at equal inference budget) achieves up to 20% higher accuracy than extended thinking.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "test-time-scaling",
+    "parallel-thinking",
+    "best-of-n",
+    "reasoning-length",
+    "output-variance"
+  ]
+}

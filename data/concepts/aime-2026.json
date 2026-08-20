@@ -1,0 +1,66 @@
+{
+  "aliases": [
+    "AIME2026"
+  ],
+  "definition": "Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level beam search and the on-policy-distillation study. The sources do not say why this year specifically is named (rather than 2024/2025), so nothing further about its construction or scope can be stated from them.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.08020",
+      "kind": "paper",
+      "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
+      "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "AIME 2026",
+  "related": [
+    "constrained-compute-allocation-over-partial-reasoning-trajectories",
+    "zero-sum-reallocation-policy-for-a-fixed-capacity-trace-pool",
+    "decoupled-scheduler-view-vs-tree-ghost-trace-view-for-memory-management",
+    "thought-level-vs-token-level-beam-search",
+    "gambit-thought-level-beam-search",
+    "step-hidden-state-scorer",
+    "prefix-caching-kv-cache-sharing-branching",
+    "self-consistency-baseline",
+    "slim-sc-baseline",
+    "deepconf-baseline",
+    "step-subtractive-pruning-baseline",
+    "aime-2025",
+    "hmmt-2024",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "on-policy-distillation-opd",
+    "pass-k-vs-avg-k-as-complementary-test-time-scaling-diagnostics",
+    "capability-boundary-vs-sampling-efficiency",
+    "problem-level-solvability-transitions-retained-learned-forgotten",
+    "illusory-distillation",
+    "off-policy-distillation",
+    "reverse-kl-top-k-token-distillation",
+    "eopd",
+    "exopd",
+    "direct-opd",
+    "forward-kl-variant",
+    "pass-k",
+    "avg-k",
+    "amc23",
+    "aime-2024",
+    "dapo-math-17k-opd-training-set"
+  ],
+  "related_authored": [
+    "aime-2025",
+    "aime-2024"
+  ],
+  "schema_version": 1,
+  "slug": "aime-2026",
+  "topics": [
+    "overthinking"
+  ]
+}

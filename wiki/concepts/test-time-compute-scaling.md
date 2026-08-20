@@ -1,0 +1,30 @@
+# test-time compute scaling
+
+<!-- auto:begin -->
+
+Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples, or self-refinement passes -- in the hope of higher accuracy. The archive's 9 sources treat it as non-monotonic and mechanism-dependent rather than a reliable lever: on constructed tasks, letting large reasoning models reason longer makes accuracy or alignment-relevant behavior worse, not better ('inverse scaling'); verifier-search and proposal-revision are identified as its two primary underlying mechanisms, with verification/RL-guided scaling proven to beat imitation-based scaling as the token budget grows; and its payoff is domain- and difficulty-dependent -- e.g. small parameter-efficient models gain from self-refinement, tool-integrated verification lets small models match larger ones, and 'The Danger of Overthinking' shows spending it on agentic software tasks can directly lower task-resolution rates.
+
+- **Kind**: concept
+- **Also called**: Test-time compute scaling
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 9
+
+**Related**: [accuracy-efficiency tradeoff of reasoning length](accuracy-efficiency-tradeoff-of-reasoning-length.md), [AdaptThink](../methods/adaptthink.md), [AIME 2025](../datasets/aime-2025.md), [AUC_OAA](auc-oaa.md), [difficulty-based routing between reasoning modes](difficulty-based-routing-between-reasoning-modes.md), [F1^otb combined metric](f1-otb-combined-metric.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [hybrid thinking/non-thinking models](hybrid-thinking-non-thinking-models.md), [inverse scaling](inverse-scaling.md), [L1 length-controlled reinforcement learning](../methods/l1-length-controlled-reinforcement-learning.md), [MATH](../datasets/math.md), [Model Merging](../methods/model-merging.md), [overthinking](overthinking.md), [Overthinking-Adjusted Accuracy (OAA)](overthinking-adjusted-accuracy-oaa.md), [OverthinkingBench](../datasets/overthinkingbench.md), [pass@K](pass-k.md), [SuperGPQA](../datasets/supergpqa.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [thinking-token budget](thinking-token-budget.md), [trained difficulty-based router / oracle router](trained-difficulty-based-router-oracle-router.md), [underthinking](underthinking.md), [UnderthinkingBench](../datasets/underthinkingbench.md), [VeriThinker](../methods/verithinker.md)
+
+## Appears in
+
+- [Reasoning models, test-time compute, self refinement](../../archive/papers/2026/doi-10-1109-cando-epe71091-2026-11569472/summary.md) — A short empirical study applying self-refinement test-time compute scaling to a small parameter-efficient reasoning model (Qwen 0.6B) to examine gains in mathematical-logical performance.
+- [Inverse Scaling in Test-Time Compute](../../archive/papers/2025/local-018eb3ee241c1a69/summary.md) — Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.
+- [OptimalThinkingBench: Evaluating Over and Underthinking in LLMs](../../archive/papers/2025/local-49199e3b0f694ee1/summary.md) — Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.
+- [The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks](../../archive/papers/2025/local-9f60265e5ada34cb/summary.md) — Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.
+- [Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models](../../archive/papers/2025/local-c1f4e56014fb43fb/summary.md) — Introduces LLMThinkBench, a dynamically-generated 14-task basic-math benchmark and a harmonic-mean Overthinking Score, then evaluates 53 LLMs to show that strong performance on complex math benchmarks does not transfer to basic arithmetic and that reasoning-tuned models often spend far more tokens for equal or worse accuracy.
+- [Scaling Test-Time Compute Without Verification or RL is Suboptimal](../../archive/papers/2025/title-41c888011fbb9bc3/summary.md) — A theoretical and empirical argument that scaling test-time compute via verification/RL beats scaling via imitation of successful reasoning traces, with the gap growing as sqrt(token budget).
+- [OptimalThinkingBench: Evaluating Over and Underthinking in LLMs](../../archive/papers/2026/title-441c8494292f11c7/summary.md) — Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.
+- [T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models](../../archive/papers/2026/title-b2629aee97cadc77/summary.md) — T1 is a two-stage test-time-scaling framework for small language models that filters candidate responses with external tools before a small-model verifier makes the final judgment, offloading memorization-heavy checks to the tools.
+- [Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning](../../archive/papers/2025/title-f59c52e242c7e540/summary.md) — Analyzes verifier-search and proposal-revision as the two primary mechanisms of test-time compute scaling and shows that allocating compute adaptively per prompt difficulty is more efficient than fixed strategies, and can be more effective than scaling model parameters.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

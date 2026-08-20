@@ -1,0 +1,30 @@
+{
+  "abstract": "Abstract Diffusion-based large language models (dLLMs) are trained to model extreme flexibility/dependence in the data-distribution; however, how to best utilize this at inference time remains an open problem. In this work, we uncover an interesting property of these models: dLLMs {trained on textual data} implicitly learn a mixture of semi-autoregressive experts, where different generation orders reveal different specialized behaviors. We show that committing to any single, fixed inference time schedule, a common practice, collapses performance by failing to leverage this latent ensemble. To address this, we introduce HEX (Hidden semi-autoregressive EXperts for test-time scaling), a training-free inference method that ensembles across heterogeneous block schedules. By doing a majority vote over diverse block-sized generation paths, HEX robustly avoids failure modes associated with any single fixed schedule. On reasoning benchmarks such as GSM8K, it boosts accuracy by up to 3.56× (from 24.72\\% to 88.10\\%), outperforming top-K margin inference and specialized fine-tuned methods like GRPO, without additional training. HEX even yields significant gains on MATH benchmark from 16.40\\% to 40.00\\%, scientific reasoning on ARC-C from 54.18\\% to 87.80\\%, and TruthfulQA from 28.36\\% to 57.46\\%. Our results establish test-time scaling as a powerful principle for dLLMs, showing that the sequence in which masking is done can play a significant role in test-time scaling/inferencing of dLLMs.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:7b2310c5e9f25bde",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "virtualsite",
+  "source_id": "iclr-2026-10010063",
+  "title": "TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://iclr.cc/virtual/2026/poster/10010063",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

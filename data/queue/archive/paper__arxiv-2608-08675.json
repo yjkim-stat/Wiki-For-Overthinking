@@ -1,0 +1,113 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-08675.pdf"
+  },
+  "completed_at": "2026-08-20T12:09:38Z",
+  "created_at": "2026-08-20T12:01:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.08675",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Long-term time series forecasting benefits from preserving global structure such as trends and seasonality. Recent LLM-based forecasters often improve accuracy through test-time scaling (e.g., iterative refinement), but these methods are computationally expensive and increasingly prone to global-shape mismatch as the prediction horizon extends. We propose SCALER, a coarse-to-fine forecasting framework that first employs a lightweight Transformer tailored to long-term shape modeling to predict a coarse representation of future dynamics. This predicted shape then serves as a compact guide for an LLM to perform test-time scaling via iterative coarse-to-fine residual token refinement, while processing substantially fewer tokens at each step. By guiding refinement with an explicit future-shape prediction, SCALER reduces reliance on long description prompts, and its fixed-step refinement avoids costly reward-model-based selection, further lowering computational overhead. Experimental results demonstrate that SCALER outperforms strong forecasting baselines in long-term, short-term and zero-shot forecasting while significantly reducing the inference cost associated with scaled LLM for time series forecasting. Code: https://github.com/xuanmay2701/SCALER.",
+    "authors": [
+      "Xuan-May Le",
+      "Minh-Tuan Tran",
+      "Ling Luo",
+      "Uwe Aickelin",
+      "Dinh Phung",
+      "Trung Le"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.08675v1",
+    "published": "2026-08-09",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Efficient Test-Time Scaling for LLM-based Time Series Forecasting",
+    "url": "https://arxiv.org/abs/2608.08675",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "coarse-to-fine forecasting",
+      "global-shape drift under long-horizon test-time scaling",
+      "fixed-step (schedule-based) refinement vs. reward-model candidate selection"
+    ],
+    "contributions": [
+      "Proposes SCALER, a two-stage framework that predicts an explicit lightweight coarse future shape and uses it to anchor cheaper LLM-based iterative refinement.",
+      "Introduces multi-scale patch tokenization with a fixed coarse-to-fine refinement schedule that processes fewer tokens per refinement step.",
+      "Reports improved accuracy over LLM-based and standard deep forecasting baselines on long-term, short-term, and zero-shot forecasting benchmarks while reducing inference cost of scaled LLM forecasting."
+    ],
+    "datasets": [
+      "ETTh1",
+      "ETTh2",
+      "ETTm1",
+      "ETTm2",
+      "ECL",
+      "Traffic",
+      "Weather",
+      "ILI",
+      "M3",
+      "M4"
+    ],
+    "limitations": "Ablations show that using the lightweight global forecaster to predict full-resolution future tokens (instead of only a downscaled coarse shape) is more expensive and does not improve accuracy, attributed to the forecaster's fine-grained predictions being unreliable and potentially misleading the LLM during refinement. Varying the global forecaster's depth from 1 to 4 layers gives only marginal, inconsistent gains beyond the default depth of 1, suggesting limited headroom from that component. No dedicated 'Limitations' section was found in the read portion of the paper; scope is restricted to LLM-based multivariate time series forecasting.",
+    "method": "Stage I: a lightweight Transformer forecaster predicts a downscaled 'coarse future shape' capturing low-frequency structure (trend, seasonality, regime) from the encoded history, trained with a shape-supervision MSE loss against a downsampled target. Stage II: a frozen pretrained LLM performs a fixed K-step coarse-to-fine refinement, conditioned on history tokens and the coarse-shape tokens, predicting progressively finer-scale residual token blocks at each of K steps (each step processes substantially fewer tokens than a full-resolution description prompt) and appending them to the growing context; the final forecast is produced by decoding the finest-scale tokens. Training combines a shape loss, a scale-wise refinement loss across the K steps, and a final reconstruction MSE loss in the original time-series space. The fixed-step schedule avoids reward-model-based candidate selection used by other test-time-scaling LLM forecasters.",
+    "methods": [
+      "SCALER",
+      "coarse-to-fine multi-scale tokenization",
+      "patch encoding with prototype cross-attention to LLM word embeddings",
+      "fixed-step residual token refinement"
+    ],
+    "one_liner": "Proposes SCALER, a coarse-to-fine LLM-based time-series forecaster that first predicts a lightweight global shape and then uses it to guide cheaper, fixed-step test-time refinement of the full-resolution forecast.",
+    "problem": "Recent LLM-based long-term time series forecasters improve accuracy through test-time scaling (e.g., iterative refinement), but these methods are computationally expensive and increasingly prone to global-shape mismatch (drift in trend/seasonality) as the prediction horizon extends.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Tangential: matches only on the generic phrase 'test-time scaling.' The paper is about long-horizon time-series forecasting with LLMs, where 'test-time scaling' refers to iterative numeric refinement of a forecast anchored to a predicted coarse shape, not to LLM reasoning chain-of-thought length. It does not address reasoning-length overthinking/underthinking or the accuracy-vs-thinking-length tradeoff in reasoning models."
+    },
+    "results": "Long-term forecasting (MSE/MAE averaged over 4 horizons): SCALER achieves the best or tied-best MSE on ETTh1 (0.376), ETTh2 (0.321), ETTm2 (0.234), Weather (0.154), and ties for best MSE on ECL (0.154), ranking first in 6 of 7 dataset 1st-place counts and reported 7x faster than a full iterative test-time-scaling baseline (TimeReasoner) at comparable/better accuracy (about 6.7x-6.8x under the same normalization on ETTh1/ECL/Weather). Short-term forecasting (M4-style, averaged across Year/Quarter/Month/Others scenarios): lowest sMAPE (11.41), MASE (1.559), OWA (0.828), ranking first in all 12 scenario-metric combinations. Zero-shot transfer (M3<->M4): best average sMAPE in both directions (12.36 for M3->M4, 12.76 for M4->M3), with 9 first-place results across scenario-category pairs. Ablation: removing the global forecaster increases MSE/MAE across datasets; predicting full-resolution tokens with the global forecaster (instead of a coarse shape) raises inference cost without improving accuracy.",
+    "tags": [
+      "time-series-forecasting",
+      "llm-forecasting",
+      "test-time-scaling",
+      "coarse-to-fine",
+      "efficiency"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-08675",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

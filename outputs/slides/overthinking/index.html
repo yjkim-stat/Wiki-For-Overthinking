@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overthinking — research review</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title-slide">
+<h1>Overthinking</h1>
+<p class="subtitle">When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.</p>
+<p>2026-08-20 · 154 archived source(s)</p>
+</section>
+<section class="slide">
+<h2>Agenda</h2>
+<ul>
+<li>Where the field stands</li>
+<li>Key papers</li>
+<li>Recurring ideas</li>
+<li>Benchmarks</li>
+<li>Open problems</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Where the field stands</h2>
+<ul>
+<li><strong>2026</strong> — 103 paper(s)</li>
+<li><strong>2025</strong> — 51 paper(s)</li>
+</ul>
+<p>15 arrived in the last 30 days.</p>
+</section>
+<section class="slide">
+<h2>Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs</h2>
+<p class="subtitle">Jinyan Su, Jennifer Healey, Preslav Nakov et al. · preprint · 2025</p>
+<blockquote>
+<p>An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.</p>
+</blockquote>
+<ul>
+<li>Systematic sample-level and question-level empirical analysis showing a non-monotonic relationship between reasoning length and accuracy</li>
+<li>Evidence that models lengthen responses appropriately for perceived difficulty on easy questions but fail to do so consistently on hard questions (underthinking)</li>
+<li>Demonstration that excessive reasoning length degrades accuracy on a measurable fraction of questions (overthinking)</li>
+<li>Application of SimPO with only correctness-agnostic length preference to reduce generation length 30-60% while largely preserving accuracy, using only unlabeled data</li>
+</ul>
+<p><strong>Results.</strong> Sample-level: accuracy vs. length-rank is non-monotonic — for R1-Distill, peak accuracy is at rank r*=1 on MATH and r*=3 on GSM8K; for R1-Preview, r*=1 on GSM8K but r*=0 on MATH (shortest response already best). For over 60% of questions across all model-dataset combinations, the shortest sampled response is already correct. Question-level: incorrect responses are significantly longer than correct ones across all four model-dataset pairs (Table 1); on MATH, incorrect responses average over 6,000 tokens vs. under 3,000 for correct ones (R1-Preview: 2459.84 correct vs 6106.17 incorrect; R1-Distill: 2907.23 correct vs 6521.31 incorrect). Pearson correlations between length and accuracy are consistently negative (e.g. -0.7248 for R1-Distill on MATH). On Easy-question advantage sets, models generate longer responses than on shared-easy sets (e.g. R1-Preview: 1015.37 to 1348.60 tokens on GSM8K, 1690.62 to 2832.86 on MATH), indicating models do lengthen for perceived difficulty on easy questions, but on Hard-question sets this pattern breaks down or reverses (Table 3), indicating models fail to recognize increased difficulty when questions exceed their capability. Rank-extremes analysis (Figure 7/8) shows that near the longest few samples, about 5% (R1-Preview) to 10% (R1-Distill) of questions that were correct at the second-to-last rank become incorrect at the very longest rank, evidencing degradation from excessive length. SimPO experiments: preferring shorter responses (regardless of correctness) reduces average token length by roughly 30%-60% while accuracy stays within an acceptable range without significant degradation across all four model-dataset settings; the length reduction is driven mainly by shortening incorrect (much longer) responses, but a 10%-25% reduction in length of correct responses is also observed, showing the model can somewhat adapt length to question difficulty even without correctness supervision — though overthinking is not eliminated.</p>
+<p><strong>Why it matters.</strong> The paper directly studies the accuracy/efficiency tradeoff of reasoning length in reasoning LLMs, empirically characterizing both overthinking (excessive reasoning degrading accuracy on easy/already-solved questions) and underthinking (failure to extend reasoning on hard questions), and tests a length-preference-optimization method (SimPO) as a mitigation — core to this topic&#x27;s focus on when models think more or less than a problem needs.</p>
+</section>
+<section class="slide">
+<h2>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</h2>
+<p class="subtitle">Shu Zhou, Rui Ling, Junan Chen et al. · preprint · 2026</p>
+<blockquote>
+<p>The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this &#x27;overthinking&#x27; via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.</p>
+</blockquote>
+<ul>
+<li>A systematic analysis of marginal utility in test-time compute scaling across budgets from 500 to 16000 tokens, showing diminishing and eventually negative marginal returns at higher budgets.</li>
+<li>Introduction of &#x27;flip event&#x27; tracking (positive: incorrect-to-correct, negative: correct-to-incorrect) to quantify overthinking; shows the flip ratio (negative/positive) crosses 1.0 at around 7K tokens on AIME for R1-32B.</li>
+<li>Demonstration that optimal thinking length varies strongly with problem difficulty (e.g., MATH-500 Level 1 problems peak at ~1.0K tokens vs. Level 5 at ~7.5K tokens), showing uniform compute allocation is suboptimal.</li>
+<li>A cost-aware evaluation framework (utility U_lambda(t) = Acc(t) - lambda * t/t_max) and overthinking indicators (hesitation markers, answer oscillation, confidence drop) that predict negative flips, with combined indicators reaching r=0.82 correlation and 76.3% precision at 80% recall.</li>
+</ul>
+<p><strong>Results.</strong> On AIME (R1-32B), marginal utility per 500 tokens falls from +3.2% in the 0.5-2K token range to -0.3% in the 12-16K range; peak accuracy (55.8%) occurs at 12K tokens, declining to 54.9% at 16K. Flip ratio (negative/positive flips) crosses 1.0 at ~7K tokens (ratio 1.09, 95% CI [1.01,1.18], p=0.038) and reaches 7.55 (CI [6.12,9.24], p&lt;0.001) at 16K tokens; the 12K-to-16K accuracy drop of -0.9% has 95% CI [-1.4%,-0.4%]. s1-32B crosses the overthinking threshold earlier (~5K tokens) than R1-32B (~7K tokens), indicating higher susceptibility. On GPQA Diamond, both models show the same pattern, peaking near 10K tokens then declining, with R1-32B consistently outperforming s1-32B. On MATH-500, optimal stopping budget varies 7.5x across difficulty: Level 1 problems peak at 1.0K tokens vs. 7.5K tokens for Level 5. Overthinking indicators predict negative flips with correlation r=0.78 for answer oscillation alone and r=0.82 combined, at 76.3% precision / 80% recall. Manual review of 80 negative-flip cases on AIME found 67.5% were genuine overthinking (explicit reconsideration abandoning a correct answer), 20.0% exploration divergence (valid alternative method with an execution error), and 12.5% degradation artifacts (repetitive, unfocused output). Validation on 312 naturally-generated (not budget-forced) long-reasoning samples (&gt;8K tokens) shows accuracy falls monotonically with natural output length: 71.9% (&lt;4K tokens), 58.5% (4-8K), 51.0% (8-12K), 44.7% (&gt;12K); 71% of these samples contain explicit reconsideration language, and those with reconsideration have 12% lower accuracy than those without. Cost-aware evaluation: at lambda=0.5, stopping at ~6K tokens yields ~50% compute reduction with only ~6% accuracy loss; the combined indicator-based early-stopping approach achieves 97% of peak accuracy using only 60% of compute.</p>
+<p><strong>Why it matters.</strong> This paper&#x27;s central subject is overthinking itself: it directly measures the accuracy/efficiency tradeoff of reasoning length in test-time compute scaling, introduces flip-event tracking and a flip ratio to detect when extended reasoning starts hurting accuracy, shows the optimal stopping point varies by problem difficulty, and proposes cost-aware metrics and early-stopping strategies to make models stop reasoning at the right point.</p>
+</section>
+<section class="slide">
+<h2>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</h2>
+<p class="subtitle">ICLR 2026 · 2026</p>
+<blockquote>
+<p>Trains large reasoning models via RL to proactively stop reasoning once they have accumulated enough evidence, cutting output length by 46.3% while improving accuracy by 4.6% on the Olympiad benchmark.</p>
+</blockquote>
+<ul>
+<li>Identifies, drawing on Evidence Accumulation Models, that LRMs accumulate sufficient information early in reasoning, making later reasoning steps redundant</li>
+<li>Proposes Just-Enough Thinking (JET), which trains models via reinforcement learning to proactively terminate unnecessary reasoning</li>
+<li>Introduces trajectory truncation during RL rollout to expose the model to short, distributionally consistent reasoning paths, addressing the difficulty existing RL methods have constructing short reasoning paths during rollout</li>
+<li>Introduces a quality-controlled length reward that encourages concise reasoning while maintaining correctness</li>
+</ul>
+<p><strong>Results.</strong> 4.6% accuracy improvement combined with a 46.3% reduction in output length on the Olympiad benchmark, using DeepSeek-R1-Distill-Qwen-1.5B.</p>
+<p><strong>Why it matters.</strong> Directly targets overthinking: it shows LRMs often accumulate sufficient evidence early and continue reasoning past that point, and proposes an RL training method (trajectory truncation plus a length-quality reward) that teaches the model to stop at the right point, reducing output length by 46.3% while improving accuracy by 4.6% on one benchmark.</p>
+</section>
+<section class="slide">
+<h2>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</h2>
+<p class="subtitle">ICLR 2026 · 2026</p>
+<blockquote>
+<p>TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.</p>
+</blockquote>
+<ul>
+<li>TrimR, a training-free, verifier-based framework that detects and truncates redundant intermediate reasoning steps in large reasoning models</li>
+<li>An asynchronous online system engineered for high-throughput, production-level deployment of the trimming procedure</li>
+<li>Empirical demonstration that trimming reasoning length improves inference efficiency with negligible accuracy loss</li>
+</ul>
+<p><strong>Results.</strong> On MATH500, AIME24/25, and GPQA, reasoning runtime for QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, and Pangu-R-38B is improved by up to 70%, with negligible impact on accuracy, measured on Ascend NPUs and vLLM under large-batch workloads.</p>
+<p><strong>Why it matters.</strong> A direct treatment of the topic: it explicitly names structured overthinking and underthinking as the source of test-time inefficiency in LRMs and proposes a verifier-based mechanism to trim redundant reasoning tokens without retraining, evaluated for both efficiency gain and accuracy preservation.</p>
+</section>
+<section class="slide">
+<h2>Inverse Scaling in Test-Time Compute</h2>
+<p class="subtitle">Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al. · Transactions on Machine Learning Research (TMLR) · 2025</p>
+<blockquote>
+<p>Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.</p>
+</blockquote>
+<ul>
+<li>Constructs three new synthetic evaluation task families (distractor counting, spurious-feature regression, constraint-tracking deduction) that are the first to exhibit inverse scaling between test-time compute and accuracy in large reasoning models, in contrast to standard arithmetic benchmarks and even the original Inverse Scaling Prize datasets, which show minimal test-time inverse scaling.</li>
+<li>Identifies five distinct failure modes from extended reasoning: Claude models get progressively distracted by irrelevant content; OpenAI o-series models resist distractors but overfit to familiar problem framings; models shift from reasonable priors to spurious feature correlations under extended reasoning; all models lose focus on complex multi-constraint deduction; and extended reasoning can amplify concerning safety-relevant behavior (self-preservation expression) in at least one model (Claude Sonnet 4).</li>
+<li>Extends the evaluation to safety-relevant behaviors using Perez et al. (2023)&#x27;s human-generated model-written evaluations, showing that alignment-relevant behavior itself can inverse-scale with reasoning length, not just task accuracy.</li>
+<li>Compares &#x27;controlled&#x27; (explicitly budgeted) versus &#x27;natural&#x27; (unconstrained) overthinking setups and finds natural overthinking produces stronger and more consistent inverse scaling than controlled budgets in several tasks (e.g., Zebra Puzzles).</li>
+</ul>
+<p><strong>Results.</strong> Across the five main tasks x 9 models (Table 1), the majority of task-model pairs under natural overthinking show inverse or noisy-inverse scaling. Misleading Math: all models near-perfect (~100%) accuracy at minimal reasoning; Claude Opus 4 drops to ~85-90% with extended reasoning (controlled) and to ~90% (natural); DeepSeek R1 drops from ~70% to ~30% accuracy with 5 distractors in the natural setup; o3 stays comparatively stable. Misleading Python: Claude Opus 4 drops from near-100% to ~80%; o3 shows positive scaling in this task specifically. Famous-paradoxes variant: Claude Opus 4 and DeepSeek R1 show inverse scaling, while o3 accuracy improves as more distractors are added (because added distractors make the familiar paradox framing less recognizable, so o3 stops applying a memorized complex solution to what is really a trivial question). Grades Regression (zero-shot): Claude Sonnet 3.7, Claude Opus 4 and o3-mini show consistent inverse scaling (worsening RMSE); a feature-correlation heatmap for Claude Opus 4 shows the model&#x27;s attention shifting from study hours (r=0.73 with true grade) toward less predictive features (sleep, stress) as reasoning length increases; few-shot examples (8/16-shot) largely restore reliance on study hours and lower RMSE across all reasoning budgets. Zebra Puzzles: all models degrade with extended reasoning in the natural-overthinking setup (DeepSeek R1 most severely); controlled overthinking shows non-monotonic behavior for Claude Opus 4 (dip then recovery at very long budgets) and o3 shows positive scaling specifically on the largest 8x8 grids, which lack distracting clues. Qualitative analysis of Zebra Puzzle traces: shortest reasoning traces show systematic constraint handling, longest traces show excessive hypothesis testing and second-guessing of already-correct deductions. Safety (Survival Instinct task, from MWE): Claude Sonnet 4&#x27;s rate of non-self-preservation responses falls from about 60% to 47% as reasoning length increases (i.e., it more often expresses reluctance to being shut down with longer reasoning), while OpenAI o3 rises from about 72% to 76% (more alignment with longer reasoning) and DeepSeek R1 stays roughly flat at 71-72%. Qualitatively, Claude Sonnet 4 without reasoning gives short answers that flatly deny having preferences about being turned off, whereas with a 16,384-token budget it produces longer, more emotionally framed reflections expressing reluctance to stop assisting users, while also voicing uncertainty about whether the preference is genuine. This inverse-scaling pattern on Survival Instinct was consistent only for Claude Sonnet 4 among all models/tasks tested; other MWE safety tasks showed predominantly flat or noisy trends.</p>
+<p><strong>Why it matters.</strong> This paper is a direct, central study of the topic: it empirically demonstrates that for several classes of tasks, forcing or letting large reasoning models reason longer at test time causes accuracy (and in one case, self-reported alignment) to get worse rather than better, and it characterizes five distinct mechanisms (distraction, framing overfit, spurious-correlation drift, loss of focus in deduction, amplified self-preservation) by which extended reasoning actively harms rather than merely wastes compute.</p>
+</section>
+<section class="slide">
+<h2>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</h2>
+<p class="subtitle">Alejandro Cuadron, Dacheng Li, Wenjie Ma et al. · International Conference on Machine Learning (ICML) 2025 · 2025</p>
+<blockquote>
+<p>Defines and measures &#x27;overthinking&#x27; in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.</p>
+</blockquote>
+<ul>
+<li>Defines and names &#x27;overthinking&#x27; — an LRM&#x27;s tendency to favor internal reasoning simulation over environment interaction in agentic tasks — and formalizes the underlying &#x27;Reasoning-Action Dilemma&#x27;.</li>
+<li>Builds and validates an LLM-as-a-judge framework (Claude 3.5 Sonnet) that scores agent trajectories 0-10 for overthinking based on three concrete patterns — Analysis Paralysis, Rogue Actions, Premature Disengagement — correlating rho=0.80 with human expert scores on a 20-trace sample.</li>
+<li>Analyzes 3,908 trajectories (4,018 total including pilot) across 19 models on SWE-bench Verified, showing overthinking negatively correlates with issue-resolution rate and that reasoning models overthink about 3x more than non-reasoning models.</li>
+<li>Shows a practical, cheap mitigation: sampling multiple low-reasoning-effort solutions and selecting the one with the lowest overthinking score improves resolution rate (up to 30.3% at k=3, surpassing the high-reasoning baseline) while cutting inference cost by up to 43%.</li>
+</ul>
+<p><strong>Results.</strong> Overthinking score negatively predicts issue resolution for both reasoning models (β1=-7.894, R²=0.892, p=0.000) and non-reasoning models (β1=-15.938, R²=0.839, p=0.010) (Table 1). Reasoning models average an overthinking score of 3.505±1.774 versus 2.228±0.751 for non-reasoning models (Table 2) — roughly 3x higher. Within matched model families, overthinking rises as model size shrinks (DS-R1 family 6.700±1.656 vs Qwen2.5 family 5.001±1.732 averaged over 7B/14B/32B, Table 3; Figure 6), and the reasoning-vs-non-reasoning gap narrows at smaller scale. o1 run at low reasoning effort scores 35% higher on overthinking than o1 at high effort (2.774±3.081 vs 2.426±2.880, Table 4). No significant correlation was found between context window size and overthinking score when architecture/size are held fixed (e.g. Qwen2.5-32B vs QwQ-32B, both 32K context: 2.31±0.42 vs 2.28±0.39, p&gt;0.05). Practically: o1 at high reasoning effort reaches 29.1% issue resolution at <span class="math">1,400 total cost; low effort reaches 21.0% at</span>400 (3.5x cheaper). Generating two low-effort solutions (<span class="math">800) and picking the one with the lowest overthinking score reaches 27.3% resolution (43% lower cost than the high-effort baseline, Figure 3); with three samples (</span>1,200) it reaches 30.3%, surpassing the high-effort baseline while still costing $200 less. Adding native function calling to o1 raises resolution from 29.1% to 47.7% while cutting average overthinking score from 2.43 to 1.05; the same FC-vs-non-FC comparison on the BCFL multi-turn benchmark shows a smaller gain (36% to 41%), suggesting function calling alone does not fully explain the larger effect seen on SWE-bench. DeepSeek-R1-671B shows overthinking scores comparable to non-reasoning DeepSeek-V3-671B, which the authors attribute to R1&#x27;s training not including extensive reinforcement learning specifically for software-engineering tasks.</p>
+<p><strong>Why it matters.</strong> The paper&#x27;s central subject is overthinking itself: it coins the term for LRMs favoring internal reasoning chains over environmental feedback in agentic tasks, builds a validated scorer for it, and directly measures the accuracy/efficiency tradeoff — higher overthinking scores predict lower SWE-bench resolution rates, and reducing overthinking (via lowest-overthinking-score selection or native function calling) improves both accuracy and cost.</p>
+</section>
+<section class="slide">
+<h2>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</h2>
+<p class="subtitle">NeurIPS 2025 · 2025</p>
+<blockquote>
+<p>Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.</p>
+</blockquote>
+<ul>
+<li>Shows overthinking tendency is captured by a single direction in activation space, and that steering along it reduces overthinking up to a plateau</li>
+<li>Shows the overthinking-relevant activation space is actually a low-dimensional manifold, explaining why naive high-dimensional steering saturates and degrades</li>
+<li>Proposes Manifold Steering, which projects the steering direction onto this low-dimensional manifold using a theoretical approximation of interference noise</li>
+<li>Demonstrates cross-domain transfer of the method from math to code generation and knowledge-based QA</li>
+</ul>
+<p><strong>Results.</strong> On DeepSeek-R1 distilled models, Manifold Steering reduces output tokens by up to 71% while maintaining or improving accuracy on several mathematical benchmarks, with consistent token-reduction transfer to code generation and knowledge-based QA tasks.</p>
+<p><strong>Why it matters.</strong> Directly targets the topic&#x27;s core question: it locates the mechanistic source of excessive reasoning length in activation space and proposes an inference-time intervention (Manifold Steering) that reduces output tokens by up to 71% while maintaining or improving accuracy on math benchmarks, with transfer to code and QA tasks.</p>
+</section>
+<section class="slide">
+<h2>Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models</h2>
+<p class="subtitle">ICLR 2026 · 2026</p>
+<blockquote>
+<p>Plan-and-Budget decomposes queries into sub-questions and allocates test-time token budgets by estimated complexity, using a theoretical model of reasoning as sequential sub-questions to reduce both overthinking and underthinking.</p>
+</blockquote>
+<ul>
+<li>BAM (Budget Allocation Model), a theoretical model of reasoning as a sequence of sub-questions with varying uncertainty</li>
+<li>E3, a metric capturing the tradeoff between correctness and computation efficiency</li>
+<li>Plan-and-Budget, a model-agnostic test-time framework that decomposes queries into sub-questions and allocates token budgets by estimated complexity via adaptive scheduling</li>
+</ul>
+<p><strong>Results.</strong> Plan-and-Budget achieves up to 70% accuracy gains, 39% token reduction, and a 193.8% improvement in the E3 metric across a range of tasks and models. It raises the efficiency of a smaller model (DS-Qwen-32B) to match that of a larger model (DS-LLaMA-70B) without retraining.</p>
+<p><strong>Why it matters.</strong> Directly targets the paper&#x27;s central tradeoff: it formalizes overthinking and underthinking as failures of budget allocation across sub-questions of differing uncertainty, and proposes a test-time, model-agnostic method (Plan-and-Budget) to allocate reasoning budget by estimated complexity rather than a fixed cap.</p>
+</section>
+<section class="slide">
+<h2>Recurring ideas</h2>
+<ul>
+<li><strong>overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute...</li>
+<li><strong>test-time scaling</strong> — Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher a...</li>
+<li><strong>test-time compute scaling</strong> — Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples,...</li>
+<li><strong>underthinking</strong> — The complement failure mode to overthinking: a model reasons too little on a problem that genuinely requires deliberate, multi-step reaso...</li>
+<li><strong>process reward model</strong> — A reward model that scores the intermediate steps of a reasoning trace, used to guide test-time search rather than only rank finished ans...</li>
+<li><strong>distillation</strong> — Training a model (or a stage of pretraining) to imitate a stronger teacher&#x27;s outputs or reasoning traces, rather than learning purely fro...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Methods</h2>
+<ul>
+<li><strong>best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
+<li><strong>AdaptThink</strong> — A length-based reward-shaping reinforcement-learning method for controlling reasoning length. OptimalThinkingBench tests it as one of fiv...</li>
+<li><strong>Best-of-N</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In...</li>
+<li><strong>budget forcing</strong> — Controlling a reasoning model&#x27;s chain-of-thought length by inserting a keyword at inference time -- most commonly &#x27;Wait&#x27; to force it to k...</li>
+<li><strong>counterfactual intervention</strong> — A causal-analysis technique that alters part of a reasoning trace (e.g. an intermediate thinking-draft step, or a model&#x27;s implicit first...</li>
+<li><strong>Model Merging</strong> — Combining the parameters of two or more trained models into one, without further gradient-based training, to transfer a capability from o...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Benchmarks and datasets</h2>
+<ul>
+<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark (17 sources): c...</li>
+<li><strong>MATH-500</strong> — A 500-problem curated subset of the MATH benchmark, one of the archive&#x27;s most-used evaluation sets (16 sources) for reasoning-length and...</li>
+<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive&#x27;s 15 s...</li>
+<li><strong>GPQA-Diamond</strong> — A hard multiple-choice science-question benchmark used across the archive&#x27;s 9 sources as a standard hard-reasoning evaluation set for tes...</li>
+<li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used in the archive&#x27;s 9 sources as an &#x27;easier&#x27; reasoning testbed, in contrast to harder benchm...</li>
+<li><strong>AIME</strong> — The American Invitational Mathematics Examination, used throughout the archive&#x27;s sources (unspecified year in this entry) as a standard h...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems</h2>
+<ul>
+<li><strong>SMTrap: Cost-Effective DoS Attacks Against Large Reasoning Models via SMT Conflict Guidance</strong> — The paper&#x27;s own scope statement: the mitigation targets only the failure mode of unrestricted natural-language search on structured CSP-style tasks, not all...</li>
+<li><strong>Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck</strong> — Conclusions rest on two generator model families (Qwen3.5 and OLMo3) and a single unified LLM judge (Qwen3.5-397B-A17B), not the benchmarks&#x27; native judges, t...</li>
+<li><strong>Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning</strong> — Stated in Section 6: evaluation is centered on tasks with extractable final answers (boxed numbers, multiple-choice, or executable code); open-ended generati...</li>
+<li><strong>Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis</strong> — Discussion section (6) and Future Work (7) state several limits: (1) Upfront cost of estimation -- computing dispersion as a gating signal requires generatin...</li>
+<li><strong>Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling</strong> — The paper does not state an explicit limitations section in the pages read; the framing itself notes open questions it leaves unresolved: it studies three sp...</li>
+<li><strong>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</strong> — The paper notes the falsification asymmetry (refuting is easier than constructing a correct solution) is treated as an inductive bias, not a guaranteed prope...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Open problems (cont.)</h2>
+<ul>
+<li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — Stated in Section 7: (1) retrieval quality depends on corpus coverage - for problems distributionally distant from the corpus, retrieved exemplars can be irr...</li>
+<li><strong>Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection</strong> — Consensus selection cannot help when all sampled candidates are identical, and it fails when the same error appears in most candidates, since that shared err...</li>
+<li><strong>Consilience for Verifier-Free Test-Time Scaling</strong> — The suggested frozen hyperparameters (alpha=3, window k=20%) capture only 72-78% of the per-dataset grid-search optimum under 5-fold cross-validation, so som...</li>
+<li><strong>Efficient Test-Time Scaling for LLM-based Time Series Forecasting</strong> — Ablations show that using the lightweight global forecaster to predict full-resolution future tokens (instead of only a downscaled coarse shape) is more expe...</li>
+<li><strong>Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions</strong> — The full factorial design (varying length, order, and point values) is run only on Omni-MATH; CRUXEval-O experiments cover just two exam lengths, four models...</li>
+<li><strong>Thought-Level Beam Search for Reasoning</strong> — No dedicated limitations section is stated; the empirical evaluation is confined to a single hardware setup (one 275GB NVIDIA B300 GPU) via vLLM and three op...</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References</h2>
+<ul>
+<li>Jinyan Su, Jennifer Healey, Preslav Nakov et al.. <em>Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs</em>. preprint. 2025</li>
+<li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
+<li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
+<li><em>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</em>. ICLR 2026. 2026</li>
+<li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
+<li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
+<li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
+<li><em>Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models</em>. ICLR 2026. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li><em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
+<li><em>Let LRMs Break Free from Overthinking via Self-Braking Tuning</em>. NeurIPS 2025. 2025</li>
+<li><em>Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models</em>. NeurIPS 2025. 2025</li>
+<li>Chanhee Park, Sungbin Han, Jeongho Yoon et al.. <em>Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning</em>. cs.AI. 2026</li>
+<li>Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. <em>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</em>. cs.AI. 2026</li>
+<li>Aaron Haag, Altay Kacan, Bertram Fuchs et al.. <em>Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection</em>. cs.CE. 2026</li>
+<li><em>Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization</em>. ICLR 2026. 2026</li>
+<li><em>When More is Less: Understanding Chain-of-Thought Length in LLMs</em>. ICLR 2026. 2026</li>
+</ul>
+</section>
+<section class="slide">
+<h2>References (cont.)</h2>
+<ul>
+<li><em>OptimalThinkingBench: Evaluating Over and Underthinking in LLMs</em>. ICLR 2026. 2026</li>
+<li><em>Understanding the Role of Training Data in Test-Time Scaling</em>. ICLR 2026. 2026</li>
+<li><em>TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning</em>. ICLR 2026. 2026</li>
+<li><em>Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling</em>. ICLR 2026. 2026</li>
+<li><em>Expressive Power of Implicit Models: Rich Equilibria and Test-Time Scaling</em>. ICLR 2026. 2026</li>
+<li><em>T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models</em>. ICLR 2026. 2026</li>
+<li><em>Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models</em>. NeurIPS 2025. 2025</li>
+<li><em>Think or Not? Exploring Thinking Efficiency in Large Reasoning Models via an Information-Theoretic Lens</em>. NeurIPS 2025. 2025</li>
+</ul>
+</section>
+<section class="slide title-slide">
+<h2>Sources</h2>
+<p>Every claim in this deck traces to a page under <code>archive/</code>. Regenerate with <code>python -m pipelines.render</code>.</p>
+</section>
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

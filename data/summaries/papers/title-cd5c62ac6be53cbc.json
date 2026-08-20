@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "test-time compute",
+    "best-of-n sampling",
+    "sequential revision",
+    "mixture-of-reference-policy model"
+  ],
+  "contributions": [
+    "Proof, under a mixture-of-reference-policy model, that standard best-of-n (BoN) sampling is inherently suboptimal for test-time compute",
+    "Reward-filtered sequential inference: a procedure that selectively incorporates only high-reward generations into the context",
+    "Theoretical guarantees showing reward-filtered sequential inference is strictly stronger than standard test-time-compute paradigms",
+    "Empirical evaluation across diverse benchmarks showing consistent improvements over widely used test-time-compute approaches"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:23:52Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Models test-time compute using a mixture-of-reference-policy formulation and proves that standard best-of-n sampling is suboptimal within it. Proposes reward-filtered sequential inference, which selectively incorporates only high-reward generations into the context, concentrating computation on stronger candidates and suppressing weaker ones, and derives theoretical guarantees comparing it to standard test-time-compute methods.",
+  "methods": [
+    "best-of-n (BoN) sampling",
+    "reward-filtered sequential inference"
+  ],
+  "one_liner": "Proves standard best-of-n sampling is suboptimal for test-time compute under a mixture-of-reference-policy model and proposes reward-filtered sequential inference as a stronger alternative.",
+  "paper_id": "title:cd5c62ac6be53cbc",
+  "problem": "Test-time compute methods such as best-of-n sampling and sequential revision are widely used to improve LLM performance, but their fundamental limits and optimality were unclear before this work.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly studies test-time compute scaling: it proves a fundamental suboptimality of standard best-of-n sampling and proposes reward-filtered sequential inference to concentrate compute on higher-reward generations instead of simply sampling more, i.e. how to allocate a fixed test-time compute budget more effectively."
+  },
+  "results": "Theoretically shown to yield strictly stronger guarantees than standard test-time-compute paradigms (BoN, sequential revision); empirically evaluated across diverse benchmarks with consistent improvements over widely used approaches. Exact numeric results were not available in the fetched material.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-compute",
+    "best-of-n",
+    "sequential-inference",
+    "reward-filtering"
+  ]
+}

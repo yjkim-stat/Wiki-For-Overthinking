@@ -1,0 +1,111 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-07424.pdf"
+  },
+  "completed_at": "2026-08-20T12:07:14Z",
+  "created_at": "2026-08-20T12:01:30Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.07424",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling is often implemented by spending more compute along one axis: sampling more solutions, extending a chain of thought, or applying a stronger evaluator. Under a fixed inference budget, these choices compete. This paper formulates test-time reasoning as a compute-allocation problem in which a system must decide whether the next unit of compute should be spent on generation, verification, or stopping. We introduce CoBa, a compute-balanced routing policy that first obtains a small set of candidates, applies cheap verification broadly, and routes uncertain or high-value candidates to stronger verification. On 3,129 example-generator evaluations spanning MATH-500, AIME 2024/2025, AMC 2023, and procedural symbolic reasoning, CoBa-Routed-Strong reaches 85.13% macro accuracy, statistically matching a self-evaluation weighted-voting proxy at 85.20% while using 49.1% fewer parameter-weighted tokens. It also matches best-of-16 majority voting within 0.01 macro-accuracy points while using 58.9% fewer parameter-weighted tokens; paired tests retain a small best-of-16 edge at substantially higher cost. Paired bootstrap tests show significant gains over single-sample decoding, while the remaining gap to the pool oracle exposes headroom for sharper routing. For local reasoning systems, test-time scaling becomes a question of where the next computation is most valuable.",
+    "authors": [
+      "Yan Zhou",
+      "Yue Ouyang",
+      "Kaiyang Zheng",
+      "Suncheng Xiang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.07424v2",
+    "published": "2026-08-07",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+    "url": "https://arxiv.org/abs/2608.07424",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "test-time reasoning as a compute-allocation problem",
+      "generation vs. verification vs. stopping as competing actions under a fixed budget",
+      "compute-balanced routing",
+      "parameter-weighted token cost",
+      "accuracy-cost Pareto frontier"
+    ],
+    "contributions": [
+      "Formulates test-time reasoning as a unified compute-allocation problem: at each decision step a system must choose whether the next unit of compute is spent on sampling another candidate, applying lightweight or strong verification, or stopping.",
+      "Introduces CoBa, a reproducible local routing policy with lightweight and strong verification tiers that first buys a small amount of candidate diversity, scores candidates cheaply, and routes only uncertain or high-value candidates to stronger (more expensive) verification.",
+      "Provides controlled replay experiments over a shared candidate pool (offline replay protocol) showing CoBa-Routed-Strong reaches the accuracy region of much more expensive sampling (best-of-16) and evaluator-scaling (self-evaluation weighted voting) baselines while using substantially fewer parameter-weighted tokens, with ablations and paired significance tests explaining when routing helps."
+    ],
+    "datasets": [
+      "MATH-500",
+      "AIME 2024",
+      "AIME 2025",
+      "AMC 2023",
+      "Reasoning Gym (procedural symbolic reasoning, hard subset)"
+    ],
+    "limitations": "Stated/observed limitations from the document: the offline replay protocol operates over a shared, pre-generated candidate pool (N=16 candidates per example, fixed token budget), so routing can change which candidates are inspected/selected but cannot benefit from private, freshly-generated candidates unavailable to baselines -- it approximates rather than reproduces fully interactive test-time methods. Verifier baselines (V1 Qwen3-8B judge, V3 Qwen3-14B deep verifier) are local open-weight proxies, not claims of reproducing separately RL-trained or closed reward-model checkpoints. A learned MLP controller was also tried and degenerated to a near-greedy policy in a leave-one-dataset-out generalization test, described as a negative result showing the current evidence supports transparent routing over a learned controller. On AIME 2025 specifically, the oracle (pool-correctness upper bound) gap remains large because the candidate pool itself often lacks a correct answer, so routing/verification cannot recover accuracy that generation never produced -- CoBa-Routed-Strong still trails best-of-16 by 0.70 accuracy points (95% CI [-1.25,-0.16], p=.004) at 2.43x lower parameter-weighted token cost. The paper notes cost is measured in tokens/parameter-weighted tokens/latency, not a full dollar or energy cost model.",
+    "method": "CoBa treats test-time reasoning as an allocation problem with action space {SAMPLE, VERIFY_1, ..., VERIFY_L, STOP} at each decision step, where the system state includes the candidate set, verifier scores observed so far, remaining budget, and history features (answer diversity, candidate length, answer flips, token-cap hits). CoBa-Routed inference (Algorithm 1): generate a small warm-up set of k=2 candidates; score all candidates with a rule-based answer-frequency/agreement verifier (V0) and a lightweight local judge (V1, Qwen3-8B); while under the candidate cap and budget remain, check if the top answer is stable and the lightweight score is high -- if so, stop; otherwise generate one more candidate and re-score. After the loop, candidates are ranked by a fusion of answer frequency and verifier scores (R(c) = 0.20*f(c) + 0.30*s1(c) + 0.15*s2(c) + 0.45*s3(c), with missing scores renormalized), and the top K candidates (K=0/2/4 for CoBa-Routed-Light/Routed/Routed-Strong) are routed to a strong verifier (V3, Qwen3-14B deep verifier); the final answer is extracted from the highest-ranked candidate under R(c). All methods (CoBa and baselines) draw from the same offline-generated pool of N=16 candidates per example (generators Qwen3-14B, Phi-4-reasoning, Qwen3-8B; temperature 0.6, top-p 0.95, 16,384-token budget) so that comparisons isolate the effect of the allocation/routing policy from candidate generation itself.",
+    "methods": [
+      "CoBa (Compute-Balanced test-time scaling) routing policy",
+      "CoBa-Routed-Light / -Routed / -Routed-Strong variants",
+      "tiered verification (rule-based V0, lightweight judge V1, process verifier V2, strong deep verifier V3)",
+      "answer-frequency + verifier-score fusion ranking",
+      "paired bootstrap significance testing"
+    ],
+    "one_liner": "CoBa treats test-time scaling as a compute-allocation problem and routes cheap answer-agreement evidence versus a small number of strong-verifier calls, reaching majority-voting/self-evaluation-level accuracy on math and symbolic reasoning benchmarks while using roughly half the parameter-weighted tokens.",
+    "problem": "Test-time scaling for LLM reasoning is usually implemented by spending more compute along a single fixed axis (more samples, longer chains of thought, or a stronger evaluator), but under a fixed inference budget these choices compete for the same compute, and prior methods do not explicitly decide, per example, whether the next unit of compute is better spent generating, verifying, or stopping.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly on topic: the paper explicitly frames test-time reasoning as deciding whether the next unit of compute should go to generation, verification, or stopping -- i.e. when a reasoning system should keep spending compute versus stop -- and evaluates the accuracy/cost tradeoff of that stopping/routing decision on math and symbolic reasoning benchmarks (MATH-500, AIME, AMC, Reasoning Gym), which is a direct instance of the topic's 'methods to make a model stop (or keep going) at the right point.'"
+    },
+    "results": "Macro-averaged over 3,129 example-generator evaluations (15 dataset-generator pairs): CoBa-Routed-Strong reaches 85.13% accuracy at 58.0k average total tokens, 7.91 average model calls, and 629.9k parameter-weighted tokens per item. This is statistically indistinguishable from a self-evaluation weighted-voting proxy baseline (85.20%, 95% CI of the difference [-1.25,+... ] includes zero) while using 49.1% fewer parameter-weighted tokens (629.9k vs 1236.7k). It matches best-of-16 majority voting (85.12%) within 0.70 accuracy points (95% CI [-1.25,-0.16], p=.004) while using 58.9% fewer parameter-weighted tokens (629.9k vs 1533.3k, i.e. best-of-16 costs 2.43x more). CoBa-Routed-Strong significantly beats greedy decoding by +3.74 points (95% CI [+2.97,+4.54], p<.001; greedy=75.72%). Per-dataset (Table 3, averaged over 3 generators): CoBa-Routed-Strong reaches 87.6% on MATH, 82.2% on AIME2024 (vs 65.6% greedy), 71.1% on AIME2025, 92.4% on AMC, and 92.3% on Reasoning Gym hard subset; the pool oracle upper bound is 90.3/87.8/83.3/95.6/99.8% respectively, with the largest remaining oracle gap on AIME2025. Ablation (Table 4): moving from CoBa-Routed-Light (78.88% acc, 3.97 calls, 252.9k p-tok) to CoBa-Routed (82.92%, 5.48 calls, 392.4k p-tok) yields a large accuracy gain from a small number of added strong-verifier calls; moving to CoBa-Routed-Strong (85.13%, 7.91 calls, 629.9k p-tok) gives further but diminishing-return gains at higher marginal cost.",
+    "tags": [
+      "test-time-scaling",
+      "compute-allocation",
+      "routing",
+      "verification",
+      "stopping-policy",
+      "mathematical-reasoning",
+      "cost-efficiency"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-07424",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

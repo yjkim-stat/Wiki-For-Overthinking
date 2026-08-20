@@ -1,0 +1,85 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:57Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7f9646f61e4d4d9c",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Internalizing Safety Understanding in Large Reasoning Models via Verification",
+    "url": "https://icml.cc/virtual/2026/poster/63605",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "safety verification",
+      "self-critique via reasoning",
+      "internalized alignment"
+    ],
+    "contributions": [
+      "SInternal, a training method that fine-tunes reasoning models exclusively on safety verification tasks, teaching them to critique their own generated answers using expert reasoning trajectories rather than to directly mimic safe outputs.",
+      "A demonstration that learning to verify generalizes to improved response safety against disguised or manipulative prompts.",
+      "Evidence that SInternal provides a better initialization for downstream reinforcement learning than standard safety training."
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "The model is trained only on safety-verification tasks: given a response, it must critique and justify why the response violates (or does not violate) safety principles, using expert reasoning trajectories as supervision. This is intended to build an internal understanding of safety principles rather than a learned mapping from harmful-looking requests to refusals, and the resulting checkpoint is then used as an initialization for further reinforcement learning.",
+    "methods": [
+      "SInternal"
+    ],
+    "one_liner": "Trains large reasoning models on safety-verification (critiquing responses against safety principles) rather than direct safe-response mimicry, and shows this generalizes better and gives a stronger RL initialization.",
+    "problem": "Chain-of-thought reasoning can make unsafe outputs harder to detect, and models that appear aligned often lack an intrinsic understanding of safety principles, making them vulnerable to sophisticated or disguised attacks.",
+    "relevance": {
+      "overthinking": "Not substantively related. The paper is about safety alignment and self-verification of response safety in reasoning models; it does not address reasoning length, the accuracy/efficiency tradeoff, or when a model should stop or continue reasoning. It only shares the generic term 'large reasoning model' with the topic."
+    },
+    "results": "No specific benchmark numbers were available in the retrieved material (no PDF or numeric results found on the paper's ICML page). The claimed results are qualitative: stronger generalization to disguised/manipulative attacks and improved RL initialization compared to standard training.",
+    "tags": [
+      "safety",
+      "alignment",
+      "verification",
+      "self-critique"
+    ]
+  },
+  "task_id": "paper__title-7f9646f61e4d4d9c",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

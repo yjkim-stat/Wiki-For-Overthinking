@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "conformal prediction",
+    "asynchronous decoding",
+    "draft/target model speculation",
+    "rejection sampling"
+  ],
+  "contributions": [
+    "ATTS, a framework for asynchronous test-time scaling that removes synchronization bottlenecks when scaling along multiple inference dimensions at once",
+    "A statistically guaranteed adaptive scaling procedure based on conformal prediction / hypothesis testing with online calibration",
+    "An ordinal classification algorithm supporting a three-stage rejection sampling pipeline usable in both sequential and parallel execution paths"
+  ],
+  "datasets": [
+    "MATH",
+    "AMC23",
+    "AIME24",
+    "AIME25"
+  ],
+  "generated_at": "2026-08-20T12:22:19Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "ATTS treats test-time scaling as a hypothesis-testing / conformal-prediction problem: it uses online calibration to give statistical guarantees on when a draft model's output can be accepted, driving a three-stage rejection sampling pipeline that can run sequential and parallel decoding paths asynchronously instead of forcing them to synchronize.",
+  "methods": [
+    "ATTS",
+    "conformal prediction-based rejection sampling",
+    "ordinal classification"
+  ],
+  "one_liner": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+  "paper_id": "title:b601ad920fcc4d45",
+  "problem": "Test-time scaling improves LLM accuracy but is hampered by high computational demands, in particular synchronization bottlenecks that appear when scaling is attempted along multiple processing dimensions (e.g., sequential and parallel) at the same time.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets the compute cost of test-time scaling: it proposes a statistically grounded mechanism (conformal prediction with online calibration) to decide when extra test-time computation can be safely skipped or accepted, which is a stopping/scaling-control method for reasoning inference rather than a fixed reasoning budget."
+  },
+  "results": "Reports up to 56.7x speedup in test-time scaling and a 4.14x throughput improvement, with performance comparable to o3-mini (high) achieved using smaller draft/target model combinations, evaluated on MATH, AMC23, AIME24 and AIME25, while maintaining rejection-rate control without accuracy degradation.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "conformal-prediction",
+    "speculative-decoding",
+    "inference-efficiency"
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoBa treats test-time scaling as a compute-allocation problem and routes cheap answer-agreement evidence versus a small number of strong-verifier calls, reaching majority-voting/self-evaluation-level accuracy on math and symbolic reasoning benchmarks while using roughly half the parameter-weighted tokens.",
+        "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkRetrieve augments each step of a reasoning model's chain of thought with a dynamically retrieved, fully worked solved example (rather than just facts), consistently beating standard sequential test-time scaling on math and QA benchmarks.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+        "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Divergent-Convergent Reasoning generates diverse candidate solutions and then uses reviewer-style reconciliation calls (optionally run recursively with a verifier-free unanimous-consent stopping rule) to recover correct answers even when they start out as a minority, reaching 93.3% on AIME 2024 and 92.0% on AIME 2025 while using about 27% less compute than a fixed single-round baseline.",
+        "title": "Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+        "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+        "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AsyncSpade speeds up decoding of long chain-of-thought generations by predicting query states from recent patterns and running sparse KV-cache selection asynchronously alongside decoding, cutting per-token latency without hurting accuracy.",
+        "title": "AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formulates test-time search as a resource-allocation problem and introduces DORA, which allocates a fixed rollout budget across reasoning directions rather than individual solutions to avoid wasting compute on over-represented directions.",
+        "title": "Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that verifier ROC-curve geometry determines the accuracy of Best-of-N and Rejection Sampling under a fixed compute budget, and shows RS beats BoN at fixed compute while both converge in the infinite-compute limit.",
+        "title": "ROC-n-reroll: How verifier imperfection affects test-time scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+        "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+        "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
+        "title": "What If We Allocate Test-Time Compute Adaptively?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formulates test-time compute allocation across queries as a bandit learning problem so that harder queries get more compute and easier ones get less.",
+        "title": "Strategic Scaling of Test-Time Compute: A Bandit Learning Approach",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:55:53Z",
+  "created_at": "2026-08-20T13:55:16Z",
+  "instructions": "Write the wiki definition for 'MATH-500'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "MATH-500",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "MATH-500",
+    "source_count": 16
+  },
+  "result": {
+    "aliases": [
+      "MATH500"
+    ],
+    "definition": "A 500-problem curated subset of the MATH benchmark, one of the archive's most-used evaluation sets (16 sources) for reasoning-length and test-time-compute methods -- compute-balanced routing (CoBa), verifier-free self-correction, retrieval-augmented reasoning, rollout pruning, structured solution synthesis, the foundational overthinking paper, self-braking tuning, sparse decoding, resource-allocation search (DORA), state-machine reasoning steering, PRM-guided adaptive allocation, CoT trimming (TrimR), and bandit-based compute allocation. Note: previously split across two spellings (MATH-500, MATH500) -- merged into this one after a 2026-08-20 pipeline fix. Distinct from the broader 'MATH' dataset it is drawn from, which remains a separate wiki entry.",
+    "kind": "dataset",
+    "related": [
+      "AIME 2024",
+      "MATH",
+      "GSM8K"
+    ]
+  },
+  "task_id": "concept__math-500",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

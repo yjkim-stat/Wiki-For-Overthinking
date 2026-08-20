@@ -1,0 +1,32 @@
+{
+  "abstract": "Abstract Large Language Models (LLMs) have achieved remarkable success in complex reasoning tasks, but their inference remains computationally inefficient. We observe a common failure mode in many prevalent LLMs, overthinking, where models generate verbose and tangential reasoning traces even for simple queries. Recent work has tried to mitigate this by enforcing fixed token budgets, however, this can lead to underthinking, especially on harder problems. Through empirical analysis, we identify that this inefficiency often stems from unclear problem-solving strategies. To formalize this, we develop a theoretical model, BAM (Budget Allocation Model), which models reasoning as a sequence of sub-questions with varying uncertainty, and introduce the E3 metric to capture the trade-off between correctness and computation efficiency. Building on theoretical results from BAM, we propose Plan-and-Budget, a model-agnostic, test-time framework that decomposes complex queries into sub-questions and allocates token budgets based on estimated complexity using adaptive scheduling. Plan-and-Budget improves reasoning efficiency across a range of tasks and models, achieving up to 70% accuracy gains, 39% token reduction, and 193.8% improvement in E3. Notably, it improves the efficiency of a smaller model (DS-Qwen-32B) to match the efficiency of a larger model (DS-LLaMA-70B), demonstrating Plan-and-Budget’s ability to close performance gaps without retraining. Our code is available at https://github.com/junhongmit/P-and-B.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:f0073c841a41fca9",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "underthinking",
+    "test time scaling"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "virtualsite",
+  "source_id": "iclr-2026-10008460",
+  "title": "Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://iclr.cc/virtual/2026/poster/10008460",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

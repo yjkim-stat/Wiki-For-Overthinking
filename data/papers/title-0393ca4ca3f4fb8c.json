@@ -1,0 +1,30 @@
+{
+  "abstract": "Abstract Large Language Models (LLMs) achieve superior performance through training-time scaling, and test-time scaling further enhances their capabilities by conducting effective reasoning during inference. However, as the scale of reasoning increases, existing test-time scaling methods suffer from accumulated historical information, which not only wastes computational resources but also interferes with effective reasoning. To address this issue, we observe that complex reasoning can be achieved by solving a series of independent and self-contained subquestions. These subquestions are essentially \\textit{atomic questions}, exhibiting the memoryless property similar to Markov processes. Based on this observation, we propose Atom of Thoughts (\\our), where each state transition consists of decomposing the current question into a dependency-based directed acyclic graph and contracting its subquestions, forming a simplified question that maintains answer equivalence with the original problem. This answer preservation enables the iterative \\textit{decomposition-contraction} process to naturally form a meaningful Markov reasoning process. Furthermore, these atomic states can be seamlessly integrated into existing test-time scaling methods, enabling \\our to serve as a plug-in enhancement for improving reasoning capabilities.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:0393ca4ca3f4fb8c",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-115860",
+  "title": "Atom of Thoughts for Markov LLM Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/115860",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

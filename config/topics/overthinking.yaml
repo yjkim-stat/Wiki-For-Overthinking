@@ -1,0 +1,116 @@
+# Topic definition template.
+#
+# Copy this file to config/topics/<slug>.yaml, or run:
+#     scripts/new_topic.sh "My Topic Name"
+#
+# Files whose name starts with "_" are ignored by the loader, so this
+# template never takes part in a run.
+
+# Stable identifier. Must match the filename and stay unchanged once the
+# topic has archived material, since paths are derived from it.
+slug: overthinking
+
+# Human-readable name, used in headings and generated documents.
+name: Overthinking
+
+# One or two sentences. This is handed to the summarizer as the lens through
+# which every paper is read, so make it specific: "methods for X" reads
+# everything the same way, "which assumptions X needs to be credible" does not.
+description: >-
+  When and why large reasoning models think more than a problem needs (or
+  less than it needs) — the accuracy/efficiency tradeoff of reasoning length,
+  test-time compute scaling, and methods to make a model stop, or keep going,
+  at the right point.
+
+# ---------------------------------------------------------------------------
+# Matching
+# ---------------------------------------------------------------------------
+
+keywords:
+  # At least one of these must appear for an item to be considered at all.
+  any:
+    - overthinking
+    - underthinking
+    - over-thinking
+    - under-thinking
+    - reasoning length
+    - test-time compute
+    - test time scaling
+    - inverse scaling
+    - chain-of-thought length
+    - thinking budget
+    - reasoning-action dilemma
+    - large reasoning model
+    - adaptive compression
+    - accuracy-efficiency tradeoff
+  all: []
+  # Any hit here rejects the item outright, whatever else it matched.
+  # "test-time compute" / "test time scaling" are generic enough that they
+  # also catch inference-time scaling work in unrelated domains -- the first
+  # 14-day backfill (2026-08-20) pulled in diffusion-model, CAD, time-series,
+  # GUI-agent, translation and mobility-data papers that only share the
+  # phrase, not the subject. Excluded here rather than dropped from `any`,
+  # since a paper that also discusses reasoning-length overthinking in one of
+  # these applications should still be considered.
+  none:
+    - diffusion model
+    - visual auto-regressive
+    - text-to-image
+    - image generation
+    - noise trajectory
+    - CAD generation
+    - time series forecasting
+    - neural process
+    - text-to-SQL
+    - translation evaluator
+    - GUI agent
+    - mobility data
+    - video generation
+    - speech recognition
+
+# Authors worth tracking. A match adds `score.author_bonus`.
+authors: []
+
+# Anchor papers for the topic. They are archived on the first run and give
+# the summarizer a reference frame. Use arXiv IDs, DOIs or plain titles.
+seed_papers: []
+
+# Items scoring below this are recorded in the index but never summarized.
+# Omit to use `score.default_min_score` from settings.yaml.
+min_score: 0.35
+
+# ---------------------------------------------------------------------------
+# Sources
+# ---------------------------------------------------------------------------
+
+sources:
+  arxiv:
+    enabled: true
+    # Narrows the global category list from config/sources.yaml. Omit or
+    # leave empty to use all of them.
+    categories:
+      - cs.LG
+      - cs.CL
+      - cs.AI
+      - stat.ME
+  conferences:
+    enabled: true
+    # Narrows the global venue list. Omit or leave empty to track all.
+    venues: []
+  youtube:
+    enabled: true
+    # Extra channels tracked only for this topic, same shape as in
+    # config/sources.yaml.
+    channels: []
+
+# ---------------------------------------------------------------------------
+# Outputs
+# ---------------------------------------------------------------------------
+
+outputs:
+  # Generate a lecture note for this topic.
+  lecture_note: true
+  # Generate a self-contained slide deck.
+  slides: true
+  # Generate a self-contained HTML report.
+  report: true

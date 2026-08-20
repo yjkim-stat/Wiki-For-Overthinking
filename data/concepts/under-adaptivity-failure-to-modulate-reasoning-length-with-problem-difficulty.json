@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:da3fbe3617acc5f8",
+      "kind": "paper",
+      "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
+      "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T11:35:54Z",
+  "name": "under-adaptivity (failure to modulate reasoning length with problem difficulty)",
+  "related": [
+    "attention-based-step-importance-scoring-from-the-think-delimiter",
+    "difficulty-adaptive-compression-rate-calibrated-by-rollout-pass-rate",
+    "uniformity-scaled-eviction-percentage",
+    "sigmoid-smoothed-length-reward",
+    "grpo-group-relative-policy-optimization",
+    "traac-attention-based-compression-module",
+    "tokenskip",
+    "l1-max",
+    "lc-r1",
+    "adaptthink",
+    "dapo-math-17k",
+    "aime-2022-2024",
+    "amc-2022-2023",
+    "gpqa-diamond",
+    "bbeh-big-bench-extra-hard",
+    "optimalthinkingbench-overthinkingbench-underthinkingbench",
+    "supergpqa",
+    "bbh-big-bench-hard"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "under-adaptivity-failure-to-modulate-reasoning-length-with-problem-difficulty",
+  "topics": [
+    "overthinking"
+  ]
+}

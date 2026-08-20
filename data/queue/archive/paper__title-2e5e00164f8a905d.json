@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:06:33Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:2e5e00164f8a905d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Long reasoning models (LRMs) such as OpenAI's o1 and DeepSeek's R1 have demonstrated remarkable abilities in complex reasoning tasks by scaling test-time compute and exhibiting human-like deep thinking. However, we identify a phenomenon we term underthinking, where LRMs frequently switch between different reasoning thoughts without sufficiently exploring promising paths to reach a correct solution. This behavior leads to inadequate depth of reasoning and decreased performance, particularly on challenging mathematical problems. To systematically analyze this issue, we conduct experiments on three challenging test sets and two representative open-source LRMs, revealing that frequent thought switching correlates with incorrect responses. We introduce a novel metric to quantify underthinking by measuring token efficiency in incorrect answers. To address underthinking, we propose a decoding strategy with thought switching penalty (Tip) that discourages premature transitions between thoughts, encouraging deeper exploration of each reasoning path. Experimental results demonstrate that our approach improves accuracy across challenging datasets without requiring model fine-tuning. Our findings contribute to understanding reasoning inefficiencies in LRMs and offer a practical solution to enhance their problem-solving capabilities. Our code is open-source and available at https://github.com/wangyuenlp/underthinking.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "underthinking",
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models",
+    "url": "https://neurips.cc/virtual/2025/poster/117581",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "underthinking",
+      "thought switching",
+      "token efficiency of incorrect answers"
+    ],
+    "contributions": [
+      "Identifies and names 'underthinking': LRMs frequently switch between reasoning thoughts without sufficiently exploring promising paths",
+      "Shows frequent thought switching correlates with incorrect responses on challenging math problems, across experiments on three test sets and two open-source LRMs",
+      "Introduces a metric to quantify underthinking by measuring token efficiency in incorrect answers",
+      "Proposes a decoding strategy, Thought Switching Penalty (TIP), that discourages premature transitions between thoughts",
+      "Shows TIP improves accuracy on challenging datasets without requiring model fine-tuning"
+    ],
+    "datasets": [
+      "three challenging math test sets (unnamed in abstract)"
+    ],
+    "limitations": "The abstract does not name the specific test sets or LRMs used, nor does it give numeric accuracy improvements from TIP; the analysis is focused on mathematical reasoning problems, so generality to other task types is not established in the abstract.",
+    "method": "Analyzes reasoning traces from two open-source LRMs on three challenging test sets, tracking how often the model switches between distinct reasoning thoughts. Defines a token-efficiency metric over incorrect answers to quantify underthinking. Proposes Thought Switching Penalty (TIP), a decoding-time modification that penalizes premature switches away from a reasoning thought, applied without any fine-tuning.",
+    "methods": [
+      "Thought Switching Penalty (TIP) decoding strategy"
+    ],
+    "one_liner": "Identifies 'underthinking' in long reasoning models, where frequent switching between reasoning thoughts prevents sufficient exploration and hurts accuracy, and proposes a decoding-time penalty to fix it.",
+    "problem": "Long reasoning models sometimes fail not by reasoning too much but by reasoning too shallowly on each path, jumping between thoughts before exploring any of them fully, which reduces accuracy especially on hard math problems.",
+    "relevance": {
+      "overthinking": "Directly addresses the underthinking side of the reasoning-length tradeoff: rather than models thinking too long, this paper shows they can think too shakily, switching thoughts prematurely, and proposes a decoding intervention (TIP) that makes reasoning depth per thought more sufficient without fine-tuning."
+    },
+    "results": "Frequent thought switching is shown to correlate with incorrect responses across three challenging test sets and two open-source LRMs. TIP decoding improves accuracy across challenging datasets relative to standard decoding, without fine-tuning; specific accuracy numbers are not given in the abstract.",
+    "tags": [
+      "underthinking",
+      "thought-switching",
+      "decoding-strategy",
+      "reasoning-depth",
+      "test-time"
+    ]
+  },
+  "task_id": "paper__title-2e5e00164f8a905d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "concepts": [
+    "overthinking",
+    "underthinking",
+    "reasoning length vs. correctness tradeoff",
+    "sample-level vs. question-level length analysis",
+    "length-based preference optimization",
+    "difficulty calibration / self-awareness in reasoning length"
+  ],
+  "contributions": [
+    "Systematic sample-level and question-level empirical analysis showing a non-monotonic relationship between reasoning length and accuracy",
+    "Evidence that models lengthen responses appropriately for perceived difficulty on easy questions but fail to do so consistently on hard questions (underthinking)",
+    "Demonstration that excessive reasoning length degrades accuracy on a measurable fraction of questions (overthinking)",
+    "Application of SimPO with only correctness-agnostic length preference to reduce generation length 30-60% while largely preserving accuracy, using only unlabeled data"
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH"
+  ],
+  "generated_at": "2026-08-20T11:34:18Z",
+  "generated_by": "queue",
+  "limitations": "The study uses only N=10 samples per question, which the authors note may limit statistical reliability and finer-grained insight compared to a larger N. Analysis is restricted to two math reasoning benchmarks (GSM8K, MATH) and two 1.5B-parameter reasoning models with a specific post-training lineage (DeepSeek-R1-Distill and DeepScaler), so generality to other model sizes, training strategies, or non-math domains is untested. The paper also notes it remains unclear whether the length-difficulty patterns emerge primarily from pretraining or from post-training processes such as SFT/RL, which they leave to future work. On hard questions, models do not consistently lengthen responses despite increased difficulty (Table 3 shows non-significant or reversed effects in several settings), meaning the difficulty-adaptation signal is unreliable exactly where it matters most.",
+  "method": "The authors use two 1.5B reasoning models, DeepSeek-1.5B-Distill (R1-Distill) and DeepScaler-1.5B-Preview (R1-Preview), evaluated on GSM8K and MATH. For each question they generate N=10 samples at temperature T=1.0, top-p=1, max 8k tokens. Sample-level analysis ranks the N responses per question by length and tracks accuracy at each rank to isolate the effect of response length holding the question fixed. Question-level analysis compares average response length between questions answered correctly vs. incorrectly, computes Pearson/Spearman correlations between length and accuracy, and stratifies questions into Easy (correct on all 10 samples), Hard (incorrect on all 10), and Medium (mixed) difficulty tiers, then compares response lengths across shared vs. model-specific 'advantage' question sets using t-tests. Finally, they apply SimPO (Simple Preference Optimization), a reference-free offline preference optimization method, using only two sampled responses per question and always preferring the shorter one regardless of correctness (no ground-truth labels needed), training on GSM8K and MATH and evaluating accuracy/token length over training steps up to 32k generation length at test time.",
+  "methods": [
+    "DeepSeek-R1-Distill-1.5B",
+    "DeepScaler-1.5B-Preview",
+    "SimPO (Simple Preference Optimization)"
+  ],
+  "one_liner": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+  "paper_id": "local:6afb006d68240134",
+  "problem": "It is unclear when longer chain-of-thought reasoning in LLMs actually improves accuracy versus when it simply adds computation and latency without benefit, and no prior work had systematically studied the relationship between reasoning length and correctness at both the sample and question level.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "The paper directly studies the accuracy/efficiency tradeoff of reasoning length in reasoning LLMs, empirically characterizing both overthinking (excessive reasoning degrading accuracy on easy/already-solved questions) and underthinking (failure to extend reasoning on hard questions), and tests a length-preference-optimization method (SimPO) as a mitigation — core to this topic's focus on when models think more or less than a problem needs."
+  },
+  "results": "Sample-level: accuracy vs. length-rank is non-monotonic — for R1-Distill, peak accuracy is at rank r*=1 on MATH and r*=3 on GSM8K; for R1-Preview, r*=1 on GSM8K but r*=0 on MATH (shortest response already best). For over 60% of questions across all model-dataset combinations, the shortest sampled response is already correct. Question-level: incorrect responses are significantly longer than correct ones across all four model-dataset pairs (Table 1); on MATH, incorrect responses average over 6,000 tokens vs. under 3,000 for correct ones (R1-Preview: 2459.84 correct vs 6106.17 incorrect; R1-Distill: 2907.23 correct vs 6521.31 incorrect). Pearson correlations between length and accuracy are consistently negative (e.g. -0.7248 for R1-Distill on MATH). On Easy-question advantage sets, models generate longer responses than on shared-easy sets (e.g. R1-Preview: 1015.37 to 1348.60 tokens on GSM8K, 1690.62 to 2832.86 on MATH), indicating models do lengthen for perceived difficulty on easy questions, but on Hard-question sets this pattern breaks down or reverses (Table 3), indicating models fail to recognize increased difficulty when questions exceed their capability. Rank-extremes analysis (Figure 7/8) shows that near the longest few samples, about 5% (R1-Preview) to 10% (R1-Distill) of questions that were correct at the second-to-last rank become incorrect at the very longest rank, evidencing degradation from excessive length. SimPO experiments: preferring shorter responses (regardless of correctness) reduces average token length by roughly 30%-60% while accuracy stays within an acceptable range without significant degradation across all four model-dataset settings; the length reduction is driven mainly by shortening incorrect (much longer) responses, but a 10%-25% reduction in length of correct responses is also observed, showing the model can somewhat adapt length to question difficulty even without correctness supervision — though overthinking is not eliminated.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "underthinking",
+    "reasoning-length",
+    "test-time-compute",
+    "chain-of-thought",
+    "preference-optimization",
+    "simpo",
+    "math-reasoning"
+  ]
+}

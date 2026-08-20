@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:18Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:052316f527e52cc1",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Asymptotic Universal Alignment: A New Alignment Framework via Test-Time Scaling",
+    "url": "https://icml.cc/virtual/2026/poster/66584",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "pluralistic alignment",
+      "Nash equilibrium",
+      "multi-output preference alignment"
+    ],
+    "contributions": [
+      "Formalizes universal alignment as (k,f(k))-robust alignment, requiring a k-output model to achieve win rate f(k) against any single-output alternative",
+      "Proves symmetric policies can achieve the optimal convergence rate f(k)=k/(k+1), and that this rate cannot be surpassed in general",
+      "Proposes symmetric multi-player alignment games whose Nash equilibrium policies achieve optimal robust alignment",
+      "Shows existing methods such as Nash learning from human feedback collapse to a single majority-preferred response, making additional samples redundant"
+    ],
+    "datasets": [],
+    "limitations": "Only summarized from the poster/abstract page; the paper appears primarily theoretical and no empirical benchmark details, model list, or dataset were available from the summarized source.",
+    "method": "Defines (k,f(k))-robust alignment as a game between a k-output policy and a single-output baseline judged by human/user preference. Formulates symmetric multi-player alignment games and shows their Nash equilibrium policies attain the provably optimal win-rate convergence rate as the number of candidate outputs k grows, while preserving output diversity rather than collapsing to a single majority-preferred answer.",
+    "methods": [
+      "(k,f(k))-robust alignment",
+      "symmetric multi-player alignment games",
+      "Nash equilibrium policies"
+    ],
+    "one_liner": "Formalizes and proves optimal convergence rates for 'universal alignment,' where a model offers k candidate responses to serve users with diverse preferences, using a game-theoretic (Nash equilibrium) framework.",
+    "problem": "How to align a language model to serve users with diverse, sometimes conflicting preferences by offering multiple candidate outputs, without the model collapsing to a single majority-preferred response as existing methods (e.g. Nash learning from human feedback) do.",
+    "relevance": {
+      "overthinking": "Only tangentially related: 'test-time scaling' here means generating k candidate output responses for a user to choose among, as a mechanism for preference diversity and alignment. It is a game-theoretic alignment framework, not a study of chain-of-thought reasoning length, when a model should stop reasoning, or the accuracy/efficiency tradeoff of longer thinking traces."
+    },
+    "results": "Proves the optimal robust-alignment convergence rate is f(k)=k/(k+1) for symmetric policies and that it cannot be exceeded in general; shows Nash learning from human feedback collapses to a single response regardless of k, unlike the proposed symmetric game approach which preserves diversity.",
+    "tags": [
+      "alignment",
+      "game-theory",
+      "nash-equilibrium",
+      "diversity",
+      "test-time-scaling"
+    ]
+  },
+  "task_id": "paper__title-052316f527e52cc1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

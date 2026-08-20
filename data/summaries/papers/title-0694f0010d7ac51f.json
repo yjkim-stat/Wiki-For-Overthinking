@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "overthinking",
+    "chain-of-thought length control",
+    "preference optimization",
+    "implicit reward"
+  ],
+  "contributions": [
+    "Analyzes generation path distributions and filters generated trajectories via difficulty estimation",
+    "Analyzes convergence characteristics of several preference optimization objectives under a unified Bradley-Terry loss framework",
+    "Proposes Length Controlled Preference Optimization (LCPO), which directly balances the implicit reward tied to NLL loss to learn a length preference with limited data and training",
+    "Reduces average LRM output length by over 50% across multiple benchmarks while maintaining reasoning performance"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:13:18Z",
+  "generated_by": "queue",
+  "limitations": "Only the abstract was available (no PDF attachment); specific benchmark names, model sizes, and failure cases of LCPO are not stated in the abstract.",
+  "method": "Filters generated reasoning trajectories by estimated difficulty, then studies how different preference optimization objectives converge under a shared Bradley-Terry loss formulation. Based on this analysis, proposes Length Controlled Preference Optimization (LCPO), which optimizes the implicit reward associated with negative log-likelihood loss so that the model learns a preference for shorter reasoning chains using a small amount of data and limited additional training.",
+  "methods": [
+    "Length Controlled Preference Optimization (LCPO)",
+    "Bradley-Terry loss framework",
+    "difficulty-based trajectory filtering",
+    "preference optimization"
+  ],
+  "one_liner": "Proposes Length Controlled Preference Optimization (LCPO), a small-scale preference-tuning method that cuts large reasoning models' average output length by over 50% while preserving reasoning performance.",
+  "paper_id": "title:0694f0010d7ac51f",
+  "problem": "Long chain-of-thought reasoning in large reasoning models raises computational cost and can lead to overthinking, and existing fixes for shortening reasoning either degrade quality or require heavy retraining resources.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses the topic directly: it proposes a lightweight preference-optimization method (LCPO) that explicitly targets reasoning-length reduction, cutting average output length by over 50% across multiple benchmarks while maintaining accuracy, i.e. a concrete method for stopping a model at the right point."
+  },
+  "results": "Reduces the average output length of large reasoning models by over 50% across multiple benchmarks while maintaining reasoning performance, per the paper's stated experiments.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "length-control",
+    "preference-optimization",
+    "chain-of-thought",
+    "efficient-reasoning"
+  ]
+}

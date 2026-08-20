@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "thinking-induced hallucination",
+    "thinking residual over direct-answer tendency",
+    "mixed-mode advantage estimation",
+    "same-model non-thinking reference"
+  ],
+  "contributions": [
+    "Identifies and names 'thinking-induced hallucination': explicit thinking traces in factuality-oriented QA can overturn an already-correct non-thinking answer and introduce factual drift, at the instance level, even though thinking improves average performance.",
+    "Formulates explicit thinking as a 'thinking residual' over the model's direct-answer tendency, which can either recover missing knowledge (helpful) or introduce unsupported associations (harmful).",
+    "Proposes MARGO (Mixed-Mode Advantage Regularization for Grounded Optimization), an RL framework that uses non-thinking rollouts from the same model as reference points in advantage estimation, built from mixed-mode rollout groups containing both thinking and non-thinking trajectories.",
+    "Shows MARGO improves factual reliability over strong baselines on multiple factuality-oriented QA benchmarks while preserving general reasoning ability on mathematical benchmarks."
+  ],
+  "datasets": [
+    "multiple factuality-oriented QA benchmarks (unspecified by name in abstract)",
+    "mathematical reasoning benchmarks (unspecified by name in abstract)"
+  ],
+  "generated_at": "2026-08-20T12:07:14Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific QA or math benchmarks used, nor does it report numeric results (accuracy, hallucination rate reduction, or reasoning-preservation figures). No ablation details, model sizes, or comparison baselines are specified beyond 'strong baselines'.",
+  "method": "MARGO is a reinforcement learning framework for large reasoning models. For a given question it constructs mixed-mode rollout groups that include both explicit-thinking trajectories and non-thinking (direct-answer) trajectories from the same model. It uses the non-thinking rollouts as same-model reference points when computing the advantage for RL updates, which lets the framework evaluate whether a given instance of explicit thinking actually adds factual value beyond what a direct answer would give. Thinking that does not add value (and instead drifts away from a correct direct answer) is penalized, suppressing hallucination-prone thinking, while thinking that recovers genuinely missing knowledge is preserved and reinforced.",
+  "methods": [
+    "MARGO (Mixed-Mode Advantage Regularization for Grounded Optimization)",
+    "reinforcement learning with mixed-mode (thinking / non-thinking) rollout groups",
+    "advantage estimation using same-model non-thinking references"
+  ],
+  "one_liner": "This paper shows that explicit reasoning traces can overturn otherwise-correct direct answers in factual QA (thinking-induced hallucination), and proposes an RL method (MARGO) that uses the model's own non-thinking answers as a reference to suppress harmful thinking while keeping useful thinking.",
+  "paper_id": "arxiv:2607.05861",
+  "problem": "In factuality-oriented QA, explicit chain-of-thought reasoning improves average accuracy by helping recover relevant knowledge, but at the instance level it can also overturn an answer that would have been correct without thinking, producing factual drift; existing training does not distinguish these two effects of thinking.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly relevant, from the 'thinking hurts' side of the tradeoff: it documents a concrete failure mode where a reasoning model's explicit thinking (rather than its length per se) overturns an already-correct answer, and proposes an RL method that uses non-thinking rollouts as a reference to decide when thinking should be suppressed versus preserved -- a mechanism for deciding whether the model should reason at all rather than for how long, which is a specific instance of 'making a model stop (or keep going) at the right point.'"
+  },
+  "results": "The abstract states MARGO 'improves factual reliability over strong baselines' on multiple factuality-oriented QA benchmarks and 'preserves general reasoning ability' as shown on mathematical benchmarks, but gives no specific numeric results.",
+  "schema_version": 1,
+  "tags": [
+    "hallucination",
+    "factuality",
+    "chain-of-thought",
+    "reinforcement-learning",
+    "advantage-estimation",
+    "thinking-vs-non-thinking"
+  ]
+}

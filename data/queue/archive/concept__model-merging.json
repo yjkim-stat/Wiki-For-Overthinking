@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A gradient-free model-merging method that integrates an instruction-tuned model into a large reasoning model to improve instruction following while preserving the reasoning model's thinking format and quality.",
+        "title": "RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:52Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'Model Merging'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Model Merging",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Model Merging",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Combining the parameters of two or more trained models into one, without further gradient-based training, to transfer a capability from one into the other. OptimalThinkingBench tests it as one of five overthinking mitigations, where -- like the other length-reduction methods -- it tends to trade OverthinkingBench gains against UnderthinkingBench accuracy; RAIN-Merging applies it gradient-free to merge an instruction-tuned model into a large reasoning model to improve instruction-following while preserving its thinking format.",
+    "kind": "method",
+    "related": [
+      "overthinking",
+      "AdaptThink"
+    ]
+  },
+  "task_id": "concept__model-merging",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "model routing",
+    "quality-cost tradeoff",
+    "contextual bandits",
+    "online optimization"
+  ],
+  "contributions": [
+    "Unifies model routing (choosing among differently-sized models) and test-time compute scaling into a single joint online optimization instead of treating them separately",
+    "Formulates the joint decision as a contextual multi-armed bandit solved with LinUCB",
+    "Adds efficiency-aware learning and cost modeling to keep the bandit stable over a high-dimensional joint decision space",
+    "Demonstrates better quality-cost tradeoffs than routing-only or scaling-only baselines across varied, dynamic inference scenarios"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:14:13Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the available material (abstract only; no PDF attached).",
+  "method": "UniScale casts the choice of which model to route a request to, together with how much test-time compute to spend on it, as one contextual multi-armed bandit problem, learned online via LinUCB. Efficiency-aware learning and a cost model are used to stabilize the policy across the resulting high-dimensional action space, exploiting synergies between routing and scaling that separate approaches miss.",
+  "methods": [
+    "UniScale",
+    "LinUCB",
+    "contextual multi-armed bandit"
+  ],
+  "one_liner": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
+  "paper_id": "title:3b024853a8e7324c",
+  "problem": "Balancing inference quality against compute cost is handled today by two separate levers: routing between differently-sized models (discrete choices) and scaling test-time compute within one model (diminishing returns); the paper argues joint optimization of both does better than either alone.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets the accuracy/compute tradeoff the topic tracks by treating test-time compute allocation as a controllable knob to be optimized per query, jointly with model choice, via an online bandit. It is a system-level scaling controller rather than an analysis of a single model's chain-of-thought length or an intervention that makes a model stop reasoning at the right point, but the core question -- how much test-time compute a query should get -- is squarely the topic's concern."
+  },
+  "results": "Reports superior quality-cost tradeoffs versus model-routing-only and test-time-scaling-only baselines across varied, dynamic inference scenarios; no specific numeric results or benchmark names are given in the available abstract.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "model-routing",
+    "bandit-optimization",
+    "inference-cost",
+    "on-topic"
+  ]
+}

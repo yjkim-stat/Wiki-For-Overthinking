@@ -1,0 +1,86 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:45Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:acc0cd457f5fd230",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Implicit models, an emerging model class, compute outputs by iterating a single parameter block to a fixed point. This architecture realizes an infinite-depth, weight-tied network that trains with constant memory, significantly reducing memory needs for the same level of performance compared to explicit models. While it is empirically known that these compact models can often match or even exceed the accuracy of larger explicit networks by allocating more test-time compute, the underlying reasons are not yet well understood. We study this gap through a non-parametric analysis of expressive power. We provide a strict mathematical characterization, showing that a simple and regular implicit operator can, through iteration, progressively express more complex mappings. We prove that for a broad class of implicit models, this process allows the model's expressive power to grow with test-time compute, ultimately matching a much richer function class. The theory is validated across four domains: imaging, scientific computing, operations research, and LLM reasoning, demonstrating that as test-time iterations increase, the complexity of the learned mapping rises, while the solution quality simultaneously improves and stabilizes.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Expressive Power of Implicit Models: Rich Equilibria and Test-Time Scaling",
+    "url": "https://iclr.cc/virtual/2026/poster/10009635",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "implicit models",
+      "fixed-point iteration",
+      "expressive power",
+      "weight-tied networks"
+    ],
+    "contributions": [
+      "Non-parametric mathematical characterization showing a simple, regular implicit operator can progressively express more complex mappings through iteration",
+      "Proves that for a broad class of implicit models, expressive power grows with test-time compute, ultimately matching a much richer function class",
+      "Validates the theory across four domains: imaging, scientific computing, operations research, and LLM reasoning"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "Implicit models compute outputs by iterating a single parameter block to a fixed point, forming an infinite-depth, weight-tied network trained with constant memory. The paper gives a non-parametric analysis of expressive power, proving that iterating a simple, regular implicit operator progressively expresses more complex mappings, so that for a broad class of implicit models expressive power grows with the number of test-time iterations.",
+    "methods": [],
+    "one_liner": "Provides a mathematical theory showing that implicit (weight-tied, fixed-point) models' expressive power grows with the number of test-time iterations, validated across imaging, scientific computing, operations research and LLM reasoning.",
+    "problem": "It is empirically known that implicit models can match or exceed larger explicit networks by allocating more test-time compute, but why this happens was not theoretically understood.",
+    "relevance": {
+      "overthinking": "A general expressive-power theory for implicit/equilibrium models under more test-time iterations; only one of four validation domains is LLM reasoning, and the paper does not address reasoning length or the stop/continue decision in large reasoning models. It shares the \"test-time scaling\" phrase but is tangential to this topic."
+    },
+    "results": "Across the four validation domains (imaging, scientific computing, operations research, LLM reasoning), the complexity of the learned mapping rises with more test-time iterations while solution quality simultaneously improves and stabilizes; no benchmark-specific numbers given in the abstract.",
+    "tags": [
+      "implicit-models",
+      "theory",
+      "test-time-compute",
+      "equilibrium-models",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-acc0cd457f5fd230",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

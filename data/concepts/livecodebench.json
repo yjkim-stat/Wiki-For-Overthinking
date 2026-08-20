@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "A code-generation benchmark used in the archive alongside math benchmarks to evaluate test-time-compute methods across domains: the bandit-learning compute-allocation paper and Kinetics' reworked test-time scaling law both report results on it.",
+  "evidence": [
+    {
+      "id": "title:de00054e3faab991",
+      "kind": "paper",
+      "note": "Formulates test-time compute allocation across queries as a bandit learning problem so that harder queries get more compute and easier ones get less.",
+      "title": "Strategic Scaling of Test-Time Compute: A Bandit Learning Approach"
+    },
+    {
+      "id": "title:fe7ecea333b91370",
+      "kind": "paper",
+      "note": "Reworks test-time scaling laws to account for memory-access cost alongside compute, finding a 14B-parameter threshold below which test-time compute is less effective, and shows sparse attention substantially improves accuracy under a fixed test-time budget.",
+      "title": "Kinetics: Rethinking Test-Time Scaling Law"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "LiveCodeBench",
+  "related": [
+    "test-time-compute-allocation",
+    "bandit-learning",
+    "query-difficulty-estimation",
+    "bandit-learning-algorithm-for-compute-allocation",
+    "math-500",
+    "aime-2025",
+    "kinetics-scaling-law",
+    "memory-access-bottleneck",
+    "sparse-attention",
+    "compute-optimality-vs-practical-efficiency",
+    "best-of-n-sampling-analysis",
+    "aime"
+  ],
+  "related_authored": [
+    "aime",
+    "math500"
+  ],
+  "schema_version": 1,
+  "slug": "livecodebench",
+  "topics": [
+    "overthinking"
+  ]
+}

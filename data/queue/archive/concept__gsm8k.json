@@ -1,0 +1,112 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ThinkRetrieve augments each step of a reasoning model's chain of thought with a dynamically retrieved, fully worked solved example (rather than just facts), consistently beating standard sequential test-time scaling on math and QA benchmarks.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+        "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces LLMThinkBench, a dynamically-generated 14-task basic-math benchmark and a harmonic-mean Overthinking Score, then evaluates 53 LLMs to show that strong performance on complex math benchmarks does not transfer to basic arithmetic and that reasoning-tuned models often spend far more tokens for equal or worse accuracy.",
+        "title": "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+        "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+        "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that verifier ROC-curve geometry determines the accuracy of Best-of-N and Rejection Sampling under a fixed compute budget, and shows RS beats BoN at fixed compute while both converge in the infinite-compute limit.",
+        "title": "ROC-n-reroll: How verifier imperfection affects test-time scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+        "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+        "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and introduces a training-free method that majority-votes across multiple block generation schedules to substantially boost accuracy.",
+        "title": "TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:55:53Z",
+  "created_at": "2026-08-20T13:55:16Z",
+  "instructions": "Write the wiki definition for 'GSM8K'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GSM8K",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GSM8K",
+    "source_count": 9
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A grade-school math word-problem benchmark used in the archive's 9 sources as an 'easier' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA Diamond. It shows up in studies of overthinking on easy questions (Between Underthinking and Overthinking, the foundational 'Do NOT Think That Much for 2+3=?' paper, ThinkRetrieve), as a contrast point showing GSM8K/GSM-Plus performance doesn't predict basic-arithmetic accuracy (Do LLMs Overthink Basic Math Reasoning?), and as a standard evaluation set for self-braking tuning, verifier-quality analysis (ROC-n-reroll), reasoning-graph topology, state-machine reasoning steering, and diffusion-LLM test-time scaling.",
+    "kind": "dataset",
+    "related": [
+      "GPQA Diamond",
+      "MATH-500"
+    ]
+  },
+  "task_id": "concept__gsm8k",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

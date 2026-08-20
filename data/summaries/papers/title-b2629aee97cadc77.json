@@ -1,0 +1,42 @@
+{
+  "concepts": [
+    "test-time compute scaling",
+    "verification",
+    "tool integration",
+    "memorization burden"
+  ],
+  "contributions": [
+    "Investigates whether small language models can reliably verify output candidates under test-time scaling, finding they struggle with memorization-heavy checks even after distillation from larger verifiers",
+    "Proposes T1, a two-stage tool-integrated verification framework that filters candidates with external tools before a small model performs final verification",
+    "Shows tool offloading reduces the memorization burden on small verifiers and improves test-time scaling performance",
+    "Shows T1 improves verification accuracy of both process reward models and critic models"
+  ],
+  "datasets": [
+    "MATH"
+  ],
+  "generated_at": "2026-08-20T12:19:46Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "T1 is a two-stage framework: it first filters candidate responses using external tools, such as a code interpreter, then uses a small language model for final verification on the filtered candidates. This offloads memorization-heavy verification steps -- numerical calculation, fact-checking -- from the small model to the tools.",
+  "methods": [
+    "T1",
+    "code interpreter tool integration",
+    "process reward models",
+    "critic models"
+  ],
+  "one_liner": "T1 is a two-stage test-time-scaling framework for small language models that filters candidate responses with external tools before a small-model verifier makes the final judgment, offloading memorization-heavy checks to the tools.",
+  "paper_id": "title:b2629aee97cadc77",
+  "problem": "Test-time compute scaling for small language models has mainly relied on a larger external model as verifier; whether small language models themselves can reliably verify candidates is underexplored, and they struggle with verification tasks requiring memorization -- numerical calculations, fact-checking -- even with knowledge distillation from larger verifiers.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly concerns test-time compute scaling: proposes a verification method that lets small models allocate extra inference-time compute effectively by offloading memorization to external tools, addressing the verifier-quality mechanism that determines whether extra test-time compute is used well."
+  },
+  "results": "On the MATH benchmark, a Llama-3.2 1B model using T1 under test-time scaling outperforms the larger Llama-3.1 8B model; T1 also improves the verification accuracy of both process reward models (PRMs) and critic models.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "small-language-models",
+    "verification",
+    "tool-use"
+  ]
+}

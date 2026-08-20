@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "test-time compute allocation",
+    "bandit learning",
+    "query difficulty estimation"
+  ],
+  "contributions": [
+    "Formulates test-time compute allocation across queries as a bandit learning problem",
+    "Adaptive algorithm that estimates query difficulty online and allocates more compute to harder queries while preserving accuracy on easier ones",
+    "Identifies solvable-but-hard instances to avoid wasting compute on effectively unsolvable queries",
+    "Theoretical guarantees of improved efficiency over uniform compute allocation"
+  ],
+  "datasets": [
+    "MATH-500",
+    "AIME25",
+    "LiveCodeBench"
+  ],
+  "generated_at": "2026-08-20T12:23:08Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Casts the problem of distributing a test-time compute budget across a stream of queries as a bandit learning problem. The algorithm adaptively estimates each query's difficulty as it goes and allocates more compute (more reasoning/sampling effort) to harder queries and less to easier ones, while also trying to detect instances that are difficult but effectively unsolvable so compute is not wasted on them.",
+  "methods": [
+    "bandit learning algorithm for compute allocation"
+  ],
+  "one_liner": "Formulates test-time compute allocation across queries as a bandit learning problem so that harder queries get more compute and easier ones get less.",
+  "paper_id": "title:de00054e3faab991",
+  "problem": "Allocating test-time compute uniformly across all queries is wasteful: easy queries receive more compute than they need and very hard (possibly unsolvable) queries can consume large amounts of compute without a proportional accuracy gain.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets the accuracy/efficiency tradeoff at the center of the topic by adaptively deciding, per query, how much test-time compute to spend based on estimated difficulty, rather than a fixed budget applied to every query regardless of need."
+  },
+  "results": "Roughly 11 percentage points (about 15% relative) improvement on MATH-500, about 10.8 points (14.4% relative) on AIME25, and about 11.2 points (15.3% relative) on LiveCodeBench, compared to uniform compute allocation.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-compute",
+    "bandit-learning",
+    "adaptive-allocation",
+    "reasoning-efficiency"
+  ]
+}

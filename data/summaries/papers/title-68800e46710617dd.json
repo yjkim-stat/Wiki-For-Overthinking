@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "process reward model (PRM) signals",
+    "weighted signal aggregation"
+  ],
+  "contributions": [
+    "A theoretical framework for optimal weighted aggregation of LLM (e.g. self-consistency) and PRM signals for test-time response selection",
+    "Finding that optimal weighting functions differ significantly across LLM-PRM pairs and frequently include negative weights",
+    "A pre-computation method to calibrate the weighting function before inference"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:40Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The paper observes that simple majority voting, which ignores PRM signals, occasionally outperforms standard PRM-based selection. It derives a theoretical framework showing that the optimal way to select a response at test time is a weighted aggregation of the LLM's own signal (e.g. self-consistency) and the PRM's signal, rather than relying on either alone. The optimal weighting function is shown to vary by LLM-PRM pair and can include negative weights; it is calibrated via a pre-computation step before inference rather than learned online.",
+  "methods": [
+    "weighted aggregation of LLM and PRM signals",
+    "process reward model (PRM) scoring",
+    "self-consistency / majority voting"
+  ],
+  "one_liner": "Derives and calibrates an optimal weighted combination of LLM self-consistency and PRM signals for selecting responses at test time, cutting compute needed for comparable accuracy.",
+  "paper_id": "title:68800e46710617dd",
+  "problem": "How to best combine signals from an LLM and a process reward model (PRM) when selecting a final answer during test-time scaling is unclear, and naive PRM-based selection can be outperformed by simple majority voting that ignores the PRM entirely.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses how to spend a fixed test-time compute budget efficiently: the paper's calibrated aggregation of LLM and PRM signals reaches comparable accuracy to standard test-time scaling approaches at roughly 21% of the compute, directly bearing on the accuracy/efficiency tradeoff of test-time compute."
+  },
+  "results": "Testing across multiple models shows the calibrated aggregation method achieves comparable accuracy to standard test-time scaling approaches while reducing the computational requirement to approximately 21% of the standard approach's cost.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "prm",
+    "aggregation",
+    "efficiency",
+    "response-selection"
+  ]
+}

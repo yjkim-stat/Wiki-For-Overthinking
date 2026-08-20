@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "A statistical framework for updating a belief (e.g. a prediction of prompt difficulty, or of how useful a training example will be) from prior assumptions plus observed evidence. In the archived sources it appears as the tool behind two training-efficiency methods: predicting which RL training prompts are informative from partial reward history, and a small, prompt-generic Bayesian predictor of prompt difficulty learned from shared optimization history, used to select prompts for efficient RL post-training of reasoning models.",
+  "evidence": [
+    {
+      "id": "title:0af2f5eb8565eb12",
+      "kind": "paper",
+      "note": "Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.",
+      "title": "Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models"
+    },
+    {
+      "id": "title:ccc7bb1e86bc9d88",
+      "kind": "paper",
+      "note": "Trains a small, prompt-generic Bayesian predictor of prompt difficulty from shared RL optimization history to select informative training prompts and reduce rollout cost when RL-training large reasoning models.",
+      "title": "Small Generalizable Prompt Predictive Models Can Steer Efficient RL Post-Training of Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "Bayesian inference",
+  "related": [
+    "active-learning-for-rl-data-selection",
+    "learning-dynamics-prediction",
+    "hidden-markov-model-over-reward-trajectories",
+    "hidden-markov-model",
+    "reinforcement-learning-fine-tuning",
+    "prompt-difficulty-prediction",
+    "online-prompt-selection",
+    "rl-post-training-efficiency",
+    "generalizable-predictive-prompt-selection-gps"
+  ],
+  "related_authored": [
+    "reinforcement-learning"
+  ],
+  "schema_version": 1,
+  "slug": "bayesian-inference",
+  "topics": [
+    "overthinking"
+  ]
+}

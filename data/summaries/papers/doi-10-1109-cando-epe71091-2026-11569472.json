@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "self-refinement",
+    "test-time compute scaling",
+    "parameter-efficient reasoning models"
+  ],
+  "contributions": [
+    "Examines the fundamental characteristics of reasoning models and the methodologies used to enhance their mathematical-logical performance.",
+    "Presents an empirical study applying the self-refinement test-time compute scaling technique to a parameter-efficient model (Qwen 0.6B)."
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:09:23Z",
+  "generated_by": "queue",
+  "limitations": "The payload provides only the abstract (no attached PDF, no reachable full text found); no numerical results, benchmark names, or stated limitations are available from the accessible material. The paper appears to be a short workshop-style contribution (IEEE CANDO-EPE 2026) and its full text could not be retrieved.",
+  "method": "Not stated beyond the abstract: the paper applies a self-refinement test-time compute scaling technique to a parameter-efficient reasoning model (Qwen 0.6B), presumably having the model iteratively critique and revise its own output to improve mathematical-logical performance, but the mechanism, prompts, and iteration budget are not described in the available material.",
+  "methods": [
+    "Self-refinement",
+    "Test-time compute scaling",
+    "Qwen 0.6B"
+  ],
+  "one_liner": "A short empirical study applying self-refinement test-time compute scaling to a small parameter-efficient reasoning model (Qwen 0.6B) to examine gains in mathematical-logical performance.",
+  "paper_id": "doi:10.1109/cando-epe71091.2026.11569472",
+  "problem": "How to enhance the mathematical-logical performance of reasoning-model LLMs, examined here specifically for a small, parameter-efficient model where full test-time scaling budgets may be less affordable.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "On-topic by subject matter: it directly studies a test-time compute scaling method (self-refinement) applied to a reasoning model, which is squarely within the topic's scope of test-time compute scaling and the accuracy/efficiency tradeoff of reasoning. However, the only available material is a brief abstract with no numerical results, benchmarks, or discussion of when self-refinement helps versus wastes compute (i.e. no explicit overthinking/underthinking analysis), so its actual contribution to the topic cannot be assessed beyond the fact that it evaluates one scaling technique on one small model."
+  },
+  "results": "Not stated in the available abstract; no numbers, benchmarks, or comparisons are given, and the full text could not be retrieved.",
+  "schema_version": 1,
+  "tags": [
+    "self-refinement",
+    "test-time-compute",
+    "reasoning-models",
+    "qwen",
+    "parameter-efficient"
+  ]
+}

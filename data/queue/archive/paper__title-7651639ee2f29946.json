@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:38Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7651639ee2f29946",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+    "url": "https://icml.cc/virtual/2026/poster/64487",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "hierarchical reasoning as a finite state machine",
+      "latent cognitive states",
+      "reasoning as a planning problem"
+    ],
+    "contributions": [
+      "Proposes a memoryless Finite State Machine formulation approximating a large reasoning model's hierarchical reasoning dynamics as transitions among six abstract cognitive states (initialization, deduction, augmentation-strategy, uncertainty-estimation, backtracking, final-conclusion).",
+      "Shows these states and transitions can be read out of the model's latent representations.",
+      "Identifies statistical shifts in state-transition topology that distinguish successful from failed reasoning chains.",
+      "Introduces Q-Value guided steering, a training-free inference-time control method that estimates long-horizon utility of state transitions and applies sparse, orthogonal activation steering at sentence boundaries to align generation with better reasoning policies."
+    ],
+    "datasets": [
+      "AIME25",
+      "MATH-500",
+      "GSM8K",
+      "GPQA Diamond"
+    ],
+    "limitations": "The source consulted (arXiv abstract, no PDF available) does not give absolute accuracy numbers for Q-Value steering, only that it needs about 25x fewer interventions than greedy and weighted baselines; details of the three reasoning models used and any domains where the FSM abstraction breaks down are not stated.",
+    "method": "The paper models a large reasoning model's chain-of-thought as a trajectory through a memoryless Finite State Machine over six abstract cognitive states, decoded from the model's latent activations. It analyzes the topology of transitions between these states to distinguish reasoning chains that succeed from those that fail, and builds on this with Q-Value guided steering: a training-free method that estimates the long-horizon utility of each state transition and nudges generation via sparse, orthogonal activation steering applied at sentence boundaries, treating reasoning as a planning problem over these states.",
+    "methods": [
+      "Finite State Machine reasoning-state model",
+      "Q-Value guided steering",
+      "activation steering"
+    ],
+    "one_liner": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+    "problem": "The emergent dynamics governing large reasoning models' chain-of-thought trajectories are not well understood, which can lead to reasoning inconsistencies and pathologies; the paper seeks an interpretable, structured abstraction of these dynamics usable for both understanding and control.",
+    "relevance": {
+      "overthinking": "Provides a mechanism for controlling reasoning trajectories (steering toward states associated with successful chains, away from those linked to failure/backtracking loops) at inference time without retraining, which is directly relevant to deciding when a model should stop backtracking/deliberating versus proceed to a conclusion -- though the paper frames this as reasoning-quality control rather than explicitly as a length/compute-budget tradeoff."
+    },
+    "results": "Across four benchmarks (AIME25, MATH-500, GSM8K, GPQA Diamond) and three state-of-the-art open reasoning models, Q-Value guided steering achieves performance gains while requiring roughly 25 times fewer interventions than greedy and weighted steering baselines; no absolute accuracy figures were available in the abstract consulted.",
+    "tags": [
+      "reasoning-dynamics",
+      "finite-state-machine",
+      "activation-steering",
+      "interpretability",
+      "inference-time-control"
+    ]
+  },
+  "task_id": "paper__title-7651639ee2f29946",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

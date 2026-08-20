@@ -1,0 +1,39 @@
+{
+  "abstract": "Test-time compute can substantially improve Large Language Model (LLM) reasoning performance, yet how and when additional compute helps remains poorly understood. We study Divergent-Convergent Reasoning (DCR), a simple two-phase primitive consisting of an exploration phase that generates multiple candidate solutions followed by a convergent reconciliation phase. We present three core results. First, we show that even a single reconciliation step can reliably amplify correct minority reports: across datasets, DCR often recovers the correct answer when correct exploration outputs are in the minority, a regime where majority voting fails. Second, we introduce recursive DCR, an autoregressive reconciliation system that iteratively analyzes disagreements and allocates additional test-time compute. Recursive DCR achieves higher accuracy than fixed-compute baselines-reaching 93.3% on AIME 2024 and 92.0% on AIME 2025-while using roughly 27% less compute on average, demonstrating that attentive resource allocation is superior to uniform scaling. Third, we analyze disagreement among exploration outputs via a simple, training-free dispersion metric. Dispersion reveals a structured relationship between disagreement and test-time gains: in regimes where DCR is effective, higher disagreement among exploration outputs is associated with larger accuracy improvements from reconciliation. Together, these results show that disagreement, often viewed as noise, can be systematically exploited to improve test-time reasoning and reveal emerging scaling laws for agentic LLM systems.",
+  "arxiv_id": "2608.15303",
+  "authors": [
+    "Bo Wen",
+    "Yuhao Chen",
+    "Erhan Bilal",
+    "Carla Agurto Rios",
+    "Chen Wang",
+    "Junchen Jiang"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T11:44:35Z",
+  "id": "arxiv:2608.15303",
+  "last_seen": "2026-08-20T11:44:35Z",
+  "local_path": "data/pdfs/read/arxiv-2608-15303.pdf",
+  "matched_keywords": [
+    "test-time compute"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.15303v1",
+  "published": "2026-08-15",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "arxiv",
+  "source_id": "2608.15303v1",
+  "title": "Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-08-15",
+  "url": "https://arxiv.org/abs/2608.15303",
+  "venue": "",
+  "year": 2026
+}

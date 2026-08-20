@@ -1,0 +1,33 @@
+{
+  "abstract": "Abstract Large Reasoning Models (LRMs) demonstrate exceptional capability in tackling complex mathematical, logical, and coding tasks by leveraging extended Chain-of-Thought (CoT) reasoning. Test-time scaling methods—such as prolonging CoT with explicit token-level exploration—can push LRMs’ accuracy boundaries, but they incur significant decoding overhead. A key inefficiency source is LRMs often generate redundant thinking CoTs, which demonstrate clear structured overthinking and underthinking patterns. Inspired by human cognitive reasoning processes and numerical optimization theories, we propose TrimR, a verifier-based, training-free, efficient framework to trim reasoning and enhance test-time scaling, explicitly tailored for production-level deployment. Our method employs a lightweight, pretrained, instruction-tuned verifier to detect and truncate redundant intermediate thoughts of LRMs without any LRM or verifier fine-tuning. We present both the core algorithm and asynchronous online system engineered for high-throughput industrial applications. Empirical evaluations on Ascend NPUs and vLLM show that our framework delivers substantial gains in inference efficiency under large-batch workloads. In particular, on the four MATH500, AIME24/25, and GPQA benchmarks, the reasoning runtime of QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, and Pangu-R-38B is improved by up to 70% with negligible impact on accuracy.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:b987d2649d32f1f3",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "underthinking",
+    "test time scaling",
+    "large reasoning model"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "virtualsite",
+  "source_id": "iclr-2026-10007390",
+  "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://iclr.cc/virtual/2026/poster/10007390",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

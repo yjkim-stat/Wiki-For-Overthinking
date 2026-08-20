@@ -1,0 +1,52 @@
+{
+  "aliases": [
+    "budget forcing"
+  ],
+  "definition": "Scaling test-time compute by extending a single reasoning trace further (more sequential tokens), as opposed to parallel scaling (more independent samples). ThinkRetrieve augments each step of such a sequential trace with a retrieved worked example; 'Wait, Do We Need to Wait?' stress-tests the standard sequential-scaling technique (budget forcing via a 'Wait' keyword) across model families and finds it does not generalize cleanly.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.10928",
+      "kind": "paper",
+      "note": "ThinkRetrieve augments each step of a reasoning model's chain of thought with a dynamically retrieved, fully worked solved example (rather than just facts), consistently beating standard sequential test-time scaling on math and QA benchmarks.",
+      "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
+    },
+    {
+      "id": "title:7071aa99216bb67f",
+      "kind": "paper",
+      "note": "Revisits budget forcing -- forcing a reasoning model to keep thinking or to stop via a keyword like 'Wait' -- and empirically tests how well it generalizes across model families, non-reasoning models, and alternative keywords.",
+      "title": "Wait, Do We Need to Wait? Revisiting Budget Forcing for Sequential Test-Time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "sequential test-time scaling",
+  "related": [
+    "diminishing-negative-returns-from-longer-reasoning-traces",
+    "retrieval-augmented-reasoning",
+    "in-context-exemplar-injection-at-each-reasoning-step",
+    "predictive-entropy-of-final-answers-as-a-proxy-for-reasoning-quality",
+    "thinkretrieve",
+    "sequential-test-time-scaling-budget-forcing-muennighoff-et-al-2025",
+    "static-input-level-icl-s-icl-baseline",
+    "random-per-step-retrieval-rand-baseline",
+    "e5-large-dense-retrieval-with-faiss-indexing",
+    "self-consistency-majority-voting-compute-matched-comparison",
+    "gsm8k",
+    "math-500",
+    "aime-2025",
+    "sciq",
+    "numinamath-1-5-synthetic-split-used-as-external-example-corpus",
+    "budget-forcing",
+    "stopping-keyword-control"
+  ],
+  "related_authored": [
+    "budget-forcing",
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "sequential-test-time-scaling",
+  "topics": [
+    "overthinking"
+  ]
+}

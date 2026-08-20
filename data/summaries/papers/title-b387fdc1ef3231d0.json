@@ -1,0 +1,42 @@
+{
+  "concepts": [
+    "adversarial embedding attack",
+    "backdoor trigger",
+    "induced reasoning loop",
+    "resource exhaustion",
+    "overthinking as attack surface"
+  ],
+  "contributions": [
+    "The Deadlock Attack: a resource-exhaustion attack that hijacks an LRM's generative control flow to induce perpetual reasoning loops",
+    "A trained adversarial embedding that biases the model toward transitional tokens (e.g. 'Wait', 'But') so it never concludes its answer",
+    "A backdoor implantation strategy that solves the continuous-to-discrete projection gap, enabling reliable activation via specific trigger tokens",
+    "100% attack success rate across four LRMs and three math reasoning benchmarks, forcing generation up to the maximum token limit",
+    "Shows the attack is stealthy (negligible utility loss on benign inputs) and remains robust against existing methods for mitigating overthinking"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:07:24Z",
+  "generated_by": "queue",
+  "limitations": "Abstract does not report a numeric figure for the 'negligible' utility loss on benign inputs, does not name the three math reasoning benchmarks, and does not discuss whether the attack requires white-box access to train the adversarial embedding and implant the backdoor.",
+  "method": "The attack optimizes an adversarial token embedding that, when present, biases the model's generation toward transitional tokens such as 'Wait' and 'But' after each reasoning step, preventing it from concluding. Because naive projection of a continuous adversarial embedding to discrete tokens nullifies the effect, the authors instead implant it as a backdoor: reliable activation is achieved through specific trigger tokens rather than the embedding itself, letting the attack survive the continuous-to-discrete gap.",
+  "methods": [
+    "Deadlock Attack",
+    "adversarial embedding optimization",
+    "backdoor implantation"
+  ],
+  "one_liner": "The Deadlock Attack trains a backdoored adversarial token embedding that forces large reasoning models into perpetual chain-of-thought loops, achieving a 100% attack success rate across four LRMs and three math benchmarks.",
+  "paper_id": "title:b387fdc1ef3231d0",
+  "problem": "The iterative chain-of-thought mechanism of large reasoning models introduces a new resource-exhaustion vulnerability, but naive adversarial embeddings fail to survive the continuous-to-discrete projection needed to actually trigger the exploit via real input tokens.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly engages the topic from an adversarial angle: it shows the overthinking failure mode (a model that keeps reasoning instead of stopping) can be deliberately and reliably induced via a backdoored embedding, and reports that the attack remains robust against existing strategies meant to mitigate overthinking - relevant to understanding what makes a model fail to stop at the right point."
+  },
+  "results": "100% attack success rate across four LRMs (Phi-RM, Nemotron-Nano, R1-Qwen, R1-Llama) and three math reasoning benchmarks, forcing models to generate up to their maximum token limit; negligible utility loss on benign inputs; robust against existing overthinking-mitigation strategies.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "adversarial-attack",
+    "backdoor",
+    "reasoning-loop",
+    "security"
+  ]
+}

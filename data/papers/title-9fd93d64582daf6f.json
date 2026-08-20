@@ -1,0 +1,30 @@
+{
+  "abstract": "Abstract Uncertainty-aware meta-learning aims not only for rapid adaptation to new tasks but also for reliable uncertainty estimation under limited supervision. Neural Processes (NPs) offer a flexible solution by learning implicit stochastic processes directly from data, often using a global latent variable to capture functional uncertainty. However, we empirically find that variational posteriors for this global latent variable are frequently miscalibrated, limiting both predictive accuracy and the reliability of uncertainty estimates. To address this issue, we propose Test Time Scaling for Neural Processes (TTSNPs), a sequential inference framework based on Sequential Monte Carlo Sampler (SMCS) that refines latent samples at test time without modifying the pre-trained NP model. TTSNPs iteratively transform variational samples into better approximations of the true posterior using neural transition kernels, significantly improving both prediction quality and uncertainty calibration. This makes NPs more robust and trustworthy, extending applicability to various scenarios requiring well-calibrated uncertainty estimates.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:9fd93d64582daf6f",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-119684",
+  "title": "Test Time Scaling for Neural Processes",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/119684",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

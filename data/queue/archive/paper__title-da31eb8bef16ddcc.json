@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:20Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:da31eb8bef16ddcc",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "ContextPRM: Leveraging Contextual Coherence for multi-domain Test-Time Scaling",
+    "url": "https://iclr.cc/virtual/2026/poster/10011128",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "contextual coherence between chain-of-thought steps",
+      "domain-agnostic process reward modeling",
+      "test-time scaling via verifier-weighted voting"
+    ],
+    "contributions": [
+      "A domain-agnostic process reward model (PRM) annotation and training framework based on contextual coherence between CoT steps rather than domain-specific knowledge checking",
+      "Demonstrates test-time-scaling gains via weighted voting that generalize beyond mathematics to non-mathematical MMLU-Pro domains"
+    ],
+    "datasets": [
+      "MMLU-Pro (nine non-mathematical domains, including law, history, philosophy)"
+    ],
+    "limitations": "",
+    "method": "ContextPRM is a process reward model trained with a new annotation and training scheme that scores the contextual coherence, i.e. the domain-agnostic logical flow, between successive chain-of-thought steps, instead of verifying domain-specific facts as prior PRMs do. At test time, ContextPRM scores are used to weight votes among multiple sampled reasoning chains (weighted voting), a form of test-time compute scaling.",
+    "methods": [
+      "ContextPRM",
+      "process reward model",
+      "weighted voting"
+    ],
+    "one_liner": "Trains a process reward model that scores chain-of-thought coherence instead of domain knowledge, and uses it to weight votes among sampled reasoning chains for test-time scaling across math and non-math domains.",
+    "problem": "Existing process reward models are trained to verify domain-specific knowledge, which limits how well test-time-scaling techniques such as weighted voting generalize beyond mathematical reasoning to other domains.",
+    "relevance": {
+      "overthinking": "Addresses the test-time-compute-scaling strand of the topic: a process reward model used to weight votes among sampled reasoning chains, generalized across domains (6.5% average accuracy gain over majority voting on nine non-mathematical MMLU-Pro domains, versus 2.2% for VersaPRM and 0.5% for math-focused PRMs). It targets the verification/selection side of scaling test-time compute, not reasoning length, stopping criteria, or the overthinking/underthinking tradeoff directly."
+    },
+    "results": "6.5% average accuracy improvement over majority voting via weighted voting across nine non-mathematical MMLU-Pro domains; outperforms VersaPRM (2.2% improvement) and mathematics-focused PRMs (0.5% improvement); comparable performance is reported across both mathematical and non-mathematical domains.",
+    "tags": [
+      "process-reward-model",
+      "test-time-scaling",
+      "best-of-n",
+      "weighted-voting"
+    ]
+  },
+  "task_id": "paper__title-da31eb8bef16ddcc",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

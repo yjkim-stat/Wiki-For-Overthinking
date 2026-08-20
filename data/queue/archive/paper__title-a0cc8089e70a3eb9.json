@@ -1,0 +1,87 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:45Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:a0cc8089e70a3eb9",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract While large reasoning models trained with critic-free reinforcement learning and verifiable rewards (RLVR) represent the state-of-the-art, their practical utility is hampered by ``overthinking'', a critical issue where models generate excessively long reasoning paths without any performance benefit. Existing solutions that penalize length often fail, inducing performance degradation due to a fundamental misalignment between trajectory-level rewards and token-level optimization. In this work, we introduce a novel framework, DECS, built on our theoretical discovery of two previously unaddressed flaws in current length rewards: (1) the erroneous penalization of essential exploratory tokens and (2) the inadvertent rewarding of partial redundancy. Our framework's innovations include (i) a first-of-its-kind decoupled token-level reward mechanism that surgically distinguishes and penalizes redundant tokens, and (ii) a novel curriculum batch scheduling strategy to master the efficiency-efficacy equilibrium. Experimental results show DECS can achieve a dramatic reduction in reasoning tokens by over 50\\% across seven benchmarks while simultaneously maintaining or even improving performance. It demonstrates conclusively that substantial gains in reasoning efficiency can be achieved without compromising a model's underlying reasoning power. Code is available at \\url{https://github.com/pixas/DECS}.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling",
+    "url": "https://iclr.cc/virtual/2026/poster/10007765",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "trajectory-level vs token-level reward misalignment",
+      "reward decoupling",
+      "curriculum scheduling"
+    ],
+    "contributions": [
+      "Identifies two flaws in current length-based rewards: erroneous penalization of essential exploratory tokens, and inadvertent rewarding of partial redundancy",
+      "Introduces a decoupled token-level reward mechanism that distinguishes and penalizes redundant tokens specifically",
+      "Introduces a curriculum batch scheduling strategy to balance efficiency and efficacy"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "DECS is built on a theoretical diagnosis that trajectory-level length rewards misalign with token-level optimization, both erroneously penalizing exploratory tokens and rewarding partial redundancy. It introduces a decoupled token-level reward that surgically distinguishes and penalizes redundant tokens, combined with a curriculum batch scheduling strategy that sequences training data to master the efficiency-efficacy equilibrium.",
+    "methods": [
+      "DECS"
+    ],
+    "one_liner": "Introduces DECS, a decoupled token-level reward plus curriculum batch scheduling method that cuts reasoning-token length by over 50% while maintaining or improving accuracy in RLVR-trained reasoning models.",
+    "problem": "Large reasoning models trained with critic-free RLVR exhibit \"overthinking\": generating excessively long reasoning paths without performance benefit. Existing length-penalizing solutions often degrade performance because trajectory-level length rewards are misaligned with token-level optimization.",
+    "relevance": {
+      "overthinking": "Directly targets overthinking in RLVR-trained reasoning models: diagnoses why trajectory-level length penalties fail when applied to token-level optimization, then proposes a decoupled token-level reward and curriculum scheduling that cut reasoning tokens by over 50% across seven benchmarks without hurting accuracy."
+    },
+    "results": "Reduces reasoning tokens by over 50% across seven benchmarks while maintaining or improving performance compared to baseline RLVR training.",
+    "tags": [
+      "overthinking",
+      "rlvr",
+      "reward-shaping",
+      "reasoning-efficiency"
+    ]
+  },
+  "task_id": "paper__title-a0cc8089e70a3eb9",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

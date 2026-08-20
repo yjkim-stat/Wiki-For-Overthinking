@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.",
+        "title": "Inverse Scaling in Test-Time Compute",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reports 11 tasks, found via the Inverse Scaling Prize contest, on which language model accuracy declines as model parameter count and training compute increase, and analyzes why.",
+        "title": "Inverse Scaling: When Bigger Isn't Better",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:51Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'inverse scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "inverse scaling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "inverse scaling",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A finding, or a task designed to produce one, where a model performs worse as it is given more of some resource -- more parameters, or more test-time reasoning -- rather than better. The archive holds two distinct sources under this name: 'Inverse Scaling in Test-Time Compute' constructs tasks where letting large reasoning models think longer degrades accuracy or safety-relevant behavior; the original 'Inverse Scaling: When Bigger Isn't Better' (Inverse Scaling Prize) instead reports 11 tasks where accuracy declines with model parameter count, an unrelated axis of scaling.",
+    "kind": "concept",
+    "related": [
+      "test-time compute scaling",
+      "overthinking"
+    ]
+  },
+  "task_id": "concept__inverse-scaling",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:58Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:880a578164e13b53",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Multi-Objective Protein Design via Memory-Aware Test-Time Scaling in Diffusion Models",
+    "url": "https://icml.cc/virtual/2026/poster/65578",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "memory-aware test-time diffusion",
+      "self-contrastive preference learning",
+      "Pareto alignment for multi-objective design"
+    ],
+    "contributions": [
+      "MoMST, a test-time diffusion framework for multi-objective protein design that requires no retraining to adapt to new objectives.",
+      "A memory bank that captures generalizable reasoning experience from historical design iterations to avoid repetitive design errors.",
+      "Self-contrastive learning that derives preference signals from both successful and unsuccessful past attempts, plus a Pareto alignment strategy for balancing conflicting design objectives during inference."
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "During iterative test-time diffusion sampling for protein sequences/structures, MoMST maintains a memory bank of past design iterations and their outcomes, from which it extracts generalizable experience rather than relying only on the most recent successful sample. A self-contrastive learning signal is derived by contrasting successful and unsuccessful past iterations, and a Pareto alignment strategy balances multiple, potentially competing, functional objectives during generation, all without retraining the underlying diffusion model.",
+    "methods": [
+      "MoMST",
+      "test-time diffusion",
+      "self-contrastive learning",
+      "Pareto alignment"
+    ],
+    "one_liner": "Adds a memory bank and self-contrastive preference signal to test-time diffusion sampling so a protein-design model can balance multiple, sometimes conflicting, functional objectives without retraining.",
+    "problem": "Multi-objective protein design requires optimizing several functions at once, and existing test-time diffusion approaches learn poorly from their own interaction history (repeating design errors), overweight successful outcomes for reward, and struggle to balance competing objectives.",
+    "relevance": {
+      "overthinking": "Tangential, as expected from the domain: this paper applies 'test-time scaling' to diffusion-model-based protein design, not to a large reasoning model's chain-of-thought. It shares only the generic phrase 'test-time scaling' with the tracked topic; there is no reasoning-length, chain-of-thought, or stopping-criterion content connecting it to overthinking/underthinking in LRMs."
+    },
+    "results": "No specific benchmark numbers were available in the retrieved material (no PDF or numeric results found on the paper's ICML page); the paper reports strong performance on single- and multi-objective design tasks relative to baselines.",
+    "tags": [
+      "protein-design",
+      "diffusion-models",
+      "test-time-scaling",
+      "multi-objective"
+    ]
+  },
+  "task_id": "paper__title-880a578164e13b53",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

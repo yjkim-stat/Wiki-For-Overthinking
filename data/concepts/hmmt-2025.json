@@ -1,0 +1,116 @@
+{
+  "aliases": [
+    "HMMT'25",
+    "HMMT25"
+  ],
+  "definition": "The 2025 Harvard-MIT Mathematics Tournament, used as a hard competition-math benchmark alongside AIME. In the archive's 5 sources it appears in Gambit's thought-level beam search, Consilience's verifier-free selection metric, claim-level test-time-compute reallocation (CLR), and as one of the hard-math sources OptimalThinkingBench draws UnderthinkingBench tasks from. Note: previously split across two spellings (HMMT'25, HMMT 2025) -- merged into this one after a 2026-08-20 pipeline fix.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.08020",
+      "kind": "paper",
+      "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
+      "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.11994",
+      "kind": "paper",
+      "note": "CLR reallocates part of the test-time compute budget from generating more solution samples to falsifying a small set of decision-critical claims extracted from each trace, improving accuracy over self-consistency while using fewer tokens on some models.",
+      "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning"
+    },
+    {
+      "id": "local:49199e3b0f694ee1",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "title:441c8494292f11c7",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "HMMT 2025",
+  "related": [
+    "constrained-compute-allocation-over-partial-reasoning-trajectories",
+    "zero-sum-reallocation-policy-for-a-fixed-capacity-trace-pool",
+    "decoupled-scheduler-view-vs-tree-ghost-trace-view-for-memory-management",
+    "thought-level-vs-token-level-beam-search",
+    "gambit-thought-level-beam-search",
+    "step-hidden-state-scorer",
+    "prefix-caching-kv-cache-sharing-branching",
+    "self-consistency-baseline",
+    "slim-sc-baseline",
+    "deepconf-baseline",
+    "step-subtractive-pruning-baseline",
+    "aime-2025",
+    "aime-2026",
+    "hmmt-2024",
+    "gpqa-diamond",
+    "temporal-confidence-asymmetry-low-initial-high-final-confidence",
+    "premature-convergence-vs-exploratory-branching-in-reasoning-trajectories",
+    "reasoning-phase-isolation-separating-chain-of-thought-from-final-answer-tokens",
+    "the-long-tail-trap-of-confidence-maximization-on-hard-problems",
+    "consilience-score",
+    "self-certainty-baseline",
+    "deepconf-deepconf-20-baseline",
+    "pass-1",
+    "best-of-n-selection",
+    "reasoning-phase-isolation",
+    "mini-swe-agent-integration",
+    "livecodebench-v6",
+    "swe-bench-verified",
+    "claim-level-falsification",
+    "signal-dilution-in-whole-trace-reliability-evaluation",
+    "asymmetry-between-solution-construction-and-claim-refutation",
+    "nonlinear-reliability-weighted-consensus-aggregation",
+    "rescue-rate-overturning-incorrect-majority-consensus",
+    "claim-level-reliability-assessment-clr",
+    "self-consistency-cons-k-majority-voting",
+    "nonlinear-reliability-scoring",
+    "hmmt26",
+    "cmimc25",
+    "apex-shortlist",
+    "overthinking",
+    "underthinking",
+    "test-time-compute-scaling",
+    "thinking-token-budget",
+    "accuracy-efficiency-tradeoff-of-reasoning-length",
+    "hybrid-thinking-non-thinking-models",
+    "difficulty-based-routing-between-reasoning-modes",
+    "overthinkingbench",
+    "underthinkingbench",
+    "overthinking-adjusted-accuracy-oaa",
+    "auc-oaa",
+    "f1-otb-combined-metric",
+    "llm-as-a-judge-filtering-and-evaluation",
+    "l1-length-controlled-reinforcement-learning",
+    "adaptthink",
+    "verithinker",
+    "model-merging",
+    "trained-difficulty-based-router-oracle-router",
+    "math-hendrycks-et-al-levels-1-2-for-ovt-math",
+    "supergpqa-72-domain-source-for-ovt-general-question-generation",
+    "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "math-levels-1-2-for-ovt-math",
+    "supergpqa",
+    "reasoning-gym"
+  ],
+  "related_authored": [
+    "aime-2025"
+  ],
+  "schema_version": 1,
+  "slug": "hmmt-2025",
+  "topics": [
+    "overthinking"
+  ]
+}

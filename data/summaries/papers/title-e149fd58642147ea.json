@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "Monte Carlo Tree Search for LLM search",
+    "solver-guided code generation"
+  ],
+  "contributions": [
+    "Training-free framework (SolverLLM) that uses test-time scaling to solve diverse optimization problems without supervised training",
+    "Generates mathematical formulations and translates them into solver-ready code rather than solving directly",
+    "Modifies classical MCTS with dynamic expansion for adaptive formulation generation, prompt backpropagation for outcome-driven exploration, and uncertainty backpropagation that incorporates reward reliability",
+    "Outperforms prompt-based and learning-based baselines on six standard benchmark datasets"
+  ],
+  "datasets": [
+    "six standard optimization benchmark datasets (not individually named in the abstract)"
+  ],
+  "generated_at": "2026-08-20T12:23:08Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "SolverLLM does not solve an optimization problem directly; it generates a mathematical formulation of the problem and translates that formulation into solver-ready code, guided by a modified Monte Carlo Tree Search. The MCTS variant adds three components: dynamic expansion (adapts formulation generation during search), prompt backpropagation (propagates outcome-driven feedback to guide exploration), and uncertainty backpropagation (folds reward reliability into the search decisions).",
+  "methods": [
+    "Monte Carlo Tree Search (MCTS)",
+    "SolverLLM"
+  ],
+  "one_liner": "A training-free framework that uses MCTS-guided test-time search to turn optimization problems into solver-ready code instead of solving them directly.",
+  "paper_id": "title:e149fd58642147ea",
+  "problem": "Existing LLM approaches to optimization problems either rely on prompt engineering, which generalizes poorly across problem types, or require costly supervised training; the paper wants a training-free method that generalizes across optimization problem types.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Shares only the generic phrase 'test-time scaling' with the tracked topic. The paper uses MCTS-guided search at inference time to generate and refine solver code for combinatorial/mathematical optimization problems; it does not address reasoning-length overthinking or underthinking, stopping criteria, or the accuracy/efficiency tradeoff of an LLM's chain-of-thought length. The connection is tangential."
+  },
+  "results": "The abstract states SolverLLM outperforms both prompt-based and learning-based baselines on six standard benchmark datasets and achieves strong generalization without additional training; no specific accuracy numbers are given in the available material.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "mcts",
+    "optimization",
+    "code-generation",
+    "tangential"
+  ]
+}

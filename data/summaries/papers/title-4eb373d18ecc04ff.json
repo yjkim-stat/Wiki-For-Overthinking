@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "model stitching",
+    "accuracy-efficiency tradeoff curve",
+    "representation similarity (KL divergence)"
+  ],
+  "contributions": [
+    "Introduces KLAS, a stitch-selection framework that automates and generalizes the choice of which pretrained models to stitch, across model families.",
+    "Uses KL divergence between intermediate representations of pretrained models to identify promising binary stitches out of O(k^2 n^2) possibilities for k models of depth n.",
+    "Demonstrates improved accuracy-efficiency curves versus heuristic stitch-selection baselines at the same finetuning cost."
+  ],
+  "datasets": [
+    "ImageNet-1K"
+  ],
+  "generated_at": "2026-08-20T12:14:14Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Model stitching combines intermediate activations from one pretrained model into another to produce an interpolated network positioned between them on the accuracy-efficiency spectrum. Prior stitching methods pick which model pair/layer to stitch heuristically. KLAS instead measures the KL divergence between intermediate representations of candidate pretrained models and uses this similarity measure to select the most promising stitch configurations out of the full O(k^2 n^2) search space for k pretrained models of depth n.",
+  "methods": [
+    "KLAS",
+    "neural network stitching",
+    "KL-divergence-based stitch selection"
+  ],
+  "one_liner": "KLAS selects which pretrained vision models to stitch together by comparing their intermediate representations with KL divergence, producing better accuracy-efficiency tradeoff curves than heuristic stitch selection.",
+  "paper_id": "title:4eb373d18ecc04ff",
+  "problem": "Combining pretrained models via activation stitching can interpolate the accuracy-efficiency tradeoff for deployment, but existing stitch-selection methods rely on heuristics and produce suboptimal, non-generalizable tradeoffs.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. This is about selecting which layers of separate pretrained vision models to splice together to interpolate an accuracy/compute tradeoff across a pool of static architectures; it does not involve reasoning models, reasoning chains, or inference-time control of how much a model computes on a given input. It matched the topic only on the generic phrase 'accuracy-efficiency tradeoff'."
+  },
+  "results": "Up to 1.21 percentage points higher ImageNet-1K top-1 accuracy at the same computational cost as baseline stitching methods, or the same accuracy with a 1.33x reduction in FLOPs.",
+  "schema_version": 1,
+  "tags": [
+    "model-stitching",
+    "accuracy-efficiency-tradeoff",
+    "vision",
+    "model-selection"
+  ]
+}

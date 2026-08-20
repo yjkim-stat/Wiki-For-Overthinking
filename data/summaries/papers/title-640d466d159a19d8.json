@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "overthinking",
+    "semantic efficiency",
+    "information bias",
+    "information gain",
+    "entropy-based stopping"
+  ],
+  "contributions": [
+    "Proposes InfoBias, a metric quantifying divergence of a reasoning chain from an ideal reasoning path",
+    "Proposes InfoGain, a metric quantifying the stepwise information contribution of each reasoning step",
+    "Shows empirically that longer reasoning chains exhibit higher information bias and diminishing information gain, especially for incorrect answers",
+    "Introduces Adaptive Think, an entropy-based strategy that dynamically halts reasoning once confidence is sufficiently high",
+    "Reports a 1.10% average accuracy improvement and 50.80% token-usage reduction on QwQ-32B across six benchmarks versus default (Vanilla Think) reasoning"
+  ],
+  "datasets": [
+    "six benchmark tasks spanning diverse reasoning types and difficulty levels (unnamed in the abstract)"
+  ],
+  "generated_at": "2026-08-20T12:15:01Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Analyzes reasoning chains of Large Reasoning Models through an information-theoretic lens, defining InfoBias (divergence from an ideal reasoning path) and InfoGain (information contributed by each step) to quantify semantic efficiency. Based on the empirical finding that longer chains show rising InfoBias and shrinking InfoGain — more so when the final answer is wrong — the paper proposes Adaptive Think, an entropy-based stopping rule that halts generation once model confidence is high enough, instead of always running to a fixed or self-determined stopping point.",
+  "methods": [
+    "InfoBias metric",
+    "InfoGain metric",
+    "Adaptive Think (entropy-based adaptive stopping)"
+  ],
+  "one_liner": "Uses information-theoretic metrics (InfoBias, InfoGain) to show that longer reasoning chains in LRMs grow less informative and more divergent from an ideal path, and introduces an entropy-based stopping rule that cuts token usage while preserving accuracy.",
+  "paper_id": "title:640d466d159a19d8",
+  "problem": "Large Reasoning Models improve multi-step reasoning but often generate excessively long reasoning chains; the paper investigates the reasoning-length/semantic-efficiency tradeoff and how to decide when a chain has said enough.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "A direct, quantitative treatment of the topic: introduces information-theoretic measures showing that longer chains become less efficient (higher InfoBias, diminishing InfoGain), particularly for wrong answers — the fingerprint of overthinking — and proposes an explicit stopping method (entropy-based Adaptive Think) that improves accuracy by 1.10% while cutting token usage by 50.80% on QwQ-32B, i.e. a method to make a model stop at the right point."
+  },
+  "results": "On QwQ-32B across six benchmark tasks, Adaptive Think yields a 1.10% average accuracy improvement and a 50.80% reduction in token usage compared to Vanilla Think (the default reasoning mode). Longer reasoning chains are shown to correlate with higher InfoBias and diminishing InfoGain, especially when the answer is incorrect.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "information-theory",
+    "entropy",
+    "adaptive-stopping",
+    "reasoning-length",
+    "reasoning-efficiency"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "abstract": "Abstract We rethink test-time scaling laws from a practical efficiency perspective, revealing that the effectiveness of smaller models is significantly overestimated. Prior work, grounded in compute-optimality, overlooks critical memory access bottlenecks introduced by inference-time strategies (e.g., Best-of-N, long CoTs). Our holistic analysis, spanning models from 0.6B to 32B parameters, reveals a new Kinetics Scaling Law that better guides resource allocation by incorporating both computation and memory access costs. The Kinetics Scaling Law suggests that test-time compute is more effective when used on models above a threshold (14B) than on smaller ones. A key reason is that in test-time scaling, attention—rather than parameter count—emerges as the dominant cost factor. Motivated by this, we propose a new scaling paradigm centered on sparse attention, which lowers per-token cost and enables longer generations and more parallel samples within the same resource budget. Empirically, we show that sparse attention models consistently outperform dense counterparts, achieving over 60-point gains in low-cost regimes and over 5-point gains in high-cost regimes for problem-solving accuracy on AIME and LiveCodeBench. These results suggest that sparse attention is essential for realizing the full potential of test-time scaling because, unlike training where parameter scaling saturates, test-time accuracy continues to improve through increased generation.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:fe7ecea333b91370",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute",
+    "test time scaling"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-115931",
+  "title": "Kinetics: Rethinking Test-Time Scaling Law",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/115931",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

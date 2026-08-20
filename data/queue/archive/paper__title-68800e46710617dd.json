@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:40Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:68800e46710617dd",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Optimal Aggregation of LLM and PRM Signals for Efficient Test-Time Scaling",
+    "url": "https://iclr.cc/virtual/2026/poster/10006667",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "process reward model (PRM) signals",
+      "weighted signal aggregation"
+    ],
+    "contributions": [
+      "A theoretical framework for optimal weighted aggregation of LLM (e.g. self-consistency) and PRM signals for test-time response selection",
+      "Finding that optimal weighting functions differ significantly across LLM-PRM pairs and frequently include negative weights",
+      "A pre-computation method to calibrate the weighting function before inference"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "The paper observes that simple majority voting, which ignores PRM signals, occasionally outperforms standard PRM-based selection. It derives a theoretical framework showing that the optimal way to select a response at test time is a weighted aggregation of the LLM's own signal (e.g. self-consistency) and the PRM's signal, rather than relying on either alone. The optimal weighting function is shown to vary by LLM-PRM pair and can include negative weights; it is calibrated via a pre-computation step before inference rather than learned online.",
+    "methods": [
+      "weighted aggregation of LLM and PRM signals",
+      "process reward model (PRM) scoring",
+      "self-consistency / majority voting"
+    ],
+    "one_liner": "Derives and calibrates an optimal weighted combination of LLM self-consistency and PRM signals for selecting responses at test time, cutting compute needed for comparable accuracy.",
+    "problem": "How to best combine signals from an LLM and a process reward model (PRM) when selecting a final answer during test-time scaling is unclear, and naive PRM-based selection can be outperformed by simple majority voting that ignores the PRM entirely.",
+    "relevance": {
+      "overthinking": "Addresses how to spend a fixed test-time compute budget efficiently: the paper's calibrated aggregation of LLM and PRM signals reaches comparable accuracy to standard test-time scaling approaches at roughly 21% of the compute, directly bearing on the accuracy/efficiency tradeoff of test-time compute."
+    },
+    "results": "Testing across multiple models shows the calibrated aggregation method achieves comparable accuracy to standard test-time scaling approaches while reducing the computational requirement to approximately 21% of the standard approach's cost.",
+    "tags": [
+      "test-time-scaling",
+      "prm",
+      "aggregation",
+      "efficiency",
+      "response-selection"
+    ]
+  },
+  "task_id": "paper__title-68800e46710617dd",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

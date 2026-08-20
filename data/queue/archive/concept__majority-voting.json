@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An empirical study showing that test-time-compute methods effective for LLM reasoning mostly fail to transfer to vision-language models unless prediction diversity is present, and proposes an entropy-based selection method that works better in multi-model ensembles.",
+        "title": "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+        "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:51Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'majority voting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "majority voting",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "majority voting",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "self-consistency"
+    ],
+    "definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
+    "kind": "method",
+    "related": [
+      "self-consistency",
+      "best-of-N sampling"
+    ]
+  },
+  "task_id": "concept__majority-voting",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

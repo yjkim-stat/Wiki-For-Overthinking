@@ -1,0 +1,180 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Benchmarks model-based, training-based and N-gram-based speculative decoding methods as ways to accelerate token generation during LLM test-time scaling (Best-of-N, iterative reasoning), finding N-gram methods best exploit repetitive patterns.",
+        "title": "Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes a budget-aware Monte Carlo Tree Search policy (BG-MCTS) that reallocates exploration versus refinement as a fixed per-query token budget is consumed, for test-time scaling of LLMs.",
+        "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A GUI agent that samples and judges multiple candidate actions at test time and uses RL-trained click rewards to ground actions on interface elements more precisely.",
+        "title": "GTA1: GUI Test-time Scaling Agent",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
+        "title": "UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An ensemble of parallel agents using different tool-use strategies that iteratively refine and share answers, with a confidence-based rule to stop early and cut inference cost.",
+        "title": "TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
+        "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+        "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+        "title": "Test-Time Scaling with Reflective Generative Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Derives and calibrates an optimal weighted combination of LLM self-consistency and PRM signals for selecting responses at test time, cutting compute needed for comparable accuracy.",
+        "title": "Optimal Aggregation of LLM and PRM Signals for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ST-BoN cuts the cost of Best-of-N test-time scaling by using early sampling consistency in internal states to truncate unpromising candidates before they finish generating, without a reward model.",
+        "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Couples a vision-language model with a video-diffusion world model that synthesizes egocentric views along a VLM-proposed camera trajectory, using the resulting multi-view evidence to improve 3D spatial reasoning at inference time.",
+        "title": "MindJourney: Test-Time Scaling with World Models for Spatial Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "JETTS is a benchmark evaluating how well LLM-as-judge models perform as evaluators guiding test-time-scaling methods -- response reranking, step-level beam search, and critique-based refinement -- across math, code and instruction-following.",
+        "title": "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that test-time-scaling methods such as Monte Carlo Tree Search and Best-of-N become substantially more likely to produce unsafe outputs when candidate diversity is curtailed, using a diagnostic protocol called RefDiv.",
+        "title": "Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+        "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes a test-time scaling framework for visual auto-regressive image generation that searches over coarse-to-fine generation paths, improving GenEval score on Infinity2B from 0.69 to 0.75.",
+        "title": "TTS-VAR: A Test-Time Scaling Framework for Visual Auto-Regressive Generation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free framework that uses MCTS-guided test-time search to turn optimization problems into solver-ready code instead of solving them directly.",
+        "title": "SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:27:49Z",
+  "created_at": "2026-08-20T12:27:00Z",
+  "instructions": "Write the wiki definition for 'test-time scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "test-time scaling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "test-time scaling",
+    "source_count": 17
+  },
+  "result": {
+    "aliases": [
+      "test-time compute scaling",
+      "test-time compute"
+    ],
+    "definition": "Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher accuracy. This is the umbrella term the largest number of the archive's collected papers use, spanning genuine reasoning-length work (speculative decoding for reasoning models, budget-aware tree search) and many off-topic applications the topic's keyword filter also caught (GUI agents, diffusion-model image generation, protein design) where 'test-time scaling' means something unrelated to LLM reasoning length. Note: the archive's wiki tracks this same underlying idea under at least three overlapping entries (test-time scaling, test-time compute, test-time compute scaling) that were never merged -- this is the largest and most heavily overloaded of the three, and readers should treat individual sources under it on a paper-by-paper basis rather than assuming uniform relevance.",
+    "kind": "concept",
+    "related": [
+      "test-time compute scaling",
+      "test-time compute",
+      "overthinking"
+    ]
+  },
+  "task_id": "concept__test-time-scaling",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

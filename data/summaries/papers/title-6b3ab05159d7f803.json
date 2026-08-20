@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "extrapolation of test-time compute",
+    "in-context exploration",
+    "chaining asymmetric skills"
+  ],
+  "contributions": [
+    "Trains models via RL to perform systematic in-context exploration by chaining complementary skills (e.g. verification with generation)",
+    "Uses learning signal from incorrect reasoning paths to encourage deeper exploration",
+    "Introduces curriculum training that aligns task complexity with available compute budget",
+    "A 1.7B parameter model (e3) whose accuracy keeps improving as it is allowed to think for longer, extending gains to roughly 2x its original training token budget"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "e3 trains a model to perform in-context exploration by chaining complementary, asymmetric operations -- for example pairing answer verification with generation -- so that additional thinking tokens are spent productively rather than repeating the same reasoning. Training uses reinforcement learning that draws a learning signal from incorrect trajectories to push further exploration, combined with a curriculum that matches task difficulty to the compute budget available during training.",
+  "methods": [
+    "e3",
+    "curriculum training",
+    "chaining of asymmetric skills (verification + generation)"
+  ],
+  "one_liner": "Trains a 1.7B-parameter reasoning model to chain complementary skills like verification and generation in-context, so accuracy keeps improving as it thinks for longer, extending beyond its training token budget.",
+  "paper_id": "title:6b3ab05159d7f803",
+  "problem": "Most existing reasoning models do not extrapolate well: their accuracy stops improving, or degrades, once inference is allowed to run beyond the token budget used during training.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly addresses the 'think more' side of the tradeoff: it studies why models fail to keep improving as reasoning length grows past their training budget, and trains a model whose accuracy on hard problems keeps rising the longer it thinks, with gains extending to about 2x the original training budget."
+  },
+  "results": "The resulting 1.7B parameter model achieves competitive performance on mathematics benchmarks and shows improving accuracy on hard problems as it is allowed to keep thinking for longer, with the gains extending to roughly 2x the original training token budget.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-compute",
+    "extrapolation",
+    "exploration",
+    "reasoning-length",
+    "reinforcement-learning"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "mixture of semi-autoregressive experts (dLLMs)",
+    "block generation schedule",
+    "ensembling over generation orders"
+  ],
+  "contributions": [
+    "Identifies that diffusion large language models (dLLMs) trained on text implicitly learn a mixture of semi-autoregressive experts, where different generation orders reveal different specialized behaviors.",
+    "Shows that committing to a single fixed inference-time generation schedule collapses performance by not leveraging this latent ensemble.",
+    "Introduces HEX, a training-free inference method that ensembles across heterogeneous block schedules via majority vote to avoid failure modes tied to any one fixed schedule.",
+    "Reports large accuracy gains on reasoning and QA benchmarks without additional training."
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH",
+    "ARC-C",
+    "TruthfulQA"
+  ],
+  "generated_at": "2026-08-20T12:19:38Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not report the inference-time/compute overhead of running the majority vote across multiple block schedules, nor which specific dLLM model(s) were tested, nor behavior on tasks outside these four benchmarks.",
+  "method": "HEX (Hidden semi-autoregressive EXperts) treats a diffusion LLM's choice of block-generation schedule (the order/granularity in which masked tokens are filled in) as selecting among an implicit ensemble of semi-autoregressive experts. Instead of committing to one fixed schedule, HEX runs generation under several heterogeneous block schedules and takes a majority vote over the resulting outputs, without any additional training.",
+  "methods": [
+    "HEX (Hidden semi-autoregressive Experts)",
+    "majority-vote ensembling",
+    "block-schedule diffusion generation"
+  ],
+  "one_liner": "Shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and introduces a training-free method that majority-votes across multiple block generation schedules to substantially boost accuracy.",
+  "paper_id": "title:7b2310c5e9f25bde",
+  "problem": "It is unclear how to best use test-time flexibility in diffusion-based LLMs' generation order; committing to a single fixed inference schedule, the common practice, discards specialized behaviors available under different generation orders.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. This addresses test-time scaling for diffusion language models by ensembling over token-generation *orders/schedules*, not the length of a reasoning chain or when a reasoning model should stop or keep deliberating. It shares only the generic phrase 'test-time scaling' with the tracked topic; there is no treatment of the accuracy/reasoning-length tradeoff central to overthinking."
+  },
+  "results": "On GSM8K, HEX boosts accuracy from 24.72% to 88.10% (up to 3.56x); on MATH from 16.40% to 40.00%; on ARC-C from 54.18% to 87.80%; on TruthfulQA from 28.36% to 57.46%; outperforms top-K margin inference and GRPO-based fine-tuning without additional training.",
+  "schema_version": 1,
+  "tags": [
+    "diffusion-llm",
+    "test-time-scaling",
+    "ensembling",
+    "block-schedule",
+    "training-free"
+  ]
+}

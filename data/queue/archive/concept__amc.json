@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+        "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+        "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:16Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'AMC'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AMC",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "AMC",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "American Mathematics Competitions",
+      "AMC23"
+    ],
+    "definition": "A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.",
+    "kind": "dataset",
+    "related": [
+      "AIME",
+      "MATH-500"
+    ]
+  },
+  "task_id": "concept__amc",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "concepts": [
+    "distillation",
+    "cold-starting RL",
+    "dense reward from student understanding"
+  ],
+  "contributions": [
+    "Introduces Reinforcement-Learned Teachers (RLTs), models trained with RL to produce explanations for a given question-and-solution pair, optimized for distilling a student model rather than for solving problems from scratch.",
+    "Trains RLTs with dense rewards obtained by feeding each explanation to a student model and scoring the student's resulting understanding of the solution.",
+    "Shows that raw outputs of a 7B RLT give higher final performance on competition and graduate-level tasks than existing distillation and cold-starting pipelines that use reasoning traces from much larger LMs.",
+    "Shows RLTs remain effective when training larger students and when applied zero-shot to out-of-distribution tasks."
+  ],
+  "datasets": [
+    "competition-level tasks",
+    "graduate-level tasks"
+  ],
+  "generated_at": "2026-08-20T12:13:49Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not report specific benchmark names, accuracy numbers, or the size of the larger LMs compared against; it also does not address reasoning length or inference-time compute allocation.",
+  "method": "An RLT is prompted with both the question and its solution, and is trained via reinforcement learning to produce a detailed explanation ('connect-the-dots') rather than to solve the problem unaided. The reward is dense and comes from feeding the RLT's explanation to a student model and measuring how well the student then understands the solution, sidestepping the exploration problem of training a reasoning model with pure correctness reward from scratch. The resulting explanations are used directly for distillation into student models or for cold-starting further RL.",
+  "methods": [
+    "Reinforcement-Learned Teachers (RLT)",
+    "reinforcement learning with dense reward",
+    "distillation",
+    "cold-start for RL"
+  ],
+  "one_liner": "Trains a reinforcement-learned teacher model that is given the solution and rewarded for producing explanations that help a student model understand it, outperforming distillation pipelines built from much larger models.",
+  "paper_id": "title:21d46f88974ff7dd",
+  "problem": "Training reasoning LMs with RL for correctness alone requires the model to already have some chance of solving the task at initialization, which limits exploration; the paper targets the related but different goal of producing good teachers for distillation and RL cold-starting rather than better solvers.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "The paper's title places it under the 'test-time scaling' umbrella, but its actual contribution is a training-time method for producing distillation teachers via dense reward from student comprehension. It does not study reasoning length, when a model should stop or continue thinking, or the accuracy/compute tradeoff of longer reasoning chains, so the connection to this topic is nominal rather than substantive."
+  },
+  "results": "A 7B RLT's raw outputs give higher final performance on competition and graduate-level tasks than existing distillation and cold-starting pipelines built from reasoning traces of orders-of-magnitude larger LMs; effectiveness is maintained when training larger students and when applied zero-shot out-of-distribution. No specific numeric scores are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "distillation",
+    "reinforcement-learning",
+    "teacher-student",
+    "cold-start"
+  ]
+}

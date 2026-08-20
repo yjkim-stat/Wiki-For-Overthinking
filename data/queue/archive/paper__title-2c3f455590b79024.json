@@ -1,0 +1,96 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:46Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:2c3f455590b79024",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding",
+    "url": "https://icml.cc/virtual/2026/poster/63012",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "KV-cache memory-bound decoding bottleneck",
+      "query state approximation from temporal patterns",
+      "asynchronous KV cache selection",
+      "sparse attention decoding"
+    ],
+    "contributions": [
+      "Identifies that linear KV-cache growth during long chain-of-thought generation amplifies the memory-bound bottleneck of LLM decoding.",
+      "Shows that per-token query states can be approximated from recent query patterns via a lightweight temporal-regressive module, removing the sequential dependency of KV selection on the current step's query.",
+      "Introduces AsyncSpade, an asynchronous framework that decouples KV cache selection from the decoding step so the two can run in parallel.",
+      "Reports over 20% TPOT (time-per-output-token) reduction versus the SoTA sparse baseline Quest, and at least 50% TPOT reduction versus full attention on Qwen3-8B and Qwen3-32B, while maintaining accuracy."
+    ],
+    "datasets": [
+      "AIME-24",
+      "AIME-25",
+      "GPQA-Diamond",
+      "MATH-500"
+    ],
+    "limitations": "Only a third-party-extracted summary of the abstract was available (no PDF attachment); details on accuracy deltas, hardware setup, and any stated limitations of the temporal-regressive approximation (e.g. failure cases where recent query patterns diverge from the true query) are not available from this source.",
+    "method": "AsyncSpade predicts the query state of the token currently being decoded from recent query patterns using a lightweight temporal-regressive module, instead of waiting for that token's actual query. This breaks the sequential dependency between KV cache selection (choosing which cached keys/values to attend to, i.e. sparse decoding) and the decoding step itself, allowing the KV selection to run asynchronously and in parallel with decoding, reducing the memory-bound bottleneck caused by linear KV-cache growth over long chains of thought.",
+    "methods": [
+      "AsyncSpade",
+      "temporal-regressive query prediction",
+      "asynchronous sparse KV cache selection"
+    ],
+    "one_liner": "AsyncSpade speeds up decoding of long chain-of-thought generations by predicting query states from recent patterns and running sparse KV-cache selection asynchronously alongside decoding, cutting per-token latency without hurting accuracy.",
+    "problem": "Long chain-of-thought generation causes the KV cache to grow linearly, worsening the memory-bound bottleneck of LLM decoding and slowing inference, but existing sparse-attention methods still require the KV selection step to happen sequentially before each decoding step.",
+    "relevance": {
+      "overthinking": "This is a systems/inference-efficiency paper about serving already-long chains of thought faster (via asynchronous sparse KV-cache decoding), not about deciding how long a model should reason or about the accuracy/length tradeoff itself. It shares only the general 'test-time scaling' and long-chain-of-thought context with the topic; it does not address overthinking, underthinking, or stopping criteria, so its connection to the topic is tangential rather than substantive."
+    },
+    "results": "Over 20% TPOT reduction compared to the SoTA sparse-decoding baseline Quest, and at least 50% TPOT reduction compared to full attention, on Qwen3-8B and Qwen3-32B, while maintaining accuracy on AIME-24/25, GPQA-Diamond and MATH-500.",
+    "tags": [
+      "kv-cache",
+      "sparse-attention",
+      "inference-efficiency",
+      "asynchronous-decoding",
+      "long-context",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-2c3f455590b79024",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

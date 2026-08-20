@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:38Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:711c479b500244c5",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification",
+    "url": "https://iclr.cc/virtual/2026/poster/10008007",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "asymmetric verification",
+      "sequential vs. parallel test-time scaling",
+      "budget forcing"
+    ],
+    "contributions": [
+      "Shows sequential test-time scaling (budget forcing) improves deep-search agent performance initially but degrades it if pushed further.",
+      "Introduces the use of asymmetric verification (verification cheaper than generation) to get substantial gains from a modest amount of verifier compute rather than more generation.",
+      "Builds 'Heavy' variants of flagship open-source deep-research agents via test-time scaling that match or exceed proprietary systems on BrowseComp and GAIA."
+    ],
+    "datasets": [
+      "BrowseComp",
+      "GAIA",
+      "xbench-DeepSearch"
+    ],
+    "limitations": "The abstract does not report where or by how much extended sequential scaling starts to hurt performance, nor does it detail cost/latency overhead of the verifier, or test domains lacking the asymmetric-verification property.",
+    "method": "The paper studies two test-time compute scaling axes for deep-search agents built on LLMs: sequential scaling (lengthening generation, e.g. via budget forcing) and parallel scaling (verifying and selecting among multiple candidate outputs). It exploits domains where verifying a candidate answer is much cheaper than generating it (asymmetric verification), allocating a modest amount of compute to a verifier to select among parallel rollouts instead of relying purely on longer sequential generation.",
+    "methods": [
+      "budget forcing",
+      "asymmetric verification",
+      "parallel test-time scaling (verify-and-select)"
+    ],
+    "one_liner": "Studies sequential and parallel test-time compute scaling for deep-search LLM agents and shows that allocating modest compute to a cheap verifier outperforms pushing sequential generation length further.",
+    "problem": "How to scale test-time compute for deep-search agents efficiently, given that naive sequential scaling (longer generation via budget forcing) helps initially but eventually degrades performance.",
+    "relevance": {
+      "overthinking": "Directly documents a stopping-point problem for sequential test-time scaling: budget forcing (making the model 'think'/search longer) helps up to a point and then degrades results, and the paper's fix is to redirect added test-time compute into verification rather than more generation -- a concrete instance of choosing where to spend compute instead of just extending reasoning length."
+    },
+    "results": "Deep-research 'Heavy' agents built with this approach gain up to 27 absolute points on BrowseComp over their base versions; GLM-4.5 Heavy reaches 54.0% on BrowseComp and 66.0% on GAIA, and 68.0% on xbench-DeepSearch, comparable to proprietary systems such as OpenAI Deep Research; Tongyi-DeepResearch Heavy reaches 69.0% on BrowseComp.",
+    "tags": [
+      "test-time-scaling",
+      "verification",
+      "deep-search-agents",
+      "budget-forcing",
+      "parallel-scaling"
+    ]
+  },
+  "task_id": "paper__title-711c479b500244c5",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

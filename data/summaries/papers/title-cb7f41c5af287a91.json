@@ -1,0 +1,34 @@
+{
+  "concepts": [
+    "inverse scaling",
+    "U-shaped scaling",
+    "scaling laws"
+  ],
+  "contributions": [
+    "Runs and analyzes the Inverse Scaling Prize contest, collecting 11 tasks on which language model performance declines as model scale increases",
+    "Identifies four mechanisms behind inverse scaling: preferring memorized sequences over instructions, learning undesirable training-data patterns, focusing on easy distractor tasks over the intended objective, and being misled by few-shot examples",
+    "Documents U-shaped and inverted-U scaling trends where early gains with scale reverse at larger sizes"
+  ],
+  "datasets": [
+    "Inverse Scaling Prize task suite (11 datasets)"
+  ],
+  "generated_at": "2026-08-20T12:23:48Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Ran a public contest (the Inverse Scaling Prize) soliciting tasks on which larger language models perform worse; collected 11 winning datasets, evaluated them across model families and sizes, and categorized the underlying causes of the observed performance decline into four mechanisms.",
+  "methods": [],
+  "one_liner": "Reports 11 tasks, found via the Inverse Scaling Prize contest, on which language model accuracy declines as model parameter count and training compute increase, and analyzes why.",
+  "paper_id": "title:cb7f41c5af287a91",
+  "problem": "Whether scaling up model size and training compute reliably improves language model performance; this paper shows the assumption fails for a specific set of tasks and analyzes the mechanisms responsible.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "This is a distinct paper from the 'Inverse Scaling in Test-Time Compute' work already in the archive. It studies inverse scaling with respect to model parameter count and training compute across 11 static benchmark tasks, not reasoning length or test-time compute allocation. It shares only the keyword 'inverse scaling' with the topic and has no bearing on when a model reasons more or less than a problem needs."
+  },
+  "results": "11 datasets from the Inverse Scaling Prize show declining accuracy, or U-shaped/inverted-U accuracy trends, as model scale increases, attributable to four identified mechanisms; no test-time-compute or reasoning-length results are reported.",
+  "schema_version": 1,
+  "tags": [
+    "scaling-laws",
+    "model-size",
+    "inverse-scaling"
+  ]
+}

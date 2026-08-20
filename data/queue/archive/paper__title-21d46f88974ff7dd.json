@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:49Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:21d46f88974ff7dd",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Training reasoning language models (LMs) with reinforcement learning (RL) for one-hot correctness inherently relies on the LM being able to explore and solve its task with some chance at initialization. Furthermore, a key use case of reasoning LMs is to act as teachers for distilling new students and cold-starting future RL iterations rather than being deployed themselves. From these considerations, we introduce a new framework that avoids RL's exploration challenge by training a new class of Reinforcement-Learned Teachers (RLTs) focused on yielding the most effective downstream distillation. RLTs are prompted with both the question and solution to each problem, and tasked to simply \"connect-the-dots\" with detailed explanations tailored for their students. We train RLTs with dense rewards obtained by feeding each explanation to the student and testing its understanding of the problem's solution. In practice, the raw outputs of a 7B RLT provide higher final performance on competition and graduate-level tasks than existing distillation and cold-starting pipelines that collect and postprocess the reasoning traces of orders of magnitude larger LMs. Furthermore, RLTs maintain their effectiveness when training larger students and when applied zero-shot to out-of-distribution tasks, unlocking new levels of efficiency and re-usability for the RL reasoning framework.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Reinforcement Learning Teachers of Test Time Scaling",
+    "url": "https://neurips.cc/virtual/2025/poster/115573",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "distillation",
+      "cold-starting RL",
+      "dense reward from student understanding"
+    ],
+    "contributions": [
+      "Introduces Reinforcement-Learned Teachers (RLTs), models trained with RL to produce explanations for a given question-and-solution pair, optimized for distilling a student model rather than for solving problems from scratch.",
+      "Trains RLTs with dense rewards obtained by feeding each explanation to a student model and scoring the student's resulting understanding of the solution.",
+      "Shows that raw outputs of a 7B RLT give higher final performance on competition and graduate-level tasks than existing distillation and cold-starting pipelines that use reasoning traces from much larger LMs.",
+      "Shows RLTs remain effective when training larger students and when applied zero-shot to out-of-distribution tasks."
+    ],
+    "datasets": [
+      "competition-level tasks",
+      "graduate-level tasks"
+    ],
+    "limitations": "The abstract does not report specific benchmark names, accuracy numbers, or the size of the larger LMs compared against; it also does not address reasoning length or inference-time compute allocation.",
+    "method": "An RLT is prompted with both the question and its solution, and is trained via reinforcement learning to produce a detailed explanation ('connect-the-dots') rather than to solve the problem unaided. The reward is dense and comes from feeding the RLT's explanation to a student model and measuring how well the student then understands the solution, sidestepping the exploration problem of training a reasoning model with pure correctness reward from scratch. The resulting explanations are used directly for distillation into student models or for cold-starting further RL.",
+    "methods": [
+      "Reinforcement-Learned Teachers (RLT)",
+      "reinforcement learning with dense reward",
+      "distillation",
+      "cold-start for RL"
+    ],
+    "one_liner": "Trains a reinforcement-learned teacher model that is given the solution and rewarded for producing explanations that help a student model understand it, outperforming distillation pipelines built from much larger models.",
+    "problem": "Training reasoning LMs with RL for correctness alone requires the model to already have some chance of solving the task at initialization, which limits exploration; the paper targets the related but different goal of producing good teachers for distillation and RL cold-starting rather than better solvers.",
+    "relevance": {
+      "overthinking": "The paper's title places it under the 'test-time scaling' umbrella, but its actual contribution is a training-time method for producing distillation teachers via dense reward from student comprehension. It does not study reasoning length, when a model should stop or continue thinking, or the accuracy/compute tradeoff of longer reasoning chains, so the connection to this topic is nominal rather than substantive."
+    },
+    "results": "A 7B RLT's raw outputs give higher final performance on competition and graduate-level tasks than existing distillation and cold-starting pipelines built from reasoning traces of orders-of-magnitude larger LMs; effectiveness is maintained when training larger students and when applied zero-shot out-of-distribution. No specific numeric scores are given in the abstract.",
+    "tags": [
+      "distillation",
+      "reinforcement-learning",
+      "teacher-student",
+      "cold-start"
+    ]
+  },
+  "task_id": "paper__title-21d46f88974ff7dd",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

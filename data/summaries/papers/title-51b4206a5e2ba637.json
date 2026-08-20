@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "test-time scaling via sampling diversity",
+    "MoE router confidence structure",
+    "diversity-stability tradeoff"
+  ],
+  "contributions": [
+    "Observes that in fine-grained MoE routers, expert scores split into a high-confidence 'head' and an uncertain 'tail'.",
+    "Proposes Expert-Sample, a training-free test-time scaling method that keeps head expert selections greedy while injecting controlled randomness only into tail expert routing.",
+    "Shows this avoids the diversity-stability tradeoff that token-level temperature sampling incurs, while keeping normal-temperature decoding.",
+    "Reports gains in pass@32 and Best-of-N verified accuracy on Qwen3-30B-A3B-Instruct."
+  ],
+  "datasets": [
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-08-20T12:14:14Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "In fine-grained Mixture-of-Experts models, router scores over experts show a confident head and an uncertain tail. Expert-Sample exploits this at inference time: it leaves the routing of high-confidence ('head') experts unchanged (greedy), and introduces controlled randomness only in the selection among low-confidence ('tail') experts. This produces diverse generations for test-time scaling (e.g. multiple sampled solutions for pass@k or Best-of-N) without perturbing token-level sampling temperature, which the paper argues avoids the usual tradeoff between output diversity and stability.",
+  "methods": [
+    "Expert-Sample",
+    "Best-of-N verification",
+    "pass@k sampling"
+  ],
+  "one_liner": "Expert-Sample scales test-time compute for fine-grained MoE LLMs by randomizing only low-confidence expert routing choices, keeping high-confidence expert selections fixed, to get diverse samples without the usual diversity-stability tradeoff of temperature sampling.",
+  "paper_id": "title:51b4206a5e2ba637",
+  "problem": "Token-level temperature sampling used to generate diverse candidates for test-time scaling (e.g. pass@k, Best-of-N) trades off diversity against stability; the paper asks whether MoE routing structure offers a better axis for controlling diversity at inference time.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly relevant: it is a test-time compute scaling method for reasoning-capable MoE LLMs, improving the accuracy/efficiency return of sampling more candidates at inference (pass@k, Best-of-N verification) by changing where randomness is injected, rather than lengthening or shortening a single reasoning chain."
+  },
+  "results": "On Qwen3-30B-A3B-Instruct with GPQA-Diamond, pass@32 improved from 85.4% to 91.9%, and Best-of-N verified accuracy improved from 59.1% to 62.6%.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "mixture-of-experts",
+    "sampling",
+    "best-of-n"
+  ]
+}

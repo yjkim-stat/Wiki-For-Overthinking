@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:22:20Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:bfff1bebffbf9612",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large Reasoning Models (LRMs) have demonstrated impressive performance on complex tasks, including logical puzzle games that require deriving solutions satisfying all constraints. However, whether they can flexibly apply appropriate rules to varying conditions, particularly when faced with non-canonical game variants, remains an open question. Existing corpora focus on popular puzzles like 9x9 Sudoku, risking overfitting to canonical formats and memorization of solution patterns, which can mask deficiencies in understanding novel rules or adapting strategies to new variants. To address this, we introduce HardcoreLogic , a challenging benchmark of over 5,000 puzzles across 10 games, designed to test the robustness of LRMs on the \"long-tail\" of logical games. HardcoreLogic systematically transforms canonical puzzles through three dimensions: Increased Complexity (IC) , Uncommon Elements (UE) , and Unsolvable Puzzles (UP) , reducing reliance on shortcut memorization. Evaluations on a diverse set of LRMs reveal significant performance drops, even for models achieving top scores on existing benchmarks, indicating heavy reliance on memorized stereotypes. While increased complexity is the dominant source of difficulty, models also struggle with subtle rule variations that do not necessarily increase puzzle difficulty. Our systematic error analysis on solvable and unsolvable puzzles further highlights gaps in genuine reasoning. Overall, HardcoreLogic exposes the limitations of current LRMs and establishes a benchmark for advancing high-level logical reasoning.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "HardcoreLogic: Challenging Large Reasoning Models with Long-tail Logic Puzzle Games",
+    "url": "https://iclr.cc/virtual/2026/poster/10011195",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "logic puzzle benchmarking",
+      "long-tail generalization",
+      "rule generalization",
+      "memorization vs reasoning"
+    ],
+    "contributions": [
+      "HardcoreLogic, a benchmark of over 5,000 puzzles across 10 games designed to test LRM robustness on long-tail, non-canonical logic puzzle variants",
+      "A systematic transformation methodology along three axes: Increased Complexity, Uncommon Elements, and Unsolvable Puzzles",
+      "An error analysis of solvable and unsolvable puzzles showing gaps between genuine rule-following and memorized solution patterns"
+    ],
+    "datasets": [
+      "HardcoreLogic (introduced)"
+    ],
+    "limitations": "",
+    "method": "HardcoreLogic transforms canonical logic puzzles (e.g., 9x9 Sudoku and other games) along three dimensions - Increased Complexity, Uncommon Elements, and Unsolvable Puzzles - to reduce the chance that a model can succeed by shortcut memorization of familiar formats, then evaluates a diverse set of large reasoning models on the resulting 5,000+ puzzles across 10 games.",
+    "methods": [
+      "HardcoreLogic benchmark construction",
+      "puzzle transformation (IC/UE/UP axes)"
+    ],
+    "one_liner": "HardcoreLogic is a 5,000+ puzzle benchmark across 10 logic games that exposes how much LRM puzzle-solving relies on memorized canonical formats rather than genuine rule application.",
+    "problem": "It is unclear whether large reasoning models genuinely apply logical rules to varying conditions or merely succeed on popular puzzle benchmarks (like standard Sudoku) by memorizing canonical formats and solution patterns, which existing corpora do not distinguish.",
+    "relevance": {
+      "overthinking": "Tangential: the paper matched only on the generic phrase 'large reasoning model.' It studies whether LRMs generalize logical rules to novel puzzle variants versus relying on memorization, which is a question about reasoning correctness/robustness, not about reasoning length, the accuracy/efficiency tradeoff, or when models should stop or keep computing at test time."
+    },
+    "results": "Evaluations across a diverse set of LRMs show significant performance drops on HardcoreLogic even for models that score highly on existing puzzle benchmarks; increased complexity is reported as the dominant source of difficulty, but models also struggle with subtle rule variations that do not necessarily raise puzzle difficulty.",
+    "tags": [
+      "logic-puzzles",
+      "benchmark",
+      "generalization",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-bfff1bebffbf9612",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

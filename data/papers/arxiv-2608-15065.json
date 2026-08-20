@@ -1,0 +1,39 @@
+{
+  "abstract": "Large Reasoning Models produce diverse, sometimes inconsistent answers across repeated queries on the same problem, so multi-sample inference is a prerequisite for reliable deployment. Majority voting at k rollouts is the standard solution and the de facto accuracy target for this regime, but it is prohibitively expensive at the scale LRMs require. We introduce Funnel of Thoughts (FoT), an inference-time method that preserves the full 32-trajectory voted accuracy while halving its attention FLOPs, a 28.8% reduction in full-model inference cost. Across 115K reasoning trajectories from six LRMs, we find that unproductive trajectories often reveal themselves through repeated hesitation markers such as \"Wait\", \"Actually\", and \"perhaps.\" These trajectories are less likely to reach the correct answer and consume disproportionate attention FLOPs, degenerating into no-answer loops in the worst case. Built on this training-free lexical signal, FoT identifies the vocabulary that captures these pathological patterns and prunes affected trajectories before completion, reducing online generation attention FLOPs by 56.1% and wall time by 37.6% without any additional model inference; the same signal transfers without retuning across held-out architectures and out-of-domain tasks.",
+  "arxiv_id": "2608.15065",
+  "authors": [
+    "Chanhee Park",
+    "Sungbin Han",
+    "Jeongho Yoon",
+    "Seongtae Hong",
+    "Heuiseok Lim"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T11:44:35Z",
+  "id": "arxiv:2608.15065",
+  "last_seen": "2026-08-20T11:44:35Z",
+  "local_path": "data/pdfs/read/arxiv-2608-15065.pdf",
+  "matched_keywords": [
+    "test time scaling",
+    "large reasoning model"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.15065v1",
+  "published": "2026-08-15",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "arxiv",
+  "source_id": "2608.15065v1",
+  "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-08-15",
+  "url": "https://arxiv.org/abs/2608.15065",
+  "venue": "",
+  "year": 2026
+}

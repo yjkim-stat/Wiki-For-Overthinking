@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "distillation",
+    "test-time scaling",
+    "in-context learning",
+    "induction heads",
+    "bigram model sandbox"
+  ],
+  "contributions": [
+    "Shows pretraining with distillation yields models that exhibit better test-time scaling",
+    "Shows this benefit trades off against in-context learning ability, particularly the mechanism modeled via induction heads",
+    "Uses a bigram-model sandbox to isolate the common factor behind the test-time-scaling / in-context-learning tradeoff",
+    "Derives design-choice guidance for pretraining with distillation"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:15:01Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the abstract; the core analysis is carried out in a simplified bigram-model sandbox rather than on full-scale LLM pretraining runs.",
+  "method": "Studies distillation during LLM pretraining (as used in Llama-3.2 and Gemma) and its effect on two downstream capabilities: test-time scaling and in-context learning. To explain the observed tradeoff, the authors build a simplified bigram-model sandbox that isolates the principal factor driving both effects.",
+  "methods": [
+    "distilled pretraining",
+    "bigram model analysis"
+  ],
+  "one_liner": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
+  "paper_id": "title:5d210749910cf061",
+  "problem": "Distillation has returned to prominence in LLM pretraining, but its effect on capabilities central to modern LLMs — test-time scaling and in-context learning — was underexplored.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Not substantively connected. 'Test-time scaling' here means how well a distilled-pretrained model's downstream performance improves with additional inference-time compute/examples in general, and the paper's focus is the tradeoff between that and in-context-learning ability (induction heads), studied in a bigram sandbox. It contains no treatment of reasoning-chain length, overthinking, or when a reasoning model should stop generating — the match is the shared generic phrase 'test-time scaling' only."
+  },
+  "results": "No specific benchmark numbers are given in the available abstract; the paper reports qualitative findings (distillation improves test-time scaling, impairs in-context learning) plus a mechanistic explanation via the bigram sandbox.",
+  "schema_version": 1,
+  "tags": [
+    "distillation",
+    "pretraining",
+    "in-context-learning",
+    "test-time-scaling",
+    "induction-heads"
+  ]
+}

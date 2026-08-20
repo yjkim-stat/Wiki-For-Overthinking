@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "fixed-size KV cache under RL rollouts",
+    "compact latent encoding of intermediate reasoning"
+  ],
+  "contributions": [
+    "A parameter-efficient fine-tuning method (Progressive Thought Encoding) that lets LRMs reason under a fixed-size cache without backpropagating through full-cache rollouts.",
+    "Reduced training-time memory usage for RL of LRMs while keeping constant memory during inference.",
+    "Consistent accuracy gains over LoRA and a baseline across three models and six math benchmarks."
+  ],
+  "datasets": [
+    "six widely used mathematical benchmarks (including AIME2024, AIME2025)"
+  ],
+  "generated_at": "2026-08-20T12:19:38Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not state the specific benchmarks beyond AIME2024/2025, nor does it report wall-clock or FLOP costs, and no failure modes or domains where the method underperforms are described.",
+  "method": "Progressive Thought Encoding progressively encodes intermediate reasoning steps into compact representations during RL training, so the model can be trained with outcome-based rewards under a fixed-size KV cache without needing to backpropagate through the full-length rollout cache, while inference also runs under constant memory.",
+  "methods": [
+    "Progressive Thought Encoding",
+    "LoRA (baseline comparison)"
+  ],
+  "one_liner": "A parameter-efficient fine-tuning method that compresses intermediate reasoning into compact representations so large reasoning models can be RL-trained and run under a fixed-size cache without the memory blowup of long rollouts.",
+  "paper_id": "title:70bee10d0d7bf4f0",
+  "problem": "RL training of large reasoning models requires long rollouts for outcome-based rewards, and autoregressive decoding under a full KV cache dominates training time and memory; sliding-window cache strategies bound memory but disrupt long-context reasoning and degrade performance.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "The method targets the cost side of the accuracy/length tradeoff directly: instead of shortening reasoning, it makes long-rollout RL training and long-CoT inference tractable under a fixed compute/memory budget, which is a mechanism for sustaining test-time compute scaling rather than a method for deciding when a model should stop thinking."
+  },
+  "results": "On Qwen2.5-3B-Instruct, Qwen2.5-7B-Instruct, and DeepSeek-R1-Distill-Llama-8B across six math benchmarks, the method reports +19.3% average improvement over LoRA and +29.9% over the baseline, with up to +23.4 absolute points on AIME2024/2025 under tight cache budgets.",
+  "schema_version": 1,
+  "tags": [
+    "kv-cache",
+    "rl-training",
+    "memory-efficiency",
+    "lrm-training",
+    "parameter-efficient-finetuning"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:20Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:9fd38a270d13bf45",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Small Vision-Language Models (VLMs) provide a computationally efficient alternative to larger models, at the cost of weaker generalization abilities and downstream task performance. These shortcomings could be addressed by test-time scaling techniques, but existing methods are typically computationally demanding, contradicting the resource-efficient design goals of small models. To address these limitations, we propose two novel and efficient test-time scaling strategies that leverage the model-internal features rather than external supervision: (i) Test-Time Augmentation (TTAug), which generates multiple augmented inputs and aggregates outputs at the token level without parameter updates, and (ii) Test-Time Adaptation (TTAdapt), which adapts model parameters during inference using consensus-based pseudolabels from TTAug. Through extensive experiments across nine benchmarks, we demonstrate consistent performance improvements while maintaining computational efficiency suitable for resource-constrained environments. The generality of our approach is demonstrated both within models at different scales and across different VLMs without additional tuning.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Efficient Test-Time Scaling for Small Vision-Language Models",
+    "url": "https://iclr.cc/virtual/2026/poster/10007164",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time augmentation",
+      "test-time adaptation",
+      "consensus pseudolabeling"
+    ],
+    "contributions": [
+      "Proposes TTAug, which aggregates outputs at the token level from multiple augmented inputs without updating model parameters",
+      "Proposes TTAdapt, which adapts model parameters at inference using consensus-based pseudolabels derived from TTAug",
+      "Demonstrates consistent performance improvements across nine benchmarks while keeping computational cost suitable for resource-constrained settings",
+      "Shows generality across model scales and across different VLMs without additional tuning"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "TTAug generates multiple augmented versions of each input at inference and aggregates the model's outputs at the token level, without any parameter updates. TTAdapt builds on this by using consensus among TTAug's aggregated outputs as pseudolabels, then adapting the model's parameters at inference time against those pseudolabels. Both rely on model-internal features rather than external supervision or additional training.",
+    "methods": [
+      "Test-Time Augmentation (TTAug)",
+      "Test-Time Adaptation (TTAdapt)"
+    ],
+    "one_liner": "Proposes TTAug and TTAdapt, two lightweight test-time scaling strategies for small vision-language models that use input augmentation and consensus pseudolabels instead of external supervision.",
+    "problem": "Small vision-language models are computationally efficient but generalize and perform worse than larger models; existing test-time scaling methods that could close this gap are themselves computationally demanding, which contradicts the resource-efficient design goal of using a small model in the first place.",
+    "relevance": {
+      "overthinking": "Tangential: 'test-time scaling' here means input augmentation and lightweight parameter adaptation at inference to boost accuracy of small vision-language models under a fixed compute budget, not chain-of-thought reasoning length or when a large reasoning model should stop reasoning. There is no discussion of reasoning chains or stopping criteria in the material."
+    },
+    "results": "Consistent performance improvements across nine benchmarks while maintaining computational efficiency; generality demonstrated across models of different scales and across different VLMs without additional tuning; no specific numeric deltas were found in the available material.",
+    "tags": [
+      "vlm",
+      "test-time-scaling",
+      "efficiency",
+      "small-models",
+      "test-time-adaptation"
+    ]
+  },
+  "task_id": "paper__title-9fd38a270d13bf45",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

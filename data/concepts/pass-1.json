@@ -1,0 +1,60 @@
+{
+  "aliases": [
+    "pass@1"
+  ],
+  "definition": "The fraction of problems a model solves correctly on its first (single) sampled attempt, the baseline accuracy metric against which test-time-compute methods that spend more (Best-of-N, self-consistency, verification) are compared. Consilience's verifier-free rollout-selection metric and CLR's claim-level reliability assessment both report gains over a Pass@1 baseline.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.11994",
+      "kind": "paper",
+      "note": "CLR reallocates part of the test-time compute budget from generating more solution samples to falsifying a small set of decision-critical claims extracted from each trace, improving accuracy over self-consistency while using fewer tokens on some models.",
+      "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "Pass@1",
+  "related": [
+    "temporal-confidence-asymmetry-low-initial-high-final-confidence",
+    "premature-convergence-vs-exploratory-branching-in-reasoning-trajectories",
+    "reasoning-phase-isolation-separating-chain-of-thought-from-final-answer-tokens",
+    "the-long-tail-trap-of-confidence-maximization-on-hard-problems",
+    "consilience-score",
+    "self-certainty-baseline",
+    "deepconf-deepconf-20-baseline",
+    "best-of-n-selection",
+    "reasoning-phase-isolation",
+    "mini-swe-agent-integration",
+    "livecodebench-v6",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "swe-bench-verified",
+    "claim-level-falsification",
+    "signal-dilution-in-whole-trace-reliability-evaluation",
+    "asymmetry-between-solution-construction-and-claim-refutation",
+    "nonlinear-reliability-weighted-consensus-aggregation",
+    "rescue-rate-overturning-incorrect-majority-consensus",
+    "claim-level-reliability-assessment-clr",
+    "self-consistency-cons-k-majority-voting",
+    "nonlinear-reliability-scoring",
+    "hmmt26",
+    "cmimc25",
+    "apex-shortlist"
+  ],
+  "related_authored": [
+    "pass-k",
+    "best-of-n-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "pass-1",
+  "topics": [
+    "overthinking"
+  ]
+}

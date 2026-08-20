@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "inverted U-shaped accuracy vs. CoT length",
+    "optimal CoT length",
+    "error-accumulation analysis",
+    "length-aware filtering"
+  ],
+  "contributions": [
+    "Demonstrates, across real-world LLMs and theoretical models, that task accuracy follows an inverted U-shape with respect to chain-of-thought length: performance rises then falls as reasoning chains grow too long.",
+    "Shows the optimal CoT length increases with task difficulty and decreases with model capability, exposing a mismatch with current practice of reusing the same CoT training data across models and tasks without adapting length.",
+    "Shows reinforcement learning can dynamically calibrate CoT length and close this gap, improving accuracy over supervised fine-tuning that reuses fixed-length CoT data.",
+    "Introduces an error-accumulation analysis that models how reasoning errors propagate across steps and derives the observed scaling behavior of optimal CoT length.",
+    "Shows training with optimally sized CoTs and applying length-aware filtering at inference yields substantial performance improvements, and frames this as a principled explanation of the 'overthinking' effect."
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:13:51Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific real-world LLMs, benchmarks, or numeric accuracy figures used in the controlled experiments; specific dataset names are not given in the available material.",
+  "method": "The paper combines controlled empirical experiments on real LLMs and theoretical/toy models with an error-accumulation analysis: it characterizes how per-step reasoning errors accumulate as CoT length grows, deriving why accuracy first improves (errors from insufficient reasoning are reduced) then declines (accumulated errors from unnecessary extra steps dominate) as chains lengthen. It then uses this to derive scaling laws for optimal CoT length as a function of task difficulty and model capability, and applies RL to dynamically calibrate CoT length during training, plus length-aware filtering at inference time.",
+  "methods": [
+    "reinforcement learning for length calibration",
+    "error-accumulation analysis",
+    "length-aware filtering",
+    "supervised fine-tuning (as baseline)"
+  ],
+  "one_liner": "Shows chain-of-thought accuracy follows an inverted U-shape in reasoning length, derives how the optimal CoT length scales with task difficulty and model capability, and uses this to explain and mitigate overthinking via RL-based length calibration and length-aware filtering.",
+  "paper_id": "title:221551a348e7dac5",
+  "problem": "It is commonly assumed that longer chain-of-thought reasoning always helps LLM accuracy, but static-length CoT training data is reused across models and tasks without adapting to how much reasoning a given task/model pair actually needs, and there was no principled account of why and when longer reasoning starts to hurt.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "This paper is a direct, central study of the overthinking topic: it establishes empirically and theoretically that accuracy is an inverted-U function of CoT length, characterizes how the optimal length scales with task difficulty and model capability, explains the mechanism via error accumulation, and proposes RL-based length calibration and length-aware filtering as concrete methods to keep reasoning length matched to the problem."
+  },
+  "results": "Task accuracy follows an inverted U-shaped curve with respect to CoT length across both real-world LLMs and theoretical models; optimal CoT length increases with task difficulty and decreases with model capability; RL-based dynamic length calibration improves accuracy over static-length supervised fine-tuning; training with optimally sized CoTs plus length-aware inference-time filtering yields substantial performance improvements. Specific numeric results and benchmark names are not given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "chain-of-thought-length",
+    "inverted-u",
+    "error-accumulation",
+    "reinforcement-learning",
+    "length-calibration"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "search-driven generation",
+    "rectified flow for solution trajectories",
+    "denoising-step scaling saturation"
+  ],
+  "contributions": [
+    "Proposes GenSCO, which scales diffusion-based combinatorial optimization solvers along a new inference-time axis (search-driven generation) rather than just adding more denoising steps.",
+    "Combines local-search-based solution disruption with diffusion sampling in a repeated operator cycle to escape local optima.",
+    "Introduces a search-friendly solution-enhancement training procedure using a rectified flow model (via a lightweight transformer) to learn diffusion trajectories from suboptimal to optimal solutions.",
+    "Demonstrates large speedups over the state-of-the-art classical solver LKH3 on TSP."
+  ],
+  "datasets": [
+    "TSP-100",
+    "TSP-500"
+  ],
+  "generated_at": "2026-08-20T12:19:38Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not report results on combinatorial optimization problems other than TSP, nor generalization to problem sizes beyond TSP-500, nor training cost of the rectified flow model.",
+  "method": "GenSCO treats each round of diffusion generation as a search operator rather than a one-shot solving process: a cycle alternates between disrupting the current candidate solution via local search operators and re-generating via diffusion sampling, letting the model escape local optima instead of only refining in place. Generation is trained to be search-friendly via a rectified flow model, implemented with a lightweight transformer, that learns neural ODEs linearizing diffusion trajectories between suboptimal and optimal solutions to speed convergence.",
+  "methods": [
+    "GenSCO",
+    "rectified flow",
+    "diffusion sampling for combinatorial optimization",
+    "local search operators",
+    "neural ODEs"
+  ],
+  "one_liner": "A method that scales diffusion-based combinatorial-optimization solvers by alternating local-search perturbation with diffusion re-generation, rather than just adding denoising steps, achieving large speedups over classical solvers on TSP.",
+  "paper_id": "title:7981bfb3735c19c7",
+  "problem": "Diffusion models for combinatorial optimization saturate quickly when scaled only by adding more denoising steps at inference time; a more cost-efficient inference-time scaling axis was needed.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. This is about inference-time compute scaling for diffusion-based combinatorial optimization solvers (TSP), not about large reasoning models' chain-of-thought length or the accuracy/efficiency tradeoff of verbal reasoning. It shares only the generic phrase 'test-time scaling' with the tracked topic; the mechanism (denoising steps vs. search operators) and application domain are unrelated to LRM overthinking/underthinking."
+  },
+  "results": "GenSCO delivers a 141x speedup over LKH3 to reach 0.000% optimality gap on TSP-100, and roughly a 10x speedup to reach 0.02% optimality gap on TSP-500, with orders-of-magnitude improvement over prior neural CO methods.",
+  "schema_version": 1,
+  "tags": [
+    "combinatorial-optimization",
+    "diffusion-models",
+    "tsp",
+    "rectified-flow",
+    "test-time-scaling"
+  ]
+}

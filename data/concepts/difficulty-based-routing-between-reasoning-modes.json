@@ -1,0 +1,59 @@
+{
+  "aliases": [],
+  "definition": "Deciding per-query whether a model should think (spend extra reasoning tokens) or answer directly, based on estimated problem difficulty, instead of a single fixed mode. OptimalThinkingBench tests this as one of its five overthinking/underthinking mitigation strategies: a trained difficulty-based router improves its combined F1^otb metric by 20.4% on average over the best single mode, but still trails an oracle router by roughly 15 points.",
+  "evidence": [
+    {
+      "id": "local:49199e3b0f694ee1",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "title:441c8494292f11c7",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "difficulty-based routing between reasoning modes",
+  "related": [
+    "overthinking",
+    "underthinking",
+    "test-time-compute-scaling",
+    "thinking-token-budget",
+    "accuracy-efficiency-tradeoff-of-reasoning-length",
+    "hybrid-thinking-non-thinking-models",
+    "overthinkingbench",
+    "underthinkingbench",
+    "overthinking-adjusted-accuracy-oaa",
+    "auc-oaa",
+    "f1-otb-combined-metric",
+    "llm-as-a-judge-filtering-and-evaluation",
+    "l1-length-controlled-reinforcement-learning",
+    "adaptthink",
+    "verithinker",
+    "model-merging",
+    "trained-difficulty-based-router-oracle-router",
+    "math-hendrycks-et-al-levels-1-2-for-ovt-math",
+    "supergpqa-72-domain-source-for-ovt-general-question-generation",
+    "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "aime-2025",
+    "hmmt-2025",
+    "math-levels-1-2-for-ovt-math",
+    "supergpqa",
+    "reasoning-gym"
+  ],
+  "related_authored": [
+    "overthinking",
+    "underthinking",
+    "optimalthinkingbench"
+  ],
+  "schema_version": 1,
+  "slug": "difficulty-based-routing-between-reasoning-modes",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "length-accuracy anti-correlation",
+    "overthinking",
+    "tree-structured decoding",
+    "early termination"
+  ],
+  "contributions": [
+    "Decoding Tree Sketching: a plug-and-play decoding framework that sketches a backbone reasoning tree by selectively branching at decision tokens instead of fully independent resampling",
+    "Early-termination rule guided by an observed length-accuracy anti-correlation, prioritizing short, reliable trajectories during decoding",
+    "Demonstration that the method lets smaller models outperform models roughly 10x their size"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:23:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "For reasoning exploration, DTS sketches a backbone decoding tree by selectively branching at decision tokens rather than sampling fully independent trajectories, reducing redundant sampling. For reasoning selection, it exploits an observed anti-correlation between trajectory length and accuracy to terminate long trajectories early, prioritizing short, reliable ones. It is described as plug-and-play, requiring no retraining of the underlying model.",
+  "methods": [
+    "Decoding Tree Sketching (DTS)"
+  ],
+  "one_liner": "A decoding-time framework that sketches a reasoning tree via selective branching and terminates long, low-accuracy reasoning trajectories early, using an observed length-accuracy anti-correlation.",
+  "paper_id": "title:c614f5d4c1a5c21d",
+  "problem": "Large reasoning models achieve inference-time gains via parallel thinking, but existing multi-trajectory methods rely on redundant sampling of reasoning trajectories, exploring the reasoning space inefficiently and producing excessively long, overthinking traces that raise inference cost without reliably improving accuracy.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly addresses overthinking: it identifies a length-accuracy anti-correlation in reasoning trajectories and builds an early-termination decoding rule that stops unpromising, overly long reasoning paths in favor of short, reliable ones, reporting a 14% average accuracy gain alongside an 8% reduction in repetitive generation."
+  },
+  "results": "Across four large reasoning models and multiple datasets, DTS improves accuracy by 14% on average and reduces repetitive generation by 8% on average; it also enables smaller models to outperform models about 10x their size.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "test-time-compute",
+    "decoding",
+    "reasoning-trajectories",
+    "early-termination"
+  ]
+}

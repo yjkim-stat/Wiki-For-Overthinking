@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "overthinking",
+    "thinking patterns",
+    "modular reasoning strategy selection",
+    "preference optimization"
+  ],
+  "contributions": [
+    "A dynamic optimization framework that segments model-generated reasoning paths into distinct thinking patterns and identifies beneficial vs detrimental patterns",
+    "A preference optimization method trained on a pairwise dataset contrasting suboptimal and optimal reasoning paths"
+  ],
+  "datasets": [
+    "multiple mathematical reasoning benchmarks (unspecified in abstract)"
+  ],
+  "generated_at": "2026-08-20T12:06:08Z",
+  "generated_by": "queue",
+  "limitations": "Abstract does not name the specific benchmarks, model sizes, or baselines used; no discussion of failure modes or generalization beyond math reasoning is given.",
+  "method": "Segments an LRM's generated reasoning path into distinct 'thinking patterns' (modular reasoning strategies), then systematically identifies which patterns are beneficial to the final answer and which are detrimental, promoting the former and removing the latter to produce shorter but sufficiently informative reasoning trajectories. These optimized trajectories are then used to build a pairwise preference dataset (suboptimal vs optimal path) for preference optimization training of the model.",
+  "methods": [
+    "thinking pattern segmentation",
+    "preference optimization (pairwise)"
+  ],
+  "one_liner": "Segments reasoning traces into thinking patterns, prunes detrimental ones, and uses the resulting optimal-vs-suboptimal pairs for preference optimization to cut reasoning length while improving accuracy.",
+  "paper_id": "title:edaac274df1e07a6",
+  "problem": "Large reasoning models trained with RL for final-answer accuracy often overthink, producing unnecessarily long and complex reasoning paths that waste computation and can even degrade accuracy; the paper attributes this to the model's limited ability to select the right modular reasoning strategy at the right point.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets overthinking in LRMs: proposes a method to detect and remove detrimental reasoning patterns and shorten trajectories, reporting a 47% reduction in attention FLOPs and token usage dropping from ~5,000 to ~3,000 while accuracy improves by up to 12-15.6% on math reasoning benchmarks."
+  },
+  "results": "Reduces attention FLOPs by up to 47% while maintaining accuracy on originally correct responses; converts a portion of originally incorrect responses to correct, yielding a 15.6% accuracy improvement with reduced length; after preference optimization, achieves up to 12% accuracy improvement and reduces token usage from approximately 5,000 to 3,000 tokens across multiple mathematical reasoning benchmarks.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "reasoning-efficiency",
+    "preference-optimization",
+    "test-time-compute",
+    "math-reasoning"
+  ]
+}

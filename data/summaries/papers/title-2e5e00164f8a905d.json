@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "underthinking",
+    "thought switching",
+    "token efficiency of incorrect answers"
+  ],
+  "contributions": [
+    "Identifies and names 'underthinking': LRMs frequently switch between reasoning thoughts without sufficiently exploring promising paths",
+    "Shows frequent thought switching correlates with incorrect responses on challenging math problems, across experiments on three test sets and two open-source LRMs",
+    "Introduces a metric to quantify underthinking by measuring token efficiency in incorrect answers",
+    "Proposes a decoding strategy, Thought Switching Penalty (TIP), that discourages premature transitions between thoughts",
+    "Shows TIP improves accuracy on challenging datasets without requiring model fine-tuning"
+  ],
+  "datasets": [
+    "three challenging math test sets (unnamed in abstract)"
+  ],
+  "generated_at": "2026-08-20T12:06:33Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific test sets or LRMs used, nor does it give numeric accuracy improvements from TIP; the analysis is focused on mathematical reasoning problems, so generality to other task types is not established in the abstract.",
+  "method": "Analyzes reasoning traces from two open-source LRMs on three challenging test sets, tracking how often the model switches between distinct reasoning thoughts. Defines a token-efficiency metric over incorrect answers to quantify underthinking. Proposes Thought Switching Penalty (TIP), a decoding-time modification that penalizes premature switches away from a reasoning thought, applied without any fine-tuning.",
+  "methods": [
+    "Thought Switching Penalty (TIP) decoding strategy"
+  ],
+  "one_liner": "Identifies 'underthinking' in long reasoning models, where frequent switching between reasoning thoughts prevents sufficient exploration and hurts accuracy, and proposes a decoding-time penalty to fix it.",
+  "paper_id": "title:2e5e00164f8a905d",
+  "problem": "Long reasoning models sometimes fail not by reasoning too much but by reasoning too shallowly on each path, jumping between thoughts before exploring any of them fully, which reduces accuracy especially on hard math problems.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly addresses the underthinking side of the reasoning-length tradeoff: rather than models thinking too long, this paper shows they can think too shakily, switching thoughts prematurely, and proposes a decoding intervention (TIP) that makes reasoning depth per thought more sufficient without fine-tuning."
+  },
+  "results": "Frequent thought switching is shown to correlate with incorrect responses across three challenging test sets and two open-source LRMs. TIP decoding improves accuracy across challenging datasets relative to standard decoding, without fine-tuning; specific accuracy numbers are not given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "underthinking",
+    "thought-switching",
+    "decoding-strategy",
+    "reasoning-depth",
+    "test-time"
+  ]
+}

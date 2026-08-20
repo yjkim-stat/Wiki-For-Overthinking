@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
+        "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An ensemble of parallel agents using different tool-use strategies that iteratively refine and share answers, with a confidence-based rule to stop early and cut inference cost.",
+        "title": "TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:49Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'confidence-based early stopping'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "confidence-based early stopping",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "confidence-based early stopping",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Stopping a model's sampling or reasoning process once its own confidence signal (e.g. self-distilled calibration, or cross-agent consensus) indicates further compute is unlikely to change the answer, rather than running a fixed budget. CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query; TUMIX's multi-agent tool-use ensemble stops iterating once its agents' answers converge.",
+    "kind": "method",
+    "related": [
+      "test-time compute scaling",
+      "self-consistency"
+    ]
+  },
+  "task_id": "concept__confidence-based-early-stopping",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

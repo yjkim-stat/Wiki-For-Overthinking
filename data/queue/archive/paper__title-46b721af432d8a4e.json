@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:14:14Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:46b721af432d8a4e",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Prompt engineering is crucial for leveraging the full potential of large language models (LLMs). While automatic prompt optimization offers a scalable alternative to costly manual design, generating effective prompts remains challenging. Existing methods often struggle to stably generate improved prompts, leading to low efficiency, and overlook that prompt optimization easily gets trapped in local optima. Addressing this, we propose GRACE, a framework that integrates two synergistic strategies: Gated Refinement and Adaptive Compression, achieving Efficient prompt optimization. The gated refinement strategy introduces a feedback regulation gate and an update rejection gate, which refine update signals to produce stable and effective prompt improvements. When optimization stagnates, the adaptive compression strategy distills the prompt’s core concepts, restructuring the optimization trace and opening new paths. By strategically introducing information loss through refinement and compression, GRACE delivers substantial gains in performance and efficiency. In extensive experiments on 11 tasks across three practical domains, including BIG-Bench Hard (BBH), domain-specific, and general NLP tasks, GRACE achieves significant average relative performance improvements of 4.7\\%, 4.4\\% and 2.7\\% over state-of-the-art methods, respectively. Further analysis shows that GRACE achieves these gains using only 25\\% of the prompt generation budget required by prior methods, highlighting its high optimization efficiency and low computational overhead. Our code is available at https://github.com/Eric8932/GRACE.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "adaptive compression"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "No Loss, No Gain: Gated Refinement and Adaptive Compression for Prompt Optimization",
+    "url": "https://neurips.cc/virtual/2025/poster/118743",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "automatic prompt optimization",
+      "gated refinement",
+      "adaptive compression",
+      "local optima in prompt search"
+    ],
+    "contributions": [
+      "Proposes GRACE, a prompt-optimization framework combining gated refinement and adaptive compression.",
+      "Introduces a feedback regulation gate and an update rejection gate to stabilize prompt update signals.",
+      "Introduces an adaptive compression strategy that distills a prompt's core concepts and restructures the optimization trace when search stagnates.",
+      "Reports gains on 11 tasks across BIG-Bench Hard, domain-specific, and general NLP settings while using a quarter of the prompt-generation budget of prior methods."
+    ],
+    "datasets": [
+      "BIG-Bench Hard (BBH)",
+      "domain-specific tasks (unspecified)",
+      "general NLP tasks (unspecified)"
+    ],
+    "limitations": "",
+    "method": "GRACE integrates two strategies for optimizing a prompt's text. Gated refinement uses a feedback regulation gate and an update rejection gate to filter and stabilize proposed prompt edits, aiming to avoid noisy or harmful updates. Adaptive compression is triggered when optimization stagnates: it distills the prompt down to its core concepts and restructures the optimization trace/history, opening new search directions. Both strategies deliberately introduce information loss (refinement and compression) to improve the search.",
+    "methods": [
+      "GRACE framework",
+      "feedback regulation gate",
+      "update rejection gate",
+      "adaptive prompt compression"
+    ],
+    "one_liner": "GRACE stabilizes and speeds up automatic LLM prompt optimization using update-gating and adaptive compression of the prompt/optimization trace when search stalls.",
+    "problem": "Automatic prompt optimization for LLMs is unstable and inefficient, and often gets trapped in local optima during the search for better prompts.",
+    "relevance": {
+      "overthinking": "Tangential. This paper optimizes the text of an input prompt through an iterative search process; 'adaptive compression' here means compressing the prompt itself and its optimization trace, not compressing or controlling the length of a model's reasoning/chain-of-thought at inference time. It shares only the surface phrase 'adaptive compression' with the topic and has no treatment of reasoning-length overthinking or test-time compute scaling."
+    },
+    "results": "Average relative performance improvements of 4.7% (BBH), 4.4% (domain-specific tasks), and 2.7% (general NLP tasks) over prior state-of-the-art prompt optimization methods across 11 tasks, achieved using only 25% of the prompt-generation budget required by prior methods.",
+    "tags": [
+      "prompt-optimization",
+      "prompt-engineering",
+      "search"
+    ]
+  },
+  "task_id": "paper__title-46b721af432d8a4e",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

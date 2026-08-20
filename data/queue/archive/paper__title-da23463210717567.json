@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:20Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:da23463210717567",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Better, Faster: Harnessing Self-Improvement in Large Reasoning Models",
+    "url": "https://icml.cc/virtual/2026/poster/64514",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "self-improvement training",
+      "overthinking measured as solution diversity",
+      "GRPO reward shaping for conciseness"
+    ],
+    "contributions": [
+      "Verify-then-exit sampling strategy for efficiently collecting accurate solutions to difficult queries",
+      "Intrinsic Diversity score that quantifies overthinking to filter out redundant solutions from self-improvement training data",
+      "H-GRPO, a GRPO variant that adds the diversity metric as an RL reward to promote concise and diverse reasoning"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "HSIR is a self-improvement training framework for large reasoning models. It combines a verify-then-exit sampling strategy that collects more accurate solutions for difficult queries more efficiently, with an Intrinsic Diversity score that measures overthinking and is used to eliminate undesired, redundant solutions from the training pool. H-GRPO extends GRPO by incorporating this diversity metric directly as a reinforcement-learning reward, pushing the model toward concise and diverse reasoning.",
+    "methods": [
+      "HSIR",
+      "H-GRPO",
+      "verify-then-exit sampling",
+      "Intrinsic Diversity score"
+    ],
+    "one_liner": "Introduces HSIR, a self-improvement RL framework for large reasoning models that samples hard problems more efficiently and rewards concise, non-redundant reasoning via an overthinking-aware diversity score.",
+    "problem": "Self-improvement training for large reasoning models is limited by low diversity in generated training data (most sampled solutions are for easy problems while hard-problem solutions are rare) and by redundant, overthinking-prone reasoning patterns in the generated solutions.",
+    "relevance": {
+      "overthinking": "Directly targets overthinking: defines an Intrinsic Diversity score to detect and filter redundant reasoning traces during self-improvement training, and trains with H-GRPO, a GRPO variant that rewards concise reasoning, reducing inference overhead by up to 42.4% while improving accuracy by up to 10.9%."
+    },
+    "results": "Up to +10.9% average performance gain in reasoning accuracy and up to 42.4% reduction in inference overhead, reported across seven models and five tasks.",
+    "tags": [
+      "overthinking",
+      "self-improvement",
+      "reinforcement-learning",
+      "grpo",
+      "reasoning-efficiency"
+    ]
+  },
+  "task_id": "paper__title-da23463210717567",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

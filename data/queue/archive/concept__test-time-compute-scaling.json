@@ -1,0 +1,113 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A short empirical study applying self-refinement test-time compute scaling to a small parameter-efficient reasoning model (Qwen 0.6B) to examine gains in mathematical-logical performance.",
+        "title": "Reasoning models, test-time compute, self refinement",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.",
+        "title": "Inverse Scaling in Test-Time Compute",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
+        "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces LLMThinkBench, a dynamically-generated 14-task basic-math benchmark and a harmonic-mean Overthinking Score, then evaluates 53 LLMs to show that strong performance on complex math benchmarks does not transfer to basic arithmetic and that reasoning-tuned models often spend far more tokens for equal or worse accuracy.",
+        "title": "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A theoretical and empirical argument that scaling test-time compute via verification/RL beats scaling via imitation of successful reasoning traces, with the gap growing as sqrt(token budget).",
+        "title": "Scaling Test-Time Compute Without Verification or RL is Suboptimal",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "T1 is a two-stage test-time-scaling framework for small language models that filters candidate responses with external tools before a small-model verifier makes the final judgment, offloading memorization-heavy checks to the tools.",
+        "title": "T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes verifier-search and proposal-revision as the two primary mechanisms of test-time compute scaling and shows that allocating compute adaptively per prompt difficulty is more efficient than fixed strategies, and can be more effective than scaling model parameters.",
+        "title": "Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:15Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'test-time compute scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "test-time compute scaling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "test-time compute scaling",
+    "source_count": 9
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples, or self-refinement passes -- in the hope of higher accuracy. The archive's 9 sources treat it as non-monotonic and mechanism-dependent rather than a reliable lever: on constructed tasks, letting large reasoning models reason longer makes accuracy or alignment-relevant behavior worse, not better ('inverse scaling'); verifier-search and proposal-revision are identified as its two primary underlying mechanisms, with verification/RL-guided scaling proven to beat imitation-based scaling as the token budget grows; and its payoff is domain- and difficulty-dependent -- e.g. small parameter-efficient models gain from self-refinement, tool-integrated verification lets small models match larger ones, and 'The Danger of Overthinking' shows spending it on agentic software tasks can directly lower task-resolution rates.",
+    "kind": "concept",
+    "related": [
+      "overthinking",
+      "underthinking",
+      "inverse scaling"
+    ]
+  },
+  "task_id": "concept__test-time-compute-scaling",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

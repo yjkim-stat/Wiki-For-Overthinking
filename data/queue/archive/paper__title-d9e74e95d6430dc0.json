@@ -1,0 +1,87 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:20Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:d9e74e95d6430dc0",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "UnMaskFork: Test-Time Scaling for Masked Diffusion via Deterministic Action Branching",
+    "url": "https://icml.cc/virtual/2026/poster/66823",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling for diffusion generation",
+      "search over unmasking trajectories",
+      "deterministic action branching"
+    ],
+    "contributions": [
+      "Formulates masked diffusion language model generation as a search tree amenable to Monte Carlo Tree Search",
+      "Proposes deterministic partial-unmasking actions across multiple MDLMs as an alternative to the stochastic sampling used by standard test-time scaling methods"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "UnMaskFork (UMF) formulates the unmasking trajectory of a Masked Diffusion Language Model as a search tree and applies Monte Carlo Tree Search to choose the generation path. Instead of relying on stochastic sampling, as standard test-time scaling methods do, it explores the search space through deterministic partial-unmasking actions carried out by multiple MDLMs.",
+    "methods": [
+      "Monte Carlo Tree Search",
+      "Masked Diffusion Language Models",
+      "UnMaskFork (UMF)"
+    ],
+    "one_liner": "Uses Monte Carlo Tree Search over deterministic partial-unmasking actions to scale test-time compute for masked diffusion language models on coding and math tasks.",
+    "problem": "Test-time scaling strategies have improved reasoning in autoregressive LLMs, but it is unclear whether Masked Diffusion Language Models, which generate non-autoregressively through iterative unmasking, can benefit from similar search-based test-time scaling.",
+    "relevance": {
+      "overthinking": "Applies test-time-compute scaling to masked diffusion language models via search over the unmasking order of a non-autoregressive generation process, not to autoregressive reasoning-length control. It does not address the accuracy/length tradeoff, overthinking, or when a model should stop reasoning. Tangential: it shares only the generic 'test-time scaling' keyword with the topic; the model class (masked diffusion) and mechanism (MCTS over unmasking actions) are unrelated to LRM chain-of-thought length."
+    },
+    "results": "Reported to outperform existing test-time scaling baselines on complex coding benchmarks and to show strong scalability on mathematical reasoning tasks; no specific benchmark names or numeric scores are given in the available material.",
+    "tags": [
+      "diffusion",
+      "test-time-scaling",
+      "mcts",
+      "masked-diffusion",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-d9e74e95d6430dc0",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

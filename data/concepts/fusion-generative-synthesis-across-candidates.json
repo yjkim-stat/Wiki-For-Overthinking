@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.18931",
+      "kind": "paper",
+      "note": "A compute-normalised, five-benchmark comparison of test-time scaling methods on open-ended generation finds that the candidate pool improves steadily with compute, but exploitation - selecting or synthesising the final answer from that pool - is the bottleneck, with reward-model-based selection near random (verifier correlation ~0.12) and even the best method (Fusion) recovering only ~40% of available quality.",
+      "title": "Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:10:00Z",
+  "name": "Fusion (generative synthesis across candidates)",
+  "related": [
+    "exploration-exploitation-decomposition-of-test-time-compute-budget",
+    "oracle-quality-vs-realised-quality",
+    "headroom-capture",
+    "verifier-correlation-as-predictor-of-selection-failure",
+    "diversity-collapse-in-tree-search",
+    "best-of-n-bon-with-outcome-reward-models-skywork-reward-v2-llama-3-1-70b-instruc",
+    "beam-search-prm-guided",
+    "particle-filtering-prm-guided-stochastic-resampling",
+    "sequential-refinement-iterative-self-critique-and-rewrite",
+    "budget-forcing-extended-single-trajectory-thinking",
+    "bias-corrected-oracle-quality-estimator",
+    "lexam-516-items-legal-reasoning",
+    "healthbench-5-000-items-medicine",
+    "prbench-1-650-items-finance-legal-scaleai",
+    "wildbench-v2-1-024-items-general-chat",
+    "writingbench-555-english-items-creative-professional-writing",
+    "math-500-and-gpqa-diamond-referenced-for-contrast-with-deterministic-tasks"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "fusion-generative-synthesis-across-candidates",
+  "topics": [
+    "overthinking"
+  ]
+}

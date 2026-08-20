@@ -1,0 +1,111 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-09898.pdf"
+  },
+  "completed_at": "2026-08-20T12:09:38Z",
+  "created_at": "2026-08-20T12:01:04Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.09898",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling often uses an external verifier, such as compilers and test cases in coding or trained value functions in robotics applications, to obtain high-quality rollouts. Verifier-free test-time scaling (or VF-TTS) is gaining extensive attention as a mechanism to enhance Large Language Model (LLM) reasoning, primarily because we do not have access to such high-quality verifiers in many real-world applications. Among existing VF-TTS methods, confidence-based VF-TTS methods, which compute and rank rollouts solely by confidence, are particularly promising. Such methods introduce near-zero overhead for sample evaluation and require minimal access to internal model states, making the methods highly flexible across models and tasks. In this paper, we demonstrate a critical limitation of existing confidence-based VF-TTS methods by showing that such methods catastrophically break down on complex tasks. We observe a very interesting phenomenon: uniformly high confidence frequently indicates a failure to explore, favoring confidently wrong answers. To address this, our core insight is that robust cognitive search requires a specific confidence trajectory pattern: such methods perform exploratory branching at the beginning, as manifested by low initial confidence, and converge to a high final confidence solution. To implement this insight, we introduce consilience, a novel selection framework that explicitly evaluates the temporal asymmetry of confidence in reasoning. We operationalize this via a combinatorial metric that actively penalizes high initial confidence while strictly demanding final certainty. Extensive experiments covering both graduate-level mathematics problems and free-form code generation demonstrate that consilience effectively outperforms existing baselines, validating our novel perspective on completion confidence.",
+    "authors": [
+      "Lecheng Kong",
+      "Like Hui",
+      "Haitao Mao",
+      "Jun Huan"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.09898v1",
+    "published": "2026-08-10",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Consilience for Verifier-Free Test-Time Scaling",
+    "url": "https://arxiv.org/abs/2608.09898",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "temporal confidence asymmetry (low initial, high final confidence)",
+      "premature convergence vs. exploratory branching in reasoning trajectories",
+      "reasoning-phase isolation (separating chain-of-thought from final-answer tokens)",
+      "the long-tail trap of confidence maximization on hard problems"
+    ],
+    "contributions": [
+      "Shows that on hard problems (low Pass@1), confidence-based verifier-free test-time scaling inverts: incorrect completions have higher mean confidence than correct ones, so naive confidence maximization selects 'confidently wrong' answers.",
+      "Introduces the consilience score, a combinatorial metric (final-window confidence minus alpha times initial-window confidence) that explicitly rewards a rising confidence trajectory instead of uniformly high confidence.",
+      "Introduces reasoning-phase isolation, restricting the confidence computation to the reasoning trace (e.g., before </think>) rather than the answer-restating tokens.",
+      "Demonstrates consilience outperforms Pass@1 and existing confidence-based baselines (self-certainty, DeepConf) across math (HMMT), graduate-level QA (GPQA), free-form code generation (LiveCodeBench), and an agentic coding benchmark (SWE-bench Verified)."
+    ],
+    "datasets": [
+      "LiveCodeBench-v6",
+      "HMMT 2025",
+      "GPQA-Diamond",
+      "SWE-bench Verified"
+    ],
+    "limitations": "The suggested frozen hyperparameters (alpha=3, window k=20%) capture only 72-78% of the per-dataset grid-search optimum under 5-fold cross-validation, so some gain is left on the table without per-task tuning; performance degrades if the penalty multiplier alpha is set too large, over-penalizing early exploration. Applying consilience with n=32 samples at every step of an agentic workflow incurs roughly 32x the compute of a single rollout; in the authors' implementation this took about 18 hours versus 8 hours for the plain agent on their hardware, though only a subset of high-value steps were targeted. The method requires access to top-K token log-probabilities (K=5 used), so it needs at least partial logit access and is not purely black-box. On easy problems (near-ceiling Pass@1), consilience is neutral since all candidates already show similarly high initial confidence, leaving no discriminative signal to exploit.",
+    "method": "Defines token-level confidence as the negative mean log-probability of the top-K candidate tokens at each decoding step. Observes that across a full dataset, higher average confidence correlates with correctness, but on the subset of hard problems (Pass@1 < 20%) this relationship inverts, with incorrect completions forming a heavy-tailed high-confidence group. Proposes the consilience score S = C_final - alpha*C_initial, where C_initial and C_final are average token confidences over boundary windows of size W near the start and end of the (reasoning-phase-isolated) generated sequence, alpha>=0 penalizing high initial confidence while rewarding high final confidence. During test-time scaling, n completions are sampled per prompt and the one maximizing S is selected (best-of-n, training-free, no external verifier). Reasoning-phase isolation splits the sequence at a model-specific delimiter (e.g., </think>) so the score is computed only over the active reasoning trace, excluding the more deterministic answer-summarization tokens. The method is also integrated into an agentic coding loop (mini-SWE-agent), applying consilience to select among n=32 sampled actions at large edit steps.",
+    "methods": [
+      "consilience score",
+      "self-certainty (baseline)",
+      "DeepConf / DeepConf-20% (baseline)",
+      "Pass@1",
+      "best-of-n selection",
+      "reasoning-phase isolation",
+      "mini-SWE-agent integration"
+    ],
+    "one_liner": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+    "problem": "Confidence-based verifier-free test-time scaling ranks and selects sampled rollouts solely by average confidence, but this catastrophically breaks down on complex tasks, where uniformly high confidence often signals a failure to explore rather than correctness, causing confidence maximization to favor confidently wrong answers.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant: addresses test-time compute scaling for LLM reasoning by showing that naive confidence-based selection among sampled reasoning rollouts rewards 'premature convergence' -- a model collapsing onto a single line of thought too early instead of exploring diverse paths -- and proposes a verifier-free criterion (consilience) that instead favors trajectories that explored before converging. This is a selection method for the accuracy/efficiency tradeoff among parallel test-time-compute samples, targeting when reasoning has converged too soon rather than directly controlling the length of a single chain-of-thought."
+    },
+    "results": "With n=64 sampled completions: on LiveCodeBench, the reasoning-isolated variant (Cns-think) raises GPT-OSS-120B to 69.7% accuracy versus Pass@1's 65.7% and versus self-certainty's degraded 64.5%, and raises Qwen to 60.4-60.9% versus Pass@1's 55.3%. On HMMT 2025, self-certainty degrades GPT-OSS-20B from Pass@1's 76.5% down to 68.0%, while consilience reaches 78.0-80.7%. On GPQA-Diamond, consilience reaches 72.0-73.8% versus Pass@1's 71.8% (OSS-20B) and 60.5% (Qwen). Difficulty-stratified results on LiveCodeBench show consilience is neutral on easy problems (near-ceiling Pass@1, e.g. 99.9-100.0%) but improves medium-difficulty accuracy by up to +13.7 points and improves hard-tier accuracy (e.g. GPT-OSS-120B hard tier 17.2% vs. mean-confidence baseline's 13.4%). On the agentic SWE-bench Verified benchmark (n=32), mini-SWE-agent + consilience raises the issue-resolve rate from 23.0% to 26.9% for GPT-OSS-120B and from 65.3% to 67.3% for Qwen3-Coder-Next. On hard problems, consilience separates correct from incorrect completions with AUROC 0.61-0.62 versus chance-level 0.47-0.50 for mean confidence, and the within-problem rise in confidence (final minus initial) is statistically significant on LiveCodeBench (p=0.011, 0.018) and GPQA (Wilcoxon p=0.042).",
+    "tags": [
+      "test-time-scaling",
+      "verifier-free",
+      "confidence-calibration",
+      "reasoning-selection",
+      "premature-convergence"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-09898",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

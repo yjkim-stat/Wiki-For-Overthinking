@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:09:23Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.1109/cando-epe71091.2026.11569472",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reasoning models represent a specialized class of Large Language Models (LLMs) that are significantly advancing the field of artificial intelligence. This paper examines the fundamental characteristics of reasoning models and explores the methodologies employed to enhance their mathematical-logical performance. The empirical study evaluates the application of the self-refinement test-time compute scaling technique on a parameter-efficient model (Qwen 0.6B). Keywords—large language models, reasoning models, inference-time computing, self refinement",
+    "authors": [
+      "Juhász Levente Zsolt"
+    ],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2026-05-26",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Reasoning models, test-time compute, self refinement",
+    "url": "https://www.semanticscholar.org/paper/0249f6192c6a7cb170fd1b45c5d3e5607f5b9f92",
+    "venue": "2026 IEEE 8th International Conference and Workshop Óbuda on Electrical and Power Engineering (CANDO-EPE)"
+  },
+  "result": {
+    "concepts": [
+      "self-refinement",
+      "test-time compute scaling",
+      "parameter-efficient reasoning models"
+    ],
+    "contributions": [
+      "Examines the fundamental characteristics of reasoning models and the methodologies used to enhance their mathematical-logical performance.",
+      "Presents an empirical study applying the self-refinement test-time compute scaling technique to a parameter-efficient model (Qwen 0.6B)."
+    ],
+    "datasets": [],
+    "limitations": "The payload provides only the abstract (no attached PDF, no reachable full text found); no numerical results, benchmark names, or stated limitations are available from the accessible material. The paper appears to be a short workshop-style contribution (IEEE CANDO-EPE 2026) and its full text could not be retrieved.",
+    "method": "Not stated beyond the abstract: the paper applies a self-refinement test-time compute scaling technique to a parameter-efficient reasoning model (Qwen 0.6B), presumably having the model iteratively critique and revise its own output to improve mathematical-logical performance, but the mechanism, prompts, and iteration budget are not described in the available material.",
+    "methods": [
+      "Self-refinement",
+      "Test-time compute scaling",
+      "Qwen 0.6B"
+    ],
+    "one_liner": "A short empirical study applying self-refinement test-time compute scaling to a small parameter-efficient reasoning model (Qwen 0.6B) to examine gains in mathematical-logical performance.",
+    "problem": "How to enhance the mathematical-logical performance of reasoning-model LLMs, examined here specifically for a small, parameter-efficient model where full test-time scaling budgets may be less affordable.",
+    "relevance": {
+      "overthinking": "On-topic by subject matter: it directly studies a test-time compute scaling method (self-refinement) applied to a reasoning model, which is squarely within the topic's scope of test-time compute scaling and the accuracy/efficiency tradeoff of reasoning. However, the only available material is a brief abstract with no numerical results, benchmarks, or discussion of when self-refinement helps versus wastes compute (i.e. no explicit overthinking/underthinking analysis), so its actual contribution to the topic cannot be assessed beyond the fact that it evaluates one scaling technique on one small model."
+    },
+    "results": "Not stated in the available abstract; no numbers, benchmarks, or comparisons are given, and the full text could not be retrieved.",
+    "tags": [
+      "self-refinement",
+      "test-time-compute",
+      "reasoning-models",
+      "qwen",
+      "parameter-efficient"
+    ]
+  },
+  "task_id": "paper__doi-10-1109-cando-epe71091-2026-11569472",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

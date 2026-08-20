@@ -1,0 +1,98 @@
+{
+  "aliases": [
+    "AMC 2023",
+    "AMC2023"
+  ],
+  "definition": "The 2023 sitting of the American Mathematics Competitions, used as a hard competition-math evaluation benchmark alongside AIME in CoBa's compute-balanced routing, the on-policy-distillation sampling-efficiency study, Funnel of Thoughts' rollout pruning, and ATTS's conformal-prediction test-time scaling.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.07424",
+      "kind": "paper",
+      "note": "CoBa treats test-time scaling as a compute-allocation problem and routes cheap answer-agreement evidence versus a small number of strong-verifier calls, reaching majority-voting/self-evaluation-level accuracy on math and symbolic reasoning benchmarks while using roughly half the parameter-weighted tokens.",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing"
+    },
+    {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.15065",
+      "kind": "paper",
+      "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+      "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning"
+    },
+    {
+      "id": "title:b601ad920fcc4d45",
+      "kind": "paper",
+      "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+      "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "AMC23",
+  "related": [
+    "test-time-reasoning-as-a-compute-allocation-problem",
+    "generation-vs-verification-vs-stopping-as-competing-actions-under-a-fixed-budget",
+    "compute-balanced-routing",
+    "parameter-weighted-token-cost",
+    "accuracy-cost-pareto-frontier",
+    "coba-compute-balanced-test-time-scaling-routing-policy",
+    "coba-routed-light-routed-routed-strong-variants",
+    "tiered-verification-rule-based-v0-lightweight-judge-v1-process-verifier-v2-stron",
+    "answer-frequency-verifier-score-fusion-ranking",
+    "paired-bootstrap-significance-testing",
+    "math-500",
+    "aime-2024",
+    "aime-2025",
+    "reasoning-gym-procedural-symbolic-reasoning-hard-subset",
+    "on-policy-distillation-opd",
+    "pass-k-vs-avg-k-as-complementary-test-time-scaling-diagnostics",
+    "capability-boundary-vs-sampling-efficiency",
+    "problem-level-solvability-transitions-retained-learned-forgotten",
+    "illusory-distillation",
+    "off-policy-distillation",
+    "reverse-kl-top-k-token-distillation",
+    "eopd",
+    "exopd",
+    "direct-opd",
+    "forward-kl-variant",
+    "pass-k",
+    "avg-k",
+    "aime-2026",
+    "dapo-math-17k-opd-training-set",
+    "hesitation-markers-as-a-lexical-signal-of-unproductive-reasoning",
+    "late-stage-generation-waste-in-self-consistency",
+    "rollout-pruning-vs-sample-axis-stopping-rules",
+    "early-voting-vote-banking",
+    "hesitation-marker-density-as-a-leading-indicator-of-runaway-trajectory-length",
+    "funnel-of-thoughts-fot",
+    "self-consistency-sc-k",
+    "hesitation-marker-density-pruning",
+    "adaptive-consistency-baseline",
+    "slim-sc-baseline",
+    "gpqa-diamond",
+    "lcb-lite",
+    "test-time-scaling",
+    "conformal-prediction",
+    "asynchronous-decoding",
+    "draft-target-model-speculation",
+    "rejection-sampling",
+    "atts",
+    "conformal-prediction-based-rejection-sampling",
+    "ordinal-classification",
+    "math"
+  ],
+  "related_authored": [
+    "aime-2024",
+    "aime-2025"
+  ],
+  "schema_version": 1,
+  "slug": "amc23",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "concepts": [
+    "geolocation inference",
+    "privacy leakage",
+    "visual chain-of-thought reasoning"
+  ],
+  "contributions": [
+    "Identifies a novel privacy risk category in multi-modal LRMs: inferring sensitive geolocation (e.g., home address or neighborhood) from user images",
+    "Proposes a three-level privacy risk framework categorizing images by contextual sensitivity and geolocation-inference potential",
+    "Introduces DoxBench, 500 real-world images across 6 privacy-scenario categories",
+    "Shows most of 13 evaluated MLRMs/MLLMs outperform non-expert humans at geolocation inference",
+    "Proposes GeoMiner, a two-stage attack framework (clue extraction, then reasoning) that improves geolocation performance"
+  ],
+  "datasets": [
+    "DoxBench (500 images, 6 categories)"
+  ],
+  "generated_at": "2026-08-20T12:19:19Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The paper formalizes geolocation privacy risk via a three-level framework based on image contextual sensitivity and geolocation-inference potential, and builds DoxBench to evaluate it. GeoMiner, the attack framework, decomposes geolocation prediction into two stages: extracting visual clues from an image, then reasoning over those clues (combined with the model's internal world knowledge) to infer a location.",
+  "methods": [
+    "DoxBench",
+    "GeoMiner",
+    "three-level privacy risk framework"
+  ],
+  "one_liner": "Shows that multi-modal large reasoning models can infer users' home locations from photos and introduces DoxBench plus a two-stage attack (GeoMiner) that improves this geolocation inference.",
+  "paper_id": "title:9c6526bab8d19d3e",
+  "problem": "Multi-modal large reasoning models' strong visual reasoning ability creates an underexplored privacy risk: adversaries can infer sensitive geolocation information, such as a home address, from user-generated images including private selfies, because these models combine visual clues with internal world knowledge without any mechanism to suppress privacy-sensitive inference.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential: this is a privacy and vision paper about geolocation inference from images, not about reasoning length or test-time compute allocation. It shares only the 'large reasoning model' keyword with the topic and does not discuss overthinking, underthinking, or stopping criteria."
+  },
+  "results": "Across 13 advanced MLRMs and MLLMs, most models outperform non-expert humans at geolocation inference and can effectively leak location-related private information.",
+  "schema_version": 1,
+  "tags": [
+    "privacy",
+    "geolocation",
+    "multimodal",
+    "doxing",
+    "vision"
+  ]
+}

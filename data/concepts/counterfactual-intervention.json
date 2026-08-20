@@ -1,0 +1,55 @@
+{
+  "aliases": [],
+  "definition": "A causal-analysis technique that alters part of a reasoning trace (e.g. an intermediate thinking-draft step, or a model's implicit first guess) and observes whether the final answer changes, to test whether that part actually drove the outcome rather than being post-hoc narration. Used in the archive to test chain-of-thought faithfulness (Measuring the Faithfulness of Thinking Drafts, RFEval) and to establish that an implicit first-guess bias causally triggers overthinking (The First Impression Problem).",
+  "evidence": [
+    {
+      "id": "title:201a19641c43ace7",
+      "kind": "paper",
+      "note": "Introduces a counterfactual intervention framework to test whether large reasoning models' intermediate thinking-draft steps and final answers are causally faithful to each other, finding they often are not.",
+      "title": "Measuring the Faithfulness of Thinking Drafts in Large Reasoning Models"
+    },
+    {
+      "id": "title:51fe00fa979d4d8f",
+      "kind": "paper",
+      "note": "Identifies an implicit first-guess bias formed on reading a question as a causal driver of overthinking in reasoning models, verified through counterfactual interventions and attention analysis.",
+      "title": "The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models"
+    },
+    {
+      "id": "title:9f5aee65dee28f12",
+      "kind": "paper",
+      "note": "Introduces RFEval, a benchmark that uses counterfactual interventions to test whether an LRM's stated chain-of-thought causally drives its answer, finding 49.7% of outputs unfaithful.",
+      "title": "RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Reasoning Intervention in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:20:08Z",
+  "name": "counterfactual intervention",
+  "related": [
+    "thinking-draft-faithfulness",
+    "intra-draft-faithfulness",
+    "draft-to-answer-faithfulness",
+    "counterfactual-step-insertion",
+    "counterfactual-intervention-framework",
+    "internal-bias",
+    "first-impression-guess",
+    "overthinking-as-bias-conflict",
+    "attention-to-the-input-question",
+    "attention-based-interpretability-analysis",
+    "reasoning-faithfulness",
+    "stance-consistency",
+    "causal-influence",
+    "rfeval-benchmark",
+    "counterfactual-output-level-intervention",
+    "stance-consistency-causal-influence-framework",
+    "rfeval-7-186-instances-across-7-tasks"
+  ],
+  "related_authored": [
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "counterfactual-intervention",
+  "topics": [
+    "overthinking"
+  ]
+}

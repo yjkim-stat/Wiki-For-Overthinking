@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.",
+        "title": "Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that large reasoning models' final answers are produced by two competing mechanisms, chain-of-thought reasoning and memory retrieval, and introduces FARL, a fine-tuning method that suppresses the retrieval shortcut to encourage genuine reasoning.",
+        "title": "Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:55:15Z",
+  "created_at": "2026-08-20T13:53:53Z",
+  "instructions": "Write the wiki definition for 'reinforcement learning fine-tuning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reinforcement learning fine-tuning",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reinforcement learning fine-tuning",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "RL finetuning",
+      "RLVR"
+    ],
+    "definition": "Further training an already-pretrained reasoning model with reinforcement learning (typically against a verifiable reward, such as answer correctness) to change its reasoning behavior. In the archive it appears both as a general training stage whose data selection can be made more efficient by predicting which prompts are informative (Dynamics-Predictive Sampling), and as a cause worth scrutinizing: 'Reasoning or Retrieval?' studies how it shifts a model's answers between chain-of-thought reasoning and a memory-retrieval shortcut.",
+    "kind": "concept",
+    "related": [
+      "preference optimization",
+      "test-time compute scaling"
+    ]
+  },
+  "task_id": "concept__reinforcement-learning-fine-tuning",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

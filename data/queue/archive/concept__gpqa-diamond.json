@@ -1,0 +1,115 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
+        "title": "Thought-Level Beam Search for Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+        "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
+        "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AsyncSpade speeds up decoding of long chain-of-thought generations by predicting query states from recent patterns and running sparse KV-cache selection asynchronously alongside decoding, cutting per-token latency without hurting accuracy.",
+        "title": "AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Expert-Sample scales test-time compute for fine-grained MoE LLMs by randomizing only low-confidence expert routing choices, keeping high-confidence expert selections fixed, to get diverse samples without the usual diversity-stability tradeoff of temperature sampling.",
+        "title": "Certain Head, Uncertain Tail: Expert-Sample for Test-Time Scaling in Fine-Grained MoE",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+        "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+        "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:15Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'GPQA-Diamond'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPQA-Diamond",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GPQA-Diamond",
+    "source_count": 9
+  },
+  "result": {
+    "aliases": [
+      "GPQA-D"
+    ],
+    "definition": "A hard multiple-choice science-question benchmark used across the archive's 9 sources as a standard hard-reasoning evaluation set for test-time-compute and overthinking-mitigation methods, alongside AIME/AMC. It appears in beam search (Gambit), verifier-free selection (Consilience, Funnel of Thoughts), attention-based CoT pruning (TRAAC), sparse decoding (AsyncSpade), MoE expert-sampling, and state-machine reasoning-steering work -- always as an evaluation target rather than something the sources describe the construction of.",
+    "kind": "dataset",
+    "related": [
+      "GSM8K",
+      "AIME",
+      "test-time compute scaling"
+    ]
+  },
+  "task_id": "concept__gpqa-diamond",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

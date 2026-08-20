@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:38Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7805f8ec24eadc13",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "overthinking"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
+    "url": "https://icml.cc/virtual/2025/poster/45540",
+    "venue": "ICML 2025"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "outcome and process efficiency metrics",
+      "self-training for reasoning-length reduction"
+    ],
+    "contributions": [
+      "First comprehensive study of overthinking in o1-like reasoning models: excessive computational resources spent on simple problems for minimal benefit.",
+      "Introduces efficiency metrics from both outcome and process perspectives to evaluate how rationally o1-like models use compute.",
+      "Proposes self-training-based strategies to mitigate overthinking that reduce computational overhead without compromising accuracy."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "GPQA",
+      "AIME"
+    ],
+    "limitations": "The abstract does not give specific numeric reductions in token usage or accuracy deltas; details of the self-training procedure and which model(s) it was applied to are not stated in the abstract.",
+    "method": "The authors define efficiency metrics that separately assess outcome efficiency (whether extra compute changes the final answer) and process efficiency (how much of the generated reasoning chain is redundant), applied to o1-like long chain-of-thought reasoning models across problems of varying difficulty. Using a self-training paradigm, they then train the model to produce shorter, less redundant reasoning without changing its accuracy.",
+    "methods": [
+      "self-training (preference-based)",
+      "outcome/process efficiency metrics"
+    ],
+    "one_liner": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+    "problem": "Long chain-of-thought reasoning models allocate excessive computational resources (tokens, thinking rounds) to problems that are already simple or whose answer is already evident, wasting compute for no accuracy benefit; there was no established way to measure or mitigate this.",
+    "relevance": {
+      "overthinking": "This paper is the origin study of the overthinking phenomenon that the tracked topic is named after: it defines the problem, proposes metrics to measure wasted reasoning compute, and demonstrates a concrete mitigation (self-training) that reduces token usage while preserving accuracy across GSM8K, MATH500, GPQA and AIME."
+    },
+    "results": "Experimental results show the proposed self-training approach reduces computational overhead (token/reasoning-round usage) while preserving model accuracy across GSM8K, MATH500, GPQA and AIME; the abstract does not give specific percentage figures.",
+    "tags": [
+      "overthinking",
+      "reasoning-efficiency",
+      "chain-of-thought",
+      "self-training",
+      "o1-like-models"
+    ]
+  },
+  "task_id": "paper__title-7805f8ec24eadc13",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-07968.pdf"
+  },
+  "completed_at": "2026-08-20T12:09:38Z",
+  "created_at": "2026-08-20T12:01:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.07968",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reasoning language models increasingly use test-time compute to improve performance, but existing evaluations typically study this compute one question at a time. Yet when multiple problems share an end-to-end cost or latency constraint, models must decide how to divide limited inference compute among them. We introduce an exam-style evaluation framework for studying this setting, in which a model must distribute one shared token budget across questions with different difficulty and point values to maximize its total score. Across several open and frontier reasoning models, we find that models fail to allocate a shared budget strategically across questions of varying difficulties and values. Models behave largely as greedy sequential solvers: they prioritize questions by presentation order, front-load effort on early questions, and remain insensitive to value, with these tendencies becoming more pronounced as the number of questions grows. Explicit planning prompts spread compute more evenly but do not produce value- or difficulty-aware prioritization. The same behavioral pattern extends from mathematical to code reasoning. These findings establish global budget allocation as a distinct capability that is not captured by conventional per-question evaluation and remains a challenge for current reasoning models.",
+    "authors": [
+      "Chenrui Fan",
+      "Yize Cheng",
+      "Ming Li",
+      "Yongyuan Liang",
+      "Tianyi Zhou",
+      "Soheil Feizi"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.07968v2",
+    "published": "2026-08-08",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions",
+    "url": "https://arxiv.org/abs/2608.07968",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "shared-budget metareasoning across questions",
+      "budget allocation as a knapsack problem",
+      "position bias vs. difficulty/value sensitivity in reasoning",
+      "per-question reasoning attribution from a shared trace"
+    ],
+    "contributions": [
+      "Introduces an exam-style evaluation framework where a model must divide one shared token budget across N questions of varying difficulty and point value.",
+      "Shows models allocate compute largely by presentation order rather than difficulty or stated value ('greedy sequential solvers').",
+      "Shows budget pressure magnifies the failure: as exam length N grows, position-effort correlation strengthens and coverage of attempted questions shrinks.",
+      "Shows explicit planning prompts spread compute more evenly across questions but do not induce value- or difficulty-aware prioritization.",
+      "Extends the same behavioral pattern from mathematical reasoning (Omni-MATH) to code reasoning (CRUXEval-O)."
+    ],
+    "datasets": [
+      "Omni-MATH",
+      "CRUXEval-O"
+    ],
+    "limitations": "The full factorial design (varying length, order, and point values) is run only on Omni-MATH; CRUXEval-O experiments cover just two exam lengths, four models and two scoring schemes, with no native difficulty axis and no ordering/repricing manipulations, so absolute score rates and effect magnitudes should not be compared across the two domains. Per-question token attribution is recovered from Q1/Q2 marker segmentation, which the authors call reliable for the large majority of traces but only an approximation; a fully rigorous notion of effort (detecting where a question is actually being solved, not merely referenced) remains open.",
+    "method": "Constructs 'exams' of N questions (from Omni-MATH, difficulty <=5) with visible point values, presented together under one shared reasoning-token budget B; the model produces a single free-form reasoning trace for the whole exam, then answers are extracted in a separate turn. Reasoning tokens are attributed to individual questions using the Qn markers in the trace, giving a token effort t_i and a token-weighted-centroid solving order for each question (restricted to a 'work set' of substantively attempted questions). Partial Spearman correlations relate token effort and solving order to presentation position, difficulty, and point value, controlling for confounds between position and difficulty. Four scoring schemes (fixed, random, aligned, reversed) and three orderings (random, ascending, descending difficulty) are crossed with five open-weight models (DeepSeek-R1-Distill-Qwen-7B/14B, Qwen3-8B/14B/32B) and two DeepSeek-V4 API models, and with a baseline vs. explicit-planning prompt.",
+    "methods": [
+      "exam-style shared-budget evaluation framework",
+      "partial Spearman correlation analysis",
+      "marker-based reasoning attribution (token effort, token-weighted centroid solving order)",
+      "explicit planning prompt condition",
+      "knapsack-style value-density analysis using an independent high-budget reference"
+    ],
+    "one_liner": "Introduces an exam-style evaluation where reasoning models must divide one shared token budget across multiple questions of different difficulty and value, and finds they allocate it by presentation order rather than by difficulty or value.",
+    "problem": "Existing test-time compute evaluations study one question at a time, concealing whether a reasoning model can strategically divide a fixed, shared inference budget across several competing problems of different difficulty and worth.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly establishes a distinct overthinking/underthinking-adjacent failure mode: under a fixed shared compute budget, reasoning models overspend effort on early or low-value questions (a form of overthinking relative to their worth) while leaving harder or more valuable questions underexplored, and this failure worsens as the budget becomes more contested. It frames cross-question compute allocation as a capability separate from, and not solved by, per-question length-control methods."
+    },
+    "results": "Averaged over models, the position-effort correlation is -0.17 at N=5, -0.38 at N=10, and -0.48 at N=20 (increasingly negative = later questions get fewer tokens), while solving order tracks presentation position strongly (overall rho=+0.68, ranging +0.55 to +0.91 by model). Effort- and order-value correlations stay near zero across N (effort-value: 0.00, +0.04, +0.11; order-value: -0.03, -0.09, -0.07). Coverage of the exam (work-set size / N) falls from 55-90% at N=5 to 23-46% at N=20 for locally hosted models, and even more for API models (DSV4-F: 80% to 23%); zero-token rate rises to 51% (open-model average), 69% (DSV4-F) and 61% (DSV4-P) at N=20. The reached work set overlaps with model-adaptive value-density ranking only at chance level (0.59) while overlapping with early-position ranking at 0.76. Explicit planning improves coverage by +0.09 to +0.14 as N grows from 5 to 20 but leaves solving-order correlation with position essentially unchanged (open models: 0.64 to 0.60; DSV4-P: 0.68 to 0.83, i.e. more sequential). The same position-driven, value-insensitive pattern reproduces on CRUXEval-O code reasoning.",
+    "tags": [
+      "test-time-compute",
+      "budget-allocation",
+      "reasoning-models",
+      "position-bias",
+      "overthinking",
+      "evaluation"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-07968",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

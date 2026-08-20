@@ -1,0 +1,86 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:57Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:84172089e3270d37",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Dynamic Thinking-Token Selection for Efficient Reasoning in Large Reasoning Models",
+    "url": "https://icml.cc/virtual/2026/poster/61200",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "decision-critical tokens",
+      "KV-cache redundancy in reasoning traces",
+      "attention-guided token selection"
+    ],
+    "contributions": [
+      "An attention-map analysis showing that only a small subset of tokens in a reasoning trace are decision-critical for the final answer, while most tokens contribute negligibly.",
+      "DynTS, a method that identifies decision-critical tokens and retains only their Key-Value cache entries, evicting the rest during inference.",
+      "Empirical results showing DynTS surpasses prior KV-cache compression methods on Pass@1 at matched cache budget, while cutting inference latency and peak KV-cache memory."
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "DynTS analyzes attention maps over a generated reasoning trace to identify decision-critical tokens (the ones that steer the model toward its final answer) versus tokens that contribute little. It then keeps only the Key-Value cache states associated with the decision-critical tokens and evicts the remaining, redundant KV entries during inference, reducing memory and compute without regenerating the trace.",
+    "methods": [
+      "DynTS",
+      "KV-cache eviction"
+    ],
+    "one_liner": "Identifies which tokens in a large reasoning model's chain-of-thought actually steer the final answer and evicts the Key-Value cache for the rest, cutting memory and latency without hurting accuracy.",
+    "problem": "Large reasoning models generate long reasoning traces to solve hard problems, but the resulting Key-Value cache and compute overhead bottleneck inference efficiency; not all of that generated reasoning is functionally necessary.",
+    "relevance": {
+      "overthinking": "Directly addresses the efficiency side of the overthinking tradeoff: it shows most tokens in a reasoning trace are redundant for the final answer and proposes a way to prune the corresponding computation/memory (KV cache) while preserving accuracy, i.e. making long reasoning traces cheaper without shortening or truncating the reasoning itself."
+    },
+    "results": "DynTS improves Pass@1 by 2.6% over state-of-the-art KV-cache compression methods at the same cache budget, reduces inference latency by 1.84-2.62x, and reduces peak KV-cache memory footprint by 3.32-5.73x compared to vanilla Transformer inference, without compromising reasoning performance (arXiv:2601.18383).",
+    "tags": [
+      "efficient-reasoning",
+      "kv-cache",
+      "token-pruning",
+      "inference-efficiency"
+    ]
+  },
+  "task_id": "paper__title-84172089e3270d37",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

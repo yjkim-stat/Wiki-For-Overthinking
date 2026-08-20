@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "An online-learning framework for repeatedly choosing an action (e.g. which model to route a query to, or how much test-time compute to spend) based on context, using observed rewards to improve the choice over time. UniScale uses a bandit controller (LinUCB) to jointly decide model routing and test-time-compute allocation per query; the diffusion-model noise-trajectory-search paper casts its epsilon-greedy noise search the same way -- though that application is unrelated to LLM reasoning length.",
+  "evidence": [
+    {
+      "id": "title:3b024853a8e7324c",
+      "kind": "paper",
+      "note": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
+      "title": "UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling"
+    },
+    {
+      "id": "title:8213c516e0a35710",
+      "kind": "paper",
+      "note": "Optimizes the sequence of injected noise vectors during diffusion model denoising, using an epsilon-greedy search cast as sequential contextual bandits, to improve image generation quality at fixed or extra test-time compute.",
+      "title": "Test-Time Scaling of Diffusion Models via Noise Trajectory Search"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T12:15:21Z",
+  "name": "contextual bandits",
+  "related": [
+    "test-time-scaling",
+    "model-routing",
+    "quality-cost-tradeoff",
+    "online-optimization",
+    "uniscale",
+    "linucb",
+    "contextual-multi-armed-bandit",
+    "noise-trajectory-optimization",
+    "diffusion-denoising-as-a-markov-decision-process",
+    "denoising-as-sequential-contextual-bandits",
+    "epsilon-greedy-global-exploration-local-exploitation-search",
+    "epsilon-greedy-noise-trajectory-search",
+    "monte-carlo-tree-search-baseline-comparison",
+    "markov-decision-process-formulation",
+    "edm-class-conditioned-image-generation",
+    "stable-diffusion-text-to-image-generation"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "contextual-bandits",
+  "topics": [
+    "overthinking"
+  ]
+}

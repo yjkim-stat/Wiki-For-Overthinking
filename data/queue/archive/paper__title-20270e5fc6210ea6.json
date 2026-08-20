@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:47Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:20270e5fc6210ea6",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs",
+    "url": "https://icml.cc/virtual/2026/poster/63795",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "fixed token budget",
+      "budget-aware tree search",
+      "test-time scaling"
+    ],
+    "contributions": [
+      "Identifies that existing tree-search decoding methods ignore fixed per-query token budgets, causing late-stage over-branching or premature termination.",
+      "Proposes Budget-Guided MCTS (BG-MCTS), a tree-search policy that adapts its exploration/exploitation balance to the remaining token budget as the search proceeds.",
+      "Shows BG-MCTS outperforms budget-agnostic tree-search baselines across a range of inference budgets on mathematical and physics reasoning benchmarks."
+    ],
+    "datasets": [
+      "mathematical reasoning benchmarks",
+      "a physics reasoning benchmark"
+    ],
+    "limitations": "Specific benchmark names, numeric results and model sizes are not given in the available material (poster page abstract only, no PDF); the abstract itself gives no quantitative results, only that BG-MCTS 'outperforms' baselines.",
+    "method": "Budget-Guided MCTS (BG-MCTS) aligns a tree-search decoding policy with the remaining token budget during Monte Carlo Tree Search: it starts with broad exploration when budget is plentiful, then shifts toward refinement and answer completion as the remaining budget shrinks, reducing late-stage branching from shallow nodes so the search does not run out of budget mid-exploration or terminate too early.",
+    "methods": [
+      "Budget-Guided MCTS (BG-MCTS)",
+      "Monte Carlo Tree Search",
+      "tree-search decoding"
+    ],
+    "one_liner": "Proposes a budget-aware Monte Carlo Tree Search policy (BG-MCTS) that reallocates exploration versus refinement as a fixed per-query token budget is consumed, for test-time scaling of LLMs.",
+    "problem": "Tree-search decoding is an effective form of test-time scaling for LLMs, but real deployments impose a fixed per-query token budget that current tree-search methods do not account for, leading to over-branching late in the search or premature termination before a good answer is found.",
+    "relevance": {
+      "overthinking": "This is a direct treatment of the test-time compute tradeoff: it studies how to spend a fixed reasoning/search token budget across a tree-search process so the model neither over-explores (wasting budget on late-stage branching) nor stops too early (premature termination), which is exactly the stop/keep-going calibration problem the topic tracks."
+    },
+    "results": "BG-MCTS outperforms budget-agnostic tree-search baselines across inference budgets on mathematical reasoning benchmarks and an additional physics reasoning benchmark with open-weight LLMs; no specific accuracy numbers are given in the available abstract.",
+    "tags": [
+      "test-time-scaling",
+      "tree-search",
+      "mcts",
+      "token-budget",
+      "inference-cost"
+    ]
+  },
+  "task_id": "paper__title-20270e5fc6210ea6",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

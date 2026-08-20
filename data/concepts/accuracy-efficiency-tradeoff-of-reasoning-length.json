@@ -1,0 +1,61 @@
+{
+  "aliases": [
+    "overthinking/underthinking tradeoff"
+  ],
+  "definition": "The core tension the archive's sources study: a reasoning model's accuracy as a function of how many tokens it spends thinking is not monotonic — spending more improves accuracy up to a point and then wastes compute or actively hurts it (overthinking), while spending too few tokens leaves genuinely hard problems unsolved (underthinking). OptimalThinkingBench frames this as a single benchmark (OverthinkingBench + UnderthinkingBench) precisely because no evaluated model balances both sides of the tradeoff at once.",
+  "evidence": [
+    {
+      "id": "local:49199e3b0f694ee1",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "title:441c8494292f11c7",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "accuracy-efficiency tradeoff of reasoning length",
+  "related": [
+    "overthinking",
+    "underthinking",
+    "test-time-compute-scaling",
+    "thinking-token-budget",
+    "hybrid-thinking-non-thinking-models",
+    "difficulty-based-routing-between-reasoning-modes",
+    "overthinkingbench",
+    "underthinkingbench",
+    "overthinking-adjusted-accuracy-oaa",
+    "auc-oaa",
+    "f1-otb-combined-metric",
+    "llm-as-a-judge-filtering-and-evaluation",
+    "l1-length-controlled-reinforcement-learning",
+    "adaptthink",
+    "verithinker",
+    "model-merging",
+    "trained-difficulty-based-router-oracle-router",
+    "math-hendrycks-et-al-levels-1-2-for-ovt-math",
+    "supergpqa-72-domain-source-for-ovt-general-question-generation",
+    "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "aime-2025",
+    "hmmt-2025",
+    "math-levels-1-2-for-ovt-math",
+    "supergpqa",
+    "reasoning-gym"
+  ],
+  "related_authored": [
+    "overthinking",
+    "underthinking",
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "accuracy-efficiency-tradeoff-of-reasoning-length",
+  "topics": [
+    "overthinking"
+  ]
+}

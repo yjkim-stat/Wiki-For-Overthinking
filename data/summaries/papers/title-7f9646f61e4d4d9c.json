@@ -1,0 +1,35 @@
+{
+  "concepts": [
+    "safety verification",
+    "self-critique via reasoning",
+    "internalized alignment"
+  ],
+  "contributions": [
+    "SInternal, a training method that fine-tunes reasoning models exclusively on safety verification tasks, teaching them to critique their own generated answers using expert reasoning trajectories rather than to directly mimic safe outputs.",
+    "A demonstration that learning to verify generalizes to improved response safety against disguised or manipulative prompts.",
+    "Evidence that SInternal provides a better initialization for downstream reinforcement learning than standard safety training."
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:57Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The model is trained only on safety-verification tasks: given a response, it must critique and justify why the response violates (or does not violate) safety principles, using expert reasoning trajectories as supervision. This is intended to build an internal understanding of safety principles rather than a learned mapping from harmful-looking requests to refusals, and the resulting checkpoint is then used as an initialization for further reinforcement learning.",
+  "methods": [
+    "SInternal"
+  ],
+  "one_liner": "Trains large reasoning models on safety-verification (critiquing responses against safety principles) rather than direct safe-response mimicry, and shows this generalizes better and gives a stronger RL initialization.",
+  "paper_id": "title:7f9646f61e4d4d9c",
+  "problem": "Chain-of-thought reasoning can make unsafe outputs harder to detect, and models that appear aligned often lack an intrinsic understanding of safety principles, making them vulnerable to sophisticated or disguised attacks.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Not substantively related. The paper is about safety alignment and self-verification of response safety in reasoning models; it does not address reasoning length, the accuracy/efficiency tradeoff, or when a model should stop or continue reasoning. It only shares the generic term 'large reasoning model' with the topic."
+  },
+  "results": "No specific benchmark numbers were available in the retrieved material (no PDF or numeric results found on the paper's ICML page). The claimed results are qualitative: stronger generalization to disguised/manipulative attacks and improved RL initialization compared to standard training.",
+  "schema_version": 1,
+  "tags": [
+    "safety",
+    "alignment",
+    "verification",
+    "self-critique"
+  ]
+}

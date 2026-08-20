@@ -1,0 +1,31 @@
+{
+  "abstract": "Abstract Long reasoning models (LRMs) such as OpenAI's o1 and DeepSeek's R1 have demonstrated remarkable abilities in complex reasoning tasks by scaling test-time compute and exhibiting human-like deep thinking. However, we identify a phenomenon we term underthinking, where LRMs frequently switch between different reasoning thoughts without sufficiently exploring promising paths to reach a correct solution. This behavior leads to inadequate depth of reasoning and decreased performance, particularly on challenging mathematical problems. To systematically analyze this issue, we conduct experiments on three challenging test sets and two representative open-source LRMs, revealing that frequent thought switching correlates with incorrect responses. We introduce a novel metric to quantify underthinking by measuring token efficiency in incorrect answers. To address underthinking, we propose a decoding strategy with thought switching penalty (Tip) that discourages premature transitions between thoughts, encouraging deeper exploration of each reasoning path. Experimental results demonstrate that our approach improves accuracy across challenging datasets without requiring model fine-tuning. Our findings contribute to understanding reasoning inefficiencies in LRMs and offer a practical solution to enhance their problem-solving capabilities. Our code is open-source and available at https://github.com/wangyuenlp/underthinking.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:2e5e00164f8a905d",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "underthinking",
+    "test-time compute"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-117581",
+  "title": "Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/117581",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

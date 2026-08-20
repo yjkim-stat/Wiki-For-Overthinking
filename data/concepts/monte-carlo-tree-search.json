@@ -1,0 +1,59 @@
+{
+  "aliases": [
+    "MCTS",
+    "tree search"
+  ],
+  "definition": "A search algorithm that builds a tree of candidate reasoning/solution steps, using simulated rollouts to decide which branches to explore further, applied at inference time to scale test-time compute. BG-MCTS reallocates exploration versus refinement as a fixed token budget depletes; 'Less Diverse, Less Safe' finds MCTS (like Best-of-N) becomes more likely to produce unsafe outputs when candidate diversity is reduced; UnMaskFork applies it to masked-diffusion-model unmasking decisions.",
+  "evidence": [
+    {
+      "id": "title:20270e5fc6210ea6",
+      "kind": "paper",
+      "note": "Proposes a budget-aware Monte Carlo Tree Search policy (BG-MCTS) that reallocates exploration versus refinement as a fixed per-query token budget is consumed, for test-time scaling of LLMs.",
+      "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs"
+    },
+    {
+      "id": "title:abd61e399170fa2c",
+      "kind": "paper",
+      "note": "Shows that test-time-scaling methods such as Monte Carlo Tree Search and Best-of-N become substantially more likely to produce unsafe outputs when candidate diversity is curtailed, using a diagnostic protocol called RefDiv.",
+      "title": "Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models"
+    },
+    {
+      "id": "title:d9e74e95d6430dc0",
+      "kind": "paper",
+      "note": "Uses Monte Carlo Tree Search over deterministic partial-unmasking actions to scale test-time compute for masked diffusion language models on coding and math tasks.",
+      "title": "UnMaskFork: Test-Time Scaling for Masked Diffusion via Deterministic Action Branching"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:24:12Z",
+  "name": "Monte Carlo Tree Search",
+  "related": [
+    "fixed-token-budget",
+    "budget-aware-tree-search",
+    "test-time-scaling",
+    "budget-guided-mcts-bg-mcts",
+    "tree-search-decoding",
+    "mathematical-reasoning-benchmarks",
+    "a-physics-reasoning-benchmark",
+    "candidate-diversity",
+    "safety-risk",
+    "adversarial-robustness",
+    "refdiv",
+    "best-of-n",
+    "test-time-scaling-for-diffusion-generation",
+    "search-over-unmasking-trajectories",
+    "deterministic-action-branching",
+    "masked-diffusion-language-models",
+    "unmaskfork-umf"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling",
+    "best-of-n-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "monte-carlo-tree-search",
+  "topics": [
+    "overthinking"
+  ]
+}

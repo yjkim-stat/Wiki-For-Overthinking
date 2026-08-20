@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Studies sequential and parallel test-time compute scaling for deep-search LLM agents and shows that allocating modest compute to a cheap verifier outperforms pushing sequential generation length further.",
+        "title": "Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WebThinker gives large reasoning models an autonomous web-search-and-report-drafting loop, trained via iterative online DPO, for knowledge-intensive deep research tasks.",
+        "title": "WebThinker: Empowering Large Reasoning Models with Deep Research Capability",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:50Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'GAIA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GAIA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GAIA",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A benchmark of multi-step, tool-using agent tasks used in the archive to evaluate deep-search / web-research LLM agents: the asymmetric-verification deep-search paper and WebThinker's autonomous web-search-and-report-drafting loop both evaluate on it. Note: unrelated to the archive's separately-collected paper literally titled 'GAIA: A Data Flywheel System for Training GUI Test-Time Scaling Critic Models', which names its own, different GUI-agent critic system 'GAIA' -- a name collision between two distinct things both called GAIA.",
+    "kind": "dataset",
+    "related": []
+  },
+  "task_id": "concept__gaia",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

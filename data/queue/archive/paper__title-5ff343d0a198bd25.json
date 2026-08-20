@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:15:01Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5ff343d0a198bd25",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Test-Time Scaling with Reflective Generative Model",
+    "url": "https://iclr.cc/virtual/2026/poster/10006997",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "process reward model",
+      "self-supervised process reward model (SPRM)",
+      "reasoning-effort modes",
+      "scaling law for thinking compute"
+    ],
+    "contributions": [
+      "Introduces SPRM (self-supervised process reward model), which shares a backbone network with the policy model and adds task-specific heads for next-token prediction and process scoring, unifying policy and PRM without process-level annotation and reducing PRM parameters by over 99%",
+      "Provides three reasoning-effort modes (low, medium, high) based on controllable thinking length for test-time scaling",
+      "Empirically establishes a scaling law relating total thinking computation to test-time-scaling performance",
+      "Releases MetaStone-S1 (32B parameters), reported to match OpenAI o3-mini-series performance, open-sourced"
+    ],
+    "datasets": [
+      "AIME24"
+    ],
+    "limitations": "",
+    "method": "Builds a Reflective Generative Model in which the policy model and a process reward model share one backbone network, with separate lightweight task-specific heads for next-token prediction and process scoring (the self-supervised process reward model, SPRM), trained without explicit process-level annotations by deriving process scores from the outcome reward. This unified model supports test-time scaling by offering three selectable reasoning-effort modes (low/medium/high) that control how long the model thinks, and the authors measure how test-time performance scales with total thinking computation.",
+    "methods": [
+      "Reflective Generative Model (RGM)",
+      "self-supervised process reward model (SPRM)",
+      "MetaStone-S1"
+    ],
+    "one_liner": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+    "problem": "Effective test-time scaling for reasoning models typically requires a separately trained process reward model with costly step-level annotations; the paper seeks a way to get process-level supervision and controllable reasoning length without that cost.",
+    "relevance": {
+      "overthinking": "Bears on the topic through its controllable reasoning-effort modes (low/medium/high) and an empirical scaling law tying total thinking computation to test-time performance, i.e. a concrete mechanism for choosing how long a model should think. However, the paper's core contribution is architectural (a shared-backbone policy/process-reward model reducing PRM parameter cost) rather than an analysis of when or why extended thinking stops helping — it treats more thinking compute as generally beneficial via its effort modes rather than studying overthinking/underthinking degradation directly."
+    },
+    "results": "MetaStone-S1 (32B parameters) is reported to achieve performance comparable to OpenAI o3-mini's series; on AIME24 it is reported at 84.2% versus 79.6% for o3-mini. SPRM adds roughly 50M extra parameters versus a full process reward model, a reduction of over 99% in PRM parameter count.",
+    "tags": [
+      "test-time-scaling",
+      "process-reward-model",
+      "reasoning-length",
+      "scaling-law",
+      "reasoning-effort-modes"
+    ]
+  },
+  "task_id": "paper__title-5ff343d0a198bd25",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "concepts": [
+    "implicit models",
+    "fixed-point iteration",
+    "expressive power",
+    "weight-tied networks"
+  ],
+  "contributions": [
+    "Non-parametric mathematical characterization showing a simple, regular implicit operator can progressively express more complex mappings through iteration",
+    "Proves that for a broad class of implicit models, expressive power grows with test-time compute, ultimately matching a much richer function class",
+    "Validates the theory across four domains: imaging, scientific computing, operations research, and LLM reasoning"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:19:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Implicit models compute outputs by iterating a single parameter block to a fixed point, forming an infinite-depth, weight-tied network trained with constant memory. The paper gives a non-parametric analysis of expressive power, proving that iterating a simple, regular implicit operator progressively expresses more complex mappings, so that for a broad class of implicit models expressive power grows with the number of test-time iterations.",
+  "methods": [],
+  "one_liner": "Provides a mathematical theory showing that implicit (weight-tied, fixed-point) models' expressive power grows with the number of test-time iterations, validated across imaging, scientific computing, operations research and LLM reasoning.",
+  "paper_id": "title:acc0cd457f5fd230",
+  "problem": "It is empirically known that implicit models can match or exceed larger explicit networks by allocating more test-time compute, but why this happens was not theoretically understood.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "A general expressive-power theory for implicit/equilibrium models under more test-time iterations; only one of four validation domains is LLM reasoning, and the paper does not address reasoning length or the stop/continue decision in large reasoning models. It shares the \"test-time scaling\" phrase but is tangential to this topic."
+  },
+  "results": "Across the four validation domains (imaging, scientific computing, operations research, LLM reasoning), the complexity of the learned mapping rises with more test-time iterations while solution quality simultaneously improves and stabilizes; no benchmark-specific numbers given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "implicit-models",
+    "theory",
+    "test-time-compute",
+    "equilibrium-models",
+    "tangential"
+  ]
+}

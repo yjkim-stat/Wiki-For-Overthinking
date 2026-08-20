@@ -1,0 +1,30 @@
+{
+  "abstract": "Abstract Recent progress in large language models (LLMs) highlights the power of scaling test-time compute to achieve strong performance on complex tasks, such as mathematical reasoning and code generation. This raises a critical question: how should model training be modified to optimize performance under a subsequent test-time compute strategy and budget? To explore this, we focus on pass@N, a simple test-time strategy that searches for a correct answer in N independent samples. We show, surprisingly, that training with cross-entropy (CE) can be misaligned with pass@N in that pass@N accuracy decreases with longer CE training. We explain the origins of this misalignment in terms of model overconfidence induced by CE, and experimentally verify our prediction of overconfidence as an impediment to scaling test-time compute via pass@N. Furthermore we suggest a principled, modified training loss that is better aligned to pass@N by limiting model confidence and rescuing pass@N test performance. Our algorithm demonstrates improved mathematical reasoning on MATH and MiniF2F benchmarks under several scenarios: (1) providing answers to math questions both with and without Chain-of-Thought reasoning traces; and (2) proving theorems by searching over proof trees of varying shapes. Overall our work underscores the importance of co-designing two traditionally separate phases of LLM development: training-time protocols and test-time search and reasoning strategies.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:edfa34ba9c5ee959",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-116423",
+  "title": "Rethinking Fine-Tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/116423",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

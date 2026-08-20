@@ -1,0 +1,31 @@
+{
+  "abstract": "Abstract Large Language Models (LLMs) increasingly rely on Chain-of-Thought (CoT) reasoning to solve complex problems. Contrary to the common belief that longer CoTs always improve performance, we demonstrate that longer is not always better . Across both real-world LLMs and theoretical models, task accuracy follows an inverted U-shaped curve with respect to CoT length: performance rises initially but declines once reasoning chains become too long. Through controlled experiments, we uncover scaling behaviors of the optimal CoT length : it increases with task difficulty but decreases with model capability. This exposes a significant mismatch with current practice, where supervised training often reuses the same CoT data across models and tasks without adaptivity. We further show that Reinforcement Learning (RL) can mitigate this gap by dynamically calibrating CoT length, thereby improving accuracy and offering a new perspective on differences between supervised fine-tuning and RL training. To explain these phenomena, we introduce an error-accumulation analysis that characterizes how reasoning errors propagate across steps and derives the scaling behaviors of CoT length observed empirically. Building on these insights, we show that training with optimally sized CoTs and applying length-aware filtering during inference yields substantial improvements in performance. Taken together, these findings establish a principled explanation of the ''overthinking'' effect and yield practical guidelines for calibrating CoT length in accordance with task complexity and model capability.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:221551a348e7dac5",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "chain-of-thought length"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "virtualsite",
+  "source_id": "iclr-2026-10011380",
+  "title": "When More is Less: Understanding Chain-of-Thought Length in LLMs",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://iclr.cc/virtual/2026/poster/10011380",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

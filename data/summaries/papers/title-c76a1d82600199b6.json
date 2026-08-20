@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "test-time compute amortization",
+    "reward-tilted distribution",
+    "noise-space objective"
+  ],
+  "contributions": [
+    "Proposes a Noise Hypernetwork that modulates the initial input noise of a distilled diffusion generator to replace explicit reward-guided test-time noise optimization",
+    "Gives a theoretically grounded, tractable noise-space objective for learning a reward-tilted distribution while keeping fidelity to the base model",
+    "Shows a substantial portion of the quality gains from explicit test-time optimization can be recovered at a fraction of the computational cost"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:07:07Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not report which benchmarks or metrics were used to measure 'quality gains', does not quantify the fraction of computational cost or the exact portion of gains recovered, and does not name the base diffusion/generator model used.",
+  "method": "The approach amortizes test-time scaling into a post-training step: a Noise Hypernetwork learns to modulate the initial input noise fed to a distilled diffusion generator, so that at inference the model draws from a reward-tilted distribution without running explicit reward-guided noise optimization. The hypernetwork is trained with a tractable noise-space objective that balances optimizing for desired reward characteristics against staying faithful to the base model's distribution.",
+  "methods": [
+    "Noise Hypernetwork",
+    "reward-tilted distribution learning",
+    "diffusion model distillation"
+  ],
+  "one_liner": "Trains a hypernetwork to modulate initial noise in distilled diffusion models so that test-time-scaling quality gains are baked into a single forward pass instead of requiring explicit inference-time reward optimization.",
+  "paper_id": "title:c76a1d82600199b6",
+  "problem": "Test-time scaling improves diffusion/generative vision model outputs by spending extra inference-time computation (e.g. reward-guided noise search), but this makes inference slow and impractical; the paper asks how to retain the quality benefit while removing the inference-time overhead.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. It reuses the phrase 'test-time compute' and the general concept of trading inference computation for output quality, but the setting is image/diffusion generation guided by a reward-tilted noise distribution, not large language model reasoning length. It does not address chain-of-thought length, overthinking/underthinking, or when a reasoning model should stop generating tokens."
+  },
+  "results": "The abstract states the method 'recovers a substantial portion of the quality gains from explicit test-time optimization at a fraction of the computational cost,' without giving specific benchmark numbers.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-compute",
+    "diffusion-models",
+    "hypernetwork",
+    "amortization",
+    "not-llm-reasoning"
+  ]
+}

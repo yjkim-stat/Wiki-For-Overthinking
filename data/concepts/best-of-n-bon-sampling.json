@@ -1,0 +1,47 @@
+{
+  "aliases": [
+    "best-of-n (BoN) sampling",
+    "best-of-N sampling",
+    "Best-of-N",
+    "BoN"
+  ],
+  "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one by a verifier or reward model, trading inference compute for accuracy. Under this spelling: ST-BoN truncates unpromising candidates early using internal-state sampling consistency to cut Best-of-N's cost, and Sequential Reward Filtering proves standard best-of-n is suboptimal under a mixture-of-reference-policy model, proposing a sequential alternative with better guarantees. Note: same method as the archive's separately-tracked 'best-of-N sampling' / 'Best-of-N' entries -- never merged.",
+  "evidence": [
+    {
+      "id": "title:9dcfd1b98bd7008e",
+      "kind": "paper",
+      "note": "ST-BoN cuts the cost of Best-of-N test-time scaling by using early sampling consistency in internal states to truncate unpromising candidates before they finish generating, without a reward model.",
+      "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding"
+    },
+    {
+      "id": "title:cd5c62ac6be53cbc",
+      "kind": "paper",
+      "note": "Proves standard best-of-n sampling is suboptimal for test-time compute under a mixture-of-reference-policy model and proposes reward-filtered sequential inference as a stronger alternative.",
+      "title": "On the Limits of Test-Time Compute: Sequential Reward Filtering for Better Inference"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:24:12Z",
+  "name": "Best-of-N (BoN) sampling",
+  "related": [
+    "test-time-scaling",
+    "best-of-n-sampling",
+    "early-truncation",
+    "sampling-consistency-in-internal-states",
+    "self-truncation-best-of-n-st-bon",
+    "test-time-compute",
+    "sequential-revision",
+    "mixture-of-reference-policy-model",
+    "reward-filtered-sequential-inference"
+  ],
+  "related_authored": [
+    "best-of-n-sampling",
+    "rejection-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "best-of-n-bon-sampling",
+  "topics": [
+    "overthinking"
+  ]
+}

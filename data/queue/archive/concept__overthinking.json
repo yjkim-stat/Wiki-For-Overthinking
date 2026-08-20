@@ -1,0 +1,219 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.",
+        "title": "Inverse Scaling in Test-Time Compute",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey that organizes existing mechanistic-interpretability research on large reasoning models into three areas -- reasoning-oriented training dynamics, reasoning mechanisms, and unintended behaviors (hallucination, CoT unfaithfulness, overthinking, unsafety) -- and proposes directions for future mechanistic work.",
+        "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+        "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
+        "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
+        "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces GrAlgoBench, a graph-algorithm-problem benchmark that exposes two weaknesses of large reasoning models: accuracy collapse on long-context inputs and unproductive overthinking via excessive self-verification.",
+        "title": "Exposing Weaknesses of Large Reasoning Models through Graph Algorithm Problems",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes Length Controlled Preference Optimization (LCPO), a small-scale preference-tuning method that cuts large reasoning models' average output length by over 50% while preserving reasoning performance.",
+        "title": "Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+        "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A GRPO-based training method that dynamically calibrates the target chain-of-thought length per problem to cut redundant reasoning without penalizing correct long answers.",
+        "title": "SmartThinker: Progressive Chain-of-Thought Length Calibration for Efficient Large Language Model Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+        "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses information-theoretic metrics (InfoBias, InfoGain) to show that longer reasoning chains in LRMs grow less informative and more divergent from an ideal path, and introduces an entropy-based stopping rule that cuts token usage while preserving accuracy.",
+        "title": "Think or Not? Exploring Thinking Efficiency in Large Reasoning Models via an Information-Theoretic Lens",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+        "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces DECS, a decoupled token-level reward plus curriculum batch scheduling method that cuts reasoning-token length by over 50% while maintaining or improving accuracy in RLVR-trained reasoning models.",
+        "title": "Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.",
+        "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A decoding-time framework that sketches a reasoning tree via selective branching and terminates long, low-accuracy reasoning trajectories early, using an observed length-accuracy anti-correlation.",
+        "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Segments reasoning traces into thinking patterns, prunes detrimental ones, and uses the resulting optimal-vs-suboptimal pairs for preference optimization to cut reasoning length while improving accuracy.",
+        "title": "Don’t Think Longer, Think Wisely: Optimizing Thinking Dynamics for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Plan-and-Budget decomposes queries into sub-questions and allocates test-time token budgets by estimated complexity, using a theoretical model of reasoning as sequential sub-questions to reduce both overthinking and underthinking.",
+        "title": "Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+        "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:15Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'overthinking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "overthinking",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "overthinking",
+    "source_count": 22
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute for no accuracy gain or actively lowers accuracy (or, in one source, safety-relevant behavior) as reasoning length grows. Across the archive's 22 sources it is measured and explained several ways: an accuracy-vs-token-length curve that peaks and then falls (inverted-U); tracking a model abandoning a previously correct intermediate answer ('flip events') or reaching the right answer early and reasoning itself out of it; excessive, unproductive self-verification/backtracking loops; a low-dimensional direction in activation space; and, on agentic software-engineering tasks, favoring internal reasoning over environment interaction. It is mitigated by a wide range of methods in the corpus -- length-penalized preference optimization, self-braking/self-training, decoupled token-level rewards with curriculum scheduling, activation steering, verifier-based trimming, decoding-tree early termination, and budget-aware query decomposition -- most reporting 30-70% token reductions at little or no accuracy cost.",
+    "kind": "concept",
+    "related": [
+      "underthinking",
+      "test-time compute scaling",
+      "OptimalThinkingBench",
+      "TRAAC",
+      "manifold steering"
+    ]
+  },
+  "task_id": "concept__overthinking",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

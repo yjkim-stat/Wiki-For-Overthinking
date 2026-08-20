@@ -2,13 +2,13 @@
 
 # Archive
 
-- Papers: 0 (0 summarized)
+- Papers: 154 (154 summarized)
 - Seminars: 0
 
 ## Recent digests
 
-_No digests yet._
+- [2026-08-20](daily/2026-08-20.md)
 
 ## Topics
 
-_No topics registered. Add one with `scripts/new_topic.sh "Name"`._
+- **Overthinking** (`overthinking`) — 154 paper(s)

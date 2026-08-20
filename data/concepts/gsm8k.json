@@ -1,0 +1,161 @@
+{
+  "aliases": [
+    "GSM-8K"
+  ],
+  "definition": "A grade-school math word-problem benchmark used in the archive's 9 sources as an 'easier' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA Diamond. It shows up in studies of overthinking on easy questions (Between Underthinking and Overthinking, the foundational 'Do NOT Think That Much for 2+3=?' paper, ThinkRetrieve), as a contrast point showing GSM8K/GSM-Plus performance doesn't predict basic-arithmetic accuracy (Do LLMs Overthink Basic Math Reasoning?), and as a standard evaluation set for self-braking tuning, verifier-quality analysis (ROC-n-reroll), reasoning-graph topology, state-machine reasoning steering, and diffusion-LLM test-time scaling.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.10928",
+      "kind": "paper",
+      "note": "ThinkRetrieve augments each step of a reasoning model's chain of thought with a dynamically retrieved, fully worked solved example (rather than just facts), consistently beating standard sequential test-time scaling on math and QA benchmarks.",
+      "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
+    },
+    {
+      "id": "local:6afb006d68240134",
+      "kind": "paper",
+      "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+      "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs"
+    },
+    {
+      "id": "local:c1f4e56014fb43fb",
+      "kind": "paper",
+      "note": "Introduces LLMThinkBench, a dynamically-generated 14-task basic-math benchmark and a harmonic-mean Overthinking Score, then evaluates 53 LLMs to show that strong performance on complex math benchmarks does not transfer to basic arithmetic and that reasoning-tuned models often spend far more tokens for equal or worse accuracy.",
+      "title": "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models"
+    },
+    {
+      "id": "title:11c5eb0da4499b68",
+      "kind": "paper",
+      "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+      "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties"
+    },
+    {
+      "id": "title:2b17dd2ef08b6fa4",
+      "kind": "paper",
+      "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+      "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning"
+    },
+    {
+      "id": "title:6b3727a0a0ac9a23",
+      "kind": "paper",
+      "note": "Proves that verifier ROC-curve geometry determines the accuracy of Best-of-N and Rejection Sampling under a fixed compute budget, and shows RS beats BoN at fixed compute while both converge in the infinite-compute limit.",
+      "title": "ROC-n-reroll: How verifier imperfection affects test-time scaling"
+    },
+    {
+      "id": "title:7651639ee2f29946",
+      "kind": "paper",
+      "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+      "title": "Modeling Hierarchical Thinking in Large Reasoning Models"
+    },
+    {
+      "id": "title:7805f8ec24eadc13",
+      "kind": "paper",
+      "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+      "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models"
+    },
+    {
+      "id": "title:7b2310c5e9f25bde",
+      "kind": "paper",
+      "note": "Shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and introduces a training-free method that majority-votes across multiple block generation schedules to substantially boost accuracy.",
+      "title": "TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "GSM8K",
+  "related": [
+    "sequential-test-time-scaling",
+    "diminishing-negative-returns-from-longer-reasoning-traces",
+    "retrieval-augmented-reasoning",
+    "in-context-exemplar-injection-at-each-reasoning-step",
+    "predictive-entropy-of-final-answers-as-a-proxy-for-reasoning-quality",
+    "thinkretrieve",
+    "sequential-test-time-scaling-budget-forcing-muennighoff-et-al-2025",
+    "static-input-level-icl-s-icl-baseline",
+    "random-per-step-retrieval-rand-baseline",
+    "e5-large-dense-retrieval-with-faiss-indexing",
+    "self-consistency-majority-voting-compute-matched-comparison",
+    "math-500",
+    "aime-2025",
+    "sciq",
+    "numinamath-1-5-synthetic-split-used-as-external-example-corpus",
+    "overthinking",
+    "underthinking",
+    "reasoning-length-vs-correctness-tradeoff",
+    "sample-level-vs-question-level-length-analysis",
+    "length-based-preference-optimization",
+    "difficulty-calibration-self-awareness-in-reasoning-length",
+    "deepseek-r1-distill-1-5b",
+    "deepscaler-1-5b-preview",
+    "simpo-simple-preference-optimization",
+    "math",
+    "overthinking-score-harmonic-mean-accuracy-efficiency-metric",
+    "accuracy-verbosity-tradeoff",
+    "token-efficiency-normalization",
+    "adaptive-computation-metacognitive-control",
+    "reasoning-budget-saturation",
+    "test-time-compute-scaling",
+    "catastrophic-accuracy-collapse-under-token-constraint",
+    "chain-of-thought-prompting-reasoning-models",
+    "harmonic-mean-overthinking-score",
+    "hierarchical-answer-extraction-boxed-explicit-marker-code-block-fallback-parsing",
+    "dynamic-seeded-test-instance-generation",
+    "gptq-quantization-8-bit-4-bit",
+    "constrained-1-024-token-generation-budgets",
+    "reasoning-effort-budget-sweeps-low-medium-high",
+    "react-style-tool-augmented-generation-calculator-python-repl-code-executor",
+    "llmthinkbench-dynamically-generated-14-task-basic-math-suite-42-000-instances-pe",
+    "gsm-plus",
+    "reasoning-graph",
+    "cyclicity",
+    "graph-diameter",
+    "small-world-index",
+    "reasoning-graph-extraction",
+    "hidden-state-clustering",
+    "graph-theoretic-analysis-cyclicity-diameter-small-world-index",
+    "aime-2024",
+    "redundant-reasoning-steps",
+    "self-regulated-reasoning-termination",
+    "adaptive-reasoning-length",
+    "braking-prompt-mechanism",
+    "self-braking-tuning-sbt",
+    "overthinking-identification-metrics",
+    "aime",
+    "amc",
+    "verifier-roc-geometry",
+    "best-of-n-sampling",
+    "rejection-sampling",
+    "test-time-scaling-under-imperfect-verifiers",
+    "best-of-n-bon",
+    "rejection-sampling-rs",
+    "hierarchical-reasoning-as-a-finite-state-machine",
+    "latent-cognitive-states",
+    "reasoning-as-a-planning-problem",
+    "finite-state-machine-reasoning-state-model",
+    "q-value-guided-steering",
+    "activation-steering",
+    "gpqa-diamond",
+    "outcome-and-process-efficiency-metrics",
+    "self-training-for-reasoning-length-reduction",
+    "self-training-preference-based",
+    "outcome-process-efficiency-metrics",
+    "gpqa",
+    "mixture-of-semi-autoregressive-experts-dllms",
+    "block-generation-schedule",
+    "ensembling-over-generation-orders",
+    "hex-hidden-semi-autoregressive-experts",
+    "majority-vote-ensembling",
+    "block-schedule-diffusion-generation",
+    "arc-c",
+    "truthfulqa"
+  ],
+  "related_authored": [
+    "gpqa-diamond",
+    "math-500"
+  ],
+  "schema_version": 1,
+  "slug": "gsm8k",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "candidate diversity",
+    "safety risk",
+    "adversarial robustness"
+  ],
+  "contributions": [
+    "Introduces RefDiv, a diagnostic protocol that curtails candidate diversity within test-time-scaling generation to probe safety",
+    "Shows diversity curtailment consistently raises unsafe-output rates under test-time scaling, across strategies (MCTS, Best-of-N) and across open and proprietary models",
+    "Shows existing safety filters such as Llama-Guard fail to detect RefDiv-generated adversarial inputs"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:19:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "RefDiv is a diagnostic protocol that constrains candidate diversity during test-time-scaling generation (tested with Monte Carlo Tree Search and Best-of-N) across multiple open models (Qwen3, Mistral, Llama3.1, Gemma3) and proprietary systems (OpenAI o3-mini, Gemini-2.5-Pro), measuring the resulting rate of unsafe outputs and testing whether existing safety classifiers detect the resulting inputs.",
+  "methods": [
+    "RefDiv",
+    "Monte Carlo Tree Search",
+    "Best-of-N"
+  ],
+  "one_liner": "Shows that test-time-scaling methods such as Monte Carlo Tree Search and Best-of-N become substantially more likely to produce unsafe outputs when candidate diversity is curtailed, using a diagnostic protocol called RefDiv.",
+  "paper_id": "title:abd61e399170fa2c",
+  "problem": "It was unclear whether test-time scaling introduces safety vulnerabilities indirectly, through reduced diversity among candidate reasoning paths or outputs, as opposed to only through explicit adversarial prompting.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Studies test-time-scaling methods (MCTS, Best-of-N) as its subject, but from a safety angle: curtailing candidate diversity during test-time scaling raises unsafe-output rates, often more than direct adversarial prompts, and evades existing safety filters. This is a real but safety-focused contribution to the test-time-compute-scaling side of the topic, distinct from the accuracy/efficiency reasoning-length tradeoff."
+  },
+  "results": "Curtailing candidate diversity, even by a modest amount, consistently increases unsafe-output rates under test-time scaling, often surpassing the effect of directly adversarial prompts; the effect generalizes across MCTS and Best-of-N and across Qwen3, Mistral, Llama3.1, Gemma3, OpenAI o3-mini and Gemini-2.5-Pro; Llama-Guard fails to detect RefDiv-generated adversarial inputs.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "safety",
+    "diversity",
+    "adversarial"
+  ]
+}

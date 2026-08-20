@@ -1,0 +1,92 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+        "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+        "title": "Test-Time Scaling with Reflective Generative Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
+        "title": "What If We Allocate Test-Time Compute Adaptively?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+        "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:16Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'AIME24'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AIME24",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "AIME24",
+    "source_count": 6
+  },
+  "result": {
+    "aliases": [
+      "AIME 2024",
+      "AIME2024",
+      "AIME"
+    ],
+    "definition": "The 2024 sitting of the American Invitational Mathematics Examination. Under this exact spelling, the archive's 6 sources use it to evaluate: verifier-free self-correction (Refining Over Resampling), rollout pruning (Funnel of Thoughts), MetaStone-S1's reflective generative model, PRM-guided adaptive compute allocation, asynchronous conformal-prediction scaling (ATTS), and verifier-based CoT trimming (TrimR).",
+    "kind": "dataset",
+    "related": [
+      "AIME25",
+      "GPQA Diamond"
+    ]
+  },
+  "task_id": "concept__aime24",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

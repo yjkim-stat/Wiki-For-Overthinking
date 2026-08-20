@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:58Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:892443a8a7093b83",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "What If We Allocate Test-Time Compute Adaptively?",
+    "url": "https://icml.cc/virtual/2026/poster/60797",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "verifier-guided adaptive compute allocation",
+      "process reward model as control signal",
+      "compute intensity metric",
+      "iterative trajectory generation and selection"
+    ],
+    "contributions": [
+      "A verifier-guided adaptive framework that treats reasoning as iterative trajectory generation and selection, replacing uniform test-time compute allocation and fixed sampling strategies.",
+      "Use of a process reward model (PRM) both within an iteration (step-level scores guide pruning and expansion during generation) and across iterations (aggregated trajectory rewards select the final response).",
+      "A compute intensity metric, alongside theoretical FLOPs, that penalizes wasted generation and tool overhead to characterize efficiency."
+    ],
+    "datasets": [
+      "MATH-500",
+      "AIME24",
+      "AMO-Bench"
+    ],
+    "limitations": "",
+    "method": "For each problem the agent runs multiple inference iterations; in each iteration it optionally produces a high-level plan, selects a set of reasoning tools and a compute strategy with an exploration parameter, and generates a candidate reasoning trajectory. A process reward model scores steps within an iteration to guide pruning/expansion of the generation, and aggregated trajectory-level rewards across iterations are used to select the final response, so compute is allocated adaptively toward high-utility reasoning paths instead of uniformly.",
+    "methods": [
+      "process reward model (PRM)",
+      "verifier-guided adaptive test-time compute allocation"
+    ],
+    "one_liner": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
+    "problem": "Standard test-time compute scaling spends inference computation uniformly, uses fixed sampling strategies, and only applies verification at the reranking stage, which wastes compute on low-utility reasoning paths.",
+    "relevance": {
+      "overthinking": "Directly on-topic: the paper's whole premise is that uniform test-time compute allocation is wasteful, and it proposes a PRM-guided adaptive mechanism to concentrate compute on high-utility reasoning paths and prune unproductive ones, which is precisely the accuracy/efficiency tradeoff and 'when to keep going vs. stop' question the topic tracks."
+    },
+    "results": "The dynamic, PRM-guided approach consistently outperforms direct (uniform) test-time scaling, with large gains on MATH-500 and several-fold improvements on harder benchmarks such as AIME24 and AMO-Bench. Efficiency is measured via theoretical FLOPs and a compute intensity metric that penalizes wasted generation and tool overhead, showing computation is concentrated on high-utility reasoning paths (arXiv:2602.01070).",
+    "tags": [
+      "test-time-compute",
+      "process-reward-model",
+      "adaptive-allocation",
+      "efficient-reasoning"
+    ]
+  },
+  "task_id": "paper__title-892443a8a7093b83",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

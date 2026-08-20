@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "overthinking",
+    "underthinking",
+    "test-time scaling",
+    "chain-of-thought redundancy",
+    "verifier-guided truncation"
+  ],
+  "contributions": [
+    "TrimR, a training-free, verifier-based framework that detects and truncates redundant intermediate reasoning steps in large reasoning models",
+    "An asynchronous online system engineered for high-throughput, production-level deployment of the trimming procedure",
+    "Empirical demonstration that trimming reasoning length improves inference efficiency with negligible accuracy loss"
+  ],
+  "datasets": [
+    "MATH500",
+    "AIME24",
+    "AIME25",
+    "GPQA"
+  ],
+  "generated_at": "2026-08-20T12:22:19Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "TrimR uses a lightweight, pretrained, instruction-tuned verifier (no fine-tuning of the LRM or the verifier) to monitor a model's chain-of-thought as it is generated and to detect and truncate redundant intermediate 'thoughts', stopping the reasoning early once the verifier judges further tokens unnecessary. It runs as an asynchronous online system alongside vLLM-style serving to handle large-batch industrial workloads.",
+  "methods": [
+    "TrimR",
+    "verifier-guided CoT truncation",
+    "asynchronous online trimming system"
+  ],
+  "one_liner": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+  "paper_id": "title:b987d2649d32f1f3",
+  "problem": "Test-time scaling via long chain-of-thought raises LRM accuracy but adds heavy decoding overhead, largely because models generate redundant thinking that shows clear structured overthinking and underthinking patterns; existing approaches to push accuracy further usually add to this overhead rather than removing the redundancy.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "A direct treatment of the topic: it explicitly names structured overthinking and underthinking as the source of test-time inefficiency in LRMs and proposes a verifier-based mechanism to trim redundant reasoning tokens without retraining, evaluated for both efficiency gain and accuracy preservation."
+  },
+  "results": "On MATH500, AIME24/25, and GPQA, reasoning runtime for QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, and Pangu-R-38B is improved by up to 70%, with negligible impact on accuracy, measured on Ascend NPUs and vLLM under large-batch workloads.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "underthinking",
+    "test-time-scaling",
+    "cot-trimming",
+    "verifier"
+  ]
+}

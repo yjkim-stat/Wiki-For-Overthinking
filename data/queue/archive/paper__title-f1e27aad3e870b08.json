@@ -1,0 +1,90 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:49Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:f1e27aad3e870b08",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Are Large Reasoning Models Interruptible?",
+    "url": "https://icml.cc/virtual/2026/poster/61807",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "frozen world assumption",
+      "interruption robustness",
+      "dynamic context adaptation",
+      "reasoning leakage",
+      "panic",
+      "self-doubt"
+    ],
+    "contributions": [
+      "An evaluation framework that tests large reasoning models under interruptions (limited output budget) and dynamic context (in-flight changes to the problem)",
+      "Empirical demonstration that static 'frozen world' evaluations overestimate LRM robustness, with accuracy dropping by up to 60% when context updates arrive late in reasoning",
+      "Identification of three failure modes: reasoning leakage, panic, and self-doubt"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "The authors evaluate large reasoning models under two dynamic scenarios that break the standard 'frozen world' evaluation assumption: interruptions, where the model must produce an answer from a partial reasoning trace under a limited compute/time budget, and dynamic context, where the problem statement changes while the model is still reasoning. Testing spans mathematics and programming benchmarks requiring long-form reasoning.",
+    "methods": [
+      "interruption evaluation protocol",
+      "dynamic context evaluation protocol"
+    ],
+    "one_liner": "Evaluates large reasoning models under budget-constrained interruptions and mid-reasoning context changes, finding accuracy drops of up to 60% and three recurring failure modes not visible under static evaluation.",
+    "problem": "Large reasoning models are conventionally evaluated under a 'frozen world' assumption -- instantaneous responses to an immutable prompt -- which does not hold for real tasks like assistive programming where reasoning can take hours and the context can change before the model finishes.",
+    "relevance": {
+      "overthinking": "Studies precisely what happens when a reasoning model is forced to stop before it would otherwise finish (budget-constrained interruption) or must adapt reasoning already in progress -- the operational version of 'making a model stop at the right point.' It shows that cutting reasoning short is not a benign efficiency lever: it induces specific failure modes (reasoning leakage, panic, self-doubt) and accuracy drops of up to 60%, which bears directly on the safety of budget-based methods for curbing overthinking."
+    },
+    "results": "State-of-the-art LRMs that score highly under static evaluation can fail unpredictably when interrupted or given changing context, with accuracy dropping by up to 60% when updates arrive late in the reasoning process. Three failure modes are identified: reasoning leakage (unfinished reasoning folds into the final answer when interrupted), panic (the model abandons structured reasoning under time pressure and returns an incorrect answer), and self-doubt (accuracy degrades when the model tries to incorporate updated information).",
+    "tags": [
+      "overthinking",
+      "interruptibility",
+      "test-time-compute",
+      "reasoning-robustness",
+      "budget-constrained-reasoning"
+    ]
+  },
+  "task_id": "paper__title-f1e27aad3e870b08",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

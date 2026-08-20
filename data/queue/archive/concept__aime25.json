@@ -1,0 +1,100 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+        "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A GRPO-based training method that dynamically calibrates the target chain-of-thought length per problem to cut redundant reasoning without penalizing correct long answers.",
+        "title": "SmartThinker: Progressive Chain-of-Thought Length Calibration for Efficient Large Language Model Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+        "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+        "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formulates test-time compute allocation across queries as a bandit learning problem so that harder queries get more compute and easier ones get less.",
+        "title": "Strategic Scaling of Test-Time Compute: A Bandit Learning Approach",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:29:16Z",
+  "created_at": "2026-08-20T12:28:12Z",
+  "instructions": "Write the wiki definition for 'AIME25'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AIME25",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "AIME25",
+    "source_count": 7
+  },
+  "result": {
+    "aliases": [
+      "AIME 2025",
+      "AIME2025",
+      "AIME"
+    ],
+    "definition": "The 2025 sitting of the American Invitational Mathematics Examination. Under this exact spelling, the archive's 7 sources use it to evaluate: verifier-free self-correction (Refining Over Resampling), rollout pruning (Funnel of Thoughts), CoT-length calibration (SmartThinker), state-machine reasoning steering, asynchronous conformal-prediction scaling (ATTS), verifier-based CoT trimming (TrimR), and bandit-based compute allocation (Strategic Scaling). Note: the archive's wiki tracks this exam under several separately-spelled entries (AIME25, AIME2025, AIME 2025, AIME) that were never merged into one.",
+    "kind": "dataset",
+    "related": [
+      "AIME24",
+      "AMC"
+    ]
+  },
+  "task_id": "concept__aime25",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

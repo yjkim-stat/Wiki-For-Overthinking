@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "overthinking",
+    "underthinking",
+    "budget allocation model",
+    "sub-question decomposition",
+    "correctness-efficiency tradeoff"
+  ],
+  "contributions": [
+    "BAM (Budget Allocation Model), a theoretical model of reasoning as a sequence of sub-questions with varying uncertainty",
+    "E3, a metric capturing the tradeoff between correctness and computation efficiency",
+    "Plan-and-Budget, a model-agnostic test-time framework that decomposes queries into sub-questions and allocates token budgets by estimated complexity via adaptive scheduling"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:23:49Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Plan-and-Budget decomposes a complex query into sub-questions and allocates a token budget to each based on its estimated complexity, using an adaptive scheduling procedure grounded in the BAM theoretical model, which treats reasoning as a sequence of sub-questions of varying uncertainty. The E3 metric is introduced to jointly score correctness and computational efficiency.",
+  "methods": [
+    "BAM (Budget Allocation Model)",
+    "Plan-and-Budget",
+    "E3 metric",
+    "adaptive scheduling"
+  ],
+  "one_liner": "Plan-and-Budget decomposes queries into sub-questions and allocates test-time token budgets by estimated complexity, using a theoretical model of reasoning as sequential sub-questions to reduce both overthinking and underthinking.",
+  "paper_id": "title:f0073c841a41fca9",
+  "problem": "LLM inference for complex reasoning is computationally inefficient: models exhibit overthinking, generating verbose and tangential reasoning even for simple queries, while prior fixes that enforce fixed token budgets can instead cause underthinking on harder problems. The authors trace this to unclear problem-solving strategies rather than to reasoning length itself.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets the paper's central tradeoff: it formalizes overthinking and underthinking as failures of budget allocation across sub-questions of differing uncertainty, and proposes a test-time, model-agnostic method (Plan-and-Budget) to allocate reasoning budget by estimated complexity rather than a fixed cap."
+  },
+  "results": "Plan-and-Budget achieves up to 70% accuracy gains, 39% token reduction, and a 193.8% improvement in the E3 metric across a range of tasks and models. It raises the efficiency of a smaller model (DS-Qwen-32B) to match that of a larger model (DS-LLaMA-70B) without retraining.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "underthinking",
+    "test-time-scaling",
+    "budget-allocation",
+    "reasoning-efficiency"
+  ]
+}

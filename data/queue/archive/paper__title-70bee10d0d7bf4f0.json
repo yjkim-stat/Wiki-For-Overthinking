@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:38Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:70bee10d0d7bf4f0",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large reasoning models (LRMs) excel on complex problems but face a critical barrier to efficiency: reinforcement learning (RL) training requires long rollouts for outcome-based rewards, where autoregressive decoding dominates time and memory usage. While sliding-window cache strategies can bound memory, they disrupt long-context reasoning and degrade performance. We introduce Progressive Thought Encoding, a parameter-efficient fine-tuning method that enables LRMs to reason effectively under fixed-size caches. By progressively encoding intermediate reasoning into compact representations, our approach eliminates the need to backpropagate through full-cache rollouts, thereby reducing training-time memory usage, while maintaining constant memory during inference. Experiments on three models, including Qwen2.5-3B-Instruct, Qwen2.5-7B-Instruct, and DeepSeek-R1-Distill-Llama-8B, across six widely used challenging mathematical benchmarks show consistent gains: our method achieves +19.3\\% improvement over LoRA and +29.9\\% over the baseline on average, with up to +23.4 absolute gains on AIME2024/2025 under tight cache budgets. These results demonstrate that Progressive Thought Encoding not only improves reasoning accuracy but also makes RL training of LRMs substantially more efficient and scalable under real-world memory constraints.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Training Large Reasoning Models Efficiently via Progressive Thought Encoding",
+    "url": "https://iclr.cc/virtual/2026/poster/10007286",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "fixed-size KV cache under RL rollouts",
+      "compact latent encoding of intermediate reasoning"
+    ],
+    "contributions": [
+      "A parameter-efficient fine-tuning method (Progressive Thought Encoding) that lets LRMs reason under a fixed-size cache without backpropagating through full-cache rollouts.",
+      "Reduced training-time memory usage for RL of LRMs while keeping constant memory during inference.",
+      "Consistent accuracy gains over LoRA and a baseline across three models and six math benchmarks."
+    ],
+    "datasets": [
+      "six widely used mathematical benchmarks (including AIME2024, AIME2025)"
+    ],
+    "limitations": "The abstract does not state the specific benchmarks beyond AIME2024/2025, nor does it report wall-clock or FLOP costs, and no failure modes or domains where the method underperforms are described.",
+    "method": "Progressive Thought Encoding progressively encodes intermediate reasoning steps into compact representations during RL training, so the model can be trained with outcome-based rewards under a fixed-size KV cache without needing to backpropagate through the full-length rollout cache, while inference also runs under constant memory.",
+    "methods": [
+      "Progressive Thought Encoding",
+      "LoRA (baseline comparison)"
+    ],
+    "one_liner": "A parameter-efficient fine-tuning method that compresses intermediate reasoning into compact representations so large reasoning models can be RL-trained and run under a fixed-size cache without the memory blowup of long rollouts.",
+    "problem": "RL training of large reasoning models requires long rollouts for outcome-based rewards, and autoregressive decoding under a full KV cache dominates training time and memory; sliding-window cache strategies bound memory but disrupt long-context reasoning and degrade performance.",
+    "relevance": {
+      "overthinking": "The method targets the cost side of the accuracy/length tradeoff directly: instead of shortening reasoning, it makes long-rollout RL training and long-CoT inference tractable under a fixed compute/memory budget, which is a mechanism for sustaining test-time compute scaling rather than a method for deciding when a model should stop thinking."
+    },
+    "results": "On Qwen2.5-3B-Instruct, Qwen2.5-7B-Instruct, and DeepSeek-R1-Distill-Llama-8B across six math benchmarks, the method reports +19.3% average improvement over LoRA and +29.9% over the baseline, with up to +23.4 absolute points on AIME2024/2025 under tight cache budgets.",
+    "tags": [
+      "kv-cache",
+      "rl-training",
+      "memory-efficiency",
+      "lrm-training",
+      "parameter-efficient-finetuning"
+    ]
+  },
+  "task_id": "paper__title-70bee10d0d7bf4f0",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

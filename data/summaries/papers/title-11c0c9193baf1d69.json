@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "reasoning strength pre-planning",
+    "directional activation vector for reasoning length",
+    "linear probing of question activations",
+    "end-of-reasoning token logit control"
+  ],
+  "contributions": [
+    "Shows the number of reasoning tokens an LRM will generate is predictable from question activations alone, using linear probes, before generation starts",
+    "Identifies a pre-allocated directional vector in model activations whose magnitude causally controls reasoning strength",
+    "Demonstrates that subtracting the vector reduces reasoning tokens and performance, while adding it increases reasoning tokens and can improve performance",
+    "Shows the vector modifies the logits of the end-of-reasoning token to affect reasoning length",
+    "Applies the findings to detect overthinking behavior and to enable efficient reasoning on simple problems"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:06:33Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not report which models, benchmarks, or quantitative accuracy/token-count figures were used to validate the probing and vector-intervention claims; effect sizes are not given.",
+  "method": "Trains linear probes on question activations to predict reasoning token count before generation, then identifies a directional vector embedded in activation space whose magnitude modulates reasoning strength. The vector is added to or subtracted from activations to causally test its effect on reasoning length and task performance, and its influence on the end-of-reasoning token's logits is examined.",
+  "methods": [
+    "linear probing",
+    "activation steering (vector addition/subtraction)"
+  ],
+  "one_liner": "Finds that large reasoning models pre-plan how much to reason via a directional vector in their activations, whose magnitude causally sets reasoning length.",
+  "paper_id": "title:11c0c9193baf1d69",
+  "problem": "LRMs are known to allocate more reasoning tokens to harder problems (difficulty-awareness), but the mechanism behind this automatic allocation was unexplored.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Provides a mechanistic, activation-level explanation for why LRMs vary reasoning length by difficulty, and demonstrates a concrete intervention (adding/subtracting a directional vector) that can shorten or lengthen reasoning, offering a tool for detecting overthinking and for triggering efficient reasoning on easy problems."
+  },
+  "results": "Subtracting the identified directional vector reduces reasoning token count and lowers task performance; adding it increases reasoning token count and can improve performance. Linear probes on question activations predict reasoning token counts. No specific benchmark accuracy or token-count numbers are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "reasoning-length",
+    "interpretability",
+    "activation-steering",
+    "overthinking",
+    "difficulty-awareness"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "atomistic protein binder design",
+    "flow-based generative modeling",
+    "generative pretraining for proteins",
+    "inference-time optimization"
+  ],
+  "contributions": [
+    "Proteina-Complexa, a fully atomistic binder generation method unifying conditional generative modeling and structure-predictor-based (hallucination) optimization",
+    "Teddymer, a large-scale synthetic binder-target pair dataset for pretraining, combined with experimental multimer data",
+    "Demonstrated applications to hydrogen bond optimization, fold-guided generation, small molecule targeting, and enzyme design"
+  ],
+  "datasets": [
+    "Teddymer (synthetic binder-target pairs)",
+    "experimental protein multimers"
+  ],
+  "generated_at": "2026-08-20T12:23:50Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Proteina-Complexa extends a flow-based latent protein generative architecture, pretrained on the Teddymer dataset of synthetic binder-target pairs and fine-tuned on experimental multimer structures. At inference time, it applies test-time optimization that leverages the learned generative prior, combining the strengths of conditional generative modeling and structure-predictor-based (hallucination) design.",
+  "methods": [
+    "Proteina-Complexa",
+    "flow-based latent protein generation"
+  ],
+  "one_liner": "Proteina-Complexa combines generative pretraining on a new synthetic dataset with inference-time optimization to design atomistic protein binders, reporting higher in-silico success rates than prior generative approaches.",
+  "paper_id": "title:f3c6b938b8b631d5",
+  "problem": "Protein binder design for drug discovery has relied on either conditional generative modeling or structure-predictor-based optimization ('hallucination') as separate approaches, each with its own tradeoffs in success rate and compute cost.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. The paper shares only the generic keyword 'test-time compute' with the tracked topic: here it denotes inference-time structure optimization for protein binder generation, not reasoning-length control in language models. It contains no treatment of chain-of-thought length, accuracy/efficiency tradeoffs in reasoning traces, or stopping criteria for LLM reasoning, and belongs to protein/structural-biology design rather than LLM reasoning."
+  },
+  "results": "Proteina-Complexa reports markedly higher in-silico success rates than existing generative approaches on computational binder design benchmarks and outperforms prior methods under constrained compute budgets.",
+  "schema_version": 1,
+  "tags": [
+    "protein-design",
+    "drug-discovery",
+    "generative-model",
+    "off-topic"
+  ]
+}

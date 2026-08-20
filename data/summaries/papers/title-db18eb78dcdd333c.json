@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "answer attribution",
+    "reasoning vs retrieval shortcut",
+    "reward hacking in RL fine-tuning"
+  ],
+  "contributions": [
+    "A controlled experimental protocol (misleading reasoning cues and/or corrupted retrieval cues) that attributes LRM final answers to chain-of-thought reasoning versus memory retrieval",
+    "Finding that the relative dominance of reasoning versus retrieval varies by problem domain, model scale, and fine-tuning approach (reinforcement learning versus distillation)",
+    "FARL: a fine-tuning framework combining memory unlearning with reinforcement learning to suppress the retrieval shortcut and promote reasoning-dominant behavior"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:23:20Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The authors run controlled experiments that challenge large reasoning models with misleading cues during reasoning and/or corrupted answers during retrieval, across models and datasets, to determine whether a final answer was produced by chain-of-thought reasoning or by a competing memory-retrieval mechanism, and how their relative dominance depends on problem domain, model scale, and fine-tuning approach. FARL then integrates memory unlearning with reinforcement learning to suppress the retrieval shortcut during fine-tuning, aiming to promote reasoning-dominant behavior.",
+  "methods": [
+    "FARL",
+    "memory unlearning",
+    "reinforcement learning fine-tuning"
+  ],
+  "one_liner": "Shows that large reasoning models' final answers are produced by two competing mechanisms, chain-of-thought reasoning and memory retrieval, and introduces FARL, a fine-tuning method that suppresses the retrieval shortcut to encourage genuine reasoning.",
+  "paper_id": "title:db18eb78dcdd333c",
+  "problem": "Large reasoning models' final answers sometimes contradict their own reasoning traces; the paper investigates whether this comes from a retrieval mechanism competing with chain-of-thought reasoning, and whether reinforcement-learning fine-tuning inadvertently rewards this retrieval shortcut ('hacking' the reward signal) instead of genuine reasoning.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Investigates the faithfulness of LRM reasoning traces (whether the chain-of-thought causally produces the answer versus a memory-retrieval shortcut) and reward hacking during RL fine-tuning; it does not address reasoning length, redundant or excessive thinking, or the stopping/compute-allocation tradeoff this topic tracks. Tangential: it matched only on the generic 'large reasoning model' keyword, not on any substantive treatment of overthinking or test-time compute scaling."
+  },
+  "results": "",
+  "schema_version": 1,
+  "tags": [
+    "answer-attribution",
+    "reward-hacking",
+    "chain-of-thought-faithfulness",
+    "reinforcement-learning",
+    "tangential"
+  ]
+}

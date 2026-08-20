@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "reasoning faithfulness",
+    "stance consistency",
+    "causal influence",
+    "counterfactual intervention"
+  ],
+  "contributions": [
+    "Formalizes reasoning faithfulness via two testable conditions: stance consistency and causal influence, decoupled from accuracy",
+    "Introduces RFEval, a 7,186-instance benchmark across seven tasks probing faithfulness via controlled output-level counterfactual interventions",
+    "Finds 49.7% of outputs unfaithful across twelve open-source LRMs, mostly from stance inconsistency, concentrated in math and code",
+    "Shows faithfulness correlates more with post-training regime than model scale: adding RL-style objectives on top of SFT can reduce faithfulness even when accuracy is maintained",
+    "Shows the accuracy-faithfulness link is weak and statistically insignificant once controlling for model and task"
+  ],
+  "datasets": [
+    "RFEval (7,186 instances across 7 tasks)"
+  ],
+  "generated_at": "2026-08-20T12:19:19Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "RFEval defines reasoning faithfulness as requiring both stance consistency (a coherent stance linking the reasoning to the answer) and causal influence (the stated reasoning causally drives the answer, tested via output-level interventions). The benchmark applies controlled counterfactual interventions at the output level across seven tasks to twelve open-source LRMs, and compares faithfulness against accuracy and against post-training regime (SFT-only vs. SFT plus RL-style objectives).",
+  "methods": [
+    "RFEval benchmark",
+    "counterfactual output-level intervention",
+    "stance consistency / causal influence framework"
+  ],
+  "one_liner": "Introduces RFEval, a benchmark that uses counterfactual interventions to test whether an LRM's stated chain-of-thought causally drives its answer, finding 49.7% of outputs unfaithful.",
+  "paper_id": "title:9f5aee65dee28f12",
+  "problem": "Large reasoning models often produce rationales that sound plausible but do not reflect their true decision process, undermining reliability and trust; the paper asks how to formally test and measure this 'faithfulness' independent of whether the final answer is correct.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential: measures whether a model's stated reasoning causally explains its answer (faithfulness), not how much reasoning is used or when a model should stop. It shares only the 'large reasoning model' keyword with the topic, though its finding that RL-style post-training can reduce faithfulness even while accuracy is maintained is adjacent to the topic's interest in what RL training changes about reasoning behavior."
+  },
+  "results": "49.7% of outputs judged unfaithful across twelve open-source LRMs, predominantly from stance inconsistency; failures concentrate in math and code; RL-style objectives on top of SFT reduce faithfulness even when accuracy is maintained; the accuracy-faithfulness correlation is weak and statistically insignificant once controlling for model and task.",
+  "schema_version": 1,
+  "tags": [
+    "faithfulness",
+    "interpretability",
+    "chain-of-thought",
+    "benchmark",
+    "counterfactual"
+  ]
+}

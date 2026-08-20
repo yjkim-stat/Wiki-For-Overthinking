@@ -1,0 +1,115 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-05643.pdf"
+  },
+  "completed_at": "2026-08-20T12:07:14Z",
+  "created_at": "2026-08-20T12:01:40Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.05643",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling improves LLM reasoning by using additional inference compute, but wider sampling alone can suffer from diminishing returns: new rollouts often repeat existing answer patterns instead of adding useful reasoning diversity. Verifier-based selection offers an alternative, but its performance depends on the calibration of an external reward model. We propose a verifier-free breadth--depth refinement framework that uses test-time compute to both explore and improve candidate solutions. The method samples multiple independent reasoning rollouts, refines each rollout through iterative self-critique and self-correction, and aggregates the refined answers by majority voting. Breadth preserves diverse initial attempts, while depth repairs local reasoning errors before aggregation. Across AIME24, AIME25, AMC, OlympiadBench, and MATH500, our method consistently improves over greedy decoding, majority voting, verifier-based best-of-$N$, beam search, and lookahead decoding across multiple open-weight models. For instance, with Qwen2.5-1.5B, accuracy increases from the strongest verifier-based baseline to $58.0\\%$ on MATH500, and from $25.0\\%$ to $32.5\\%$ on AMC. These results show that test-time compute can be more effective when used to refine sampled trajectories rather than only to sample more candidates or rely on verifier-guided selection.",
+    "authors": [
+      "Ahsan Bilal",
+      "Muhammad Ahmed Mohsin",
+      "Muhammad Umer",
+      "Lena Trigg",
+      "Ali Subhan",
+      "Muhammad Ali",
+      "Dean F. Hougen"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.05643v1",
+    "published": "2026-08-06",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+    "url": "https://arxiv.org/abs/2608.05643",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "diversity saturation under fixed sample budget",
+      "per-trace hallucination as a systematic accuracy floor",
+      "breadth-depth test-time refinement",
+      "verifier-free self-critique and self-correction",
+      "compute-normalized gain"
+    ],
+    "contributions": [
+      "Identifies two limitations of width-only test-time scaling: diversity saturation (larger sample budgets increasingly revisit the same semantic reasoning clusters instead of adding new reasoning directions) and per-trace hallucination (each i.i.d. rollout is exposed to the same perturbation mechanism, creating a systematic accuracy floor below the model's latent accuracy).",
+      "Proposes a training-free, verifier-free breadth-depth refinement framework: breadth samples N independent rollouts, depth applies D rounds of self-critique and self-correction to each rollout, and terminal traces are aggregated by majority voting, requiring no external verifier, reward model, or learned stopping policy.",
+      "Evaluates across five math benchmarks and four open-weight models, showing consistent gains over greedy decoding, majority voting, verifier-based best-of-N, beam search, and lookahead decoding, plus compute-normalized analysis and refinement-dynamics diagnostics (recovery, regression, diversity, agreement)."
+    ],
+    "datasets": [
+      "AIME24",
+      "AIME25",
+      "AMC",
+      "OlympiadBench",
+      "MATH500"
+    ],
+    "limitations": "Stated limitations: (1) higher inference cost, since each rollout goes through reasoning, critique, and correction steps requiring more forward passes than greedy decoding, majority voting, or standard best-of-N; (2) the method depends on the base model's own ability to critique and revise its reasoning -- an inaccurate critique or an over-correction of a valid solution can introduce rollout-level regressions, though majority voting helps suppress isolated ones; (3) evaluation is limited to mathematical reasoning benchmarks where answers are well-defined and extraction is reliable, so effectiveness of verifier-free self-refinement in domains with more open-ended outputs or ambiguous evaluation criteria is untested. Table 3 also shows accuracy is not monotonic in breadth N or depth D (e.g. Qwen2.5-1.5B on AMC23 peaks at moderate settings rather than the largest N or D).",
+    "method": "Given a problem, the framework allocates test-time compute along two axes using the same base model in three role-conditioned prompts (generator, critic, corrector). Breadth: N independent reasoning rollouts are sampled i.i.d. at temperature tau>0 to preserve diverse initial reasoning directions. Depth: each rollout is refined over D iterative cycles, where at each depth d the generator continues/rewrites the previous corrected trace, a self-critic identifies possible logical, arithmetic or structural errors in that continuation, and a self-corrector revises the trace conditioned on both the reasoning and the critique (confirming the trace if no error is found). After D refinement steps, each rollout's terminal corrected trace is passed through a deterministic answer extractor, and the final prediction is obtained by plurality (majority) voting over the N per-rollout candidate answers -- no reward model, verifier score, or learned stopping policy is used at any point.",
+    "methods": [
+      "breadth-depth refinement framework",
+      "self-critique and self-correction (iterative)",
+      "majority voting / plurality aggregation",
+      "compute-normalized gain metric (accuracy improvement per additional TFLOP)"
+    ],
+    "one_liner": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+    "problem": "Width-only test-time scaling (sampling more candidates and majority-voting or verifier-selecting among them) suffers diminishing returns because additional samples increasingly repeat existing answer patterns rather than adding new reasoning evidence, and because every i.i.d. rollout remains exposed to the same per-trace hallucination mechanism, which the paper shows analytically underestimates the model's latent accuracy; verifier-based selection is an alternative but depends on reward-model calibration.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly on topic: this is a test-time compute allocation method for LLM reasoning that trades sampling breadth against per-trajectory refinement depth, explicitly targeting the accuracy/efficiency behavior of additional inference compute (Table 4 and Figure 5 report compute-normalized gains in TFLOPs, and the paper analyzes when extra depth helps vs. produces harmful over-corrections/regressions)."
+    },
+    "results": "On Qwen2.5-Math-7B (N=8, D=4), the method reaches 16.67% on AIME25 (vs. 13.33% for the strongest verifier baseline RM@8), 67.5% on AMC (vs. 65.0% Maj@8/RM@8), 47.2% on OlympiadBench (vs. 41.0% RM@8) and 81.6% on MATH (vs. 81.0% RM@8). On the weaker Qwen2.5-1.5B, accuracy on MATH500 rises from 29.6% (RM@8) to 58.0%, and on AMC from 25.0% to 32.5%; AIME25 rises from 0.0-6.67% (baselines) to 6.67%. Ministral-8B and LLaMA-3.1-8B show similar but smaller gains (e.g. Ministral-8B AMC 42.5% vs. 30.0% RM@8; MATH 65.78% vs 61.4% RM@8). The self-critique ablation (Table 2, N=8, D=4) shows explicit critique helps most for Qwen2.5-1.5B (AIME25 0.0%->6.67%, AMC 27.5%->32.5%, MATH 55.6%->58.0%) and gives smaller but consistent gains for Qwen2.5-Math-7B (AMC 65.0%->67.5%, OlyBench 44.9%->47.2%). Compute-normalized gain (eta) is largest for Qwen2.5-1.5B (eta=17.10 vs Maj@8, 17.01 vs RM@8, average accuracy 13.21%/14.95% -> 25.67%) and smallest for the strongest model Qwen2.5-Math-7B (+2.36 avg accuracy points vs RM@8, eta=1.16), indicating gains shrink as base model strength increases. All results use N=8, D=4, temperature 0.7 on a single H100 GPU unless stated otherwise; Table 3 shows accuracy on AMC23 is not monotonic in N or D across models.",
+    "tags": [
+      "test-time-scaling",
+      "self-correction",
+      "self-critique",
+      "majority-voting",
+      "reasoning-refinement",
+      "mathematical-reasoning",
+      "compute-allocation"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-05643",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

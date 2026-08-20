@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:07:07Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:cca25579537de930",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Recent advancements in large reasoning models (LRMs) have introduced an intermediate \"thinking\" process prior to generating final answers, improving their reasoning capabilities on complex downstream tasks. However, the potential of LRMs as evaluators for machine translation (MT) quality remains underexplored. We provides the first systematic analysis of LRM-as-a-judge in MT evaluation. We identify key challenges, revealing LRMs require tailored evaluation materials, tend to \"overthink\" simpler instances and have issues with scoring mechanisms leading to overestimation. To address these, we propose to calibrate LRM thinking by training them on synthetic, human-like thinking trajectories. Our experiments on WMT24 Metrics benchmarks demonstrate that this approach largely reduces thinking budgets by ~35x while concurrently improving evaluation performance across different LRM scales from 7B to 32B (e.g., R1-Distill-Qwen-7B achieves a +8.7 correlation point improvement). These findings highlight the potential of efficiently calibrated LRMs to advance fine-grained automatic MT evaluation.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "thinking budget",
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost",
+    "url": "https://neurips.cc/virtual/2025/poster/117120",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "LRM-as-a-judge",
+      "overthinking on simple instances",
+      "thinking calibration",
+      "thinking budget"
+    ],
+    "contributions": [
+      "First systematic analysis of using large reasoning models as machine-translation quality judges",
+      "Identifies that LRMs used as evaluators overthink simpler instances and have scoring-mechanism issues that lead to overestimation",
+      "Proposes calibrating LRM thinking by training on synthetic, human-like thinking trajectories",
+      "Shows the calibration reduces thinking budget by about 35x while improving evaluation correlation across model scales from 7B to 32B"
+    ],
+    "datasets": [
+      "WMT24 Metrics benchmark"
+    ],
+    "limitations": "The abstract does not specify which LRM base models beyond R1-Distill-Qwen-7B were tested, nor the exact composition or size of the synthetic human-like thinking trajectory training data; overestimation and scoring-mechanism issues are noted as problems but not fully quantified beyond the 7B example.",
+    "method": "The authors analyze LRMs acting as judges for machine translation quality, finding they require tailored evaluation materials, overthink simpler instances (spending excess reasoning tokens on easy cases), and have scoring mechanisms prone to overestimation. To address this they calibrate LRM thinking by training the models on synthetic, human-like thinking trajectories, aiming to align the amount and style of reasoning with what the evaluation task actually requires.",
+    "methods": [
+      "LRM-as-a-judge",
+      "thinking calibration via synthetic trajectory training"
+    ],
+    "one_liner": "Analyzes large reasoning models as machine-translation evaluators, finds they overthink simple instances, and calibrates their thinking via synthetic human-like trajectories to cut thinking budget ~35x while improving correlation with human judgments.",
+    "problem": "It is unclear whether large reasoning models' intermediate thinking process helps or hurts when they are used as automatic judges of machine translation quality; the paper finds LRMs overthink simpler cases and overestimate scores, which the field has not previously characterized.",
+    "relevance": {
+      "overthinking": "Directly relevant: it documents overthinking as a concrete failure mode of LRMs on simple evaluation instances and proposes a thinking-calibration method that cuts thinking budget by roughly 35x while improving performance (e.g. +8.7 correlation points for R1-Distill-Qwen-7B), a direct accuracy/efficiency tradeoff intervention, applied in the specific setting of MT quality evaluation."
+    },
+    "results": "On WMT24 Metrics benchmarks, calibrated LRMs reduce thinking budget by approximately 35x while improving evaluation performance across model scales from 7B to 32B; R1-Distill-Qwen-7B achieves a +8.7 correlation point improvement.",
+    "tags": [
+      "overthinking",
+      "thinking-budget",
+      "llm-as-judge",
+      "machine-translation",
+      "reasoning-length",
+      "calibration"
+    ]
+  },
+  "task_id": "paper__title-cca25579537de930",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "aliases": [
+    "Best-of-N sampling",
+    "best-of-n sampling",
+    "Best-of-N",
+    "BoN"
+  ],
+  "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority vote), trading inference compute for accuracy. The archive's 7 sources study when this actually pays off: its accuracy is bounded by verifier ROC-curve geometry and generally worse than Rejection Sampling at a fixed compute budget (ROC-n-reroll); it has provably worse sample complexity than self-consistency for some tasks (Θ(1/Δ) vs Θ(1/Δ²)); standard best-of-n is proven suboptimal under a mixture-of-reference-policy model, with reward-filtered sequential inference beating it under theoretical guarantees; how often the verifier is called (verification granularity) can itself be tuned to trade accuracy against cost; and its cost can be cut by truncating unpromising candidates early via internal-state sampling consistency (ST-BoN) or by speculative decoding, rather than paying for all N candidates in full.",
+  "evidence": [
+    {
+      "id": "title:1d5e1f4d59da5916",
+      "kind": "paper",
+      "note": "Benchmarks model-based, training-based and N-gram-based speculative decoding methods as ways to accelerate token generation during LLM test-time scaling (Best-of-N, iterative reasoning), finding N-gram methods best exploit repetitive patterns.",
+      "title": "Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling"
+    },
+    {
+      "id": "title:27bc5c2aff7ebdab",
+      "kind": "paper",
+      "note": "A theoretical paper deriving sample-complexity bounds for self-consistency versus best-of-n, and an expressiveness result showing self-correction lets a Transformer simulate online learning over multiple tasks at test time.",
+      "title": "Sample Complexity and Representation Ability of Test-time Scaling Paradigms"
+    },
+    {
+      "id": "title:5d66fe9a10241ce8",
+      "kind": "paper",
+      "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+      "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models"
+    },
+    {
+      "id": "title:6b3727a0a0ac9a23",
+      "kind": "paper",
+      "note": "Proves that verifier ROC-curve geometry determines the accuracy of Best-of-N and Rejection Sampling under a fixed compute budget, and shows RS beats BoN at fixed compute while both converge in the infinite-compute limit.",
+      "title": "ROC-n-reroll: How verifier imperfection affects test-time scaling"
+    },
+    {
+      "id": "title:7409f584637723da",
+      "kind": "paper",
+      "note": "Studies how often a verifier should be called during LLM generation, proposing a search algorithm that tunes verification granularity to trade off accuracy and compute in test-time scaling.",
+      "title": "Rethinking Optimal Verification Granularity for Compute-Efficient Test-Time Scaling"
+    },
+    {
+      "id": "title:9dcfd1b98bd7008e",
+      "kind": "paper",
+      "note": "ST-BoN cuts the cost of Best-of-N test-time scaling by using early sampling consistency in internal states to truncate unpromising candidates before they finish generating, without a reward model.",
+      "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding"
+    },
+    {
+      "id": "title:cd5c62ac6be53cbc",
+      "kind": "paper",
+      "note": "Proves standard best-of-n sampling is suboptimal for test-time compute under a mixture-of-reference-policy model and proposes reward-filtered sequential inference as a stronger alternative.",
+      "title": "On the Limits of Test-Time Compute: Sequential Reward Filtering for Better Inference"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "best-of-N sampling",
+  "related": [
+    "speculative-decoding",
+    "test-time-scaling",
+    "n-gram-drafting",
+    "iterative-reasoning",
+    "self-consistency",
+    "self-correction-with-verifier-feedback",
+    "sample-complexity",
+    "transformer-expressiveness",
+    "online-learning-over-a-pool-of-experts",
+    "best-of-n",
+    "overthinking",
+    "output-variance-under-extended-thinking",
+    "parallel-thinking",
+    "majority-voting",
+    "probabilistic-model-of-output-variance",
+    "verifier-roc-geometry",
+    "rejection-sampling",
+    "test-time-scaling-under-imperfect-verifiers",
+    "best-of-n-bon",
+    "rejection-sampling-rs",
+    "gsm8k",
+    "math-500",
+    "verification-granularity",
+    "beam-search-and-best-of-n-as-special-cases-of-a-granularity-parameter",
+    "compute-efficiency-in-test-time-scaling-via-verifier-call-frequency",
+    "variable-granularity-search-vg-search",
+    "beam-search",
+    "early-truncation",
+    "sampling-consistency-in-internal-states",
+    "self-truncation-best-of-n-st-bon",
+    "best-of-n-bon-sampling",
+    "test-time-compute",
+    "sequential-revision",
+    "mixture-of-reference-policy-model",
+    "reward-filtered-sequential-inference"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling",
+    "self-consistency",
+    "speculative-decoding",
+    "rejection-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "best-of-n-sampling",
+  "topics": [
+    "overthinking"
+  ]
+}

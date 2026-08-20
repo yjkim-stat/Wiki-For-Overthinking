@@ -1,0 +1,59 @@
+{
+  "aliases": [],
+  "definition": "A curated, human-verified subset of SWE-bench (real GitHub issue-resolution tasks) used to evaluate agentic coding performance under a fixed compute/cost budget. 'The Danger of Overthinking' uses it as its main evaluation set, showing that a lower measured overthinking score correlates with higher issue-resolution rates and lower cost; Consilience's verifier-free rollout-selection metric also evaluates on it.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.09898",
+      "kind": "paper",
+      "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+      "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
+      "id": "local:9f60265e5ada34cb",
+      "kind": "paper",
+      "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
+      "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T12:10:00Z",
+  "name": "SWE-bench Verified",
+  "related": [
+    "temporal-confidence-asymmetry-low-initial-high-final-confidence",
+    "premature-convergence-vs-exploratory-branching-in-reasoning-trajectories",
+    "reasoning-phase-isolation-separating-chain-of-thought-from-final-answer-tokens",
+    "the-long-tail-trap-of-confidence-maximization-on-hard-problems",
+    "consilience-score",
+    "self-certainty-baseline",
+    "deepconf-deepconf-20-baseline",
+    "pass-1",
+    "best-of-n-selection",
+    "reasoning-phase-isolation",
+    "mini-swe-agent-integration",
+    "livecodebench-v6",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "overthinking",
+    "reasoning-action-dilemma",
+    "analysis-paralysis",
+    "rogue-actions",
+    "premature-disengagement",
+    "test-time-compute-scaling",
+    "reasoning-effort",
+    "codeact-agent-scaffolding",
+    "openhands-framework",
+    "llm-as-a-judge-claude-3-5-sonnet",
+    "native-function-calling",
+    "pass-k",
+    "lowest-overthinking-k"
+  ],
+  "related_authored": [
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "swe-bench-verified",
+  "topics": [
+    "overthinking"
+  ]
+}

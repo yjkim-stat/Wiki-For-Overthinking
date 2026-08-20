@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "pass@N",
+    "model overconfidence",
+    "training-test co-design"
+  ],
+  "contributions": [
+    "Shows that cross-entropy training can be misaligned with pass@N test-time scaling: pass@N accuracy decreases with longer CE training",
+    "Attributes this misalignment to model overconfidence induced by CE training",
+    "Proposes a modified training loss that limits model confidence and is better aligned with pass@N"
+  ],
+  "datasets": [
+    "MATH",
+    "MiniF2F"
+  ],
+  "generated_at": "2026-08-20T12:06:28Z",
+  "generated_by": "queue",
+  "limitations": "Abstract does not report specific accuracy numbers or the exact form of the modified loss; scope is limited to pass@N as the test-time strategy, not other test-time compute strategies like sequential reasoning length or self-consistency.",
+  "method": "Analyzes why standard cross-entropy fine-tuning becomes misaligned with pass@N test-time search as training progresses, tracing this to increasing model overconfidence. Introduces a modified training loss that constrains model confidence during training, intended to preserve or improve pass@N accuracy at test time. Evaluated on providing math answers with and without chain-of-thought traces, and on theorem proving by searching over proof trees.",
+  "methods": [
+    "pass@N sampling",
+    "modified cross-entropy loss with confidence limiting"
+  ],
+  "one_liner": "Shows cross-entropy fine-tuning can hurt pass@N test-time performance via overconfidence, and proposes a confidence-limiting training loss that better aligns training with pass@N search.",
+  "paper_id": "title:edfa34ba9c5ee959",
+  "problem": "How training-time objectives should be adapted to be compatible with a subsequent test-time compute strategy; specifically, standard CE training is shown to conflict with the pass@N search strategy used at test time.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses test-time compute scaling, but via the parallel-sampling axis (pass@N over independent samples) and its interaction with training-time overconfidence, rather than sequential reasoning length or when a model should stop/continue thinking. It is a training-time/test-time co-design result for search budgets, not a study of overthinking or reasoning-length control."
+  },
+  "results": "Reports that pass@N accuracy decreases with longer CE training (degree not quantified in abstract); the proposed confidence-limiting loss improves mathematical reasoning on MATH and MiniF2F under CoT and non-CoT answer settings and for theorem proving via proof-tree search, though specific accuracy deltas are not given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-compute",
+    "pass-at-n",
+    "overconfidence",
+    "training-objective",
+    "math-reasoning",
+    "theorem-proving"
+  ]
+}

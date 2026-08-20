@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "unsupervised model routing",
+    "causal triangulation property",
+    "length-balanced embeddings",
+    "reasoning vs. answer quality separation"
+  ],
+  "contributions": [
+    "ReasoningRouter, an unsupervised query router for Large Reasoning Models that avoids the need for expensive human-annotated preference data.",
+    "A length-balanced embedding strategy intended to handle the variable-length reasoning traces produced by LRMs.",
+    "A probabilistic model built on a 'Causal Triangulation Property' that gives label-free estimates of reasoning quality and answer quality separately."
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:57Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The router embeds queries using a length-balanced embedding strategy so that routing decisions are not skewed by the varying length of LRM reasoning traces. It then fits a probabilistic model of the causal relationship between a model's thinking (reasoning trace) and its final answer, exploiting a 'Causal Triangulation Property' to estimate reasoning quality and answer quality separately without labeled preference data, and uses these estimates to route each query to the most suitable model.",
+  "methods": [
+    "ReasoningRouter",
+    "causal triangulation",
+    "length-balanced embedding"
+  ],
+  "one_liner": "Proposes an unsupervised router that picks which large reasoning model should answer a query by separately estimating its reasoning quality and answer quality from the causal relationship between the two, without human preference labels.",
+  "paper_id": "title:8586a45ca9fec7cf",
+  "problem": "Supervised routing among LLMs/LRMs requires large amounts of expensive human-annotated preference data and degrades under distribution shift; routing among Large Reasoning Models specifically is complicated by their variable-length reasoning traces.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. This is a model-selection/routing method that happens to be built for Large Reasoning Models and touches the relationship between a model's thinking trace and its answer, but its goal is choosing which model handles a query, not deciding how long a given model should reason or trading off reasoning length against accuracy/efficiency."
+  },
+  "results": "No specific benchmark numbers were available in the retrieved material (no PDF or numeric results found on the paper's ICML page); the paper claims the method is computationally efficient and gives insight into model behavior through separate reasoning/answer quality estimates.",
+  "schema_version": 1,
+  "tags": [
+    "routing",
+    "unsupervised",
+    "model-selection",
+    "causal-inference"
+  ]
+}

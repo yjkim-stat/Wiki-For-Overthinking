@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "American Mathematics Competitions",
+    "AMC23"
+  ],
+  "definition": "A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.05643",
+      "kind": "paper",
+      "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+      "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
+    },
+    {
+      "id": "title:2b17dd2ef08b6fa4",
+      "kind": "paper",
+      "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+      "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning"
+    },
+    {
+      "id": "title:f14f82d5eba9e811",
+      "kind": "paper",
+      "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+      "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "AMC",
+  "related": [
+    "diversity-saturation-under-fixed-sample-budget",
+    "per-trace-hallucination-as-a-systematic-accuracy-floor",
+    "breadth-depth-test-time-refinement",
+    "verifier-free-self-critique-and-self-correction",
+    "compute-normalized-gain",
+    "breadth-depth-refinement-framework",
+    "self-critique-and-self-correction-iterative",
+    "majority-voting-plurality-aggregation",
+    "compute-normalized-gain-metric-accuracy-improvement-per-additional-tflop",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "math-500",
+    "overthinking",
+    "redundant-reasoning-steps",
+    "self-regulated-reasoning-termination",
+    "adaptive-reasoning-length",
+    "braking-prompt-mechanism",
+    "self-braking-tuning-sbt",
+    "overthinking-identification-metrics",
+    "aime",
+    "gsm8k",
+    "progressive-reasoning",
+    "functional-reasoning-elements",
+    "chain-of-thought-distillation",
+    "step-importance-estimation",
+    "pir-perplexity-based-importance-refinement",
+    "gpqa-diamond"
+  ],
+  "related_authored": [
+    "aime",
+    "math-500"
+  ],
+  "schema_version": 1,
+  "slug": "amc",
+  "topics": [
+    "overthinking"
+  ]
+}

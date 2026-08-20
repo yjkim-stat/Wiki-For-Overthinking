@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:14:14Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:4888764f9c757f11",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Inducing reasoning in multimodal large language models (MLLMs) is critical for achieving human-level perception and understanding. Existing methods mainly leverage LLM reasoning to analyze parsed visuals, often limited by static perception stages. This paper introduces Visual Test-Time Scaling (VTTS), a novel approach to enhance MLLMs' reasoning via iterative perception during inference. VTTS mimics humans' hierarchical attention by progressively refining focus on high-confidence spatio-temporal regions, guided by updated textual predictions. Specifically, VTTS employs an Iterative Perception (ITP) mechanism, incorporating reinforcement learning with spatio-temporal supervision to optimize reasoning. To support this paradigm, we also present VTTS-80K, a dataset tailored for iterative perception. These designs allows a MLLM to enhance its performance by increasing its perceptual compute. Extensive experiments validate VTTS's effectiveness and generalization across diverse tasks and benchmarks. Our newly introduced Videochat-R1.5 model has achieved remarkable improvements, with an average increase of over 5\\%, compared to robust baselines such as Qwen2.5VL-3B and -7B, across more than 15 benchmarks that encompass video conversation, video reasoning, and spatio-temporal perception.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "VideoChat-R1.5: Visual Test-Time Scaling to Reinforce Multimodal Reasoning by Iterative Perception",
+    "url": "https://neurips.cc/virtual/2025/poster/116032",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "visual test-time scaling",
+      "iterative perception",
+      "hierarchical attention",
+      "spatio-temporal grounding"
+    ],
+    "contributions": [
+      "Introduces Visual Test-Time Scaling (VTTS), scaling MLLM reasoning by iterating perception at inference rather than treating perception as a single static stage.",
+      "Proposes an Iterative Perception (ITP) mechanism trained with reinforcement learning under spatio-temporal supervision.",
+      "Releases VTTS-80K, a dataset built for training iterative perception.",
+      "Presents VideoChat-R1.5, reporting an average improvement of over 5% versus Qwen2.5VL-3B and -7B baselines across more than 15 video benchmarks."
+    ],
+    "datasets": [
+      "VTTS-80K",
+      "video conversation, video reasoning and spatio-temporal perception benchmarks (15+, unspecified by name)"
+    ],
+    "limitations": "",
+    "method": "VTTS lets a multimodal LLM progressively refine its visual focus on high-confidence spatio-temporal regions during inference, guided by its own updated textual predictions, mimicking hierarchical human attention. The Iterative Perception (ITP) mechanism implementing this is trained with reinforcement learning using spatio-temporal supervision, so the model can trade additional perceptual compute for better performance by repeating perception-and-refine steps rather than performing a single static perception pass.",
+    "methods": [
+      "VideoChat-R1.5",
+      "Iterative Perception (ITP)",
+      "reinforcement learning with spatio-temporal supervision"
+    ],
+    "one_liner": "VideoChat-R1.5 scales multimodal reasoning by letting the model iteratively re-perceive high-confidence video regions at inference time instead of perceiving once and reasoning statically over the result.",
+    "problem": "Multimodal LLM reasoning is typically built on a single, static perception stage, which limits how well the model can ground its reasoning in the relevant parts of the visual input.",
+    "relevance": {
+      "overthinking": "It is a genuine test-time compute scaling method: it trades additional inference-time compute (iterative perception steps) for accuracy, an instance of the accuracy/efficiency tradeoff the topic tracks. The scaling axis is different from the topic's usual focus, though: it scales the number of perceptual refinement iterations on visual input rather than the length of a textual reasoning chain, and the paper does not address when a model should stop iterating or the overthinking/underthinking of chain-of-thought length."
+    },
+    "results": "VideoChat-R1.5 achieves an average improvement of over 5% compared to Qwen2.5VL-3B and Qwen2.5VL-7B baselines across more than 15 benchmarks spanning video conversation, video reasoning, and spatio-temporal perception.",
+    "tags": [
+      "test-time-scaling",
+      "multimodal",
+      "video",
+      "iterative-perception",
+      "reinforcement-learning"
+    ]
+  },
+  "task_id": "paper__title-4888764f9c757f11",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

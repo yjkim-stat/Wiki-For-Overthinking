@@ -1,0 +1,97 @@
+{
+  "aliases": [
+    "MATH500",
+    "MATH-500"
+  ],
+  "definition": "The MATH competition-mathematics dataset, used in the archive both directly (e.g. 'Between Underthinking and Overthinking' evaluates on MATH and GSM8K to show reasoning models overthink easy questions and underthink hard ones) and via its curated 500-problem subset MATH-500/MATH500 used by most other archived test-time-compute papers. Note: the wiki tracks this dataset family under three separate, unmerged spellings.",
+  "evidence": [
+    {
+      "id": "local:6afb006d68240134",
+      "kind": "paper",
+      "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+      "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs"
+    },
+    {
+      "id": "title:7b2310c5e9f25bde",
+      "kind": "paper",
+      "note": "Shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and introduces a training-free method that majority-votes across multiple block generation schedules to substantially boost accuracy.",
+      "title": "TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS"
+    },
+    {
+      "id": "title:b2629aee97cadc77",
+      "kind": "paper",
+      "note": "T1 is a two-stage test-time-scaling framework for small language models that filters candidate responses with external tools before a small-model verifier makes the final judgment, offloading memorization-heavy checks to the tools.",
+      "title": "T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models"
+    },
+    {
+      "id": "title:b601ad920fcc4d45",
+      "kind": "paper",
+      "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+      "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction"
+    },
+    {
+      "id": "title:edfa34ba9c5ee959",
+      "kind": "paper",
+      "note": "Shows cross-entropy fine-tuning can hurt pass@N test-time performance via overconfidence, and proposes a confidence-limiting training loss that better aligns training with pass@N search.",
+      "title": "Rethinking Fine-Tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "MATH",
+  "related": [
+    "overthinking",
+    "underthinking",
+    "reasoning-length-vs-correctness-tradeoff",
+    "sample-level-vs-question-level-length-analysis",
+    "length-based-preference-optimization",
+    "difficulty-calibration-self-awareness-in-reasoning-length",
+    "deepseek-r1-distill-1-5b",
+    "deepscaler-1-5b-preview",
+    "simpo-simple-preference-optimization",
+    "gsm8k",
+    "mixture-of-semi-autoregressive-experts-dllms",
+    "block-generation-schedule",
+    "ensembling-over-generation-orders",
+    "hex-hidden-semi-autoregressive-experts",
+    "majority-vote-ensembling",
+    "block-schedule-diffusion-generation",
+    "arc-c",
+    "truthfulqa",
+    "test-time-compute-scaling",
+    "verification",
+    "tool-integration",
+    "memorization-burden",
+    "t1",
+    "code-interpreter-tool-integration",
+    "process-reward-models",
+    "critic-models",
+    "test-time-scaling",
+    "conformal-prediction",
+    "asynchronous-decoding",
+    "draft-target-model-speculation",
+    "rejection-sampling",
+    "atts",
+    "conformal-prediction-based-rejection-sampling",
+    "ordinal-classification",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "pass-n",
+    "model-overconfidence",
+    "training-test-co-design",
+    "pass-n-sampling",
+    "modified-cross-entropy-loss-with-confidence-limiting",
+    "minif2f"
+  ],
+  "related_authored": [
+    "math-500",
+    "gsm8k"
+  ],
+  "schema_version": 1,
+  "slug": "math",
+  "topics": [
+    "overthinking"
+  ]
+}

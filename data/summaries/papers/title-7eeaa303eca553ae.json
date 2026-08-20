@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "optimal scaled length distribution",
+    "shortest correct response selection",
+    "domain-dependent reasoning effort"
+  ],
+  "contributions": [
+    "Shows that excessively scaling chain-of-thought length can impair reasoning performance on mathematical tasks in certain domains, rather than only saturating.",
+    "Finds that the optimal scaled-length distribution differs across domains.",
+    "Proposes a Thinking-Optimal Scaling strategy: seed data with varying response-length distributions teaches the model different reasoning efforts, then the model self-improves by selecting its shortest correct response across additional problems under different reasoning efforts.",
+    "Self-improved 32B models built on Qwen2.5-32B-Instruct outperform other distillation-based 32B o1-like models and match the teacher model QwQ-32B-Preview."
+  ],
+  "datasets": [
+    "various math benchmarks (unspecified names in abstract)"
+  ],
+  "generated_at": "2026-08-20T12:19:38Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific math benchmarks used, nor give exact accuracy numbers versus QwQ-32B-Preview or the compared distilled models; it also does not quantify how much shorter the selected responses are.",
+  "method": "Thinking-Optimal Scaling first fine-tunes the model on a small seed set of responses with varying length distributions so it learns to adopt different reasoning efforts (i.e., produce shorter or longer CoTs) for a given problem. The model then generates responses under these different reasoning efforts on additional problems and self-improves by selecting, for each problem, its shortest response that is still correct, training on that selection.",
+  "methods": [
+    "Thinking-Optimal Scaling",
+    "self-improvement via shortest-correct-response selection",
+    "seed data with varying length distributions"
+  ],
+  "one_liner": "Shows that scaling chain-of-thought length can hurt math reasoning past a domain-dependent optimum, and proposes a self-improvement method that teaches a model to pick the shortest correct response under varying reasoning efforts.",
+  "paper_id": "title:7eeaa303eca553ae",
+  "problem": "Test-time scaling research generally assumes longer chains-of-thought help reasoning, but it was unclear whether excessively long CoTs could actively hurt performance, and whether there is a domain-dependent optimal reasoning length rather than 'longer is always better'.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly on-topic: the paper's central finding is that scaling CoT length past a domain-specific optimum degrades math reasoning accuracy (an explicit demonstration of overthinking), and it proposes a concrete training method (Thinking-Optimal Scaling, selecting the shortest correct response) to make a model stop at the right reasoning length rather than always thinking longer."
+  },
+  "results": "Self-improved models built on Qwen2.5-32B-Instruct outperform other distillation-based 32B o1-like models across various math benchmarks and achieve performance on par with the teacher model QwQ-32B-Preview that produced the seed data; specific benchmark accuracy figures are not given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "chain-of-thought-length",
+    "test-time-compute",
+    "self-improvement",
+    "math-reasoning"
+  ]
+}

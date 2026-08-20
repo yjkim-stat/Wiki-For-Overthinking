@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:54Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:254cc4493a1c8659",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Zero-Overhead Introspection for Adaptive Test-Time Compute",
+    "url": "https://iclr.cc/virtual/2026/poster/10010457",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "meta-cognition in LLMs",
+      "zero-overhead introspection",
+      "sampling utility",
+      "Pareto frontier between quality, compute and latency"
+    ],
+    "contributions": [
+      "Identifies that LLMs cannot introspect their own likelihood of success or the compute they still need, which leads to inefficient test-time scaling.",
+      "Proposes ZIP-RC, a method that reuses reserved or otherwise unused logits in the same forward pass as next-token prediction to output a joint distribution over final reward and remaining generation length, at no additional inference cost.",
+      "Uses this introspective signal to drive meta-actions (continue a given prefix or restart sampling) via a computed sampling utility metric, enabling adaptive test-time compute allocation.",
+      "Reports about a 12% accuracy improvement over majority voting at equal or lower average cost on mixed-difficulty math benchmarks, and traces smooth Pareto frontiers between quality, compute and latency."
+    ],
+    "datasets": [
+      "mixed-difficulty mathematical benchmarks"
+    ],
+    "limitations": "Specific benchmark names, model sizes and the exact definition of the sampling utility metric are not given in the available material (poster page summary only, no PDF); the general applicability of 'reserved or unused logits' across different model architectures is not addressed in what was retrieved.",
+    "method": "ZIP-RC repurposes reserved/unused logits already computed during the standard next-token forward pass to jointly predict, at each generation step, a distribution over the eventual final reward and the remaining length needed to reach an answer. This is obtained without any extra model, architecture change, or additional inference cost ('zero-overhead'). The predicted joint distribution is turned into a sampling utility metric that decides, for each partial reasoning trace, whether to keep extending it or abandon it and resample, enabling adaptive allocation of test-time compute across candidate reasoning paths.",
+    "methods": [
+      "ZIP-RC",
+      "logit reuse for introspection",
+      "sampling utility-based meta-actions"
+    ],
+    "one_liner": "Introduces ZIP-RC, a zero-overhead method that reuses spare logits from the standard forward pass to let an LLM predict its own success likelihood and remaining reasoning length, and uses that to decide when to keep generating or resample.",
+    "problem": "LLMs cannot introspect about how likely they are to succeed on a given partial reasoning attempt or how much more computation it will take, so test-time scaling methods spend compute inefficiently, unable to tell early which reasoning paths are worth continuing and which should be abandoned.",
+    "relevance": {
+      "overthinking": "This paper directly targets the stopping-criterion side of the topic: it gives the model a way to predict, mid-reasoning and at no extra cost, whether a given reasoning trace is likely to succeed and how much length remains, and uses that prediction to decide whether to keep going or restart, which is precisely a mechanism for making a model stop or continue at the right point."
+    },
+    "results": "On mixed-difficulty mathematical benchmarks, ZIP-RC achieves approximately 12% higher accuracy than majority voting at equal or lower average compute cost, and produces smooth Pareto frontiers trading off quality, compute and latency.",
+    "tags": [
+      "test-time-compute",
+      "introspection",
+      "adaptive-inference",
+      "sampling-efficiency",
+      "meta-cognition"
+    ]
+  },
+  "task_id": "paper__title-254cc4493a1c8659",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

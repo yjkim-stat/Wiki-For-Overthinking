@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "test-time search as resource allocation",
+    "direction-level vs. solution-level allocation",
+    "rollout budget"
+  ],
+  "contributions": [
+    "Formulates test-time search under a fixed rollout budget as a resource-allocation problem and derives the allocation that maximizes probability of a correct solution",
+    "Identifies that existing solution-level allocation is biased toward reasoning directions with more candidates, making it theoretically suboptimal",
+    "Proposes Direction-Oriented Resource Allocation (DORA), which decouples direction quality from candidate count and allocates resources at the direction level"
+  ],
+  "datasets": [
+    "MATH500",
+    "AIME2024",
+    "AIME2025"
+  ],
+  "generated_at": "2026-08-20T12:18:40Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "The paper models test-time search (allocating a fixed number of rollouts across candidate reasoning paths) as a resource-allocation problem and derives the theoretically optimal allocation strategy. It shows existing solution-level allocation methods are biased toward reasoning directions that happen to spawn more candidate solutions, wasting compute. DORA instead allocates the rollout budget at the level of reasoning directions rather than individual solutions, decoupling a direction's estimated quality from how many candidates it produced.",
+  "methods": [
+    "Direction-Oriented Resource Allocation (DORA)"
+  ],
+  "one_liner": "Formulates test-time search as a resource-allocation problem and introduces DORA, which allocates a fixed rollout budget across reasoning directions rather than individual solutions to avoid wasting compute on over-represented directions.",
+  "paper_id": "title:69246b2008f8e22d",
+  "problem": "How to allocate a fixed rollout budget most effectively during test-time search is underexplored, and existing solution-level allocation strategies favor reasoning directions with more candidate solutions, leading to theoretically suboptimal and inefficient use of test-time compute.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly tackles the accuracy/efficiency tradeoff of test-time compute scaling: it derives the provably optimal way to spend a fixed rollout budget across reasoning paths, showing that naive allocation wastes compute on directions with more candidates rather than higher quality."
+  },
+  "results": "DORA consistently outperforms strong baselines at comparable computational cost on MATH500, AIME2024 and AIME2025, achieving state-of-the-art accuracy among methods tested under the same rollout budget.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "resource-allocation",
+    "rollout-budget",
+    "search"
+  ]
+}

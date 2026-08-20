@@ -1,0 +1,45 @@
+{
+  "concepts": [
+    "overthinking",
+    "mechanistic interpretability",
+    "activation steering",
+    "low-dimensional manifold"
+  ],
+  "contributions": [
+    "Shows overthinking tendency is captured by a single direction in activation space, and that steering along it reduces overthinking up to a plateau",
+    "Shows the overthinking-relevant activation space is actually a low-dimensional manifold, explaining why naive high-dimensional steering saturates and degrades",
+    "Proposes Manifold Steering, which projects the steering direction onto this low-dimensional manifold using a theoretical approximation of interference noise",
+    "Demonstrates cross-domain transfer of the method from math to code generation and knowledge-based QA"
+  ],
+  "datasets": [
+    "mathematical benchmarks (unspecified)",
+    "code generation tasks (unspecified)",
+    "knowledge-based QA tasks (unspecified)"
+  ],
+  "generated_at": "2026-08-20T12:07:07Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific benchmarks, model sizes beyond 'DeepSeek-R1 distilled models', or report where accuracy gains versus losses occur; no discussion of failure cases or when the projection approximation breaks down is given.",
+  "method": "The authors first identify a single activation-space direction correlated with overthinking and show intervening on it reduces overthinking but plateaus and then hurts performance as intervention strength grows. They trace this to the direction actually lying on a low-dimensional manifold within the high-dimensional activation space, so naive steering introduces noise. Manifold Steering projects the steering direction onto this low-dimensional manifold, using a theoretical approximation of the interference noise, before applying it to activations at inference time.",
+  "methods": [
+    "Manifold Steering",
+    "activation steering",
+    "mechanistic interpretability analysis"
+  ],
+  "one_liner": "Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.",
+  "paper_id": "title:b4ba27743c499d8d",
+  "problem": "Large reasoning models exhibit overthinking during inference -- excessive validation loops and redundant deliberation -- causing substantial computational overhead; prior single-direction activation steering to fix this plateaus and even degrades performance as intervention strength increases.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets the topic's core question: it locates the mechanistic source of excessive reasoning length in activation space and proposes an inference-time intervention (Manifold Steering) that reduces output tokens by up to 71% while maintaining or improving accuracy on math benchmarks, with transfer to code and QA tasks."
+  },
+  "results": "On DeepSeek-R1 distilled models, Manifold Steering reduces output tokens by up to 71% while maintaining or improving accuracy on several mathematical benchmarks, with consistent token-reduction transfer to code generation and knowledge-based QA tasks.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "activation-steering",
+    "mechanistic-interpretability",
+    "reasoning-length",
+    "deepseek-r1",
+    "inference-efficiency"
+  ]
+}

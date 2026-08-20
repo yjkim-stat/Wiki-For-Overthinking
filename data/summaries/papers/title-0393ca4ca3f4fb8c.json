@@ -1,0 +1,47 @@
+{
+  "concepts": [
+    "atomic questions / Markov property in reasoning",
+    "decomposition-contraction reasoning process",
+    "answer-preserving question simplification",
+    "dependency-based directed acyclic graph over subquestions"
+  ],
+  "contributions": [
+    "Identifies that existing test-time scaling methods suffer from accumulated historical information as reasoning scale increases, wasting computation and interfering with effective reasoning.",
+    "Proposes Atom of Thoughts (AoT), where each reasoning state transition decomposes the current question into a dependency-based DAG of subquestions and contracts them into a simplified, answer-equivalent question, forming a memoryless (Markov) reasoning process.",
+    "Shows AoT can be integrated as a plug-in into existing test-time scaling methods (e.g. tree search, reflective refinement) to improve reasoning capability.",
+    "Reports that AoT consistently outperforms existing baselines as computational budget increases, across math, multiple-choice, and multi-hop QA tasks."
+  ],
+  "datasets": [
+    "Math reasoning benchmarks (including GSM8K)",
+    "BBH (BIG-Bench Hard)",
+    "MMLU",
+    "HotpotQA",
+    "LongBench"
+  ],
+  "generated_at": "2026-08-20T12:09:23Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the retrievable abstract/summary material; no specific numerical results, ablations, or explicit limitations were available from the accessible sources (arXiv abstract page and project README) -- the full paper (NeurIPS 2025 / arXiv:2502.12018) would need to be read directly for quantitative comparisons and stated limitations.",
+  "method": "Atom of Thoughts models multi-step reasoning as a Markov process: at each state, the current (sub)question is decomposed into a dependency-based directed acyclic graph of atomic subquestions, which are then contracted back into a single simplified question that preserves the answer to the original problem. Because each new state is self-contained and does not depend on the full history of prior reasoning steps, this removes the need to carry accumulated context forward, and the resulting atomic states can be plugged into existing test-time scaling methods (such as tree search or iterative refinement) as an enhancement.",
+  "methods": [
+    "Atom of Thoughts (AoT)",
+    "Markov reasoning process",
+    "Decomposition-contraction"
+  ],
+  "one_liner": "Atom of Thoughts reframes multi-step LLM reasoning as a Markov process of decomposing a question into independent atomic subquestions and contracting them into an answer-equivalent simplified question, removing the need to carry accumulated historical context and serving as a plug-in for existing test-time scaling methods.",
+  "paper_id": "title:0393ca4ca3f4fb8c",
+  "problem": "As test-time scaling increases the amount of reasoning an LLM performs, existing methods accumulate historical context across steps, which wastes computational resources and can interfere with effective reasoning; the paper addresses how to scale reasoning without this accumulation cost.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "On-topic: the paper's core motivation is that longer reasoning under existing test-time scaling methods wastes computation via accumulated historical context that interferes with reasoning quality -- a direct instance of the overthinking/inefficiency problem this topic tracks. Its proposed fix (decomposing reasoning into memoryless atomic subquestions) is a concrete method for keeping test-time compute effective as it scales, rather than letting reasoning bloat with irrelevant history, and it is explicitly designed to plug into other test-time scaling methods to improve their compute efficiency."
+  },
+  "results": "The retrievable material (arXiv abstract and project summary) states qualitatively that AoT 'consistently outperforms existing baselines as computational budgets increase' across math, multiple-choice (BBH, MMLU), and multi-hop QA (HotpotQA) tasks, and integrates with long-context settings (LongBench); no specific numerical scores, tables, or effect sizes were available from the accessible sources.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "markov-reasoning",
+    "question-decomposition",
+    "context-accumulation",
+    "overthinking",
+    "plug-in-method"
+  ]
+}

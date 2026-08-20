@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "Evidence Accumulation Models applied to LRM reasoning",
+    "trajectory truncation during RL rollout",
+    "quality-controlled length reward",
+    "just-enough thinking / proactive reasoning termination"
+  ],
+  "contributions": [
+    "Identifies, drawing on Evidence Accumulation Models, that LRMs accumulate sufficient information early in reasoning, making later reasoning steps redundant",
+    "Proposes Just-Enough Thinking (JET), which trains models via reinforcement learning to proactively terminate unnecessary reasoning",
+    "Introduces trajectory truncation during RL rollout to expose the model to short, distributionally consistent reasoning paths, addressing the difficulty existing RL methods have constructing short reasoning paths during rollout",
+    "Introduces a quality-controlled length reward that encourages concise reasoning while maintaining correctness",
+    "Reports a 4.6% accuracy improvement while reducing output length by 46.3% on the Olympiad benchmark using DeepSeek-R1-Distill-Qwen-1.5B"
+  ],
+  "datasets": [
+    "Olympiad benchmark"
+  ],
+  "generated_at": "2026-08-20T12:06:34Z",
+  "generated_by": "queue",
+  "limitations": "Numeric results in the abstract are reported for a single model (DeepSeek-R1-Distill-Qwen-1.5B) and a single benchmark (Olympiad); generalization to other model sizes or benchmark domains is not stated in the abstract.",
+  "method": "Motivated by Evidence Accumulation Models, JET performs trajectory truncation during reinforcement learning rollout to expose the model to short, distributionally consistent reasoning paths, addressing the rollout-stage difficulty existing RL methods have in producing short paths. It combines this with a quality-controlled length reward during training so the model learns to stop reasoning once it has accumulated enough evidence, without sacrificing correctness.",
+  "methods": [
+    "Just-Enough Thinking (JET)",
+    "reinforcement learning with trajectory truncation",
+    "quality-controlled length reward"
+  ],
+  "one_liner": "Trains large reasoning models via RL to proactively stop reasoning once they have accumulated enough evidence, cutting output length by 46.3% while improving accuracy by 4.6% on the Olympiad benchmark.",
+  "paper_id": "title:92690cf46de29df1",
+  "problem": "Large reasoning models incur substantial computational cost from long reasoning traces, and existing reinforcement learning methods for efficient reasoning struggle to construct short reasoning paths during the rollout stage, limiting how effectively they can learn to reason concisely.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets overthinking: it shows LRMs often accumulate sufficient evidence early and continue reasoning past that point, and proposes an RL training method (trajectory truncation plus a length-quality reward) that teaches the model to stop at the right point, reducing output length by 46.3% while improving accuracy by 4.6% on one benchmark."
+  },
+  "results": "4.6% accuracy improvement combined with a 46.3% reduction in output length on the Olympiad benchmark, using DeepSeek-R1-Distill-Qwen-1.5B.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "reinforcement-learning",
+    "reasoning-length",
+    "trajectory-truncation",
+    "efficient-reasoning"
+  ]
+}

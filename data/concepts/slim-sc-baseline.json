@@ -1,0 +1,63 @@
+{
+  "aliases": [
+    "Slim-SC"
+  ],
+  "definition": "A self-consistency-style baseline used for comparison by test-time-scaling papers in the archive, evaluated against by both Gambit's thought-level beam search and Funnel of Thoughts' early-voting rollout pruning as one of the parallel-sampling methods their own approaches aim to beat on cost or accuracy.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.08020",
+      "kind": "paper",
+      "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
+      "title": "Thought-Level Beam Search for Reasoning"
+    },
+    {
+      "id": "arxiv:2608.15065",
+      "kind": "paper",
+      "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+      "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "Slim-SC (baseline)",
+  "related": [
+    "constrained-compute-allocation-over-partial-reasoning-trajectories",
+    "zero-sum-reallocation-policy-for-a-fixed-capacity-trace-pool",
+    "decoupled-scheduler-view-vs-tree-ghost-trace-view-for-memory-management",
+    "thought-level-vs-token-level-beam-search",
+    "gambit-thought-level-beam-search",
+    "step-hidden-state-scorer",
+    "prefix-caching-kv-cache-sharing-branching",
+    "self-consistency-baseline",
+    "deepconf-baseline",
+    "step-subtractive-pruning-baseline",
+    "aime-2025",
+    "aime-2026",
+    "hmmt-2024",
+    "hmmt-2025",
+    "gpqa-diamond",
+    "hesitation-markers-as-a-lexical-signal-of-unproductive-reasoning",
+    "late-stage-generation-waste-in-self-consistency",
+    "rollout-pruning-vs-sample-axis-stopping-rules",
+    "early-voting-vote-banking",
+    "hesitation-marker-density-as-a-leading-indicator-of-runaway-trajectory-length",
+    "funnel-of-thoughts-fot",
+    "self-consistency-sc-k",
+    "hesitation-marker-density-pruning",
+    "adaptive-consistency-baseline",
+    "aime-2024",
+    "amc23",
+    "math-500",
+    "lcb-lite"
+  ],
+  "related_authored": [
+    "self-consistency",
+    "best-of-n-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "slim-sc-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

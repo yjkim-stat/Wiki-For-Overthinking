@@ -1,0 +1,51 @@
+{
+  "aliases": [
+    "process reward model",
+    "PRM"
+  ],
+  "definition": "A reward model that scores the intermediate steps of a reasoning trace, not just the final answer, used to guide test-time search (pruning bad branches, expanding promising ones) rather than only to rank complete solutions. 'What If We Allocate Test-Time Compute Adaptively?' replaces uniform compute allocation with PRM-guided pruning/expansion; TaTToo trains a table-grounded, tool-verified PRM specifically for tabular reasoning search. Note: same concept as the archive's separately-tracked 'process reward model' entry -- not merged.",
+  "evidence": [
+    {
+      "id": "title:892443a8a7093b83",
+      "kind": "paper",
+      "note": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
+      "title": "What If We Allocate Test-Time Compute Adaptively?"
+    },
+    {
+      "id": "title:983af40bdcebe387",
+      "kind": "paper",
+      "note": "TaTToo trains a table-grounded, tool-verified process reward model that supervises test-time-scaling search for large reasoning models on tabular reasoning tasks.",
+      "title": "TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-20T12:20:08Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "process reward model (PRM)",
+  "related": [
+    "verifier-guided-adaptive-compute-allocation",
+    "process-reward-model-as-control-signal",
+    "compute-intensity-metric",
+    "iterative-trajectory-generation-and-selection",
+    "verifier-guided-adaptive-test-time-compute-allocation",
+    "math-500",
+    "aime-2024",
+    "amo-bench",
+    "process-reward-model",
+    "tool-grounded-verification",
+    "test-time-scaling-for-search",
+    "tattoo",
+    "tool-grounded-reward-shaping",
+    "cold-start-sft-rl",
+    "5-tabular-reasoning-benchmarks-covering-numerical-reasoning-fact-checking-and-da"
+  ],
+  "related_authored": [
+    "process-reward-model",
+    "monte-carlo-tree-search"
+  ],
+  "schema_version": 1,
+  "slug": "process-reward-model-prm",
+  "topics": [
+    "overthinking"
+  ]
+}

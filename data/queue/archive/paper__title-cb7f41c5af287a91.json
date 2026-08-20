@@ -1,0 +1,84 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:48Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:cb7f41c5af287a91",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "inverse scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Inverse Scaling: When Bigger Isn't Better",
+    "url": "https://iclr.cc/virtual/2025/poster/31511",
+    "venue": "ICLR 2025"
+  },
+  "result": {
+    "concepts": [
+      "inverse scaling",
+      "U-shaped scaling",
+      "scaling laws"
+    ],
+    "contributions": [
+      "Runs and analyzes the Inverse Scaling Prize contest, collecting 11 tasks on which language model performance declines as model scale increases",
+      "Identifies four mechanisms behind inverse scaling: preferring memorized sequences over instructions, learning undesirable training-data patterns, focusing on easy distractor tasks over the intended objective, and being misled by few-shot examples",
+      "Documents U-shaped and inverted-U scaling trends where early gains with scale reverse at larger sizes"
+    ],
+    "datasets": [
+      "Inverse Scaling Prize task suite (11 datasets)"
+    ],
+    "limitations": "",
+    "method": "Ran a public contest (the Inverse Scaling Prize) soliciting tasks on which larger language models perform worse; collected 11 winning datasets, evaluated them across model families and sizes, and categorized the underlying causes of the observed performance decline into four mechanisms.",
+    "methods": [],
+    "one_liner": "Reports 11 tasks, found via the Inverse Scaling Prize contest, on which language model accuracy declines as model parameter count and training compute increase, and analyzes why.",
+    "problem": "Whether scaling up model size and training compute reliably improves language model performance; this paper shows the assumption fails for a specific set of tasks and analyzes the mechanisms responsible.",
+    "relevance": {
+      "overthinking": "This is a distinct paper from the 'Inverse Scaling in Test-Time Compute' work already in the archive. It studies inverse scaling with respect to model parameter count and training compute across 11 static benchmark tasks, not reasoning length or test-time compute allocation. It shares only the keyword 'inverse scaling' with the topic and has no bearing on when a model reasons more or less than a problem needs."
+    },
+    "results": "11 datasets from the Inverse Scaling Prize show declining accuracy, or U-shaped/inverted-U accuracy trends, as model scale increases, attributable to four identified mechanisms; no test-time-compute or reasoning-length results are reported.",
+    "tags": [
+      "scaling-laws",
+      "model-size",
+      "inverse-scaling"
+    ]
+  },
+  "task_id": "paper__title-cb7f41c5af287a91",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

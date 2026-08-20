@@ -1,0 +1,112 @@
+{
+  "aliases": [],
+  "definition": "The complement failure mode to overthinking: a model reasons too little on a problem that genuinely requires deliberate, multi-step reasoning. The archive's 6 sources give it several concrete mechanisms: taking the first plausible answer without exploring alternatives or verifying it (OptimalThinkingBench), failing to extend a chain of thought far enough on hard questions while overthinking easy ones (Between Underthinking and Overthinking), and frequent premature switching between partial reasoning 'thoughts' before any is followed to completion, which prevents deep exploration of a promising line of reasoning ('Thoughts Are All Over the Place', which introduces a decoding-time penalty, TIP, to discourage the switching). TrimR and Plan-and-Budget both note it as the failure mode their overthinking-trimming methods must avoid falling into.",
+  "evidence": [
+    {
+      "id": "local:49199e3b0f694ee1",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "local:6afb006d68240134",
+      "kind": "paper",
+      "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
+      "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs"
+    },
+    {
+      "id": "title:2e5e00164f8a905d",
+      "kind": "paper",
+      "note": "Identifies 'underthinking' in long reasoning models, where frequent switching between reasoning thoughts prevents sufficient exploration and hurts accuracy, and proposes a decoding-time penalty to fix it.",
+      "title": "Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models"
+    },
+    {
+      "id": "title:441c8494292f11c7",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "title:b987d2649d32f1f3",
+      "kind": "paper",
+      "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+      "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling"
+    },
+    {
+      "id": "title:f0073c841a41fca9",
+      "kind": "paper",
+      "note": "Plan-and-Budget decomposes queries into sub-questions and allocates test-time token budgets by estimated complexity, using a theoretical model of reasoning as sequential sub-questions to reduce both overthinking and underthinking.",
+      "title": "Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "underthinking",
+  "related": [
+    "overthinking",
+    "test-time-compute-scaling",
+    "thinking-token-budget",
+    "accuracy-efficiency-tradeoff-of-reasoning-length",
+    "hybrid-thinking-non-thinking-models",
+    "difficulty-based-routing-between-reasoning-modes",
+    "overthinkingbench",
+    "underthinkingbench",
+    "overthinking-adjusted-accuracy-oaa",
+    "auc-oaa",
+    "f1-otb-combined-metric",
+    "llm-as-a-judge-filtering-and-evaluation",
+    "l1-length-controlled-reinforcement-learning",
+    "adaptthink",
+    "verithinker",
+    "model-merging",
+    "trained-difficulty-based-router-oracle-router",
+    "math-hendrycks-et-al-levels-1-2-for-ovt-math",
+    "supergpqa-72-domain-source-for-ovt-general-question-generation",
+    "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "aime-2025",
+    "hmmt-2025",
+    "reasoning-length-vs-correctness-tradeoff",
+    "sample-level-vs-question-level-length-analysis",
+    "length-based-preference-optimization",
+    "difficulty-calibration-self-awareness-in-reasoning-length",
+    "deepseek-r1-distill-1-5b",
+    "deepscaler-1-5b-preview",
+    "simpo-simple-preference-optimization",
+    "gsm8k",
+    "math",
+    "thought-switching",
+    "token-efficiency-of-incorrect-answers",
+    "thought-switching-penalty-tip-decoding-strategy",
+    "three-challenging-math-test-sets-unnamed-in-abstract",
+    "math-levels-1-2-for-ovt-math",
+    "supergpqa",
+    "reasoning-gym",
+    "test-time-scaling",
+    "chain-of-thought-redundancy",
+    "verifier-guided-truncation",
+    "trimr",
+    "verifier-guided-cot-truncation",
+    "asynchronous-online-trimming-system",
+    "math-500",
+    "aime-2024",
+    "gpqa",
+    "budget-allocation-model",
+    "sub-question-decomposition",
+    "correctness-efficiency-tradeoff",
+    "bam-budget-allocation-model",
+    "plan-and-budget",
+    "e3-metric",
+    "adaptive-scheduling"
+  ],
+  "related_authored": [
+    "overthinking",
+    "optimalthinkingbench",
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "underthinking",
+  "topics": [
+    "overthinking"
+  ]
+}

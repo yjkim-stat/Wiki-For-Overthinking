@@ -1,0 +1,52 @@
+{
+  "aliases": [],
+  "definition": "Training a simple linear classifier or regressor on a model's internal activations to test what information they encode, without modifying the model itself. Used in the archive as an interpretability tool: the mechanistic-understanding survey lists it among techniques applied to large reasoning models, and 'On Reasoning Strength Planning' uses a directional activation vector (found via a linear-probe-like analysis) to show models pre-plan how much to reason before generating.",
+  "evidence": [
+    {
+      "id": "local:34cecfd6f28ba72b",
+      "kind": "paper",
+      "note": "A survey that organizes existing mechanistic-interpretability research on large reasoning models into three areas -- reasoning-oriented training dynamics, reasoning mechanisms, and unintended behaviors (hallucination, CoT unfaithfulness, overthinking, unsafety) -- and proposes directions for future mechanistic work.",
+      "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures"
+    },
+    {
+      "id": "title:11c0c9193baf1d69",
+      "kind": "paper",
+      "note": "Finds that large reasoning models pre-plan how much to reason via a directional vector in their activations, whose magnitude causally sets reasoning length.",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:10:00Z",
+  "name": "linear probing",
+  "related": [
+    "overthinking",
+    "inverted-u-shaped-length-performance-curve",
+    "hallucination-in-reasoning-models",
+    "chain-of-thought-unfaithfulness",
+    "reward-hacking",
+    "entropy-collapse-in-rl-training",
+    "thought-anchors",
+    "aha-moment",
+    "sft-explores-rl-compresses",
+    "mechanistic-interpretability-of-lrms",
+    "sparse-autoencoders-saes",
+    "steering-vectors",
+    "activation-circuit-analysis",
+    "svd-analysis-of-weight-matrices",
+    "causal-intervention-on-chain-of-thought",
+    "reasoning-strength-pre-planning",
+    "directional-activation-vector-for-reasoning-length",
+    "linear-probing-of-question-activations",
+    "end-of-reasoning-token-logit-control",
+    "activation-steering-vector-addition-subtraction"
+  ],
+  "related_authored": [
+    "activation-steering"
+  ],
+  "schema_version": 1,
+  "slug": "linear-probing",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "uncertainty calibration",
+    "meta-learning",
+    "sequential Monte Carlo sampling",
+    "Neural Processes"
+  ],
+  "contributions": [
+    "TTSNPs: a test-time sequential inference framework for Neural Processes based on a Sequential Monte Carlo Sampler",
+    "Refines variational latent samples toward the true posterior at test time without retraining the pretrained model",
+    "Improves both predictive accuracy and uncertainty calibration of Neural Process models"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:07:24Z",
+  "generated_by": "queue",
+  "limitations": "Abstract gives no specific numeric results, benchmarks or dataset names, and no discussion of added test-time inference cost from the SMC sampling steps.",
+  "method": "TTSNPs uses a Sequential Monte Carlo Sampler (SMCS) to iteratively transform variational latent samples of a pretrained Neural Process into better approximations of the true posterior, via learned neural transition kernels, applied only at test time and without modifying the pretrained model.",
+  "methods": [
+    "Sequential Monte Carlo Sampler (SMCS)",
+    "Neural Processes",
+    "neural transition kernels"
+  ],
+  "one_liner": "TTSNPs refines Neural Process latent-variable samples at test time with a Sequential Monte Carlo sampler to improve prediction accuracy and uncertainty calibration.",
+  "paper_id": "title:9fd93d64582daf6f",
+  "problem": "Variational posteriors for the global latent variable in Neural Processes are often miscalibrated, which limits both predictive accuracy and the reliability of uncertainty estimates under limited supervision.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential. 'Test time scaling' here means refining a Neural Process's latent-variable posterior via Sequential Monte Carlo at inference time for better-calibrated uncertainty estimates in meta-learning; it has no connection to large language model reasoning length, chain-of-thought length, or the accuracy/efficiency tradeoff of LLM test-time compute. It matched only on the generic phrase 'test time scaling.'"
+  },
+  "results": "Reported to significantly improve both prediction quality and uncertainty calibration relative to the base Neural Process; no specific numeric benchmark results are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "neural-processes",
+    "uncertainty-calibration",
+    "meta-learning",
+    "sequential-monte-carlo"
+  ]
+}

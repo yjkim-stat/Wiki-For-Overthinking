@@ -1,0 +1,90 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:19Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:99b7eabb818cb959",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large language models (LLMs) have significantly advanced in reasoning tasks through reinforcement learning (RL) optimization, achieving impressive capabilities across various challenging benchmarks. However, our empirical analysis reveals a critical drawback: reasoning-oriented RL fine-tuning significantly increases the prevalence of hallucinations. We theoretically analyze the RL training dynamics, identifying high-variance gradient, entropy-induced randomness, and susceptibility to spurious local optima as key factors leading to hallucinations. To address this drawback, we propose Factuality-aware Step-wise Policy Optimization (FSPO), an innovative RL fine-tuning algorithm incorporating explicit factuality verification at each reasoning step. FSPO leverages automated verification against given evidence to dynamically adjust token-level advantage values, incentivizing factual correctness throughout the reasoning process. Experiments across mathematical reasoning and hallucination benchmarks using Qwen2.5 and Llama models demonstrate that FSPO effectively reduces hallucinations while enhancing reasoning accuracy, substantially improving both reliability and performance.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models",
+    "url": "https://neurips.cc/virtual/2025/poster/118780",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "RL training dynamics",
+      "hallucination",
+      "step-wise factuality verification"
+    ],
+    "contributions": [
+      "Shows empirically that reasoning-oriented RL fine-tuning increases hallucination prevalence in LLMs",
+      "Theoretically links this to high-variance gradients, entropy-induced randomness, and susceptibility to spurious local optima during RL training",
+      "Proposes FSPO (Factuality-aware Step-wise Policy Optimization), which verifies factuality at each reasoning step against evidence and adjusts token-level advantages accordingly",
+      "Demonstrates reduced hallucination alongside improved reasoning accuracy on Qwen2.5 and Llama models"
+    ],
+    "datasets": [
+      "mathematical reasoning benchmarks",
+      "hallucination benchmarks"
+    ],
+    "limitations": "",
+    "method": "FSPO augments RL fine-tuning with automated, step-level factuality verification against supplied evidence during training. Each reasoning step is checked, and the outcome is used to dynamically adjust token-level advantage values, so the policy is rewarded for factual correctness throughout the chain of reasoning rather than only for the final answer.",
+    "methods": [
+      "Factuality-aware Step-wise Policy Optimization (FSPO)",
+      "token-level advantage shaping"
+    ],
+    "one_liner": "Shows that RL fine-tuning for reasoning increases hallucination and proposes FSPO, a step-wise factuality-verified RL objective that reduces it while improving accuracy.",
+    "problem": "Reinforcement learning fine-tuning improves LLM reasoning benchmark performance but empirically increases the rate of hallucination; the paper analyzes RL training dynamics (high-variance gradients, entropy-induced randomness, spurious local optima) as the cause and asks how to fine-tune for reasoning without this side effect.",
+    "relevance": {
+      "overthinking": "Tangential: this paper studies how RL post-training affects factual correctness and hallucination rate, not reasoning length, test-time compute allocation, or when a model should stop reasoning. It shares only the 'large reasoning model' keyword with the topic."
+    },
+    "results": "FSPO reduces hallucinations while improving reasoning accuracy on mathematical reasoning and hallucination benchmarks using Qwen2.5 and Llama models; no specific numeric deltas were stated in the available material.",
+    "tags": [
+      "hallucination",
+      "reinforcement-learning",
+      "factuality",
+      "reward-shaping"
+    ]
+  },
+  "task_id": "paper__title-99b7eabb818cb959",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

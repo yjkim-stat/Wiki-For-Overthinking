@@ -1,0 +1,44 @@
+{
+  "concepts": [
+    "reasoning graph",
+    "cyclicity",
+    "graph diameter",
+    "small-world index"
+  ],
+  "contributions": [
+    "Introduces the 'reasoning graph', built by clustering hidden-state representations at each reasoning step, as a structural object for analyzing large reasoning models",
+    "Shows that distilled reasoning models (e.g. DeepSeek-R1-Distill-Qwen-32B) have about 5 recurrent cycles per sample, substantially larger graph diameters, and about 6x stronger small-world characteristics than their base counterparts",
+    "Finds these structural properties grow with task difficulty and model capacity, with cycle detection peaking at 14B scale and diameter maximized at 32B, correlating positively with accuracy",
+    "Shows supervised fine-tuning on an improved dataset expands reasoning graph diameter alongside performance gains, offering guidance for dataset design"
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH500",
+    "AIME 2024"
+  ],
+  "generated_at": "2026-08-20T12:13:16Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not state limitations explicitly; no PDF was attached, so method details beyond the abstract (e.g. clustering procedure, statistical significance, generalization beyond math tasks) could not be verified.",
+  "method": "Extracts hidden-state representations at each reasoning step of a model's chain of thought, clusters them into nodes, and connects them by generation order to form a 'reasoning graph'; analyzes graph-theoretic properties (cyclicity, diameter, small-world index) across models and tasks and correlates them with accuracy.",
+  "methods": [
+    "reasoning graph extraction",
+    "hidden-state clustering",
+    "graph-theoretic analysis (cyclicity, diameter, small-world index)"
+  ],
+  "one_liner": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+  "paper_id": "title:11c5eb0da4499b68",
+  "problem": "The internal mechanisms behind large reasoning models' success on hard math benchmarks are poorly understood; the paper asks what structural properties of the reasoning process (as a graph over hidden states) distinguish stronger reasoners.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "This studies the structure of a model's reasoning trace (recurrent cycles, exploration diameter) and how it scales with task difficulty and model size, which touches on how much and in what pattern a model reasons, but it is an interpretability study of reasoning structure and accuracy correlation, not a treatment of the accuracy/efficiency tradeoff, reasoning-length control, or stopping criteria that the topic centers on. The connection is adjacent rather than direct: more recurrent cycles could be read as redundant (overthinking-like) reasoning, but the paper does not frame or measure it that way."
+  },
+  "results": "Distilled models show about 5 recurrent cycles per sample versus fewer in base models, roughly 6x higher small-world index, and larger graph diameters; cycle detection peaks at 14B scale and diameter is maximized at 32B; these properties correlate positively with accuracy on GSM8K, MATH500 and AIME 2024. Supervised fine-tuning on an improved dataset expands diameter alongside accuracy gains.",
+  "schema_version": 1,
+  "tags": [
+    "interpretability",
+    "reasoning-graph",
+    "hidden-states",
+    "graph-theory",
+    "scaling"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:06:34Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:92690cf46de29df1",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large Reasoning Models (LRMs) have achieved impressive performance on challenging tasks, yet their deep reasoning often incurs substantial computational costs. To achieve efficient reasoning, existing reinforcement learning methods still struggle to construct short reasoning path during the rollout stage, limiting effective learning. Inspired by Evidence Accumulation Models, we find that LRMs have accumulated sufficient information early in reasoning, making further reasoning steps redundant. Based on this insight, we propose Just-Enough Thinking (JET), which trains models to proactively terminate unnecessary reasoning. JET performs trajectory truncation during rollout to expose the model to short, distributionally consistent reasoning paths. Besides, it uses a quality-controlled length reward to better encourage concise reasoning while maintaining correctness. Extensive experiments demonstrate that JET significantly improves reasoning efficiency without sacrificing accuracy. In particular, JET delivers a 4.6% accuracy improvement while reducing the output length by 46.3% on the Olympiad benchmark using DeepSeek-R1-Distill-Qwen-1.5B. Our code is available in the GitHub.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking",
+    "url": "https://iclr.cc/virtual/2026/poster/10011695",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Evidence Accumulation Models applied to LRM reasoning",
+      "trajectory truncation during RL rollout",
+      "quality-controlled length reward",
+      "just-enough thinking / proactive reasoning termination"
+    ],
+    "contributions": [
+      "Identifies, drawing on Evidence Accumulation Models, that LRMs accumulate sufficient information early in reasoning, making later reasoning steps redundant",
+      "Proposes Just-Enough Thinking (JET), which trains models via reinforcement learning to proactively terminate unnecessary reasoning",
+      "Introduces trajectory truncation during RL rollout to expose the model to short, distributionally consistent reasoning paths, addressing the difficulty existing RL methods have constructing short reasoning paths during rollout",
+      "Introduces a quality-controlled length reward that encourages concise reasoning while maintaining correctness",
+      "Reports a 4.6% accuracy improvement while reducing output length by 46.3% on the Olympiad benchmark using DeepSeek-R1-Distill-Qwen-1.5B"
+    ],
+    "datasets": [
+      "Olympiad benchmark"
+    ],
+    "limitations": "Numeric results in the abstract are reported for a single model (DeepSeek-R1-Distill-Qwen-1.5B) and a single benchmark (Olympiad); generalization to other model sizes or benchmark domains is not stated in the abstract.",
+    "method": "Motivated by Evidence Accumulation Models, JET performs trajectory truncation during reinforcement learning rollout to expose the model to short, distributionally consistent reasoning paths, addressing the rollout-stage difficulty existing RL methods have in producing short paths. It combines this with a quality-controlled length reward during training so the model learns to stop reasoning once it has accumulated enough evidence, without sacrificing correctness.",
+    "methods": [
+      "Just-Enough Thinking (JET)",
+      "reinforcement learning with trajectory truncation",
+      "quality-controlled length reward"
+    ],
+    "one_liner": "Trains large reasoning models via RL to proactively stop reasoning once they have accumulated enough evidence, cutting output length by 46.3% while improving accuracy by 4.6% on the Olympiad benchmark.",
+    "problem": "Large reasoning models incur substantial computational cost from long reasoning traces, and existing reinforcement learning methods for efficient reasoning struggle to construct short reasoning paths during the rollout stage, limiting how effectively they can learn to reason concisely.",
+    "relevance": {
+      "overthinking": "Directly targets overthinking: it shows LRMs often accumulate sufficient evidence early and continue reasoning past that point, and proposes an RL training method (trajectory truncation plus a length-quality reward) that teaches the model to stop at the right point, reducing output length by 46.3% while improving accuracy by 4.6% on one benchmark."
+    },
+    "results": "4.6% accuracy improvement combined with a 46.3% reduction in output length on the Olympiad benchmark, using DeepSeek-R1-Distill-Qwen-1.5B.",
+    "tags": [
+      "overthinking",
+      "reinforcement-learning",
+      "reasoning-length",
+      "trajectory-truncation",
+      "efficient-reasoning"
+    ]
+  },
+  "task_id": "paper__title-92690cf46de29df1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

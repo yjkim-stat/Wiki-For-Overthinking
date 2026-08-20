@@ -1,0 +1,30 @@
+{
+  "abstract": "Abstract Large reasoning models (LRMs) exhibit unprecedented capabilities in solving complex problems through Chain-of-Thought (CoT) reasoning. However, recent studies reveal that their final answers often contradict their own reasoning traces. We hypothesize that this inconsistency stems from two competing mechanisms for generating answers: CoT reasoning and memory retrieval. To test this hypothesis, we conduct controlled experiments that challenge LRMs with misleading cues during reasoning and/or corrupted answers during retrieval. Our results across models and datasets confirm that both mechanisms operate simultaneously, with their relative dominance influenced by multiple factors: problem domains, model scales, and fine-tuning approaches (e.g., reinforcement learning vs. distillation). The findings reveal a critical limitation in current reasoning fine-tuning paradigms: models can exploit the retrieval mechanism as a shortcut, effectively \"hacking\" the reward signal and undermining genuine reasoning development. To address this challenge, we introduce FARL, a novel fine-tuning framework that integrates memory unlearning with reinforcement learning. By carefully suppressing retrieval shortcuts during the fine-tuning process, FARL promotes reasoning-dominant behavior and enhances generalizable reasoning capabilities. The code is available at https://github.com/ZJUWYH/FARL.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T11:49:28Z",
+  "id": "title:db18eb78dcdd333c",
+  "last_seen": "2026-08-20T11:49:28Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "virtualsite",
+  "source_id": "iclr-2026-10010758",
+  "title": "Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://iclr.cc/virtual/2026/poster/10010758",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

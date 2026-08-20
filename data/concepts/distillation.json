@@ -1,0 +1,63 @@
+{
+  "aliases": [
+    "knowledge distillation"
+  ],
+  "definition": "Training a model (or a stage of pretraining) to imitate a stronger teacher's outputs or reasoning traces, rather than learning purely from raw data or reward. The archived sources give it mixed effects on reasoning-length behavior: 'Distilled Pretraining' finds it improves test-time-scaling generalization but impairs in-context learning; 'When Reasoning Meets Compression' finds it (along with quantization and pruning) degrades reasoning ability differently than memorization ability; 'Reinforcement Learning Teachers of Test Time Scaling' trains an RL teacher specifically to produce distillation explanations that help a student learn.",
+  "evidence": [
+    {
+      "id": "title:21d46f88974ff7dd",
+      "kind": "paper",
+      "note": "Trains a reinforcement-learned teacher model that is given the solution and rewarded for producing explanations that help a student model understand it, outperforming distillation pipelines built from much larger models.",
+      "title": "Reinforcement Learning Teachers of Test Time Scaling"
+    },
+    {
+      "id": "title:5d210749910cf061",
+      "kind": "paper",
+      "note": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
+      "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling"
+    },
+    {
+      "id": "title:c593d75efe2e5d8c",
+      "kind": "paper",
+      "note": "Analyzes how quantization, distillation, and pruning affect the reasoning versus memorization abilities of large reasoning models such as DeepSeek-R1, and proposes protecting a small subset of weights to recover accuracy under quantization.",
+      "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T12:24:12Z",
+  "name": "distillation",
+  "related": [
+    "cold-starting-rl",
+    "dense-reward-from-student-understanding",
+    "reinforcement-learned-teachers-rlt",
+    "reinforcement-learning-with-dense-reward",
+    "cold-start-for-rl",
+    "competition-level-tasks",
+    "graduate-level-tasks",
+    "test-time-scaling",
+    "in-context-learning",
+    "induction-heads",
+    "bigram-model-sandbox",
+    "distilled-pretraining",
+    "bigram-model-analysis",
+    "model-compression",
+    "quantization",
+    "pruning",
+    "attribution-patching",
+    "reasoning-vs-memorization",
+    "difference-of-means-analysis",
+    "aime-2024",
+    "folio",
+    "temporal-sequences",
+    "musique"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "distillation",
+  "topics": [
+    "overthinking"
+  ]
+}

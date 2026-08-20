@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:38Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7b2310c5e9f25bde",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Diffusion-based large language models (dLLMs) are trained to model extreme flexibility/dependence in the data-distribution; however, how to best utilize this at inference time remains an open problem. In this work, we uncover an interesting property of these models: dLLMs {trained on textual data} implicitly learn a mixture of semi-autoregressive experts, where different generation orders reveal different specialized behaviors. We show that committing to any single, fixed inference time schedule, a common practice, collapses performance by failing to leverage this latent ensemble. To address this, we introduce HEX (Hidden semi-autoregressive EXperts for test-time scaling), a training-free inference method that ensembles across heterogeneous block schedules. By doing a majority vote over diverse block-sized generation paths, HEX robustly avoids failure modes associated with any single fixed schedule. On reasoning benchmarks such as GSM8K, it boosts accuracy by up to 3.56× (from 24.72\\% to 88.10\\%), outperforming top-K margin inference and specialized fine-tuned methods like GRPO, without additional training. HEX even yields significant gains on MATH benchmark from 16.40\\% to 40.00\\%, scientific reasoning on ARC-C from 54.18\\% to 87.80\\%, and TruthfulQA from 28.36\\% to 57.46\\%. Our results establish test-time scaling as a powerful principle for dLLMs, showing that the sequence in which masking is done can play a significant role in test-time scaling/inferencing of dLLMs.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS",
+    "url": "https://iclr.cc/virtual/2026/poster/10010063",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "mixture of semi-autoregressive experts (dLLMs)",
+      "block generation schedule",
+      "ensembling over generation orders"
+    ],
+    "contributions": [
+      "Identifies that diffusion large language models (dLLMs) trained on text implicitly learn a mixture of semi-autoregressive experts, where different generation orders reveal different specialized behaviors.",
+      "Shows that committing to a single fixed inference-time generation schedule collapses performance by not leveraging this latent ensemble.",
+      "Introduces HEX, a training-free inference method that ensembles across heterogeneous block schedules via majority vote to avoid failure modes tied to any one fixed schedule.",
+      "Reports large accuracy gains on reasoning and QA benchmarks without additional training."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "ARC-C",
+      "TruthfulQA"
+    ],
+    "limitations": "The abstract does not report the inference-time/compute overhead of running the majority vote across multiple block schedules, nor which specific dLLM model(s) were tested, nor behavior on tasks outside these four benchmarks.",
+    "method": "HEX (Hidden semi-autoregressive EXperts) treats a diffusion LLM's choice of block-generation schedule (the order/granularity in which masked tokens are filled in) as selecting among an implicit ensemble of semi-autoregressive experts. Instead of committing to one fixed schedule, HEX runs generation under several heterogeneous block schedules and takes a majority vote over the resulting outputs, without any additional training.",
+    "methods": [
+      "HEX (Hidden semi-autoregressive Experts)",
+      "majority-vote ensembling",
+      "block-schedule diffusion generation"
+    ],
+    "one_liner": "Shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and introduces a training-free method that majority-votes across multiple block generation schedules to substantially boost accuracy.",
+    "problem": "It is unclear how to best use test-time flexibility in diffusion-based LLMs' generation order; committing to a single fixed inference schedule, the common practice, discards specialized behaviors available under different generation orders.",
+    "relevance": {
+      "overthinking": "Tangential. This addresses test-time scaling for diffusion language models by ensembling over token-generation *orders/schedules*, not the length of a reasoning chain or when a reasoning model should stop or keep deliberating. It shares only the generic phrase 'test-time scaling' with the tracked topic; there is no treatment of the accuracy/reasoning-length tradeoff central to overthinking."
+    },
+    "results": "On GSM8K, HEX boosts accuracy from 24.72% to 88.10% (up to 3.56x); on MATH from 16.40% to 40.00%; on ARC-C from 54.18% to 87.80%; on TruthfulQA from 28.36% to 57.46%; outperforms top-K margin inference and GRPO-based fine-tuning without additional training.",
+    "tags": [
+      "diffusion-llm",
+      "test-time-scaling",
+      "ensembling",
+      "block-schedule",
+      "training-free"
+    ]
+  },
+  "task_id": "paper__title-7b2310c5e9f25bde",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

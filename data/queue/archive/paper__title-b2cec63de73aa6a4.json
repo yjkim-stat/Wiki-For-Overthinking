@@ -1,0 +1,86 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:07:24Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:b2cec63de73aa6a4",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract We propose two simple, principled and practical algorithms that enjoy provable scaling laws for the test-time compute of large language models (LLMs). The first one is a two-stage knockout-style algorithm: given an input problem, it first generates multiple candidate solutions, and then aggregate them via a knockout tournament for the final output. Assuming that the LLM can generate a correct solution with non-zero probability and do better than a random guess in comparing a pair of correct and incorrect solutions, we prove theoretically that the failure probability of this algorithm decays to zero exponentially or by a power law (depending on the specific way of scaling) as its test-time compute grows. The second one is a two-stage league-style algorithm, where each candidate is evaluated by its average win rate against multiple opponents, rather than eliminated upon loss to a single opponent. Under analogous but more robust assumptions, we prove that its failure probability also decays to zero exponentially with more test-time compute. Both algorithms require a black-box LLM and nothing else (e.g., no verifier or reward model) for a minimalistic implementation, which makes them appealing for practical applications and easy to adapt for different tasks. Through extensive experiments with diverse models and datasets, we validate the proposed theories and demonstrate the outstanding scaling properties of both algorithms.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models",
+    "url": "https://neurips.cc/virtual/2025/poster/118984",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "test-time compute scaling laws",
+      "pairwise candidate comparison",
+      "black-box LLM aggregation"
+    ],
+    "contributions": [
+      "A two-stage knockout-style algorithm (generate candidates, then single-elimination tournament) with proven exponential or power-law decay of failure probability as test-time compute grows",
+      "A two-stage league-style algorithm (candidates ranked by average win rate against multiple opponents rather than single elimination) with proven exponential decay of failure probability under more robust assumptions",
+      "Both algorithms need only a black-box LLM, with no verifier or reward model, making them simple to implement and adapt"
+    ],
+    "datasets": [],
+    "limitations": "The theoretical guarantees rely on two assumptions: the LLM can generate a correct solution with non-zero probability, and it does better than random guessing when comparing a correct against an incorrect solution. The abstract does not name the specific models or datasets used to validate the theory, nor give numeric results.",
+    "method": "The knockout-style algorithm first generates multiple candidate solutions to a problem, then runs a knockout tournament where candidates are compared pairwise and eliminated until one final output remains. The league-style algorithm instead evaluates each candidate by its average win rate across comparisons against multiple opponents, rather than eliminating it after a single loss. Both rely only on a black-box LLM to generate candidates and to judge pairwise comparisons; no separate verifier or reward model is used.",
+    "methods": [
+      "knockout-style tournament algorithm",
+      "league-style algorithm"
+    ],
+    "one_liner": "Proposes and proves scaling laws for two black-box test-time-compute algorithms for LLMs, a knockout tournament and a league-style aggregation, showing failure probability decays exponentially or by a power law as compute grows.",
+    "problem": "Establishing provable scaling laws for test-time compute of LLMs, i.e. formal guarantees on how the failure probability of an LLM decreases as more compute is spent generating and comparing candidate solutions at inference time, without a verifier or reward model.",
+    "relevance": {
+      "overthinking": "Directly addresses test-time-compute scaling for LLMs: proposes and theoretically proves scaling laws for two black-box strategies (knockout tournament, league aggregation) that trade additional test-time compute for a provably lower failure probability, which is the accuracy/compute tradeoff this topic tracks, though the focus is on parallel sample aggregation rather than reasoning-chain length or stopping criteria."
+    },
+    "results": "Theoretical proofs that failure probability decays to zero exponentially (or by a power law, depending on the scaling regime) as test-time compute grows for both algorithms; the theory is validated experimentally with diverse models and datasets, but no specific numeric results are given in the abstract.",
+    "tags": [
+      "test-time-compute",
+      "scaling-laws",
+      "tournament-aggregation",
+      "black-box-llm"
+    ]
+  },
+  "task_id": "paper__title-b2cec63de73aa6a4",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

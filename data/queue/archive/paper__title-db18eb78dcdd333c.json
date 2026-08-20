@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:23:20Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:db18eb78dcdd333c",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large reasoning models (LRMs) exhibit unprecedented capabilities in solving complex problems through Chain-of-Thought (CoT) reasoning. However, recent studies reveal that their final answers often contradict their own reasoning traces. We hypothesize that this inconsistency stems from two competing mechanisms for generating answers: CoT reasoning and memory retrieval. To test this hypothesis, we conduct controlled experiments that challenge LRMs with misleading cues during reasoning and/or corrupted answers during retrieval. Our results across models and datasets confirm that both mechanisms operate simultaneously, with their relative dominance influenced by multiple factors: problem domains, model scales, and fine-tuning approaches (e.g., reinforcement learning vs. distillation). The findings reveal a critical limitation in current reasoning fine-tuning paradigms: models can exploit the retrieval mechanism as a shortcut, effectively \"hacking\" the reward signal and undermining genuine reasoning development. To address this challenge, we introduce FARL, a novel fine-tuning framework that integrates memory unlearning with reinforcement learning. By carefully suppressing retrieval shortcuts during the fine-tuning process, FARL promotes reasoning-dominant behavior and enhances generalizable reasoning capabilities. The code is available at https://github.com/ZJUWYH/FARL.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models",
+    "url": "https://iclr.cc/virtual/2026/poster/10010758",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "answer attribution",
+      "reasoning vs retrieval shortcut",
+      "reward hacking in RL fine-tuning"
+    ],
+    "contributions": [
+      "A controlled experimental protocol (misleading reasoning cues and/or corrupted retrieval cues) that attributes LRM final answers to chain-of-thought reasoning versus memory retrieval",
+      "Finding that the relative dominance of reasoning versus retrieval varies by problem domain, model scale, and fine-tuning approach (reinforcement learning versus distillation)",
+      "FARL: a fine-tuning framework combining memory unlearning with reinforcement learning to suppress the retrieval shortcut and promote reasoning-dominant behavior"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "The authors run controlled experiments that challenge large reasoning models with misleading cues during reasoning and/or corrupted answers during retrieval, across models and datasets, to determine whether a final answer was produced by chain-of-thought reasoning or by a competing memory-retrieval mechanism, and how their relative dominance depends on problem domain, model scale, and fine-tuning approach. FARL then integrates memory unlearning with reinforcement learning to suppress the retrieval shortcut during fine-tuning, aiming to promote reasoning-dominant behavior.",
+    "methods": [
+      "FARL",
+      "memory unlearning",
+      "reinforcement learning fine-tuning"
+    ],
+    "one_liner": "Shows that large reasoning models' final answers are produced by two competing mechanisms, chain-of-thought reasoning and memory retrieval, and introduces FARL, a fine-tuning method that suppresses the retrieval shortcut to encourage genuine reasoning.",
+    "problem": "Large reasoning models' final answers sometimes contradict their own reasoning traces; the paper investigates whether this comes from a retrieval mechanism competing with chain-of-thought reasoning, and whether reinforcement-learning fine-tuning inadvertently rewards this retrieval shortcut ('hacking' the reward signal) instead of genuine reasoning.",
+    "relevance": {
+      "overthinking": "Investigates the faithfulness of LRM reasoning traces (whether the chain-of-thought causally produces the answer versus a memory-retrieval shortcut) and reward hacking during RL fine-tuning; it does not address reasoning length, redundant or excessive thinking, or the stopping/compute-allocation tradeoff this topic tracks. Tangential: it matched only on the generic 'large reasoning model' keyword, not on any substantive treatment of overthinking or test-time compute scaling."
+    },
+    "results": "",
+    "tags": [
+      "answer-attribution",
+      "reward-hacking",
+      "chain-of-thought-faithfulness",
+      "reinforcement-learning",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-db18eb78dcdd333c",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

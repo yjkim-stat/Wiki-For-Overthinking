@@ -1,0 +1,60 @@
+{
+  "concepts": [
+    "overthinking",
+    "underthinking",
+    "test-time compute scaling",
+    "thinking-token budget",
+    "accuracy-efficiency tradeoff of reasoning length",
+    "hybrid thinking/non-thinking models",
+    "difficulty-based routing between reasoning modes"
+  ],
+  "contributions": [
+    "Introduces OptimalThinkingBench, a single unified benchmark combining OverthinkingBench and UnderthinkingBench with standardized metrics (OAA, AUC_OAA, F1^otb) for jointly measuring overthinking and underthinking.",
+    "Comprehensive evaluation of 33 open and closed thinking, non-thinking, and hybrid LLMs showing that no current model optimally balances accuracy and thinking-token efficiency.",
+    "Compares training-time and test-time methods for optimal thinking, showing most improve one sub-benchmark at the expense of the other."
+  ],
+  "datasets": [
+    "MATH (Levels 1-2, for OvT-Math)",
+    "SuperGPQA",
+    "Reasoning Gym",
+    "AIME'25",
+    "HMMT'25"
+  ],
+  "generated_at": "2026-08-20T12:11:05Z",
+  "generated_by": "queue",
+  "limitations": "Efficiency-training methods tuned on math generalize poorly to non-math domains (AdaptThink cuts tokens 82% on math but only 37% on non-math). Models show no statistically significant correlation between thinking-token usage and difficulty or accuracy gains. All five tested mitigation strategies trade off one sub-benchmark against the other. Correctness judging for non-math, non-exact-match questions relies on an LLM-as-judge from the same model family used for generation.",
+  "method": "OptimalThinkingBench has two sub-benchmarks. OverthinkingBench is built via constrained synthetic generation with Llama-4-Maverick across 72 domains and 4 answer types (numeric, MCQ, short-answer, open-ended), then filtered by requiring 8/8 agreement across independently sampled LLM responses (judged by an LLM-as-judge) so only unambiguous, easy questions survive (1327 OvT-General questions plus 133 OvT-Math questions from MATH levels 1-2). Overthinking is scored with Overthinking-Adjusted Accuracy (OAA_t): accuracy counted only for responses under a thinking-token threshold t, aggregated as AUC_OAA (area under the OAA_t curve up to t_max=1000). UnderthinkingBench draws on 11 Reasoning Gym task types plus AIME'25 and HMMT'25 math, keeping only tasks where a small thinking model (Qwen3-1.7B) outperforms a much larger non-thinking model (Qwen3-235B-A22B) by a margin; scored with task-specific programmatic verifiers. The two combine into a single F1^otb score (harmonic mean of AUC_OAA and UnderthinkingBench accuracy). The authors evaluate 33 open and closed thinking/non-thinking/hybrid models and test five mitigation strategies: length-based reward shaping (L1, AdaptThink), model merging, auxiliary verification training (VeriThinker), difficulty-based routing, and explicit prompting.",
+  "methods": [
+    "OverthinkingBench",
+    "UnderthinkingBench",
+    "Overthinking-Adjusted Accuracy (OAA)",
+    "AUC_OAA",
+    "F1^otb combined metric",
+    "L1 length-controlled reinforcement learning",
+    "AdaptThink",
+    "VeriThinker",
+    "Model Merging",
+    "trained difficulty-based router / oracle router"
+  ],
+  "one_liner": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+  "paper_id": "title:441c8494292f11c7",
+  "problem": "Thinking LLMs overthink simple queries, generating hundreds of tokens without improving (and sometimes hurting) accuracy, while non-thinking LLMs underthink on harder reasoning problems and fall short of much smaller thinking models. Model providers ship separate thinking and non-thinking variants, forcing end users to manually pick the right one per query rather than having a single model that adapts its reasoning length to task difficulty.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly about the topic: introduces a benchmark and metrics that jointly quantify overthinking and underthinking, evaluates 33 models, and tests mitigations. Note: this is the same paper already archived by hand as `local:49199e3b0f694ee1` (identical title/content) -- arXiv/curated-list collection did not get deduplicated against the earlier local filing, so this record is a duplicate rather than new information."
+  },
+  "results": "No model optimally balances both sub-benchmarks. o3 gets the best overall F1^otb (71.1%); best open-weight model is GPT-OSS-120B (68.3%), a 3-point gap. On OverthinkingBench, thinking models generate at least ~100-3300+ thinking tokens on trivially simple questions, driving AUC_OAA far below raw accuracy. On UnderthinkingBench, thinking models substantially outperform non-thinking ones: o3 leads at 65.0% accuracy, GPT-OSS-120B at 57.9%. Mitigation methods (L1, AdaptThink, VeriThinker, Model Merging) cut OverthinkingBench token use by 12-91% but degrade UnderthinkingBench accuracy by up to 13% in most configurations; AdaptThink is the one method that improves both. A trained difficulty router improves F1^otb over the best single mode by 20.4% on average but still trails an oracle router by roughly 15 points. Overthinking-token usage correlates with surface cues rather than difficulty (42 tokens per added irrelevant MCQ distractor, R^2=0.94), and larger Qwen3 models use more thinking tokens without any accuracy gain.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "underthinking",
+    "reasoning length",
+    "test-time compute",
+    "benchmark",
+    "thinking tokens",
+    "efficiency",
+    "chain-of-thought",
+    "accuracy-efficiency tradeoff",
+    "duplicate-of-local-49199e3b0f694ee1"
+  ]
+}

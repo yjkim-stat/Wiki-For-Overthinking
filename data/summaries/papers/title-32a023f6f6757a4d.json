@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "test-time scaling",
+    "GUI grounding",
+    "sample-and-evaluate action selection",
+    "RL for click grounding"
+  ],
+  "contributions": [
+    "Test-time scaling procedure that samples and evaluates multiple candidate GUI actions before committing to one",
+    "Reinforcement learning approach that rewards successful clicks on interface elements to improve grounding accuracy",
+    "Claimed state-of-the-art results on GUI grounding and task execution benchmarks"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:14:13Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the available material (abstract only; no PDF attached).",
+  "method": "GTA1 applies test-time scaling by sampling multiple candidate action sequences for a GUI task and evaluating them to pick the best one, and separately trains element grounding with reinforcement learning that rewards clicks landing successfully on the intended interface element.",
+  "methods": [
+    "GTA1"
+  ],
+  "one_liner": "A GUI agent that samples and judges multiple candidate actions at test time and uses RL-trained click rewards to ground actions on interface elements more precisely.",
+  "paper_id": "title:32a023f6f6757a4d",
+  "problem": "GUI agents must select the right action from a large space of possibilities and precisely target visual elements in complex interfaces; the paper addresses both action selection and grounding accuracy.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Only shares the phrase 'test-time scaling' with the topic. Here it refers to sampling and judging multiple candidate GUI actions for element grounding, not to calibrating how long a model reasons or trading off chain-of-thought length against accuracy. No treatment of reasoning-length, stopping criteria, or compute/accuracy tradeoffs for reasoning models. Tangential keyword match only."
+  },
+  "results": "Abstract claims state-of-the-art results on GUI grounding and task execution benchmarks; no specific benchmark names or numeric scores are given in the available material.",
+  "schema_version": 1,
+  "tags": [
+    "gui-agent",
+    "test-time-scaling",
+    "grounding",
+    "reinforcement-learning",
+    "tangential"
+  ]
+}

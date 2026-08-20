@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:47Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:2f10adc4a02f4e5d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Lookahead Sample Reward Guidance for Test-Time Scaling of Diffusion Models",
+    "url": "https://icml.cc/virtual/2026/poster/64926",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "reward-guided diffusion sampling",
+      "marginal-sample expected future reward",
+      "lookahead guidance",
+      "closed-form guidance without backpropagation"
+    ],
+    "contributions": [
+      "Proposes computing expected future reward using only marginal samples from a pre-trained diffusion model, avoiding the expensive sequential backpropagation used by gradient-based guidance.",
+      "Introduces LiDAR sampling, which uses a lookahead strategy to collect marginal samples and a solver that steers particles toward high-reward predictions.",
+      "Demonstrates on SDXL that 3 samples with a 3-step lookahead matches recent gradient-guidance approaches in reward alignment while giving a 9.5x speedup."
+    ],
+    "datasets": [
+      "SDXL (Stable Diffusion XL) generation benchmark"
+    ],
+    "limitations": "Only a third-party-extracted summary of the abstract was available (no PDF attachment); specific reward models, prompt sets, and any stated failure modes of the lookahead/marginal-sampling approximation are not available from this source.",
+    "method": "Instead of backpropagating gradients through the diffusion sampling chain to guide generation toward high-reward outputs, the method estimates the expected future reward of an intermediate state using marginal samples drawn from the pretrained diffusion model itself, removing the need for a differentiable dependency between intermediate states and the reward. A lookahead strategy (LiDAR sampling) collects these marginal samples a few steps ahead and a solver directs particles toward the highest-reward predictions, giving a closed-form, sample-based guidance signal.",
+    "methods": [
+      "LiDAR sampling",
+      "lookahead sample reward guidance"
+    ],
+    "one_liner": "Proposes a sample-based (rather than gradient-based) test-time guidance method for diffusion image models, matching gradient-guidance reward alignment on SDXL at a 9.5x speedup.",
+    "problem": "Guiding pretrained diffusion models toward reward-aligned outputs at inference time typically requires expensive gradient-based backpropagation through the sampling chain; the paper seeks a cheaper alternative.",
+    "relevance": {
+      "overthinking": "This paper is about test-time inference-time guidance for image diffusion models (steering image generation toward higher-reward outputs), not about large reasoning models, chain-of-thought length, or the accuracy/efficiency tradeoff of reasoning. It only shares the generic phrase 'test-time scaling' with the tracked topic; the underlying subject (diffusion image generation guidance) has no substantive connection to overthinking/underthinking in reasoning models. This looks like a keyword-match false positive that should have been filtered out."
+    },
+    "results": "On SDXL, using 3 samples with a 3-step lookahead achieves reward-alignment performance matching recent gradient-guidance methods, with a 9.5x speedup.",
+    "tags": [
+      "diffusion-models",
+      "test-time-guidance",
+      "image-generation",
+      "reward-alignment",
+      "tangential",
+      "off-topic"
+    ]
+  },
+  "task_id": "paper__title-2f10adc4a02f4e5d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

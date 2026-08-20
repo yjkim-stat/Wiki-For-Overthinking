@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "verification granularity",
+    "beam search and Best-of-N as special cases of a granularity parameter",
+    "compute-efficiency in test-time scaling via verifier call frequency"
+  ],
+  "contributions": [
+    "First systematic study of verification granularity (how often a verifier is invoked during generation) as a distinct axis of test-time scaling, beyond final-answer-only or per-step verification",
+    "Introduces Variable Granularity Search (VG-Search), a unified algorithm generalizing beam search and Best-of-N sampling via a tunable granularity parameter g",
+    "Shows that dynamically selecting g improves compute efficiency and scaling behavior across compute budgets, generator-verifier configurations, and task attributes",
+    "Proposes adaptive VG-Search strategies achieving up to 3.1% accuracy gains over Beam Search and 3.6% over Best-of-N while reducing FLOPs by over 52%"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:06:33Z",
+  "generated_by": "queue",
+  "limitations": "The abstract does not name the specific benchmarks, generator/verifier model pairs, or task domains used in the experiments; the paper focuses on search-time verification frequency rather than on the length of a single model's reasoning trace.",
+  "method": "Formalizes verification granularity as a tunable parameter g controlling how frequently a verifier is invoked during generation. Variable Granularity Search (VG-Search) generalizes beam search (fine granularity) and Best-of-N sampling (coarse granularity) as special cases of this parameter. Adaptive strategies then select g dynamically per compute budget, generator-verifier configuration, and task attribute.",
+  "methods": [
+    "Variable Granularity Search (VG-Search)",
+    "beam search",
+    "Best-of-N sampling"
+  ],
+  "one_liner": "Studies how often a verifier should be called during LLM generation, proposing a search algorithm that tunes verification granularity to trade off accuracy and compute in test-time scaling.",
+  "paper_id": "title:7409f584637723da",
+  "problem": "In test-time scaling with verifiers, prior work verifies either only the final output or every individual step, without studying whether intermediate verification frequencies could do better; the effect of this granularity choice on accuracy and compute cost was unexamined.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses a different lever of test-time compute than reasoning-token length: it tunes how often an external verifier is called during parallel search (beam search / Best-of-N) rather than how long a single reasoning trace runs. It is relevant to the topic's test-time-compute-efficiency angle but does not discuss reasoning length, stopping a chain of thought, or over/underthinking within a single generation."
+  },
+  "results": "Adaptive VG-Search achieves accuracy gains of up to 3.1% over Beam Search and 3.6% over Best-of-N, while reducing FLOPs by over 52%. Specific benchmark names and absolute accuracy numbers are not given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "verification",
+    "search",
+    "compute-efficiency",
+    "beam-search"
+  ]
+}

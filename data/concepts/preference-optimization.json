@@ -1,0 +1,56 @@
+{
+  "aliases": [
+    "DPO"
+  ],
+  "definition": "Training a model on pairs of preferred-vs-dispreferred outputs to shift its behavior, without a separate reward model. In the archive it is repeatedly used to shorten reasoning: LCPO (small-scale preference optimization) cuts average reasoning length over 50% while maintaining accuracy; 'Don't Think Longer, Think Wisely' builds optimal-vs-suboptimal thinking-pattern pairs for the same purpose; a safety-focused variant intervenes at 'safety trigger' points within a reasoning chain instead of on length.",
+  "evidence": [
+    {
+      "id": "title:0694f0010d7ac51f",
+      "kind": "paper",
+      "note": "Proposes Length Controlled Preference Optimization (LCPO), a small-scale preference-tuning method that cuts large reasoning models' average output length by over 50% while preserving reasoning performance.",
+      "title": "Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization"
+    },
+    {
+      "id": "title:3b1dfa6d6e5e2443",
+      "kind": "paper",
+      "note": "A process-supervision method that intervenes at identified 'safety trigger' points within a reasoning chain to redirect it away from harmful continuations, trained via preference optimization on corrected trajectories.",
+      "title": "Towards Safe Reasoning in Large Reasoning Models via Corrective Intervention"
+    },
+    {
+      "id": "title:edaac274df1e07a6",
+      "kind": "paper",
+      "note": "Segments reasoning traces into thinking patterns, prunes detrimental ones, and uses the resulting optimal-vs-suboptimal pairs for preference optimization to cut reasoning length while improving accuracy.",
+      "title": "Don’t Think Longer, Think Wisely: Optimizing Thinking Dynamics for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:15:21Z",
+  "name": "preference optimization",
+  "related": [
+    "overthinking",
+    "chain-of-thought-length-control",
+    "implicit-reward",
+    "length-controlled-preference-optimization-lcpo",
+    "bradley-terry-loss-framework",
+    "difficulty-based-trajectory-filtering",
+    "safety-triggers",
+    "compliance-cues",
+    "process-supervision",
+    "reasoning-safety",
+    "intervened-preference-optimization-ipo",
+    "thinking-patterns",
+    "modular-reasoning-strategy-selection",
+    "thinking-pattern-segmentation",
+    "preference-optimization-pairwise",
+    "multiple-mathematical-reasoning-benchmarks-unspecified-in-abstract"
+  ],
+  "related_authored": [
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "preference-optimization",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:14:13Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:3b024853a8e7324c",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling",
+    "url": "https://icml.cc/virtual/2026/poster/60578",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling",
+      "model routing",
+      "quality-cost tradeoff",
+      "contextual bandits",
+      "online optimization"
+    ],
+    "contributions": [
+      "Unifies model routing (choosing among differently-sized models) and test-time compute scaling into a single joint online optimization instead of treating them separately",
+      "Formulates the joint decision as a contextual multi-armed bandit solved with LinUCB",
+      "Adds efficiency-aware learning and cost modeling to keep the bandit stable over a high-dimensional joint decision space",
+      "Demonstrates better quality-cost tradeoffs than routing-only or scaling-only baselines across varied, dynamic inference scenarios"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the available material (abstract only; no PDF attached).",
+    "method": "UniScale casts the choice of which model to route a request to, together with how much test-time compute to spend on it, as one contextual multi-armed bandit problem, learned online via LinUCB. Efficiency-aware learning and a cost model are used to stabilize the policy across the resulting high-dimensional action space, exploiting synergies between routing and scaling that separate approaches miss.",
+    "methods": [
+      "UniScale",
+      "LinUCB",
+      "contextual multi-armed bandit"
+    ],
+    "one_liner": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
+    "problem": "Balancing inference quality against compute cost is handled today by two separate levers: routing between differently-sized models (discrete choices) and scaling test-time compute within one model (diminishing returns); the paper argues joint optimization of both does better than either alone.",
+    "relevance": {
+      "overthinking": "Directly targets the accuracy/compute tradeoff the topic tracks by treating test-time compute allocation as a controllable knob to be optimized per query, jointly with model choice, via an online bandit. It is a system-level scaling controller rather than an analysis of a single model's chain-of-thought length or an intervention that makes a model stop reasoning at the right point, but the core question -- how much test-time compute a query should get -- is squarely the topic's concern."
+    },
+    "results": "Reports superior quality-cost tradeoffs versus model-routing-only and test-time-scaling-only baselines across varied, dynamic inference scenarios; no specific numeric results or benchmark names are given in the available abstract.",
+    "tags": [
+      "test-time-scaling",
+      "model-routing",
+      "bandit-optimization",
+      "inference-cost",
+      "on-topic"
+    ]
+  },
+  "task_id": "paper__title-3b024853a8e7324c",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

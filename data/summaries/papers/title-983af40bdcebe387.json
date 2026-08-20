@@ -1,0 +1,41 @@
+{
+  "concepts": [
+    "process reward model",
+    "tool-grounded verification",
+    "test-time scaling for search"
+  ],
+  "contributions": [
+    "Identifies that text-only PRMs struggle with table-specific operations (sub-table retrieval, schema interaction), bottlenecking tabular reasoning",
+    "Builds a data curation pipeline producing over 60k step-level annotations combining table-verification rationales with tool-based executions",
+    "Trains TaTToo with cold-start SFT followed by RL with tool-grounded reward shaping",
+    "Improves downstream policy LRMs by 30.9% at inference across 5 tabular reasoning benchmarks, surpassing a 72B baseline PRM with only 8B parameters"
+  ],
+  "datasets": [
+    "5 tabular reasoning benchmarks covering numerical reasoning, fact-checking and data analysis"
+  ],
+  "generated_at": "2026-08-20T12:19:19Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "TaTToo is a table-grounded process reward model trained in two stages: cold-start supervised fine-tuning on step-level annotations (over 60k, built by combining table-verification rationales with tool-based executions) to capture tool-use reasoning patterns, followed by reinforcement learning with tool-grounded reward shaping to align the PRM's judgments with actual table verification. At inference it scores intermediate reasoning steps of a policy LRM to guide test-time-scaling search strategies over tabular reasoning tasks.",
+  "methods": [
+    "TaTToo",
+    "process reward model (PRM)",
+    "tool-grounded reward shaping",
+    "cold-start SFT + RL"
+  ],
+  "one_liner": "TaTToo trains a table-grounded, tool-verified process reward model that supervises test-time-scaling search for large reasoning models on tabular reasoning tasks.",
+  "paper_id": "title:983af40bdcebe387",
+  "problem": "Process reward models used to guide test-time scaling of large reasoning models are built for text-only reasoning steps and perform poorly on table-specific operations such as sub-table retrieval and schema interaction, creating a performance bottleneck for tabular reasoning.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential: this paper improves the reward model that guides test-time-scaling search (which reasoning steps to keep/expand) in a specific domain, tabular reasoning, but it does not address the reasoning-length tradeoff, overthinking/underthinking, or stopping criteria that the topic tracks. Its connection is limited to sharing the 'test time scaling' framing and applying to large reasoning models."
+  },
+  "results": "Improves downstream policy LRMs by 30.9% at inference across 5 tabular reasoning benchmarks (numerical reasoning, fact-checking, data analysis); surpasses Qwen-2.5-Math-PRM-72B while using only 8B parameters; generalizes across diverse test-time-scaling strategies.",
+  "schema_version": 1,
+  "tags": [
+    "process-reward-model",
+    "tabular-reasoning",
+    "test-time-scaling",
+    "tool-use"
+  ]
+}

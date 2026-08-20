@@ -1,0 +1,53 @@
+{
+  "aliases": [
+    "manifold steering",
+    "representation engineering"
+  ],
+  "definition": "Controlling how long or how a reasoning model thinks by directly modifying its internal activations at inference time, rather than by prompting or retraining it. The archived sources use it two ways: modeling the chain-of-thought as transitions among latent cognitive states and steering generation toward more efficient state transitions, and identifying overthinking as movement along a low-dimensional manifold in activation space and projecting activations to counteract it (cutting output tokens up to 71% while maintaining or improving accuracy).",
+  "evidence": [
+    {
+      "id": "title:7651639ee2f29946",
+      "kind": "paper",
+      "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+      "title": "Modeling Hierarchical Thinking in Large Reasoning Models"
+    },
+    {
+      "id": "title:b4ba27743c499d8d",
+      "kind": "paper",
+      "note": "Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.",
+      "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "activation steering",
+  "related": [
+    "hierarchical-reasoning-as-a-finite-state-machine",
+    "latent-cognitive-states",
+    "reasoning-as-a-planning-problem",
+    "finite-state-machine-reasoning-state-model",
+    "q-value-guided-steering",
+    "aime-2025",
+    "math-500",
+    "gsm8k",
+    "gpqa-diamond",
+    "overthinking",
+    "mechanistic-interpretability",
+    "low-dimensional-manifold",
+    "manifold-steering",
+    "mechanistic-interpretability-analysis",
+    "mathematical-benchmarks-unspecified",
+    "code-generation-tasks-unspecified",
+    "knowledge-based-qa-tasks-unspecified"
+  ],
+  "related_authored": [
+    "overthinking",
+    "manifold-steering"
+  ],
+  "schema_version": 1,
+  "slug": "activation-steering",
+  "topics": [
+    "overthinking"
+  ]
+}

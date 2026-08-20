@@ -1,0 +1,47 @@
+{
+  "aliases": [
+    "self-consistency"
+  ],
+  "definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
+  "evidence": [
+    {
+      "id": "title:3f7a94a14d75d893",
+      "kind": "paper",
+      "note": "An empirical study showing that test-time-compute methods effective for LLM reasoning mostly fail to transfer to vision-language models unless prediction diversity is present, and proposes an entropy-based selection method that works better in multi-model ensembles.",
+      "title": "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models"
+    },
+    {
+      "id": "title:5d66fe9a10241ce8",
+      "kind": "paper",
+      "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+      "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:15:21Z",
+  "name": "majority voting",
+  "related": [
+    "test-time-compute",
+    "prediction-diversity",
+    "self-consistency",
+    "predictive-entropy",
+    "entropy-based-ttc",
+    "feature-based-chain-of-thought-scoring",
+    "overthinking",
+    "test-time-scaling",
+    "output-variance-under-extended-thinking",
+    "parallel-thinking",
+    "best-of-n-sampling",
+    "probabilistic-model-of-output-variance"
+  ],
+  "related_authored": [
+    "self-consistency",
+    "best-of-n-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "majority-voting",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:18:40Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:69246b2008f8e22d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Test-Time Scaling (TTS) improves the performance of Large Language Models (LLMs) by using additional inference-time computation to explore multiple reasoning paths through search. Yet how to allocate a fixed rollout budget most effectively during search remains underexplored, often resulting in inefficient use of compute at test time. To bridge this gap, we formulate test-time search as a resource allocation problem and derive the optimal allocation strategy that maximizes the probability of obtaining a correct solution under a fixed rollout budget. Within this formulation, we reveal a core limitation of existing search methods: solution-level allocation tends to favor reasoning directions with more candidates, leading to theoretically suboptimal and inefficient use of compute. To address this, we propose Direction-Oriented Resource Allocation (DORA), a provably optimal method that mitigates this bias by decoupling direction quality from candidate count and allocating resources at the direction level. To demonstrate DORA’s effectiveness, we conduct extensive experiments on challenging mathematical reasoning benchmarks including MATH500, AIME2024, and AIME2025. The empirical results show that DORA consistently outperforms strong baselines with comparable computational cost, achieving state-of-the-art accuracy. We hope our findings contribute to a broader understanding of optimal TTS for LLMs.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling",
+    "url": "https://neurips.cc/virtual/2025/poster/115239",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "test-time search as resource allocation",
+      "direction-level vs. solution-level allocation",
+      "rollout budget"
+    ],
+    "contributions": [
+      "Formulates test-time search under a fixed rollout budget as a resource-allocation problem and derives the allocation that maximizes probability of a correct solution",
+      "Identifies that existing solution-level allocation is biased toward reasoning directions with more candidates, making it theoretically suboptimal",
+      "Proposes Direction-Oriented Resource Allocation (DORA), which decouples direction quality from candidate count and allocates resources at the direction level"
+    ],
+    "datasets": [
+      "MATH500",
+      "AIME2024",
+      "AIME2025"
+    ],
+    "limitations": "",
+    "method": "The paper models test-time search (allocating a fixed number of rollouts across candidate reasoning paths) as a resource-allocation problem and derives the theoretically optimal allocation strategy. It shows existing solution-level allocation methods are biased toward reasoning directions that happen to spawn more candidate solutions, wasting compute. DORA instead allocates the rollout budget at the level of reasoning directions rather than individual solutions, decoupling a direction's estimated quality from how many candidates it produced.",
+    "methods": [
+      "Direction-Oriented Resource Allocation (DORA)"
+    ],
+    "one_liner": "Formulates test-time search as a resource-allocation problem and introduces DORA, which allocates a fixed rollout budget across reasoning directions rather than individual solutions to avoid wasting compute on over-represented directions.",
+    "problem": "How to allocate a fixed rollout budget most effectively during test-time search is underexplored, and existing solution-level allocation strategies favor reasoning directions with more candidate solutions, leading to theoretically suboptimal and inefficient use of test-time compute.",
+    "relevance": {
+      "overthinking": "Directly tackles the accuracy/efficiency tradeoff of test-time compute scaling: it derives the provably optimal way to spend a fixed rollout budget across reasoning paths, showing that naive allocation wastes compute on directions with more candidates rather than higher quality."
+    },
+    "results": "DORA consistently outperforms strong baselines at comparable computational cost on MATH500, AIME2024 and AIME2025, achieving state-of-the-art accuracy among methods tested under the same rollout budget.",
+    "tags": [
+      "test-time-scaling",
+      "resource-allocation",
+      "rollout-budget",
+      "search"
+    ]
+  },
+  "task_id": "paper__title-69246b2008f8e22d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "concepts": [
+    "overthinking",
+    "trajectory-level vs token-level reward misalignment",
+    "reward decoupling",
+    "curriculum scheduling"
+  ],
+  "contributions": [
+    "Identifies two flaws in current length-based rewards: erroneous penalization of essential exploratory tokens, and inadvertent rewarding of partial redundancy",
+    "Introduces a decoupled token-level reward mechanism that distinguishes and penalizes redundant tokens specifically",
+    "Introduces a curriculum batch scheduling strategy to balance efficiency and efficacy"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:19:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "DECS is built on a theoretical diagnosis that trajectory-level length rewards misalign with token-level optimization, both erroneously penalizing exploratory tokens and rewarding partial redundancy. It introduces a decoupled token-level reward that surgically distinguishes and penalizes redundant tokens, combined with a curriculum batch scheduling strategy that sequences training data to master the efficiency-efficacy equilibrium.",
+  "methods": [
+    "DECS"
+  ],
+  "one_liner": "Introduces DECS, a decoupled token-level reward plus curriculum batch scheduling method that cuts reasoning-token length by over 50% while maintaining or improving accuracy in RLVR-trained reasoning models.",
+  "paper_id": "title:a0cc8089e70a3eb9",
+  "problem": "Large reasoning models trained with critic-free RLVR exhibit \"overthinking\": generating excessively long reasoning paths without performance benefit. Existing length-penalizing solutions often degrade performance because trajectory-level length rewards are misaligned with token-level optimization.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets overthinking in RLVR-trained reasoning models: diagnoses why trajectory-level length penalties fail when applied to token-level optimization, then proposes a decoupled token-level reward and curriculum scheduling that cut reasoning tokens by over 50% across seven benchmarks without hurting accuracy."
+  },
+  "results": "Reduces reasoning tokens by over 50% across seven benchmarks while maintaining or improving performance compared to baseline RLVR training.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "rlvr",
+    "reward-shaping",
+    "reasoning-efficiency"
+  ]
+}

@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling
+
+- **Authors**: Shu Zhou, Rui Ling, Junan Chen, Xin Wang, Tao Fan, Hao Wang
+- **Venue**: preprint
+- **Published**: 2026-01-01
+- **Source**: local
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.67
+
+## In one line
+
+The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.
+
+## Problem
+
+Prior test-time-compute-scaling work implicitly assumes longer chain-of-thought reasoning monotonically improves accuracy and has not systematically examined marginal returns or the possibility that extended reasoning actively harms performance ('overthinking', a model abandoning a previously correct answer). This matters because generating more tokens is expensive (the paper cites a 16x-32x cost increase from 500 to 8000-16000 tokens), so if additional compute yields little or negative benefit, current evaluation and deployment practices are wasting resources or actively degrading accuracy.
+
+## Contributions
+
+- A systematic analysis of marginal utility in test-time compute scaling across budgets from 500 to 16000 tokens, showing diminishing and eventually negative marginal returns at higher budgets.
+- Introduction of 'flip event' tracking (positive: incorrect-to-correct, negative: correct-to-incorrect) to quantify overthinking; shows the flip ratio (negative/positive) crosses 1.0 at around 7K tokens on AIME for R1-32B.
+- Demonstration that optimal thinking length varies strongly with problem difficulty (e.g., MATH-500 Level 1 problems peak at ~1.0K tokens vs. Level 5 at ~7.5K tokens), showing uniform compute allocation is suboptimal.
+- A cost-aware evaluation framework (utility U_lambda(t) = Acc(t) - lambda * t/t_max) and overthinking indicators (hesitation markers, answer oscillation, confidence drop) that predict negative flips, with combined indicators reaching r=0.82 correlation and 76.3% precision at 80% recall.
+- Validation that overthinking occurs in naturally-generated long reasoning (not just budget-forced continuations): among 312 samples where R1-32B naturally produced >8K tokens, accuracy decreases monotonically with output length (71.9% for <4K tokens down to 44.7% for >12K tokens).
+
+## Method
+
+The authors define compute budget as the number of tokens in a model's reasoning trace, controlled via budget forcing (Muennighoff et al., 2025): appending 'Wait' tokens if the model tries to conclude early, and force-decoding the end-of-thinking delimiter once the budget is reached. They evaluate budgets from 500 to 16000 tokens in 500-token increments (32 points per problem), sampling at temperature 0 for determinism. Marginal utility at budget t is defined as MU(t) = Acc(t+500) - Acc(t). For each problem, they track the model's predicted answer at each budget and define a 'flip event' as a change in predicted answer between consecutive budgets, categorized as a positive flip (incorrect-to-correct) or negative flip (correct-to-incorrect); the flip ratio at budget t is negative flips / positive flips, with ratio > 1 indicating thinking is more likely to harm than help. They also track overthinking indicators from the reasoning trace: hesitation markers (frequency of phrases like 'wait', 'but', 'actually', 'let me reconsider'), answer oscillation (number of times the intermediate conclusion changes), and confidence trajectory (from token-level log-probabilities). Models: DeepSeek-R1-32B and s1-32B, both 32B parameters, run on 4xH100 GPUs with vLLM. They further propose a cost-aware utility function U_lambda(t) = Acc(t) - lambda * t/t_max trading off accuracy against compute at three lambda settings (cost-agnostic lambda=0, cost-balanced lambda=0.5, cost-sensitive lambda=1.0), and validate an indicator-based early-stopping strategy against fixed-budget baselines.
+
+## Results
+
+On AIME (R1-32B), marginal utility per 500 tokens falls from +3.2% in the 0.5-2K token range to -0.3% in the 12-16K range; peak accuracy (55.8%) occurs at 12K tokens, declining to 54.9% at 16K. Flip ratio (negative/positive flips) crosses 1.0 at ~7K tokens (ratio 1.09, 95% CI [1.01,1.18], p=0.038) and reaches 7.55 (CI [6.12,9.24], p<0.001) at 16K tokens; the 12K-to-16K accuracy drop of -0.9% has 95% CI [-1.4%,-0.4%]. s1-32B crosses the overthinking threshold earlier (~5K tokens) than R1-32B (~7K tokens), indicating higher susceptibility. On GPQA Diamond, both models show the same pattern, peaking near 10K tokens then declining, with R1-32B consistently outperforming s1-32B. On MATH-500, optimal stopping budget varies 7.5x across difficulty: Level 1 problems peak at 1.0K tokens vs. 7.5K tokens for Level 5. Overthinking indicators predict negative flips with correlation r=0.78 for answer oscillation alone and r=0.82 combined, at 76.3% precision / 80% recall. Manual review of 80 negative-flip cases on AIME found 67.5% were genuine overthinking (explicit reconsideration abandoning a correct answer), 20.0% exploration divergence (valid alternative method with an execution error), and 12.5% degradation artifacts (repetitive, unfocused output). Validation on 312 naturally-generated (not budget-forced) long-reasoning samples (>8K tokens) shows accuracy falls monotonically with natural output length: 71.9% (<4K tokens), 58.5% (4-8K), 51.0% (8-12K), 44.7% (>12K); 71% of these samples contain explicit reconsideration language, and those with reconsideration have 12% lower accuracy than those without. Cost-aware evaluation: at lambda=0.5, stopping at ~6K tokens yields ~50% compute reduction with only ~6% accuracy loss; the combined indicator-based early-stopping approach achieves 97% of peak accuracy using only 60% of compute.
+
+## Limitations
+
+The analysis focuses on mathematical and scientific reasoning tasks; the authors note overthinking may manifest differently in other domains. Only two open-weight models (DeepSeek-R1-32B and s1-32B) were evaluated; proprietary systems may exhibit different patterns. The qualitative analysis found genuine reconsideration behavior in 67.5% of negative flips (54/80 manually examined cases), but the paper states that establishing definitive causal mechanisms underlying overthinking requires further investigation through controlled interventions -- i.e. the qualitative categorization is suggestive, not causal proof. Budget forcing (appending "Wait" tokens to extend reasoning) could introduce artifacts; the authors partially address this with a natural-long-reasoning validation on 312 samples, but this validation is itself correlational (accuracy by output length bucket) rather than a controlled manipulation.
+
+## Why it matters here
+
+- **overthinking**: This paper's central subject is overthinking itself: it directly measures the accuracy/efficiency tradeoff of reasoning length in test-time compute scaling, introduces flip-event tracking and a flip ratio to detect when extended reasoning starts hurting accuracy, shows the optimal stopping point varies by problem difficulty, and proposes cost-aware metrics and early-stopping strategies to make models stop reasoning at the right point.
+
+## Entities
+
+- **Concepts**: marginal utility of reasoning tokens, [overthinking](../../../../wiki/concepts/overthinking.md), flip events (positive/negative answer flips), flip ratio, budget forcing, cost-aware evaluation / efficiency frontier, difficulty-stratified optimal stopping
+- **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), flip event tracking, marginal utility measurement, cost-aware utility function (lambda-parameterized), overthinking indicators (hesitation markers, answer oscillation, confidence trajectory), bootstrap resampling for confidence intervals
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math-500.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `overthinking`, `test-time-compute`, `chain-of-thought`, `reasoning-length`, `marginal-utility`, `flip-events`, `budget-forcing`, `cost-aware-evaluation`, `aime`, `gpqa`, `math-500`
+
+## Abstract
+
+Scaling test-time compute through extended chains of thought has become a dominant paradigm for improving large language model reasoning. However, existing research implicitly assumes that longer thinking always yields better results. This assumption remains largely unexamined. We systematically investigate how the marginal utility of additional reasoning tokens changes as compute budgets increase. We find that marginal returns diminish substantially at higher budgets and that models exhibit "overthinking", where extended reasoning is associated with abandoning previously correct answers. Furthermore, we show that optimal thinking length varies across problem difficulty, suggesting that uniform compute allocation is suboptimal. Our cost-aware evaluation framework reveals that stopping at moderate budgets can reduce computation significantly while maintaining comparable accuracy.
+
+---
+
+Record id: `local:32a56cfa1105c39e`

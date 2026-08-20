@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:18Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:0694f0010d7ac51f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Recent advances in Large Reasoning Models (LRMs) have demonstrated strong performance on complex tasks through long Chain-of-Thought (CoT) reasoning. However, their lengthy outputs increase computational costs and may lead to overthinking, raising challenges in balancing reasoning effectiveness and efficiency. Current solutions often compromise reasoning quality or require extensive resources. In this paper, we investigate how to reduce the generation length of LRMs with limited tuning. We analyze generation path distributions and filter generated trajectories through difficulty estimation. Subsequently, we analyze the convergence characteristics of various preference optimization objectives under a unified Bradley-Terry loss based framework. Based on the analysis, we propose Length Controlled Preference Optimization (LCPO) that directly balances the implicit reward related to NLL loss. LCPO can effectively learn length preference with limited data and training. Extensive experiments demonstrate that our method significantly reduces the average output length of LRMs by over 50\\% across multiple benchmarks while maintaining the reasoning performance. Our work highlights the potential for computationally efficient approaches in guiding LRMs toward efficient reasoning.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization",
+    "url": "https://iclr.cc/virtual/2026/poster/10011162",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "chain-of-thought length control",
+      "preference optimization",
+      "implicit reward"
+    ],
+    "contributions": [
+      "Analyzes generation path distributions and filters generated trajectories via difficulty estimation",
+      "Analyzes convergence characteristics of several preference optimization objectives under a unified Bradley-Terry loss framework",
+      "Proposes Length Controlled Preference Optimization (LCPO), which directly balances the implicit reward tied to NLL loss to learn a length preference with limited data and training",
+      "Reduces average LRM output length by over 50% across multiple benchmarks while maintaining reasoning performance"
+    ],
+    "datasets": [],
+    "limitations": "Only the abstract was available (no PDF attachment); specific benchmark names, model sizes, and failure cases of LCPO are not stated in the abstract.",
+    "method": "Filters generated reasoning trajectories by estimated difficulty, then studies how different preference optimization objectives converge under a shared Bradley-Terry loss formulation. Based on this analysis, proposes Length Controlled Preference Optimization (LCPO), which optimizes the implicit reward associated with negative log-likelihood loss so that the model learns a preference for shorter reasoning chains using a small amount of data and limited additional training.",
+    "methods": [
+      "Length Controlled Preference Optimization (LCPO)",
+      "Bradley-Terry loss framework",
+      "difficulty-based trajectory filtering",
+      "preference optimization"
+    ],
+    "one_liner": "Proposes Length Controlled Preference Optimization (LCPO), a small-scale preference-tuning method that cuts large reasoning models' average output length by over 50% while preserving reasoning performance.",
+    "problem": "Long chain-of-thought reasoning in large reasoning models raises computational cost and can lead to overthinking, and existing fixes for shortening reasoning either degrade quality or require heavy retraining resources.",
+    "relevance": {
+      "overthinking": "Addresses the topic directly: it proposes a lightweight preference-optimization method (LCPO) that explicitly targets reasoning-length reduction, cutting average output length by over 50% across multiple benchmarks while maintaining accuracy, i.e. a concrete method for stopping a model at the right point."
+    },
+    "results": "Reduces the average output length of large reasoning models by over 50% across multiple benchmarks while maintaining reasoning performance, per the paper's stated experiments.",
+    "tags": [
+      "overthinking",
+      "length-control",
+      "preference-optimization",
+      "chain-of-thought",
+      "efficient-reasoning"
+    ]
+  },
+  "task_id": "paper__title-0694f0010d7ac51f",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

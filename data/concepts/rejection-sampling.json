@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "A test-time-compute strategy that samples candidates and discards (rejects) ones that fail a check, resampling as needed, distinct from Best-of-N's fixed-N-then-select approach. ROC-n-reroll proves that verifier ROC-curve geometry determines its accuracy under a fixed compute budget, and shows it beats Best-of-N at fixed budget, with both converging at infinite compute; ATTS uses conformal prediction to coordinate it asynchronously with other test-time-scaling dimensions.",
+  "evidence": [
+    {
+      "id": "title:6b3727a0a0ac9a23",
+      "kind": "paper",
+      "note": "Proves that verifier ROC-curve geometry determines the accuracy of Best-of-N and Rejection Sampling under a fixed compute budget, and shows RS beats BoN at fixed compute while both converge in the infinite-compute limit.",
+      "title": "ROC-n-reroll: How verifier imperfection affects test-time scaling"
+    },
+    {
+      "id": "title:b601ad920fcc4d45",
+      "kind": "paper",
+      "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+      "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction"
+    }
+  ],
+  "first_seen": "2026-08-20T12:20:08Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "rejection sampling",
+  "related": [
+    "verifier-roc-geometry",
+    "best-of-n-sampling",
+    "test-time-scaling-under-imperfect-verifiers",
+    "best-of-n-bon",
+    "rejection-sampling-rs",
+    "gsm8k",
+    "math-500",
+    "test-time-scaling",
+    "conformal-prediction",
+    "asynchronous-decoding",
+    "draft-target-model-speculation",
+    "atts",
+    "conformal-prediction-based-rejection-sampling",
+    "ordinal-classification",
+    "math",
+    "amc23",
+    "aime-2024",
+    "aime-2025"
+  ],
+  "related_authored": [
+    "best-of-n-sampling",
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "rejection-sampling",
+  "topics": [
+    "overthinking"
+  ]
+}

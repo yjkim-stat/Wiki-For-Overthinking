@@ -1,0 +1,75 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+        "title": "Test-Time Scaling with Reflective Generative Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TaTToo trains a table-grounded, tool-verified process reward model that supervises test-time-scaling search for large reasoning models on tabular reasoning tasks.",
+        "title": "TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "JETTS is a benchmark evaluating how well LLM-as-judge models perform as evaluators guiding test-time-scaling methods -- response reranking, step-level beam search, and critique-based refinement -- across math, code and instruction-following.",
+        "title": "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a process reward model that scores chain-of-thought coherence instead of domain knowledge, and uses it to weight votes among sampled reasoning chains for test-time scaling across math and non-math domains.",
+        "title": "ContextPRM: Leveraging Contextual Coherence for multi-domain Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:26:53Z",
+  "created_at": "2026-08-20T12:24:12Z",
+  "instructions": "Write the wiki definition for 'process reward model'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "process reward model",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "process reward model",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "process reward model (PRM)",
+      "PRM"
+    ],
+    "definition": "A reward model that scores the intermediate steps of a reasoning trace, used to guide test-time search rather than only rank finished answers. MetaStone-S1 shares one backbone between its policy and process-reward model; TaTToo trains a domain-specific PRM for tabular reasoning; JETTS benchmarks how well LLM-as-judge models substitute for a trained PRM in guiding test-time scaling, finding judges match outcome reward models but lag PRMs. Note: same concept as the archive's separately-tracked 'process reward model (PRM)' entry -- not merged.",
+    "kind": "concept",
+    "related": [
+      "process reward model (PRM)",
+      "Monte Carlo Tree Search"
+    ]
+  },
+  "task_id": "concept__process-reward-model",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:14:14Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:41c888011fbb9bc3",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Scaling Test-Time Compute Without Verification or RL is Suboptimal",
+    "url": "https://icml.cc/virtual/2025/poster/44733",
+    "venue": "ICML 2025"
+  },
+  "result": {
+    "concepts": [
+      "test-time compute scaling",
+      "verification-guided RL",
+      "distillation of reasoning traces",
+      "anti-concentration theory"
+    ],
+    "contributions": [
+      "Proves theoretically that verifier-based (RL/outcome-reward) test-time compute scaling outperforms verifier-free imitation of successful traces as compute grows.",
+      "Shows the performance gap between verification-based and imitation-based scaling widens proportionally to the square root of the test-time token budget H.",
+      "Uses anti-concentration theory to derive asymptotic advantages of verification over imitation under heterogeneous solution traces and non-sharp reward distributions.",
+      "Validates the theory empirically on mathematical reasoning tasks with 3B, 8B, and 32B parameter models."
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "Theoretical comparison of two approaches to scaling test-time compute: (i) distilling successful search or thinking traces (verifier-free imitation), and (ii) using verifiers or outcome rewards to guide RL and search. The analysis applies anti-concentration theory to show that when language models produce heterogeneous solution traces and reward distributions are not sharply peaked, verifier-guided methods scale better with the test-time token budget than imitation-based methods.",
+    "methods": [
+      "verifier-guided RL",
+      "rejection-sampling/distillation of successful traces",
+      "test-time search"
+    ],
+    "one_liner": "A theoretical and empirical argument that scaling test-time compute via verification/RL beats scaling via imitation of successful reasoning traces, with the gap growing as sqrt(token budget).",
+    "problem": "How test-time compute should be scaled to keep improving model performance: by distilling/imitating successful reasoning traces, or by using verifiers and outcome rewards to guide RL and search. It was unresolved which approach scales better as more test-time compute is allocated.",
+    "relevance": {
+      "overthinking": "Directly addresses the mechanics of test-time compute scaling for reasoning models: it gives a theoretical account of why verifier-guided allocation of additional reasoning/search compute keeps improving performance while imitation-based scaling plateaus, which bears on how much test-time compute a method should spend and how it should be spent."
+    },
+    "results": "Verification-trained models continue to improve with additional test-time compute on mathematical reasoning tasks (3B, 8B, 32B models), while supervised imitation/distillation approaches plateau. The theoretical performance gap between the two approaches grows proportionally to sqrt(H), where H is the test-time token budget.",
+    "tags": [
+      "test-time-compute",
+      "verification",
+      "reinforcement-learning",
+      "scaling",
+      "reasoning"
+    ]
+  },
+  "task_id": "paper__title-41c888011fbb9bc3",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

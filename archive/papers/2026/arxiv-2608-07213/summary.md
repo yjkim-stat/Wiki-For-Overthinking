@@ -1,0 +1,59 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# From Test-Time Scaling to Reusable Memory: Measuring Crystallization in Text-to-SQL
+
+- **Authors**: Jiaqian Wang, Yutao Qi, Wenjin Hou, Yuanxi Che, Muning Wen
+- **Venue**: cs.CL
+- **Published**: 2026-08-07
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.07213>
+- **PDF**: <https://arxiv.org/pdf/2608.07213v1>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+This paper measures how much of the value of test-time repair episodes in text-to-SQL survives when they are stored as a per-database memory bank and reused on new questions, isolating replay, cross-question retention, and held-out transfer, and finding that verified, database-specific memory captures 44.4% of the on-demand repair headroom on BIRD.
+
+## Problem
+
+Text-to-SQL systems increasingly retain verified test-time repair episodes as reusable memory, but evaluations still report a single end-to-end score that conflates replay on recurring questions with genuine help on unseen questions and cannot attribute the gain to a specific memory design choice (acquisition, verification, card format, or retrieval) -- the paper calls this the 'crystallization problem'.
+
+## Contributions
+
+- Names and formalizes the 'crystallization problem': a single end-to-end accuracy score cannot distinguish replay on recurring text-to-SQL questions from genuine help on unseen questions, or identify which memory design choice is responsible.
+- Proposes a controlled evaluation protocol that holds the single-shot SQL solver fixed and varies one memory choice (acquisition, admission/verification, writing/card format, or retrieval) at a time, separately measuring exact-query replay, cross-question retention, and held-out same-database transfer.
+- On the BIRD benchmark, shows storing verified corrected queries improves held-out first-attempt accuracy by 4.34 percentage points, capturing 44.4% of the accuracy headroom available from on-demand repair on the same held-out questions (the crystallization ratio, CR).
+- Identifies via controlled interventions that database-specific content (identifiers, values, joins, query structures) is the main operating ingredient for transfer, that reliable verification and broader retrieval coverage yield supported gains, while richer card formats and more elaborate retrievers do not show statistically supported advantage.
+
+## Method
+
+The system builds a per-database memory bank from a 70% 'collection' split of questions: for each collection question the fixed solver's first attempt is checked by execution against gold results, and if wrong, a repair loop (execution-guided, using an interaction budget K=3) attempts to produce a verified corrected query, which becomes an episode. A verification signal (in the main setup, an oracle using the execution result against gold, i.e. 'benchmark verification') decides whether an episode is admitted/stored as a memory card; the model itself never sees gold SQL when writing cards. At inference on a new (held-out or collection) question, the top-k cards (k=5 by default) are retrieved by question-to-question embedding similarity from the same database's bank and placed in the solver's context for a single one-shot answer. The study varies one of four decisions at a time -- acquisition (how episodes are collected, e.g. repair-based vs. resampling vs. retry-based), admission (verified vs. ungated/self-vote), writing (six card formats W0-W5 from verbatim query to LLM-written natural-language summary), and retrieval (matching key, k, database scope) -- using paired comparisons (fixed solver, split, database order, seed) to isolate each factor's effect on exact-query replay, cross-question retention, and held-out same-database transfer, the last quantified via the crystallization ratio CR = (P_M - P_0) / (P_K - P_0), i.e. the held-out accuracy gain from memory divided by the on-demand repair headroom on the same questions.
+
+## Results
+
+On BIRD (Qwen3.5-27B, three paired seeds), storing verified corrected queries as verbatim cards (W0) raises held-out same-database first-attempt execution accuracy from P0=62.04% to PM=66.38% (+4.34pp, 95% CI [+1.50, +7.49], p=.0034), which is CR=44.4% (95% CI [24,65]%) of the on-demand repair headroom (PK=71.8%); 10 of 11 databases show positive effects. On collection questions (not held out), exact-query replay reaches 96.1% accuracy when the question's own card is available, but cross-question retention (same card removed) falls to 56.0%. Controlled interventions: local (same-database) cards beat equally valid foreign-database cards by 6.73pp; a fully mispaired local bank (question-SQL pairing broken) still beats no memory, and restoring correct pairing adds only 1.45pp (CI includes zero) -- indicating database-specific content, not matched worked examples, drives most of the transfer. Reliable (verified) card admission beats otherwise-matched unverified/ungated storage by 4.85pp (CI [+1.30,+8.06]); an ungated self-vote bank performs worse than no memory in every seed. Increasing retrieved cards from k=1 to k=10 adds 3.18pp (CI [+1.09,+5.35]); at k=10 CR reaches 57.6%. Richer card formats (W1-W5) show no statistically supported improvement over the verbatim format W0 for held-out transfer (all confidence intervals cross zero), though W0/W5 give similar cross-question retention (56.0%/56.8%) after removing the originating card. Cost: full memory-bank construction costs 5.90-6.04M tokens per seed; serving adds 139-604 prompt tokens per query at k=1/5/10, amortizing after roughly 7.5-9.9K future queries. Preliminary single-seed checks on other model families (Qwen3.5-9B, Gemma4-E4B/31B, gpt-oss-20B, Hunyuan-A13B) and on the Spider benchmark show smaller or largely absent transfer/repair headroom, consistent with Spider's already-high no-memory accuracy floor (79-80%).
+
+## Limitations
+
+The paper's own stated threats to validity: (1) benchmark scope is limited to two development-set text-to-SQL benchmarks from one task family, so absolute levels may inherit development-set optimism; (2) the 70/30 collection/held-out protocol measures conditional values in a specific future-use setting, not their prevalence in a production workload, so replay, retention, and transfer are not combined into one expected-utility estimate; (3) cost is reported only as token counts (construction ~5.90-6.04M tokens/seed, serving adds 139-604 tokens/query) -- not a dollar, latency, energy, or total-cost-of-ownership estimate, and embedding/database execution costs are kept separate; (4) results with fewer than three paired seeds (single-seed model/family probes, e.g. Gemma4-E4B, gpt-oss-20b, Hunyuan-A13B, and the Spider results) are explicitly labeled preliminary and not treated as confirmed conclusions; (5) enterprise-scale or cross-tenant settings (e.g. Spider 2.0, ScienceBenchmark) are outside the study's scope, and cross-database retrieval is flagged as a potential data-isolation/leakage risk in deployment.
+
+## Why it matters here
+
+- **overthinking**: Tangential: this paper matches the tracked topic only on the generic phrase 'test-time scaling' used in its abstract framing (it opens by noting that test-time scaling can correct difficult text-to-SQL queries via additional inference-time repair compute). Its actual subject is unrelated to reasoning-length overthinking/underthinking -- it studies how to convert already-spent test-time repair compute for text-to-SQL into a persistent, retrievable per-database memory bank, and measures replay, cross-question retention and held-out transfer of that memory (CR = 44.4% on BIRD). It does not address chain-of-thought length, when a reasoning model should stop or keep generating, or the accuracy/efficiency tradeoff of reasoning trace length.
+
+## Entities
+
+- **Concepts**: crystallization problem (measuring the future value of retained test-time episodes), database-scoped memory bank, exact-query replay vs. cross-question retention vs. held-out transfer, crystallization ratio (CR)
+- **Methods**: execution-guided query repair, database-scoped memory bank with retrieval, crystallization ratio (CR) metric, paired two-stage hierarchical bootstrap significance testing, verified vs. ungated (self-vote) card admission
+- **Datasets**: BIRD (development set, 1,534 questions over 11 databases), Spider (development set, 1,034 questions over 723/311 split, used for supporting/preliminary robustness checks)
+
+Tags: `text-to-sql`, `agent-memory`, `test-time-compute`, `experience-reuse`, `execution-feedback`, `retrieval`
+
+## Abstract
+
+Test-time scaling can correct difficult text-to-SQL queries, but the extra computation is normally discarded after each answer. Systems increasingly retain verified repair episodes, yet evaluations still report one end-to-end score. It cannot distinguish replay on recurring questions from help on unseen questions, or identify the responsible memory choice. We call measuring this future value the crystallization problem. Our controlled evaluation holds the single-shot solver fixed and varies one memory choice at a time. We separately measure replay, cross-question retention, and held-out same-database transfer. On BIRD, storing verified corrected queries improves held-out first-attempt accuracy by 4.34 percentage points. This gain captures 44.4% of the accuracy headroom provided by on-demand repair on the same questions. Controlled interventions identify database-specific content as the main operating ingredient. Reliable verification and broader retrieval coverage yield supported gains; richer formats and elaborate retrievers do not. Open-source code, evaluation artifacts, and reproduction instructions are available at https://github.com/ai-jiaqian/text-to-sql-memory-crystallization.
+
+---
+
+Record id: `arxiv:2608.07213`

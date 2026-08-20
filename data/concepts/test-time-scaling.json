@@ -1,0 +1,229 @@
+{
+  "aliases": [
+    "test-time compute scaling",
+    "test-time compute"
+  ],
+  "definition": "Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher accuracy. This is the umbrella term the largest number of the archive's collected papers use, spanning genuine reasoning-length work (speculative decoding for reasoning models, budget-aware tree search) and many off-topic applications the topic's keyword filter also caught (GUI agents, diffusion-model image generation, protein design) where 'test-time scaling' means something unrelated to LLM reasoning length. Note: the archive's wiki tracks this same underlying idea under at least three overlapping entries (test-time scaling, test-time compute, test-time compute scaling) that were never merged -- this is the largest and most heavily overloaded of the three, and readers should treat individual sources under it on a paper-by-paper basis rather than assuming uniform relevance.",
+  "evidence": [
+    {
+      "id": "title:1d5e1f4d59da5916",
+      "kind": "paper",
+      "note": "Benchmarks model-based, training-based and N-gram-based speculative decoding methods as ways to accelerate token generation during LLM test-time scaling (Best-of-N, iterative reasoning), finding N-gram methods best exploit repetitive patterns.",
+      "title": "Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling"
+    },
+    {
+      "id": "title:20270e5fc6210ea6",
+      "kind": "paper",
+      "note": "Proposes a budget-aware Monte Carlo Tree Search policy (BG-MCTS) that reallocates exploration versus refinement as a fixed per-query token budget is consumed, for test-time scaling of LLMs.",
+      "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs"
+    },
+    {
+      "id": "title:32a023f6f6757a4d",
+      "kind": "paper",
+      "note": "A GUI agent that samples and judges multiple candidate actions at test time and uses RL-trained click rewards to ground actions on interface elements more precisely.",
+      "title": "GTA1: GUI Test-time Scaling Agent"
+    },
+    {
+      "id": "title:3b024853a8e7324c",
+      "kind": "paper",
+      "note": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
+      "title": "UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling"
+    },
+    {
+      "id": "title:545becf86760af05",
+      "kind": "paper",
+      "note": "An ensemble of parallel agents using different tool-use strategies that iteratively refine and share answers, with a confidence-based rule to stop early and cut inference cost.",
+      "title": "TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture"
+    },
+    {
+      "id": "title:5d210749910cf061",
+      "kind": "paper",
+      "note": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
+      "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling"
+    },
+    {
+      "id": "title:5d66fe9a10241ce8",
+      "kind": "paper",
+      "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
+      "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models"
+    },
+    {
+      "id": "title:5ff343d0a198bd25",
+      "kind": "paper",
+      "note": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+      "title": "Test-Time Scaling with Reflective Generative Model"
+    },
+    {
+      "id": "title:68800e46710617dd",
+      "kind": "paper",
+      "note": "Derives and calibrates an optimal weighted combination of LLM self-consistency and PRM signals for selecting responses at test time, cutting compute needed for comparable accuracy.",
+      "title": "Optimal Aggregation of LLM and PRM Signals for Efficient Test-Time Scaling"
+    },
+    {
+      "id": "title:9dcfd1b98bd7008e",
+      "kind": "paper",
+      "note": "ST-BoN cuts the cost of Best-of-N test-time scaling by using early sampling consistency in internal states to truncate unpromising candidates before they finish generating, without a reward model.",
+      "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding"
+    },
+    {
+      "id": "title:9fd5690d024b72bf",
+      "kind": "paper",
+      "note": "Couples a vision-language model with a video-diffusion world model that synthesizes egocentric views along a VLM-proposed camera trajectory, using the resulting multi-view evidence to improve 3D spatial reasoning at inference time.",
+      "title": "MindJourney: Test-Time Scaling with World Models for Spatial Reasoning"
+    },
+    {
+      "id": "title:ab80eef8a7c42e7c",
+      "kind": "paper",
+      "note": "JETTS is a benchmark evaluating how well LLM-as-judge models perform as evaluators guiding test-time-scaling methods -- response reranking, step-level beam search, and critique-based refinement -- across math, code and instruction-following.",
+      "title": "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators"
+    },
+    {
+      "id": "title:abd61e399170fa2c",
+      "kind": "paper",
+      "note": "Shows that test-time-scaling methods such as Monte Carlo Tree Search and Best-of-N become substantially more likely to produce unsafe outputs when candidate diversity is curtailed, using a diagnostic protocol called RefDiv.",
+      "title": "Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models"
+    },
+    {
+      "id": "title:b601ad920fcc4d45",
+      "kind": "paper",
+      "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+      "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction"
+    },
+    {
+      "id": "title:b987d2649d32f1f3",
+      "kind": "paper",
+      "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+      "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling"
+    },
+    {
+      "id": "title:bf9d583811300bbd",
+      "kind": "paper",
+      "note": "Proposes a test-time scaling framework for visual auto-regressive image generation that searches over coarse-to-fine generation paths, improving GenEval score on Infinity2B from 0.69 to 0.75.",
+      "title": "TTS-VAR: A Test-Time Scaling Framework for Visual Auto-Regressive Generation"
+    },
+    {
+      "id": "title:e149fd58642147ea",
+      "kind": "paper",
+      "note": "A training-free framework that uses MCTS-guided test-time search to turn optimization problems into solver-ready code instead of solving them directly.",
+      "title": "SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "test-time scaling",
+  "related": [
+    "speculative-decoding",
+    "best-of-n-sampling",
+    "n-gram-drafting",
+    "iterative-reasoning",
+    "fixed-token-budget",
+    "budget-aware-tree-search",
+    "budget-guided-mcts-bg-mcts",
+    "monte-carlo-tree-search",
+    "tree-search-decoding",
+    "mathematical-reasoning-benchmarks",
+    "a-physics-reasoning-benchmark",
+    "gui-grounding",
+    "sample-and-evaluate-action-selection",
+    "rl-for-click-grounding",
+    "gta1",
+    "model-routing",
+    "quality-cost-tradeoff",
+    "contextual-bandits",
+    "online-optimization",
+    "uniscale",
+    "linucb",
+    "contextual-multi-armed-bandit",
+    "multi-agent-ensembling",
+    "tool-use-diversity",
+    "confidence-based-early-stopping",
+    "tumix",
+    "tool-use-mixture",
+    "distillation",
+    "in-context-learning",
+    "induction-heads",
+    "bigram-model-sandbox",
+    "distilled-pretraining",
+    "bigram-model-analysis",
+    "overthinking",
+    "output-variance-under-extended-thinking",
+    "parallel-thinking",
+    "majority-voting",
+    "probabilistic-model-of-output-variance",
+    "process-reward-model",
+    "self-supervised-process-reward-model-sprm",
+    "reasoning-effort-modes",
+    "scaling-law-for-thinking-compute",
+    "reflective-generative-model-rgm",
+    "metastone-s1",
+    "aime-2024",
+    "process-reward-model-prm-signals",
+    "weighted-signal-aggregation",
+    "weighted-aggregation-of-llm-and-prm-signals",
+    "process-reward-model-prm-scoring",
+    "self-consistency-majority-voting",
+    "early-truncation",
+    "sampling-consistency-in-internal-states",
+    "self-truncation-best-of-n-st-bon",
+    "best-of-n-bon-sampling",
+    "world-model",
+    "egocentric-camera-trajectory",
+    "multi-view-reasoning",
+    "spatialnavigator",
+    "video-diffusion-world-model",
+    "sat-spatial-reasoning-benchmark",
+    "llm-as-judge",
+    "outcome-reward-model",
+    "best-of-n-reranking",
+    "step-level-beam-search",
+    "jetts-benchmark",
+    "jetts-benchmark-math-code-instruction-following-domains",
+    "candidate-diversity",
+    "safety-risk",
+    "adversarial-robustness",
+    "refdiv",
+    "best-of-n",
+    "conformal-prediction",
+    "asynchronous-decoding",
+    "draft-target-model-speculation",
+    "rejection-sampling",
+    "atts",
+    "conformal-prediction-based-rejection-sampling",
+    "ordinal-classification",
+    "math",
+    "amc23",
+    "aime-2025",
+    "underthinking",
+    "chain-of-thought-redundancy",
+    "verifier-guided-truncation",
+    "trimr",
+    "verifier-guided-cot-truncation",
+    "asynchronous-online-trimming-system",
+    "math-500",
+    "gpqa",
+    "path-search",
+    "diversity-search",
+    "resampling-based-selection",
+    "tts-var",
+    "clustering-based-diversity-search",
+    "resampling-based-potential-selection",
+    "infinity2b-var-model",
+    "geneval-benchmark",
+    "monte-carlo-tree-search-for-llm-search",
+    "solver-guided-code-generation",
+    "monte-carlo-tree-search-mcts",
+    "solverllm",
+    "six-standard-optimization-benchmark-datasets-not-individually-named-in-the-abstr"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling",
+    "test-time-compute",
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "test-time-scaling",
+  "topics": [
+    "overthinking"
+  ]
+}

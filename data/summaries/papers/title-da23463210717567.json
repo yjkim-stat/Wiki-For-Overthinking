@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "self-improvement training",
+    "overthinking measured as solution diversity",
+    "GRPO reward shaping for conciseness"
+  ],
+  "contributions": [
+    "Verify-then-exit sampling strategy for efficiently collecting accurate solutions to difficult queries",
+    "Intrinsic Diversity score that quantifies overthinking to filter out redundant solutions from self-improvement training data",
+    "H-GRPO, a GRPO variant that adds the diversity metric as an RL reward to promote concise and diverse reasoning"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:23:20Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "HSIR is a self-improvement training framework for large reasoning models. It combines a verify-then-exit sampling strategy that collects more accurate solutions for difficult queries more efficiently, with an Intrinsic Diversity score that measures overthinking and is used to eliminate undesired, redundant solutions from the training pool. H-GRPO extends GRPO by incorporating this diversity metric directly as a reinforcement-learning reward, pushing the model toward concise and diverse reasoning.",
+  "methods": [
+    "HSIR",
+    "H-GRPO",
+    "verify-then-exit sampling",
+    "Intrinsic Diversity score"
+  ],
+  "one_liner": "Introduces HSIR, a self-improvement RL framework for large reasoning models that samples hard problems more efficiently and rewards concise, non-redundant reasoning via an overthinking-aware diversity score.",
+  "paper_id": "title:da23463210717567",
+  "problem": "Self-improvement training for large reasoning models is limited by low diversity in generated training data (most sampled solutions are for easy problems while hard-problem solutions are rare) and by redundant, overthinking-prone reasoning patterns in the generated solutions.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly targets overthinking: defines an Intrinsic Diversity score to detect and filter redundant reasoning traces during self-improvement training, and trains with H-GRPO, a GRPO variant that rewards concise reasoning, reducing inference overhead by up to 42.4% while improving accuracy by up to 10.9%."
+  },
+  "results": "Up to +10.9% average performance gain in reasoning accuracy and up to 42.4% reduction in inference overhead, reported across seven models and five tasks.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "self-improvement",
+    "reinforcement-learning",
+    "grpo",
+    "reasoning-efficiency"
+  ]
+}

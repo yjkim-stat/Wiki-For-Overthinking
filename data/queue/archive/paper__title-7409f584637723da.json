@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:06:33Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7409f584637723da",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Test-time scaling (TTS) has proven effective in enhancing the reasoning capabilities of large language models (LLMs). Verification plays a key role in TTS, simultaneously influencing (1) reasoning performance and (2) compute efficiency, due to the quality and computational cost of verification. In this work, we challenge the conventional paradigms of verification, and make the first attempt toward systematically investigating the impact of verification granularity—that is, how frequently the verifier is invoked during generation, beyond verifying only the final output or individual generation steps. To this end, we introduce Variable Granularity Search (VG-Search), a unified algorithm that generalizes beam search and Best-of-N sampling via a tunable granularity parameter $g$. Extensive experiments with VG-Search under varying compute budgets, generator-verifier configurations, and task attributes reveal that dynamically selecting $g$ can improve the compute efficiency and scaling behavior. Building on these findings, we propose adaptive VG-Search strategies that achieve accuracy gains of up to 3.1\\% over Beam Search and 3.6\\% over Best-of-N, while reducing FLOPs by over 52\\%. We will open-source the code to support future research.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Rethinking Optimal Verification Granularity for Compute-Efficient Test-Time Scaling",
+    "url": "https://neurips.cc/virtual/2025/poster/117041",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "verification granularity",
+      "beam search and Best-of-N as special cases of a granularity parameter",
+      "compute-efficiency in test-time scaling via verifier call frequency"
+    ],
+    "contributions": [
+      "First systematic study of verification granularity (how often a verifier is invoked during generation) as a distinct axis of test-time scaling, beyond final-answer-only or per-step verification",
+      "Introduces Variable Granularity Search (VG-Search), a unified algorithm generalizing beam search and Best-of-N sampling via a tunable granularity parameter g",
+      "Shows that dynamically selecting g improves compute efficiency and scaling behavior across compute budgets, generator-verifier configurations, and task attributes",
+      "Proposes adaptive VG-Search strategies achieving up to 3.1% accuracy gains over Beam Search and 3.6% over Best-of-N while reducing FLOPs by over 52%"
+    ],
+    "datasets": [],
+    "limitations": "The abstract does not name the specific benchmarks, generator/verifier model pairs, or task domains used in the experiments; the paper focuses on search-time verification frequency rather than on the length of a single model's reasoning trace.",
+    "method": "Formalizes verification granularity as a tunable parameter g controlling how frequently a verifier is invoked during generation. Variable Granularity Search (VG-Search) generalizes beam search (fine granularity) and Best-of-N sampling (coarse granularity) as special cases of this parameter. Adaptive strategies then select g dynamically per compute budget, generator-verifier configuration, and task attribute.",
+    "methods": [
+      "Variable Granularity Search (VG-Search)",
+      "beam search",
+      "Best-of-N sampling"
+    ],
+    "one_liner": "Studies how often a verifier should be called during LLM generation, proposing a search algorithm that tunes verification granularity to trade off accuracy and compute in test-time scaling.",
+    "problem": "In test-time scaling with verifiers, prior work verifies either only the final output or every individual step, without studying whether intermediate verification frequencies could do better; the effect of this granularity choice on accuracy and compute cost was unexamined.",
+    "relevance": {
+      "overthinking": "Addresses a different lever of test-time compute than reasoning-token length: it tunes how often an external verifier is called during parallel search (beam search / Best-of-N) rather than how long a single reasoning trace runs. It is relevant to the topic's test-time-compute-efficiency angle but does not discuss reasoning length, stopping a chain of thought, or over/underthinking within a single generation."
+    },
+    "results": "Adaptive VG-Search achieves accuracy gains of up to 3.1% over Beam Search and 3.6% over Best-of-N, while reducing FLOPs by over 52%. Specific benchmark names and absolute accuracy numbers are not given in the abstract.",
+    "tags": [
+      "test-time-scaling",
+      "verification",
+      "search",
+      "compute-efficiency",
+      "beam-search"
+    ]
+  },
+  "task_id": "paper__title-7409f584637723da",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

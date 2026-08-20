@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "KV cache compression",
+    "Thought Revisiting Tokens",
+    "beacon queries",
+    "attention pattern clustering"
+  ],
+  "contributions": [
+    "Identifies 'Thought Revisiting Tokens': decoding steps in long reasoning traces that attend back to distant early context such as the initial problem framing",
+    "Shows these queries cluster into similarity groups in embedding space",
+    "Introduces BeaconKV, which retains representative 'beacon queries' per cluster to anticipate needed prior KV entries without retraining",
+    "Reports up to 5.8x KV cache memory reduction and over 4.3x throughput improvement while nearly preserving full-cache accuracy"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:14:13Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the available material (abstract only; no PDF attached). The method's premise is specific to reasoning traces long enough to contain revisits to distant early context.",
+  "method": "BeaconKV observes that standard KV cache compression assumes recent queries predict future attention, which fails for long reasoning chains that later revisit distant early tokens (e.g. the original problem statement). It identifies such 'Thought Revisiting' decoding steps, clusters their queries by similarity in embedding space, and keeps a representative 'beacon query' per cluster so the cache-eviction policy can anticipate which earlier context will be needed again, without retraining the model.",
+  "methods": [
+    "BeaconKV"
+  ],
+  "one_liner": "A training-free KV-cache compression method for long reasoning-model inference that preserves the distant context tokens later reasoning steps revisit, using clustered 'beacon queries'.",
+  "paper_id": "title:3663586d2c722911",
+  "problem": "KV cache memory for large reasoning models grows with the long sequences their extended thought processes produce, and existing compression methods assume recent queries predict future attention, which breaks down when reasoning revisits distant earlier context.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses the memory and throughput cost of serving long reasoning traces, not why or when a model should reason longer or shorter. It takes the length of the reasoning trace as given and optimizes cache efficiency for it, rather than addressing the accuracy/efficiency tradeoff of reasoning length or stopping criteria that the topic tracks. Matches the topic only via the generic 'large reasoning model' keyword; tangential."
+  },
+  "results": "Up to 5.8x KV cache memory reduction while nearly preserving full-cache accuracy, and over 4.3x throughput improvement, reported across multiple reasoning models and benchmarks; specific benchmark names and per-model numbers are not given in the available abstract.",
+  "schema_version": 1,
+  "tags": [
+    "kv-cache",
+    "inference-efficiency",
+    "reasoning-models",
+    "memory-compression",
+    "tangential"
+  ]
+}

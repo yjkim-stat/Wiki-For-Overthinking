@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:06:28Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:edfa34ba9c5ee959",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Recent progress in large language models (LLMs) highlights the power of scaling test-time compute to achieve strong performance on complex tasks, such as mathematical reasoning and code generation. This raises a critical question: how should model training be modified to optimize performance under a subsequent test-time compute strategy and budget? To explore this, we focus on pass@N, a simple test-time strategy that searches for a correct answer in N independent samples. We show, surprisingly, that training with cross-entropy (CE) can be misaligned with pass@N in that pass@N accuracy decreases with longer CE training. We explain the origins of this misalignment in terms of model overconfidence induced by CE, and experimentally verify our prediction of overconfidence as an impediment to scaling test-time compute via pass@N. Furthermore we suggest a principled, modified training loss that is better aligned to pass@N by limiting model confidence and rescuing pass@N test performance. Our algorithm demonstrates improved mathematical reasoning on MATH and MiniF2F benchmarks under several scenarios: (1) providing answers to math questions both with and without Chain-of-Thought reasoning traces; and (2) proving theorems by searching over proof trees of varying shapes. Overall our work underscores the importance of co-designing two traditionally separate phases of LLM development: training-time protocols and test-time search and reasoning strategies.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Rethinking Fine-Tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning",
+    "url": "https://neurips.cc/virtual/2025/poster/116423",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "pass@N",
+      "model overconfidence",
+      "training-test co-design"
+    ],
+    "contributions": [
+      "Shows that cross-entropy training can be misaligned with pass@N test-time scaling: pass@N accuracy decreases with longer CE training",
+      "Attributes this misalignment to model overconfidence induced by CE training",
+      "Proposes a modified training loss that limits model confidence and is better aligned with pass@N"
+    ],
+    "datasets": [
+      "MATH",
+      "MiniF2F"
+    ],
+    "limitations": "Abstract does not report specific accuracy numbers or the exact form of the modified loss; scope is limited to pass@N as the test-time strategy, not other test-time compute strategies like sequential reasoning length or self-consistency.",
+    "method": "Analyzes why standard cross-entropy fine-tuning becomes misaligned with pass@N test-time search as training progresses, tracing this to increasing model overconfidence. Introduces a modified training loss that constrains model confidence during training, intended to preserve or improve pass@N accuracy at test time. Evaluated on providing math answers with and without chain-of-thought traces, and on theorem proving by searching over proof trees.",
+    "methods": [
+      "pass@N sampling",
+      "modified cross-entropy loss with confidence limiting"
+    ],
+    "one_liner": "Shows cross-entropy fine-tuning can hurt pass@N test-time performance via overconfidence, and proposes a confidence-limiting training loss that better aligns training with pass@N search.",
+    "problem": "How training-time objectives should be adapted to be compatible with a subsequent test-time compute strategy; specifically, standard CE training is shown to conflict with the pass@N search strategy used at test time.",
+    "relevance": {
+      "overthinking": "Addresses test-time compute scaling, but via the parallel-sampling axis (pass@N over independent samples) and its interaction with training-time overconfidence, rather than sequential reasoning length or when a model should stop/continue thinking. It is a training-time/test-time co-design result for search budgets, not a study of overthinking or reasoning-length control."
+    },
+    "results": "Reports that pass@N accuracy decreases with longer CE training (degree not quantified in abstract); the proposed confidence-limiting loss improves mathematical reasoning on MATH and MiniF2F under CoT and non-CoT answer settings and for theorem proving via proof-tree search, though specific accuracy deltas are not given in the abstract.",
+    "tags": [
+      "test-time-compute",
+      "pass-at-n",
+      "overconfidence",
+      "training-objective",
+      "math-reasoning",
+      "theorem-proving"
+    ]
+  },
+  "task_id": "paper__title-edfa34ba9c5ee959",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

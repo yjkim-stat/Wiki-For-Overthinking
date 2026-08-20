@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "Kinetics Scaling Law",
+    "memory access bottleneck",
+    "sparse attention",
+    "compute-optimality vs practical efficiency"
+  ],
+  "contributions": [
+    "Shows prior compute-optimal test-time scaling laws overestimate the effectiveness of smaller models by ignoring memory access costs from inference-time strategies like Best-of-N and long CoT",
+    "Proposes the Kinetics Scaling Law, incorporating both computation and memory access costs, spanning models from 0.6B to 32B parameters",
+    "Identifies attention (not parameter count) as the dominant cost factor in test-time scaling and proposes a sparse-attention scaling paradigm to lower per-token cost"
+  ],
+  "datasets": [
+    "AIME",
+    "LiveCodeBench"
+  ],
+  "generated_at": "2026-08-20T12:07:23Z",
+  "generated_by": "queue",
+  "limitations": "Analysis spans models from 0.6B to 32B parameters; abstract does not specify hardware assumptions in detail or discuss whether findings generalize beyond the tested model family/sizes.",
+  "method": "Performs a holistic efficiency analysis of test-time scaling across model sizes (0.6B-32B) that accounts for both FLOPs and memory access costs from inference-time strategies such as Best-of-N sampling and long chain-of-thought generation. This yields the Kinetics Scaling Law, which shows test-time compute is more effective on models above roughly 14B parameters, since attention cost (not parameter count) dominates at test time. Based on this, proposes using sparse attention to reduce per-token cost, allowing longer generations and more parallel samples within the same compute budget.",
+  "methods": [
+    "Kinetics Scaling Law",
+    "sparse attention",
+    "Best-of-N sampling analysis"
+  ],
+  "one_liner": "Reworks test-time scaling laws to account for memory-access cost alongside compute, finding a 14B-parameter threshold below which test-time compute is less effective, and shows sparse attention substantially improves accuracy under a fixed test-time budget.",
+  "paper_id": "title:fe7ecea333b91370",
+  "problem": "Prior test-time scaling laws are grounded purely in compute-optimality and ignore memory access bottlenecks from strategies like Best-of-N and long chain-of-thought, leading to an overestimate of how effective smaller models are when given more test-time compute.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly studies the accuracy/efficiency tradeoff of test-time compute scaling, including long chain-of-thought generation length and Best-of-N sampling, and shows that attention cost rather than parameter count governs the true cost of 'thinking longer,' which reshapes how much test-time compute (reasoning length or samples) is worth allocating to a given model."
+  },
+  "results": "Sparse attention models achieve over 60-point accuracy gains in low-cost regimes and over 5-point gains in high-cost regimes on AIME and LiveCodeBench compared to dense counterparts; the Kinetics Scaling Law shows test-time compute is more effective above a 14B-parameter threshold.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "scaling-law",
+    "sparse-attention",
+    "memory-access-cost",
+    "best-of-n",
+    "chain-of-thought-length"
+  ]
+}

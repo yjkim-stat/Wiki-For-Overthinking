@@ -1,0 +1,164 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free, verifier-free test-time scaling method that refines each of N sampled reasoning rollouts through D rounds of self-critique and self-correction before majority-voting the answers, instead of only sampling more candidates or relying on an external verifier.",
+        "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoBa treats test-time scaling as a compute-allocation problem and routes cheap answer-agreement evidence versus a small number of strong-verifier calls, reaching majority-voting/self-evaluation-level accuracy on math and symbolic reasoning benchmarks while using roughly half the parameter-weighted tokens.",
+        "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
+        "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Divergent-Convergent Reasoning generates diverse candidate solutions and then uses reviewer-style reconciliation calls (optionally run recursively with a verifier-free unanimous-consent stopping rule) to recover correct answers even when they start out as a minority, reaching 93.3% on AIME 2024 and 92.0% on AIME 2025 while using about 27% less compute than a fixed single-round baseline.",
+        "title": "Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+        "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces R-HORIZON, a query-composition benchmark for long, multi-step reasoning, finds current reasoning models degrade sharply and misallocate compute across sub-problems, and uses the same data to improve models via RL.",
+        "title": "R-Horizon: How Far Can Your Large Reasoning Model Really Go in Breadth and Depth?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AsyncSpade speeds up decoding of long chain-of-thought generations by predicting query states from recent patterns and running sparse KV-cache selection asynchronously alongside decoding, cutting per-token latency without hurting accuracy.",
+        "title": "AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes a reasoning model (MetaStone-S1) whose policy and process-reward model share one backbone, and which exposes selectable low/medium/high reasoning-effort modes that trade off thinking length against test-time performance, matching OpenAI o3-mini on math benchmarks at 32B parameters.",
+        "title": "Test-Time Scaling with Reflective Generative Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formulates test-time search as a resource-allocation problem and introduces DORA, which allocates a fixed rollout budget across reasoning directions rather than individual solutions to avoid wasting compute on over-represented directions.",
+        "title": "Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
+        "title": "What If We Allocate Test-Time Compute Adaptively?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+        "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
+        "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes how quantization, distillation, and pruning affect the reasoning versus memorization abilities of large reasoning models such as DeepSeek-R1, and proposes protecting a small subset of weights to recover accuracy under quantization.",
+        "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T13:55:52Z",
+  "created_at": "2026-08-20T13:55:16Z",
+  "instructions": "Write the wiki definition for 'AIME 2024'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "AIME 2024",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "AIME 2024",
+    "source_count": 15
+  },
+  "result": {
+    "aliases": [
+      "AIME24",
+      "AIME2024"
+    ],
+    "definition": "The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive's 15 sources for evaluating test-time-compute and reasoning-length methods: compute-balanced routing (CoBa), verifier-free self-correction, rollout pruning, PRM-guided adaptive allocation, sparse decoding, budget-aware conformal scaling (ATTS), CoT trimming (TrimR), and studies of overthinking, sampling efficiency, reasoning-graph structure, and compression effects. Note: previously fragmented across three separately-spelled wiki entries (AIME24, AIME2024, AIME 2024) -- merged into this one after a 2026-08-20 pipeline fix.",
+    "kind": "dataset",
+    "related": [
+      "AIME 2025",
+      "AMC23",
+      "GPQA Diamond"
+    ]
+  },
+  "task_id": "concept__aime-2024",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

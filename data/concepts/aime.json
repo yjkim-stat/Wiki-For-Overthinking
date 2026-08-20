@@ -1,0 +1,92 @@
+{
+  "aliases": [
+    "AIME 2024",
+    "AIME 2025",
+    "AIME24",
+    "AIME25",
+    "AIME2024",
+    "AIME2025",
+    "AIME'25"
+  ],
+  "definition": "The American Invitational Mathematics Examination, used throughout the archive's sources (unspecified year in this entry) as a standard hard competition-math benchmark. Under this exact spelling, the 5 sources use it to evaluate: self-braking tuning, the foundational overthinking paper, meta-RL test-time-compute optimization, reasoning-step pruning (LIMOPro), and Kinetics' reworked test-time scaling law. Note: the archive's wiki tracks this exam under at least 8 separate near-duplicate entries by exact spelling that were never merged -- this is the same underlying exam split into fragmented wiki notes.",
+  "evidence": [
+    {
+      "id": "title:2b17dd2ef08b6fa4",
+      "kind": "paper",
+      "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+      "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning"
+    },
+    {
+      "id": "title:7805f8ec24eadc13",
+      "kind": "paper",
+      "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
+      "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models"
+    },
+    {
+      "id": "title:86af300fcc089e57",
+      "kind": "paper",
+      "note": "Casts test-time compute optimization as a meta reinforcement learning problem and fine-tunes reasoning models with an information-gain-based dense reward so each block of reasoning measurably progresses toward the answer.",
+      "title": "Optimizing Test-Time Compute via Meta Reinforcement Finetuning"
+    },
+    {
+      "id": "title:f14f82d5eba9e811",
+      "kind": "paper",
+      "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+      "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling"
+    },
+    {
+      "id": "title:fe7ecea333b91370",
+      "kind": "paper",
+      "note": "Reworks test-time scaling laws to account for memory-access cost alongside compute, finding a 14B-parameter threshold below which test-time compute is less effective, and shows sparse attention substantially improves accuracy under a fixed test-time budget.",
+      "title": "Kinetics: Rethinking Test-Time Scaling Law"
+    }
+  ],
+  "first_seen": "2026-08-20T12:10:00Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "AIME",
+  "related": [
+    "overthinking",
+    "redundant-reasoning-steps",
+    "self-regulated-reasoning-termination",
+    "adaptive-reasoning-length",
+    "braking-prompt-mechanism",
+    "self-braking-tuning-sbt",
+    "overthinking-identification-metrics",
+    "amc",
+    "math-500",
+    "gsm8k",
+    "outcome-and-process-efficiency-metrics",
+    "self-training-for-reasoning-length-reduction",
+    "self-training-preference-based",
+    "outcome-process-efficiency-metrics",
+    "gpqa",
+    "test-time-compute-as-meta-reinforcement-learning",
+    "exploration-exploitation-in-reasoning",
+    "cumulative-regret-as-an-efficiency-metric",
+    "information-gain-reward",
+    "mrt-meta-reinforcement-fine-tuning",
+    "progressive-reasoning",
+    "functional-reasoning-elements",
+    "chain-of-thought-distillation",
+    "step-importance-estimation",
+    "pir-perplexity-based-importance-refinement",
+    "gpqa-diamond",
+    "kinetics-scaling-law",
+    "memory-access-bottleneck",
+    "sparse-attention",
+    "compute-optimality-vs-practical-efficiency",
+    "best-of-n-sampling-analysis",
+    "livecodebench"
+  ],
+  "related_authored": [
+    "amc",
+    "gpqa-diamond",
+    "math-500"
+  ],
+  "schema_version": 1,
+  "slug": "aime",
+  "topics": [
+    "overthinking"
+  ]
+}

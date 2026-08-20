@@ -1,0 +1,35 @@
+{
+  "concepts": [
+    "exploration collapse",
+    "entropy imbalance across layers",
+    "depth-conditioned decoding"
+  ],
+  "contributions": [
+    "Identifies 'exploration collapse' in RL-post-trained reasoning models, where temperature-based sampling fails to boost performance",
+    "Identifies an entropy imbalance: final-layer predictions have markedly lower entropy than intermediate-layer predictions",
+    "Proposes Latent Exploration Decoding (LED), a training-free, parameter-free depth-conditioned decoding strategy that aggregates intermediate posteriors via cumulative sum and selects the depth with maximal entropy as an exploration candidate"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:45Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "LED aggregates the model's intermediate-layer output posteriors via a cumulative sum across depth, and at each decoding step selects the depth configuration with maximal entropy as the exploration candidate, instead of relying only on the final layer's (lower-entropy) distribution. It requires no additional training or parameters.",
+  "methods": [
+    "Latent Exploration Decoding (LED)"
+  ],
+  "one_liner": "Introduces a training-free decoding method that restores exploration in RL-post-trained reasoning models by sampling from the intermediate layer with maximal entropy rather than only the final layer.",
+  "paper_id": "title:6dbcef192c93a1b8",
+  "problem": "Reasoning models trained with reinforcement learning suffer 'exploration collapse', where standard temperature-based sampling at the final layer fails to improve performance, traced to an entropy imbalance between final-layer and intermediate-layer predictions.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential to the length/stopping-point focus of the topic. LED addresses sampling diversity across multiple generated solutions (pass@1 and pass@16) after RL post-training, i.e. exploration collapse in breadth-wise test-time sampling, rather than controlling the length of a single reasoning chain or when a model should stop or keep going within one chain."
+  },
+  "results": "LED improves pass@1 accuracy by 0.61 percentage points and pass@16 accuracy by 1.03 percentage points on average across multiple reasoning benchmarks and models.",
+  "schema_version": 1,
+  "tags": [
+    "exploration",
+    "decoding",
+    "entropy",
+    "reasoning-diversity"
+  ]
+}

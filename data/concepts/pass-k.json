@@ -1,0 +1,65 @@
+{
+  "aliases": [
+    "Pass@k"
+  ],
+  "definition": "The fraction of problems a model solves correctly in at least one of K independent samples, used to measure a model's capability ceiling under parallel test-time compute, as distinct from Pass@1's single-sample accuracy. The on-policy-distillation study uses pass@K/avg@K analysis to show distillation improves sampling efficiency at small K but not the capability boundary at large K; 'The Danger of Overthinking' uses it to evaluate agentic SWE-bench solutions.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
+      "id": "local:9f60265e5ada34cb",
+      "kind": "paper",
+      "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
+      "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "pass@K",
+  "related": [
+    "on-policy-distillation-opd",
+    "pass-k-vs-avg-k-as-complementary-test-time-scaling-diagnostics",
+    "capability-boundary-vs-sampling-efficiency",
+    "problem-level-solvability-transitions-retained-learned-forgotten",
+    "illusory-distillation",
+    "off-policy-distillation",
+    "reverse-kl-top-k-token-distillation",
+    "eopd",
+    "exopd",
+    "direct-opd",
+    "forward-kl-variant",
+    "avg-k",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "aime-2026",
+    "dapo-math-17k-opd-training-set",
+    "overthinking",
+    "reasoning-action-dilemma",
+    "analysis-paralysis",
+    "rogue-actions",
+    "premature-disengagement",
+    "test-time-compute-scaling",
+    "reasoning-effort",
+    "codeact-agent-scaffolding",
+    "openhands-framework",
+    "llm-as-a-judge-claude-3-5-sonnet",
+    "native-function-calling",
+    "lowest-overthinking-k",
+    "swe-bench-verified"
+  ],
+  "related_authored": [
+    "pass-1",
+    "best-of-n-sampling"
+  ],
+  "schema_version": 1,
+  "slug": "pass-k",
+  "topics": [
+    "overthinking"
+  ]
+}

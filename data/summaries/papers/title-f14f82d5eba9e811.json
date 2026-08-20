@@ -1,0 +1,42 @@
+{
+  "concepts": [
+    "overthinking",
+    "progressive reasoning",
+    "functional reasoning elements",
+    "chain-of-thought distillation",
+    "step importance estimation"
+  ],
+  "contributions": [
+    "PIR (Perplexity-based Importance Refinement), a framework that scores each reasoning step's importance by its impact on answer prediction confidence",
+    "A method to selectively prune low-importance functional reasoning steps (verification, alternative approaches, error correction) while preserving the progressive reasoning path",
+    "Refined CoT training data (LIMOPro) that yields models with more concise reasoning chains and improved accuracy after fine-tuning"
+  ],
+  "datasets": [
+    "AIME",
+    "AMC",
+    "GPQA Diamond"
+  ],
+  "generated_at": "2026-08-20T12:23:49Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "Reasoning chains distilled from large reasoning models are split into progressive reasoning (the essential solution path) and functional elements (verification, alternative solutions, error correction). PIR quantifies each step's importance via its effect on answer prediction confidence (perplexity-based), then prunes low-importance functional steps while keeping all progressive reasoning steps, producing refined training data. Models are then fine-tuned on this pruned data.",
+  "methods": [
+    "PIR (Perplexity-based Importance Refinement)",
+    "chain-of-thought distillation"
+  ],
+  "one_liner": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+  "paper_id": "title:f14f82d5eba9e811",
+  "problem": "Chain-of-thought traces distilled from large reasoning models mix an essential progressive reasoning path with functional elements (verification, alternative solutions, error correction) that inflate token usage at test time; removing verbosity indiscriminately risks cutting reasoning that matters.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Addresses overthinking directly by distinguishing which parts of a reasoning trace are load-bearing (progressive reasoning) versus verbose overhead (functional elements), and by selectively pruning only the latter from training data so fine-tuned models produce shorter, still-accurate reasoning at test time."
+  },
+  "results": "Models fine-tuned on PIR-refined data show +0.9% to +6.6% accuracy gains and -3% to -41% token usage reductions across AIME, AMC, and GPQA Diamond, with the approach generalizing across model sizes, data sources, and token budgets.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "chain-of-thought-pruning",
+    "test-time-scaling",
+    "reasoning-efficiency"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:22:19Z",
+  "created_at": "2026-08-20T12:20:08Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:b6e7ba6c24dddb51",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "adaptive compression"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Robust Federated Learning Against Adaptive Compression",
+    "url": "https://icml.cc/virtual/2026/poster/61991",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "federated learning",
+      "gradient compression",
+      "parameter-free optimization",
+      "error feedback",
+      "biased compression"
+    ],
+    "contributions": [
+      "ParFreFL, a communication-efficient parameter-free federated learning algorithm that halves the communication requirements of PAdaMFed",
+      "ComParFreFL, which adds momentum and error feedback to support biased gradient compression without needing to know the compression ratio in advance",
+      "Convergence guarantees under arbitrary data heterogeneity, partial client participation, and linear speedup"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "The paper studies federated learning with communication compression: ParFreFL removes the need for manual learning-rate tuning while cutting communication cost relative to PAdaMFed, and ComParFreFL extends it with momentum and error-feedback so that clients can use biased gradient compressors of unknown or adaptively changing compression ratio while retaining convergence guarantees.",
+    "methods": [
+      "ParFreFL",
+      "ComParFreFL",
+      "PAdaMFed (baseline)"
+    ],
+    "one_liner": "Proposes parameter-free federated learning algorithms (ParFreFL, ComParFreFL) that stay robust to biased, adaptive gradient compression while cutting communication cost.",
+    "problem": "Federated learning needs communication-efficient optimization that does not require expert hyperparameter tuning and remains robust when clients use biased compressors whose compression ratio may vary or be unknown, under heterogeneous data and partial client participation.",
+    "relevance": {
+      "overthinking": "Tangential: this is a federated-learning optimization paper about compressing gradient/parameter communication between clients and a server. It only shares the generic phrase 'adaptive compression' with the topic's keyword list; it says nothing about reasoning chains, large reasoning models, or the length/stopping of test-time inference."
+    },
+    "results": "Claims ParFreFL halves the communication requirement of PAdaMFed while matching its automatic parameter-tuning behavior, and states ComParFreFL is the first algorithm in the compressed FL literature to achieve robustness independent of the compression ratio, with linear speedup under partial participation and heterogeneous data.",
+    "tags": [
+      "federated-learning",
+      "gradient-compression",
+      "communication-efficiency",
+      "tangential"
+    ]
+  },
+  "task_id": "paper__title-b6e7ba6c24dddb51",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

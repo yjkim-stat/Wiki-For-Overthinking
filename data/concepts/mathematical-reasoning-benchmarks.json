@@ -1,0 +1,47 @@
+{
+  "aliases": [],
+  "definition": "The umbrella category of competition-math evaluation sets (AIME, AMC, MATH, MATH-500, HMMT, GPQA) the archive's sources use to measure test-time-compute and reasoning-length methods. BG-MCTS's budget-aware tree search and 'Reasoning Models Hallucinate More' both evaluate their methods on this class of benchmark.",
+  "evidence": [
+    {
+      "id": "title:20270e5fc6210ea6",
+      "kind": "paper",
+      "note": "Proposes a budget-aware Monte Carlo Tree Search policy (BG-MCTS) that reallocates exploration versus refinement as a fixed per-query token budget is consumed, for test-time scaling of LLMs.",
+      "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs"
+    },
+    {
+      "id": "title:99b7eabb818cb959",
+      "kind": "paper",
+      "note": "Shows that RL fine-tuning for reasoning increases hallucination and proposes FSPO, a step-wise factuality-verified RL objective that reduces it while improving accuracy.",
+      "title": "Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T12:20:08Z",
+  "name": "mathematical reasoning benchmarks",
+  "related": [
+    "fixed-token-budget",
+    "budget-aware-tree-search",
+    "test-time-scaling",
+    "budget-guided-mcts-bg-mcts",
+    "monte-carlo-tree-search",
+    "tree-search-decoding",
+    "a-physics-reasoning-benchmark",
+    "rl-training-dynamics",
+    "hallucination",
+    "step-wise-factuality-verification",
+    "factuality-aware-step-wise-policy-optimization-fspo",
+    "token-level-advantage-shaping",
+    "hallucination-benchmarks"
+  ],
+  "related_authored": [
+    "aime",
+    "math-500",
+    "gpqa-diamond"
+  ],
+  "schema_version": 1,
+  "slug": "mathematical-reasoning-benchmarks",
+  "topics": [
+    "overthinking"
+  ]
+}

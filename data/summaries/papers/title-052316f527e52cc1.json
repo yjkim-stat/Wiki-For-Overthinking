@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "pluralistic alignment",
+    "Nash equilibrium",
+    "multi-output preference alignment"
+  ],
+  "contributions": [
+    "Formalizes universal alignment as (k,f(k))-robust alignment, requiring a k-output model to achieve win rate f(k) against any single-output alternative",
+    "Proves symmetric policies can achieve the optimal convergence rate f(k)=k/(k+1), and that this rate cannot be surpassed in general",
+    "Proposes symmetric multi-player alignment games whose Nash equilibrium policies achieve optimal robust alignment",
+    "Shows existing methods such as Nash learning from human feedback collapse to a single majority-preferred response, making additional samples redundant"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:13:18Z",
+  "generated_by": "queue",
+  "limitations": "Only summarized from the poster/abstract page; the paper appears primarily theoretical and no empirical benchmark details, model list, or dataset were available from the summarized source.",
+  "method": "Defines (k,f(k))-robust alignment as a game between a k-output policy and a single-output baseline judged by human/user preference. Formulates symmetric multi-player alignment games and shows their Nash equilibrium policies attain the provably optimal win-rate convergence rate as the number of candidate outputs k grows, while preserving output diversity rather than collapsing to a single majority-preferred answer.",
+  "methods": [
+    "(k,f(k))-robust alignment",
+    "symmetric multi-player alignment games",
+    "Nash equilibrium policies"
+  ],
+  "one_liner": "Formalizes and proves optimal convergence rates for 'universal alignment,' where a model offers k candidate responses to serve users with diverse preferences, using a game-theoretic (Nash equilibrium) framework.",
+  "paper_id": "title:052316f527e52cc1",
+  "problem": "How to align a language model to serve users with diverse, sometimes conflicting preferences by offering multiple candidate outputs, without the model collapsing to a single majority-preferred response as existing methods (e.g. Nash learning from human feedback) do.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Only tangentially related: 'test-time scaling' here means generating k candidate output responses for a user to choose among, as a mechanism for preference diversity and alignment. It is a game-theoretic alignment framework, not a study of chain-of-thought reasoning length, when a model should stop reasoning, or the accuracy/efficiency tradeoff of longer thinking traces."
+  },
+  "results": "Proves the optimal robust-alignment convergence rate is f(k)=k/(k+1) for symmetric policies and that it cannot be exceeded in general; shows Nash learning from human feedback collapses to a single response regardless of k, unlike the proposed symmetric game approach which preserves diversity.",
+  "schema_version": 1,
+  "tags": [
+    "alignment",
+    "game-theory",
+    "nash-equilibrium",
+    "diversity",
+    "test-time-scaling"
+  ]
+}

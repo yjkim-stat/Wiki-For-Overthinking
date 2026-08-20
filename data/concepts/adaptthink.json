@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "definition": "A length-based reward-shaping reinforcement-learning method for controlling reasoning length. OptimalThinkingBench tests it as one of five overthinking mitigations, where it cuts thinking tokens on math questions by up to 82% but only 37% on non-math questions, and is noted as the one tested method that improves both the over- and under-thinking sub-benchmarks together. TRAAC uses it as its strongest RL baseline (40.3% accuracy at 6.8k tokens on AIME/AMC/GPQA-D/BBEH, versus TRAAC's 48.2% at 4.8k tokens).",
+  "evidence": [
+    {
+      "id": "local:49199e3b0f694ee1",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    },
+    {
+      "id": "local:da3fbe3617acc5f8",
+      "kind": "paper",
+      "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
+      "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression"
+    },
+    {
+      "id": "title:441c8494292f11c7",
+      "kind": "paper",
+      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "AdaptThink",
+  "related": [
+    "overthinking",
+    "underthinking",
+    "test-time-compute-scaling",
+    "thinking-token-budget",
+    "accuracy-efficiency-tradeoff-of-reasoning-length",
+    "hybrid-thinking-non-thinking-models",
+    "difficulty-based-routing-between-reasoning-modes",
+    "overthinkingbench",
+    "underthinkingbench",
+    "overthinking-adjusted-accuracy-oaa",
+    "auc-oaa",
+    "f1-otb-combined-metric",
+    "llm-as-a-judge-filtering-and-evaluation",
+    "l1-length-controlled-reinforcement-learning",
+    "verithinker",
+    "model-merging",
+    "trained-difficulty-based-router-oracle-router",
+    "math-hendrycks-et-al-levels-1-2-for-ovt-math",
+    "supergpqa-72-domain-source-for-ovt-general-question-generation",
+    "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "aime-2025",
+    "hmmt-2025",
+    "under-adaptivity-failure-to-modulate-reasoning-length-with-problem-difficulty",
+    "attention-based-step-importance-scoring-from-the-think-delimiter",
+    "difficulty-adaptive-compression-rate-calibrated-by-rollout-pass-rate",
+    "uniformity-scaled-eviction-percentage",
+    "sigmoid-smoothed-length-reward",
+    "grpo-group-relative-policy-optimization",
+    "traac-attention-based-compression-module",
+    "tokenskip",
+    "l1-max",
+    "lc-r1",
+    "dapo-math-17k",
+    "aime-2022-2024",
+    "amc-2022-2023",
+    "gpqa-diamond",
+    "bbeh-big-bench-extra-hard",
+    "optimalthinkingbench-overthinkingbench-underthinkingbench",
+    "supergpqa",
+    "bbh-big-bench-hard",
+    "math-levels-1-2-for-ovt-math",
+    "reasoning-gym"
+  ],
+  "related_authored": [
+    "tokenskip",
+    "lc-r1",
+    "optimalthinkingbench",
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "adaptthink",
+  "topics": [
+    "overthinking"
+  ]
+}

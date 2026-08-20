@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "overthinking",
+    "self-verification",
+    "long-context reasoning",
+    "controllable-difficulty benchmarking"
+  ],
+  "contributions": [
+    "Introduces GrAlgoBench, a benchmark of graph algorithm problems for evaluating large reasoning models with tunable difficulty and programmatic (automatic) scoring",
+    "Shows accuracy falls below 50% once input graphs exceed 120 nodes",
+    "Identifies an overthinking phenomenon: models perform extensive self-verification that expands reasoning traces without improving accuracy"
+  ],
+  "datasets": [
+    "GrAlgoBench"
+  ],
+  "generated_at": "2026-08-20T12:13:18Z",
+  "generated_by": "queue",
+  "limitations": "Only summarized from the poster/abstract page, not the full paper, so details on model list, exact benchmark construction and statistical significance are not available here.",
+  "method": "Uses graph algorithm problems as an evaluation testbed because they allow long-context reasoning, fine-grained control of difficulty (e.g. graph size), and standardized programmatic (automatic, non-LLM-judged) evaluation. Large reasoning models are run on these graph problems across a range of sizes and the resulting traces and accuracy are analyzed.",
+  "methods": [
+    "GrAlgoBench"
+  ],
+  "one_liner": "Introduces GrAlgoBench, a graph-algorithm-problem benchmark that exposes two weaknesses of large reasoning models: accuracy collapse on long-context inputs and unproductive overthinking via excessive self-verification.",
+  "paper_id": "title:00481a9889909bb4",
+  "problem": "Whether existing evaluations adequately probe the reasoning robustness of large reasoning models on tasks with controllable difficulty and long-context demands, and what specifically causes them to fail as problems scale up.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly documents the overthinking phenomenon in large reasoning models: as graphs grow, models expand their self-verification effort without any corresponding gain in accuracy, which is a direct empirical instance of reasoning-length/accuracy decoupling that the topic tracks."
+  },
+  "results": "Accuracy falls below 50% once graphs exceed 120 nodes; degradation is attributed to execution errors, inadequate memory retention, and unnecessary reasoning loops (overthinking via ineffective self-verification).",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "benchmark",
+    "graph-algorithms",
+    "large-reasoning-models",
+    "self-verification"
+  ]
+}

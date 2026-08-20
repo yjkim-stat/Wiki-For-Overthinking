@@ -1,0 +1,64 @@
+{
+  "aliases": [
+    "best-of-n",
+    "best-of-N sampling",
+    "BoN"
+  ],
+  "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under this exact capitalization: CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query instead of a fixed N; a theoretical paper derives worse sample-complexity bounds for best-of-n than for self-consistency; and 'Less Diverse, Less Safe' finds that reducing candidate diversity within Best-of-N/MCTS search substantially raises the rate of unsafe outputs. Note: this is the same underlying method as the archive's separate 'best-of-N sampling' entry -- the wiki did not merge the two spellings.",
+  "evidence": [
+    {
+      "id": "title:03232c54fde9b57f",
+      "kind": "paper",
+      "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
+      "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning"
+    },
+    {
+      "id": "title:27bc5c2aff7ebdab",
+      "kind": "paper",
+      "note": "A theoretical paper deriving sample-complexity bounds for self-consistency versus best-of-n, and an expressiveness result showing self-correction lets a Transformer simulate online learning over multiple tasks at test time.",
+      "title": "Sample Complexity and Representation Ability of Test-time Scaling Paradigms"
+    },
+    {
+      "id": "title:abd61e399170fa2c",
+      "kind": "paper",
+      "note": "Shows that test-time-scaling methods such as Monte Carlo Tree Search and Best-of-N become substantially more likely to produce unsafe outputs when candidate diversity is curtailed, using a diagnostic protocol called RefDiv.",
+      "title": "Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T12:20:08Z",
+  "name": "Best-of-N",
+  "related": [
+    "confidence-calibration",
+    "adaptive-test-time-compute",
+    "self-consistency",
+    "early-stopping",
+    "self-calibration",
+    "cats",
+    "cats-sc",
+    "confidence-based-early-stopping",
+    "mathqa",
+    "eight-other-datasets-nine-total-not-individually-named-in-the-summarized-source",
+    "best-of-n-sampling",
+    "self-correction-with-verifier-feedback",
+    "sample-complexity",
+    "transformer-expressiveness",
+    "online-learning-over-a-pool-of-experts",
+    "test-time-scaling",
+    "candidate-diversity",
+    "safety-risk",
+    "adversarial-robustness",
+    "refdiv",
+    "monte-carlo-tree-search"
+  ],
+  "related_authored": [
+    "best-of-n-sampling",
+    "test-time-compute-scaling"
+  ],
+  "schema_version": 1,
+  "slug": "best-of-n",
+  "topics": [
+    "overthinking"
+  ]
+}

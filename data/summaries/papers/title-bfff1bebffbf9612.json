@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "logic puzzle benchmarking",
+    "long-tail generalization",
+    "rule generalization",
+    "memorization vs reasoning"
+  ],
+  "contributions": [
+    "HardcoreLogic, a benchmark of over 5,000 puzzles across 10 games designed to test LRM robustness on long-tail, non-canonical logic puzzle variants",
+    "A systematic transformation methodology along three axes: Increased Complexity, Uncommon Elements, and Unsolvable Puzzles",
+    "An error analysis of solvable and unsolvable puzzles showing gaps between genuine rule-following and memorized solution patterns"
+  ],
+  "datasets": [
+    "HardcoreLogic (introduced)"
+  ],
+  "generated_at": "2026-08-20T12:22:20Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "HardcoreLogic transforms canonical logic puzzles (e.g., 9x9 Sudoku and other games) along three dimensions - Increased Complexity, Uncommon Elements, and Unsolvable Puzzles - to reduce the chance that a model can succeed by shortcut memorization of familiar formats, then evaluates a diverse set of large reasoning models on the resulting 5,000+ puzzles across 10 games.",
+  "methods": [
+    "HardcoreLogic benchmark construction",
+    "puzzle transformation (IC/UE/UP axes)"
+  ],
+  "one_liner": "HardcoreLogic is a 5,000+ puzzle benchmark across 10 logic games that exposes how much LRM puzzle-solving relies on memorized canonical formats rather than genuine rule application.",
+  "paper_id": "title:bfff1bebffbf9612",
+  "problem": "It is unclear whether large reasoning models genuinely apply logical rules to varying conditions or merely succeed on popular puzzle benchmarks (like standard Sudoku) by memorizing canonical formats and solution patterns, which existing corpora do not distinguish.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential: the paper matched only on the generic phrase 'large reasoning model.' It studies whether LRMs generalize logical rules to novel puzzle variants versus relying on memorization, which is a question about reasoning correctness/robustness, not about reasoning length, the accuracy/efficiency tradeoff, or when models should stop or keep computing at test time."
+  },
+  "results": "Evaluations across a diverse set of LRMs show significant performance drops on HardcoreLogic even for models that score highly on existing puzzle benchmarks; increased complexity is reported as the dominant source of difficulty, but models also struggle with subtle rule variations that do not necessarily raise puzzle difficulty.",
+  "schema_version": 1,
+  "tags": [
+    "logic-puzzles",
+    "benchmark",
+    "generalization",
+    "tangential"
+  ]
+}

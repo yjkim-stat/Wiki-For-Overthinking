@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "compute-optimal scaling",
+    "multi-stage task decomposition",
+    "model and budget allocation"
+  ],
+  "contributions": [
+    "Defines the problem of test-time compute-optimal scaling for multi-stage complex tasks: selecting a suitable model and compute budget per subtask",
+    "Reports three empirical insights on LLM behavior in multi-stage tasks from pilot experiments across four tasks and six datasets",
+    "Proposes AgentTTS, an LLM-agent framework that iteratively searches for compute-optimal model/budget allocations via feedback from the execution environment"
+  ],
+  "datasets": [
+    "six datasets across four tasks (not individually named in abstract)"
+  ],
+  "generated_at": "2026-08-20T12:06:48Z",
+  "generated_by": "queue",
+  "limitations": "Abstract does not name the specific datasets, tasks, or quantitative results (accuracy/cost numbers); scope is restricted to multi-stage pipelines with heterogeneous subtasks rather than single-model reasoning length.",
+  "method": "Studies test-time scaling (TTS) in multi-stage complex tasks composed of heterogeneous subtasks, each needing a model of specific capability. Because brute-force search over the combinatorial space of model and budget allocations is impractical and optimal choices across subtasks are interdependent, the paper runs pilot experiments to derive empirical insights, then builds AgentTTS: an LLM-agent-based framework that autonomously searches for compute-optimal model and budget allocations through iterative feedback-driven interaction with the task execution environment.",
+  "methods": [
+    "AgentTTS (LLM-agent search framework)"
+  ],
+  "one_liner": "Proposes an LLM-agent framework, AgentTTS, that searches for the compute-optimal choice of model and inference budget per subtask in multi-stage complex tasks.",
+  "paper_id": "title:f3f44348f8094543",
+  "problem": "Existing test-time scaling research targets single-stage tasks, but many real tasks are multi-stage pipelines of heterogeneous subtasks each needing a different model and budget; searching the combinatorial, interdependent space of model/budget allocations per subtask is impractical by brute force.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Uses the phrase 'test-time scaling' but addresses a different problem: allocating which model and how much inference budget to assign to each subtask in a multi-stage pipeline, not the accuracy/efficiency tradeoff of a single model's reasoning length or when it should stop thinking. Only tangentially related to overthinking as tracked here."
+  },
+  "results": "AgentTTS is reported to significantly outperform traditional and other LLM-based baselines in search efficiency, with improved robustness to varying training set sizes and enhanced interpretability; no specific accuracy or cost numbers are given in the abstract.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "multi-stage-tasks",
+    "agent-orchestration",
+    "compute-allocation"
+  ]
+}

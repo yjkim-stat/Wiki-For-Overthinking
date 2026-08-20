@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "task vector",
+    "null-space projection",
+    "model merging",
+    "thinking-format preservation"
+  ],
+  "contributions": [
+    "Finds that the principal subspaces of an instruction-tuned model's (ITM) and a large reasoning model's (LRM) task vectors are nearly orthogonal across key modules",
+    "Shows naive merging of ITM and LRM is fragile because it overlooks the output-format mismatch between LRM (thinking + response) and ITM (answer-only) outputs",
+    "Introduces RAIN-Merging: a gradient-free method that projects the ITM task vector onto the null space of forward features at thinking special tokens, then applies instruction-attention-derived module-specific scaling"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-20T12:18:50Z",
+  "generated_by": "queue",
+  "limitations": "",
+  "method": "RAIN-Merging integrates an instruction-tuned model (ITM) into a large reasoning model (LRM) via parameter-space merging rather than fine-tuning. Using a small reasoning calibration set, it projects the ITM's task vector onto the null space of forward features computed at the LRM's thinking special tokens, which preserves the LRM's structured reasoning mechanism. Using a small instruction calibration set, it then estimates instruction attention to derive module-specific scaling factors that amplify instruction-relevant components of the merge and suppress leakage into the reasoning pathway.",
+  "methods": [
+    "RAIN-Merging",
+    "null-space projection",
+    "task-vector merging"
+  ],
+  "one_liner": "A gradient-free model-merging method that integrates an instruction-tuned model into a large reasoning model to improve instruction following while preserving the reasoning model's thinking format and quality.",
+  "paper_id": "title:6efe3d418b4ef980",
+  "problem": "Large reasoning models produce long chains of reasoning but often fail to faithfully follow instructions about output format or constraints, and naively merging in an instruction-tuned model disrupts the reasoning model's distinct thinking-then-answer output format.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Tangential -- shares only the generic 'large reasoning model' keyword. The paper is about merging in instruction-following ability while preserving the format of the thinking segment, not about the length of reasoning, when to stop or continue thinking, or the accuracy/efficiency tradeoff of test-time compute."
+  },
+  "results": "Across four instruction-following benchmarks and nine reasoning and general-capability benchmarks, RAIN-Merging substantially improves instruction adherence while maintaining reasoning quality, with gains consistent across model scales and architectures and improved performance in agent settings; exact figures are not given in the available material.",
+  "schema_version": 1,
+  "tags": [
+    "model-merging",
+    "instruction-following",
+    "large-reasoning-model",
+    "task-vectors"
+  ]
+}

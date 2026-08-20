@@ -1,0 +1,90 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:19:19Z",
+  "created_at": "2026-08-20T12:15:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:914a66aec4e7af2f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Efficient Test-Time Scaling via Hierarchical Search and Self-Verification for Discrete Diffusion Language Models",
+    "url": "https://icml.cc/virtual/2026/poster/64102",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling for diffusion LMs",
+      "denoising trajectory search",
+      "self-verification"
+    ],
+    "contributions": [
+      "Introduces LLaDA-S, a test-time scaling framework designed for discrete diffusion language models rather than autoregressive models",
+      "Hierarchical Trajectory Search prunes and reallocates compute across an early-to-mid denoising window",
+      "Self-Verified Feedback replaces an external verifier with self-evaluation prompts scoring intermediate completions",
+      "Local Branching with Partial Remasking explores alternative completions while preserving high-confidence tokens",
+      "Matches best-of-N accuracy with substantially fewer function evaluations"
+    ],
+    "datasets": [],
+    "limitations": "",
+    "method": "LLaDA-S combines three components: Hierarchical Trajectory Search, which dynamically prunes and reallocates compute during an early-to-mid denoising window to focus on promising generation paths; Self-Verified Feedback, which scores intermediate completions using the model's own self-evaluation prompts instead of an external verifier; and Local Branching with Partial Remasking, which explores diverse continuations while keeping high-confidence tokens fixed. Together these adapt test-time scaling to the parallel, whole-sequence decoding used by discrete diffusion language models.",
+    "methods": [
+      "LLaDA-S",
+      "Hierarchical Trajectory Search",
+      "Self-Verified Feedback",
+      "Local Branching with Partial Remasking"
+    ],
+    "one_liner": "Introduces LLaDA-S, a hierarchical-search-and-self-verification test-time scaling framework for discrete diffusion language models that matches best-of-N accuracy with fewer function evaluations.",
+    "problem": "Test-time scaling methods built for autoregressive models are ill-suited to discrete diffusion language models (dLLMs) because dLLMs decode the entire sequence in parallel rather than token-by-token, so standard step-by-step search and verification strategies do not transfer.",
+    "relevance": {
+      "overthinking": "Tangential: this is a genuine test-time compute/accuracy tradeoff method, but it targets discrete diffusion language models' parallel denoising process (how to allocate search over denoising steps), not chain-of-thought length in autoregressive large reasoning models. It does not address overthinking, underthinking, or when a model should stop reasoning."
+    },
+    "results": "Matches best-of-N performance with substantially fewer function evaluations on mathematical reasoning and code generation benchmarks, tested on LLaDA 8B, Dream 7B, and LLaDA 2.0-mini.",
+    "tags": [
+      "diffusion-lm",
+      "test-time-scaling",
+      "search",
+      "self-verification"
+    ]
+  },
+  "task_id": "paper__title-914a66aec4e7af2f",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

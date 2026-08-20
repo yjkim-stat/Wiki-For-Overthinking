@@ -1,0 +1,34 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:2c3f455590b79024",
+      "kind": "paper",
+      "note": "AsyncSpade speeds up decoding of long chain-of-thought generations by predicting query states from recent patterns and running sparse KV-cache selection asynchronously alongside decoding, cutting per-token latency without hurting accuracy.",
+      "title": "AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding"
+    }
+  ],
+  "first_seen": "2026-08-20T12:15:21Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T13:53:52Z",
+  "name": "sparse attention decoding",
+  "related": [
+    "kv-cache-memory-bound-decoding-bottleneck",
+    "query-state-approximation-from-temporal-patterns",
+    "asynchronous-kv-cache-selection",
+    "asyncspade",
+    "temporal-regressive-query-prediction",
+    "asynchronous-sparse-kv-cache-selection",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "math-500"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "sparse-attention-decoding",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "aliases": [],
+  "definition": "A finding, or a task designed to produce one, where a model performs worse as it is given more of some resource -- more parameters, or more test-time reasoning -- rather than better. The archive holds two distinct sources under this name: 'Inverse Scaling in Test-Time Compute' constructs tasks where letting large reasoning models think longer degrades accuracy or safety-relevant behavior; the original 'Inverse Scaling: When Bigger Isn't Better' (Inverse Scaling Prize) instead reports 11 tasks where accuracy declines with model parameter count, an unrelated axis of scaling.",
+  "evidence": [
+    {
+      "id": "local:018eb3ee241c1a69",
+      "kind": "paper",
+      "note": "Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.",
+      "title": "Inverse Scaling in Test-Time Compute"
+    },
+    {
+      "id": "title:cb7f41c5af287a91",
+      "kind": "paper",
+      "note": "Reports 11 tasks, found via the Inverse Scaling Prize contest, on which language model accuracy declines as model parameter count and training compute increase, and analyzes why.",
+      "title": "Inverse Scaling: When Bigger Isn't Better"
+    }
+  ],
+  "first_seen": "2026-08-20T11:35:54Z",
+  "kind": "concept",
+  "last_seen": "2026-08-20T12:24:12Z",
+  "name": "inverse scaling",
+  "related": [
+    "test-time-compute-scaling",
+    "overthinking",
+    "controlled-vs-natural-overthinking",
+    "distraction-by-irrelevant-context",
+    "spurious-feature-correlation",
+    "constraint-tracking-deduction",
+    "self-preservation-model-written-safety-evaluations",
+    "controlled-overthinking-prompted-reasoning-budget-setup",
+    "natural-overthinking-unconstrained-sampled-reasoning",
+    "few-shot-correction-of-spurious-feature-reliance",
+    "model-written-evaluations-mwe-for-safety-behavior",
+    "misleading-math-custom-2-500-questions",
+    "misleading-python-custom-2-500-questions",
+    "misleading-math-famous-paradoxes-custom-812-questions",
+    "grades-regression-adapted-from-a-public-kaggle-student-lifestyle-dataset",
+    "zebra-puzzles-bbeh-big-bench-extra-hard-adapted-from-shah-et-al-2024-200-puzzles",
+    "model-written-evaluations-advanced-ai-risk-human-generated-subset-perez-et-al-20",
+    "u-shaped-scaling",
+    "scaling-laws",
+    "inverse-scaling-prize-task-suite-11-datasets"
+  ],
+  "related_authored": [
+    "test-time-compute-scaling",
+    "overthinking"
+  ],
+  "schema_version": 1,
+  "slug": "inverse-scaling",
+  "topics": [
+    "overthinking"
+  ]
+}

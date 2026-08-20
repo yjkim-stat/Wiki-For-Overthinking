@@ -1,0 +1,88 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:06:48Z",
+  "created_at": "2026-08-20T12:01:44Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:f3f44348f8094543",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Test-time scaling (TTS) enhances the performance of large language models (LLMs) by allocating additional compute resources during inference. However, existing research primarily investigates TTS in single-stage tasks; while many real-world problems are multi-stage complex tasks, composed of a sequence of heterogeneous subtasks with each subtask requires LLM of specific capability. Therefore, we study a novel problem: the test-time compute-optimal scaling in multi-stage complex tasks, aiming to select suitable models and allocate budgets per subtask to maximize overall performance. TTS in multi-stage tasks introduces two fundamental challenges: (i) The combinatorial search space of model and budget allocations, combined with the high cost of inference, makes brute-force search impractical. (ii) The optimal model and budget allocations across subtasks are interdependent, increasing the complexity of the compute-optimal search. To address this gap, we conduct extensive pilot experiments on four tasks across six datasets, deriving three empirical insights characterizing the behavior of LLMs in multi-stage complex tasks. Informed by these insights, we propose AgentTTS, an LLM-agent-based framework that autonomously searches for compute-optimal allocations through iterative feedback-driven interactions with the execution environment. Experimental results demonstrate that AgentTTS significantly outperforms traditional and other LLM-based baselines in search efficiency, and shows improved robustness to varying training set sizes and enhanced interpretability.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks",
+    "url": "https://neurips.cc/virtual/2025/poster/119334",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "compute-optimal scaling",
+      "multi-stage task decomposition",
+      "model and budget allocation"
+    ],
+    "contributions": [
+      "Defines the problem of test-time compute-optimal scaling for multi-stage complex tasks: selecting a suitable model and compute budget per subtask",
+      "Reports three empirical insights on LLM behavior in multi-stage tasks from pilot experiments across four tasks and six datasets",
+      "Proposes AgentTTS, an LLM-agent framework that iteratively searches for compute-optimal model/budget allocations via feedback from the execution environment"
+    ],
+    "datasets": [
+      "six datasets across four tasks (not individually named in abstract)"
+    ],
+    "limitations": "Abstract does not name the specific datasets, tasks, or quantitative results (accuracy/cost numbers); scope is restricted to multi-stage pipelines with heterogeneous subtasks rather than single-model reasoning length.",
+    "method": "Studies test-time scaling (TTS) in multi-stage complex tasks composed of heterogeneous subtasks, each needing a model of specific capability. Because brute-force search over the combinatorial space of model and budget allocations is impractical and optimal choices across subtasks are interdependent, the paper runs pilot experiments to derive empirical insights, then builds AgentTTS: an LLM-agent-based framework that autonomously searches for compute-optimal model and budget allocations through iterative feedback-driven interaction with the task execution environment.",
+    "methods": [
+      "AgentTTS (LLM-agent search framework)"
+    ],
+    "one_liner": "Proposes an LLM-agent framework, AgentTTS, that searches for the compute-optimal choice of model and inference budget per subtask in multi-stage complex tasks.",
+    "problem": "Existing test-time scaling research targets single-stage tasks, but many real tasks are multi-stage pipelines of heterogeneous subtasks each needing a different model and budget; searching the combinatorial, interdependent space of model/budget allocations per subtask is impractical by brute force.",
+    "relevance": {
+      "overthinking": "Uses the phrase 'test-time scaling' but addresses a different problem: allocating which model and how much inference budget to assign to each subtask in a multi-stage pipeline, not the accuracy/efficiency tradeoff of a single model's reasoning length or when it should stop thinking. Only tangentially related to overthinking as tracked here."
+    },
+    "results": "AgentTTS is reported to significantly outperform traditional and other LLM-based baselines in search efficiency, with improved robustness to varying training set sizes and enhanced interpretability; no specific accuracy or cost numbers are given in the abstract.",
+    "tags": [
+      "test-time-scaling",
+      "multi-stage-tasks",
+      "agent-orchestration",
+      "compute-allocation"
+    ]
+  },
+  "task_id": "paper__title-f3f44348f8094543",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

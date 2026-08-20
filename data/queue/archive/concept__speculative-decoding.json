@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Uses a speculative-decoding-style draft model to predict both next tokens and an early-exit signal, letting a large reasoning model stop generating once its own internal representations indicate reasoning is done.",
+        "title": "SpecExit: Accelerating Large Reasoning Model via Speculative Exit",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Benchmarks model-based, training-based and N-gram-based speculative decoding methods as ways to accelerate token generation during LLM test-time scaling (Best-of-N, iterative reasoning), finding N-gram methods best exploit repetitive patterns.",
+        "title": "Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces a recurrent-depth architecture that scales test-time compute by iterating a latent reasoning block to arbitrary depth instead of generating more chain-of-thought tokens.",
+        "title": "Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:27:49Z",
+  "created_at": "2026-08-20T12:27:00Z",
+  "instructions": "Write the wiki definition for 'speculative decoding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "speculative decoding",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "speculative decoding",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "An inference-acceleration technique where a small draft model proposes tokens that a larger target model verifies in parallel, cutting wall-clock generation time without changing what is generated. In the archive it is applied to speed up reasoning-model inference: SpecExit extends the draft model to also predict an early-exit signal, cutting generation length up to 66% at 2.5x speedup; a benchmarking paper compares model-based, training-based and N-gram-based variants as accelerators for test-time scaling; the recurrent-depth latent-reasoning paper discusses it as a related but distinct way to trade compute for quality.",
+    "kind": "method",
+    "related": [
+      "early exit",
+      "test-time compute scaling"
+    ]
+  },
+  "task_id": "concept__speculative-decoding",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

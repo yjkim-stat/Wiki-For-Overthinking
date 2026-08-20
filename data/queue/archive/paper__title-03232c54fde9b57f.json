@@ -1,0 +1,96 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-20T12:13:18Z",
+  "created_at": "2026-08-20T12:10:00Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:03232c54fde9b57f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning",
+    "url": "https://iclr.cc/virtual/2026/poster/10007848",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "confidence calibration",
+      "adaptive test-time compute",
+      "self-consistency",
+      "early stopping"
+    ],
+    "contributions": [
+      "Proposes Self-Calibration, distilling Self-Consistency-derived confidence into the model itself so it can produce reliable confidence estimates with little extra computation",
+      "Proposes CaTS, a framework that adapts the amount of test-time computation (number of sampled responses) to per-query difficulty using the calibrated confidence",
+      "Introduces a confidence-based Early Stopping variant that halts sampling once the model is sufficiently confident",
+      "Provides a theoretical guarantee that CaTS-SC outperforms vanilla self-consistency"
+    ],
+    "datasets": [
+      "MathQA",
+      "eight other datasets (nine total, not individually named in the summarized source)"
+    ],
+    "limitations": "Details on computational overhead of the calibration step, failure cases, and models beyond the three tested were not available from the summarized source (poster/abstract page rather than full text).",
+    "method": "Standard test-time scaling methods such as Best-of-N and Self-Consistency sample a fixed number of responses per query regardless of difficulty. CaTS first trains the model via Self-Calibration to internalize confidence estimates that would otherwise require running full Self-Consistency, then uses these calibrated confidence scores at inference time to decide, per query, how many samples to draw or when to stop sampling early (confidence-based Early Stopping), so easy queries use fewer samples and hard queries use more.",
+    "methods": [
+      "Self-Calibration",
+      "CaTS",
+      "CaTS-SC",
+      "confidence-based early stopping",
+      "Best-of-N",
+      "Self-Consistency"
+    ],
+    "one_liner": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
+    "problem": "Fixed-budget test-time scaling methods (Best-of-N, Self-Consistency) waste computation on easy queries and may underexplore hard ones because they sample the same number of responses regardless of query difficulty.",
+    "relevance": {
+      "overthinking": "Directly targets the topic's core question of when to stop test-time compute: it replaces fixed sampling budgets with confidence-calibrated early stopping, cutting wasted computation on easy queries while allocating more to hard ones, reported to raise MathQA accuracy from 73.7 to 83.6 at a 16-sample budget."
+    },
+    "results": "Confidence-based Early Stopping applied to Best-of-N improves MathQA accuracy from 73.7 to 83.6 at a sample budget of 16 responses; evaluated across three LLMs and nine datasets; CaTS-SC is shown, with theoretical guarantees, to outperform vanilla self-consistency.",
+    "tags": [
+      "test-time-scaling",
+      "early-stopping",
+      "calibration",
+      "self-consistency",
+      "efficiency"
+    ]
+  },
+  "task_id": "paper__title-03232c54fde9b57f",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
