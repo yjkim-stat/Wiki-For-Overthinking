@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
       "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability"
+    },
+    {
+      "id": "arxiv:2608.10462",
+      "kind": "paper",
+      "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+      "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection"
     }
   ],
   "first_seen": "2026-08-20T12:38:15Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:38:16Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "ROC analysis",
   "related": [
     "linear-representation-hypothesis",
@@ -41,12 +47,35 @@
     "face-expression-vision-transformer-fer2013",
     "dinov2",
     "clip",
-    "marlin"
+    "marlin",
+    "benchmark-contamination",
+    "membership-inference",
+    "distribution-shift",
+    "calibration",
+    "post-training",
+    "false-positive-rate",
+    "operating-point",
+    "benchmark-integrity",
+    "decontamination",
+    "data-contamination-detection",
+    "feature-calibration",
+    "prompt-variation",
+    "consensus-filtering",
+    "supervised-classification",
+    "ablation",
+    "booktection",
+    "bookmia",
+    "arxivtection",
+    "wikimia",
+    "qwen",
+    "llama",
+    "deepseek"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "roc-analysis",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

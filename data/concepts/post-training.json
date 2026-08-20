@@ -6,6 +6,12 @@
   "definition": "Any training applied after pretraining to shape behaviour, used by both sources as the stage where a property is installed cheaply. One installs safety by altering the reasoning structure with 1K supervised examples and no RL or reward design. The other adds a special token that lets the model reflect and recover mid-generation, integrating into standard post-training rather than replacing it, and reports the harmful completion rate falling from 13.8% to 4.1%. Both emphasize that the intervention composes with existing recipes, which is the practical claim: the property is added without redesigning the pipeline.",
   "evidence": [
     {
+      "id": "arxiv:2608.10462",
+      "kind": "paper",
+      "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+      "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.240",
       "kind": "paper",
       "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
@@ -20,9 +26,31 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "method",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "post-training",
   "related": [
+    "benchmark-contamination",
+    "membership-inference",
+    "distribution-shift",
+    "calibration",
+    "false-positive-rate",
+    "operating-point",
+    "benchmark-integrity",
+    "decontamination",
+    "data-contamination-detection",
+    "feature-calibration",
+    "prompt-variation",
+    "consensus-filtering",
+    "supervised-classification",
+    "roc-analysis",
+    "ablation",
+    "booktection",
+    "bookmia",
+    "arxivtection",
+    "wikimia",
+    "qwen",
+    "llama",
+    "deepseek",
     "safety-alignment",
     "reasoning-structure",
     "data-efficiency",
@@ -39,9 +67,11 @@
     "self-reflection-token",
     "adversarial-evaluation"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "post-training",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

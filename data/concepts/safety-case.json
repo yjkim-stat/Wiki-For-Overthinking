@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
       "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings"
+    },
+    {
+      "id": "arxiv:2608.10172",
+      "kind": "paper",
+      "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
+      "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "safety case",
   "related": [
     "monitorability",
@@ -23,13 +29,41 @@
     "cot-monitor",
     "nudge-manipulation",
     "system-prompt-intervention",
-    "implicit-vs-explicit-influence-benchmark-released"
+    "implicit-vs-explicit-influence-benchmark-released",
+    "identifiability",
+    "feature-consistency",
+    "sparse-dictionary-learning",
+    "non-normality",
+    "residual-stream",
+    "circuit-analysis",
+    "interpretability-illusion",
+    "detection-versus-control",
+    "feature-absorption",
+    "universality",
+    "pre-registration",
+    "koopman-operator",
+    "koopman-spectral-analysis",
+    "sparse-autoencoder",
+    "pca",
+    "activation-patching",
+    "logit-lens",
+    "median-of-means-estimation",
+    "balanced-truncation",
+    "block-bootstrap",
+    "random-fourier-features",
+    "ablation",
+    "indirect-object-identification",
+    "gpt-2-small",
+    "gemma-2-2b",
+    "qwen3-8b-base"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "safety-case",
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

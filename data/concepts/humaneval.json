@@ -18,6 +18,12 @@
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
     },
     {
+      "id": "arxiv:2608.10198",
+      "kind": "paper",
+      "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+      "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents"
+    },
+    {
       "id": "local:a1d9fa1eb8899dfc",
       "kind": "paper",
       "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
@@ -32,7 +38,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "HumanEval+",
   "related": [
     "post-training-quantization",
@@ -89,6 +95,31 @@
     "gpt-5",
     "gpt-5-nano",
     "gpt-4o",
+    "latent-communication",
+    "sparse-dictionary-learning",
+    "dead-features",
+    "feature-reuse",
+    "low-rank-approximation",
+    "compression",
+    "matched-budget-comparison",
+    "single-run-estimate",
+    "monosemanticity",
+    "sparse-autoencoder",
+    "post-hoc-probing",
+    "topk-sparse-coding",
+    "quantization",
+    "ablation",
+    "jaccard-similarity",
+    "reconstruction-error-analysis",
+    "arc-easy",
+    "arc-challenge",
+    "gpqa",
+    "medqa",
+    "aime-2024",
+    "aime-2025",
+    "qwen3-5-9b",
+    "lfm2-5-vl-1-6b",
+    "vision-wormhole",
     "overthinking",
     "early-exit",
     "pearl-reasoning",
@@ -109,8 +140,6 @@
     "chain-of-draft",
     "vllm",
     "amc23",
-    "aime-2024",
-    "aime-2025",
     "olympiadbench",
     "gpqa-diamond",
     "bigcodebench",
@@ -152,7 +181,7 @@
   "topics": [
     "reasoning-training",
     "reasoning-interpretability",
-    "test-time-scaling",
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

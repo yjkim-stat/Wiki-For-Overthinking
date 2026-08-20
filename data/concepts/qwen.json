@@ -7,6 +7,12 @@
   "definition": "An open-weight model family, and in these sources the default subject rather than a choice either of them defends. One localizes the sentences that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes on members of this family. The other is a position paper arguing that reading intermediate tokens as thinking is unsupported, and draws on work done predominantly on it. The entry is worth keeping for what it says about the archive rather than about the family: a large majority of the reasoning results collected here are measured on one lineage of open checkpoints, so a claim that holds across this archive's papers is not thereby a claim that holds across architectures.",
   "evidence": [
     {
+      "id": "arxiv:2608.10462",
+      "kind": "paper",
+      "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+      "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-srw.20",
       "kind": "paper",
       "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
@@ -21,9 +27,31 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "Qwen",
   "related": [
+    "benchmark-contamination",
+    "membership-inference",
+    "distribution-shift",
+    "calibration",
+    "post-training",
+    "false-positive-rate",
+    "operating-point",
+    "benchmark-integrity",
+    "decontamination",
+    "data-contamination-detection",
+    "feature-calibration",
+    "prompt-variation",
+    "consensus-filtering",
+    "supervised-classification",
+    "roc-analysis",
+    "ablation",
+    "booktection",
+    "bookmia",
+    "arxivtection",
+    "wikimia",
+    "llama",
+    "deepseek",
     "sycophancy",
     "commitment-boundary",
     "localization",
@@ -33,7 +61,6 @@
     "reasoning-trajectory",
     "counterfactual-rollout-analysis",
     "regression-on-activations",
-    "llama",
     "falcon-hybrid",
     "intermediate-token-generation",
     "derivational-trace",
@@ -65,10 +92,10 @@
   "schema_version": 1,
   "slug": "qwen",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "reasoning-faithfulness",
     "reasoning-interpretability",
-    "reasoning-evaluation",
     "test-time-scaling"
   ]
 }

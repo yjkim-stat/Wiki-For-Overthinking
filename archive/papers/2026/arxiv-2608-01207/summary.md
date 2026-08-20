@@ -45,7 +45,7 @@ The paper states its bounds directly. The grid is two open 7B VLMs and four auto
 
 ## Entities
 
-- **Concepts**: test-time scaling, [selection signal](../../../../wiki/concepts/selection-signal.md), decoding format, majority voting, self-consistency, [visual grounding](../../../../wiki/concepts/visual-grounding.md), label-preserving perturbation, [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md), confound control, generation-verification gap
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [selection signal](../../../../wiki/concepts/selection-signal.md), decoding format, majority voting, self-consistency, [visual grounding](../../../../wiki/concepts/visual-grounding.md), label-preserving perturbation, [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md), confound control, generation-verification gap
 - **Methods**: Perturbation-Grounded Selection, MatchedCtrl, [best-of-N](../../../../wiki/methods/best-of-n.md), confidence-weighted self-consistency, [Borda count](../../../../wiki/methods/borda-count.md), [paired bootstrap confidence intervals](../../../../wiki/methods/paired-bootstrap-confidence-intervals.md)
 - **Datasets**: TextVQA, [MATH-Vision](../../../../wiki/datasets/mathvision.md), [MMMU](../../../../wiki/datasets/mmmu.md), ViLP
 

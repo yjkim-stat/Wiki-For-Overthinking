@@ -46,7 +46,7 @@ Stated, and unusually carefully. The ConceptARC replication rules out a combined
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [in-context learning](../../../../wiki/concepts/in-context-learning.md), [implicit chain of thought](../../../../wiki/concepts/implicit-chain-of-thought.md), rule induction, [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), extrapolation, test-time scaling, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), within-task consistency, cost-accuracy frontier, [monitorability](../../../../wiki/concepts/monitorability.md)
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [in-context learning](../../../../wiki/concepts/in-context-learning.md), [implicit chain of thought](../../../../wiki/concepts/implicit-chain-of-thought.md), rule induction, [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), extrapolation, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), within-task consistency, cost-accuracy frontier, [monitorability](../../../../wiki/concepts/monitorability.md)
 - **Methods**: recurrent latent reasoning, in-context learning, recurrent memory, [Coconut](../../../../wiki/methods/coconut.md), [recurrent depth](../../../../wiki/methods/recurrent-depth.md), looped transformers, pass@k, [Wilson confidence interval](../../../../wiki/methods/wilson-confidence-interval.md), McNemar test, adaptive compute allocation
 - **Datasets**: ARC-AGI-1, ConceptARC
 

@@ -9,7 +9,7 @@ A 6B open-weight autoregressive model, used in these sources as an interpretabil
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](../methods/activation-patching.md), [causal analysis](../methods/causal-analysis.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [circuit discovery](../methods/circuit-discovery.md), [generalization](../concepts/generalization.md), [GPT-2 XL](gpt-2-xl.md), [indirect object identification](../datasets/indirect-object-identification.md), [Llama-3.1-8B](llama-3-1-8b.md), [localization](../concepts/localization.md), [memorization](../concepts/memorization.md), [modularity](../concepts/modularity.md), [Pythia-410M](pythia-410m.md)
+**Related**: [activation patching](../methods/activation-patching.md), [causal analysis](../methods/causal-analysis.md), [causal mediation analysis](../methods/causal-mediation-analysis.md), [causal tracing](../methods/causal-tracing.md), [circuit analysis](../methods/circuit-analysis.md), [circuit discovery](../methods/circuit-discovery.md), [generalization](../concepts/generalization.md), [GPT-2 small](gpt-2-small.md), [GPT-2 XL](gpt-2-xl.md), [indirect object identification](../datasets/indirect-object-identification.md), [Llama-3.1-8B](llama-3-1-8b.md), [localization](../concepts/localization.md), [memorization](../concepts/memorization.md), [modularity](../concepts/modularity.md), [Pythia-410M](pythia-410m.md)
 
 ## Appears in
 

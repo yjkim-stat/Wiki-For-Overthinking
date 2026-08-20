@@ -44,7 +44,7 @@ Not discussed in the abstract. Bounds a reader should note: the extrapolation re
 
 ## Entities
 
-- **Concepts**: test-time scaling, budget forcing, thinking budget, data curation, difficulty diversity and quality, extrapolation beyond baseline performance
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), budget forcing, thinking budget, data curation, difficulty diversity and quality, extrapolation beyond baseline performance
 - **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), s1
 - **Datasets**: s1K, [MATH](../../../../wiki/datasets/math.md), [AIME24](../../../../wiki/datasets/aime-2024.md)
 

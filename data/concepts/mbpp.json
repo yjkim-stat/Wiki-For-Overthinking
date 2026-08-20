@@ -9,6 +9,12 @@
       "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
     },
     {
+      "id": "arxiv:2608.10198",
+      "kind": "paper",
+      "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+      "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents"
+    },
+    {
       "id": "local:1fadd9f07b138261",
       "kind": "paper",
       "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-08T05:59:48Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "MBPP+",
   "related": [
     "post-training-quantization",
@@ -47,6 +53,31 @@
     "qwen3-235b-a22b",
     "bitnet-b1-58-2b4t",
     "deepseek-r1-671b",
+    "latent-communication",
+    "sparse-dictionary-learning",
+    "dead-features",
+    "feature-reuse",
+    "low-rank-approximation",
+    "compression",
+    "matched-budget-comparison",
+    "single-run-estimate",
+    "monosemanticity",
+    "sparse-autoencoder",
+    "post-hoc-probing",
+    "topk-sparse-coding",
+    "quantization",
+    "ablation",
+    "jaccard-similarity",
+    "reconstruction-error-analysis",
+    "arc-easy",
+    "arc-challenge",
+    "gpqa",
+    "medqa",
+    "aime-2024",
+    "aime-2025",
+    "qwen3-5-9b",
+    "lfm2-5-vl-1-6b",
+    "vision-wormhole",
     "deliberate-exploration",
     "elliptical-bonus",
     "diversity-bonus",
@@ -70,8 +101,6 @@
     "rlvr",
     "math",
     "game-of-24",
-    "aime-2024",
-    "aime-2025",
     "qwen2-5-7b",
     "qwen2-5-32b",
     "phi-4",
@@ -83,6 +112,7 @@
   "slug": "mbpp",
   "topics": [
     "reasoning-training",
+    "reasoning-evaluation",
     "test-time-scaling"
   ]
 }

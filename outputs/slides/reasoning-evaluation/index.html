@@ -167,6 +167,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Three things here are useful independently of the safety domain. First, it is a clean demonstration that a benchmark can separate models that aggregate benchmarks do not: a 51.3-point spread among untuned models, and two frontier systems that split the eight categories cleanly between them -- one ahead on quantitative, spatial, causal and hazard identification, the other on comparative, evidence synthesis, compliance and mitigation -- so a single overall number would have ranked them as near-equivalent and hidden a real difference in kind. That is an argument for category-macro reporting alongside micro, which this paper does and which its own results justify, since the ordering of its top three configurations changes between the two. Second, it catches a response-format shortcut with a control worth copying: the test set is balanced across answer positions, and base Qwen3.5-9B scores 52.4% when the correct option is A against 31.6-33.6% elsewhere. On an unbalanced set that model would have looked meaningfully better than chance at something it was not doing. Third, the domain analysis argues explicitly that difficulty is not determined by representation frequency -- chemical toxicology is one of the largest domains and among the hardest, while two domains of identical size differ by 12 points -- and the authors flag their own small-n outliers rather than reporting them as findings, which is the right handling. The result to treat with most care is the headline that a 9B model with chain-of-thought SFT reaches the highest micro accuracy of any system tested. It is fine-tuned on this corpus and evaluated on this corpus&#x27;s held-out split, with decontamination by sample, document, question text and image path, so it establishes that the benchmark&#x27;s question forms are learnable at 9B rather than that safety reasoning transferred. The more interesting comparison inside that result is CoT supervision against answer-only supervision on identical data, 89.0% against 75.1%, with gains concentrated in comparative and quantitative reasoning and the residual gap concentrated in hazard identification, evidence synthesis and mitigation -- consistent with the reading that explicit intermediate supervision buys procedure and not knowledge.</p>
 </section>
 <section class="slide">
+<h2>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</h2>
+<p class="subtitle">Zhen Yang, Mengqi Wang, Gengda Zhao et al. · 2026</p>
+<blockquote>
+<p>Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.</p>
+</blockquote>
+<ul>
+<li>A calibration framework applicable to existing feature-based contamination detectors rather than a replacement detector, so the post-training shift is corrected without retraining or redesigning the detector.</li>
+<li>Multi-View Shift Detection: evaluating controlled prompt variants on known non-members, prioritising views by the false-positive pressure they induce, and taking a cross-view consensus to isolate recurring shift directions from view-specific noise.</li>
+<li>Bounded Feature Correction: adjusting only the components aligned with detected shifts, with score-sensitive weights and an adaptively selected correction extent below full, on the argument that over-correction removes detection signal along with shift.</li>
+<li>An ablation set showing that the consensus step carries the most AUC and single-view restriction costs the most at the low-false-positive operating point, with the complete method ahead in 23 or 24 of 24 settings on every comparison.</li>
+</ul>
+<p><strong>Results.</strong> The improvement is real but its size depends entirely on which metric is read, and the two diverge sharply. AUC gains are small: averaged by model, 2.4 percent for Qwen, 1.7 for Llama, 2.3 for DeepSeek, with the largest benchmark-level average of 4.0 on BookMIA, and per-cell movements typically of one to three points (the strongest detector goes from 88.8 to 91.7 on one cell, 78.5 to 84.0 on another). At the 5 percent false-positive operating point the same corrections are worth several times more: the stronger detector moves from 53.6 to 68.6 on BookTection with Qwen, 45.3 to 58.0 with DeepSeek, 41.5 to 49.8 on BookMIA, and 74.8 to 81.6 on WikiMIA, while the weaker detector roughly doubles on several cells (15.3 to 26.0, 20.2 to 32.2, 6.6 to 15.5). Since AUC integrates over all thresholds and contamination detection is used at a low false-positive threshold, the second set is the operationally relevant one and the first understates the method. Every ablation degrades both metrics in essentially every setting, and the ordering is informative: removing cross-view consensus costs the most AUC (1.3 points, worse in all 24 settings), while restricting to the single best view costs the most at the operating point (4.2 points of TPR, worse in all 24). Replacing informed view prioritisation with three random views costs only 0.6 AUC and 3.1 TPR, so most of the benefit comes from combining several views at all rather than from choosing them well. Forcing full correction where the adaptive rule chose partial costs 0.9 AUC and 2.6 TPR across those eighteen settings, confirming that over-correcting removes signal along with shift. The weaker of the two detectors starts near chance on several cells (53.5, 54.3, 57.0 AUC), so its improvements are improvements on a detector that was barely discriminating.</p>
+<p><strong>Why it matters.</strong> Two things here bear on this topic beyond the specific method. The first is a metric lesson the paper demonstrates cleanly without drawing attention to it: the same corrections are worth one to four points of AUC and five to fifteen points of true positive rate at a 5 percent false-positive threshold. AUC integrates over thresholds nobody uses, and a contamination detector is deployed at a low false-positive setting, so a paper reporting only AUC would have looked like it had a marginal result and one reporting only TPR would have looked like it had transformed the field. Both tables belong together, and the archive should ask for the operating point wherever a detector&#x27;s use has an asymmetric cost. The second is what the paper establishes about the fragility of contamination detection generally, which matters because the archive already holds that a brief round of GRPO erases the signals contamination detectors rely on and that similarity-based decontamination has no principled threshold. This adds a third mechanism: ordinary post-training moves the features these detectors read, in directions consistent enough across prompt variants to be measured and corrected. Taken together, the detection side of contamination looks less like a solved measurement and more like something that must be recalibrated per model. The paper&#x27;s own honesty is the caution to carry when citing it. It declines to claim the shifts it corrects are caused by post-training -- they may be dataset artifacts, decoding behaviour or the feature extractor -- and it runs no experiment comparing a base model against its own post-trained descendant, which is the comparison the framing implies. Note too that the weaker of its two detectors sits near chance on several cells before calibration, so improvements there are improvements to something that was not discriminating.</p>
+</section>
+<section class="slide">
 <h2>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</h2>
 <p class="subtitle">Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma · 2026</p>
 <blockquote>
@@ -226,21 +241,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Matched this topic on benchmark vocabulary rather than on evaluation content; it reports multi-step reasoning benchmark results but contributes no evaluation method. Its real bearing is on where reasoning ability comes from: it locates the limitation in the pretraining objective rather than in post-training, which is upstream of everything else this archive tracks. Without numbers the claim cannot be weighed, and the paper would need a full read or a later version before it supports anything.</p>
 </section>
 <section class="slide">
-<h2>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</h2>
-<p class="subtitle">ZhiYan Hou, Xinyu Tang, Hongyan An et al. · 2026</p>
-<blockquote>
-<p>Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.</p>
-</blockquote>
-<ul>
-<li>The observation that standard OPSD ignores the temporal structure of the divergence sequence, weighting equal magnitudes equally regardless of history</li>
-<li>DASH: an adaptive propagation gate from the local-versus-sequence-mean divergence gap</li>
-<li>Gate-controlled backward multi-step aggregation of token-level supervision weights</li>
-<li>Improvement over matched vanilla OPSD on every benchmark at all three scales, with no additional teacher or student forward pass</li>
-</ul>
-<p><strong>Results.</strong> On three mathematical reasoning benchmarks across three model scales, DASH improves over matched vanilla OPSD reruns on every benchmark at all three scales. Effect sizes are not given in the abstract.</p>
-<p><strong>Why it matters.</strong> Matched on benchmark vocabulary; it contributes no evaluation method. The one point for this topic is its baseline discipline — improvements are measured against the authors&#x27; own matched OPSD reruns rather than against published numbers, which is the practice the archive&#x27;s evaluation-noise thread found almost universally absent and which is what makes a same-scale comparison trustworthy.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
@@ -276,23 +276,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</strong> — Stated, and the most important one is a disclaimer about the paper&#x27;s own framing: the method corrects score-increasing feature shifts observed on known non-m...</li>
 <li><strong>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</strong> — Stated: the benchmark is described as a focused step rather than a representation of the occupational-safety lifecycle, with coverage bounded by the availabl...</li>
 <li><strong>Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training</strong> — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-g...</li>
 <li><strong>Mismatch Matters: On-Policy Distillation Beyond Token Agreement</strong> — The paper states no limitations section. What a reader should notice: the effect size is almost entirely a function of the mismatch regime, and the weak-mism...</li>
+<li><strong>Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents</strong> — The paper&#x27;s limitations section is longer than its results and is the most useful thing in it. The central admission is that the measurements establish empir...</li>
 <li><strong>PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation</strong> — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 3...</li>
-<li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
-<li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
+<li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 <li><strong>VTO: Visual Tool Orchestration for Video Anomaly Detection</strong> — The paper states no limitations section. What a reader should notice is substantial. Evaluation is entirely on a benchmark the authors built, whose ground-tr...</li>
 <li><strong>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</strong> — No limitations section. The load-bearing one a reader must supply: SA-PPG is defined relative to a clean model, and outside a simulation that reference does...</li>
 <li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
 <li><strong>Hierarchical Latent Prediction for Language Models</strong> — No quantitative results, no named benchmarks, and no model scales in the abstract; the description of the abstract latent&#x27;s construction and supervision is n...</li>
-<li><strong>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</strong> — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors&#x27; own matched OPSD rerun...</li>
-<li><strong>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</strong> — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes Englis...</li>
 </ul>
 </section>
 <section class="slide">
@@ -301,16 +301,17 @@ th { background: var(--surface); }
 <li>Xinhe Wang 0001, Jin Huang, Xingjian Zhang 0002 et al.. <em>Your Reasoning Benchmark May Not Test Reasoning: Revealing Perception Bottleneck in Abstract Reasoning Benchmarks</em>. ACL. 2026</li>
 <li>Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian et al.. <em>Training Verifiers to Solve Math Word Problems</em>. cs.LG. 2021</li>
 <li>Yuanchi Zhu, Kang An, Tengyue Wang et al.. <em>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</em>. cs.AI. 2026</li>
+<li>Zhen Yang, Mengqi Wang, Gengda Zhao et al.. <em>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</em>. cs.CL. 2026</li>
 <li>Ibne Farabi Shihab, Sanjeda Akter, Anuj Sharma. <em>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</em>. cs.AI. 2026</li>
 <li>Ruijie Hou, Yueyang Jiao, Zhao Wang et al.. <em>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</em>. cs.CL. 2026</li>
 <li>Yuma Asato, Kiyoaki Shirai, Natthawut Kertkeidkachorn. <em>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</em>. cs.CL. 2026</li>
 <li>Chang Shi, Tim Pearce, Manan Tomar et al.. <em>Hierarchical Latent Prediction for Language Models</em>. cs.CL. 2026</li>
-<li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>ZhiYan Hou, Xinyu Tang, Hongyan An et al.. <em>DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models</em>. cs.AI. 2026</li>
 <li>Xinye Wang, Junxiao Liu, Shujian Huang. <em>RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer</em>. cs.CL. 2026</li>
 <li>Yujie Hou, Mei Wang, Yaoyao Zhong et al.. <em>SMART: Evaluating LLMs&amp;apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark</em>. ACL. 2026</li>
 <li>Jingkun Ma, Runzhe Zhan, Yang Li et al.. <em>VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning</em>. ACL. 2026</li>
@@ -318,12 +319,12 @@ th { background: var(--surface); }
 <li>Yuandong Wang 0002, Yao Cui, Yuxin Zhao et al.. <em>MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?</em>. ACL. 2026</li>
 <li>Lisa Alazraki, Lihu Chen, Ana Brassard et al.. <em>AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios</em>. ACL. 2026</li>
 <li>Xiaoyuan Li 0001, Keqin Bao, Yubo Ma et al.. <em>MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation</em>. ACL. 2026</li>
-<li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Yibo Yan, Shen Wang 0005, Jiahao Huo et al.. <em>ErrorRadar: Benchmarking Complex Mathematical Reasoning of Multimodal Large Language Models Via Error Detection</em>. ACL. 2026</li>
 <li>Yansi Li, Gongshen Liu, Zhuosheng Zhang 0001. <em>The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning</em>. ACL. 2026</li>
 <li>Yehua Lin, Liping Zheng, Yin Chen. <em>MAC-Reasoner: A Multi-Agent Collaborative Framework for Enhancing Logical Reasoning in Large Language Models</em>. ACL. 2026</li>
 <li>Longteng Guo, Xuanxu Lin, Dongze Hao et al.. <em>SciVQR: A Multidisciplinary Multimodal Benchmark for Advanced Scientific Reasoning Evaluation</em>. ACL. 2026</li>
@@ -331,7 +332,6 @@ th { background: var(--surface); }
 <li>Jun Gao, Yun Peng, Qian Qiao et al.. <em>CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction</em>. ACL. 2026</li>
 <li><em>On The Fragility of Benchmark Contamination Detection in Reasoning Models</em>. ICLR 2026. 2026</li>
 <li>Justin D. Norman, Michael U. Rivera, D. Alex Hughes. <em>Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias</em>. preprint. 2026</li>
-<li>Jian Yao, Bowen Zheng, Ran Cheng et al.. <em>VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks</em>. preprint. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

@@ -44,7 +44,7 @@ Stated: with one model per architecture the conditioning pathway cannot be isola
 
 ## Entities
 
-- **Concepts**: linear probing, logit lens, tuned lens, activation patching, activation steering, difference-in-means direction, [residual stream](../../../../wiki/concepts/residual-stream.md), steering specificity, [linear separability](../../../../wiki/concepts/linear-separability.md), [selectivity control](../../../../wiki/concepts/selectivity-control.md), sparse autoencoder
+- **Concepts**: linear probing, logit lens, tuned lens, activation patching, activation steering, difference-in-means direction, [residual stream](../../../../wiki/concepts/residual-stream.md), steering specificity, [linear separability](../../../../wiki/concepts/linear-separability.md), selectivity control, sparse autoencoder
 - **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), [logit lens](../../../../wiki/methods/logit-lens.md), [tuned lens](../../../../wiki/methods/tuned-lens.md), [activation patching](../../../../wiki/methods/activation-patching.md), difference-in-means steering, activation addition, bidirectional two-orientation steering protocol, vocabulary-mass analysis, norm-relative steering, control-task selectivity probing, Krumhansl-Schmuckler key estimation, REMI+ tokenization, AMT tokenization
 - **Datasets**: SynTheory, MIDICaps
 

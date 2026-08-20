@@ -6,6 +6,12 @@
   "definition": "Meta's open-weight model family, used across the archive as the base on which reasoning behaviour is studied, and named loosely: the sources say 'Llama' both for the pretrained family and for particular checkpoints and their reasoning-distilled variants. It matters here because open weights make internal analysis possible -- the sycophancy work localizes trace sentences with probes and counterfactual rollouts on it, and the position paper fine-tunes members of the family to test whether trace correctness governs answer correctness. Where a claim depends on which member was used, prefer the specific checkpoint over this entry.",
   "evidence": [
     {
+      "id": "arxiv:2608.10462",
+      "kind": "paper",
+      "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+      "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-srw.20",
       "kind": "paper",
       "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
@@ -20,9 +26,31 @@
   ],
   "first_seen": "2026-08-08T12:46:28Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "Llama",
   "related": [
+    "benchmark-contamination",
+    "membership-inference",
+    "distribution-shift",
+    "calibration",
+    "post-training",
+    "false-positive-rate",
+    "operating-point",
+    "benchmark-integrity",
+    "decontamination",
+    "data-contamination-detection",
+    "feature-calibration",
+    "prompt-variation",
+    "consensus-filtering",
+    "supervised-classification",
+    "roc-analysis",
+    "ablation",
+    "booktection",
+    "bookmia",
+    "arxivtection",
+    "wikimia",
+    "qwen",
+    "deepseek",
     "sycophancy",
     "commitment-boundary",
     "localization",
@@ -32,7 +60,6 @@
     "reasoning-trajectory",
     "counterfactual-rollout-analysis",
     "regression-on-activations",
-    "qwen",
     "falcon-hybrid",
     "intermediate-token-generation",
     "derivational-trace",
@@ -67,10 +94,10 @@
   "schema_version": 1,
   "slug": "llama",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "reasoning-faithfulness",
     "reasoning-interpretability",
-    "reasoning-evaluation",
     "test-time-scaling"
   ]
 }

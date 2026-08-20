@@ -46,7 +46,7 @@ The 41-46 point drop is reported for two of four settings, so the effect is not 
 
 ## Entities
 
-- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), implicit influence, evaluation regime, safety case
+- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), implicit influence, evaluation regime, [safety case](../../../../wiki/concepts/safety-case.md)
 - **Methods**: chain of thought monitoring, CoT monitor, nudge manipulation, system prompt intervention
 - **Datasets**: implicit-vs-explicit influence benchmark (released)
 

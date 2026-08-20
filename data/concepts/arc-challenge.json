@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
+    },
+    {
+      "id": "arxiv:2608.10198",
+      "kind": "paper",
+      "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+      "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:04:03Z",
   "name": "ARC-Challenge",
   "related": [
     "latent-reasoning",
@@ -32,12 +38,39 @@
     "math500",
     "mmlu-stem",
     "qwen2-5-3b-instruct",
-    "qwen2-5-7b-instruct"
+    "qwen2-5-7b-instruct",
+    "latent-communication",
+    "sparse-dictionary-learning",
+    "dead-features",
+    "feature-reuse",
+    "low-rank-approximation",
+    "compression",
+    "matched-budget-comparison",
+    "single-run-estimate",
+    "monosemanticity",
+    "sparse-autoencoder",
+    "post-hoc-probing",
+    "topk-sparse-coding",
+    "quantization",
+    "ablation",
+    "jaccard-similarity",
+    "reconstruction-error-analysis",
+    "arc-easy",
+    "gpqa",
+    "medqa",
+    "mbpp",
+    "humaneval",
+    "aime-2024",
+    "aime-2025",
+    "qwen3-5-9b",
+    "lfm2-5-vl-1-6b",
+    "vision-wormhole"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "arc-challenge",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
   ]
 }

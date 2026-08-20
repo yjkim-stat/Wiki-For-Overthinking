@@ -44,8 +44,8 @@ The paper is explicit that its two preliminary checks establish only that signat
 
 ## Entities
 
-- **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), feature composition, bag-of-features, latent signature, feature absorption, [superposition](../../../../wiki/concepts/superposition.md), typicality, distributed representation, [monosemanticity](../../../../wiki/concepts/monosemanticity.md)
-- **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), JumpReLU, Matryoshka SAE, Jaccard similarity, k-medoids clustering, adjusted mutual information, auto-interpretability
+- **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), feature composition, bag-of-features, latent signature, [feature absorption](../../../../wiki/concepts/feature-absorption.md), [superposition](../../../../wiki/concepts/superposition.md), typicality, distributed representation, [monosemanticity](../../../../wiki/concepts/monosemanticity.md)
+- **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), JumpReLU, Matryoshka SAE, [Jaccard similarity](../../../../wiki/methods/jaccard-similarity.md), k-medoids clustering, adjusted mutual information, auto-interpretability
 - **Datasets**: [the Pile](../../../../wiki/datasets/the-pile.md)
 
 Tags: `sparse-autoencoder`, `compositionality`, `interpretability`, `negative-result`, `representation`

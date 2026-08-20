@@ -45,8 +45,8 @@ The 19.0% gain is an upper bound, not a typical one. Benchmarks and backbones ar
 
 ## Entities
 
-- **Concepts**: test-time scaling, [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [error propagation](../../../../wiki/concepts/compounding-error.md), self-consistency, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), forest of errors
-- **Methods**: RED, dual-consistency pruning, [test-time scaling](../../../../wiki/methods/test-time-scaling.md), [self-consistency](../../../../wiki/methods/self-consistency.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [error propagation](../../../../wiki/concepts/compounding-error.md), self-consistency, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), forest of errors
+- **Methods**: RED, dual-consistency pruning, test-time scaling, [self-consistency](../../../../wiki/methods/self-consistency.md)
 - **Datasets**: _none recorded_
 
 Tags: `test-time scaling`, `overthinking`, `error propagation`, `pruning`, `efficient reasoning`

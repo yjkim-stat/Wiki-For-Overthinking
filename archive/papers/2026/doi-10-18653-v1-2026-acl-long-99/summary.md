@@ -45,7 +45,7 @@ The theoretical result covers the idealized TopK case, so it does not cover othe
 
 ## Entities
 
-- **Concepts**: sparse autoencoder, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), [reproducibility](../../../../wiki/concepts/reproducibility.md), feature consistency, [superposition](../../../../wiki/concepts/superposition.md), canonical features, auto-interpretation
+- **Concepts**: sparse autoencoder, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), [reproducibility](../../../../wiki/concepts/reproducibility.md), [feature consistency](../../../../wiki/concepts/feature-consistency.md), [superposition](../../../../wiki/concepts/superposition.md), canonical features, auto-interpretation
 - **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), TopK SAE, PW-MCC, assignment-based matching, model organism validation
 - **Datasets**: _none recorded_
 

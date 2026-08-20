@@ -6,10 +6,10 @@ An autoencoder trained to reconstruct a model's internal activations through a w
 
 - **Kind**: method
 - **Also called**: SAE, Sparse Autoencoder, sparse dictionary learning
-- **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
-- **Sources**: 10
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 12
 
-**Related**: [2WikiMultiHopQA](../datasets/2wikimultihopqa.md), [ablation](ablation.md), [activation patching](activation-patching.md), [activation steering](activation-steering.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [BBH](../datasets/bbh.md), [causal mediation analysis](causal-mediation-analysis.md), [circuit analysis](circuit-analysis.md), [circuit discovery](circuit-discovery.md), [contrastive activation addition](contrastive-activation-addition.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [detection versus control](../concepts/detection-versus-control.md), [difference-in-means direction](difference-in-means-direction.md), [Gemma-3-4B](../models/gemma-3-4b.md), [GPQA](../datasets/gpqa.md), [GPT-2](../models/gpt-2.md), [GPT-2 XL](../models/gpt-2-xl.md), [GSM8K](../datasets/gsm8k.md), [IFEval](../datasets/ifeval.md), [importance sampling](importance-sampling.md), [indirect object identification](../datasets/indirect-object-identification.md), [information bottleneck](../concepts/information-bottleneck.md), [KL divergence](../concepts/kl-divergence.md), [knowledge distillation](knowledge-distillation.md), [linear probe](linear-probe.md), [linear representation hypothesis](../concepts/linear-representation-hypothesis.md), [linear separability](../concepts/linear-separability.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [Llama-3.3-70B](../models/llama-3-3-70b.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [logit lens](logit-lens.md), [LoRA](lora.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [monosemanticity](../concepts/monosemanticity.md), [OpenCodeInstruct](../datasets/opencodeinstruct.md), [overthinking](../concepts/overthinking.md), [PCA](pca.md), [Phi-4-reasoning](../models/phi-4-reasoning.md), [polysemanticity](../concepts/polysemanticity.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-0.5B](../models/qwen2-5-0-5b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3-8B](../models/qwen3-8b.md), [reproducibility](../concepts/reproducibility.md), [residual stream](../concepts/residual-stream.md), [ridge regression](ridge-regression.md), [SciQ](../datasets/sciq.md), [selectivity control](selectivity-control.md), [self-consistency](self-consistency.md), [self-verification](../concepts/self-verification.md), [superposition](../concepts/superposition.md), [the Pile](../datasets/the-pile.md), [TruthfulQA](../datasets/truthfulqa.md), [tuned lens](tuned-lens.md), [WikiText-2](../datasets/wikitext-2.md)
+**Related**: [2WikiMultiHopQA](../datasets/2wikimultihopqa.md), [ablation](ablation.md), [activation patching](activation-patching.md), [activation steering](activation-steering.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [ARC-Challenge](../datasets/arc-challenge.md), [ARC-Easy](../datasets/arc-easy.md), [BBH](../datasets/bbh.md), [causal mediation analysis](causal-mediation-analysis.md), [circuit analysis](circuit-analysis.md), [circuit discovery](circuit-discovery.md), [contrastive activation addition](contrastive-activation-addition.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [detection versus control](../concepts/detection-versus-control.md), [difference-in-means direction](difference-in-means-direction.md), [feature absorption](../concepts/feature-absorption.md), [feature consistency](../concepts/feature-consistency.md), [Gemma-2-2B](../models/gemma-2-2b.md), [Gemma-3-4B](../models/gemma-3-4b.md), [GPQA](../datasets/gpqa.md), [GPT-2](../models/gpt-2.md), [GPT-2 small](../models/gpt-2-small.md), [GPT-2 XL](../models/gpt-2-xl.md), [GSM8K](../datasets/gsm8k.md), [HumanEval+](../datasets/humaneval.md), [IFEval](../datasets/ifeval.md), [importance sampling](importance-sampling.md), [indirect object identification](../datasets/indirect-object-identification.md), [information bottleneck](../concepts/information-bottleneck.md), [interpretability illusion](../concepts/interpretability-illusion.md), [Jaccard similarity](jaccard-similarity.md), [KL divergence](../concepts/kl-divergence.md), [knowledge distillation](knowledge-distillation.md), [linear probe](linear-probe.md), [linear representation hypothesis](../concepts/linear-representation-hypothesis.md), [linear separability](../concepts/linear-separability.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [Llama-3.3-70B](../models/llama-3-3-70b.md), [LLM-as-a-judge](llm-as-a-judge.md), [localization](../concepts/localization.md), [logit lens](logit-lens.md), [LoRA](lora.md), [low-rank approximation](../concepts/low-rank-approximation.md), [matched-budget comparison](../concepts/matched-budget-comparison.md), [MATH500](../datasets/math500.md), [MBPP+](../datasets/mbpp.md), [MMLU-Pro](../datasets/mmlu-pro.md), [monosemanticity](../concepts/monosemanticity.md), [OpenCodeInstruct](../datasets/opencodeinstruct.md), [overthinking](../concepts/overthinking.md), [PCA](pca.md), [Phi-4-reasoning](../models/phi-4-reasoning.md), [polysemanticity](../concepts/polysemanticity.md), [pre-registration](pre-registration.md), [Pythia-410M](../models/pythia-410m.md), [Qwen2.5-0.5B](../models/qwen2-5-0-5b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3.5-9B](../models/qwen3-5-9b.md), [Qwen3-8B](../models/qwen3-8b.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md), [reproducibility](../concepts/reproducibility.md), [residual stream](../concepts/residual-stream.md), [ridge regression](ridge-regression.md), [safety case](../concepts/safety-case.md), [SciQ](../datasets/sciq.md), [selectivity control](selectivity-control.md), [self-consistency](self-consistency.md), [self-verification](../concepts/self-verification.md), [sparse dictionary learning](../concepts/sparse-dictionary-learning.md), [superposition](../concepts/superposition.md), [the Pile](../datasets/the-pile.md), [TruthfulQA](../datasets/truthfulqa.md), [tuned lens](tuned-lens.md), [WikiText-2](../datasets/wikitext-2.md)
 
 ## Appears in
 
@@ -17,6 +17,8 @@ An autoencoder trained to reconstruct a model's internal activations through a w
 - [Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors](../../archive/papers/2026/arxiv-2608-06300/summary.md) — Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.
 - [MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering](../../archive/papers/2026/arxiv-2608-06638/summary.md) — Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.
 - [Finding Usable Weight Mechanisms with Tiled SVD](../../archive/papers/2026/arxiv-2608-06969/summary.md) — Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.
+- [Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability](../../archive/papers/2026/arxiv-2608-10172/summary.md) — Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.
+- [Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents](../../archive/papers/2026/arxiv-2608-10198/summary.md) — Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.
 - [Interpreting Language Model Hidden States at Scale](../../archive/papers/2026/arxiv-2608-10260/summary.md) — Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.
 - [Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders](../../archive/papers/2026/arxiv-2608-11197/summary.md) — Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.
 - [Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-99/summary.md) — Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.
@@ -155,4 +157,48 @@ It is recorded rather than passed over because the counter that flags this note
 as stale cannot tell an added source from an added finding. A reader who sees
 nine become ten should not go looking for what moved.
 
-<!-- analysis-sources: 10 -->
+### At twelve: the variability is structural, and the feature count may not be a count
+
+Two entries arriving together change what this note can say about SAE
+instability. The archive already held that different seeds and widths recover
+materially different features. What it lacked was a reason.
+
+**A theorem, and a remedy that moves the outcome.** *Intrinsic Structure* proves
+the non-identifiability is **structural rather than algorithmic**: the
+reconstruction-and-sparsity objective does not enforce the invariance that
+identifiability requires, so no amount of better training fixes it. That would
+be a diagnosis only, except the paper adds the missing term and shows the
+outcome move — raising the invariance penalty cuts the relative invariance
+residual 24% (0.438 → 0.333) and the split-half spectral distance, *identifiability
+itself rather than a proxy*, by **41%** (0.0170 → 0.0101) at matched sparsity.
+
+The price is reported in the same runs and it is real: reconstruction degrades
+(FVU 0.222 → 0.255), the live-feature fraction falls 0.77 → 0.58, cross-seed
+feature agreement moves the **wrong way**, and at a higher penalty the dictionary
+collapses outright across all three seeds. Whether a dictionary can be sparse,
+reconstructive and invariant at once is left open. The measured invariance gap
+puts SAEs furthest from invariance on all three models — further than a *random
+orthonormal control*, at 2.1×/3.1×/3.4× the spectral residual, strengthening with
+scale across three SAE families — but the authors then retract half of it: the
+ordering **inverts under variance-based feature selection**, so the claim holds
+for the subset a practitioner actually reads (features that fire often) and not
+for the span. Their pre-registered version of this criterion passed in 49% of 75
+cells against a registered 80%, and they report that as a failure.
+
+**A caution about reading dictionary sizes at all.** *Post-Hoc Sparse Coding of
+Latent Communication* fits an SAE to a frozen agent-to-agent channel and finds
+**50 of 4096** features ever active — 98.78% dead — with the top ten appearing in
+all nine tasks and cross-task Jaccard similarity averaging 0.906. It then
+declines its own headline: that support size is equally compatible with low-rank
+input structure, repeated token positions, or optimisation collapse, and the
+Jaccard figures may be inflated by set saturation when the global support is
+only ~50 features. It also names the control that would undercut it (an
+18-position payload is already comparable in size to the sparse one) and reports
+not having run it.
+
+Read together: a small active support is not evidence of a compact vocabulary
+until low-rank and optimisation-collapse explanations have been excluded, and
+cross-seed agreement can move opposite to identifiability, so the two are not
+interchangeable measures of the same thing.
+
+<!-- analysis-sources: 12 -->
