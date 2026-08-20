@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Replaces open-ended iterative refinement in LLM time-series forecasting with a fixed-step coarse-to-fine loop anchored to an explicitly predicted downscaled future shape, so test-time compute is spent enriching detail rather than re-deciding the global trajectory.",
       "title": "Efficient Test-Time Scaling for LLM-based Time Series Forecasting"
+    },
+    {
+      "id": "arxiv:2608.10149",
+      "kind": "paper",
+      "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+      "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting"
     }
   ],
   "first_seen": "2026-08-20T14:26:24Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T14:26:24Z",
+  "last_seen": "2026-08-20T14:34:17Z",
   "name": "Traffic",
   "related": [
     "test-time-scaling",
@@ -49,12 +55,44 @@
     "itransformer",
     "dlinear",
     "patchtst",
-    "timesnet"
+    "timesnet",
+    "ensemble-learning",
+    "advantage-estimation",
+    "reward-shaping",
+    "zero-advantage-group",
+    "retrieval-augmented-generation",
+    "chain-of-thought-prompting",
+    "out-of-distribution-generalization",
+    "post-hoc-rationalization",
+    "reats",
+    "grpo",
+    "dapo",
+    "dr-grpo",
+    "gspo",
+    "sapo",
+    "supervised-fine-tuning",
+    "dirichlet-sampling",
+    "quadratic-programming",
+    "exchange",
+    "electricity",
+    "moirai",
+    "moment",
+    "timemoe",
+    "card",
+    "lsinet",
+    "pdf",
+    "timexer",
+    "gpt-5-2",
+    "gpt-5-5",
+    "codex",
+    "deepseek-v3-2",
+    "grok-4"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "traffic",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-training"
   ]
 }

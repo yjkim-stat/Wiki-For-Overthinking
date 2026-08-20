@@ -16,6 +16,14 @@
         "topics": [
           "reasoning-training"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training"
+        ]
       }
     ]
   },
@@ -36,7 +44,7 @@
   },
   "payload": {
     "name": "Dr. GRPO",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__dr-grpo",
   "task_version": 1,

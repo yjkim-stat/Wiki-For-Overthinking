@@ -92,6 +92,12 @@
       "title": "Parameter Exploration for RLVR via Variational Learning"
     },
     {
+      "id": "arxiv:2608.09826",
+      "kind": "paper",
+      "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+      "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation"
+    },
+    {
       "id": "arxiv:2608.09836",
       "kind": "paper",
       "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
@@ -226,7 +232,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T14:34:16Z",
   "name": "AIME 2025",
   "related": [
     "answer-evidence-gap",
@@ -484,6 +490,18 @@
     "amc-2023",
     "livecodebench-v6",
     "olmo-3-1025-7b",
+    "verifiable-reward",
+    "skill-abstraction",
+    "benchmark-contamination",
+    "skald",
+    "opsd",
+    "eopd",
+    "gkd",
+    "exponential-tilting",
+    "renyi-cross-entropy",
+    "few-shot-prompting",
+    "openthoughts",
+    "qwen3-0-6b-base",
     "degenerate-agreement",
     "distribution-mismatch",
     "coverage",
@@ -689,7 +707,6 @@
     "tokenskip",
     "chain-of-thought-compression",
     "light-r1",
-    "benchmark-contamination",
     "evaluation-fragility",
     "symbolic-variabilization",
     "multi-instance-verification",

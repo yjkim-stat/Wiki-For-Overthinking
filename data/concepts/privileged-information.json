@@ -60,6 +60,12 @@
       "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
     },
     {
+      "id": "arxiv:2608.09826",
+      "kind": "paper",
+      "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+      "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation"
+    },
+    {
       "id": "arxiv:2608.11967",
       "kind": "paper",
       "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
@@ -68,7 +74,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T14:34:16Z",
   "name": "privileged information",
   "related": [
     "credit-assignment",
@@ -222,6 +228,19 @@
     "factorial-ablation",
     "adaptive-sampling",
     "kl-regularization",
+    "zero-advantage-group",
+    "verifiable-reward",
+    "skill-abstraction",
+    "benchmark-contamination",
+    "skald",
+    "opsd",
+    "eopd",
+    "gkd",
+    "exponential-tilting",
+    "renyi-cross-entropy",
+    "few-shot-prompting",
+    "openthoughts",
+    "qwen3-0-6b-base",
     "reflection",
     "reward-hacking",
     "backtracking",

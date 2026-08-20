@@ -1,0 +1,66 @@
+{
+  "concepts": [
+    "zero-advantage group",
+    "privileged information",
+    "on-policy distillation",
+    "self-distillation",
+    "forward KL divergence",
+    "credit assignment",
+    "verifiable reward",
+    "skill abstraction",
+    "data contamination"
+  ],
+  "contributions": [
+    "Replaces the reference solution with an abstract, explicit-answer-filtered skill card as the privileged context in shared-parameter on-policy self-distillation, containing OPSD as the special case where the card is the solution and the tilt is zero.",
+    "Characterises the annealed tilted objective as a Renyi cross-entropy with a student-dependent escort target whose zero-tilt limit gives the forward-KL student gradient, and shows the risk-neutral version diverges in 5 of 6 seeds while every tilted run converges.",
+    "Localises the gain to zero-variance rollout groups by direct restriction (84.7 percent of the 1.7B gain) rather than by argument.",
+    "A six-condition conditional-leakage audit plus card sanitisation, peer-card substitution, three-rater human adjudication and full problem/solution/skill decontamination with retraining.",
+    "Equal-FLOP and equal-GPU-hour GRPO baselines at both 1.7B and 4B, including a scale-specific baseline sweep at 4B."
+  ],
+  "datasets": [
+    "MATH500",
+    "AMC23",
+    "AIME 2024",
+    "AIME 2025",
+    "Minerva",
+    "DAPO-Math-17k",
+    "OpenThoughts"
+  ],
+  "generated_at": "2026-08-20T14:31:34Z",
+  "generated_by": "queue",
+  "limitations": "The paper is unusually careful about its own scope and most of the limits are the authors': three sizes from one family do not establish a scaling law; the gate estimates teacher advantage only at initialisation and with finite samples, and 14.6 percent of its positive decisions later reverse; the ordered ablation uses one addition order so component interactions are not excluded; the token-location diagnostic rests on one illustrative rollout plus an aggregate whose annotation protocol, agreement and sample size are not reported in the main text; the internalisation claim is scoped to the no-skill-at-test protocol and would need parameter- or behaviour-level probes to support anything stronger; the tilt's guarantees bound logit gradients only, with parameter-gradient bounds requiring a bounded Jacobian; the leakage controls make answer transfer implausible rather than impossible; and a larger model does write the cards offline. Reader-visible additions: the shuffled-card control shows most of the benefit is generic rather than matched, which narrows what 'skill' means here to something closer to a well-formed hint; the 0.6B gain of +2.46 is small next to cross-seed spread on the small benchmarks (AIME24/25 have 30 problems each and move by single answers); and at 4B GRPO is worse than zero-shot on MATH500 (61.85 against 69.70), so part of the 4B margin is a baseline that its own training damaged.",
+  "method": "One Qwen3-Base checkpoint is read through two context views sharing all parameters: a question-only student and a teacher additionally conditioned on a compact skill card, filtered to remove explicit answers. Both branches score the student's own prefixes; the teacher is evaluated under stop-gradient. The objective is an annealed exponentially tilted risk, minus tau-inverse times the log of the teacher-expectation of student probability to the tau -- a Renyi cross-entropy at order 1+tau whose effective target is proportional to teacher probability times student probability to the tau, so tokens the teacher prefers but the student finds very improbable are discounted. Its stationary solution is a sharpened escort distribution rather than the teacher, so tau is annealed from 0.8 to 0, at which point the objective becomes teacher cross-entropy and the student gradient is exactly the forward-KL gradient. A fixed empirical gate compares initial sampled teacher and student accuracy and activates distillation only where the teacher looks better; the authors are explicit that this is a noisy heuristic rather than a certificate. Setting the skill to the reference solution and tau to zero recovers the OPSD objective exactly, so the two additions are independently ablatable. A larger model is used offline to write and screen the cards; the no-larger-teacher claim is scoped to online distillation and inference.",
+  "methods": [
+    "SKALD",
+    "GRPO",
+    "OPSD",
+    "EOPD",
+    "GKD",
+    "on-policy self-distillation",
+    "exponential tilting",
+    "Renyi cross-entropy",
+    "supervised fine-tuning",
+    "few-shot prompting"
+  ],
+  "models": [
+    "Qwen3-0.6B-Base",
+    "Qwen3-1.7B-Base",
+    "Qwen3-4B-Base"
+  ],
+  "one_liner": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+  "paper_id": "arxiv:2608.09826",
+  "problem": "In group-relative RL a rollout group whose members all succeed or all fail produces zero normalised advantage and therefore no gradient on that problem; these groups are 63.0-68.0 percent of training groups in this setup. On-policy distillation supplies dense token-level supervision along the same trajectories, but the usual privileged signal -- a full reference solution -- exposes the final answer and one particular derivation to the teacher, which both invites leakage and widens the teacher-student mismatch.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-training": "Three things the archive should keep. First, the failure mode is quantified rather than asserted: zero-variance groups are 63-68 percent of training, their composition rotates from all-wrong to all-correct with scale, and distilling into only those groups recovers 84.7 percent of the gain -- which is how a mechanism claim about credit assignment should be argued. Second, it is the strongest leakage audit in the archive for a privileged-teacher method, with a six-condition answer-recovery ladder (2.4 to 94.2 percent), card sanitisation, peer-card substitution, human adjudication at kappa 0.83, and retraining after decontamination; that ladder is a reusable template for any claim that a training-time input does not smuggle in the answer. Third, and least comfortable for the paper's framing, the two matching controls disagree with each other in a way that bounds the contribution: removing the card gives 48.01 and shuffling it gives 48.83, so a mismatched card is better than none and only 1.54 of the 4.85 points depend on the card being the right one. The internalisation comparison is the other durable result -- the same skill in the student's training context, withdrawn at test, is worth about a fifth of what routing it through a teacher branch is worth, which separates scaffolding from a change in the weights."
+  },
+  "results": "Five held-out mathematics benchmarks, 872 problems, avg@8 over three seeds. Overall gains over GRPO of +2.46 at 0.6B, +4.85 at 1.7B and +12.01 at 4B; the authors label the monotone trend descriptive and explicitly refuse to call it a scaling law. At 1.7B the per-seed differences are +4.70, +4.91 and +4.94 with a hierarchical interval jointly resampling seeds and problems of [+3.92, +5.78]. The mechanism test is direct rather than inferred: zero-variance groups are 68.0, 63.0 and 63.9 percent at the three scales, and their composition shifts with scale from all-wrong (54.2 to 21.8 percent) toward all-correct (13.8 to 42.1); restricting distillation to zero-variance groups alone recovers 84.7 percent of the 1.7B gain (+4.11 of +4.85) while mixed-only distillation recovers +0.79. Compute is controlled properly: rollout-matched GRPO uses 88.0 GPU-hours for 45.52, an equal-FLOP GRPO run uses 131.2 for 46.31 against SKALD's 50.37, so the extra 181 updates buy +0.79 and SKALD is +4.06 ahead at identical cost; at 4B a scale-specific GRPO sweep raises the equal-FLOP baseline to 52.19 and the margin is still +11.19. The leakage audit is the most thorough part: question-only, empty-card, random-text, shuffled-skill, matched-skill and full-solution answer-recovery rates are 2.4, 2.5, 2.6, 3.7, 5.1 and 94.2 percent, so a matched card recovers 2.7 points more than the question alone against the full solution's 91.8; a three-rater audit of 200 cards finds no full-answer leak at kappa 0.83; sanitising cards of instance-specific numerals and expressions changes the score from 50.37 to 50.24; replacing each card with a peer from the same abstract-method cluster changes overall avg@8 by 0.11 plus or minus 0.19; and all flagged cross-split overlaps (3 problem texts, 14 reference solutions, 10 cards) are removed and every model retrained. Two decompositions of the gain. Ordered ablation at 1.7B: OPSD 48.51, plus skill abstraction 49.06, plus tilt 49.94, plus gate 50.37 -- marginal effects of +0.55, +0.88 and +0.43, with the same ordering positive but larger at 4B (+1.65, +3.73, +2.33), and the authors note these are ordered marginals rather than interaction-free contributions. Internalisation against context: under an identical no-skill-at-test protocol, GRPO 45.52, GRPO with the skill in the RL context and withdrawn at test 46.60, SKALD 50.37 -- so putting the skill in the student's context during training and removing it later gets about a fifth of what distilling it through the teacher gets. Two matching controls that disagree in an informative way: removing the skill from the teacher entirely with parameters held fixed gives 48.01, while shuffling to a mismatched card gives 48.83 -- so generic card exposure supplies +3.31 of the +4.85 and matching accounts for the remaining 1.54. Stability: risk-neutral training (tau=0) diverges in 2 of 3 seeds at 1.7B and 3 of 3 at 4B while all tilted runs converge, gradient-norm p95/max fall from 6.42/27.4 to 0.61/1.42, and constant tau=0.8 costs 0.62 against annealing while tau=0 costs 5.47. Gate sensitivity: varying K from 4 to 32, softening or refreshing it moves avg@8 by at most 0.39, though 14.6 percent of positive gates reverse sign later in training. Mismatch diagnostics: p99 initial per-token KL is 0.6 nats under skill conditioning against 13.0 under full-solution conditioning.",
+  "schema_version": 1,
+  "tags": [
+    "self-distillation",
+    "privileged-information",
+    "zero-advantage",
+    "rlvr",
+    "leakage-audit"
+  ]
+}

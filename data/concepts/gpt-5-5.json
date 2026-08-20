@@ -27,11 +27,17 @@
       "kind": "paper",
       "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
       "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
+    },
+    {
+      "id": "arxiv:2608.10149",
+      "kind": "paper",
+      "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+      "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting"
     }
   ],
   "first_seen": "2026-08-13T01:02:17Z",
   "kind": "model",
-  "last_seen": "2026-08-20T14:26:24Z",
+  "last_seen": "2026-08-20T14:34:16Z",
   "name": "GPT-5.5",
   "related": [
     "credit-assignment",
@@ -140,7 +146,38 @@
     "gemini-3-5-flash",
     "claude-fable-5",
     "qwen3-5-9b",
-    "mineru"
+    "mineru",
+    "ensemble-learning",
+    "reward-shaping",
+    "out-of-distribution-generalization",
+    "post-hoc-rationalization",
+    "reats",
+    "dapo",
+    "dr-grpo",
+    "gspo",
+    "sapo",
+    "dirichlet-sampling",
+    "quadratic-programming",
+    "etth1",
+    "etth2",
+    "ettm1",
+    "ettm2",
+    "exchange",
+    "weather",
+    "electricity",
+    "traffic",
+    "moirai",
+    "moment",
+    "timemoe",
+    "timesfm",
+    "card",
+    "lsinet",
+    "pdf",
+    "timexer",
+    "gpt-5-2",
+    "codex",
+    "deepseek-v3-2",
+    "grok-4"
   ],
   "related_authored": [
     "llm-as-a-judge"

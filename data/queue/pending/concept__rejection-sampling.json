@@ -12,6 +12,15 @@
       },
       {
         "kind": "paper",
+        "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
+        "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
         "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
         "topics": [
@@ -38,7 +47,7 @@
   },
   "payload": {
     "name": "rejection sampling",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__rejection-sampling",
   "task_version": 1,
