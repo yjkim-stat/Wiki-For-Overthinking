@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A benchmark of visual mathematical reasoning problems, used by both sources as the out-of-domain check rather than the training target. In one, a chart-specific method finetuned only on synthetic charts transfers to it with a 10.20-point gain at 3B, which is what turns a domain-specific result into a claim about multimodal reasoning generally. In the other it is among the benchmarks over which RLVR's pass@k behaviour is compared against a base model. Its function in the archive is the same in both: it is where a method has to show it learned something more portable than its training distribution.
+A multimodal mathematical reasoning benchmark, used across 4 sources as the standard evaluation for vision-language reasoning methods. Its role in the archive is as the set where multimodal verifiable-reward gains are tested for survival under paraphrase and template change, where structured process rewards are measured, and where the pass@k question about whether reinforcement learning expands the reasoning boundary is asked of a multimodal model. The archive's related caution applies with force here: on multimodal benchmarks, accuracy can be preserved while the image plays no role, so a gain on it is not by itself evidence of visual reasoning.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

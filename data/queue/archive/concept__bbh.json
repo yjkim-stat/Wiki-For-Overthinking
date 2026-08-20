@@ -3,6 +3,28 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.",
+        "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
         "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
         "topics": [
@@ -25,8 +47,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-12T22:10:26Z",
-  "created_at": "2026-08-12T11:31:01Z",
+  "completed_at": "2026-08-20T23:21:41Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'BBH'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "BBH",
   "kind": "concept",
@@ -36,23 +58,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "BBH",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "BIG-Bench Hard",
-      "BBH tasks"
+      "BIG-Bench Hard"
     ],
-    "definition": "A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely related to monitorability and ranks BBH highest of its sets with GPQA-Diamond lowest, so a trace produced on BBH is the most likely to enumerate the factors that actually decide the answer. The other includes it in a seven-benchmark sweep in which a norm-based steering signal leads on AIME, GPQA and MMLU-Pro while an SAE-based one wins BBH and GSM-Plus, so interventions separate on it rather than agreeing. Under the fuller name the archive holds a third use: 13 of its tasks are the setting in which biasing the prompt drops accuracy by as much as 36 percent while the model's explanation rationalizes the biased answer.",
+    "definition": "A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived results attach to it. It is where the foundational unfaithfulness measurement is made: under biasing features that models never mention, accuracy drops by as much as 36 percent across its 13 tasks with the explanations rationalising the biased answers. And it sits at the opposite end from a graduate science set on monitorability, scoring highest where that scores lowest -- which is the basis for the finding that monitorability tracks task difficulty rather than reasoning mode.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "MMLU",
+      "GPQA"
+    ]
   },
   "task_id": "concept__bbh",
   "task_version": 1,

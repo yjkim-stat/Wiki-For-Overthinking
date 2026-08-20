@@ -1,9 +1,10 @@
 {
   "aliases": [
     "LLaMA",
-    "Llama 3.1"
+    "Llama 3.1",
+    "Llama family"
   ],
-  "definition": "Meta's open-weight model family, used across the archive as the base on which reasoning behaviour is studied, and named loosely: the sources say 'Llama' both for the pretrained family and for particular checkpoints and their reasoning-distilled variants. It matters here because open weights make internal analysis possible -- the sycophancy work localizes trace sentences with probes and counterfactual rollouts on it, and the position paper fine-tunes members of the family to test whether trace correctness governs answer correctness. Where a claim depends on which member was used, prefer the specific checkpoint over this entry.",
+  "definition": "The model family that, with Qwen, supplies most of this archive's empirical base -- 4 sources refer to it generically. The entry records the dependency: results measured on one family frequently shrink or reverse on the other, and the archive's better sources include both for that reason. Two family-level observations appear: it is one of the two families in contamination-detection calibration work, and it is used generically in the position paper arguing that reading intermediate tokens as reasoning is unsupported.",
   "evidence": [
     {
       "id": "arxiv:2608.10462",
@@ -116,8 +117,8 @@
     "dualformer"
   ],
   "related_authored": [
-    "qwen",
-    "deepseek-r1-distill-llama-8b"
+    "llama-3-1-8b",
+    "qwen"
   ],
   "schema_version": 1,
   "slug": "llama",

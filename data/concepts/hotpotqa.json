@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A multi-hop question-answering set whose questions need evidence combined from several documents, used by both sources as an in-domain benchmark for search agents trained with reinforcement learning. It is the set on which their methods separate most, in both directions: one reports its largest margin over retrieval-augmented prompting there (57.7 F1, 20.6 points above CoT+RAG) and finds that removing its forward-looking step reward costs 5.9 points on it against 0.9 on single-hop Natural Questions; the other posts its sharpest defeat there, 46.6 EM against a skill-conditioned baseline's 64.5, while still winning the seven-benchmark average. Both also use it as a source of supervision rather than only of questions — its annotated supporting sentences serve as privileged training context in one, whose distractor field additionally supplies substitute documents for a sensitivity test.",
+  "definition": "A two-hop question-answering set over Wikipedia, and across 4 sources the largest in-domain benchmark of the search-agent suite. Its diagnostic value is that reward ablations show up on it in proportion to the hops involved: removing a forward solvability-gain term costs 5.9 points here against 0.9 on a single-hop set, which is how one source shows its term targets multi-hop failure specifically. It is also where the archive records a per-benchmark loss surviving inside an improved macro average -- one method loses it by 17.9 exact-match points to a skill-conditioned baseline while leading the average, and does not discuss it.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -117,7 +117,11 @@
     "qwen2-5-7b",
     "qwen3-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "2wikimultihopqa",
+    "musique",
+    "bamboogle"
+  ],
   "schema_version": 1,
   "slug": "hotpotqa",
   "topics": [

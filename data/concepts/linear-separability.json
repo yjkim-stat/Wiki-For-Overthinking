@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "The precondition that makes a concept readable by a linear probe or a concept vector: that the activations carrying the concept can be split from those that do not by a hyperplane. Both sources here treat it as a property of the representation as presented to the probe rather than a fixed fact about the model, and both engineer it rather than merely measuring it -- the L2 speaking assessment paper notes that Concept Activation Vectors assume linear separability, which is less likely in complex neural embeddings, and responds by learning CAVs in a sparse autoencoder latent space and mapping them back to activation space; the hallucination-detection paper trains a LoRA adapter that restructures a low-dimensional grounding signal into a shift-stable linear geometry, verified by transfer and by cross-trajectory patching. On what improving it buys, the two sources point opposite ways: the SAE route improves linear recoverability while attenuating activation-space sensitivity, especially in low-dimensional layers, whereas the adapter's restructuring is what makes the detector able to act. Read together they say separability and causal influence are distinct axes, and that a method can raise one while lowering the other.",
+  "definition": "Whether two classes can be divided by a hyperplane in activation space, and across 4 sources the property that licenses probing and is repeatedly shown not to license anything else. The corpus's central instance: concept recoverability and concept influence come apart -- one bias analysis finds sparse autoencoders improving the first while attenuating the second, which is the detection-versus-control gap stated in a different vocabulary. A second: a simpler linear probe is consistently stronger than a kernel-derived concept vector on a human-annotated benchmark, so more expressive readouts do not automatically buy more. A third is architectural: which steering strategy stays stable depends on the conditioning pathway, so separability at a site does not imply intervenability at that site. The archive's operative position is that separability is well established for reading and says nothing about writing, and that a probe's success is compatible with its having latched onto lexical surface patterns unless a null control says otherwise.",
   "evidence": [
     {
       "id": "arxiv:2608.06300",
@@ -112,8 +112,9 @@
     "qwen3-5-122b"
   ],
   "related_authored": [
+    "linear-probe",
     "linear-representation-hypothesis",
-    "superposition"
+    "detection-versus-control"
   ],
   "schema_version": 1,
   "slug": "linear-separability",

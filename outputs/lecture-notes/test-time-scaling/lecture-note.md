@@ -155,10 +155,10 @@ Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviS
 | sparse autoencoder | 15 | Learning an overcomplete dictionary on model activations under a sparsity penalty, so that a polysemantic activation vector is decomposed into features that admit individual int... |
 | LoRA | 14 | Training low-rank adapter matrices while the base weights stay frozen, used across 14 sources as the default cheap fine-tuning method and, in several, as the thing that bounds w... |
 | PPO | 14 | Policy optimisation with a clipped surrogate objective, a learned value function and a KL penalty -- the generation before the critic-free group-relative methods that dominate t... |
+| causal intervention | 13 | Changing something inside a model and measuring what the output does, as opposed to reading a correlation off its states -- across 13 sources the standard the archive holds inte... |
 | steering vector | 13 | A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable... |
 | component ablation | 12 | Removing one part of a method at a time and reporting what each removal costs, and across 12 sources the archive's default evidence that a design is more than the sum of arbitra... |
 | retrieval-augmented generation | 11 | Conditioning generation on retrieved documents, and in this archive mostly a setting other things are measured in rather than a method studied on its own -- it supplies the subs... |
-| DAPO | 10 | A group-relative variant that removes the value network and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping, used across 10 sour... |
 
 ## Benchmarks and datasets
 

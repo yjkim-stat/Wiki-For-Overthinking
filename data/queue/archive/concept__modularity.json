@@ -3,9 +3,33 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
+        "title": "Multi-component Causal Tracing in Large Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Merges a reasoning model into a domain-specialized one after finding that reasoning ability resides in low-gradient-sensitivity parameter regions rather than high-magnitude ones.",
+        "title": "ReasonAny: Incorporating Reasoning Capability to Any Model via Simple and Effective Model Merging",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
         "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-evaluation"
         ]
@@ -15,15 +39,17 @@
         "note": "Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.",
         "title": "A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T06:00:23Z",
-  "created_at": "2026-08-08T05:59:49Z",
-  "instructions": "Write the wiki definition for 'modularity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:20:29Z",
+  "created_at": "2026-08-20T23:17:39Z",
+  "instructions": "Write the wiki definition for 'modularity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "modularity",
   "kind": "concept",
   "language": "en",
@@ -32,31 +58,33 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "modularity",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
-    "aliases": [],
-    "definition": "Whether a computation decomposes into components with separable roles that compose in a definite order. The archived sources disagree, and the disagreement is the useful part. On propositional logic, four families of attention heads execute rule location, rule movement, fact processing and decision *sequentially* — presented by its authors as surprising, since nothing forces a transformer to keep the steps distinct. On arithmetic, the mechanism is an *unordered* combination of heuristic neurons, and the authors conclude no algorithm is executed. The two analyses work at different granularities (attention heads versus neurons), so a computation could be modular at one level and a bag of heuristics inside each module; neither paper tests this. A third source warns against reading modularity as competence at all: three-layer models trained directly on the logic task are more accurate while being less modular.",
+    "aliases": [
+      "component structure"
+    ],
+    "definition": "Whether a capability lives in an identifiable, separable part of a network, and across 4 sources a question the archive's evidence answers differently by capability. Against modularity: the arithmetic circuit reverse-engineered to individual neurons is neither a learned algorithm nor memorisation but an unordered collection of sparse heuristic neurons each firing on a numerical input pattern and voting -- a bag rather than a module. For modularity: a propositional-logic circuit decomposes into four families of attention heads executing rule locating, rule moving, fact processing and decision making as sequential steps, across models from 7B to 27B. At the parameter level: reasoning ability is found to reside in low-gradient-sensitivity regions rather than high-magnitude ones, which is what makes merging a reasoning model into a specialised one work. And methodologically, one source argues the search for modules must be joint rather than one component at a time, relaxing the combinatorial subset search into a continuous one over soft interventions.",
     "kind": "concept",
     "related": [
       "circuit analysis",
-      "bag of heuristics",
-      "localization",
-      "sparse autoencoder",
-      "effective depth"
+      "causal tracing",
+      "superposition"
     ]
   },
   "task_id": "concept__modularity",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

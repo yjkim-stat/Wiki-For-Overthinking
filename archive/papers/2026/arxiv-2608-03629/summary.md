@@ -46,7 +46,7 @@ The paper is unusually precise about what it did not close, and the closing sent
 
 ## Entities
 
-- **Concepts**: activation patching, weight-space ablation, [causal intervention](../../../../wiki/concepts/causal-intervention.md), circuit analysis, cross-layer interaction, [self-repair](../../../../wiki/concepts/self-repair.md), [superposition](../../../../wiki/concepts/superposition.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), indirect object identification, pre-registration
+- **Concepts**: activation patching, weight-space ablation, causal intervention, circuit analysis, cross-layer interaction, [self-repair](../../../../wiki/concepts/self-repair.md), [superposition](../../../../wiki/concepts/superposition.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), indirect object identification, pre-registration
 - **Methods**: [activation patching](../../../../wiki/methods/activation-patching.md), [low-rank weight ablation](../../../../wiki/methods/low-rank-weight-ablation.md), greedy circuit search, [causal tracing](../../../../wiki/methods/causal-tracing.md), finite-difference verification, Jacobian bound
 - **Datasets**: _none recorded_
 

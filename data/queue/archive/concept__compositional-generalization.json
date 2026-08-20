@@ -3,9 +3,34 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+        "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Consolidates multiword-expression resources into one evaluation suite covering idioms, noun compounds and verbal constructions across extraction, classification and interpretation tasks.",
         "title": "Revisiting a Pain in the Neck: A Semantic Reasoning Benchmark for Language Models",
         "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
           "reasoning-evaluation"
         ]
       },
@@ -14,6 +39,9 @@
         "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
         "title": "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios",
         "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
           "reasoning-evaluation"
         ]
       },
@@ -22,14 +50,17 @@
         "note": "An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.",
         "title": "PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics",
         "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
           "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:31Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'compositional generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:20:26Z",
+  "created_at": "2026-08-20T23:17:39Z",
+  "instructions": "Write the wiki definition for 'compositional generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "compositional generalization",
   "kind": "concept",
   "language": "en",
@@ -38,34 +69,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "compositional generalization",
-    "source_count": 3
+    "source_count": 5
   },
   "result": {
-    "aliases": [
-      "compositionality",
-      "compositional reasoning",
-      "multi-step composition"
-    ],
-    "definition": "Solving a problem that combines steps the model can already perform individually, which all three sources treat as the property that fails while single-step competence holds. The strongest measurement pairs each compositional task with its isolated steps on the same items: models usually solve both steps alone yet lose nearly 30% when they are combined, a larger drop than same-type multi-step benchmarks show, and non-expert humans show no such gap. A second isolates composition as a cascade of string-rewrite programs and reports solve rates below 5% on long cascades even under expensive test-time scaling. A third tests sequential task compositions over semantic phrase tasks without reporting the gap numerically.",
+    "aliases": [],
+    "definition": "Whether a system that handles parts handles their combination, and across 5 sources the case where the archive's models most reliably fail. The cleanest measurement holds the parts fixed: on a benchmark where each task needs one commonsense step and one mathematical step, accuracy drops nearly 30 percent relative to solving the same steps in isolation, while humans show no such gap. A mechanistic source finds the same asymmetry inside a learned circuit -- extended training past overfitting produces a circuit that generalises out of distribution for comparison and fails for composition, so it is composition specifically that the learned structure does not carry. Two benchmarks in the set are built to require induced cascades or nested structure, one with automated contamination-resistant generation and controllable difficulty, which is the design the archive prefers for this property because the composition depth becomes a knob rather than a confound. One latent-reasoning source probes what its demonstration-bound operators can and cannot compose, which is the same question asked of a learned representation rather than of a benchmark.",
     "kind": "concept",
     "related": [
+      "compositionality",
       "out-of-distribution generalization",
-      "construct validity",
-      "brittleness",
-      "inductive reasoning",
-      "effective depth"
+      "multi-hop reasoning"
     ]
   },
   "task_id": "concept__compositional-generalization",
   "task_version": 1,
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

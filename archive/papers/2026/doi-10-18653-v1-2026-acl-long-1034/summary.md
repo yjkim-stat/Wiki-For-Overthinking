@@ -46,7 +46,7 @@ No numbers in the abstract, so the fragility gap between LRMs and LLMs is direct
 ## Entities
 
 - **Concepts**: trustworthiness, [monitorability](../../../../wiki/concepts/monitorability.md), CoT hijacking, [overthinking](../../../../wiki/concepts/overthinking.md), [truthfulness](../../../../wiki/concepts/truthfulness.md), safety evaluation, training paradigm
-- **Methods**: benchmark construction, [chain of thought](../../../../wiki/methods/chain-of-thought.md), adversarial prompting
+- **Methods**: benchmark construction, chain of thought, adversarial prompting
 - **Datasets**: Rt-LRM
 
 Tags: `trustworthiness`, `benchmark`, `safety`, `cot hijacking`, `training paradigm`

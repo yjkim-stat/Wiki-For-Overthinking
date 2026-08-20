@@ -3,7 +3,7 @@
     "Llama-3.1-70B",
     "Llama-3.3-70B-Instruct"
   ],
-  "definition": "A 70B Llama model, the largest non-reasoning system measured in these sources. It anchors the scale end of two analyses: reasoning trajectories that converge fastest with the highest consistency and lowest uncertainty among the models compared (84.4% on AQuA), and a mutual-information profile that still shows weaker peaks than reasoning-trained models of smaller size, which is the evidence that the phenomenon comes from training rather than capacity.",
+  "definition": "A 70B Llama, used across 4 sources as the large open model in cross-scale audits and serving studies. Its measured appearances: as the top of a cross-family steering audit's large-model grid, where it shows a significant positive effect of +4.5 under the full protocol -- one of the five models above 24B establishing that steering neither emerges nor collapses with scale; as the model in a reasoning-trajectory visualisation with accuracies of 84.4, 80.2, 75.8 and 64.8 percent across four tasks; and as a subject in adaptive serving and legal-explanation work.",
   "evidence": [
     {
       "id": "arxiv:2608.08159",
@@ -144,7 +144,10 @@
     "strategyqa",
     "commonsenseqa"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-3-70b",
+    "llama-3-1-8b"
+  ],
   "schema_version": 1,
   "slug": "llama-3-1-70b",
   "topics": [

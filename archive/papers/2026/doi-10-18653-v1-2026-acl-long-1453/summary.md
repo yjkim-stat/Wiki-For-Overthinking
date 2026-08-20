@@ -44,7 +44,7 @@ No quantitative results, models or benchmark names in the abstract. Requires acc
 
 ## Entities
 
-- **Concepts**: [aha moment](../../../../wiki/concepts/aha-moment.md), [jailbreak](../../../../wiki/concepts/jailbreak.md), [inference-time intervention](../../../../wiki/concepts/inference-time-intervention.md), [attention pattern](../../../../wiki/concepts/attention-pattern.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), exaggerated safety, reasoning path selection
+- **Concepts**: [aha moment](../../../../wiki/concepts/aha-moment.md), [jailbreak](../../../../wiki/concepts/jailbreak.md), inference-time intervention, [attention pattern](../../../../wiki/concepts/attention-pattern.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), exaggerated safety, reasoning path selection
 - **Methods**: ReasoningGuard, [attention analysis](../../../../wiki/methods/attention-analysis.md), scaling sampling, safety reflection injection
 - **Datasets**: _none recorded_
 

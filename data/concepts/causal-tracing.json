@@ -2,9 +2,10 @@
   "aliases": [
     "causal trace",
     "causal mediation",
-    "interchange intervention"
+    "interchange intervention",
+    "causal mediation analysis"
   ],
-  "definition": "Intervening on internal representations to measure which components a behaviour causally depends on, as opposed to which merely correlate with it. The sources address complementary weaknesses. One extends tracing from single components or layers to joint subsets, converting the combinatorial search into a continuous problem over soft interventions, because components that matter only together are invisible to one-at-a-time search. The other shows the method's conclusions depend on choices usually left implicit — how prompts are corrupted, which metric scores the effect, and whether layers are patched singly or in sliding windows. Read together: tracing is sensitive both to what it can search over and to how the search is scored.",
+  "definition": "Intervening on internal representations to quantify the pathways linking inputs or computations to a metric of interest. Across 4 sources the archive's material is mostly about extending it past its usual one-component-at-a-time form: one source relaxes the combinatorial search over subsets of components into a continuous one over soft interventions, so that components can be selected jointly rather than swept singly. Its application in the corpus recovers sparse circuits -- one propositional-logic study decomposes a recovered circuit into four families of attention heads executing rule locating, rule moving, fact processing and decision making as sequential steps across models from 7B to 27B. The archive's standing caveats for this family apply: no convention exists for the corruption method or the evaluation metric, so results are frequently not comparable across papers, and an analysis conducted at the level of attention patterns is weaker than one carried to the embedding level, which one source says of its own work.",
   "evidence": [
     {
       "id": "arxiv:2608.03620",
@@ -82,7 +83,11 @@
     "gpt-2-xl",
     "gpt-j-6b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-patching",
+    "circuit-analysis",
+    "modularity"
+  ],
   "schema_version": 1,
   "slug": "causal-tracing",
   "topics": [

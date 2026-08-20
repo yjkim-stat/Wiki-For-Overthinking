@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "human annotation"
+    "human annotation",
+    "expert evaluation"
   ],
-  "definition": "Scoring model output by people rather than by a metric or a model, and in both sources the instrument that constrains a claim an automatic measure could not. The matched supervision study uses it to answer the question its accuracy tables cannot: two annotators score eight criteria with external-expert adjudication and agreement from 0.760 to 1.000, and find no significant improvement on any reasoning-content criterion despite a twenty-point out-of-domain accuracy gain, locating the measurable effect of rationale supervision in target-language adherence and inspectability instead. The persona study uses it in the other direction, to validate an instrument rather than a result: two annotators independently label 191 generations at 93 percent agreement and kappa 0.85, establishing the task is reproducible, and only then is a model judge scored against them at precision 0.90 and recall 0.98 with generations reweighted by inverse sampling rate. The archive's reading is that these are the two legitimate uses -- measure what no automatic metric covers, or calibrate the automatic metric you intend to substitute -- and that both require agreement to be reported before anything is concluded from the labels.",
+  "definition": "Scoring model output by people rather than by a metric or a model, and across 4 sources the instrument that constrains a claim no automatic measure can. Its two legitimate uses in the corpus are distinct. Answering what no metric covers: two annotators scoring eight criteria with external-expert adjudication and agreement from 0.760 to 1.000 find no significant improvement on any reasoning-content criterion despite a twenty-point out-of-domain accuracy gain, locating the measurable effect in language adherence and inspectability instead. And calibrating an instrument before substituting it: two annotators label 191 generations at 93 percent agreement and kappa 0.85, establishing the task is reproducible, and only then is a model judge scored against them at precision 0.90 and recall 0.98. The corpus's cautions: an expert study on 17 matched questions or 136 criteria per condition is small, and a chance-corrected statistic is necessary where a class is near ceiling -- one source reports raw agreement of 0.90 to 0.99 with kappas of 0.357 to 0.573, which means its headline gain rests on a small number of discordant judgements.",
   "evidence": [
     {
       "id": "arxiv:2608.07852",
@@ -130,7 +131,9 @@
     "huatuogpt-o1-7b"
   ],
   "related_authored": [
-    "annotation-agreement"
+    "annotation-agreement",
+    "llm-as-a-judge",
+    "construct-validity"
   ],
   "schema_version": 1,
   "slug": "human-evaluation",

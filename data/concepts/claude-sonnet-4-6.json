@@ -2,7 +2,7 @@
   "aliases": [
     "Claude Sonnet 4.6"
   ],
-  "definition": "A Claude model appearing in this archive only inside panels. It is one of 21 judges in the large-scale LLM-as-a-judge reliability evaluation, whose findings -- exact-match agreement overstating chance-corrected discrimination by 34 to 41 points across every judge and provider, and test-retest reliability coexisting with severe position bias -- are reported over the panel rather than per model. It also appears in the reasoning-trace extraction work, both in the cross-model compatibility map and as the model shown reasoning over a synthetic persona's private data while handling a flight-booking task, which is one of that paper's two illustrative leakage examples. Neither source reports a capability result attributed to it.",
+  "definition": "A frontier model appearing across 4 sources as a strong baseline and a judge. Its most informative appearance is in a large-scale judge evaluation where its provider's three judges average 0.770 agreement with human judgements on one benchmark alongside the lowest cohort-level position bias (0.020), against 0.467 for another provider's three flagships -- the archive's clearest family-level difference among judges. It also appears as a baseline in vision-language hallucination suppression, as a participant in multi-agent medical deliberation, and as a target for reasoning-trace extraction.",
   "evidence": [
     {
       "id": "arxiv:2608.08167",
@@ -141,7 +141,9 @@
     "deepseek-v3-2",
     "kimi-k2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "claude-sonnet-4-5"
+  ],
   "schema_version": 1,
   "slug": "claude-sonnet-4-6",
   "topics": [

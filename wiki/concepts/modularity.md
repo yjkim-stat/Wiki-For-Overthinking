@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-Whether a computation decomposes into components with separable roles that compose in a definite order. The archived sources disagree, and the disagreement is the useful part. On propositional logic, four families of attention heads execute rule location, rule movement, fact processing and decision *sequentially* — presented by its authors as surprising, since nothing forces a transformer to keep the steps distinct. On arithmetic, the mechanism is an *unordered* combination of heuristic neurons, and the authors conclude no algorithm is executed. The two analyses work at different granularities (attention heads versus neurons), so a computation could be modular at one level and a bag of heuristics inside each module; neither paper tests this. A third source warns against reading modularity as competence at all: three-layer models trained directly on the logic task are more accurate while being less modular.
+Whether a capability lives in an identifiable, separable part of a network, and across 4 sources a question the archive's evidence answers differently by capability. Against modularity: the arithmetic circuit reverse-engineered to individual neurons is neither a learned algorithm nor memorisation but an unordered collection of sparse heuristic neurons each firing on a numerical input pattern and voting -- a bag rather than a module. For modularity: a propositional-logic circuit decomposes into four families of attention heads executing rule locating, rule moving, fact processing and decision making as sequential steps, across models from 7B to 27B. At the parameter level: reasoning ability is found to reside in low-gradient-sensitivity regions rather than high-magnitude ones, which is what makes merging a reasoning model into a specialised one work. And methodologically, one source argues the search for modules must be joint rather than one component at a time, relaxing the combinatorial subset search into a continuous one over soft interventions.
 
 - **Kind**: concept
+- **Also called**: component structure
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 4
 

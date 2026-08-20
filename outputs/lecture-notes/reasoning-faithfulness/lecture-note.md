@@ -139,6 +139,7 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | best-of-n | 18 | Sampling N complete candidates and returning the one a verifier or reward model ranks highest. Across 18 sources it is the standard selection baseline and the standard illustrat... |
 | knowledge distillation | 15 | Training a student on a teacher's outputs or distribution, and across 15 sources a method whose success is governed less by the objective than by three properties of the pairing... |
 | sparse autoencoder | 15 | Learning an overcomplete dictionary on model activations under a sparsity penalty, so that a polysemantic activation vector is decomposed into features that admit individual int... |
+| causal intervention | 13 | Changing something inside a model and measuring what the output does, as opposed to reading a correlation off its states -- across 13 sources the standard the archive holds inte... |
 | steering vector | 13 | A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable... |
 | retrieval-augmented generation | 11 | Conditioning generation on retrieved documents, and in this archive mostly a setting other things are measured in rather than a method studied on its own -- it supplies the subs... |
 | DAPO | 10 | A group-relative variant that removes the value network and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping, used across 10 sour... |
@@ -146,7 +147,6 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | Monte Carlo tree search | 9 | Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physi... |
 | selectivity control | 9 | A comparison establishing that an intervention affects the thing it names and not a neighbouring one -- a matched item the effect should not touch, a random direction of the sam... |
 | logit lens | 8 | Decoding an intermediate activation through the output unembedding to see what token it would produce, used across 8 sources as a cheap read-out of what a layer is holding. The... |
-| budget forcing | 7 | Controlling how long a model thinks by cutting generation off at a limit or by appending a continuation cue such as 'Wait' to extend it, introduced as the second of two ingredie... |
 
 ## Benchmarks and datasets
 
@@ -165,7 +165,7 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | MMLU | 10 | A broad multiple-choice knowledge benchmark spanning many academic subjects, used across 10 sources as the general-capability check that a reasoning-focused intervention has not... |
 | MMLU-Pro | 8 | A harder, ten-option revision of the broad knowledge benchmark, used across 8 sources where the original is too saturated to discriminate. Its distinctive role in this archive i... |
 | Omni-MATH | 5 | An olympiad-level mathematics benchmark with an accompanying training split, used across 5 sources as a hard evaluation and, in one case, as the set on which the reasoning-bound... |
-| BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
+| BBH | 4 | A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived... |
 | ARC-Challenge | 3 | The harder split of the AI2 Reasoning Challenge, a multiple-choice science question set, used in both sources here as a supporting evaluation rather than a target. In the latent... |
 | HarmBench | 3 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
 | SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |

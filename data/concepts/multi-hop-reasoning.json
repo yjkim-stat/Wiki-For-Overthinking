@@ -2,7 +2,7 @@
   "aliases": [
     "multi-hop QA"
   ],
-  "definition": "Answering a question that requires combining facts no single retrieved document contains, and in both sources the regime that separates step-level credit assignment from outcome-only training. The evidence for that is an ablation rather than a definition: removing a forward-looking per-step reward costs 5.9 F1 on HotpotQA, 5.7 on 2WikiMultiHopQA and 4.4 on MuSiQue while costing 0.9 on single-hop Natural Questions, so dense step supervision earns its keep exactly where a trajectory holds several decisions that jointly determine the answer. Both sources also split their evaluation tables into single-hop and multi-hop averages and report them separately, treating the distinction as the axis along which a search policy either generalizes or does not.",
+  "definition": "Answering a question that requires chaining evidence from several sources, and across 4 sources the setting where the archive's search-agent credit-assignment work is measured. Its diagnostic value is that it separates from single-hop cleanly: one ablation removing a forward solvability-gain reward costs 3.6 points of average with the damage concentrated in the multi-hop sets (57.7 to 51.8, 51.9 to 46.2, 28.6 to 24.2) while a single-hop set barely moves (45.5 to 44.6), which is how a source shows its reward term targets the intended failure. The corpus's standing cautions for this setting: a trajectory of many retrievals receives one terminal scalar, so nothing distinguishes the retrieval that found the key document from one that repeated a query, and macro averages over these suites hide per-benchmark losses -- including one method's undiscussed 17.9-point deficit on a single benchmark.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -132,7 +132,11 @@
     "qwen3-5-9b",
     "mineru"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "retrieval-augmented-generation",
+    "credit-assignment",
+    "compositional-generalization"
+  ],
   "schema_version": 1,
   "slug": "multi-hop-reasoning",
   "topics": [

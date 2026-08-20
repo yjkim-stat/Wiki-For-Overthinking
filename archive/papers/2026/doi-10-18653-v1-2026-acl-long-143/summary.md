@@ -44,7 +44,7 @@ No quantitative results, benchmarks or models named in the abstract. 'Completely
 
 ## Entities
 
-- **Concepts**: [machine unlearning](../../../../wiki/concepts/machine-unlearning.md), counterfactual reasoning, chain of thought, [memorization](../../../../wiki/concepts/memorization.md), preference optimization, knowledge localization
+- **Concepts**: [machine unlearning](../../../../wiki/concepts/machine-unlearning.md), counterfactual reasoning, [chain of thought](../../../../wiki/concepts/chain-of-thought.md), [memorization](../../../../wiki/concepts/memorization.md), preference optimization, knowledge localization
 - **Methods**: CiPO, iterative preference optimization, counterfactual trace generation, machine unlearning
 - **Datasets**: _none recorded_
 

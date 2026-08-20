@@ -20,11 +20,31 @@
           "reasoning-training",
           "test-time-scaling"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+        "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.",
+        "title": "Persistent Semantic Entities in Tool-Augmented LLM Systems",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-13T02:08:47Z",
-  "created_at": "2026-08-13T01:53:47Z",
+  "completed_at": "2026-08-20T23:21:43Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'GPT-4o-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPT-4o-mini",
   "kind": "concept",
@@ -41,15 +61,17 @@
   },
   "payload": {
     "name": "GPT-4o-mini",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "GPT-4o-mini"
     ],
-    "definition": "A small proprietary model, used by both sources as the cheap end of a comparison. One includes it among the judges evaluating whether a poisoned model's reasoning betrays its backdoor, where the finding is that judge capability does not rescue a trace from which the information has been removed. The other reports it as an instance of a general pattern in translation-quality evaluation — efficient model variants are outperformed by their corresponding full models — so the cost saving is paid for in judgement quality.",
+    "definition": "A small frontier model appearing across 4 sources mostly as a cheap judge or monitor, and notable in this archive for two negative results. It is the model on which in-context self-reflection produces no contamination reduction at all in a study where the same intervention ranges from -14 to +45 percent across models -- the difference attributed to context isolation as an architectural property rather than a capability. And it supplies out-of-distribution correctness and logicality labels in one probing study, which that source lists among the places its central result inherits judge noise. It also appears as a chain-of-thought monitor and as a jury member.",
     "kind": "model",
-    "related": []
+    "related": [
+      "GPT-4o"
+    ]
   },
   "task_id": "concept__gpt-4o-mini",
   "task_version": 1,

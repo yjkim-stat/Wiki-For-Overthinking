@@ -44,8 +44,8 @@ The lower bounds need saturated attention, strict causal masking and projected p
 
 ## Entities
 
-- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), [effective depth](../../../../wiki/concepts/effective-depth.md), chain of thought, [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), regular language, context-sensitive language, log-precision, saturated attention, recurrence
-- **Methods**: layer-norm hash, Turing machine simulation, automaton simulation, projected pre-norm, [chain of thought](../../../../wiki/methods/chain-of-thought.md)
+- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), [effective depth](../../../../wiki/concepts/effective-depth.md), [chain of thought](../../../../wiki/concepts/chain-of-thought.md), [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), regular language, context-sensitive language, log-precision, saturated attention, recurrence
+- **Methods**: layer-norm hash, Turing machine simulation, automaton simulation, projected pre-norm, chain of thought
 - **Datasets**: _none recorded_
 
 Tags: `expressivity`, `circuit complexity`, `chain of thought`, `theory`, `complexity classes`

@@ -1,9 +1,10 @@
 {
   "aliases": [
     "BRUMO",
-    "BrUMO"
+    "BrUMO",
+    "BRUMO 2025"
   ],
-  "definition": "A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically: one includes it among five mathematics benchmarks where a categorical PPO critic improves avg@256 from 18.20 to 21.40, the other among the sets where a constraint-extraction prompting protocol improves over direct chain of thought on multiple backbones. Its role in the archive is as part of the tail of competition sets that get reported alongside AIME to show a result is not specific to one contest.",
+  "definition": "A competition mathematics set used across 4 sources as one of the newer small benchmarks in test-time-scaling and distillation suites, alongside HMMT and CMIMC. Its role is the same as the other thirty-problem competition sets: it is where methods separate and where the separation is weakest in evidence, so intervals rather than point estimates are what the archive should read from it. None of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.02181",
@@ -138,7 +139,11 @@
     "deepseek-r1-distill-qwen-1-5b",
     "justrl-deepseek-1-5b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "hmmt",
+    "cmimc",
+    "aime-2025"
+  ],
   "schema_version": 1,
   "slug": "brumo",
   "topics": [

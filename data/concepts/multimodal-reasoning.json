@@ -3,7 +3,7 @@
     "vision-language reasoning",
     "multimodal inference"
   ],
-  "definition": "Reasoning that must combine visual and textual information, represented in the archive almost entirely by benchmarks that conclude the modality split is mismeasured. One finds high answer accuracy conceals near-total failure at producing or reasoning from visual aids. One runs each problem with and without its image and finds a model with no image beating its own multimodal variants and GPT-5, with visual contribution shrinking as difficulty rises. One benchmarks error detection on real student work and puts the best model about 10% behind expert humans. One covers 54 scientific subfields with expert solutions for 46% of items. One finds risk cues correctly perceived and then overridden during reasoning. The recurring conclusion is that these benchmarks do not measure what their names claim.",
+  "definition": "Reasoning that must combine visual and textual evidence, and across 7 sources a setting where the archive's recurring finding is that answer accuracy conceals whether the image was used at all. Three measurements make that concrete. A visual-aid benchmark finds high answer accuracy hiding near-total failure at producing or reasoning from the aids the problems require. A university-level mathematics benchmark with original, hand-drawn, photographed and text-only variants finds a model given no image beating its own multimodal variants and a frontier system. And test-time selection fails for a structural reason -- neither answer frequency nor verbalised confidence tests whether an answer depends on the pixels, so a grounded answer and a confident language-prior guess look identical at the selection layer. Two failure modes specific to the modality: a model can see a risky visual cue and let narrative coherence override it as reasoning proceeds, and explicit intermediate grounding is worth 8.78 points over letting the model attend implicitly. The corpus's general verdict is that leading proprietary and open models remain significantly limited on complex multimodal reasoning, and that the reasoning process itself introduces vulnerabilities the single-modality case does not have.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -140,7 +140,11 @@
     "process-level-evaluation",
     "expert-authored-reference-solutions"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grounding",
+    "hallucination",
+    "selection-signal"
+  ],
   "schema_version": 1,
   "slug": "multimodal-reasoning",
   "topics": [

@@ -11,6 +11,22 @@
       },
       {
         "kind": "paper",
+        "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
+        "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+        "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
         "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
         "topics": [
@@ -19,8 +35,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:24:12Z",
-  "created_at": "2026-08-14T01:37:43Z",
+  "completed_at": "2026-08-20T23:20:28Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'linear separability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "linear separability",
   "kind": "concept",
@@ -37,15 +53,16 @@
   },
   "payload": {
     "name": "linear separability",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "The precondition that makes a concept readable by a linear probe or a concept vector: that the activations carrying the concept can be split from those that do not by a hyperplane. Both sources here treat it as a property of the representation as presented to the probe rather than a fixed fact about the model, and both engineer it rather than merely measuring it -- the L2 speaking assessment paper notes that Concept Activation Vectors assume linear separability, which is less likely in complex neural embeddings, and responds by learning CAVs in a sparse autoencoder latent space and mapping them back to activation space; the hallucination-detection paper trains a LoRA adapter that restructures a low-dimensional grounding signal into a shift-stable linear geometry, verified by transfer and by cross-trajectory patching. On what improving it buys, the two sources point opposite ways: the SAE route improves linear recoverability while attenuating activation-space sensitivity, especially in low-dimensional layers, whereas the adapter's restructuring is what makes the detector able to act. Read together they say separability and causal influence are distinct axes, and that a method can raise one while lowering the other.",
+    "definition": "Whether two classes can be divided by a hyperplane in activation space, and across 4 sources the property that licenses probing and is repeatedly shown not to license anything else. The corpus's central instance: concept recoverability and concept influence come apart -- one bias analysis finds sparse autoencoders improving the first while attenuating the second, which is the detection-versus-control gap stated in a different vocabulary. A second: a simpler linear probe is consistently stronger than a kernel-derived concept vector on a human-annotated benchmark, so more expressive readouts do not automatically buy more. A third is architectural: which steering strategy stays stable depends on the conditioning pathway, so separability at a site does not imply intervenability at that site. The archive's operative position is that separability is well established for reading and says nothing about writing, and that a probe's success is compatible with its having latched onto lexical surface patterns unless a null control says otherwise.",
     "kind": "concept",
     "related": [
+      "linear probe",
       "linear representation hypothesis",
-      "superposition"
+      "detection versus control"
     ]
   },
   "task_id": "concept__linear-separability",

@@ -8,7 +8,7 @@ A policy whose log-density is linear in the parameters: an action's probability 
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [entropy regularization](../methods/entropy-regularization.md), [exploration-exploitation trade-off](exploration-exploitation-trade-off.md), [importance sampling](../methods/importance-sampling.md), [KL divergence](kl-divergence.md), [linear function approximation](../methods/linear-function-approximation.md), [natural policy gradient](../methods/natural-policy-gradient.md), [policy gradient](../methods/policy-gradient.md), [PPO](../methods/ppo.md), [REINFORCE](../methods/reinforce.md), [softmax policy](softmax-policy.md), [tabular softmax parameterization](tabular-softmax-parameterization.md)
+**Related**: [entropy regularization](../methods/entropy-regularization.md), [exploration-exploitation trade-off](exploration-exploitation-trade-off.md), [importance sampling](../methods/importance-sampling.md), [KL divergence](../methods/kl-divergence.md), [linear function approximation](../methods/linear-function-approximation.md), [natural policy gradient](../methods/natural-policy-gradient.md), [policy gradient](../methods/policy-gradient.md), [PPO](../methods/ppo.md), [REINFORCE](../methods/reinforce.md), [softmax policy](softmax-policy.md), [tabular softmax parameterization](tabular-softmax-parameterization.md)
 
 ## Appears in
 

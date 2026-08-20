@@ -3,6 +3,24 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+        "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+        "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
         "title": "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios",
         "topics": [
@@ -21,9 +39,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:48Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'membership inference'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:20:28Z",
+  "created_at": "2026-08-20T23:17:39Z",
+  "instructions": "Write the wiki definition for 'membership inference'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "membership inference",
   "kind": "concept",
   "language": "en",
@@ -32,27 +50,22 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "membership inference",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
-    "aliases": [
-      "MIA",
-      "training-data membership test"
-    ],
-    "definition": "Testing whether a specific example was in a model's training data, used in the archive as the main practical handle on benchmark contamination. The sources disagree about whether it works. One applies it as a supporting analysis alongside neuron patterns and attention maps to explain a compositional performance drop. The other finds contamination detection fragile in reasoning models, with GRPO training concealing detection — so a model can be contaminated and pass the test. Taken together the archive holds a method that is routinely cited as a contamination check and a result showing the check can be defeated by ordinary reasoning training.",
-    "kind": "method",
+    "aliases": [],
+    "definition": "Deciding whether a particular example was in a model's training data, and across 4 sources the technical core of contamination auditing. The archive's results are mostly about the limits. Detectability is governed by a single quantity combining contamination fraction, effect size and sample count, and the resulting power predictions transport across settings while the sample-size budgets derived from them do not -- so an audit can be planned for power and not for cost. Post-training moves the features detectors rely on, which one source corrects by measuring how controlled prompt variants shift scores on known non-members and adjusting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC. And a brief round of reinforcement learning suppresses the signals outright, attributed to importance sampling and clipping rather than to any specific algorithm. The standing consequence is that a negative audit result on a post-trained model is close to uninformative unless its power was calculated in advance.",
+    "kind": "concept",
     "related": [
       "benchmark contamination",
-      "memorization",
-      "construct validity",
-      "meta-evaluation"
+      "decontamination"
     ]
   },
   "task_id": "concept__membership-inference",

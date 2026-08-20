@@ -2,9 +2,10 @@
   "aliases": [
     "Mistral-7B",
     "Mistral-7B-v0.1",
-    "Mistral-7B-Instruct-v0.2"
+    "Mistral-7B-Instruct-v0.2",
+    "Mistral-24B"
   ],
-  "definition": "A 7B open-weight model from Mistral, used across these sources as a second model family for checking that a result is not Qwen- or Llama-specific. It carries two replication roles: its propositional reasoning circuit contains the same four attention-head families found in the Gemma models, and the counterfactual state-editing result replicates in it at 0.93-0.94 edited-state agreement. It also serves as the weakest of three generators in best-of-N reward-model evaluation.",
+  "definition": "A 7B open model from a third family, used across 4 sources as the check that a result is not specific to the Llama and Qwen lines that dominate this archive. Its most consequential appearance is where the check fails in an informative direction: under three post-training algorithms on subjective judgement tasks, it improves on every task while a Qwen model falls below its own reasoning baseline on three of four under all three -- so the outcome is backbone-specific rather than algorithmic. It is also a subject in propositional-logic circuit analysis, in entropy-mechanism work, and in reproduction studies. Its 24B sibling appears in a cross-family steering audit with a significant positive effect.",
   "evidence": [
     {
       "id": "arxiv:2608.08514",
@@ -140,7 +141,10 @@
     "gemma-2-9b",
     "gemma-2-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-1-8b",
+    "qwen2-5-7b"
+  ],
   "schema_version": 1,
   "slug": "mistral-7b",
   "topics": [

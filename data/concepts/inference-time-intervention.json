@@ -3,9 +3,11 @@
     "inference-time defense",
     "test-time intervention",
     "decoding-time intervention",
-    "inference-time intervention"
+    "inference-time intervention",
+    "ITI",
+    "training-free intervention"
   ],
-  "definition": "Changing what a model does at generation time without touching its parameters, which both sources adopt for the same reason: fine-tuning-based defences are costly and do not scale. Both also place the intervention mid-trajectory rather than at the input or the output, because that is where they locate the failure. One reads internal attention to find key points in the reasoning path and injects safety-oriented reflections there, then samples to select a safe path. The other extracts objective visual evidence into a structured intent representation and enforces safety constraints before generation, on the finding that models perceive risk cues correctly and then lose them as narrative coherence takes over. Both need white-box access.",
+  "definition": "Changing what a model does at generation time without updating weights -- injecting a direction, inserting a reflection, re-prompting under a derived constraint, or masking part of the input. Across 4 sources the appeal is deployment-shaped: no retraining, switchable per query, and applicable to a frozen model. The corpus's instances differ in where they intervene. On activations, where the archive's standing result is that the sign of the effect is not determined by the direction's discriminability, so a training-free test that fixes the sign improves a standard pipeline in 27 of 30 experiments. On the trace, where a safeguard reads attention to find key points in a reasoning path and injects safety reflections there before scaling sampling to pick a safe path. And on the prompt, where a two-stage protocol extracts a problem's answer-space constraints first and then checks intermediate and final results against them, routed by a detector so the cost is conditional. The archive's related trade is that a decoding-time correction is switchable and costs latency on every query it fires on, while a weight-absorbed one is free at inference and permanent.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -33,8 +35,8 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:17:36Z",
   "name": "Inference Time Intervention",
   "related": [
     "steering-vector",
@@ -90,7 +92,10 @@
     "intent-guided-safety-reasoning",
     "perception-decoupling"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-steering",
+    "adaptive-compute-allocation"
+  ],
   "schema_version": 1,
   "slug": "inference-time-intervention",
   "topics": [

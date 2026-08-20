@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Llama 3.3 70B"
+    "Llama 3.3 70B",
+    "Llama-3.3-70B"
   ],
-  "definition": "A 70-billion-parameter Llama model that appears in this archive twice, in both cases as one member of a panel rather than as the object of study. It is one of six models, spanning GPT-2 to Llama-3.1-405B-Instruct, across which dense low-rank trained lenses are attached at every layer and at residual, attention and MLP hookpoints alike. It is separately one of ten judges in the large-scale LLM-as-a-judge reliability evaluation, whose findings -- kappa deflation universal across every judge and provider, and judge rankings shifting by up to fifteen positions between benchmarks -- are reported over the panel rather than per model. Neither source reports a result attributed specifically to it.",
+  "definition": "A 70B Llama of a later release, used across 4 sources as a large open subject for hidden-state interpretation at scale, tool-augmented contamination measurement across 24 models, financial reasoning evaluation and judge benchmarking. Its distinctive appearance is in prompt-injection detection, where at this scale no full-rank reference can be trained at all and a trained alternative catches attacks the raw logit lens misses (0.80 against 0.68) -- which is the archive's instance of a method mattering specifically because the simple baseline is infeasible at size.",
   "evidence": [
     {
       "id": "arxiv:2608.07952",
@@ -159,7 +160,9 @@
     "qwen3-8b",
     "kimi-k2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-1-70b"
+  ],
   "schema_version": 1,
   "slug": "llama-3-3-70b",
   "topics": [

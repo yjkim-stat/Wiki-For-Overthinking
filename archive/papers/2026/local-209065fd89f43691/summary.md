@@ -42,8 +42,8 @@ Hard attention is analysed rather than the softmax attention that is deployed, a
 
 ## Entities
 
-- **Concepts**: [sample complexity](../../../../wiki/concepts/sample-complexity.md), [VC dimension](../../../../wiki/concepts/vc-dimension.md), [generalization](../../../../wiki/concepts/generalization.md), teacher forcing, [expressivity-learnability gap](../../../../wiki/concepts/expressivity-learnability-gap.md), inductive bias, hard attention, chain of thought
-- **Methods**: VC dimension analysis, [teacher forcing](../../../../wiki/methods/teacher-forcing.md), PAC learning, [chain of thought](../../../../wiki/methods/chain-of-thought.md)
+- **Concepts**: [sample complexity](../../../../wiki/concepts/sample-complexity.md), [VC dimension](../../../../wiki/concepts/vc-dimension.md), [generalization](../../../../wiki/concepts/generalization.md), teacher forcing, [expressivity-learnability gap](../../../../wiki/concepts/expressivity-learnability-gap.md), inductive bias, hard attention, [chain of thought](../../../../wiki/concepts/chain-of-thought.md)
+- **Methods**: VC dimension analysis, [teacher forcing](../../../../wiki/methods/teacher-forcing.md), PAC learning, chain of thought
 - **Datasets**: _none recorded_
 
 Tags: `sample complexity`, `vc dimension`, `learning theory`, `teacher forcing`, `chain of thought`

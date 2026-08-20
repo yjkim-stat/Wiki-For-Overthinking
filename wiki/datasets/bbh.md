@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely related to monitorability and ranks BBH highest of its sets with GPQA-Diamond lowest, so a trace produced on BBH is the most likely to enumerate the factors that actually decide the answer. The other includes it in a seven-benchmark sweep in which a norm-based steering signal leads on AIME, GPQA and MMLU-Pro while an SAE-based one wins BBH and GSM-Plus, so interventions separate on it rather than agreeing. Under the fuller name the archive holds a third use: 13 of its tasks are the setting in which biasing the prompt drops accuracy by as much as 36 percent while the model's explanation rationalizes the biased answer.
+A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived results attach to it. It is where the foundational unfaithfulness measurement is made: under biasing features that models never mention, accuracy drops by as much as 36 percent across its 13 tasks with the explanations rationalising the biased answers. And it sits at the opposite end from a graduate science set on monitorability, scoring highest where that scores lowest -- which is the basis for the finding that monitorability tracks task difficulty rather than reasoning mode.
 
 - **Kind**: dataset
 - **Also called**: BBH tasks, BIG-Bench Hard

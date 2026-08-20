@@ -3,7 +3,7 @@
     "principal component analysis",
     "Principal Component Analysis"
   ],
-  "definition": "Linear dimensionality reduction, used across these four sources in two distinct roles and never as the object of study. As a baseline it is what sparse dictionary learning is measured against and beaten by: on automated interpretability across residual-stream layers of Pythia-70M, PCA scores about 0.07 to 0.13 against roughly 0.30 falling to 0.15 for sparse coding, and on indirect object identification patching dictionary features reaches a given KL divergence from the counterfactual target with fewer patched features than PCA or non-negative PCA, at smaller edit magnitude. As machinery it is a workspace rather than a claim: the per-instance steering paper ranks layers with a small network over a 25-dimensional PCA of an unsteered prompt embedding, the reasoning-trajectory paper estimates an ideal path as the step-wise mean of correct chains in a 128-dimensional PCA space before applying a rank-32 update, and the cultural-awareness paper lists it beside ridge regression and linear discriminant analysis as probing apparatus. The sources agree on the negative that organises both roles: the top variance directions of a layer are not taken to be the model's features.",
+  "definition": "Projecting activations onto their directions of greatest variance, and across 6 sources the baseline that decomposition methods must beat and frequently do not by much. Two careful comparisons. On automated interpretability across residual-stream layers, sparse coding scores about 0.30 at the first layer declining to 0.15 by the fifth, against 0.07 to 0.13 for principal components and 0.06 to 0.08 for random directions -- so the ordering is right and the margin narrows with depth. On causal transport, ablating the top-j modes of an alternative decomposition moves a behavioural readout more than j random directions and less than j principal directions (at j=8, principal components remove 60 percent against the modes' 25), with the gap decaying 4.1-fold in depth-distance and essentially gone by about 8 -- read by those authors narrowly, as principal components ceasing to be the better transport basis without the alternative being shown to be one. The archive's use of this pair is as a template: report the simple baseline and the random null together, and let the margin between them bound the claim.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -182,7 +182,9 @@
     "deepseek-r1-distill-llama-8b"
   ],
   "related_authored": [
-    "singular-value-decomposition"
+    "sparse-dictionary-learning",
+    "identifiability",
+    "logit-lens"
   ],
   "schema_version": 1,
   "slug": "pca",

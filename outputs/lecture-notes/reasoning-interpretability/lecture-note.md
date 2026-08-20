@@ -138,13 +138,13 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | sparse autoencoder | 15 | Learning an overcomplete dictionary on model activations under a sparsity penalty, so that a polysemantic activation vector is decomposed into features that admit individual int... |
 | LoRA | 14 | Training low-rank adapter matrices while the base weights stay frozen, used across 14 sources as the default cheap fine-tuning method and, in several, as the thing that bounds w... |
 | PPO | 14 | Policy optimisation with a clipped surrogate objective, a learned value function and a KL penalty -- the generation before the critic-free group-relative methods that dominate t... |
+| causal intervention | 13 | Changing something inside a model and measuring what the output does, as opposed to reading a correlation off its states -- across 13 sources the standard the archive holds inte... |
 | steering vector | 13 | A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable... |
 | component ablation | 12 | Removing one part of a method at a time and reporting what each removal costs, and across 12 sources the archive's default evidence that a design is more than the sum of arbitra... |
 | ablation | 10 | Removing something -- a feature, a direction, a component, a view -- and reporting what breaks, used across 10 sources both as evidence and as the thing being argued against. Th... |
 | circuit analysis | 9 | Identifying the subgraph of components a model uses for a task, and across 9 sources a method whose reach the corpus is explicit about. Its scope has been limited to partial evi... |
 | contrastive activation addition | 9 | Computing a steering direction as the difference of mean activations between contrastive prompt pairs, then adding it at inference -- the canonical activation-steering recipe an... |
 | Monte Carlo tree search | 9 | Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physi... |
-| selectivity control | 9 | A comparison establishing that an intervention affects the thing it names and not a neighbouring one -- a matched item the effect should not touch, a random direction of the sam... |
 
 ## Benchmarks and datasets
 
@@ -166,7 +166,7 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | 2WikiMultiHopQA | 5 | A multi-hop question-answering set requiring evidence from two Wikipedia articles, used across 5 sources as one of the standard in-domain benchmarks for search-augmented agents... |
 | IFEval | 5 | An instruction-following benchmark scoring whether verifiable format constraints in a prompt were obeyed, used across 5 sources as the capability-retention check that reasoning-... |
 | MBPP+ | 5 | A Python programming benchmark with expanded tests in its plus variant, used across 5 sources as a code column in general-capability suites and in calibration-data studies. Its... |
-| BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
+| BBH | 4 | A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived... |
 | indirect object identification | 4 | A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmar... |
 | the Pile | 4 | A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activati... |
 | CHAIR | 3 | A metric and evaluation protocol for object hallucination in image captioning, counting mentioned objects absent from the image at the instance and sentence level, and in both s... |

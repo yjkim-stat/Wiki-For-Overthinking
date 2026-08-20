@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A mid-sized Claude model used in this archive in two applied settings, neither of which studies it. It is one of the judge models in a robot-autonomy verification ensemble that gates plans before execution, where the reported finding is about ensemble size rather than about any member -- accuracy stays within 0.76 to 0.78 from one judge to seven. It also appears in the reasoning-trace extraction work as one of the Claude-family models whose encrypted reasoning blocks were found replayable into other models of the family, and, in the injection-scheme map, as one of the 4.5-generation models that accepts a thought placed in the current assistant turn. Nothing in either source characterises the model itself.
+A frontier model appearing across 4 sources as a judge, a rubric generator and a commercial baseline. Its archived positions: one of three independent frontier models whose unanimous agreement defines a consensus criterion, a member of an ensemble gating robot-autonomy plans where ensemble size barely moves accuracy, a target for reasoning-trace extraction, and a commercial comparator that an open-weight model trained with group-relative optimisation outperforms on financial advice under a causal-effect evaluation. None of the sources describes the model.
 
 - **Kind**: model
 - **Also called**: Claude Sonnet 4.5

@@ -45,8 +45,8 @@ The lower-bound constructions say what a transformer can represent, not what gra
 
 ## Entities
 
-- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), serial computation, [effective depth](../../../../wiki/concepts/effective-depth.md), chain of thought, [finite precision](../../../../wiki/concepts/finite-precision.md), parallel versus serial, non-solvable group
-- **Methods**: circuit complexity analysis, [chain of thought](../../../../wiki/methods/chain-of-thought.md), constant-precision floating point modelling, synthetic task training
+- **Concepts**: [expressivity](../../../../wiki/concepts/expressivity.md), [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), serial computation, [effective depth](../../../../wiki/concepts/effective-depth.md), [chain of thought](../../../../wiki/concepts/chain-of-thought.md), [finite precision](../../../../wiki/concepts/finite-precision.md), parallel versus serial, non-solvable group
+- **Methods**: circuit complexity analysis, chain of thought, constant-precision floating point modelling, synthetic task training
 - **Datasets**: modular addition, permutation composition, iterated squaring, circuit value problem
 
 Tags: `expressivity`, `circuit complexity`, `serial computation`, `theory`, `chain of thought`

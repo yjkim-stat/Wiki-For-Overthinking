@@ -1,9 +1,10 @@
 {
   "aliases": [
     "sample efficiency",
-    "rollout efficiency"
+    "rollout efficiency",
+    "sample efficiency of training"
   ],
-  "definition": "Achieving a training effect with few examples or few rollouts, used by the sources as evidence about what is being learned rather than only as a cost argument. One identifies rollouts wasted on prompts where every sample is already correct and the advantage is therefore zero, making efficiency a matter of which prompts are worth sampling. The other reports safety alignment from 1K supervised examples and treats that smallness as support for its claim that the target is a reusable reasoning structure rather than knowledge — if the fix needed knowledge it would need far more data. The inference from few examples to structure is the sources' argument, not a demonstrated mechanism.",
+  "definition": "Reaching a given level of performance from less training data or fewer rollouts, and across 4 sources approached from the same direction: identify before training which prompts will teach something. The archive's instances. Task learnability is separated from current pass rate, shown reproducible across independent runs, and shown to predict downstream value at matched current performance -- estimated from a short probe run before training begins, which is what makes it a prior rather than a diagnosis. Prompts on which every sampled rollout already succeeds are identified and removed, since their advantage estimate is zero and the rollouts are pure waste. And a stage inserted before reinforcement learning, in which the model extracts textual lessons from its own rollouts and distils the surviving ones into its weights, produces a policy that fails all-eight-samples less often -- reported as matched performance at roughly 28 percent fewer trajectories and steps, a 1.39-fold speedup. A fourth instance is about supervised data rather than rollouts: 1,000 examples suffice to change a model's reasoning structure enough for safety alignment with no reinforcement learning at all.",
   "evidence": [
     {
       "id": "arxiv:2608.02139",
@@ -89,7 +90,11 @@
     "supervised-fine-tuning",
     "post-training"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "prompt-difficulty",
+    "zero-advantage-group",
+    "curriculum-learning"
+  ],
   "schema_version": 1,
   "slug": "data-efficiency",
   "topics": [

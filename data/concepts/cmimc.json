@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "CMIMC'25"
+    "CMIMC'25",
+    "CMIMC 2025"
   ],
-  "definition": "A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among five recent competition datasets making up the signal-rich block of a released reasoning-trace corpus. The other reports it among the sets on which a constraint-extraction prompting protocol improves over direct chain of thought across multiple backbones. Its presence in the archive is as one of the tail of competition sets reported alongside AIME to show a result is not specific to one contest.",
+  "definition": "A competition mathematics set used across 4 sources as part of the newer small-benchmark suite in test-time-scaling and claim-level reliability work. Like its companions it is small enough that a single problem is several points, and it appears in sources that report inference-regime taxonomies and reproducibility prescriptions precisely because such sets are where protocol differences dominate. None of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -120,7 +121,10 @@
     "gpt-oss-120b",
     "qwen3-5-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "hmmt",
+    "brumo"
+  ],
   "schema_version": 1,
   "slug": "cmimc",
   "topics": [

@@ -12,8 +12,26 @@
       },
       {
         "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
         "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+        "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs",
         "topics": [
           "reasoning-training",
           "test-time-scaling"
@@ -21,8 +39,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T14:19:23Z",
-  "created_at": "2026-08-20T14:11:32Z",
+  "completed_at": "2026-08-20T23:20:27Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'difficulty stratification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "difficulty stratification",
   "kind": "concept",
@@ -39,16 +57,17 @@
   },
   "payload": {
     "name": "difficulty stratification",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "stratified evaluation"
     ],
-    "definition": "Reporting a result within bands of instance difficulty rather than over an aggregate, and in both sources the analysis that turns a benchmark number into a mechanism claim. The verifier-free selection work splits into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while gaining twelve to fourteen points on the medium tier and four points on the hard one, which is the pattern a mechanism-driven improvement should show and which the aggregate conceals. The reliability-alignment work stratifies abstention behaviour instead and finds refusal rates rising monotonically with difficulty -- 2.1 percent on two-step problems against 14.8 on problems needing five or more, and 3.2 against 31.8 across five levels of a mathematics set -- which is its evidence against a uniform refusal strategy. Both sources note the same caveat in different words: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.",
+    "definition": "Reporting a result within bands of instance difficulty rather than over an aggregate, and across 4 sources the analysis that turns a benchmark number into a mechanism claim. Its clearest use: a verifier-free selector is neutral or fractionally worse on the easy tier (99.9 against 99.9, 99.1 against 100.0) while moving the medium tier 58.1 to 70.3 and 74.9 to 88.6 and the hard tier 3.7 to 8.1 and 13.4 to 17.2 -- the pattern a mechanism-driven improvement should show and one the aggregate conceals. A second source stratifies abstention rather than accuracy and finds refusal rates rising monotonically with difficulty, 2.1 percent on two-step problems against 14.8 on problems needing five or more, which is its evidence against a uniform refusal strategy. The standing caveats both sources acknowledge: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own pass rate select for that baseline's failures, so part of any lift is regression toward the mean. The archive's related finding is that this decomposition is cheap and its absence is a choice, since an aggregate can move opposite to most of its components.",
     "kind": "method",
     "related": [
-      "difficulty conditioning"
+      "prompt difficulty",
+      "aggregate reporting"
     ]
   },
   "task_id": "concept__difficulty-stratification",

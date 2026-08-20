@@ -42,7 +42,7 @@ The paper is pure theory and states no limitations; the following are scope fact
 
 ## Entities
 
-- **Concepts**: entropy regularization, Polyak-Lojasiewicz inequality, gradient dominance, global linear convergence, Fisher information matrix, radial unboundedness, Lyapunov function, [log-linear policy](../../../../wiki/concepts/log-linear-policy.md), linear function approximation, Q-realizability, occupancy measure, [softmax policy](../../../../wiki/concepts/softmax-policy.md), [tabular softmax parameterization](../../../../wiki/concepts/tabular-softmax-parameterization.md), continuous state and action spaces, gradient flow, [KL divergence](../../../../wiki/concepts/kl-divergence.md)
+- **Concepts**: entropy regularization, Polyak-Lojasiewicz inequality, gradient dominance, global linear convergence, Fisher information matrix, radial unboundedness, Lyapunov function, [log-linear policy](../../../../wiki/concepts/log-linear-policy.md), linear function approximation, Q-realizability, occupancy measure, [softmax policy](../../../../wiki/concepts/softmax-policy.md), [tabular softmax parameterization](../../../../wiki/concepts/tabular-softmax-parameterization.md), continuous state and action spaces, gradient flow, KL divergence
 - **Methods**: [policy gradient](../../../../wiki/methods/policy-gradient.md), [natural policy gradient](../../../../wiki/methods/natural-policy-gradient.md), mirror descent, Lyapunov function argument, trigonometric basis features, Bernstein polynomial features
 - **Datasets**: _none recorded_
 

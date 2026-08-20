@@ -1,9 +1,10 @@
 {
   "aliases": [
     "multi-model jury",
-    "judge ensemble"
+    "judge ensemble",
+    "multi-judge"
   ],
-  "definition": "Combining verdicts from several judge models rather than sampling one judge repeatedly, on the argument that different models cancel each other's biases where repeated samples of one model do not. The translation-quality work supports it directly: a jury of different reasoning models beats a jury of repeated samples from a single model and exceeds every individual member at segment level, and its inter-judge agreement is then reused as a data filter, keeping segments where the jury's scores span zero and discarding wider spreads, with the resulting annotations distilled into a 12B student that beats every open reasoning-model judge tested. The robot-plan verification work is the counterweight and is more equivocal: scaling the ensemble from one judge to seven moves aggregate accuracy only from 0.76 to 0.78, and the disaggregated picture shows what more judges actually buy -- reject-class F1 rises monotonically from 0.81 to 0.86 while accept recall falls, so the ensemble converges on refusing. Read together the sources suggest a jury's value lies in diversity of model rather than in count, and that adding members can move the operating point toward conservatism rather than improving discrimination.",
+  "definition": "Combining several model judges rather than trusting one, and across 4 sources a remedy for judge unreliability whose returns the corpus finds are uneven. The positive case: a jury of different models is better than any member on translation quality, and its agreement-filtered annotations distil into a 12B student that beats every open reasoning-model judge tested -- with the authors noting the filter may be removing exactly the edge cases a judge most needs to see. The negative case is equally specific: in a robot-autonomy verification harness, ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject, so adding judges buys nothing where the difficulty is deciding what needs a human. A third source finds several response modes belonging to a single model under steering pressure, which bears on aggregation directly -- within-model variance can exceed between-model variance, so an ensemble of one model's samples and an ensemble of different models are not the same instrument. And one multi-agent deliberation study finds its advantage concentrating entirely in cases where single-model inference fails and reversing on the easiest quartile.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -143,7 +144,9 @@
     "claude-sonnet-4-6"
   ],
   "related_authored": [
-    "self-consistency"
+    "llm-as-a-judge",
+    "consensus",
+    "annotation-agreement"
   ],
   "schema_version": 1,
   "slug": "jury-aggregation",

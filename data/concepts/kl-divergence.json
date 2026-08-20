@@ -3,7 +3,7 @@
     "KL",
     "Kullback-Leibler divergence"
   ],
-  "definition": "A measure of how far one distribution sits from another, and in these two sources a constraint and a proof device respectively. One uses it as the penalty anchoring a policy to its reference during reinforcement learning, and — more usefully — decomposes it by token position as a diagnostic: under a voting-based label-free objective, divergence on answer tokens rises sharply while divergence on reasoning tokens barely moves, which localizes a collapse that a trajectory-wide scalar would register only as a symptom. The other makes the entropy regularizer, which is a divergence from the uniform policy, do the work of a Lyapunov function: it keeps the Fisher information matrix from degenerating and thereby yields exponential convergence for a non-convex problem over continuous state and action spaces. The transferable idea from the pair is that this quantity is more informative when it is resolved — by position in one case, as a potential function in the other — than when reported as a single number.",
+  "definition": "The asymmetric divergence between two distributions, present across 4 sources as a training objective, a regulariser and a measurement. Its three roles carry different cautions. As an objective, its direction matters and the archive documents both -- mass-covering forward KL as the working default and mode-seeking reverse KL as the one that collapses by loss of termination under pseudo-labels. As a regulariser its trajectory is read diagnostically: rising steadily is offered as evidence against representational collapse, while the lowest trajectory in a sweep indicates a policy that never left its initialisation. As a measurement it appears in patching evaluations, in per-token comparisons between context views (p99 of 0.6 nats under one conditioning against 13.0 under another), and in decompositions separating divergence on answer tokens from divergence on reasoning tokens. One theoretical source supplies a counterexample worth recording: with standard one-dimensional finite elements on a four-point grid the divergence converges to log 3 as a parameter grows, so radial unboundedness fails and an argument relying on it does not apply -- the feature conditions in these results are real restrictions rather than formalities.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -31,8 +31,8 @@
     }
   ],
   "first_seen": "2026-08-09T06:17:44Z",
-  "kind": "concept",
-  "last_seen": "2026-08-14T01:37:41Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:17:36Z",
   "name": "KL divergence",
   "related": [
     "label-free-reinforcement-learning",
@@ -138,6 +138,8 @@
     "bernstein-polynomial-features"
   ],
   "related_authored": [
+    "forward-kl-divergence",
+    "reverse-kl-divergence",
     "kl-regularization"
   ],
   "schema_version": 1,

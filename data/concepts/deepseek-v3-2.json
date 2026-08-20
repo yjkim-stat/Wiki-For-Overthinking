@@ -3,7 +3,7 @@
     "DeepSeek V3.2",
     "DeepSeek-V3.2"
   ],
-  "definition": "A DeepSeek model that appears in this archive only inside panels, never as the object of study. It is one of 20 models spanning 1.5B to 1T parameters in the Persistent Semantic Entities susceptibility panel, where every model tested proves susceptible to injected contamination and no scale effect is resolvable, and one of 21 judges in the large-scale LLM-as-a-judge reliability evaluation, whose central findings -- kappa deflation of 34 to 41 points universal across every judge and provider, and test-retest reliability coexisting with severe position bias -- are reported over the panel rather than per model. Neither source describes the model's architecture, training or capabilities, and neither reports a number attributed to it individually.",
+  "definition": "A frontier model appearing across 4 sources as attacker, target, scorer, teacher and judge -- in one safety pipeline it plays all five roles at once, which is that paper's main confound: the attacks the student learns to see, the judgement that they succeeded and the analysis of why are all one model's view, and the single cross-teacher check is more than three times worse. That makes it the archive's clearest case of a result being substantially a property of one model's analyses rather than of a framework. It also appears as a zero-shot ensemble baseline in forecasting, in tool-augmented contamination measurement, and in judge benchmarking.",
   "evidence": [
     {
       "id": "arxiv:2608.07952",
@@ -182,7 +182,10 @@
     "gemini-2-5-flash",
     "kimi-k2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1",
+    "qwen3-235b-a22b-thinking"
+  ],
   "schema_version": 1,
   "slug": "deepseek-v3-2",
   "topics": [

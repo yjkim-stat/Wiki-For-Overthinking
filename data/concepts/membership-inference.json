@@ -3,7 +3,7 @@
     "MIA",
     "training-data membership test"
   ],
-  "definition": "Testing whether a specific example was in a model's training data, used in the archive as the main practical handle on benchmark contamination. The sources disagree about whether it works. One applies it as a supporting analysis alongside neuron patterns and attention maps to explain a compositional performance drop. The other finds contamination detection fragile in reasoning models, with GRPO training concealing detection — so a model can be contaminated and pass the test. Taken together the archive holds a method that is routinely cited as a contamination check and a result showing the check can be defeated by ordinary reasoning training.",
+  "definition": "Deciding whether a particular example was in a model's training data, and across 4 sources the technical core of contamination auditing. The archive's results are mostly about the limits. Detectability is governed by a single quantity combining contamination fraction, effect size and sample count, and the resulting power predictions transport across settings while the sample-size budgets derived from them do not -- so an audit can be planned for power and not for cost. Post-training moves the features detectors rely on, which one source corrects by measuring how controlled prompt variants shift scores on known non-members and adjusting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC. And a brief round of reinforcement learning suppresses the signals outright, attributed to importance sampling and clipping rather than to any specific algorithm. The standing consequence is that a negative audit result on a post-trained model is close to uninformative unless its power was calculated in advance.",
   "evidence": [
     {
       "id": "arxiv:2608.07914",
@@ -31,7 +31,7 @@
     }
   ],
   "first_seen": "2026-08-08T06:13:28Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T13:04:03Z",
   "name": "membership inference",
   "related": [
@@ -103,7 +103,10 @@
     "gsm8k",
     "gpqa-diamond"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "benchmark-contamination",
+    "decontamination"
+  ],
   "schema_version": 1,
   "slug": "membership-inference",
   "topics": [

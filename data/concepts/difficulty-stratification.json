@@ -2,7 +2,7 @@
   "aliases": [
     "stratified evaluation"
   ],
-  "definition": "Reporting a result within bands of instance difficulty rather than over an aggregate, and in both sources the analysis that turns a benchmark number into a mechanism claim. The verifier-free selection work splits into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while gaining twelve to fourteen points on the medium tier and four points on the hard one, which is the pattern a mechanism-driven improvement should show and which the aggregate conceals. The reliability-alignment work stratifies abstention behaviour instead and finds refusal rates rising monotonically with difficulty -- 2.1 percent on two-step problems against 14.8 on problems needing five or more, and 3.2 against 31.8 across five levels of a mathematics set -- which is its evidence against a uniform refusal strategy. Both sources note the same caveat in different words: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.",
+  "definition": "Reporting a result within bands of instance difficulty rather than over an aggregate, and across 4 sources the analysis that turns a benchmark number into a mechanism claim. Its clearest use: a verifier-free selector is neutral or fractionally worse on the easy tier (99.9 against 99.9, 99.1 against 100.0) while moving the medium tier 58.1 to 70.3 and 74.9 to 88.6 and the hard tier 3.7 to 8.1 and 13.4 to 17.2 -- the pattern a mechanism-driven improvement should show and one the aggregate conceals. A second source stratifies abstention rather than accuracy and finds refusal rates rising monotonically with difficulty, 2.1 percent on two-step problems against 14.8 on problems needing five or more, which is its evidence against a uniform refusal strategy. The standing caveats both sources acknowledge: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own pass rate select for that baseline's failures, so part of any lift is regression toward the mean. The archive's related finding is that this decomposition is cheap and its absence is a choice, since an aggregate can move opposite to most of its components.",
   "evidence": [
     {
       "id": "arxiv:2608.07931",
@@ -118,7 +118,8 @@
     "meta-llama-3-8b-instruct-lite"
   ],
   "related_authored": [
-    "difficulty-conditioning"
+    "prompt-difficulty",
+    "aggregate-reporting"
   ],
   "schema_version": 1,
   "slug": "difficulty-stratification",

@@ -45,7 +45,7 @@ Six instruction categories concentrated on multilingual reasoning and length con
 
 ## Entities
 
-- **Concepts**: [instruction following](../../../../wiki/concepts/instruction-following.md), [controllability](../../../../wiki/concepts/controllability.md), [monitorability](../../../../wiki/concepts/monitorability.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), [alignment](../../../../wiki/concepts/alignment.md), reasoning trace, difficulty scaling
+- **Concepts**: [instruction following](../../../../wiki/concepts/instruction-following.md), [controllability](../../../../wiki/concepts/controllability.md), [monitorability](../../../../wiki/concepts/monitorability.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), [alignment](../../../../wiki/concepts/alignment.md), [reasoning trace](../../../../wiki/concepts/chain-of-thought.md), difficulty scaling
 - **Methods**: ReasonIF, Reasoning Instruction Finetuning, [multi-turn reasoning](../../../../wiki/methods/multi-turn-reasoning.md), [synthetic data generation](../../../../wiki/methods/synthetic-data-generation.md)
 - **Datasets**: ReasonIF
 

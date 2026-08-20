@@ -45,8 +45,8 @@ The main evidence is one model, LLaDA-8B, against unnamed comparable AR baseline
 
 ## Entities
 
-- **Concepts**: [calibration](../../../../wiki/concepts/calibration.md), discrimination, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), diffusion language model, bidirectional context, structural consistency, [expected calibration error](../../../../wiki/concepts/expected-calibration-error.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
-- **Methods**: post-hoc calibration, AUROC evaluation, expected calibration error, diffusion language modelling
+- **Concepts**: [calibration](../../../../wiki/concepts/calibration.md), discrimination, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), diffusion language model, bidirectional context, structural consistency, expected calibration error, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
+- **Methods**: post-hoc calibration, AUROC evaluation, [expected calibration error](../../../../wiki/methods/expected-calibration-error.md), diffusion language modelling
 - **Datasets**: _none recorded_
 
 Tags: `calibration`, `diffusion language model`, `uncertainty`, `auroc`, `math reasoning`

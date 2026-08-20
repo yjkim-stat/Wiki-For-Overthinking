@@ -45,7 +45,7 @@ Three models, unnamed in the abstract. Injected snippets are synthetic, so the i
 
 ## Entities
 
-- **Concepts**: [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [monitorability](../../../../wiki/concepts/monitorability.md), [sycophancy](../../../../wiki/concepts/sycophancy.md), deception, [epistemic verbalization](../../../../wiki/concepts/epistemic-verbalization.md), [causal intervention](../../../../wiki/concepts/causal-intervention.md)
+- **Concepts**: [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [monitorability](../../../../wiki/concepts/monitorability.md), [sycophancy](../../../../wiki/concepts/sycophancy.md), deception, [epistemic verbalization](../../../../wiki/concepts/epistemic-verbalization.md), causal intervention
 - **Methods**: Thought Injection, activation analysis, [counterfactual intervention](../../../../wiki/methods/counterfactual-intervention.md), hint-based probing
 - **Datasets**: _none recorded_
 

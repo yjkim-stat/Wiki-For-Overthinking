@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "logistic probe"
+    "logistic probe",
+    "LR probe"
   ],
-  "definition": "Fitting a linear decision boundary by maximum likelihood, used in both sources as the standard readout against which other probes are measured. One builds L2-regularized versions over surface features and text embeddings as the reader in its observability ladder, deliberately choosing a simple reader so that what a display reveals is not confounded with reader capability — and then shows the choice matters, since a capable model reader recovers 0.649 from summaries where these sit at chance. The other fits it and a whitened variant as diagnostics, finds them the most accurate probes of the four families tried, and then does not use them for steering. Between the two, the technique's role is as a calibrated lower bound on what is linearly accessible rather than as the instrument a claim rests on.",
+  "definition": "The standard classifier behind most of this archive's probes, and across 4 sources notable mainly for how often the simple baseline is competitive. Two instances. A term-frequency baseline with logistic regression reaches 0.894 AUC on one concept -- above every configuration of a kernel-based alternative -- while remaining 2.0 accuracy points behind the best internal-state probe there and 6.0 to 6.9 behind on two others, which is the right way to report a margin: against a text-only baseline that could explain it. And in trajectory-geometry work an ordinary logistic probe on the final hidden state is within a few thousandths of AUROC of a trajectory method on three of six benchmarks, so the general claim is carried by a minority. The archive's practice note is that a probe result is uninterpretable without both a surface-feature baseline and a permutation null, particularly where the feature dimension exceeds the sample count.",
   "evidence": [
     {
       "id": "arxiv:2608.02089",
@@ -115,7 +116,8 @@
     "gpt-2"
   ],
   "related_authored": [
-    "linear-probe"
+    "linear-probe",
+    "null-control"
   ],
   "schema_version": 1,
   "slug": "logistic-regression",

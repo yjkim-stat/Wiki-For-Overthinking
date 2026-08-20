@@ -22,11 +22,33 @@
           "reasoning-training",
           "test-time-scaling"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+        "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T14:19:24Z",
-  "created_at": "2026-08-20T14:08:51Z",
+  "completed_at": "2026-08-20T23:20:28Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'human evaluation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "human evaluation",
   "kind": "concept",
@@ -43,16 +65,19 @@
   },
   "payload": {
     "name": "human evaluation",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "human annotation"
+      "human annotation",
+      "expert evaluation"
     ],
-    "definition": "Scoring model output by people rather than by a metric or a model, and in both sources the instrument that constrains a claim an automatic measure could not. The matched supervision study uses it to answer the question its accuracy tables cannot: two annotators score eight criteria with external-expert adjudication and agreement from 0.760 to 1.000, and find no significant improvement on any reasoning-content criterion despite a twenty-point out-of-domain accuracy gain, locating the measurable effect of rationale supervision in target-language adherence and inspectability instead. The persona study uses it in the other direction, to validate an instrument rather than a result: two annotators independently label 191 generations at 93 percent agreement and kappa 0.85, establishing the task is reproducible, and only then is a model judge scored against them at precision 0.90 and recall 0.98 with generations reweighted by inverse sampling rate. The archive's reading is that these are the two legitimate uses -- measure what no automatic metric covers, or calibrate the automatic metric you intend to substitute -- and that both require agreement to be reported before anything is concluded from the labels.",
+    "definition": "Scoring model output by people rather than by a metric or a model, and across 4 sources the instrument that constrains a claim no automatic measure can. Its two legitimate uses in the corpus are distinct. Answering what no metric covers: two annotators scoring eight criteria with external-expert adjudication and agreement from 0.760 to 1.000 find no significant improvement on any reasoning-content criterion despite a twenty-point out-of-domain accuracy gain, locating the measurable effect in language adherence and inspectability instead. And calibrating an instrument before substituting it: two annotators label 191 generations at 93 percent agreement and kappa 0.85, establishing the task is reproducible, and only then is a model judge scored against them at precision 0.90 and recall 0.98. The corpus's cautions: an expert study on 17 matched questions or 136 criteria per condition is small, and a chance-corrected statistic is necessary where a class is near ceiling -- one source reports raw agreement of 0.90 to 0.99 with kappas of 0.357 to 0.573, which means its headline gain rests on a small number of discordant judgements.",
     "kind": "method",
     "related": [
-      "annotation agreement"
+      "annotation agreement",
+      "LLM-as-a-judge",
+      "construct validity"
     ]
   },
   "task_id": "concept__human-evaluation",

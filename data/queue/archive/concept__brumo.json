@@ -7,6 +7,17 @@
         "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning",
         "topics": [
           "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
           "reasoning-evaluation"
         ]
       },
@@ -16,13 +27,24 @@
         "title": "Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving",
         "topics": [
           "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
           "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T00:17:14Z",
-  "created_at": "2026-08-13T00:02:05Z",
+  "completed_at": "2026-08-20T23:21:41Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'Brumo'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Brumo",
   "kind": "concept",
@@ -39,20 +61,25 @@
   },
   "payload": {
     "name": "Brumo",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "BRUMO"
+      "BRUMO 2025"
     ],
-    "definition": "A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically: one includes it among five mathematics benchmarks where a categorical PPO critic improves avg@256 from 18.20 to 21.40, the other among the sets where a constraint-extraction prompting protocol improves over direct chain of thought on multiple backbones. Its role in the archive is as part of the tail of competition sets that get reported alongside AIME to show a result is not specific to one contest.",
+    "definition": "A competition mathematics set used across 4 sources as one of the newer small benchmarks in test-time-scaling and distillation suites, alongside HMMT and CMIMC. Its role is the same as the other thirty-problem competition sets: it is where methods separate and where the separation is weakest in evidence, so intervals rather than point estimates are what the archive should read from it. None of the sources describes its construction.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "HMMT",
+      "CMIMC",
+      "AIME 2025"
+    ]
   },
   "task_id": "concept__brumo",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

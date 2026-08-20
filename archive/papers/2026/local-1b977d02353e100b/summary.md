@@ -43,7 +43,7 @@ The paper is candid that verifier transfer across datasets and models works in s
 ## Entities
 
 - **Concepts**: [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), intermediate state, answer-space distance features, trajectory convergence, consistency, uncertainty, thought-level perplexity, verifier-weighted voting, [self-correction](../../../../wiki/concepts/self-correction.md), post-hoc analysis
-- **Methods**: landscape of thoughts (LoT), [t-SNE](../../../../wiki/methods/t-sne.md), [chain-of-thought](../../../../wiki/methods/chain-of-thought.md), least-to-most prompting, tree-of-thought, [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), random forest, weighted majority voting
+- **Methods**: landscape of thoughts (LoT), [t-SNE](../../../../wiki/methods/t-sne.md), chain-of-thought, least-to-most prompting, tree-of-thought, [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), random forest, weighted majority voting
 - **Datasets**: AQuA, [MMLU](../../../../wiki/datasets/mmlu.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md)
 
 Tags: `visualization`, `reasoning analysis`, `verifier`, `test-time scaling`, `uncertainty`, `perplexity`, `t-sne`, `multiple choice`

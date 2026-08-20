@@ -46,7 +46,7 @@ The paper has no limitations section. What a reader should weigh: the training d
 
 ## Entities
 
-- **Concepts**: [visual grounding](../../../../wiki/concepts/visual-grounding.md), curriculum learning, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), chain of thought, [reasoning depth](../../../../wiki/concepts/reasoning-depth.md), [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), [process supervision](../../../../wiki/concepts/process-supervision.md), LLM-as-a-judge, synthetic data generation
+- **Concepts**: [visual grounding](../../../../wiki/concepts/visual-grounding.md), curriculum learning, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [chain of thought](../../../../wiki/concepts/chain-of-thought.md), [reasoning depth](../../../../wiki/concepts/reasoning-depth.md), [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), [process supervision](../../../../wiki/concepts/process-supervision.md), LLM-as-a-judge, synthetic data generation
 - **Methods**: CURV, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [reinforcement learning](../../../../wiki/methods/reinforcement-learning.md), intersection over union, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
 - **Datasets**: CCQA, ChartQA, ChartQA-Pro, CharXiv, ChartMuseum, [MathVista](../../../../wiki/datasets/mathvista.md), [MMMU-Pro](../../../../wiki/datasets/mmmu-pro.md)
 

@@ -45,7 +45,7 @@ No limitations section. What a reader should notice: the two-type taxonomy is de
 
 ## Entities
 
-- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), logit lens, attention, [grounding](../../../../wiki/concepts/grounding.md), [causal intervention](../../../../wiki/concepts/causal-intervention.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), layer selection, co-occurrence prior
+- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), logit lens, attention, [grounding](../../../../wiki/concepts/grounding.md), causal intervention, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), layer selection, co-occurrence prior
 - **Methods**: [logit lens](../../../../wiki/methods/logit-lens.md), [attention analysis](../../../../wiki/methods/attention-analysis.md), [activation patching](../../../../wiki/methods/activation-patching.md), masking intervention, [contrastive decoding](../../../../wiki/methods/contrastive-decoding.md), [training-free intervention](../../../../wiki/methods/training-free-intervention.md)
 - **Datasets**: [COCO](../../../../wiki/datasets/coco.md), [CHAIR](../../../../wiki/datasets/chair.md), AMBER
 

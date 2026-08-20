@@ -4,7 +4,7 @@
     "compositional reasoning",
     "multi-step composition"
   ],
-  "definition": "Solving a problem that combines steps the model can already perform individually, which all three sources treat as the property that fails while single-step competence holds. The strongest measurement pairs each compositional task with its isolated steps on the same items: models usually solve both steps alone yet lose nearly 30% when they are combined, a larger drop than same-type multi-step benchmarks show, and non-expert humans show no such gap. A second isolates composition as a cascade of string-rewrite programs and reports solve rates below 5% on long cascades even under expensive test-time scaling. A third tests sequential task compositions over semantic phrase tasks without reporting the gap numerically.",
+  "definition": "Whether a system that handles parts handles their combination, and across 5 sources the case where the archive's models most reliably fail. The cleanest measurement holds the parts fixed: on a benchmark where each task needs one commonsense step and one mathematical step, accuracy drops nearly 30 percent relative to solving the same steps in isolation, while humans show no such gap. A mechanistic source finds the same asymmetry inside a learned circuit -- extended training past overfitting produces a circuit that generalises out of distribution for comparison and fails for composition, so it is composition specifically that the learned structure does not carry. Two benchmarks in the set are built to require induced cascades or nested structure, one with automated contamination-resistant generation and controllable difficulty, which is the design the archive prefers for this property because the composition depth becomes a knob rather than a confound. One latent-reasoning source probes what its demonstration-bound operators can and cannot compose, which is the same question asked of a learned representation rather than of a benchmark.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -122,7 +122,11 @@
     "gpt-5",
     "gpt-oss-120b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "compositionality",
+    "out-of-distribution-generalization",
+    "multi-hop-reasoning"
+  ],
   "schema_version": 1,
   "slug": "compositional-generalization",
   "topics": [

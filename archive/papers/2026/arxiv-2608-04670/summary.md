@@ -44,7 +44,7 @@ Nearly all models demonstrate knowledge of the proverbs through successful compl
 ## Entities
 
 - **Concepts**: [memorization](../../../../wiki/concepts/memorization.md), cultural knowledge, [figurative language](../../../../wiki/concepts/figurative-language.md), [abstention](../../../../wiki/concepts/abstention.md), [construct validity](../../../../wiki/concepts/construct-validity.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md)
-- **Methods**: [chain of thought](../../../../wiki/methods/chain-of-thought.md), [multiple-choice evaluation](../../../../wiki/methods/multiple-choice-evaluation.md), manual CoT inspection
+- **Methods**: chain of thought, [multiple-choice evaluation](../../../../wiki/methods/multiple-choice-evaluation.md), manual CoT inspection
 - **Datasets**: ProverbIT
 
 Tags: `benchmark`, `italian`, `memorization`, `chain of thought`, `abstention`

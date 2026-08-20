@@ -3,10 +3,36 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
+        "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
+          "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
@@ -16,16 +42,18 @@
         "note": "Uses causal mediation analysis on a minimal propositional logic task to recover a sparse reasoning circuit in Mistral-7B and Gemma-2 up to 27B, and decomposes it into four families of attention heads that execute rule locating, rule moving, fact processing and decision making as sequential steps.",
         "title": "A Implies B: Circuit Analysis in LLMs for Propositional Logical Reasoning",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
+          "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T05:50:34Z",
-  "created_at": "2026-08-08T05:49:58Z",
-  "instructions": "Write the wiki definition for 'Mistral-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:21:42Z",
+  "created_at": "2026-08-20T23:17:39Z",
+  "instructions": "Write the wiki definition for 'Mistral-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Mistral-7B",
   "kind": "concept",
   "language": "en",
@@ -34,28 +62,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Mistral-7B",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "Mistral-7B",
-      "Mistral-7B-v0.1",
-      "Mistral-7B-Instruct-v0.2"
+      "Mistral-24B"
     ],
-    "definition": "A 7B open-weight model from Mistral, used across these sources as a second model family for checking that a result is not Qwen- or Llama-specific. It carries two replication roles: its propositional reasoning circuit contains the same four attention-head families found in the Gemma models, and the counterfactual state-editing result replicates in it at 0.93-0.94 edited-state agreement. It also serves as the weakest of three generators in best-of-N reward-model evaluation. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
-    "kind": "dataset",
+    "definition": "A 7B open model from a third family, used across 4 sources as the check that a result is not specific to the Llama and Qwen lines that dominate this archive. Its most consequential appearance is where the check fails in an informative direction: under three post-training algorithms on subjective judgement tasks, it improves on every task while a Qwen model falls below its own reasoning baseline on three of four under all three -- so the outcome is backbone-specific rather than algorithmic. It is also a subject in propositional-logic circuit analysis, in entropy-mechanism work, and in reproduction studies. Its 24B sibling appears in a cross-family steering audit with a significant positive effect.",
+    "kind": "model",
     "related": [
-      "Gemma-2-9B",
       "Llama-3.1-8B",
-      "circuit analysis",
-      "causal register"
+      "Qwen2.5-7B"
     ]
   },
   "task_id": "concept__mistral-7b",
@@ -63,6 +88,8 @@
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

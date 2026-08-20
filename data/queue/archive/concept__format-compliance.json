@@ -3,11 +3,29 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
         "title": "Improving Generalization Robustness of Multimodal RLVR",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       },
       {
@@ -15,14 +33,14 @@
         "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
         "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T14:08:25Z",
-  "created_at": "2026-08-20T13:57:49Z",
+  "completed_at": "2026-08-20T23:20:27Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'format compliance'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "format compliance",
   "kind": "concept",
@@ -39,15 +57,18 @@
   },
   "payload": {
     "name": "format compliance",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "output format adherence"
+      "parsability",
+      "format reward"
     ],
-    "definition": "Whether a generation is in the shape the evaluation or the downstream consumer expects -- parseable, terminated, carrying an extractable answer -- and in both sources here a quantity that has to be measured separately because a correctness signal cannot see it. The distillation work reports the percentage of responses containing no boxed final answer alongside accuracy, and the numbers reframe the headline: under strong teacher-student mismatch the baseline produces 22,395-token responses of which 65.5 percent have no answer at all, so a 6.9-against-20.3 accuracy gap is substantially a termination gap. The robustness work locates the problem inside the reward instead, arguing that a binary verifier conflates format with content so the signal cannot tell a wrong answer from a misformatted one and the policy cannot learn which it is being punished for -- which it fixes by splitting the reward into three levels. Together the sources mark both consequences: format failure inflates or deflates an accuracy comparison invisibly, and a reward that cannot separate it from content teaches both badly.",
+    "definition": "Whether an output can be parsed at all -- delimiters present, tool call well-formed, answer extractable -- and across 4 sources a precondition the archive keeps finding is separable from the capability it gates. The categorical instance: a policy trained by reinforcement learning alone cannot reliably invoke its tools, scoring 50.6 percent on format compliance against 100 for the full pipeline and landing 20 to 27 points below on every benchmark, while supervised fine-tuning alone reaches 99.8 percent and comes within 2 to 3.6 points of the full system -- so the cold start installs the format and the reinforcement stage adds judgement. The measurement caution: a binary verifier that conflates format with content cannot tell a policy whether it is being punished for being wrong or for being formatted differently, which one source fixes with a trinary reward. And a related failure at the evaluation boundary -- a revision that turns an unparseable output into a parseable one changes the score without changing any reasoning, which the standard total-effect measurement cannot separate.",
     "kind": "concept",
     "related": [
+      "supervised fine-tuning",
+      "reward shaping",
       "degenerate generation"
     ]
   },

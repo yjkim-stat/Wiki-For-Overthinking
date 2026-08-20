@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A frontier reasoning model from Google, appearing in the archive only as a subject of evaluation. One source uses it as an attack target and reports approaching 100% jailbreak success within one or a few turns against its safety reasoning, by refining attempts from patterns leaked in its own refusals. The other includes it in a large-scale evaluation of LLM judges, where the finding is that judge reliability and validity come apart. Neither studies the model itself, so what the archive holds about it is how it behaves under attack and as an evaluator.
+A smaller, faster frontier model appearing across 4 sources as a judge and a compression subject. Its most useful archived datum is comparative: in a large-scale judge evaluation it and its larger sibling differ in position bias by a factor of 70, which is that study's evidence that judge pathologies are heterogeneous within a family and not predictable from provider or scale. It also appears as a judge enumerating solution factors for a verbosity measurement, in theory-of-mind evaluation, and as a subject in safety-reasoning hijacking and chain-of-thought compression analyses.
 
 - **Kind**: model
-- **Also called**: Gemini 2.5 Flash
+- **Also called**: Gemini 2.5 Flash, Gemini-2.5-Flash
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 4
 

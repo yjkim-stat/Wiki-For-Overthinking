@@ -3,10 +3,32 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+        "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
         "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
         "topics": [
-          "reasoning-evaluation"
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       },
       {
@@ -14,13 +36,15 @@
         "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
         "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
         "topics": [
-          "reasoning-evaluation"
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:58:20Z",
-  "created_at": "2026-08-20T12:45:12Z",
+  "completed_at": "2026-08-20T23:20:29Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'position bias'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "position bias",
   "kind": "concept",
@@ -37,21 +61,25 @@
   },
   "payload": {
     "name": "position bias",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "order bias"
     ],
-    "definition": "A systematic preference for an answer or candidate because of where it appears rather than what it says. Its sharpest statement here is a paradox: a judge that deterministically prefers position A scores perfectly on test-retest reliability while being maximally biased, because test-retest measures the stability of outputs rather than the correctness of the decision process -- so the two coexist in the same judge and high reliability is no evidence against it. That comes from an evaluation of 21 judges over about 541,000 judgments, which also finds the field's standard validation metric overstates chance-corrected discrimination by 34 to 41 points universally. The second source shows the same failure inside a benchmark rather than a judge: on a test set deliberately balanced across answer positions, a base model scores 52.4 percent when the correct option is A against 31.6 to 33.6 percent elsewhere. The two together define the precaution -- balance the positions or swap them and re-run -- and the reason it cannot be skipped, which is that no measure of a judge's self-consistency will reveal the problem.",
+    "definition": "A judge's preference for a response because of where it appears rather than what it says, and across 4 sources the most directly measured of the judge pathologies. Its magnitude spans nearly two orders of magnitude across models -- 0.002 to 0.192 in one large-scale evaluation -- with large heterogeneity inside families, two models from one provider differing by a factor of 70. The corpus's sharpest observation is a paradox with practical consequences: the model with the highest test-retest reliability in that study (0.992) also has the most severe position bias (0.192) and the third-lowest agreement with human judgements, so consistency and validity come apart and a reliable judge can be reliably wrong. Family-level patterns are reported (three judges from one provider averaging 0.770 agreement with the lowest cohort position bias at 0.020, three from another averaging 0.467). The standard mitigation in this archive is to present both orders and count only order-consistent preferences, which one training system does and which turns a bias into a filter.",
     "kind": "concept",
     "related": [
-      "verbosity bias"
+      "LLM-as-a-judge",
+      "annotation agreement",
+      "calibration"
     ]
   },
   "task_id": "concept__position-bias",
   "task_version": 1,
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

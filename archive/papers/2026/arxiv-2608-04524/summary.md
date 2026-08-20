@@ -45,7 +45,7 @@ No numeric margins are given for the automated evaluations; the headline evidenc
 ## Entities
 
 - **Concepts**: [sycophancy](../../../../wiki/concepts/sycophancy.md), structured chain of thought, synthetic data generation, behavioural fidelity
-- **Methods**: [chain of thought](../../../../wiki/methods/chain-of-thought.md), [activation steering](../../../../wiki/methods/activation-steering.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), multi-agent dialogue simulation, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
+- **Methods**: chain of thought, [activation steering](../../../../wiki/methods/activation-steering.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), multi-agent dialogue simulation, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
 - **Datasets**: ODRA synthetic CBT session dataset
 
 Tags: `cbt`, `synthetic dialogue`, `steering`, `sycophancy`, `off-topic-candidate`

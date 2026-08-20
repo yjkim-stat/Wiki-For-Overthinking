@@ -102,6 +102,28 @@
       },
       {
         "kind": "paper",
+        "note": "Refutes the standard account of vision-language hallucination -- that the model attends too little to the image -- by showing real and hallucinated objects draw equally strong attention, then uses a logit lens over the attended regions to separate two causally distinct hallucination types and treat each differently.",
+        "title": "Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+        "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
         "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
         "topics": [
@@ -124,8 +146,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:27:39Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T23:20:26Z",
+  "created_at": "2026-08-20T23:17:39Z",
   "instructions": "Write the wiki definition for 'causal intervention'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "causal intervention",
   "kind": "concept",
@@ -142,14 +164,16 @@
   },
   "payload": {
     "name": "causal intervention",
-    "source_count": 11
+    "source_count": 13
   },
   "result": {
     "aliases": [],
-    "definition": "The family of operations that establish a component or a written reasoning state actually matters rather than merely correlating with a behaviour, by changing it and reading what follows; one source states the defining move plainly, that establishing influence requires an intervention rather than an observation, which is what turns a claim into a measurable quantity. Across these sources it covers at least five operations that are not interchangeable: swapping the residual stream of one prompt into another at each layer and measuring the change in gold log-probability, editing in weight space the parameters that generate every forward pass, adding a signed multiple of a direction during generation, deleting a layer-specific direction at chosen token positions, and injecting or force-decoding a trace the experimenter chose. Two of the sources turn the non-interchangeability from a caution into a result: patching measures a carrier's donor-receiver contrast while ablation measures its absolute level at the receiver, neither bounds the other, and on one site patching gives a median recovery of 1.043 with an 0.85 flip rate while ablating the weights feeding that same site leaves the receiver format correct on 57 percent of inputs -- patch-sufficient and far from ablation-necessary on the same component of the same network. What the sources treat as making an intervention readable is its null rather than its effect size: a magnitude-matched random vector that moves either metric by at most 1.1 points where the identified direction moves them by 9 and 7, and a random direction of the same size that shifts a backdoor by at most 2 points where deleting the identified one drops attack success by 89 points or more. The sharpest single use here is not a magnitude at all but an asymmetry -- a benign-looking trace lifted from a triggered run fails to reproduce an attack without its trigger (0.000-0.038) while the trigger with an empty reasoning block still succeeds (0.513-1.000), which establishes that the visible reasoning is not on the causal path to the answer.",
-    "kind": "concept",
+    "definition": "Changing something inside a model and measuring what the output does, as opposed to reading a correlation off its states -- across 13 sources the standard the archive holds interpretability claims to, and the standard most of them are shown to miss. Two structural results bound what an intervention establishes. Different interventions measure different quantities: activation patching measures a carrier's donor-receiver contrast while weight-space ablation measures its absolute level at the receiver, and neither bounds the other, so a result under one does not transfer. And a strong intervention can produce a strong effect for the wrong reason: suppressing a top feature and observing degradation shows damage unless a matched null of comparable magnitude is reported, and a decodable direction can be matched exactly under steering by a same-norm random direction. The corpus's positive instances share a shape -- the intervention comes with a control that should not produce the effect. Masking the evidence a system cites flips 82.8 percent of correct answers while masking uncited evidence changes 9.6. A scratchpad edit is checked against a move-specific gap of +0.57 and +0.68 so that the model is shown to combine the edited state with the supplied move rather than emit a fixed answer. And a steering result is reported as inverted precisely because the intervention's sign was measured rather than assumed.",
+    "kind": "method",
     "related": [
-      "out-of-distribution intervention"
+      "activation patching",
+      "selectivity control",
+      "detection versus control"
     ]
   },
   "task_id": "concept__causal-intervention",

@@ -45,8 +45,8 @@ Across multiple multimodal safety benchmarks, IGSR improves defence success rate
 
 ## Entities
 
-- **Concepts**: safety context amnesia, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), narrative coherence, [inference-time intervention](../../../../wiki/concepts/inference-time-intervention.md), perception versus reasoning, [jailbreak](../../../../wiki/concepts/jailbreak.md)
-- **Methods**: Intent-Guided Safety Reasoning, perception decoupling, [chain of thought](../../../../wiki/methods/chain-of-thought.md)
+- **Concepts**: safety context amnesia, [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), narrative coherence, inference-time intervention, perception versus reasoning, [jailbreak](../../../../wiki/concepts/jailbreak.md)
+- **Methods**: Intent-Guided Safety Reasoning, perception decoupling, chain of thought
 - **Datasets**: _none recorded_
 
 Tags: `multimodal`, `safety`, `inference-time defense`, `perception`, `chain of thought`

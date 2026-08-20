@@ -3,7 +3,7 @@
     "ECE",
     "calibration error"
   ],
-  "definition": "The average gap between a model's stated confidence and its observed accuracy, binned over the confidence range — how wrong the numbers are, as against how well they order. Both sources use it precisely because it measures only that. One reports a critic's improvement from 0.2612 to 0.2131 alongside Brier and maximum calibration error, and connects it to a downstream consequence rather than treating it as an end: a critic that overestimates success probability turns a symmetric binary reward into an asymmetric advantage. The other separates the two properties outright, finding a diffusion language model at 31.2% on this measure — badly miscalibrated — while ranking correct from incorrect at 0.826 AUROC against 0.611 for autoregressive baselines, and shows post-hoc calibration cutting the error by over 60% while leaving the ranking intact. Read together the sources say the same thing from opposite directions: this quantity is not a proxy for whether a confidence signal is useful, and which one you need depends on whether something downstream consumes the value or only the order.",
+  "definition": "The weighted average gap between confidence and accuracy across confidence bins, and across 4 sources the standard calibration metric in this archive. Its reported values place the scale: on three medical benchmarks the best system reaches 0.202, 0.115 and 0.290 while baselines run to 0.587, so the range in practice is wide and no archived model is close to calibrated on hard sets. The archive's methodological caution about it is specific and applies to one of its own sources: a training objective that optimises mean answer-token probability and an error computed by binning the same quantity are not independent measurements, so a fall in the metric is partly a check that optimisation succeeded. A second caution is structural -- binning makes the number sensitive to the bin count and to the confidence distribution, so a comparison is only meaningful under a fixed protocol, which several sources state and none varies.",
   "evidence": [
     {
       "id": "arxiv:2608.02181",
@@ -31,8 +31,8 @@
     }
   ],
   "first_seen": "2026-08-08T12:29:58Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:17:36Z",
   "name": "expected calibration error",
   "related": [
     "critic-calibration",
@@ -137,8 +137,8 @@
     "llada-8b"
   ],
   "related_authored": [
-    "brier-score",
-    "auroc"
+    "confidence-calibration",
+    "calibration"
   ],
   "schema_version": 1,
   "slug": "expected-calibration-error",

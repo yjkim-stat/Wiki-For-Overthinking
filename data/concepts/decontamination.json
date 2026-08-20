@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Removing from a training or retrieval corpus anything that overlaps the evaluation set, so a reported score is not partly a memory check. The two sources here use different keys and disagree implicitly about how tight the threshold can be. The industrial-safety benchmark decontaminates by exact identifiers -- sample ID, source-document ID, normalized question text and image path -- and additionally groups splits by source document, so no two questions from one accident report can straddle the split. The in-trace retrieval work needs something stronger because its corpus is synthetic mathematics and near-duplicates are dense: it removes exact matches and then drops any entry above 0.90 cosine similarity to an evaluation instance, and its own post-hoc audit reports maximum retained similarities of 0.898 and 0.891, immediately below the cut, with means of 0.866 and 0.845. That paper attributes the density to the structure of synthetic math corpora rather than to leakage and defends the threshold with an answer-distinct retrieval control instead of lowering it -- which is the clearest statement in the archive that similarity-based decontamination has no principled cut-off and that the defence has to come from a control rather than from the number.",
+  "definition": "Removing training items that overlap evaluation items, and across 4 sources a procedure the archive reads as a threshold choice with consequences rather than a hygiene step. The instances that report their own numbers are the useful ones. One audit runs three stages, flags one problem in an external benchmark, confirms it by inspection as a false positive, and reports maximum problem-level similarity to any training item at 0.84 with a median of 0.53 -- which is what makes its 20-to-28-point rationale-supervision result readable. Another decontaminates by cosine similarity at 0.90 and reports maximum retained similarities of 0.898 and 0.891, immediately below the cut, with means of 0.866 and 0.845; it attributes this to the structural density of synthetic mathematics corpora rather than to leakage and defends the choice with an answer-distinct retrieval control rather than by lowering the threshold. A third removes flagged overlaps at three levels -- problem, solution and skill card -- and retrains every reported model afterwards. The archive's reading is that decontamination establishes implausibility rather than absence, that the retained-similarity distribution is the number to report, and that a control distinguishing structural similarity from leakage is what makes a threshold defensible.",
   "evidence": [
     {
       "id": "arxiv:2608.08503",
@@ -138,7 +138,11 @@
     "qwen3-8b",
     "e5-large"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "benchmark-contamination",
+    "construct-validity",
+    "benchmark-design"
+  ],
   "schema_version": 1,
   "slug": "decontamination",
   "topics": [
