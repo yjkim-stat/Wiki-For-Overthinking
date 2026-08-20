@@ -7,6 +7,17 @@
         "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
         "topics": [
           "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+        "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
           "reasoning-interpretability"
         ]
       },
@@ -16,13 +27,14 @@
         "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
         "topics": [
           "reasoning-evaluation",
+          "reasoning-training",
           "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:39:47Z",
-  "created_at": "2026-08-20T12:33:52Z",
+  "completed_at": "2026-08-20T23:33:19Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'Qwen2.5-VL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-VL",
   "kind": "concept",
@@ -39,21 +51,24 @@
   },
   "payload": {
     "name": "Qwen2.5-VL",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "Qwen2.5-VL",
-      "Qwen2.5-VL-72B"
+      "Qwen2.5-VL"
     ],
-    "definition": "A Qwen vision-language family used in this archive in three distinct roles within a single paper, which is itself the point worth recording. In the video-anomaly tool-orchestration work, Qwen2.5-VL writes the initial ReAct ground-truth trajectories and augments the training queries, Qwen2.5-VL-72B serves as the LLM judge supplying the training reward, and Qwen2.5-VL-72B is also the strong baseline the trained 8B agent is reported to beat (67.40 percent against 95.14 percent on interrelated tool responses) -- so one family sits on both sides of the comparison, which the archive's reading of that paper flags as making the result hard to read as independent. It is separately one of four checkpoints supported by the Spectra interpretability library, alongside Qwen3-VL, LLaVA 1.5 and SmolVLM. Neither source describes the model's own architecture or training.",
+    "definition": "The Qwen2.5 vision-language line referred to generically across 3 sources -- as the backbone for tool orchestration in video anomaly detection, as the subject of a multimodal unlearning study finding that a fact removed from the answer survives in the reasoning trace, and as one of four checkpoints supported by an open mechanistic-interpretability library for vision-language models. The entry records the family dependency: most of the archive's multimodal interpretability and multimodal reinforcement-learning results are measured on this line.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Qwen2.5-VL-7B",
+      "Qwen2.5-VL-3B"
+    ]
   },
   "task_id": "concept__qwen2-5-vl",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

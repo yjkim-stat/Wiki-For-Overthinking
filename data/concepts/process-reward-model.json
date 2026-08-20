@@ -5,7 +5,7 @@
     "Process Reward Models",
     "process reward"
   ],
-  "definition": "A reward model that scores intermediate steps rather than only the final answer, used both to supervise training and to prune or select among partial trajectories at inference. Its cost has always been step-level labels, and the sharpest result here removes that cost: parameterising an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone. The sources use it mostly at inference rather than in training -- pruning within a trajectory and selecting across iterations under a training-free allocation agent, deciding how hard to compress the KV cache at each step, and scoring partial trajectories in a beam search over reasoning steps -- and this is where its measured value lies, with adaptive per-prompt allocation by difficulty beating a uniform best-of-N budget by more than fourfold in one source. Two sources bound the idea rather than extend it. A dense per-step progress bonus is formalised as minimising cumulative regret over tokens within one output stream, which is a statement about what a process reward should reward rather than about how to label it. And a position paper argues that treating intermediate tokens as reasoning at all is unsupported, collating cases where trace semantics and solution accuracy come apart -- which, if accepted, makes a process reward a score on a computation rather than on an argument, and means its steps need not be interpretable to be useful.",
+  "definition": "A learned scorer for intermediate reasoning steps, and across 10 sources the standard route to dense supervision -- with the standing objections that it needs step annotations, a separate training run, or online judging, all of which the archive's cheaper alternatives are designed around. Two findings worth carrying beyond the cost argument. Its ranking for candidate selection does not carry over to its use as a policy model: in one comparison only the weakest selection variant improved policy performance, a disconnect that source reports without explanation even though the two uses are what such a model is for. And the training cost differs by more than an order of magnitude between constructions -- one rollout-based method requires 38.6 to 38.8 times the FLOPs of a cross-entropy implicit variant, and 21.3 to 146.5 times a preference-based one depending on rollouts. It also appears as the verifier in compute-optimal test-time allocation, where the allocation rather than the scorer is what buys the fourfold efficiency.",
   "evidence": [
     {
       "id": "arxiv:2408.03314",
@@ -69,8 +69,8 @@
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:29:53Z",
   "name": "process reward model",
   "related": [
     "test-time-compute",
@@ -247,7 +247,9 @@
     "dualformer"
   ],
   "related_authored": [
-    "outcome-reward-model"
+    "process-reward",
+    "best-of-n",
+    "outcome-reward"
   ],
   "schema_version": 1,
   "slug": "process-reward-model",

@@ -42,7 +42,7 @@ No empirical contribution. The three-dimension taxonomy is one organizing choice
 
 ## Entities
 
-- **Concepts**: mechanistic interpretability, [training dynamics](../../../../wiki/concepts/training-dynamics.md), [emergent behaviour](../../../../wiki/concepts/emergent-behaviour.md), unintended behaviour, applied interpretability
+- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), [training dynamics](../../../../wiki/concepts/training-dynamics.md), [emergent behaviour](../../../../wiki/concepts/emergent-behaviour.md), unintended behaviour, applied interpretability
 - **Methods**: [literature survey](../../../../wiki/methods/literature-survey.md)
 - **Datasets**: _none recorded_
 

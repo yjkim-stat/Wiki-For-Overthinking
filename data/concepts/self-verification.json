@@ -2,9 +2,10 @@
   "aliases": [
     "self-check",
     "self-critique",
-    "self-reflection"
+    "self-reflection",
+    "self-checking"
   ],
-  "definition": "A model checking its own work, which the sources place at three different points and which the archive elsewhere finds weak. One makes it explicit and structured, extracting a problem's constraints first and then checking intermediate and final results against that summary — with the reported bottleneck being the extraction step, not the checking. One trains it as a meta-ability on automatically generated self-verifiable tasks rather than waiting for it to emerge. One reads it internally, interpreting the reasoning process at step level with a sparse autoencoder. Set against the archive's finding that the content margin of self-revision is near zero at small-to-mid scale, and that prompting models to self-reflect on named proof failure modes does not fix them, these sources describe an ability that is easier to invoke than to make effective.",
+  "definition": "A model checking its own output before committing, and across 4 sources a capability the archive separates from self-correction by what it produces -- a judgement rather than a revision. Its instances: a protocol that extracts a problem's answer-space constraints first and then checks intermediate and final results against them, which grounds the check in something outside the model's own confidence; a meta-abilities framework treating it as one of several alignable capacities; and a step-level decomposition that locates verification behaviour in a trace. The archive's related evidence bounds it sharply: the precision of emergent self-corrections is measured at 24.4 percent, agreement does not track correctness on hard problems, and a persistent-state study finds in-context self-reflection ranging from -14 to +45 percent across models with no reduction at all on one. The pattern is that verification against an external constraint works and verification against the model's own belief does not.",
   "evidence": [
     {
       "id": "arxiv:2608.05254",
@@ -141,7 +142,11 @@
     "qwen2-5-0-5b",
     "llama-3-2-1b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-correction",
+    "selection-signal",
+    "self-consistency"
+  ],
   "schema_version": 1,
   "slug": "self-verification",
   "topics": [

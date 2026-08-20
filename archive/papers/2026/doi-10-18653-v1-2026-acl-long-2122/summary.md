@@ -46,7 +46,7 @@ Benchmarks are not named. Reward hacking is reduced to below 10% but not elimina
 ## Entities
 
 - **Concepts**: [reward hacking](../../../../wiki/concepts/reward-hacking.md), hybrid reasoning, [overthinking](../../../../wiki/concepts/overthinking.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), token budget, [verification](../../../../wiki/concepts/verification.md)
-- **Methods**: TNT, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [length control](../../../../wiki/methods/length-control.md)
+- **Methods**: TNT, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), length control
 - **Datasets**: _none recorded_
 
 Tags: `reward hacking`, `hybrid reasoning`, `overthinking`, `token budget`, `grpo`

@@ -46,7 +46,7 @@ The analysis is for k-parity, whose recursive tree structure is exactly what the
 ## Entities
 
 - **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), curriculum learning, [sample complexity](../../../../wiki/concepts/sample-complexity.md), parity, [effective depth](../../../../wiki/concepts/effective-depth.md), internalization, [test-time compute](../../../../wiki/concepts/test-time-compute.md), [chain of thought](../../../../wiki/concepts/chain-of-thought.md)
-- **Methods**: Log-ICoT, [implicit chain of thought](../../../../wiki/methods/implicit-chain-of-thought.md), [curriculum learning](../../../../wiki/methods/curriculum-learning.md), chain of thought, [gradient descent analysis](../../../../wiki/methods/gradient-descent-analysis.md)
+- **Methods**: Log-ICoT, implicit chain of thought, [curriculum learning](../../../../wiki/methods/curriculum-learning.md), chain of thought, [gradient descent analysis](../../../../wiki/methods/gradient-descent-analysis.md)
 - **Datasets**: [Parity](../../../../wiki/datasets/parity.md)
 
 Tags: `implicit cot`, `latent reasoning`, `curriculum`, `parity`, `sample complexity`, `theory`

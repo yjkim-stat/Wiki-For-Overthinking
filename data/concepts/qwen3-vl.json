@@ -1,9 +1,10 @@
 {
   "aliases": [
     "Qwen3VL",
-    "Qwen3-VL-Instruct"
+    "Qwen3-VL-Instruct",
+    "Qwen3-VL"
   ],
-  "definition": "A Qwen vision-language model, and the subject of the archive's sharpest modality-ablation result: on a university-level multimodal math benchmark it scores higher with no image input than either of its own multimodal variants or GPT-5. It is also one of four checkpoints supported by an open mechanistic-interpretability library for VLMs. The pairing is useful — one source shows the visual pathway contributing little or interfering on a reasoning benchmark, the other supplies the activation-patching and attention tooling that could say why, and no source in the archive has yet done that.",
+  "definition": "The Qwen3 vision-language line, used across 3 sources as the newer multimodal backbone. Its archived appearances: the backbone for a self-checking video agent whose supervised stage installs tool-invocation format (99.8 percent compliance against 50.6 without it) before reinforcement learning adds region-switching judgement; one of four checkpoints supported by an open vision-language interpretability library; and a subject in a university-level mathematics benchmark where a model given no image beats its own multimodal variants.",
   "evidence": [
     {
       "id": "arxiv:2608.07959",
@@ -74,7 +75,10 @@
     "visual-variant-perturbation",
     "gpt-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-vl",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-vl",
   "topics": [

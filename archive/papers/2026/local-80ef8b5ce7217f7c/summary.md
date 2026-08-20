@@ -43,8 +43,8 @@ The paper's own limitations section names PRM quality as the primary constraint:
 
 ## Entities
 
-- **Concepts**: adaptive test-time compute allocation, [test-time compute](../../../../wiki/concepts/test-time-compute.md), [process reward model](../../../../wiki/concepts/process-reward-model.md), trajectory-level selection, online pruning, compute intensity, exploration parameter, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), best-of-n, beam search, lookahead search, self-reflection, [verification](../../../../wiki/concepts/verification.md)
-- **Methods**: verifier-guided adaptive inference, process reward model, [best-of-N](../../../../wiki/methods/best-of-n.md), [beam search](../../../../wiki/methods/beam-search.md), lookahead search, chain-of-thought, [self-reflection](../../../../wiki/methods/self-reflection.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md)
+- **Concepts**: adaptive test-time compute allocation, [test-time compute](../../../../wiki/concepts/test-time-compute.md), process reward model, trajectory-level selection, online pruning, compute intensity, exploration parameter, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), best-of-n, beam search, lookahead search, self-reflection, [verification](../../../../wiki/concepts/verification.md)
+- **Methods**: verifier-guided adaptive inference, [process reward model](../../../../wiki/methods/process-reward-model.md), [best-of-N](../../../../wiki/methods/best-of-n.md), [beam search](../../../../wiki/methods/beam-search.md), lookahead search, chain-of-thought, [self-reflection](../../../../wiki/methods/self-reflection.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), AMO-Bench
 
 Tags: `adaptive allocation`, `test-time scaling`, `process reward model`, `difficulty`, `compute efficiency`, `agent`, `training-free`

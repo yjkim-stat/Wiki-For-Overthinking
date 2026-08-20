@@ -9,7 +9,7 @@ The gap between what a transformer can represent and what training can actually 
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 
-**Related**: [attention analysis](../methods/attention-analysis.md), [chain of thought](chain-of-thought.md), [circuit complexity](circuit-complexity.md), [generalization](generalization.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [hard attention](../methods/hard-attention.md), [length generalization](length-generalization.md), [mechanistic interpretability](mechanistic-interpretability.md), [parity](../datasets/parity.md), [sample complexity](sample-complexity.md), [self-training](self-training.md), [state tracking](state-tracking.md), [teacher forcing](../methods/teacher-forcing.md), [training dynamics](training-dynamics.md), [VC dimension](vc-dimension.md)
+**Related**: [attention analysis](../methods/attention-analysis.md), [chain of thought](chain-of-thought.md), [circuit complexity](circuit-complexity.md), [generalization](generalization.md), [gradient descent analysis](../methods/gradient-descent-analysis.md), [hard attention](../methods/hard-attention.md), [length generalization](length-generalization.md), [mechanistic interpretability](mechanistic-interpretability.md), [parity](../datasets/parity.md), [sample complexity](sample-complexity.md), [self-training](../methods/self-training.md), [state tracking](state-tracking.md), [teacher forcing](../methods/teacher-forcing.md), [training dynamics](training-dynamics.md), [VC dimension](vc-dimension.md)
 
 ## Appears in
 

@@ -3,9 +3,20 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+        "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
         "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
           "test-time-scaling"
         ]
@@ -15,14 +26,15 @@
         "note": "Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.",
         "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
           "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T13:21:54Z",
-  "created_at": "2026-08-20T13:19:32Z",
+  "completed_at": "2026-08-20T23:32:12Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'persona conditioning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "persona conditioning",
   "kind": "concept",
@@ -39,21 +51,24 @@
   },
   "payload": {
     "name": "persona conditioning",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "persona prompting"
+      "role prompting"
     ],
-    "definition": "Instructing a model to adopt a specified role or worldview before it reasons, used in both sources as a way to produce variation that is structured rather than random. The subjective-verification work measures how much variation that is, and the answer is a lot: across 1,500 personas drawn from a public roleplay dataset, with persona the only varied factor, verification macro-F1 ranges from 0.416 to 0.792 -- the best persona nearly doubling the worst -- which that paper reads as much apparent verification error being reasoning-style mismatch rather than incapacity. The deliberative-diagnosis work turns the same lever into an architecture, using persona conditioning to simulate the heterogeneity that separate model backends would supply, and measures the result directly as error decorrelation across specialists under persona and temperature conditioning separately and jointly. Both sources are explicit about what it does not achieve: with a shared backend the correlation bias inherent in the generating model remains, so the personas are simulated diversity rather than independent judgement. One also flags that personas risk reproducing the stereotypes their models were trained on. Neither source reports a baseline spread for ordinary non-persona prompt variation, so how much of the effect is persona-specific rather than general prompt sensitivity is open.",
+    "definition": "Instructing a model to answer as a specified character or role, and across 3 sources a manipulation whose internal effect is now partly measured. The mechanistic result: decomposing three speaker settings into sparse-autoencoder features finds roleplay personas retaining an Assistant-associated feature core while differentiating from it across depth, where narrated story characters never acquire that core at all -- so a persona is a modification of the assistant rather than a replacement of it. Its practical uses here are as the structuring device for multi-agent deliberation and as a routing signal for subjective judgement. The archive's related caution is measurement-shaped: one source measures spread across personas without a baseline spread for ordinary prompt variation, so it cannot separate persona-specific worldview from generic prompt sensitivity, and the personas are impersonated by one model rather than drawn from the population whose judgements are the ground truth.",
     "kind": "method",
     "related": [
-      "prompt sensitivity"
+      "multi-agent pipeline",
+      "prompt sensitivity",
+      "sycophancy"
     ]
   },
   "task_id": "concept__persona-conditioning",
   "task_version": 1,
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

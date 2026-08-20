@@ -46,7 +46,7 @@ Stated in part. The authors report the gap between their frozen defaults and per
 
 ## Entities
 
-- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), verifier-free verification, [selection signal](../../../../wiki/concepts/selection-signal.md), confidence, [calibration](../../../../wiki/concepts/calibration.md), [premature convergence](../../../../wiki/concepts/premature-convergence.md), [exploration](../../../../wiki/concepts/exploration.md), [difficulty conditioning](../../../../wiki/concepts/difficulty-conditioning.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), verifier-free verification, [selection signal](../../../../wiki/concepts/selection-signal.md), confidence, [calibration](../../../../wiki/concepts/calibration.md), [premature convergence](../../../../wiki/concepts/premature-convergence.md), [exploration](../../../../wiki/concepts/exploration.md), difficulty conditioning, [entropy collapse](../../../../wiki/concepts/entropy-collapse.md)
 - **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [best-of-n](../../../../wiki/methods/best-of-n.md), confidence-based selection, [self-certainty](../../../../wiki/methods/self-certainty.md), [majority voting](../../../../wiki/methods/majority-voting.md), [difficulty stratification](../../../../wiki/methods/difficulty-stratification.md), [cross-validation](../../../../wiki/methods/cross-validation.md), agentic scaffolding
 - **Datasets**: [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), SWE-bench Verified
 

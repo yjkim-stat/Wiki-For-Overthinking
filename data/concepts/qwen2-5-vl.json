@@ -3,7 +3,7 @@
     "Qwen2.5-VL",
     "Qwen2.5-VL-72B"
   ],
-  "definition": "A Qwen vision-language family used in this archive in three distinct roles within a single paper, which is itself the point worth recording. In the video-anomaly tool-orchestration work, Qwen2.5-VL writes the initial ReAct ground-truth trajectories and augments the training queries, Qwen2.5-VL-72B serves as the LLM judge supplying the training reward, and Qwen2.5-VL-72B is also the strong baseline the trained 8B agent is reported to beat (67.40 percent against 95.14 percent on interrelated tool responses) -- so one family sits on both sides of the comparison, which the archive's reading of that paper flags as making the result hard to read as independent. It is separately one of four checkpoints supported by the Spectra interpretability library, alongside Qwen3-VL, LLaVA 1.5 and SmolVLM. Neither source describes the model's own architecture or training.",
+  "definition": "The Qwen2.5 vision-language line referred to generically across 3 sources -- as the backbone for tool orchestration in video anomaly detection, as the subject of a multimodal unlearning study finding that a fact removed from the answer survives in the reasoning trace, and as one of four checkpoints supported by an open mechanistic-interpretability library for vision-language models. The entry records the family dependency: most of the archive's multimodal interpretability and multimodal reinforcement-learning results are measured on this line.",
   "evidence": [
     {
       "id": "arxiv:2608.08219",
@@ -102,7 +102,10 @@
     "llava-1-5",
     "smolvlm"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-vl-7b",
+    "qwen2-5-vl-3b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-vl",
   "topics": [

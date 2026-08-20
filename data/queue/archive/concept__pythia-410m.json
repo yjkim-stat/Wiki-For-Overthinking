@@ -3,10 +3,22 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+        "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reverse-engineers the arithmetic circuit down to individual neurons and finds it is neither a learned algorithm nor memorization, but an unordered collection of sparse heuristic neurons that each fire on a numerical input pattern and vote for corresponding answers.",
         "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
         "topics": [
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -14,14 +26,16 @@
         "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
         "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
         "topics": [
-          "reasoning-faithfulness"
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T06:00:23Z",
-  "created_at": "2026-08-08T05:59:49Z",
-  "instructions": "Write the wiki definition for 'Pythia-410M'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:32:16Z",
+  "created_at": "2026-08-20T23:29:56Z",
+  "instructions": "Write the wiki definition for 'Pythia-410M'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Pythia-410M",
   "kind": "concept",
   "language": "en",
@@ -30,32 +44,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Pythia-410M",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "Pythia-410M"
-    ],
-    "definition": "A 410M model from the Pythia suite, chosen in these sources for its open training checkpoints and small size. It is the model in which sparse dictionary features are shown to localize indirect object identification more tightly than PCA components, and it recurs in circuit-level arithmetic analysis. Its size is the standing caveat: interpretability results established here are a long way from the reasoning models the rest of this archive studies. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
-    "kind": "dataset",
-    "related": [
       "Pythia-70M",
-      "GPT-J 6B",
-      "sparse autoencoder",
-      "circuit analysis",
-      "residual stream"
+      "Pythia"
+    ],
+    "definition": "A small open model with a fully documented training corpus, and across 3 sources the checkpoint used where the training data must be known. That property is load-bearing in two of them: it is the only model for which a contamination study can verify that a base checkpoint is uncontaminated, and it is where sparse-autoencoder feature quality is measured against interpretability baselines layer by layer. It is also a subject in arithmetic circuit analysis. Its small size means results on it bound what is possible rather than what happens at scale, which the sources state.",
+    "kind": "model",
+    "related": [
+      "GPT-2"
     ]
   },
   "task_id": "concept__pythia-410m",
   "task_version": 1,
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
   ]
 }

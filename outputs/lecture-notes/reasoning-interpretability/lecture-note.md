@@ -142,9 +142,9 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | steering vector | 13 | A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable... |
 | component ablation | 12 | Removing one part of a method at a time and reporting what each removal costs, and across 12 sources the archive's default evidence that a design is more than the sum of arbitra... |
 | ablation | 10 | Removing something -- a feature, a direction, a component, a view -- and reporting what breaks, used across 10 sources both as evidence and as the thing being argued against. Th... |
+| process reward model | 10 | A learned scorer for intermediate reasoning steps, and across 10 sources the standard route to dense supervision -- with the standing objections that it needs step annotations,... |
 | circuit analysis | 9 | Identifying the subgraph of components a model uses for a task, and across 9 sources a method whose reach the corpus is explicit about. Its scope has been limited to partial evi... |
 | contrastive activation addition | 9 | Computing a steering direction as the difference of mean activations between contrastive prompt pairs, then adding it at inference -- the canonical activation-steering recipe an... |
-| Monte Carlo tree search | 9 | Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physi... |
 
 ## Benchmarks and datasets
 

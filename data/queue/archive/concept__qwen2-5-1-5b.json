@@ -7,7 +7,9 @@
         "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
         "topics": [
           "test-time-scaling",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -16,14 +18,27 @@
         "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
         "topics": [
           "test-time-scaling",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+        "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:47:17Z",
-  "created_at": "2026-08-08T12:46:29Z",
-  "instructions": "Write the wiki definition for 'Qwen2.5-1.5B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:33:18Z",
+  "created_at": "2026-08-20T23:29:56Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-1.5B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-1.5B",
   "kind": "concept",
   "language": "en",
@@ -32,32 +47,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Qwen2.5-1.5B",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "Qwen2.5 1.5B"
+      "Qwen2.5-1.5B"
     ],
-    "definition": "A 1.5B Qwen checkpoint, used by both sources as the small model where a method's effect is largest and most visible. One reports its MATH500 accuracy reaching 58.0% and AMC rising from 25.0% to 32.5% under a verifier-free refine-then-vote scheme that beats verifier-based best-of-N. The other uses it in selecting RLVR training tokens by the divergence of their logit distribution from a reference. Its recurrence at this size is worth noting when reading the results: methods that substitute for weak calibration or weak verification have the most room to help on a small model, and neither source establishes that the gain survives to frontier scale.",
+    "definition": "A 1.5B Qwen2.5 model, used across 3 sources as a small subject for test-time refinement, token-selection training and trajectory-geometry evaluation. Its measured appearances: a sparsity ablation on it finds a 10 percent unique-token selection giving 66.23 pass@1 against 63.37 at 20 percent, 60.62 for the bottom 90 percent of frequent tokens and 57.45 for the standard baseline -- one of the archive's cleaner demonstrations that which tokens are trained on matters more than how many. It also appears in an entropy-informed selection study reaching 66.2 percent majority-vote accuracy against a 60.8 baseline.",
     "kind": "model",
     "related": [
-      "test-time scaling",
-      "self-correction",
-      "verification",
-      "token selection",
-      "calibration"
+      "Qwen2.5-0.5B",
+      "Qwen2.5-Math-7B"
     ]
   },
   "task_id": "concept__qwen2-5-1-5b",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

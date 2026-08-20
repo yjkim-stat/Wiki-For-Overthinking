@@ -45,7 +45,7 @@ No quantitative results in the abstract. Scope is Stable Diffusion, so architect
 
 ## Entities
 
-- **Concepts**: mechanistic interpretability, cross-attention, causal faithfulness, attribution, head specialization, counterfactual intervention, [localization](../../../../wiki/concepts/localization.md)
+- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), cross-attention, causal faithfulness, attribution, head specialization, counterfactual intervention, [localization](../../../../wiki/concepts/localization.md)
 - **Methods**: cross-attention intervention, [activation patching](../../../../wiki/methods/activation-patching.md), counterfactual prompt ablation, head-resolved attribution
 - **Datasets**: _none recorded_
 

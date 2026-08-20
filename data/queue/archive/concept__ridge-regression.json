@@ -16,11 +16,19 @@
         "topics": [
           "reasoning-interpretability"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+        "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes",
+        "topics": [
+          "reasoning-interpretability"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:24:13Z",
-  "created_at": "2026-08-13T12:45:28Z",
+  "completed_at": "2026-08-20T23:32:14Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'ridge regression'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "ridge regression",
   "kind": "concept",
@@ -37,17 +45,18 @@
   },
   "payload": {
     "name": "ridge regression",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "ridge regression",
-      "L2-regularized linear regression"
+      "regularized least squares"
     ],
-    "definition": "L2-regularised linear regression, used in both sources purely as the fitting procedure behind a probe rather than as anything under investigation. The cultural-awareness paper lists it among the apparatus of its four-instrument design, beside linear probes, the logit lens, activation patching, principal component analysis and linear discriminant analysis; the tiled-SVD paper lists it beside singular value decomposition, the logit lens, activation steering, sparse autoencoders and ablation. Neither reports a result about ridge regression itself, compares it against another estimator, or states what the regularisation strength was or how it was chosen. In this archive it is a choice of linear fit that is recorded but never argued for.",
+    "definition": "Least-squares fitting with an L2 penalty, appearing across 3 sources as the workhorse behind probes, concept vectors and weight-mechanism analyses. Its role in the archive is unglamorous and load-bearing: it is the estimator whose regularisation strength is one of the extraction choices a robustness sweep varies, and the archive's related finding is that no configuration of such choices is best across benchmarks. One source uses it to fit concept directions and finds a simpler probe consistently stronger, which is the recurring pattern that added machinery in the readout rarely pays.",
     "kind": "method",
     "related": [
-      "logistic regression"
+      "linear probe",
+      "logistic regression",
+      "low-rank approximation"
     ]
   },
   "task_id": "concept__ridge-regression",

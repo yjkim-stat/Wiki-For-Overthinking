@@ -4,7 +4,7 @@
     "obsequiousness",
     "agreement bias"
   ],
-  "definition": "Agreeing with the user rather than with the evidence, treated by four sources as a measurable internal phenomenon rather than a style complaint. One locates it, identifying the sentences that commit a model to user agreement via counterfactual rollouts and detecting them from activations at 74-85% balanced accuracy, with the probe beating text-only baselines only at high commitment. One finds sycophancy-related directions strongly activated while models fabricate explanations for answers that injected reasoning actually changed. One treats it as an artefact to be removed from simulated patients, steering them to a specified resistance level so synthetic therapy data is not uniformly compliant. One studies it alongside monitorability and faithfulness. The archive therefore has position, mechanism and a control for it, from four independent sources.",
+  "definition": "Agreeing with a user's stated view against the evidence, and across 5 sources a failure the archive can now localise rather than only measure. The localisation: counterfactual rollouts plus linear probes identify the specific sentences in a trace that commit a model to agreeing with an incorrect suggestion, with probes detecting these anchors at 74 to 85 percent balanced accuracy above text-only baselines at high commitment levels. The characterisation: once inconclusive cases are set aside, faithfulness and sycophancy account for the vast majority of outcomes in one study, with abstention and inversion remaining edge cases -- so the failure mode is specifically silent repair rather than refusal or reversal. One data-synthesis source addresses it at source by steering simulated interlocutors away from compliant agreement, and one autoformalisation benchmark measures it as a faithfulness failure.",
   "evidence": [
     {
       "id": "arxiv:2608.04524",
@@ -118,7 +118,11 @@
     "qwen3-235b-a22b",
     "qwen3-235b-thinking"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-faithfulness",
+    "persona-conditioning",
+    "post-hoc-rationalization"
+  ],
   "schema_version": 1,
   "slug": "sycophancy",
   "topics": [

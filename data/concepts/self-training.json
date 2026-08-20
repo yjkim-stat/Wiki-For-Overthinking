@@ -4,7 +4,7 @@
     "bootstrapping",
     "STaR-style training"
   ],
-  "definition": "Improving a model on data it generated itself, filtered by some correctness signal. The archive's anchor source bootstraps reasoning by keeping rationales that lead to correct answers and retraining on them, which needs only answers rather than reasoning annotations. The second closes the same loop with an external check, using a symbolic solver's execution output to build a verification context and then reusing the resulting traces as supervised fine-tuning data. Between them the two show the loop's dependence: what can be self-trained is bounded by what can be checked, and the sources differ only in whether the checker is an answer key or a solver.",
+  "definition": "Training a model on its own filtered outputs, and across 3 sources the oldest idea in this archive's training material -- generate rationales, keep those reaching the right answer, fine-tune, repeat. Its modern descendants here filter differently: by consensus among rollouts rather than by a gold answer, by a symbolic solver's flagged conflicts, or by measured marginal utility on a held-out probe set. Two cautions the corpus supplies. Filtering for reaching a known answer selects for post-hoc rationalisations that happen to land correctly, so the resulting corpus is not a sample of the model's reasoning. And consensus-based filtering inherits spurious consensus, which grows rather than shrinks with the sample count. One theoretical source proves a learning result for the setting, on how a transformer comes to learn a chain-of-thought procedure with length generalisation.",
   "evidence": [
     {
       "id": "arxiv:2203.14465",
@@ -26,7 +26,7 @@
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-13T12:09:06Z",
   "name": "self-training",
   "related": [
@@ -63,7 +63,11 @@
     "lego-state-tracking",
     "lego"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "rejection-sampling",
+    "consensus",
+    "self-distillation"
+  ],
   "schema_version": 1,
   "slug": "self-training",
   "topics": [

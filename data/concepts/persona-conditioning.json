@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "persona prompting"
+    "persona prompting",
+    "role prompting"
   ],
-  "definition": "Instructing a model to adopt a specified role or worldview before it reasons, used in both sources as a way to produce variation that is structured rather than random. The subjective-verification work measures how much variation that is, and the answer is a lot: across 1,500 personas drawn from a public roleplay dataset, with persona the only varied factor, verification macro-F1 ranges from 0.416 to 0.792 -- the best persona nearly doubling the worst -- which that paper reads as much apparent verification error being reasoning-style mismatch rather than incapacity. The deliberative-diagnosis work turns the same lever into an architecture, using persona conditioning to simulate the heterogeneity that separate model backends would supply, and measures the result directly as error decorrelation across specialists under persona and temperature conditioning separately and jointly. Both sources are explicit about what it does not achieve: with a shared backend the correlation bias inherent in the generating model remains, so the personas are simulated diversity rather than independent judgement. One also flags that personas risk reproducing the stereotypes their models were trained on. Neither source reports a baseline spread for ordinary non-persona prompt variation, so how much of the effect is persona-specific rather than general prompt sensitivity is open.",
+  "definition": "Instructing a model to answer as a specified character or role, and across 3 sources a manipulation whose internal effect is now partly measured. The mechanistic result: decomposing three speaker settings into sparse-autoencoder features finds roleplay personas retaining an Assistant-associated feature core while differentiating from it across depth, where narrated story characters never acquire that core at all -- so a persona is a modification of the assistant rather than a replacement of it. Its practical uses here are as the structuring device for multi-agent deliberation and as a routing signal for subjective judgement. The archive's related caution is measurement-shaped: one source measures spread across personas without a baseline spread for ordinary prompt variation, so it cannot separate persona-specific worldview from generic prompt sensitivity, and the personas are impersonated by one model rather than drawn from the population whose judgements are the ground truth.",
   "evidence": [
     {
       "id": "arxiv:2608.07852",
@@ -91,7 +92,9 @@
     "claude-sonnet-4-6"
   ],
   "related_authored": [
-    "prompt-sensitivity"
+    "multi-agent-pipeline",
+    "prompt-sensitivity",
+    "sycophancy"
   ],
   "schema_version": 1,
   "slug": "persona-conditioning",

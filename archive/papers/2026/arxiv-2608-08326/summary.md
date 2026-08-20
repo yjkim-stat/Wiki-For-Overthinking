@@ -46,7 +46,7 @@ Stated, and the conceptual one is the most important. The reward supervises agre
 
 ## Entities
 
-- **Concepts**: [process reward model](../../../../wiki/concepts/process-reward-model.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), reward shaping, reference-conditioned supervision, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [self-correction](../../../../wiki/concepts/self-correction.md), [annotation incompleteness](../../../../wiki/concepts/annotation-incompleteness.md), component ablation
+- **Concepts**: process reward model, [outcome reward](../../../../wiki/concepts/outcome-reward.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), reward shaping, reference-conditioned supervision, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [self-correction](../../../../wiki/concepts/self-correction.md), [annotation incompleteness](../../../../wiki/concepts/annotation-incompleteness.md), component ablation
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), process reward, [RLVR](../../../../wiki/methods/rlvr.md), rule-based reward, symbolic equivalence checking, rollout recycling, [hard negative mining](../../../../wiki/methods/hard-negative-mining.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), self-correction, [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: [MMMU](../../../../wiki/datasets/mmmu.md), [MMMU-Pro](../../../../wiki/datasets/mmmu-pro.md), [MathVista](../../../../wiki/datasets/mathvista.md), MathVerse
 

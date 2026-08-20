@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The reinforcement-learning recipe that trains a model to interleave reasoning with search-engine calls, using retrieved-token masking so that only the model's own generations receive gradients, and an outcome reward. In both sources it is the reference point rather than the contribution: they inherit its retrieval environment — a 2018 Wikipedia dump with a dense retriever returning the top passages — and then report it as the weakest reinforcement-learning baseline in their tables, at 38.5 average F1 against 52.1 in one and 33.6 to 39.6 average EM in the other. It marks what outcome-only supervision achieves in this setting, which is the number every step-level credit method in these two papers is measured against.
+A reinforcement-learning-trained search agent that interleaves retrieval with reasoning, used across 3 sources as the standard baseline for the archive's search-agent credit-assignment work. Its role is comparative: methods adding turn-level or evidence-conditioned signal report margins of 1.3 to 3.9 average exact-match points over it, and the archive's standing caution about those margins applies -- single evaluation runs, no seeds, and macro averages that hide per-benchmark losses.
 
 - **Kind**: method
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

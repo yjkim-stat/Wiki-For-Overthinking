@@ -9,7 +9,7 @@ Checking a claim mechanically in a proof assistant rather than by judgement, whi
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [abstention](../concepts/abstention.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Claude Opus 4.7](../models/claude-opus-4-7.md), [construct validity](../concepts/construct-validity.md), [hallucination](../concepts/hallucination.md), [LLM-as-a-judge](llm-as-a-judge.md), [MATH](../datasets/math.md), [OlympiadBench](../datasets/olympiadbench.md), [outcome reward](../concepts/outcome-reward.md), [process evaluation](process-evaluation.md), [reward hacking](../concepts/reward-hacking.md), [self-correction](../concepts/self-correction.md), [sycophancy](../concepts/sycophancy.md), [verification](../concepts/verification.md)
+**Related**: [abstention](../concepts/abstention.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Claude Opus 4.7](../models/claude-opus-4-7.md), [construct validity](../concepts/construct-validity.md), [hallucination](../concepts/hallucination.md), [LLM-as-a-judge](llm-as-a-judge.md), [MATH](../datasets/math.md), [OlympiadBench](../datasets/olympiadbench.md), [outcome reward](../concepts/outcome-reward.md), [process evaluation](../concepts/process-evaluation.md), [reward hacking](../concepts/reward-hacking.md), [self-correction](../concepts/self-correction.md), [sycophancy](../concepts/sycophancy.md), [verification](../concepts/verification.md)
 
 ## Appears in
 

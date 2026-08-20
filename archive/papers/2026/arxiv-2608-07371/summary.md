@@ -45,7 +45,7 @@ Stated. The evidence covers text-based interactive environments with discrete ac
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [hindsight](../../../../wiki/concepts/hindsight.md), [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md), [privileged information](../../../../wiki/concepts/privileged-information.md), selectivity control, multi-agent pipeline
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [hindsight](../../../../wiki/concepts/hindsight.md), [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md), [privileged information](../../../../wiki/concepts/privileged-information.md), selectivity control, [multi-agent pipeline](../../../../wiki/concepts/multi-agent-pipeline.md)
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), hindsight distillation, [on-policy distillation](../../../../wiki/methods/on-policy-distillation.md), advantage estimation, privileged information, permutation control, [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: [WebShop](../../../../wiki/datasets/webshop.md), [ALFWorld](../../../../wiki/datasets/alfworld.md)
 

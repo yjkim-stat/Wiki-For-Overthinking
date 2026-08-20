@@ -2,7 +2,7 @@
   "aliases": [
     "PRIME"
   ],
-  "definition": "An RLVR algorithm using implicit process rewards. It appears here only as a comparison point, and informatively so: one source fits its entropy-performance exchange curve alongside GRPO, RLOO and REINFORCE++ and finds the same two coefficients describe all of them, which is the basis for calling the exchange law algorithm-irrelevant. Another re-evaluates a PRIME-trained 7B model on symbolically variabilized benchmarks and reports a 50.4% drop on AMC23.",
+  "definition": "A reinforcement-learning method using an implicit process reward derived without step labels, appearing across 3 sources as a comparator rather than a subject. Two results place it: one entropy analysis finds its fitted entropy-performance curves unchanged from three other algorithms, so its entropy behaviour is not distinctive; and under symbolic variabilisation a model trained with it loses 50.4 percent of its accuracy on one competition set when consistency across instantiations is required, in the middle of a range running from 13.6 to 94.5 percent across reinforcement-trained 7B models.",
   "evidence": [
     {
       "id": "local:5175928072823010",
@@ -106,7 +106,11 @@
     "amc",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-reward-model",
+    "grpo",
+    "entropy-collapse"
+  ],
   "schema_version": 1,
   "slug": "prime",
   "topics": [

@@ -45,7 +45,7 @@ Both scales are DeepSeek-R1-Distill-Qwen, so generality across model families is
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [token selection](../../../../wiki/concepts/token-selection.md), marginal utility, [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), length-normalized accuracy
-- **Methods**: MUTO, token-level marginal utility, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), [length control](../../../../wiki/methods/length-control.md)
+- **Methods**: MUTO, token-level marginal utility, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), length control
 - **Datasets**: _none recorded_
 
 Tags: `token selection`, `overthinking`, `marginal utility`, `length compression`, `math reasoning`

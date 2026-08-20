@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen2.5-VL-7B"
+    "Qwen2.5-VL-7B",
+    "Qwen2.5-VL-7B-Instruct"
   ],
-  "definition": "An open vision-language checkpoint, and in both sources the primary backbone on which a multimodal claim is established. One uses it as the headline model for an audit showing that a perturbation-based selection rule's 31.8-point apparent gain over majority voting disappears under a control matching the decoding format. The other trains a latent-response framework on it and reports the best average accuracy among comparable video reasoning models on the same backbone, at 18.2 visible tokens per query against hundreds for chain-of-thought baselines. Its recurrence marks it as this archive's default open vision-language model at the 7B scale.",
+  "definition": "The instruction-tuned 7B Qwen2.5 vision-language model, used across 3 sources as the standard multimodal evaluation subject. Its most informative archived appearance is in a consistency-based selection audit finding that a published result is driven by the decoding format rather than by the perturbation it was attributed to -- one of the archive's clearest instances of an effect belonging to the apparatus. It also appears as the backbone for perception-versus-reasoning latent routing and for confidence-aware medical training.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -104,7 +105,10 @@
     "med-r1-3b",
     "medvlm-r1-2b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-vl-7b",
+    "llava-1-5"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-vl-7b-instruct",
   "topics": [

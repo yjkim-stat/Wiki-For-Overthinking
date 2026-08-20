@@ -45,7 +45,7 @@ The paper's limitations section is longer than its results and is the most usefu
 
 ## Entities
 
-- **Concepts**: latent communication, sparse dictionary learning, dead features, feature reuse, [low-rank approximation](../../../../wiki/concepts/low-rank-approximation.md), [compression](../../../../wiki/concepts/compression.md), matched-budget comparison, single-run estimate, [monosemanticity](../../../../wiki/concepts/monosemanticity.md)
+- **Concepts**: latent communication, sparse dictionary learning, dead features, feature reuse, low-rank approximation, [compression](../../../../wiki/concepts/compression.md), matched-budget comparison, single-run estimate, [monosemanticity](../../../../wiki/concepts/monosemanticity.md)
 - **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), post-hoc probing, TopK sparse coding, quantization, [ablation](../../../../wiki/methods/ablation.md), [Jaccard similarity](../../../../wiki/methods/jaccard-similarity.md), reconstruction error analysis
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [ARC-Easy](../../../../wiki/datasets/arc-easy.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), [GPQA](../../../../wiki/datasets/gpqa.md), MedQA, [MBPP+](../../../../wiki/datasets/mbpp.md), [HumanEval+](../../../../wiki/datasets/humaneval.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md)
 

@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen2.5-3B"
+    "Qwen2.5-3B",
+    "Qwen2.5-3B-Instruct"
   ],
-  "definition": "A small instruction-tuned checkpoint, and in both sources the scale at which a credit-assignment method is shown to still work rather than where it is developed. One reports its full seven-benchmark table at this size and wins the macro-average there as at 7B, with the per-benchmark picture differing between the two. The other pairs it with the 7B model of the same family so that a latent-credit result is stated across two scales rather than one. Neither studies the checkpoint; its presence marks the lower bound of the range these methods are claimed over.",
+  "definition": "A 3B instruction-tuned Qwen2.5 model, used across 3 sources as the small instruct backbone in credit-assignment and medical-reasoning work. Its measured appearance: in a latent credit-assignment study it is the scale at which the method leads on all five benchmarks and on the average (70.16 against 69.28, 68.59 and 68.45 for three baselines), where at 7B the same method's per-task picture is mixed -- so the small scale is where its margin is cleanest, which is worth noting when a method reports both.",
   "evidence": [
     {
       "id": "arxiv:2608.01359",
@@ -93,7 +94,10 @@
     "gpt-4o",
     "huatuogpt-o1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct",
+    "qwen2-5-3b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-3b-instruct",
   "topics": [

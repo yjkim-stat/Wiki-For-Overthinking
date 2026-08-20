@@ -13,6 +13,16 @@
       },
       {
         "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
         "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
         "topics": [
@@ -23,8 +33,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T00:31:45Z",
-  "created_at": "2026-08-13T00:17:15Z",
+  "completed_at": "2026-08-20T23:33:18Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'Phi-4'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Phi-4",
   "kind": "concept",
@@ -41,13 +51,18 @@
   },
   "payload": {
     "name": "Phi-4",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [],
-    "definition": "A 14B instruction-tuned model, used by both sources as a mid-scale point in a multi-model comparison. In one it is among the 18 models where cultural identity is recoverable from the residual stream at 0.86 probe accuracy while generation reaches 0.31, and it is singled out as recovering under multiple-choice selection everything its probe reads — the clearest single case that the loss is at generation rather than at representation. In the other it is among the backbones for which representation-based exploration is evaluated. Neither studies the model itself.",
+    "aliases": [
+      "Phi-4"
+    ],
+    "definition": "A small model from a fourth family, used across 3 sources as an additional cross-family point where two families would leave a trend underdetermined. Its appearances: one of 18 checkpoints in a cultural-knowledge audit, one of the models in a cross-family steering audit spanning five families and 0.6B to 72B, and a backbone for representation-based exploration. Its role is the same in each -- a claim established on Llama and Qwen is checked here, and the archive's related material is full of cases where such a check narrows or reverses the result.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Mistral-7B",
+      "Qwen2.5-7B"
+    ]
   },
   "task_id": "concept__phi-4",
   "task_version": 1,

@@ -8,7 +8,9 @@
         "topics": [
           "reasoning-training",
           "reasoning-evaluation",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -18,7 +20,9 @@
         "topics": [
           "reasoning-training",
           "reasoning-evaluation",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -28,14 +32,28 @@
         "topics": [
           "reasoning-training",
           "reasoning-evaluation",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+        "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:52Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'state tracking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:32:15Z",
+  "created_at": "2026-08-20T23:29:56Z",
+  "instructions": "Write the wiki definition for 'state tracking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "state tracking",
   "kind": "concept",
   "language": "en",
@@ -44,29 +62,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "state tracking",
-    "source_count": 3
+    "source_count": 4
   },
   "result": {
-    "aliases": [
-      "state maintenance",
-      "context tracking",
-      "scratchpad use"
-    ],
-    "definition": "Maintaining an accurate representation of what has changed over the course of a problem, which the sources treat as a prerequisite that is separately measurable from reasoning. One uses chess because it demands rule adherence and game-state tracking alongside strategy, and finds some models lose to random play. One builds multi-turn interactive tasks that require tracking across exchanges with an environment. One asks whether models actually read what they previously wrote, testing causal registers in a scratchpad — which makes the question sharper: the state is present in the context and the issue is whether it is used. Failures here are easily misread as reasoning failures.",
+    "aliases": [],
+    "definition": "Maintaining an accurate representation of a changing situation across many steps, and across 4 sources a capability the archive evaluates as distinct from step-wise reasoning. Its benchmarks: a chess testbed where 13 models play each other and none beats a human-amateur-level engine while some lose to random play, and a multi-turn reasoning benchmark. Its mechanism is probed directly by the scratchpad work, which edits the internal representation of a written state while holding the printed text fixed and asks whether the next step follows the transition rule applied to the edited value -- a causal test with a single correct answer, whose move-specific selectivity gaps of +0.57 and +0.68 show the model combining the edited state with the supplied move. One theoretical source proves length generalisation for a procedure over states, which is the formal counterpart.",
     "kind": "concept",
     "related": [
-      "long-horizon reasoning",
-      "multi-turn reasoning",
       "belief state",
-      "chain of thought faithfulness",
-      "compounding error"
+      "chain of thought",
+      "long-horizon agency"
     ]
   },
   "task_id": "concept__state-tracking",
@@ -74,6 +86,8 @@
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

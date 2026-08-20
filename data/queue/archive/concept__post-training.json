@@ -3,9 +3,19 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+        "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
         "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training"
         ]
       },
@@ -14,14 +24,15 @@
         "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
         "title": "Self-Reflection Improves Safety of Large Reasoning Models",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:50Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'post-training'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:32:12Z",
+  "created_at": "2026-08-20T23:29:56Z",
+  "instructions": "Write the wiki definition for 'post-training'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "post-training",
   "kind": "concept",
   "language": "en",
@@ -30,33 +41,29 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "post-training",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "post-training stage",
-      "fine-tuning stage"
-    ],
-    "definition": "Any training applied after pretraining to shape behaviour, used by both sources as the stage where a property is installed cheaply. One installs safety by altering the reasoning structure with 1K supervised examples and no RL or reward design. The other adds a special token that lets the model reflect and recover mid-generation, integrating into standard post-training rather than replacing it, and reports the harmful completion rate falling from 13.8% to 4.1%. Both emphasize that the intervention composes with existing recipes, which is the practical claim: the property is added without redesigning the pipeline.",
+    "aliases": [],
+    "definition": "Everything done to a base model after pretraining -- supervised fine-tuning, preference optimisation, reinforcement learning -- and across 3 sources a stage the archive treats as having its own systematic effects rather than as a neutral improvement. Two are documented. It moves the features contamination detectors rely on, which one source corrects by measuring how controlled prompt variants shift scores on known non-members and adjusting only the recurring directions, with gains concentrated at the low-false-positive operating point. And it is where safety behaviour is installed or fails to be: one source achieves alignment by changing the reasoning structure with 1,000 supervised examples and no reinforcement learning, and another adds a recovery token that cuts harmful completions from 13.8 to 4.1 percent. The archive's related material adds the pipeline-level finding that a stage ending in reinforcement learning launders what its supervised stage absorbed.",
     "kind": "concept",
     "related": [
       "supervised fine-tuning",
-      "reinforcement learning post-training",
-      "preference optimization",
-      "safety alignment",
-      "data efficiency"
+      "RLVR",
+      "benchmark contamination"
     ]
   },
   "task_id": "concept__post-training",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

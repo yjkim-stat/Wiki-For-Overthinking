@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A single-hop question-answering set built around entities of varying popularity, used by both sources as out-of-domain evaluation for search agents trained elsewhere. Neither studies it; both report it as one of the sets where the margins are narrow — 49.8 F1 against 48.8 for the strongest baseline in one, and 48.6 EM against 49.7 in the other, where the proposed method loses it. Its function in these papers is to check that a policy tuned for multi-hop search has not become worse at questions that need one retrieval, and in both cases it has not.",
+  "definition": "An open-domain question-answering set built around entity popularity, used across 3 sources as one of the single-hop in-domain benchmarks in the search-agent suite. Its role is the same as its companions -- a control that a multi-hop mechanism should leave alone -- and none of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -91,7 +91,10 @@
     "qwen2-5-math-7b",
     "qwen3-4b-base"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "natural-questions",
+    "triviaqa"
+  ],
   "schema_version": 1,
   "slug": "popqa",
   "topics": [

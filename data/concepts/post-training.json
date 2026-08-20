@@ -3,7 +3,7 @@
     "post-training stage",
     "fine-tuning stage"
   ],
-  "definition": "Any training applied after pretraining to shape behaviour, used by both sources as the stage where a property is installed cheaply. One installs safety by altering the reasoning structure with 1K supervised examples and no RL or reward design. The other adds a special token that lets the model reflect and recover mid-generation, integrating into standard post-training rather than replacing it, and reports the harmful completion rate falling from 13.8% to 4.1%. Both emphasize that the intervention composes with existing recipes, which is the practical claim: the property is added without redesigning the pipeline.",
+  "definition": "Everything done to a base model after pretraining -- supervised fine-tuning, preference optimisation, reinforcement learning -- and across 3 sources a stage the archive treats as having its own systematic effects rather than as a neutral improvement. Two are documented. It moves the features contamination detectors rely on, which one source corrects by measuring how controlled prompt variants shift scores on known non-members and adjusting only the recurring directions, with gains concentrated at the low-false-positive operating point. And it is where safety behaviour is installed or fails to be: one source achieves alignment by changing the reasoning structure with 1,000 supervised examples and no reinforcement learning, and another adds a recovery token that cuts harmful completions from 13.8 to 4.1 percent. The archive's related material adds the pipeline-level finding that a stage ending in reinforcement learning launders what its supervised stage absorbed.",
   "evidence": [
     {
       "id": "arxiv:2608.10462",
@@ -25,7 +25,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:29:58Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T13:04:03Z",
   "name": "post-training",
   "related": [
@@ -67,7 +67,11 @@
     "self-reflection-token",
     "adversarial-evaluation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "supervised-fine-tuning",
+    "rlvr",
+    "benchmark-contamination"
+  ],
   "schema_version": 1,
   "slug": "post-training",
   "topics": [

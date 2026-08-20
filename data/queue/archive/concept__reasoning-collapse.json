@@ -3,9 +3,20 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
         "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
           "reasoning-faithfulness"
         ]
@@ -15,14 +26,15 @@
         "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
         "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
           "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:58:20Z",
-  "created_at": "2026-08-20T12:45:12Z",
+  "completed_at": "2026-08-20T23:32:13Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'reasoning collapse'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "reasoning collapse",
   "kind": "concept",
@@ -39,13 +51,17 @@
   },
   "payload": {
     "name": "reasoning collapse",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [],
-    "definition": "The training dynamic in which a policy abandons extended deliberation for short heuristic guessing, because on tasks with no canonical correct trajectory the shorter route reaches the same outcome reward more cheaply. Its defining source measures it directly: under outcome-only RLVR on subjective verification tasks, mean terminated completion length falls sharply after roughly 70 steps, from about 300 tokens to about 170 -- the exact inverse of the simultaneous rise in length and accuracy that signals successful mathematical RLVR. The paper establishes it is not an optimization artifact by showing that two variants correcting length and variance biases fail to prevent it, and repairs it with a length bonus paid only when the answer is correct; ungated versions of the same bonus are either exploited to the context limit or spent on filler. The second source approaches the same territory from the other side, arguing that the tokens which externalise uncertainty are what let a model recover from silent divergence and that suppressing them costs recovery -- so what collapses is not merely length but the deliberative moves that length was carrying. Neither source gives the term a formal definition; it names a measured trajectory, and the diagnostic is the length curve rather than the accuracy curve.",
+    "aliases": [
+      "deliberation collapse"
+    ],
+    "definition": "A model abandoning deliberation for a short heuristic answer under training pressure, and across 3 sources a failure distinct from entropy collapse because it is about length and structure rather than about distributional narrowing. Its clearest measurement: on subjective judgement tasks the mean terminated completion length falls from about 300 tokens to about 170 after roughly 70 steps of verifiable-reward training, because guessing the label earns the same or higher reward at a fraction of the token cost -- the inverse of the length-and-accuracy-rise signature of successful mathematical training. A second form is the opposite: suppressing a model's most active reasoning features makes it generate 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping. And a third is behavioural: suppressing the habit of verbalising uncertainty halves competition accuracy across five models despite every training trace being correct.",
     "kind": "concept",
     "related": [
+      "degenerate generation",
+      "reward hacking",
       "entropy collapse"
     ]
   },
@@ -53,6 +69,7 @@
   "task_version": 1,
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

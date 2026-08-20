@@ -45,7 +45,7 @@ The paper has no limitations section and its central claim is stated more strong
 ## Entities
 
 - **Concepts**: [compute allocation](../../../../wiki/concepts/compute-allocation.md), [test-time compute](../../../../wiki/concepts/test-time-compute.md), partial trajectory, prefix quality, hardware utilization, [KV cache](../../../../wiki/concepts/kv-cache.md), zero-sum allocation, [trajectory diversity](../../../../wiki/concepts/trajectory-diversity.md), answer aggregation
-- **Methods**: [beam search](../../../../wiki/methods/beam-search.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [prefix caching](../../../../wiki/methods/prefix-caching.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), process reward model, [linear probe](../../../../wiki/methods/linear-probe.md), [vLLM](../../../../wiki/methods/vllm.md), score-weighted majority vote
+- **Methods**: [beam search](../../../../wiki/methods/beam-search.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [prefix caching](../../../../wiki/methods/prefix-caching.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), [process reward model](../../../../wiki/methods/process-reward-model.md), [linear probe](../../../../wiki/methods/linear-probe.md), [vLLM](../../../../wiki/methods/vllm.md), score-weighted majority vote
 - **Datasets**: [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md), [HMMT](../../../../wiki/datasets/hmmt.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `test-time-scaling`, `beam-search`, `serving`, `kv-cache`, `compute-allocation`

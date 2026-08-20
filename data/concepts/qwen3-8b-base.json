@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen3-8B Base"
+    "Qwen3-8B Base",
+    "Qwen3-8B-Base"
   ],
-  "definition": "An open base checkpoint, and in both sources the model on which a controlled post-training comparison is built — which is the point, since vendors release neither matched pre- and post-training pairs nor the data that would let an effect be attributed. One distils and then RLVR-trains it themselves to isolate what reinforcement learning changes, reporting maze exploration entropy falling from 2.3380 to 1.8138 and dead-end backtracking probability rising from 0.0068 to 0.1537. The other uses it among three base sizes for an experience-distillation stage inserted before RL. Its recurrence marks a methodological preference this archive should note: a base checkpoint whose post-training you performed yourself is worth more than a stronger one whose history you cannot see.",
+  "definition": "The 8B Qwen3 base checkpoint, used across 3 sources as the largest rung of a base-model ladder in training studies and as an interpretability subject. Its archived appearances: the top scale in a self-improvement study whose stage-one intervention cuts all-eight-wrong prompts by 2.75 points there against 4.95 at 4B; one of four model families in the branch-preference measurement showing entropy collapse concentrated in semantic rather than syntactic contrasts; and a subject in spectral identifiability work. It is also one of the models where fine-tuning on heavily hedged traces improves competition accuracy by up to 2.6-fold.",
   "evidence": [
     {
       "id": "arxiv:2608.02139",
@@ -103,7 +104,10 @@
     "gpt-2-small",
     "gemma-2-2b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-8b",
+    "qwen3-4b-base"
+  ],
   "schema_version": 1,
   "slug": "qwen3-8b-base",
   "topics": [

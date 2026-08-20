@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen2.5-14B-Base"
+    "Qwen2.5-14B-Base",
+    "Qwen2.5-14B"
   ],
-  "definition": "A 14B Qwen2.5 checkpoint, used in the archive at the mid scale where trends are checked rather than discovered. It appears in the pass@k comparison where base models overtake their RLVR-trained counterparts as k grows, and in the mutual-information analysis of reasoning dynamics, where its share of reasoning steps that are information peaks is 3.59% — one of the higher rates measured, against 0.51% for a distilled 7B.",
+  "definition": "A 14B Qwen2.5 model, used across 3 sources as a mid-large base checkpoint. Its most consequential archived appearance is as one of the four base models in the pass@k comparison that opened the reasoning-boundary debate, where reinforcement-trained models lead at small budgets and base models catch up and surpass them as the budget grows into the tens or hundreds. It also appears in the inverted-steering-vector audit and in mutual-information trace analysis.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -107,7 +108,10 @@
     "qwen2-5-7b",
     "qwen2-5-vl-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b",
+    "qwen2-5-32b-instruct"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-14b",
   "topics": [

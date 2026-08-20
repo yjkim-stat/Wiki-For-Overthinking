@@ -45,7 +45,7 @@ The learner is idealized: it minimizes loss, norm and Hessian trace directly rat
 ## Entities
 
 - **Concepts**: [generalization](../../../../wiki/concepts/generalization.md), PAC-Bayes, flat minima, sharpness, Fourier spectrum, [expressivity-learnability gap](../../../../wiki/concepts/expressivity-learnability-gap.md), [sample complexity](../../../../wiki/concepts/sample-complexity.md), parity, low-degree bias, [chain of thought](../../../../wiki/concepts/chain-of-thought.md)
-- **Methods**: PAC-Bayes bound, constructive PAC-Bayes, sharpness minimization, property testing, Fourier analysis, [mechanistic interpretability](../../../../wiki/methods/mechanistic-interpretability.md)
+- **Methods**: PAC-Bayes bound, constructive PAC-Bayes, sharpness minimization, property testing, Fourier analysis, mechanistic interpretability
 - **Datasets**: [Parity](../../../../wiki/datasets/parity.md)
 
 Tags: `generalization`, `pac-bayes`, `fourier`, `learnability`, `parity`, `theory`

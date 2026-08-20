@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Pythia-410M"
+    "Pythia-410M",
+    "Pythia-70M",
+    "Pythia"
   ],
-  "definition": "A 410M model from the Pythia suite, chosen in these sources for its open training checkpoints and small size. It is the model in which sparse dictionary features are shown to localize indirect object identification more tightly than PCA components, and it recurs in circuit-level arithmetic analysis. Its size is the standing caveat: interpretability results established here are a long way from the reasoning models the rest of this archive studies.",
+  "definition": "A small open model with a fully documented training corpus, and across 3 sources the checkpoint used where the training data must be known. That property is load-bearing in two of them: it is the only model for which a contamination study can verify that a base checkpoint is uncontaminated, and it is where sparse-autoencoder feature quality is measured against interpretability baselines layer by layer. It is also a subject in arithmetic circuit analysis. Its small size means results on it bound what is possible rather than what happens at scale, which the sources state.",
   "evidence": [
     {
       "id": "arxiv:2608.07914",
@@ -87,7 +89,9 @@
     "indirect-object-identification",
     "pythia-70m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-2"
+  ],
   "schema_version": 1,
   "slug": "pythia-410m",
   "topics": [

@@ -4,7 +4,7 @@
     "reasoning process evaluation",
     "process scoring"
   ],
-  "definition": "Scoring the reasoning that led to an answer rather than only the answer, which six sources treat as necessary and which they show is limited by the cost of reference reasoning. Two obtain that reference for free from execution — parameterized symbolic templates with executable Python, which also regenerate contamination-free instances — while three pay for it with expert annotation and one of those can afford it for only 46% of its items. One scores the intermediate artefact and the reasoning from it in separate layers. One shows the evaluator itself improves monotonically with reasoning tokens spent. The recurring finding across them is that answers are frequently right while the reasoning is not, so answer-only scoring overstates competence.",
+  "definition": "Scoring the reasoning rather than the answer, and across 7 sources the evaluation the archive keeps finding is necessary and rarely done. Its measured motivation: high answer accuracy conceals near-total failure at producing or reasoning from required visual aids; a benchmark of mathematical proof reveals failure modes an answer check cannot see; and error-detection benchmarks show frontier models about 10 points behind human evaluation at saying where a chain went wrong. Two construction approaches appear -- symbolic generation so that every intermediate quantity is verifiable by construction, and expert annotation of the specific span that establishes a conclusion, which one source uses to show that predicting the right answer and giving the right reason are separable abilities. The archive's standing caution is that a step score computed by a model inherits that model's reliability, and that agreement with one reference derivation penalises a different valid one.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1719",
@@ -50,7 +50,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T10:56:01Z",
   "name": "process evaluation",
   "related": [
@@ -130,7 +130,11 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-supervision",
+    "chain-of-thought-faithfulness",
+    "benchmark-design"
+  ],
   "schema_version": 1,
   "slug": "process-evaluation",
   "topics": [

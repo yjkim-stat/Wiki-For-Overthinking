@@ -2,9 +2,10 @@
   "aliases": [
     "dispatch",
     "path selection",
-    "gating"
+    "gating",
+    "dynamic routing"
   ],
-  "definition": "Deciding per input which of several processing paths to take, rather than applying one procedure uniformly. One source routes on a text-only regex detector of restrictive cues, activating a two-stage constraint-extraction protocol only where constraints exist to exploit and falling back to direct chain-of-thought otherwise. The other routes at every generation step among a fast path, a slow perception path and a slow reasoning path, with the router trained by multi-objective RL on roughly 790k samples of teacher-attributed perception-versus-reasoning failures. The pair spans the design range: a hand-written detector applied once per problem, and a learned controller applied at each step.",
+  "definition": "Sending an input down one of several processing paths based on a cheap upfront decision, and across 3 sources a design the archive distinguishes from allocation by what varies -- the path rather than the budget. Its instances: a regex detector deciding whether a constraint-extraction protocol applies; an intent classifier choosing a downstream handler, where the informative result is that two classifiers matched on accuracy diverge entirely under adversarial rephrasing; and gating perception against reasoning in a vision-language model to avoid overthinking. The archive's related material bounds what a router can be built on: a learned controller degenerated to a near-greedy policy under leave-one-dataset-out evaluation in one study, and the confidence signals routers usually read do not track correctness on hard inputs.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -88,7 +89,11 @@
     "teacher-based-failure-attribution",
     "step-level-routing"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-compute-allocation",
+    "difficulty-conditioning",
+    "selection-signal"
+  ],
   "schema_version": 1,
   "slug": "routing",
   "topics": [

@@ -2,7 +2,7 @@
   "aliases": [
     "teacher-forced training"
   ],
-  "definition": "Training a model on ground-truth prefixes rather than on its own generations. The sources treat it from opposite ends. One prices it: selecting a predictor consistent with the entire chain of thought on the training data learns with sample complexity logarithmic in the combined input and reasoning length, with a matching lower bound, so no other rule using chain data does fundamentally better. The other names it as the thing to move away from, arguing that the teacher-forced objective underlying next-token prediction is ill-suited to long-horizon reasoning and planning and proposing latent auxiliary targets instead. Statistically cheap and, by the second account, structurally limited.",
+  "definition": "Conditioning on the ground-truth prefix rather than the model's own during training, and across 3 sources both a training convention and a measurement device. As a convention it is what creates the train-inference mismatch on-policy methods exist to remove. As a measurement it is used well: a process reward computed as the increase in a frozen reference policy's teacher-forced likelihood of a gold translation, so a step that makes the reference more predictable is rewarded. And as a theoretical object one source proves that chain-of-thought learning under it costs only logarithmically more in sample complexity as the number of reasoning steps grows, which is the formal reason the convention is affordable.",
   "evidence": [
     {
       "id": "arxiv:2608.03077",
@@ -80,7 +80,11 @@
     "vc-dimension-analysis",
     "pac-learning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "supervised-fine-tuning",
+    "distribution-shift",
+    "sample-complexity"
+  ],
   "schema_version": 1,
   "slug": "teacher-forcing",
   "topics": [

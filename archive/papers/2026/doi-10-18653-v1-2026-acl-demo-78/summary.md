@@ -44,7 +44,7 @@ A tooling contribution, so there are no empirical findings about models beyond t
 
 ## Entities
 
-- **Concepts**: mechanistic interpretability, activation patching, [attention pattern](../../../../wiki/concepts/attention-pattern.md), tooling, [reproducibility](../../../../wiki/concepts/reproducibility.md)
+- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), activation patching, [attention pattern](../../../../wiki/concepts/attention-pattern.md), tooling, [reproducibility](../../../../wiki/concepts/reproducibility.md)
 - **Methods**: [activation patching](../../../../wiki/methods/activation-patching.md), attention pattern analysis, TransformerLens
 - **Datasets**: _none recorded_
 

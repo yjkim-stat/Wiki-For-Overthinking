@@ -1,9 +1,10 @@
 {
   "aliases": [
     "ridge regression",
-    "L2-regularized linear regression"
+    "L2-regularized linear regression",
+    "regularized least squares"
   ],
-  "definition": "L2-regularised linear regression, used in both sources purely as the fitting procedure behind a probe rather than as anything under investigation. The cultural-awareness paper lists it among the apparatus of its four-instrument design, beside linear probes, the logit lens, activation patching, principal component analysis and linear discriminant analysis; the tiled-SVD paper lists it beside singular value decomposition, the logit lens, activation steering, sparse autoencoders and ablation. Neither reports a result about ridge regression itself, compares it against another estimator, or states what the regularisation strength was or how it was chosen. In this archive it is a choice of linear fit that is recorded but never argued for.",
+  "definition": "Least-squares fitting with an L2 penalty, appearing across 3 sources as the workhorse behind probes, concept vectors and weight-mechanism analyses. Its role in the archive is unglamorous and load-bearing: it is the estimator whose regularisation strength is one of the extraction choices a robustness sweep varies, and the archive's related finding is that no configuration of such choices is best across benchmarks. One source uses it to fit concept directions and finds a simpler probe consistently stronger, which is the recurring pattern that added machinery in the readout rarely pays.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -104,7 +105,9 @@
     "govdistilroberta"
   ],
   "related_authored": [
-    "logistic-regression"
+    "linear-probe",
+    "logistic-regression",
+    "low-rank-approximation"
   ],
   "schema_version": 1,
   "slug": "ridge-regression",

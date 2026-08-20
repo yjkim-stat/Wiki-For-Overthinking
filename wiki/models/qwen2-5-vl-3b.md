@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A small vision-language checkpoint, used in both sources as the scale at which a multimodal method is developed before being confirmed at 7B. In one it is the primary backbone for a step-wise visual grounding framework and carries most of the ablations — the layer sweep, the grounding-strategy comparison, and the explicit-versus-implicit contrast. In the other it appears in work on RLVR eroding general capability. Neither characterizes the model itself.
+A 3B vision-language Qwen2.5 model, used across 3 sources as the small multimodal backbone. Its measured appearance is the striking one: a structured spatial-reasoning method at this scale leads its category by 16.85 percent and surpasses a frontier model overall (77.56 against 75.38), while the same method's 7B version leads by 9.51 -- so the margin is larger at the smaller scale, which is the archive's recurring pattern that a method's value tracks how much headroom the backbone has. It also appears in chart-reasoning curricula and in general-capability forgetting work.
 
 - **Kind**: model
-- **Also called**: Qwen2.5-VL-3B-Instruct
+- **Also called**: Qwen2.5-VL-3B, Qwen2.5-VL-3B-Instruct
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

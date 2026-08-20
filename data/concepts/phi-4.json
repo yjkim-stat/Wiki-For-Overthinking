@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "phi-4"
+    "phi-4",
+    "Phi-4"
   ],
-  "definition": "A 14B instruction-tuned model, used by both sources as a mid-scale point in a multi-model comparison. In one it is among the 18 models where cultural identity is recoverable from the residual stream at 0.86 probe accuracy while generation reaches 0.31, and it is singled out as recovering under multiple-choice selection everything its probe reads — the clearest single case that the loss is at generation rather than at representation. In the other it is among the backbones for which representation-based exploration is evaluated. Neither studies the model itself.",
+  "definition": "A small model from a fourth family, used across 3 sources as an additional cross-family point where two families would leave a trend underdetermined. Its appearances: one of 18 checkpoints in a cultural-knowledge audit, one of the models in a cross-family steering audit spanning five families and 0.6B to 72B, and a backbone for representation-based exploration. Its role is the same in each -- a claim established on Llama and Qwen is checked here, and the archive's related material is full of cases where such a check narrows or reverses the result.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -131,7 +132,10 @@
     "qwen2-5-32b",
     "mistral-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mistral-7b",
+    "qwen2-5-7b"
+  ],
   "schema_version": 1,
   "slug": "phi-4",
   "topics": [

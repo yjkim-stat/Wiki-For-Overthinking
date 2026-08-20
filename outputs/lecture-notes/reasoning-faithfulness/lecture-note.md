@@ -143,10 +143,10 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | steering vector | 13 | A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable... |
 | retrieval-augmented generation | 11 | Conditioning generation on retrieved documents, and in this archive mostly a setting other things are measured in rather than a method studied on its own -- it supplies the subs... |
 | DAPO | 10 | A group-relative variant that removes the value network and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping, used across 10 sour... |
+| process reward model | 10 | A learned scorer for intermediate reasoning steps, and across 10 sources the standard route to dense supervision -- with the standing objections that it needs step annotations,... |
 | circuit analysis | 9 | Identifying the subgraph of components a model uses for a task, and across 9 sources a method whose reach the corpus is explicit about. Its scope has been limited to partial evi... |
 | Monte Carlo tree search | 9 | Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physi... |
 | selectivity control | 9 | A comparison establishing that an intervention affects the thing it names and not a neighbouring one -- a matched item the effect should not touch, a random direction of the sam... |
-| logit lens | 8 | Decoding an intermediate activation through the output unembedding to see what token it would produce, used across 8 sources as a cheap read-out of what a layer is holding. The... |
 
 ## Benchmarks and datasets
 

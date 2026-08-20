@@ -3,9 +3,20 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
         "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
         "topics": [
+          "reasoning-training",
           "reasoning-interpretability",
           "reasoning-evaluation"
         ]
@@ -15,15 +26,16 @@
         "note": "A university-level multimodal math benchmark with original, hand-drawn, photographed and text-only variants of each problem, on which a model with no image beats its own multimodal variants and GPT-5.",
         "title": "MathSight: A Benchmark Exploring Have Vision-Language Models Really Seen in University-Level Mathematical Reasoning?",
         "topics": [
+          "reasoning-training",
           "reasoning-interpretability",
           "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:47:17Z",
-  "created_at": "2026-08-08T12:46:29Z",
-  "instructions": "Write the wiki definition for 'Qwen3-VL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:33:19Z",
+  "created_at": "2026-08-20T23:29:56Z",
+  "instructions": "Write the wiki definition for 'Qwen3-VL'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-VL",
   "kind": "concept",
   "language": "en",
@@ -32,34 +44,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Qwen3-VL",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "Qwen3VL",
-      "Qwen3-VL-Instruct"
+      "Qwen3-VL"
     ],
-    "definition": "A Qwen vision-language model, and the subject of the archive's sharpest modality-ablation result: on a university-level multimodal math benchmark it scores higher with no image input than either of its own multimodal variants or GPT-5. It is also one of four checkpoints supported by an open mechanistic-interpretability library for VLMs. The pairing is useful — one source shows the visual pathway contributing little or interfering on a reasoning benchmark, the other supplies the activation-patching and attention tooling that could say why, and no source in the archive has yet done that.",
+    "definition": "The Qwen3 vision-language line, used across 3 sources as the newer multimodal backbone. Its archived appearances: the backbone for a self-checking video agent whose supervised stage installs tool-invocation format (99.8 percent compliance against 50.6 without it) before reinforcement learning adds region-switching judgement; one of four checkpoints supported by an open vision-language interpretability library; and a subject in a university-level mathematics benchmark where a model given no image beats its own multimodal variants.",
     "kind": "model",
     "related": [
-      "multimodal reasoning",
-      "perception bottleneck",
-      "modality ablation",
-      "mechanistic interpretability",
-      "activation patching"
+      "Qwen2.5-VL",
+      "Qwen3-8B"
     ]
   },
   "task_id": "concept__qwen3-vl",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A nonlinear projection that places high-dimensional points in two dimensions so that near neighbours stay near, used by both sources to make a reasoning trajectory something a person can look at. One turns each intermediate step into a vector of distances to the candidate answers and projects the resulting sequence, so a whole trace becomes a path across a plane and converging and wandering chains are visibly different. The other projects step-marker activations and finds them occupying linearly separable, step-indexed regions. Both treat the projection as a way of seeing structure that is then verified by something else — a classifier, a separability test — rather than as evidence in itself, which is the right use of it: the layout is not a measurement.
+A nonlinear projection into two dimensions for visualisation, used across 3 sources to make reasoning trajectories inspectable. Its productive use here is not the projection but what is projected: one source turns each intermediate step into a feature vector of distances to the answer choices before projecting, which is what makes the resulting picture interpretable -- incorrect trajectories converging to their wrong answer earlier than correct ones converge to the right one. The archive's caution is the standard one for this family: a two-dimensional embedding is a visualisation rather than a measurement, and every quantitative claim in these sources is made on the features rather than on the projection.
 
 - **Kind**: method
-- **Also called**: t-distributed stochastic neighbor embedding
+- **Also called**: dimensionality reduction, t-distributed stochastic neighbor embedding
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

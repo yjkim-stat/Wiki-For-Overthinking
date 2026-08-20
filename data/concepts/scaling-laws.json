@@ -3,7 +3,7 @@
     "scaling law",
     "compute-performance scaling"
   ],
-  "definition": "Predictable relationships between resources spent and performance obtained, which the archived sources invoke mostly to mark where the familiar ones stop applying. One derives a law inside RL training rather than pretraining: reward trades against policy entropy as R = -a*exp(H) + b, fitted across model families and predictive enough that coefficients from the first 36 steps extrapolate 200 steps ahead at under 1% RMSE, with the ceiling at zero entropy. The other observes that length generalization is often wholly independent of conventional scaling laws — models from 50M to 3B failed to extend 15-digit addition to 20 digits, and data past a threshold did not help. Both are cautions against reading a compute-loss curve as a capability curve.",
+  "definition": "Regular relationships between a resource and performance, and across 3 sources a framing the archive uses more often to check a claimed trend than to establish one. Its positive instance here is unusual: a fitted relationship between policy entropy and downstream performance during reinforcement learning, unchanged across four algorithms, which turns entropy consumption into a predictor of remaining headroom. Its cautionary instances are about scale trends specifically -- one cross-family audit finds an apparent emergence of steerability with model size produced entirely by uncalibrated measurement, and reports its own slope with an interval spanning zero while declining to call the result scale-invariance, noting a homogeneous size axis is itself an assumption and the test underpowered against the slopes the interval admits. The third source gives bounds in the length dimension rather than the parameter one.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -109,7 +109,11 @@
     "reduction-from-hilbert-s-tenth-problem",
     "unary-temporal-logic"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "test-time-compute",
+    "entropy-collapse",
+    "length-generalization"
+  ],
   "schema_version": 1,
   "slug": "scaling-laws",
   "topics": [

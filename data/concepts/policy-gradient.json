@@ -3,7 +3,7 @@
     "PG",
     "softmax policy gradient"
   ],
-  "definition": "The gradient of expected return with respect to the parameters of a policy, and in all three sources an object of analysis rather than a tool. They converge on one difficulty: under a softmax parameterization the normalization makes the objective non-concave in the parameters, so convergence cannot be argued from convexity and has to be recovered from a gradient-dominance property instead. What they establish diverges with the setting. In stochastic bandits with unregularized reward the question is which feature representations admit convergence at all; in entropy-regularized Markov decision processes on continuous spaces it is the rate at which an idealized gradient flow converges and what keeps its constant from degenerating; in language-model fine-tuning it is which direction a single update moves the policy's entropy. Only the first two treat convergence; the third works one step at a time.",
+  "definition": "Optimising a policy by ascending the gradient of expected return, the family every training method in this archive belongs to. Across 4 sources the corpus's contribution is theoretical: convergence results for entropy-regularised softmax policy gradient beyond tabular settings and under linear function approximation, and a comparative analysis of the entropy-control methods used in practice. Two things those results supply that the empirical literature does not. They make explicit which conditions the practical variants violate -- one source's feature conditions are shown to be real restrictions by an explicit finite-element counterexample where a divergence converges to a constant and radial unboundedness fails. And they give a mechanism for the entropy behaviour everyone measures: differentiating the objective with respect to a token's logit shows positive advantage raising sampled-token probability and lowering unsampled ones, which concentrates mass, with clipping modulating the relative contribution of the two signs.",
   "evidence": [
     {
       "id": "arxiv:2608.02585",
@@ -31,7 +31,7 @@
     }
   ],
   "first_seen": "2026-08-09T06:17:44Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T10:56:01Z",
   "name": "policy gradient",
   "related": [
@@ -123,7 +123,11 @@
     "qwen2-5-7b",
     "qwen2-5-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reinforce",
+    "ppo",
+    "grpo"
+  ],
   "schema_version": 1,
   "slug": "policy-gradient",
   "topics": [

@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "activation editing"
+    "activation editing",
+    "representation surgery"
   ],
-  "definition": "Changing a model's internal state during generation so the downstream computation proceeds from the edited value, as distinct from steering along a direction chosen for its discriminability. The two sources bracket what the technique can establish. The scratchpad-register work is the successful case and owes its strength to the target: because the task's transition rule is known, editing the internal representation of a written state while holding the printed text fixed produces a prediction with a single correct consequence -- whether the next step follows the rule applied to the edited value -- and the model's next phase bit follows the edit on 80 to 91 percent of held-out examples where same-rank random and orthogonal-complement patches reach about 0.02. The reproduction study is the failure case, and its diagnosis is that the edited quantity was not there to edit: a probe finds the target concept at 0.82 accuracy at one sub-layer and at chance pooled over the layers the method actually edits, decoding the trained projector at the probe's peak layer changes nothing, and a random direction of the same norm traces the same curve. Read together the sources say that representation editing is evidential exactly when the edit has a checkable consequence and the quantity is present at the site being edited, and that neither condition is implied by a probe score.",
+  "definition": "Modifying a model's internal representations to change behaviour, as distinct from steering with a fixed direction or retraining. Across 3 sources the archive's material is a positive result, a negative one and a diagnostic. The positive: a closed-form linear operator estimated from second-order statistics on a modest paired calibration set, folded into existing feed-forward projections so inference cost and architecture are unchanged -- with an ablation showing a first-order mean correction insufficient, so the covariance structure is doing the work. The negative: a published method resting on a decodable logic direction is matched exactly under steering by a same-norm random direction, so the reported effect is magnitude rather than content. The diagnostic: editing the internal representation of a written scratchpad while holding the printed text fixed, which turns 'does the model use its scratchpad' into a causal test with a single correct answer and a move-specific selectivity control.",
   "evidence": [
     {
       "id": "arxiv:2608.08167",
@@ -100,7 +101,9 @@
     "mistral-7b-v0-3"
   ],
   "related_authored": [
-    "activation-steering"
+    "activation-steering",
+    "low-rank-approximation",
+    "detection-versus-control"
   ],
   "schema_version": 1,
   "slug": "representation-editing",

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The smallest Qwen2.5 model, used in both sources as the low-capacity end of a comparison. One takes it as the weakest of three scales for sparse-update RLVR experiments. The other uses it as the backbone for a step-level sparse autoencoder and reports a model-family contrast worth noting: on GSM8K its features distribute more evenly across reasoning, calculation and final resolution — with final resolution the most frequent pattern — whereas the similarly sized Llama-3.2-1B devotes 40.4% of its features to reasoning. Its features are also less sparse and more shared between steps (29.01% activation ratio, Jaccard 0.6716) than that model's.
+A 0.5B Qwen2.5 model, used across 3 sources as the smallest rung where a training method's scale trend begins. Its measured position: on a token-selection comparison it runs base 5.65, standard training 10.52 and the proposed method 10.95 on one metric, so absolute scores are low enough that the ordering carries the claim rather than the magnitude. It also appears in step-level sparse-autoencoder work and in trajectory-geometry evaluation. The archive's related caution about small checkpoints applies -- a null on it is more likely to be about the model than about the method.
 
 - **Kind**: model
 - **Also called**: Qwen2.5-0.5B

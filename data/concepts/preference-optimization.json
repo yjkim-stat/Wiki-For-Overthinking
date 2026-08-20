@@ -5,7 +5,7 @@
     "preference tuning",
     "preference learning"
   ],
-  "definition": "Training on pairs of preferred and dispreferred outputs rather than on a scalar reward, used by three sources to install a behaviour and by one to question the signal itself. One feeds the model's own self-certainty into the preference objective so confident answers compress and uncertain ones keep deliberating. One builds pairs from model-generated counterfactual reasoning traces to unlearn knowledge from the CoT as well as the answer, iterating to increase divergence from the original model. One forms pairs by pruning non-essential reasoning segments. The fourth undercuts the common source of preference labels, finding LLM-judge preferences track style rather than safety, world knowledge or instruction following.",
+  "definition": "Training on comparisons between outputs rather than on scalar rewards or gold targets, and across 5 sources a family whose design question is what the pair is drawn from. The corpus's instances differ exactly there: pairs selected inside answer clusters that consensus has already separated, using hidden-state geometry to pick which concrete responses to compare; pairs of correct trajectories ranked by a redundancy score; pairs formed between a repair and the continuation that would have followed had an error stood; and counterfactual pairs for unlearning. Two findings. The pairing is the constraint -- two responses may not form a usable pair, which makes the method data-hungry where an unpaired objective keeps improving at one response per instruction. And a preference term added to group-relative training can hurt: a matched baseline with an unweighted term added falls below the base model on four of six benchmarks.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -99,7 +99,11 @@
     "arena-hard-auto",
     "mmlu"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "dpo",
+    "reward-shaping",
+    "self-correction"
+  ],
   "schema_version": 1,
   "slug": "preference-optimization",
   "topics": [

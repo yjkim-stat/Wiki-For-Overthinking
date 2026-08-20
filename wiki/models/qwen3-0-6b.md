@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A 0.6-billion-parameter Qwen model, the smallest in two of this archive's cross-scale studies and useful mainly for what it does not show. In the steering audit it is the bottom rung of a dense ladder from 0.6B to 14B, and its held-out steering effect of +9.4 with a pass rate of 0.71 is comfortably above chance -- one of the observations behind that paper's finding that no significant scaling trend survives residual-norm normalisation and held-out operating-point selection. On the theory-of-mind benchmark it sits near the bottom of a 28-model field at 58.33 average accuracy, in a study whose class means run 84.1 for proprietary models against 66.5 for open non-reasoning ones. Neither source describes the model.
+The smallest Qwen3 checkpoint, used across 3 sources as the bottom of the size ladder. Two archived results place it. In a cross-family steering audit it is the smallest of a dense single-family ladder whose slope across sizes is +0.31 per doubling with an interval spanning zero, which is what the authors read as no detectable trend rather than as scale-invariance. And in a safety-alignment study it is the model that loses most utility from the defence -- 10.46 points of grade-school mathematics, 6.51 of broad knowledge and 8.80 of competition mathematics -- attributed to a reasoning-style mismatch with the teacher's family, which makes it the archive's clearest case of a safety intervention's cost concentrating at small scale.
 
 - **Kind**: model
 - **Also called**: Qwen3-0.6B

@@ -1,9 +1,11 @@
 {
   "aliases": [
     "computation depth",
-    "chain depth"
+    "chain depth",
+    "step count",
+    "hop count"
   ],
-  "definition": "The number of chained retrieval or inference steps a problem requires, treated in both sources as a dial to be set rather than a property to be inferred from a dataset. The financial-reasoning work makes it the primary axis and finds it the primary limiting factor: on simplified statements the strongest model falls from 84.0 percent at depth 1 to 55.0 at depth 8 and the second from 77.0 to 26.0, which flips their ranking relative to the easy questions -- so a leaderboard built at shallow depth does not predict ordering at deeper ones. That paper also separates depth from document messiness by holding one fixed while varying the other, measuring real filings as roughly 20 points harder than simplified ones at matched depth. The chart-understanding work uses depth as a curriculum variable instead, grading training by nesting depth and finding explicit intermediate grounding worth 8.78 points over letting the model attend implicitly. Between them the sources establish why controllable depth is worth the construction cost: it is what converts a single accuracy number into a curve, and the curve is where model orderings change.",
+  "definition": "How many dependent steps a problem requires, used across 3 sources as the controllable difficulty axis in benchmark and curriculum design. Its uses: grading a curriculum by nesting depth, which is what makes staged training possible and worth 8.78 points in one grounded-reasoning system; exposing it as one of four independently controllable axes in a benchmark generated from executable computation trees; and reporting accuracy by required step count, where one source finds refusal rates rising from 2.1 to 14.8 percent between two-step problems and those needing five or more. The archive's related caution is that depth in a benchmark's construction is not the same as difficulty for a given policy, which is why the better sources report measured pass rate alongside.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -109,7 +111,9 @@
     "qwen3-5-4b"
   ],
   "related_authored": [
-    "compositional-generalization"
+    "difficulty-stratification",
+    "compositional-generalization",
+    "curriculum-learning"
   ],
   "schema_version": 1,
   "slug": "reasoning-depth",

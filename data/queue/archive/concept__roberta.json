@@ -9,7 +9,8 @@
           "reasoning-interpretability",
           "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -20,13 +21,26 @@
           "reasoning-interpretability",
           "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+        "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:24:13Z",
-  "created_at": "2026-08-13T12:45:28Z",
+  "completed_at": "2026-08-20T23:32:16Z",
+  "created_at": "2026-08-20T23:29:56Z",
   "instructions": "Write the wiki definition for 'RoBERTa'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "RoBERTa",
   "kind": "concept",
@@ -43,13 +57,16 @@
   },
   "payload": {
     "name": "RoBERTa",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [],
-    "definition": "An encoder-only pretrained language model that appears in this archive as the fine-tuned baseline newer methods are measured against, and which they do not always beat. In ReLIT's comparison a fine-tuned RoBERTa scores 90.02 on NaN-NLI, the strongest entry in that table, against 55.20 for ReLIT itself and 71.55 for the strongest listed reasoning model -- so on that natural-language-inference set a task-specific encoder remains ahead of both recursive latent reasoning and large reasoning LLMs. The intent-classification study uses an end-to-end fine-tuned RoBERTa as one of its training-based baselines, against training-free classifiers computed from activations already produced during prefill. Neither source studies the model itself; both use it to mark what task-specific supervised training already achieves.",
+    "definition": "An encoder-only pretrained transformer, appearing across 3 sources as the pre-LLM baseline. Its archived positions are consistently as the weaker arm: 0.64 macro-F1 on legal statute prediction against a domain-adapted encoder's 0.82, and near-total failure on one statute where the domain encoder reaches 0.45. It also appears as a comparison in intent classification and as a component in a recursive latent architecture. Its value in the archive is as a reminder that domain-adapted encoders remain competitive with frontier models on constrained classification tasks while frontier models win where explanation is required.",
     "kind": "model",
-    "related": []
+    "related": [
+      "BERT",
+      "LegalBERT"
+    ]
   },
   "task_id": "concept__roberta",
   "task_version": 1,
@@ -57,6 +74,7 @@
     "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-interpretability",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }
