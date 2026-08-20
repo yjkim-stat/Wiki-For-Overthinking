@@ -1,0 +1,56 @@
+{
+  "concepts": [
+    "self-consistency",
+    "majority voting",
+    "confidence calibration",
+    "adaptive compute allocation",
+    "test-time scaling",
+    "pre-registration",
+    "premature convergence",
+    "oracle upper bound",
+    "difficulty stratification"
+  ],
+  "contributions": [
+    "A pre-registered confirmatory measurement of self-consistency backfire on a hard benchmark: 56.6 and 65.7 percent of problems harmed, with thresholds locked and git-tagged before analysis and all four hypotheses passing.",
+    "The demonstration that aggregate accuracy conceals this entirely, moving 0.342 to 0.369 while a majority of problems degrade underneath it.",
+    "A grid oracle quantifying the value of perfect per-problem compute routing at 14 and 17 points, and the failure of two verifier-free gates to capture it -- 0.8 and minus 1.6 percent when measured against the voting baseline rather than against single-sample.",
+    "A calibration-by-agreement-bin table showing the plurality in the highest-agreement bin is correct 52.5 and 28.6 percent of the time, non-monotone for the weaker model.",
+    "An explicitly one-sided sensitivity analysis of the backfire boundary showing the reported rate can only rise, to at most 69.5 percent."
+  ],
+  "datasets": [
+    "GPQA Diamond"
+  ],
+  "generated_at": "2026-08-20T14:38:48Z",
+  "generated_by": "queue",
+  "limitations": "The authors' own list is unusually complete. The Llama model's single-sample accuracy is 0.273 against a 0.25 chance baseline, so its backfire is less surprising and it corroborates rather than demonstrates. One benchmark, one difficulty regime. Two small non-reasoning models: a preliminary attempt at a reasoning-native model failed because a substantial fraction of samples exhausted the token budget on hidden chain of thought before producing a visible answer, making the comparison invalid, and whether backfire persists there is flagged as the central open question. The exploratory 47 were easier than the full set (0.418 against 0.342 single-sample), which is why everything is re-reported on all 198. Monte Carlo boundary sensitivity is quantified: 14 of the 151 confirmatory problems have exactly zero gain and, because backfire is defined strictly as negative, the rate can only rise -- to at most 69.5 percent from 60.3. The oracle is an upper bound and the fraction-of-oracle ratio has a small noisy denominator, so absolute accuracies lead. The entropy threshold is selected in-sample, making its capture optimistic. Only two verifier-free signals are tested; final-answer log-probability margins were not, because the pipeline stored only a mean entropy scalar. And the underlying mechanism, confidence not tracking correctness, is documented overconfidence -- the contribution is the pre-registered self-consistency-specific quantification and the gate failures, not the discovery of miscalibration. Reader-visible addition: no paired significance test is computed for the gate-versus-baseline differences, which the paper states, and no compute-matched baseline is constructed for the gates.",
+  "method": "The full GPQA Diamond set, 198 graduate-level multiple-choice questions in biology, chemistry and physics, split into 47 exploratory problems from which hypotheses were generated and 151 confirmatory problems on which PASS/FAIL is decided. Four hypotheses and their thresholds were locked and git-tagged before any confirmatory analysis, with thresholds set on the permissive side of the exploratory estimates rather than at them. Two small non-reasoning instruction-tuned models from different families, 64 samples per problem at temperature 0.7 under a single prompt template verified byte-identical by SHA-256, five-pass answer extraction at 99.5 and 98.6 percent parse rates. Majority-vote accuracy at N is the expectation over subsets of size N drawn without replacement, ties broken uniformly at random independently of ground truth, estimated by Monte Carlo; backfire is defined strictly as negative gain. Three comparators: a grid oracle routing each problem to its best N over {1,2,4,8,16,32,64} using ground truth, an agreement gate that returns the plurality of k probe samples when its fraction clears a threshold and otherwise votes at N=64, and an entropy gate that returns the probe plurality when mean per-token entropy over four probes falls below a threshold. Both gates are verifier-free; ground truth scores the result only. Intervals are problem-level bootstrap over 1000 iterations at a fixed seed.",
+  "methods": [
+    "self-consistency",
+    "majority voting",
+    "agreement gate",
+    "token-entropy gate",
+    "adaptive consistency",
+    "oracle routing",
+    "bootstrap confidence intervals"
+  ],
+  "models": [
+    "Qwen2.5-7B-Instruct-Turbo",
+    "Meta-Llama-3-8B-Instruct-Lite"
+  ],
+  "one_liner": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+  "paper_id": "arxiv:2608.11403",
+  "problem": "Self-consistency -- sample N chains and return the plurality -- is the default way to spend inference compute, and it was validated on benchmarks where the base model was already reasonably accurate. Whether it helps on hard problems, and whether a model's own confidence can be used to decide when to vote, are separate questions that aggregate accuracy cannot answer, because an aggregate that barely moves can sit on top of widespread per-problem harm.",
+  "read_from": "document",
+  "relevance": {
+    "test-time-scaling": "The most methodologically disciplined negative result the archive holds on this topic, and it changes three things. First, it separates the aggregate curve from the per-problem one and shows they can point opposite ways: 0.342 to 0.369 in aggregate while 56.6 percent of problems get worse. Any claim that a test-time-scaling method is safe on the basis of a flat or mildly rising aggregate is now under suspicion, because that is exactly what widespread per-problem harm looks like from above. Second, it makes the routing question empirical rather than rhetorical -- a per-problem oracle is worth 14 to 17 points, so adaptive compute allocation is not a small prize, and yet the two obvious verifier-free signals capture 0.8 percent and minus 1.6 of it once the comparison is made against the voting baseline rather than against single-sample. That measurement choice is itself worth carrying: crediting a gate for headroom that plain voting already recovers is how these methods come to look better than they are. Third, the calibration table gives the mechanism in three rows -- the highest-agreement bin is right about half the time for one model and less often than its own lowest bin for the other -- which connects directly to the archive's premature-convergence entry, where a confidence-maximising selector was found to prefer trajectories that never branched. The authors' conclusion is the archive's: on hard inputs the headroom needs a signal external to the model's own samples. The pre-registration itself is the other transferable thing, with an exploratory/confirmatory split, git-tagged thresholds set with margin, and a one-sided boundary sensitivity worked out rather than waved at."
+  },
+  "results": "All four pre-registered hypotheses pass on the confirmatory 151. Pooled backfire rates are 56.6 percent (95 percent CI [49.5, 63.6]) for the Qwen model and 65.7 percent ([59.1, 71.7]) for the Llama one -- majority voting lowers accuracy on most problems, individually, for both. The aggregate hides this completely: 0.342 to 0.369 for Qwen and 0.273 to 0.313 for Llama. The worst single problem loses 47 and 46 points; a few gain 66 and 70, so the asymmetry is real but rare. Backfire concentrates by domain: chemistry, which is 93 of the 198 problems, is highest at 66.7 and 68.8 percent, biology lowest at 36.8 and 42.1 on only 19 problems, reported descriptively because the counts are too small to support a why. The grid oracle reaches 0.482 and 0.439, a ceiling 14 and 17 points above single-sample accuracy -- so per-problem compute routing is worth something in principle. Neither gate gets it. The agreement gate at k=8 and tau=0.75 reaches 0.368 and 0.312 against fixed-budget N=64's 0.369 and 0.313, differences of 0.0006 and 0.0014, at a mean of 40.4 and 45.6 samples per problem -- so what it buys against a flat N=64 is 63 and 71 percent of the compute, not accuracy. Measured against single-sample accuracy the gate looks like it captures 18.7 and 23.4 percent of the oracle headroom, but that credits it with what voting alone already recovers; measured against N=64, which isolates the routing decision, the capture is 0.8 percent and minus 1.6. A full sweep of 22 operating points over k in {4,8} and tau from 0.50 to 1.00 finds none that beats fixed budget. The entropy gate does no better and is reported with its own selection bias flagged: its threshold was chosen by in-sample argmax over 40 candidates on the same 151 problems it is evaluated on, and it still captures 0.2 percent of headroom for Qwen and 31.2 for Llama, matching single-sample accuracy to three decimals in the first case. Mean per-token entropy does carry some signal about which problems will backfire (AUC 0.631 and 0.523), but acting on it misclassifies enough problems to erase the gain. The mechanism is measured directly rather than inferred: binning problems by plurality fraction, the highest-agreement bin is correct 52.5 percent of the time for Qwen and 28.6 for Llama -- for Llama, lower than its own lowest-agreement bin, and its accuracy is non-monotone across the three bins. So a gate that trusts agreement is reading a signal that does not carry the information it needs. One further detail: on the confirmatory split Qwen's N=64 accuracy (0.3179) is marginally below its single-sample accuracy (0.3182), which the authors decline to lean on.",
+  "schema_version": 1,
+  "tags": [
+    "self-consistency",
+    "majority-vote",
+    "calibration",
+    "pre-registration",
+    "negative-result"
+  ]
+}

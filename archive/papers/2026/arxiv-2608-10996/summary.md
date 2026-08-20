@@ -47,7 +47,7 @@ The authors state: three generators can share an error and unanimity can exclude
 
 - **Concepts**: rubric-based reward, [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), LLM-as-a-judge, [annotation agreement](../../../../wiki/concepts/annotation-agreement.md), [position bias](../../../../wiki/concepts/position-bias.md), [consensus](../../../../wiki/concepts/consensus.md), human evaluation
 - **Methods**: ConRub-Med, [GRPO](../../../../wiki/methods/grpo.md), [DPO](../../../../wiki/methods/dpo.md), consensus rubric construction, three-state criterion scoring, pairwise preference judging, DAPO soft overlength penalty
-- **Datasets**: HealthBench-Hard, MedXpertQA-Text, DiagnosisArena-MCQ, MedMCQA, PubMedQA, MMLU-Medical, WritingBench, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [IFEval](../../../../wiki/datasets/ifeval.md), RaR-Medicine
+- **Datasets**: HealthBench-Hard, MedXpertQA-Text, DiagnosisArena-MCQ, MedMCQA, [PubMedQA](../../../../wiki/datasets/pubmedqa.md), MMLU-Medical, WritingBench, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [IFEval](../../../../wiki/datasets/ifeval.md), RaR-Medicine
 
 Tags: `rubric-reward`, `grpo`, `medical-qa`, `reward-hacking`, `consensus`
 

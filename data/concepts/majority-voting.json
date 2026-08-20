@@ -65,6 +65,12 @@
       "title": "Consilience for Verifier-Free Test-Time Scaling"
     },
     {
+      "id": "arxiv:2608.11403",
+      "kind": "paper",
+      "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+      "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs"
+    },
+    {
       "id": "arxiv:2608.11994",
       "kind": "paper",
       "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
@@ -109,7 +115,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T14:39:32Z",
   "name": "majority voting",
   "related": [
     "test-time-scaling",
@@ -269,6 +275,16 @@
     "swe-bench-verified",
     "qwen3-80b",
     "gpt-oss-120b",
+    "confidence-calibration",
+    "pre-registration",
+    "oracle-upper-bound",
+    "agreement-gate",
+    "token-entropy-gate",
+    "adaptive-consistency",
+    "oracle-routing",
+    "bootstrap-confidence-intervals",
+    "qwen2-5-7b-instruct-turbo",
+    "meta-llama-3-8b-instruct-lite",
     "claim-level-falsification",
     "signal-dilution",
     "reliability-weighting",

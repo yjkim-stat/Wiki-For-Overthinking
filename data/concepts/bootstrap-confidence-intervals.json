@@ -28,11 +28,17 @@
       "kind": "paper",
       "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
       "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability"
+    },
+    {
+      "id": "arxiv:2608.11403",
+      "kind": "paper",
+      "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+      "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs"
     }
   ],
   "first_seen": "2026-08-13T04:11:14Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:55:40Z",
+  "last_seen": "2026-08-20T14:39:32Z",
   "name": "bootstrap confidence intervals",
   "related": [
     "test-time-scaling",
@@ -150,7 +156,20 @@
     "face-expression-vision-transformer-fer2013",
     "dinov2",
     "clip",
-    "marlin"
+    "marlin",
+    "majority-voting",
+    "confidence-calibration",
+    "pre-registration",
+    "premature-convergence",
+    "oracle-upper-bound",
+    "difficulty-stratification",
+    "agreement-gate",
+    "token-entropy-gate",
+    "adaptive-consistency",
+    "oracle-routing",
+    "gpqa-diamond",
+    "qwen2-5-7b-instruct-turbo",
+    "meta-llama-3-8b-instruct-lite"
   ],
   "related_authored": [
     "permutation-test"

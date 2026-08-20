@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
       "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA"
+    },
+    {
+      "id": "arxiv:2608.11403",
+      "kind": "paper",
+      "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+      "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs"
     }
   ],
   "first_seen": "2026-08-20T14:34:16Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "last_seen": "2026-08-20T14:39:32Z",
   "name": "confidence calibration",
   "related": [
     "expected-calibration-error",
@@ -39,12 +45,29 @@
     "fleming-vl-8b",
     "medmo-8b",
     "med-r1-3b",
-    "medvlm-r1-2b"
+    "medvlm-r1-2b",
+    "self-consistency",
+    "majority-voting",
+    "adaptive-compute-allocation",
+    "test-time-scaling",
+    "pre-registration",
+    "premature-convergence",
+    "oracle-upper-bound",
+    "difficulty-stratification",
+    "agreement-gate",
+    "token-entropy-gate",
+    "adaptive-consistency",
+    "oracle-routing",
+    "bootstrap-confidence-intervals",
+    "gpqa-diamond",
+    "qwen2-5-7b-instruct-turbo",
+    "meta-llama-3-8b-instruct-lite"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "confidence-calibration",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

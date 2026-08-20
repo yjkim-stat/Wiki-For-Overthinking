@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
       "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
+    },
+    {
+      "id": "arxiv:2608.11403",
+      "kind": "paper",
+      "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+      "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs"
     }
   ],
   "first_seen": "2026-08-13T03:09:29Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:47:26Z",
+  "last_seen": "2026-08-20T14:39:32Z",
   "name": "pre-registration",
   "related": [
     "activation-patching",
@@ -86,7 +92,22 @@
     "olympiadbench",
     "livecodebench",
     "qwen3-1-7b",
-    "qwen3-4b"
+    "qwen3-4b",
+    "self-consistency",
+    "majority-voting",
+    "confidence-calibration",
+    "test-time-scaling",
+    "premature-convergence",
+    "oracle-upper-bound",
+    "difficulty-stratification",
+    "agreement-gate",
+    "token-entropy-gate",
+    "adaptive-consistency",
+    "oracle-routing",
+    "bootstrap-confidence-intervals",
+    "gpqa-diamond",
+    "qwen2-5-7b-instruct-turbo",
+    "meta-llama-3-8b-instruct-lite"
   ],
   "related_authored": [
     "selectivity-control"
@@ -95,6 +116,7 @@
   "slug": "pre-registration",
   "topics": [
     "reasoning-interpretability",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

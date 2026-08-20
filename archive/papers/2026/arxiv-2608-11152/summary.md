@@ -45,7 +45,7 @@ The authors state that MISA-T assumes requests carry workload labels and depends
 
 ## Entities
 
-- **Concepts**: rollout scheduling, [KV cache](../../../../wiki/concepts/kv-cache.md), prefix caching, admission control, workload heterogeneity, [compute allocation](../../../../wiki/concepts/compute-allocation.md), asynchronous training, long-horizon agency
+- **Concepts**: rollout scheduling, [KV cache](../../../../wiki/concepts/kv-cache.md), prefix caching, admission control, workload heterogeneity, [compute allocation](../../../../wiki/concepts/compute-allocation.md), asynchronous training, [long-horizon agency](../../../../wiki/concepts/long-horizon-agency.md)
 - **Methods**: MISA-T, MISA, session admission, prefix-aware routing, vLLM Router, CPU KV offloading, GRPO-style rollout serving
 - **Datasets**: SWE-Pro, SWE-Verified, SWE-MTLG
 
