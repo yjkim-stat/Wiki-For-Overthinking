@@ -36,29 +36,11 @@ from .common.config import Config
 from .common.schema import Paper
 from .common.store import RecordStore
 from .enrich.queue import Queue
+from .enrich.score import leverage
 
 _LOG = log.get(__name__)
 
 ORDERINGS = ("score", "age", "id")
-
-
-def leverage(paper: Paper) -> float:
-    """How much this archive's topics care about a paper it has not read.
-
-    **This is not the ordering the requirement asked for**, and the substitution
-    is deliberate rather than an approximation of it. The specification says to
-    order by the source counts of the entities a paper is evidence for — which is
-    exact, and undefined for every paper here: entities take their evidence from
-    summaries, an unread paper has no summary, and so no entity cites it. Every
-    candidate would score zero.
-
-    What the archive does know about an unread paper is what scoring decided when
-    it arrived. Summing over the topics that *accepted* it, rather than taking the
-    best one, prefers a paper that several tracked subjects want over one that a
-    single subject wants badly — which is the nearest thing to leverage that can
-    be computed before anybody has read it.
-    """
-    return sum(float(paper.scores.get(slug, 0.0)) for slug in paper.topics)
 
 
 def _sort_key(paper: Paper, order: str):

@@ -1,4 +1,4 @@
-# 0072 — A map of what the archive knows
+# 0087 — A map of what the archive knows
 
 | | |
 | --- | --- |

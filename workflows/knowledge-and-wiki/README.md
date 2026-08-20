@@ -40,10 +40,17 @@ it while debugging: `--dry-run`, `--topic <slug>`, `--source local`, `--days 30`
 
 ```bash
 python3 -m pipelines.enrich.queue stats
-python3 -m pipelines.enrich.queue list
+python3 -m pipelines.enrich.queue list [--by id|sources|recency|topic] [--kind paper]
 python3 -m pipelines.enrich.queue show <task_id>
 python3 -m pipelines.enrich.queue complete <task_id> --file /tmp/result.json
 ```
+
+`list` and `next` default to filename order, which is alphabetical. If the
+queue will not be emptied tonight, choose the end you are draining — `--by
+sources` first, and `--by topic` when the drain should spread across subjects
+instead of following one to the bottom. The rule each ordering uses, and why
+the two `sources` numbers are not the same unit, is in
+[`CLAUDE.md`](../../CLAUDE.md#the-daily-routine).
 
 The task carries the instructions, the schema and the source material. Three
 rules decide whether the result is worth having:
@@ -97,7 +104,7 @@ config, templates or docs does, see [commit-and-push](../commit-and-push/).
 git add -A && git commit -m "archive: <date> digest"
 ```
 
-## The two ways this goes quietly wrong
+## The three ways this goes quietly wrong
 
 **An empty queue means nothing is *unwritten*. It does not mean nothing is *out
 of date*.** Read the `stale` block in render's result. A definition written
@@ -110,3 +117,21 @@ about it looks wrong. Nothing is rewritten automatically. To re-queue one, clear
 string you write, so "three benchmarks (unnamed in abstract)" from two unrelated
 papers becomes one entity that fabricates its own corroboration. Name one
 specific thing per entry, or leave the list empty and say it in prose.
+
+**One thing named two ways splits into two entities.** The same key rule, in the
+other direction: "world model" in one reading and "world models" in the next are
+two records, each with its own evidence and its own march towards promotion, and
+neither is wrong about anything — which is why nothing catches it. The archive
+ends up saying half of what it knows about a term, twice.
+
+```bash
+python3 -m pipelines.duplicates            # pairs that are probably one entity
+python3 -m pipelines.duplicates --json     # the same, for something else to read
+```
+
+It suggests and stops: it merges nothing and writes nothing, because which of
+two names survives is a judgement and folding one record into another cannot be
+undone. Worth running when the wiki has grown, not nightly. To act on a pair,
+decide which name the group keeps and record the other as an alias when that
+concept's definition task is answered — through the validator, like every other
+answer.

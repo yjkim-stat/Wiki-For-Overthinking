@@ -1,0 +1,34 @@
+{
+  "concepts": [
+    "pass@k",
+    "reasoning boundary",
+    "chain-of-thought faithfulness",
+    "construct validity",
+    "verification",
+    "sampling efficiency",
+    "auditability"
+  ],
+  "established_at": "2026-08-20T23:38:38Z",
+  "id": "finding:636b76efdd54f59f",
+  "kind": "fact",
+  "papers": [
+    "local:b050d2841cbb4959",
+    "local:fb100130d8c7c2bd",
+    "arxiv:2608.02867",
+    "arxiv:2608.01631",
+    "arxiv:2608.08830",
+    "arxiv:2608.11829",
+    "arxiv:2608.04001"
+  ],
+  "rationale": "Six sources, in three unrelated settings, show the ordering flipping on this single choice. The reasoning-boundary dispute is the clearest case and the archive can now say what it is a dispute about. Under plain pass@k, base models overtake their reinforcement-trained versions as the budget grows into the hundreds, across four base checkpoints and several algorithms, and coverage at pass@256 falls across training steps while pass@1 rises. Under CoT-Pass@K, which requires the chain to be correct as well as the answer, the trained model leads at every budget up to 1024 on five benchmarks. The mechanism connecting them is measured rather than assumed: base models win the answer-only metric partly by producing wrong chains that land on right answers, and a branch-level measurement finds trained policies pruning semantically distinct continuations harder than syntactic variants while improving recovery from dead ends -- so valid-but-different paths are lost, which costs answer-only coverage, and invalid paths are lost harder, which is what the chain-scored metric sees. Neither metric is wrong; they measure different sets, and reporting either alone licenses the opposite conclusion. The same reversal appears with no reinforcement learning involved. Across eleven KV-cache compression methods on one benchmark, accuracy and chain validity correlate at Spearman -0.95, so an accuracy-based leaderboard would order the methods almost exactly backwards on whether their reasoning survives -- one method slightly exceeding the uncompressed model's accuracy while 90.2 percent of its correct answers carry unsupported reasoning against 42.3 percent uncompressed. In legal statute prediction the same dissociation is visible per instance, with a frontier model naming the correct statute while grounding it in a span that does not establish the statutory elements, which is why that benchmark pairs each statute with the expert-annotated span. And in on-policy distillation the answer-only crossing appears with no reward in the loop at all, which rules out the reward as the cause. One further caution belongs with this: for candidate banks produced by adaptive search or dependent procedures, the usual pass@k estimator is a descriptive summary of what was returned rather than an unbiased probability -- one source states this and notes most papers reporting the metric do not. The practical rule is that a paper's metric definition is part of its claim, and two papers disagreeing about a model may be agreeing about it under different definitions.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "Whether an evaluation scores the reasoning alongside the answer, or only the answer, can reverse the ordering of the same systems — so a result reported under one of those metrics is not evidence about the other, and a comparison whose verdict is contested should be checked for which one it used before the models are.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "reasoning-faithfulness"
+  ]
+}

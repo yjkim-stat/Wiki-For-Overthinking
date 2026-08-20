@@ -12,7 +12,8 @@ Command line:
 
     python -m pipelines.enrich.queue stats
     python -m pipelines.enrich.queue list --kind paper
-    python -m pipelines.enrich.queue next
+    python -m pipelines.enrich.queue list --by sources --limit 20
+    python -m pipelines.enrich.queue next --by recency
     python -m pipelines.enrich.queue show <task_id>
     python -m pipelines.enrich.queue complete <task_id> --file result.json
     cat result.json | python -m pipelines.enrich.queue complete <task_id> --stdin
@@ -31,8 +32,10 @@ from ..common.log import get
 from ..common import paths as P
 from ..common.paths import WIKI_KINDS, Layout, fs_id
 from ..common.schema import utcnow
-from ..common.store import read_json, write_json
-from ..local import placeholders
+from ..common.store import RecordStore, read_json, write_json
+from ..local import placeholders  # LOCAL
+from .concepts import slug_for
+from .score import leverage
 
 _LOG = get(__name__)
 
@@ -42,6 +45,14 @@ _REQUIRED_FIELDS = {
     "paper": ["one_liner", "problem", "contributions", "method"],
     "video": ["one_liner", "abstract", "key_points"],
     "concept": ["definition"],
+    # A synthesis has no unconditionally required field. Either it settles
+    # something — and then it is a finding, checked as one — or it says why it
+    # could not, and leaving a question open is a real answer rather than a
+    # failure to produce one. `_check_synthesis` holds that alternative.
+    "synthesis": [],
+    # A lookup carries an answer or says it is unknown, and `_check_lookup`
+    # holds that alternative for the same reason a synthesis's does.
+    "lookup": [],
 }
 
 _LIST_FIELDS = {
@@ -67,6 +78,8 @@ _LIST_FIELDS = {
         "tags",
     ],
     "concept": ["aliases", "related"],
+    "synthesis": ["concepts", "papers", "references", "topics"],
+    "lookup": ["references"],
 }
 
 _KINDS = tuple(_REQUIRED_FIELDS)
@@ -74,6 +87,151 @@ _KINDS = tuple(_REQUIRED_FIELDS)
 #: What a reading may say it was based on. ``document`` is a claim the task can
 #: check; ``abstract`` is one it cannot, and does not need to.
 READING_BASIS = ("document", "abstract")
+
+#: How a caller may ask for the backlog to be ordered.
+#:
+#: ``id`` is the default and is the order the queue has always had: the task
+#: files, sorted by name. It is kept as the default because a session that has
+#: been draining the queue in that order should not silently start draining a
+#: different set of items when it pulls a new version of the code.
+#:
+#: The other three exist because the default is arbitrary. A task id begins with
+#: its kind and continues with a filesystem-safe form of the item id, so
+#: filename order is alphabetical order — and a session that drains the top
+#: twenty every night is therefore reading the archive alphabetically, which is
+#: not a priority anybody chose.
+ORDERINGS = ("id", "sources", "recency", "topic")
+
+
+def _newest_first(timestamp: str) -> int:
+    """An ISO timestamp as a number that sorts descending among ascending keys.
+
+    Padded to a fixed width before it is converted, so a value recorded at a
+    coarser resolution — a bare date, say — still compares against a full one
+    rather than looking enormously older. A task with no timestamp at all ranks
+    0, which puts it after every real one, all of which are negative.
+
+    The same trick as ``backfill._newest_first`` and deliberately a separate
+    four lines: that one reads a publication date and this one a queue
+    timestamp, and folding them together would tie the queue's ordering to a
+    collector's date format.
+    """
+    digits = "".join(c for c in timestamp if c.isdigit())[:14]
+    return -int(digits.ljust(14, "0")) if digits else 0
+
+
+def _check_lookup(result: dict, payload: dict | None, store) -> list[str]:
+    """A lookup answer carries a reference, or says it is unknown.
+
+    That rule is the entire mechanism. A recorded reference has a URL, a
+    retrieval date and the passage relied on; requiring one is the only way this
+    pipeline can tell "I looked this up" from "I remember this", and on a
+    question whose whole value is that somebody checked, there is nothing else
+    to check.
+
+    ``unknown`` is always available and is the one answer needing no reference.
+    A search that failed is worth recording — the next session sees what was
+    tried instead of starting from nothing — so refusing it would push a reader
+    towards inventing an answer, which is the failure this is guarding.
+
+    The subject comes from the task's payload rather than the answer, because
+    what was asked is a fact about the task. It is the fifth such context this
+    validator takes; they should eventually be one ``task`` argument.
+    """
+    unknown = bool(result.get("unknown"))
+    answer = str(result.get("answer", "") or "").strip()
+    rationale = str(result.get("rationale", "") or "").strip()
+    references = [str(r).strip() for r in (result.get("references") or []) if str(r).strip()]
+    errors: list[str] = []
+
+    if unknown:
+        if answer:
+            errors.append(
+                "`unknown` is set but `answer` is not empty: say what you found "
+                "or say you did not find it, not both"
+            )
+        if not rationale:
+            errors.append(
+                "an unknown answer still needs a `rationale` — what was tried, "
+                "so the next attempt starts from somewhere rather than nothing"
+            )
+        return errors
+
+    if not answer:
+        errors.append(
+            "missing or empty required field: answer — set `unknown` if it could "
+            "not be established"
+        )
+    if not references:
+        errors.append(
+            "a lookup answer must cite at least one recorded reference. Record "
+            "the page with `pipelines.enrich.references add` first; without one "
+            "this cannot be told from a remembered answer"
+        )
+    elif store is not None:
+        for ref_id in references:
+            if store.load_reference(ref_id) is None:
+                errors.append(f"`references` names an unrecorded reference: {ref_id}")
+
+    subject = str((payload or {}).get("subject", "") or "")
+    if subject == "document" and answer and not answer.lower().startswith(
+        ("http://", "https://")
+    ):
+        errors.append(f"a document lookup answers with an http(s) URL (got '{answer}')")
+    if subject == "identity" and answer and answer.strip().lower() not in ("yes", "no"):
+        errors.append(
+            f"an identity lookup answers 'yes' or 'no' (got '{answer}'); set "
+            "`unknown` if it is undecided"
+        )
+    return errors
+
+
+def _check_synthesis(result: dict, cfg, store) -> list[str]:
+    """A synthesis either settles something or says why it could not.
+
+    The answer to "read these twelve and tell me whether X" is a finding, so it
+    is checked as one — by the same validator, against the same archive. A
+    statement naming a paper nobody collected or a topic nobody tracks is the
+    thing `enrich/findings.py` exists to refuse, and a second, laxer path to the
+    same records would make that refusal decorative.
+
+    **Not settling it is a real answer.** A question that the evidence does not
+    resolve is worth recording as unresolved, and a validator that demanded a
+    statement would be asking the reader to invent one. So an empty statement is
+    accepted when `unresolved` says why, and refused when it does not — silence
+    is the one answer that carries no information at all.
+
+    Without ``cfg`` and ``store`` only the shape is checked. The same graceful
+    degradation `topics` and `attachments` already have, and the same limit: a
+    validator that cannot see the archive cannot tell a real paper id from a
+    plausible one.
+    """
+    statement = str(result.get("statement", "") or "").strip()
+    unresolved = str(result.get("unresolved", "") or "").strip()
+
+    if not statement:
+        if not unresolved:
+            return [
+                "a synthesis must either carry a `statement` or say in "
+                "`unresolved` why the evidence did not settle it — leaving both "
+                "empty records nothing at all"
+            ]
+        return []
+
+    if unresolved:
+        return [
+            "a synthesis carries a `statement` or an `unresolved`, not both: "
+            "one says the question was settled and the other says it was not"
+        ]
+
+    if cfg is None or store is None:
+        return []
+
+    # Checked as the finding it is about to become, by the validator that owns
+    # that contract rather than a copy of it here.
+    from . import findings as findings_mod
+
+    return findings_mod.validate(cfg, {**result, "statement": statement}, store)
 
 
 def _check_reading_basis(
@@ -119,6 +277,9 @@ def validate_result(
     result: Any,
     topics: list[str] | None = None,
     attachments: dict[str, Any] | None = None,
+    cfg: Any = None,
+    store: Any = None,
+    payload: dict[str, Any] | None = None,
 ) -> list[str]:
     """Check a submitted result against the contract. Returns error strings.
 
@@ -138,6 +299,11 @@ def validate_result(
     document — nothing to open, so nothing is required, but claiming to have
     read one is rejected. A block with ``pdf_path`` means the reader was handed
     a document and has to say whether they used it.
+   
+    ``cfg`` and ``store`` are the third context of the same kind, and the reason
+    is unchanged: a synthesis answer becomes a finding, and whether it names a
+    paper the archive holds is a fact about the archive rather than about the
+    answer.
     """
     errors: list[str] = []
     if not isinstance(result, dict):
@@ -205,6 +371,12 @@ def validate_result(
                 if not isinstance(year, int) or isinstance(year, bool):
                     errors.append("field `bibliography.year` must be an integer")
 
+    if kind == "synthesis":
+        errors.extend(_check_synthesis(result, cfg, store))
+
+    if kind == "lookup":
+        errors.extend(_check_lookup(result, payload, store))
+
     if kind == "concept":
         declared = result.get("kind")
         # LOCAL: the `model` kind — see docs/LOCAL-DELTAS.md
@@ -236,15 +408,25 @@ def validate_result(
 class Queue:
     """File-backed queue of pending and completed summarization tasks."""
 
-    def __init__(self, layout: Layout, max_pending: int | None = None) -> None:
+    def __init__(
+        self, layout: Layout, max_pending: int | None = None, cfg: Any = None
+    ) -> None:
         self.layout = layout
         self.max_pending = max_pending
+        # Only a synthesis needs it, and only to check its answer against the
+        # archive the way `findings add` does. A queue built without one still
+        # validates every shape; it simply cannot tell a real paper id from a
+        # plausible one, which is the same limit every other context here has.
+        self.cfg = cfg
         # What this instance actually wrote. A caller cannot learn it from the
         # return value of `enqueue` alone: a summarizer backend sits between the
         # two and reports only whether it deferred, which is true of every item
         # whether or not a task was filed for it.
         self.filed = 0
         self.refreshed = 0
+        # Opened lazily: listing the queue by filename must not depend on the
+        # archive being readable, and most callers never ask for an ordering.
+        self._records: RecordStore | None = None
 
     # -- paths --------------------------------------------------------------
     @staticmethod
@@ -351,13 +533,110 @@ class Queue:
     def count_pending(self) -> int:
         return sum(1 for _ in self.layout.queue_pending.glob("*.json"))
 
-    def pending_ids(self, kind: str | None = None) -> list[str]:
+    def pending_ids(self, kind: str | None = None, order: str = "id") -> list[str]:
+        """Pending task ids, in the order asked for.
+
+        ``id`` is filename order and costs one directory listing. Every other
+        ordering has to open each waiting task, because what a task is worth is
+        a fact about the record behind it rather than about its name.
+
+        Ordering never touches a task. Nothing here writes, and nothing here
+        changes what a task says — a queue that reordered itself by editing the
+        files would put the whole backlog in every diff, and `render` already
+        owns the one legitimate reason to rewrite a pending task.
+        """
         ids = []
         for path in sorted(self.layout.queue_pending.glob("*.json")):
             if kind and not path.name.startswith(f"{kind}__"):
                 continue
             ids.append(path.stem)
-        return ids
+        if order == "id":
+            return ids
+        return sorted(ids, key=lambda task_id: self._order_key(task_id, order))
+
+    # -- ordering -----------------------------------------------------------
+    def _store(self) -> RecordStore:
+        """The archive, opened once per queue and only if an ordering needs it."""
+        if self._records is None:
+            self._records = RecordStore(self.layout)
+        return self._records
+
+    def sources_for(self, task: dict) -> float:
+        """How much already rests on this task being answered.
+
+        Two different numbers, because the two kinds of task have two different
+        answers available, and neither is a guess:
+
+        **A concept task** is asked for a definition of an entity the archive
+        has already promoted, so the entity's own evidence count is exact — this
+        term has been seen in *n* readings, and the definition that is missing is
+        missing from all of them.
+
+        **A paper or a video** has no such count and cannot have one. Entities
+        take their evidence from summaries; an unread item has no summary; so no
+        entity cites it and every candidate would score zero. What the archive
+        does know is what scoring decided when the item arrived, which is
+        ``score.leverage`` — the same substitution `backfill` makes, from the
+        same function, so the two commands cannot rank the same paper
+        differently.
+
+        **The two numbers are not the same unit**, and this is the honest
+        statement of what `--by sources` does rather than a defect hidden behind
+        a shared name. An evidence count is a small integer; a summed score is a
+        fraction per topic. In practice concept tasks therefore sort above
+        reading tasks, which is defensible on its own terms — a definition is
+        read by everything that cites the term, a reading by whoever wanted that
+        paper — but it is not a computed comparison and must not be read as one.
+        `--kind` narrows the list to one unit when an exact ordering is wanted.
+
+        A record that has gone missing scores 0 rather than raising: an ordering
+        is a convenience, and a queue that refused to list itself because one
+        record was deleted would be worse than a task in the wrong place.
+        """
+        kind = task.get("kind")
+        item_id = task.get("item_id") or ""
+        store = self._store()
+
+        if kind == "concept":
+            concept = store.load_concept(slug_for(item_id))
+            if concept is not None:
+                return float(concept.mention_count)
+            # The record is gone but the task still states what it was built
+            # from, and that is a better answer than nothing.
+            return float((task.get("payload") or {}).get("source_count") or 0)
+
+        record = None
+        if kind == "paper":
+            record = store.load_paper(item_id)
+        elif kind == "video":
+            record = store.load_video(item_id)
+        return leverage(record) if record is not None else 0.0
+
+    def _order_key(self, task_id: str, order: str):
+        """Total and deterministic, whichever ordering is asked for.
+
+        Every key ends in the task id. A caller that drains the top N needs the
+        same N back on the next call, and two tasks of equal weight must not
+        swap places between two listings of the same queue.
+        """
+        task = read_json(self.pending_path(task_id)) or {}
+
+        if order == "recency":
+            return (_newest_first(task.get("created_at") or ""), task_id)
+
+        weight = -self.sources_for(task)
+        if order == "topic":
+            # Grouped by the alphabetically first topic the task carries, since
+            # a task belonging to two topics can still only appear in the list
+            # once. A task with no topic at all — a concept whose sources named
+            # none, a hand-filed PDF nobody has placed yet — sorts after every
+            # group rather than ahead of them all, which is where an empty
+            # string would have put it.
+            topics = sorted(t for t in (task.get("topics") or []) if t)
+            group = (0, topics[0]) if topics else (1, "")
+            return (group, weight, task_id)
+
+        return (weight, task_id)
 
     def load(self, task_id: str) -> dict | None:
         for path in (
@@ -386,6 +665,9 @@ class Queue:
             result,
             task.get("topics") or None,
             task.get("attachments"),
+            cfg=self.cfg,
+            store=RecordStore(self.layout) if self.cfg is not None else None,
+            payload=task.get("payload"),
         )
         if errors:
             raise ValueError(
@@ -487,13 +769,27 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("stats", help="counts of pending, done and archived tasks")
 
+    order_help = (
+        "which end of the backlog to drain first: id (filename order, the "
+        "default), sources (most already resting on it), recency (newest "
+        "first), topic (grouped by topic slug, then by sources)"
+    )
+
     p_list = sub.add_parser("list", help="list pending task ids")
     p_list.add_argument("--kind", choices=list(_KINDS))
     p_list.add_argument("--limit", type=int, default=0, help="0 means no limit")
     p_list.add_argument("--json", action="store_true", help="emit full task objects")
+    p_list.add_argument(
+        "--by", choices=list(ORDERINGS), default="id", dest="order", help=order_help
+    )
 
-    p_next = sub.add_parser("next", help="print the oldest pending task")
+    p_next = sub.add_parser(
+        "next", help="print the first pending task, in the chosen order"
+    )
     p_next.add_argument("--kind", choices=list(_KINDS))
+    p_next.add_argument(
+        "--by", choices=list(ORDERINGS), default="id", dest="order", help=order_help
+    )
 
     p_show = sub.add_parser("show", help="print one task by id")
     p_show.add_argument("task_id")
@@ -518,7 +814,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "list":
-        ids = queue.pending_ids(args.kind)
+        ids = queue.pending_ids(args.kind, args.order)
         if args.limit:
             ids = ids[: args.limit]
         if args.json:
@@ -531,7 +827,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "next":
-        ids = queue.pending_ids(args.kind)
+        ids = queue.pending_ids(args.kind, args.order)
         if not ids:
             print("{}")
             return 0

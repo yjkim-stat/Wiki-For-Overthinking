@@ -1,4 +1,4 @@
-# 0067 — A condition that its own effect falsifies
+# 0082 — A condition that its own effect falsifies
 
 | | |
 | --- | --- |

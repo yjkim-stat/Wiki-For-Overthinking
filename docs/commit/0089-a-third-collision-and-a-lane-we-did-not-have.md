@@ -1,4 +1,4 @@
-# 0074 — A third collision, and a lane we did not have
+# 0089 — A third collision, and a lane we did not have
 
 | | |
 | --- | --- |
@@ -25,8 +25,8 @@ Our sixteen notes moved up by three, from 0055–0070 to 0058–0073.
 
 ## The renumbering, for the third time
 
-Same rule, same outcome as [0065](0065-taking-the-update-and-giving-up-our-numbers.md)
-and [0071](0071-the-same-collision-and-the-same-bug.md): **a number is fixed once
+Same rule, same outcome as [0080](0080-taking-the-update-and-giving-up-our-numbers.md)
+and [0086](0086-the-same-collision-and-the-same-bug.md): **a number is fixed once
 pushed.** Upstream's 0055–0057 are on `origin/main`; ours have never left this
 machine, so ours move. The offset is three, applied to 0055–0070.
 

@@ -1,4 +1,4 @@
-# 0063 — A kind that is accepted is offered
+# 0078 — A kind that is accepted is offered
 
 | | |
 | --- | --- |

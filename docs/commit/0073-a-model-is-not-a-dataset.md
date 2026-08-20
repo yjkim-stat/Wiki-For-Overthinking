@@ -1,4 +1,4 @@
-# 0058 — A model is not a dataset: the wiki gains a fourth entity kind
+# 0073 — A model is not a dataset: the wiki gains a fourth entity kind
 
 | | |
 | --- | --- |

@@ -84,7 +84,7 @@ in `CONCEPT_OUTPUT_SCHEMA` was not, so for every definition task the reader was
 offered three kinds and could only ever answer three. Because a stored
 definition freezes an entity's kind against re-derivation, one such answer
 demotes a correctly harvested model permanently. Fixed in
-[0063](commit/0063-a-kind-that-is-accepted-is-offered.md) by enumerating the
+[0078](commit/0078-a-kind-that-is-accepted-is-offered.md) by enumerating the
 tuple instead of writing it out, and guarded by `DefinitionContractTests`.
 
 **The applier line is the one that gets forgotten.** It was omitted when the
@@ -112,8 +112,8 @@ re-applying it.** It used to carry `queue_share.pending_count(cfg)` on either
 side of both calls, because `queue_missing_summaries` returned *records lacking
 a summary* rather than *tasks filed* — so summing two passes over one backlog
 double-counted it (note 0032), and at the cap the number was simply wrong (our
-notes [0069](commit/0069-a-counter-that-counts-attempts.md) and
-[0070](commit/0070-the-log-line-said-seventy-six.md)). Upstream then fixed the
+notes [0084](commit/0084-a-counter-that-counts-attempts.md) and
+[0085](commit/0085-the-log-line-said-seventy-six.md)). Upstream then fixed the
 same defect at the source in
 [0054](commit/0054-the-queue-reports-what-it-wrote.md): `Queue` counts its own
 writes, and both functions return `{queued, refreshed, unread}`. With counters

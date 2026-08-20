@@ -1,4 +1,4 @@
-# 0071 — The same collision, and the same bug
+# 0086 — The same collision, and the same bug
 
 | | |
 | --- | --- |
@@ -34,7 +34,7 @@ marked superseded, for the reason below.
 ## Two sessions, one bug
 
 **[0054](0054-the-queue-reports-what-it-wrote.md) and our
-[0069](0069-a-counter-that-counts-attempts.md)/[0070](0070-the-log-line-said-seventy-six.md)
+[0084](0084-a-counter-that-counts-attempts.md)/[0085](0085-the-log-line-said-seventy-six.md)
 are the same defect, found independently within a day.** Both sessions noticed
 that a counter named for tasks filed was reporting records considered, and both
 noticed it because the number would not move. Ours surfaced when a render
@@ -61,7 +61,7 @@ the bug was real, we fixed it, and somebody fixed it better.
 `CLAUDE.md` step 0 says to pick `NNNN` against a fetched `origin/main`. Both
 sessions did — against the same `origin/main`, before either had pushed. The
 rule that decides who moves is unchanged and was applied the same way as in
-[0065](0065-taking-the-update-and-giving-up-our-numbers.md): **a number is fixed
+[0080](0080-taking-the-update-and-giving-up-our-numbers.md): **a number is fixed
 once pushed**, upstream's 0049–0054 are on `origin/main`, and ours were fifty-one
 local commits that have never left this machine.
 

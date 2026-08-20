@@ -247,8 +247,36 @@ def video_instructions(topics: list[dict], language: str = "en") -> str:
     )
 
 
-def concept_instructions(name: str, language: str = "en") -> str:
-    """Prompt for defining a wiki entity from the sources that mention it."""
+def concept_instructions(
+    name: str, language: str = "en", *, previous: str = ""
+) -> str:
+    """Prompt for defining a wiki entity from the sources that mention it.
+
+    ``previous`` turns it into a revision. A definition whose evidence has
+    outgrown it is not a blank page: somebody read the sources and ruled, and
+    most of that ruling is usually still right. Asking for a rewrite would throw
+    away the judgement along with the staleness, so the old text is handed back
+    with the question "what has changed" rather than "what is this".
+    """
+    if previous:
+        return (
+            f"Revise the wiki definition for '{name}'.\n\n"
+            "It was written against fewer sources than the archive now holds. "
+            "The sources below are all of them, including the ones that have "
+            "arrived since.\n\n"
+            "This is the definition as it stands:\n\n"
+            f"    {previous}\n\n"
+            "**Keep what still holds.** Change it where a later source "
+            "contradicts it, narrows it, or shows the term being used in a way "
+            "the old text does not cover — and say so plainly rather than "
+            "hedging the original into something vaguer. If the new sources "
+            "change nothing, return it unchanged; that is a real answer and it "
+            "records that somebody checked.\n\n"
+            "A definition that enumerates its sources by name is the one most "
+            "likely to be quietly wrong now. Prefer stating what the term means "
+            "to counting where it appears.\n\n"
+            + _SHARED_RULES.format(language=language)
+        )
     return (
         f"Write the wiki definition for '{name}'.\n\n"
         "The sources below are every archived paper and talk that mentions it. "
@@ -291,7 +319,7 @@ class Summarizer(Protocol):
     ) -> VideoSummary | None: ...
 
     def define_concept(
-        self, name: str, sources: list[dict], language: str
+        self, name: str, sources: list[dict], language: str, previous: str = ""
     ) -> dict | None: ...
 
 
@@ -380,16 +408,24 @@ class QueueSummarizer:
         return None
 
     def define_concept(
-        self, name: str, sources: list[dict], language: str
+        self, name: str, sources: list[dict], language: str, previous: str = ""
     ) -> dict | None:
+        payload = {"name": name, "source_count": len(sources)}
+        if previous:
+            # Carried in the payload as well as the prompt, so that what the
+            # reviser was working from is recoverable from the archived task
+            # after the fact. `source_count` is the count this answer will be
+            # recorded as written against, which is what makes the next
+            # staleness check measure growth since *this* revision.
+            payload["previous_definition"] = previous
         self._enqueue(
             kind="concept",
             item_id=name,
             topics=sorted({t for s in sources for t in s.get("topics", [])}),
             language=language,
-            instructions=concept_instructions(name, language),
+            instructions=concept_instructions(name, language, previous=previous),
             output_schema=CONCEPT_OUTPUT_SCHEMA,
-            payload={"name": name, "source_count": len(sources)},
+            payload=payload,
             attachments={"sources": sources},
         )
         return None
