@@ -45,7 +45,7 @@ There is no limitations section. The 'intrinsic' framing holds only for the scor
 
 ## Entities
 
-- **Concepts**: [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), information anchor, intrinsic saliency, attention analysis, step-wise consolidation, [reasoning skeleton](../../../../wiki/concepts/reasoning-skeleton.md), [token efficiency](../../../../wiki/concepts/token-efficiency.md), reasoning distillation, [restructuring level](../../../../wiki/concepts/restructuring-level.md), [perplexity](../../../../wiki/concepts/perplexity.md)
+- **Concepts**: [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), information anchor, intrinsic saliency, attention analysis, step-wise consolidation, [reasoning skeleton](../../../../wiki/concepts/reasoning-skeleton.md), [token efficiency](../../../../wiki/concepts/token-efficiency.md), reasoning distillation, [restructuring level](../../../../wiki/concepts/restructuring-level.md), perplexity
 - **Methods**: [chain-of-thought compression](../../../../wiki/methods/chain-of-thought-compression.md), attention-guided pruning, greedy search, [generative rewriting](../../../../wiki/methods/generative-rewriting.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), multi-task fine-tuning, [TokenSkip](../../../../wiki/methods/tokenskip.md), SimCSE
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH](../../../../wiki/datasets/math.md)
 

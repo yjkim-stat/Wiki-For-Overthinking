@@ -46,7 +46,7 @@ The authors state: the constructions are not unique and alternatives satisfying 
 
 ## Entities
 
-- **Concepts**: chain-of-thought expressivity, [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), bounded-depth transformers, [hard attention](../../../../wiki/concepts/hard-attention.md), Strahler number, tree width, representation transfer, [compositionality](../../../../wiki/concepts/compositionality.md), [VC dimension](../../../../wiki/concepts/vc-dimension.md)
+- **Concepts**: chain-of-thought expressivity, [circuit complexity](../../../../wiki/concepts/circuit-complexity.md), bounded-depth transformers, hard attention, Strahler number, tree width, representation transfer, [compositionality](../../../../wiki/concepts/compositionality.md), [VC dimension](../../../../wiki/concepts/vc-dimension.md)
 - **Methods**: [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), depth-first search, breadth-first search, Dijkstra's algorithm, hard-attention transformer decoder, bilinear maps, tree-to-Dyck-path bijection
 - **Datasets**: _none recorded_
 

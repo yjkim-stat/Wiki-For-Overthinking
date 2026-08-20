@@ -1,0 +1,31 @@
+{
+  "concepts": [
+    "difficulty stratification",
+    "self-consistency",
+    "majority voting",
+    "selection signal",
+    "cross-lingual transfer",
+    "catastrophic forgetting",
+    "confidence calibration"
+  ],
+  "established_at": "2026-08-20T14:51:24Z",
+  "id": "finding:5a4566373434f346",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.11403",
+    "arxiv:2608.11715",
+    "arxiv:2608.10964",
+    "arxiv:2608.10996"
+  ],
+  "rationale": "Three groups in three settings measured both the aggregate and its components and found them disagreeing, each time in a way that would have been invisible from the aggregate alone. On a hard graduate science benchmark, majority-vote self-consistency moves aggregate accuracy from 0.342 to 0.369 for one small model and 0.273 to 0.313 for another, while lowering per-problem accuracy on 56.6 and 65.7 percent of the 198 problems individually -- a result pre-registered on a 151-problem confirmatory split with git-tagged thresholds, whose one-sided boundary sensitivity shows the backfire rate can only rise. The asymmetry that produces the flat aggregate is explicit: the worst single problem loses 47 points and a few gain 66, so rare large gains offset widespread small losses. In multilingual tool-use post-training, a supervised model's multilingual reasoning average moves only from 67.20 to 64.68 while English alone falls 8.6 points and the training language improves; the authors report this as a concentrated English regression rather than a broad decline precisely because the average would have read as noise. In medical visual question answering, a stage ablation finds reinforcement learning without a supervised cold start best on closed-ended questions on all three benchmarks by 8 to 20 points and worst on open-ended ones by up to 25, so the deployed pipeline is the better configuration for one question type and the worse for the other, and the paper's per-benchmark headline aggregates over both. A fourth instance shows the same structure across two aggregates rather than within one: in rubric-guided medical training, three-state criterion scoring raises the medical macro-average by 2.25 points while the generalisation average declines, and the pairwise tie-breaking stage raises the generalisation average by 11.3 while moving the medical average by 0.25 -- so the two components that the paper reports as jointly responsible for its result are each responsible for a different half of it. The practical rule the four support is that the disaggregation is cheap and its absence is a choice: per-problem backfire rate, per-language change, per-stratum accuracy and per-component macro-average are all computable from data already collected, and where they have been computed they have repeatedly reversed or relocated the reading of the aggregate.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "An aggregate can move in the opposite direction from most of what it summarises: a mean over problems, languages or question types rises while the majority of its components fall, so an average improvement is not evidence that anything in particular improved.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-evaluation",
+    "test-time-scaling",
+    "reasoning-training"
+  ]
+}

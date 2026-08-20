@@ -25,3 +25,74 @@ A prompt on which every sampled rollout receives the same reward, so the group-r
 ## Notes
 
 _Anything below the marker above is yours. It is never overwritten._
+
+### It is a trajectory, not a rate
+
+The seven sources agree on the mechanism and disagree on how much of the corpus
+it costs, which turns out to be because it is not a fixed property of the data.
+Two measurements, from different problems:
+
+- **A cross-section.** In skill-anchored self-distillation, zero-variance groups
+  are 68.0%, 63.0% and 63.9% of training groups at 0.6B, 1.7B and 4B — and their
+  *composition* rotates with scale, all-wrong falling 54.2% → 21.8% while
+  all-correct rises 13.8% → 42.1%. The same aggregate number describes an
+  exploration failure at small scale and a difficulty-exhaustion problem at
+  large scale.
+- **A trajectory.** In rubric-guided medical training, the exact-tie rate rises
+  from 2.80% in epoch 1 to 7.73% in epoch 3, and the share of those ties sitting
+  at maximum reward rises from 64.6% to 85.2%. The reward saturates as the
+  policy improves, so a prompt that taught something in epoch 1 teaches nothing
+  by epoch 3.
+
+The practical consequence is that a paper reporting the zero-advantage fraction
+once, at the start of training, has reported the least informative moment.
+
+### Three fixes, and what distinguishes them
+
+| where it intervenes | what it does | cost |
+| --- | --- | --- |
+| **The reward's shape** | Bounded reciprocal mapping so a continuous error gap does not collapse the group's relative spacing | none |
+| **The weighting geometry** | Softmax group advantages, bounded as p → 1, so budget stops concentrating on solved prompts | one hyperparameter |
+| **A second signal in the silent groups** | Privileged-context distillation, or a pairwise judge, active only where the scalar advantage is exactly zero | a forward pass or a judge call |
+
+The first two are corrections to what the group-relative normalisation can
+express. Group normalisation is a within-group z-score, so what reaches the
+optimiser is the *relative spacing* of rewards, not their values — which means a
+linear rescaling is cancelled by the normalisation and a nonlinear bounded one
+is not. That is why an unbounded reward lets one outlier rollout inflate the
+group standard deviation and flatten the advantages of every near-optimal
+sibling: the group stops distinguishing better from best exactly where the
+useful gradient is. The prompt-weighting version is the same observation at the
+level of the prompt: GRPO's binary-reward weight is 1/√(p(1−p)), which diverges
+at both ends, and the realised gradient budget follows — 36.4% of one benchmark's
+token-level budget spent on prompts already above 0.9 pass rate, against 10.0%
+for a bounded alternative.
+
+The third fix is different in kind, and the two instances of it are unusually
+well controlled. Restricting distillation to zero-variance groups alone recovers
+**84.7%** of the full gain (+4.11 of +4.85), against +0.79 for mixed-only
+distillation — which is how a claim about *where* a method acts should be argued,
+by restriction rather than by narrative. The pairwise variant is the most
+surgical: it fires only on complete groups whose rewards are exactly equal,
+replaces nothing else, adds no preference loss, and counts only order-consistent
+winners across both presentation orders.
+
+### The number to be suspicious of
+
+That pairwise stage reaches 90 of 847 tied groups — **10.63%** — and is credited
+with moving the generalisation macro-average by 11.3 points while moving the
+medical average by 0.25. A mechanism touching a tenth of the silent groups
+producing an eleven-point swing on a different axis from the one it was designed
+for is more likely to be preventing a degeneracy the other components introduced
+than to be supplying eleven points of new signal. The archive should read that
+row as an open question rather than as a result.
+
+### What none of them do
+
+Every fix above makes an already-sampled group informative. None reduces how
+often groups collapse, and one source notes the compute is spent either way — the
+rollouts were generated before anyone knew they would agree. A method that
+predicted collapse *before* sampling, and reallocated the budget, would be a
+different kind of contribution and the archive holds none.
+
+<!-- analysis-sources: 7 -->

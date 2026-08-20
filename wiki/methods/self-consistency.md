@@ -13,6 +13,8 @@ Sampling several reasoning paths for one prompt and returning the answer most of
 
 ## What we have settled
 
+- **Established** — An aggregate can move in the opposite direction from most of what it summarises: a mean over problems, languages or question types rises while the majority of its components fall, so an average improvement is not evidence that anything in particular improved.
+  - Three groups in three settings measured both the aggregate and its components and found them disagreeing, each time in a way that would have been invisible from the aggregate alone. On a hard graduate science benchmark, majority-vote self-consistency moves aggregate accuracy from 0.342 to 0.369 for one small model and 0.273 to 0.313 for another, while lowering per-problem accuracy on 56.6 and 65.7 percent of the 198 problems individually -- a result pre-registered on a 151-problem confirmatory split with git-tagged thresholds, whose one-sided boundary sensitivity shows the backfire rate can only rise. The asymmetry that produces the flat aggregate is explicit: the worst single problem loses 47 points and a few gain 66, so rare large gains offset widespread small losses. In multilingual tool-use post-training, a supervised model's multilingual reasoning average moves only from 67.20 to 64.68 while English alone falls 8.6 points and the training language improves; the authors report this as a concentrated English regression rather than a broad decline precisely because the average would have read as noise. In medical visual question answering, a stage ablation finds reinforcement learning without a supervised cold start best on closed-ended questions on all three benchmarks by 8 to 20 points and worst on open-ended ones by up to 25, so the deployed pipeline is the better configuration for one question type and the worse for the other, and the paper's per-benchmark headline aggregates over both. A fourth instance shows the same structure across two aggregates rather than within one: in rubric-guided medical training, three-state criterion scoring raises the medical macro-average by 2.25 points while the generalisation average declines, and the pairwise tie-breaking stage raises the generalisation average by 11.3 while moving the medical average by 0.25 -- so the two components that the paper reports as jointly responsible for its result are each responsible for a different half of it. The practical rule the four support is that the disaggregation is cheap and its absence is a choice: per-problem backfire rate, per-language change, per-stratum accuracy and per-component macro-average are all computable from data already collected, and where they have been computed they have repeatedly reversed or relocated the reading of the aggregate.
 - **Established** — Sampling more candidates is not monotone in accuracy: extra samples strengthen whatever the aggregation rule already does, including when it is wrong.
   - Two independent demonstrations with different aggregation rules. At inference, best-of-3 selection scores 0.093 against best-of-1's 0.153 on one model and dataset — three samples worse than one — which the authors attribute to a selector that does not exploit the candidate set, so extra samples add plausible wrong answers. In label-free RLVR training, where the reward is the consensus answer among rollouts, 64 rollouts reach 34.42 average accuracy against 34.66 at 16 and at 3.6x the wall clock, because more samples make a spurious consensus easier to form around an incorrect answer. The mechanism is shared even though one is a selector and the other a reward: the sample count amplifies the aggregation rule rather than averaging its errors away. The practical consequence is that a sample-count sweep is a required control, not an optional one, and that a scaling curve reported only at its endpoints can hide a reversal in between. A third instance is the cleanest of all, because it holds the candidate bank fixed and varies only the reducer: selecting by mean token log probability falls from 75.56% at one sample to 65.83% at eighty on the same banks where literal answer plurality rises to 78.33%, so nothing but the selection rule can explain the decline. A fourth instance, added 2026-08-20, supplies the mechanism behind the confidence-based version of the failure and shows it reaching below random selection. Across multiple models and datasets, published confidence-maximisation selectors applied without voting drop below the base pass rate of the same pool -- 76.5% to 68.0% on one mathematics benchmark, 65.7% to 61.9% on a coding benchmark -- so the aggregation rule is not merely uninformative but anti-correlated with correctness on hard problems, and every additional candidate gives it more opportunity to be wrong. The offered mechanism is specific and checkable: uniformly high confidence across a trace indicates a failure to branch rather than a well-supported answer, so a maximiser preferentially selects the model's confident collapses onto a flawed premise. Dissecting a trace into initial and final confidence separates premature convergence, where confidence was high throughout, from genuine convergence, where low initial confidence resolved into high final confidence -- and existing methods, by selecting on level rather than on shape, correctly reject the two low-final-confidence categories while optimising for the first. The same paper's difficulty stratification shows where a corrected rule earns its keep and where it does not: neutral or fractionally worse on the easy tier, 58.1 to 70.3 and 74.9 to 88.6 on the medium tier, 3.7 to 8.1 and 13.4 to 17.2 on the hard one. So a selection rule's benefit is concentrated exactly where candidates differ in kind, and an aggregate benchmark number conceals both that concentration and, in the maximisation case, the reversal. A fifth instance, added the same day, is the most carefully controlled and reframes what the failure looks like from above. On the full 198 problems of a hard graduate science benchmark, plain majority voting lowers per-problem accuracy on 56.6 percent of problems for one small model and 65.7 percent for another, pre-registered on a 151-problem confirmatory split with git-tagged thresholds, all four hypotheses passing, and a one-sided boundary sensitivity showing the rate can only rise. The decisive detail is that the aggregate barely moves while this happens -- 0.342 to 0.369 for the stronger model -- so the reversal is invisible in exactly the number a scaling study reports. A per-problem oracle over N in {1,2,4,8,16,32,64} is worth 14 to 17 accuracy points, but two verifier-free gates capture 0.8 percent and minus 1.6 of it once measured against the voting baseline rather than against a single sample, and a 22-point sweep of the agreement gate finds no operating point that wins. The calibration table gives the mechanism directly: in the highest-agreement bin the plurality is correct 52.5 percent of the time for one model and 28.6 for the other, lower than that model's own lowest-agreement bin, and its accuracy is not monotone in agreement. So the sample count amplifies the aggregation rule, the rule reads confidence, and confidence on hard problems does not track correctness -- which is why the headroom needs a signal external to the model's own samples.
 
@@ -79,3 +81,91 @@ interesting quantity is the slope against N, and whether the baseline has
 saturated in the range shown. Two of the three results above only become
 convincing past N = 16, and the third's headline gap is measured on the single
 dataset where the baseline saturates lowest.
+
+### The aggregate hides who it hurts
+
+Everything above is about *aggregate* accuracy against N. A pre-registered study
+of the full 198-problem GPQA Diamond set changes the question, and the answer
+does not survive the change. On two small non-reasoning models, majority voting
+lowers **per-problem** accuracy on 56.6% and 65.7% of problems — while aggregate
+accuracy barely moves (0.342 → 0.369 and 0.273 → 0.313). The asymmetry that
+produces the flat aggregate is explicit: the worst problem loses 47 points, a
+few gain 66, and rare large gains offset widespread small losses.
+
+The design is worth copying independently of the result. 47 problems were
+exploratory, 151 confirmatory, thresholds locked and git-tagged before any
+confirmatory analysis and set on the permissive side of the exploratory
+estimates. The Monte Carlo boundary sensitivity is worked out rather than waved
+at: 14 confirmatory problems have exactly zero gain and, because backfire is
+defined strictly as negative, the reported rate can only rise — at most to 69.5%
+from 60.3%.
+
+### The obvious fix is measurable and it does not work
+
+A per-problem oracle routing each problem to its best N over
+{1, 2, 4, 8, 16, 32, 64} is worth **14 and 17 accuracy points**. So the headroom
+the sections above gesture at is real and large. Two cheap verifier-free gates
+recover essentially none of it:
+
+| gate | accuracy | vs fixed N=64 | headroom captured |
+| --- | --- | --- | --- |
+| plurality agreement (k=8, τ=0.75) | 0.368 / 0.312 | −0.0006 / −0.0014 | **0.8% / −1.6%** |
+| mean token entropy (k=4) | 0.318 / 0.306 | ≈0 | 0.2% / 31.2% (in-sample) |
+
+A 22-point sweep over (k, τ) finds no operating point that wins. What the
+agreement gate does buy is **compute**: it runs at 40.4 and 45.6 mean samples
+against a flat 64, so it is 63–71% of the cost for the same accuracy.
+
+Note the measurement choice in the last column, because it is the whole
+argument. Scored against *single-sample* accuracy the agreement gate looks like
+it captures 18.7% and 23.4% of the oracle headroom. Scored against *voting at
+N=64* — which isolates what the routing decision adds over simply voting — it
+captures 0.8% and −1.6%. Crediting a gate for headroom that plain voting already
+recovers is how these methods come to look better than they are, and the archive
+should ask which baseline any capture figure is measured against.
+
+### Why: the signal the gates read does not carry the information
+
+The mechanism is three rows of a calibration table, binning problems by plurality
+fraction over all samples:
+
+| agreement bin | Qwen frac correct | Llama frac correct |
+| --- | --- | --- |
+| [0.25, 0.50) | 33.9% (n=56) | 30.4% (n=79) |
+| [0.50, 0.75) | 27.7% (n=83) | 33.3% (n=84) |
+| [0.75, 1.00] | **52.5%** (n=59) | **28.6%** (n=35) |
+
+For the stronger model the highest-agreement bin is right about half the time —
+confidently wrong as often as confidently right. For the weaker one it is *less*
+accurate than its own lowest-agreement bin, and accuracy is not monotone in
+agreement at all. Mean token entropy does predict backfire slightly (AUC 0.631
+and 0.523), but acting on it misclassifies enough problems to erase the gain.
+
+This connects to the archive's [[premature-convergence]] entry from the other
+direction: there, a confidence-maximising selector was shown to prefer
+trajectories that never branched. Here, the trajectories that never branched are
+half the high-agreement bin. Same phenomenon, one measured on the selector and
+one on the calibration.
+
+### Where this leaves the note
+
+Three conditions now bound when self-consistency is safe, and the first two were
+already implicit in the sections above:
+
+1. **The baseline must not have saturated in the range shown** — otherwise the
+   slope against N is the only informative quantity.
+2. **The aggregation rule is the binding constraint past N ≈ 16**, and better
+   rules exist, all of which reweight rather than count.
+3. **The base model must be accurate enough on the benchmark that agreement
+   tracks correctness at all.** On a hard benchmark it does not, and no
+   verifier-free reweighting can repair that — recovering the headroom needs a
+   signal external to the model's own samples.
+
+The open question the pre-registered study flags as central is whether backfire
+persists for reasoning-native models. Its own attempt failed for a mundane
+reason worth recording: a substantial fraction of samples exhausted the output
+budget on hidden chain of thought before producing a visible answer, making
+majority-vote accuracy incomparable. Anyone extending this needs a larger
+inference budget and explicit handling of hidden-CoT length.
+
+<!-- analysis-sources: 28 -->

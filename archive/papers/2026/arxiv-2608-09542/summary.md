@@ -45,7 +45,7 @@ The paper has no limitations section. Reader-visible limits: the entire evaluati
 
 ## Entities
 
-- **Concepts**: [safety alignment](../../../../wiki/concepts/safety-alignment.md), [jailbreak](../../../../wiki/concepts/jailbreak.md), reasoning trace distillation, safety tax, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), LLM-as-a-judge, [self-distillation](../../../../wiki/concepts/self-distillation.md), reasoning style mismatch
+- **Concepts**: [safety alignment](../../../../wiki/concepts/safety-alignment.md), [jailbreak](../../../../wiki/concepts/jailbreak.md), reasoning trace distillation, safety tax, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), LLM-as-a-judge, self-distillation, reasoning style mismatch
 - **Methods**: ADVSAFE, [LoRA](../../../../wiki/methods/lora.md), DirectRefusal, SafePath, SafeChain, STAR-1, ThinkSafe, [PAIR](../../../../wiki/methods/pair.md), TAP, [GCG](../../../../wiki/methods/gcg.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md)
 - **Datasets**: [HarmBench](../../../../wiki/datasets/harmbench.md), [StrongREJECT](../../../../wiki/datasets/strongreject.md), WildJailbreak, [AdvBench](../../../../wiki/datasets/advbench.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [MATH-500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), STAR-1
 
