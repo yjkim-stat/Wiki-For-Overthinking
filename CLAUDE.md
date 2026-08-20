@@ -438,6 +438,7 @@ python3 -m pipelines.enrich.queue next            # the first pending task, in f
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
+python3 -m pipelines.duplicates                   # concept slugs that may be one entity, read-only
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change

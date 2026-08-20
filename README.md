@@ -360,6 +360,7 @@ python3 -m pipelines.backfill  [--limit N] [--topic slug] [--by score|age|id] [-
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
 python3 -m pipelines.enrich.queue stats | show <id> | complete <id> --file r.json
 python3 -m pipelines.enrich.queue list | next  [--kind paper] [--by id|sources|recency|topic]
+python3 -m pipelines.duplicates [--json] [--limit N]   # concept slugs that may be one entity
 python3 -m pipelines.migrate status   # which roots, and what each channel carries
 python3 -m pipelines.serve            # answer questions about the archive, read-only, on 127.0.0.1
 scripts/daily.sh               # collect, then render

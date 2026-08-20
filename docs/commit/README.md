@@ -80,3 +80,4 @@ reference for everything built before the practice existed.
 | 0057 | [A change is asked for through a person](0057-a-change-is-asked-for-through-a-person.md) | feature | The write lane: no auto-approved category, a hostile drop folder, and a decision that keeps its reason |
 | 0070 | [One leverage, beside the scores it sums](0070-one-leverage-beside-the-scores-it-sums.md) | refactor | Two callers wanted the same number; two copies would be free to disagree |
 | 0071 | [Which end of the backlog to drain](0071-which-end-of-the-backlog-to-drain.md) | feature | Filename order is alphabetical order, so a partial drain was reading the archive by arXiv number |
+| 0072 | [Two names for one entity](0072-two-names-for-one-entity.md) | feature | A term spelled two ways splits into two records, and neither is wrong about anything — so the report suggests and writes nothing |
