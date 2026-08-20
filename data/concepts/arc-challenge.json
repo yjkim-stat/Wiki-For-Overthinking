@@ -9,6 +9,12 @@
       "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning"
     },
     {
+      "id": "arxiv:2608.07931",
+      "kind": "paper",
+      "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+      "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment"
+    },
+    {
       "id": "arxiv:2608.10198",
       "kind": "paper",
       "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "last_seen": "2026-08-20T14:11:30Z",
   "name": "ARC-Challenge",
   "related": [
     "latent-reasoning",
@@ -39,6 +45,24 @@
     "mmlu-stem",
     "qwen2-5-3b-instruct",
     "qwen2-5-7b-instruct",
+    "hallucination",
+    "abstention",
+    "selective-prediction",
+    "coverage",
+    "self-correction",
+    "calibration",
+    "reward-shaping",
+    "difficulty-conditioning",
+    "reasoning-boundary",
+    "supervised-fine-tuning",
+    "abstention-training",
+    "self-reflection",
+    "structured-chain-of-thought",
+    "difficulty-stratification",
+    "component-ablation",
+    "strategyqa",
+    "qwen2-5-7b",
+    "llama-3-1-8b",
     "latent-communication",
     "sparse-dictionary-learning",
     "dead-features",
@@ -73,6 +97,7 @@
   "slug": "arc-challenge",
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

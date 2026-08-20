@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
       "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
+    {
+      "id": "arxiv:2608.07931",
+      "kind": "paper",
+      "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+      "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment"
     }
   ],
   "first_seen": "2026-08-12T23:01:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-20T14:11:30Z",
   "name": "selective prediction",
   "related": [
     "monitorability",
@@ -36,12 +42,33 @@
     "qwen3-14b",
     "gpt-oss-20b",
     "gpt-oss-120b",
-    "gpt-5-mini"
+    "gpt-5-mini",
+    "hallucination",
+    "abstention",
+    "coverage",
+    "calibration",
+    "reward-shaping",
+    "difficulty-conditioning",
+    "reasoning-boundary",
+    "grpo",
+    "supervised-fine-tuning",
+    "abstention-training",
+    "self-reflection",
+    "structured-chain-of-thought",
+    "difficulty-stratification",
+    "component-ablation",
+    "gsm8k",
+    "math",
+    "strategyqa",
+    "arc-challenge",
+    "qwen2-5-7b",
+    "llama-3-1-8b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "selective-prediction",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

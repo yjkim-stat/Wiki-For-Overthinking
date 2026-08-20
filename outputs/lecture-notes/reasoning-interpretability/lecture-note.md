@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.
 
-Built from 53 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 52 of the papers have been read in full.
+Built from 53 paper(s) and 0 recording(s) spanning 2023-01-01 to 2026-08-11. 53 of the papers have been read in full.
 
 Tracked terms: `mechanistic interpretability`, `activation patching`, `causal mediation`, `causal tracing`, `causal analysis`, `circuit analysis`, `circuit discovery`, `reasoning circuit`, `attention head`, `sparse autoencoder`, `superposition`, `polysemantic`, `monosemantic`, `residual stream`, `activation steering`, `steering vector`, `linear probe`, `linear probing`, `internal representation`, `structural causal model`, `difference-in-means`, `representation editing`, `logit lens`, `interchange intervention`.
 
@@ -73,17 +73,17 @@ Buying accuracy with inference compute rather than with parameters or training, 
 
 Seen in: s1: Simple test-time scaling; It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates.
 
-### test-time compute
-
-Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
-
-Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
-
 ### detection versus control
 
 The principle these sources arrive at by repeatedly falsifying its opposite: how well a direction or component discriminates a concept licenses no claim about what intervening on it does -- not the magnitude, and not even the sign. The assumption it denies is the one the foundational steering methods rest on, which selects the most discriminative attention heads and steers along their mean-difference direction. Three independent measurements break it at different granularities: a direction can reach AUC 0.97 while its steer factor correlates with the concept score at Spearman -1, and such inverted vectors are systematic rather than incidental (three mined per model-concept pair across 15 pairs, with a training-free sign test improving a standard pipeline in 27 of 30 experiments); across component types, detection and intervention rankings correlate at Spearman -0.43, MLP outputs showing the weakest detected toxic signal while producing the largest reduction when modified and MLP inputs the reverse; and the gap is depth-conditioned rather than constant, with steer-versus-lens agreement running from about -0.03 to 0.07 in the earliest layers to about 0.91 at the final one. The sources do not disagree with each other, but they place the gap at different levels, and one pair pushes it further than the name suggests: activation patching and weight-space ablation are themselves two different quantities -- a carrier's donor-receiver contrast against its absolute level at the receiver, neither bounding the other, with a realized gap of 0.224 to 0.852 on all five instances of an emergent circuit -- so control is not a single thing either. Two sources respond in practice by refusing to select on discriminability at all: one declines to pick its intervention by classification accuracy even though the family it steers with is the weakest of its four classifiers, and the other ranks layers by their predicted steering effect rather than by how well they separate the concept.
 
 Seen in: Inverted Detection and Control in Steering Vectors; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model; Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition.
+
+### test-time compute
+
+Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.
+
+Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
 ### pass@k
 
@@ -97,6 +97,12 @@ Whether reading what a model externalises lets a monitor tell what it is actuall
 
 Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models; Evading Chain-of-Thought Monitoring Through Model Poisoning; The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics; Risky Business: Measuring The Faithfulness-Safety Tension.
 
+### residual stream
+
+The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
+
+Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering.
+
 ### entropy collapse
 
 The failure mode in which a policy's output distribution becomes progressively more deterministic during reinforcement learning, eliminating exploration and saturating performance. At nine sources it has moved from a constraint the methods cite to an object several of them study, and they explain it differently. One attributes it to a covariance between log-probability and probability-weighted advantage that stays positive throughout training. One recasts it as an imbalance of flow, with entropy-decreasing tokens persistently outweighing entropy-increasing ones inside each update. One derives a bifurcation in second-order Renyi entropy at the policy's collision probability, so updating dominant tokens collapses entropy while updating long-tail tokens inflates it. One reduces the direction of change to the sign of a single scalar per token, and to that scalar's deviation from a policy-weighted baseline once a GRPO step is substituted in. A theoretical entry ties the remedies together, proving the classical entropy bonus relocates the optimum while covariance-targeted control is asymptotically unbiased once its coefficient is annealed. Two findings cut against the consensus: one source reports training entropy falling while accuracy improves, and another finds entropy tracks response diversity far more reliably than accuracy.
@@ -109,12 +115,6 @@ Reasoning carried in continuous hidden states rather than in emitted tokens -- b
 
 Seen in: Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation; LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards.
 
-### residual stream
-
-The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
-
-Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering.
-
 ### prompt difficulty
 
 How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.
@@ -125,9 +125,9 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 49 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| LLM-as-a-judge | 45 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
-| supervised fine-tuning | 43 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| GRPO | 50 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| LLM-as-a-judge | 46 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| supervised fine-tuning | 44 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 32 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 27 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain-of-thought prompting | 26 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
@@ -135,16 +135,16 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | activation steering | 21 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | activation patching | 19 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
+| calibration | 16 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | sparse autoencoder | 15 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| calibration | 14 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| steering vector | 13 | A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and tex... |
 | knowledge distillation | 12 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | LoRA | 12 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | PPO | 12 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
-| steering vector | 12 | A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and tex... |
 | ablation | 10 | Removing a component -- a direction, a latent, a weight subset -- and reading the change in behaviour as evidence of what that component did. Both sources use it as the causal s... |
+| component ablation | 10 | Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy de... |
 | circuit analysis | 9 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | contrastive activation addition | 9 | Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the ba... |
-| component ablation | 8 | Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy de... |
 
 ## Benchmarks and datasets
 
@@ -152,12 +152,12 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 | --- | ---: | --- |
 | AIME 2024 | 48 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 46 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| GSM8K | 38 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
+| GSM8K | 39 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 35 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 20 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 17 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| MATH | 16 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | GPQA-Diamond | 15 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
-| MATH | 15 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | LiveCodeBench | 11 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | MMLU | 9 | A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: o... |
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
@@ -169,7 +169,7 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 | indirect object identification | 4 | A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmar... |
 | MBPP+ | 4 | A Python program-synthesis benchmark, used in both sources as the coding leg of a multi-domain suite rather than as an object of study — the check that a method aimed at mathema... |
 | the Pile | 4 | A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activati... |
-| SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
+| CHAIR | 3 | A metric and evaluation protocol for object hallucination in image captioning, counting mentioned objects absent from the image at the instance and sentence level, and in both s... |
 
 ## Reading path
 

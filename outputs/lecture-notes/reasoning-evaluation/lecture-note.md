@@ -96,6 +96,12 @@ Estimating how much better a sampled action or trajectory was than the baseline 
 
 Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; Self-Improving Large Language Models via Progressive Experience Evolution.
 
+### residual stream
+
+The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
+
+Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering.
+
 ### verification
 
 Deciding whether a candidate solution is correct, and the hinge on which most of this archive turns: RLVR needs it to compute a reward, test-time selection needs it to choose, and process supervision needs it per step. Sixteen sources supply it from four different places, ordered here by how much they can be trusted. An oracle — a compiler, unit tests, executable symbolic templates — is exact but exists only in some domains. A trained reward or process model is general and repeatedly found miscalibrated, which is why several archived methods are explicitly verifier-free. A model asked to judge is more general still and carries its own biases, though evaluator accuracy is shown to rise monotonically with the reasoning tokens it is given. And the model's own internal state can be read: a training-free comparison of a trace's start-to-end activation delta against two class centroids, or attention-routing alignment, both predict correctness without any external checker. One theoretical result reframes what is needed: pairwise comparison better than chance, not absolute correctness judgement, is enough to drive failure probability to zero.
@@ -114,19 +120,13 @@ Reasoning carried in continuous hidden states rather than in emitted tokens -- b
 
 Seen in: Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation; LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards.
 
-### residual stream
-
-The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.
-
-Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 49 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| LLM-as-a-judge | 45 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
-| supervised fine-tuning | 43 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| GRPO | 50 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| LLM-as-a-judge | 46 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| supervised fine-tuning | 44 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 32 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 27 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain-of-thought prompting | 26 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
@@ -135,15 +135,15 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 | activation steering | 21 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | activation patching | 19 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | best-of-n | 18 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
+| calibration | 16 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | majority voting | 16 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | sparse autoencoder | 15 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| calibration | 14 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | knowledge distillation | 12 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | LoRA | 12 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | PPO | 12 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | ablation | 10 | Removing a component -- a direction, a latent, a weight subset -- and reading the change in behaviour as evidence of what that component did. Both sources use it as the causal s... |
+| component ablation | 10 | Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy de... |
 | circuit analysis | 9 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
-| component ablation | 8 | Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy de... |
 
 ## Benchmarks and datasets
 
@@ -151,12 +151,12 @@ Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological
 | --- | ---: | --- |
 | AIME 2024 | 48 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 46 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| GSM8K | 38 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
+| GSM8K | 39 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 35 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 20 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 17 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
+| MATH | 16 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | GPQA-Diamond | 15 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
-| MATH | 15 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | LiveCodeBench | 11 | A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It prod... |
 | DAPO-Math-17K | 10 | The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would... |
 | Minerva | 10 | A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is co... |

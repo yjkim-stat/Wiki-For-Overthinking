@@ -1,0 +1,62 @@
+{
+  "concepts": [
+    "hallucination",
+    "abstention",
+    "selective prediction",
+    "coverage",
+    "self-correction",
+    "calibration",
+    "reward shaping",
+    "difficulty conditioning",
+    "reasoning boundary"
+  ],
+  "contributions": [
+    "A separation of hallucination into a reasoning failure that further attempts could fix and a knowledge failure that they cannot, with a distinct mechanism for each rather than one remedy applied to both.",
+    "A prompt-level rather than rollout-level abstention signal: the boundary is defined by whether any of several sampled chains succeeds, so a single failed rollout triggers correction while universal failure triggers refusal -- on the argument that repeated refinement of an unsupported answer only makes it more convincing.",
+    "An ablation demonstrating the two mechanisms are not substitutes: reflection alone leaves coverage at 100 percent and never abstains, abstention alone leaves the hallucination proxy essentially unchanged, and only the combination reduces it.",
+    "A reflection-depth sweep reported as a full curve showing hallucination and coverage moving monotonically in opposite directions, with the chosen shallow setting justified by that trade rather than by its own number.",
+    "Abstention quality measured as precision and recall against an oracle defined by 64 independent samples, rather than as a refusal rate, plus a difficulty stratification showing refusals concentrate on hard prompts rather than being applied uniformly.",
+    "An explicit statement that the evidence supports answer-level correction and not step-level error localisation, since no supervision identifies which step failed."
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH",
+    "StrategyQA",
+    "ARC-Challenge"
+  ],
+  "generated_at": "2026-08-20T14:11:30Z",
+  "generated_by": "queue",
+  "limitations": "Stated, and the most important one limits the paper's own framing. The authors write that their evidence supports completion-level reliability alignment and answer-level correction but not step-level error localisation, because the model receives no supervision about which token or reasoning step caused a failure -- so an incorrect draft followed by a correct final answer shows reflection supporting a better final decision without establishing that the model identified the source of the error. They also note that benchmark difficulty is only an approximate proxy for whether a prompt is answerable by this particular policy, which is the quantity their boundary objective actually targets. Not stated but worth noticing: the abstention oracle is itself defined by 64 samples from the model, so 'truly beyond the boundary' means beyond it at that budget, and both the training signal and the evaluation share that definition -- an abstention that would have been wrong at 256 samples counts as correct here. Coverage falls by 9.6 points against base, and whether that is acceptable depends entirely on the cost of a refusal relative to a wrong answer in a given deployment, which no experiment here supplies. Two backbones and four benchmarks support the whole result, and the ablation is on one benchmark and one backbone.",
+  "method": "Two mechanisms trained under GRPO on a shared supervised initialisation. For reasoning hallucination the model is trained to emit a structured sequence -- a thinking block, then an explicit reflection block, then an answer -- so that self-assessment happens before commitment rather than as a post-hoc rationalisation. For knowledge hallucination a boundary-aware reward encourages explicit abstention when none of the sampled reasoning chains for a prompt yields a correct answer, which makes the abstention decision a property of the prompt under a fixed sampling budget rather than of any single failed rollout. The distinction is the design's core argument: a failed rollout does not mean the prompt is beyond the model, because another rollout may succeed and correction is then preferable to refusal, whereas when no rollout succeeds refinement only polishes an unsupported answer. Evaluation reports four quantities together rather than accuracy alone -- selective accuracy among answered items, a hallucination proxy, coverage, and effective accuracy over the whole set -- across two backbones and four mathematical and commonsense benchmarks. Abstention quality is measured against an oracle notion of what is genuinely beyond the model, defined as the gold answer appearing in none of 64 independent samples, giving precision and recall for the refusal decision rather than only a refusal rate. Ablations hold the supervised initialisation, the optimisation configuration and the accuracy and format rewards fixed while adding each mechanism, and reflection depth is swept over nested reflection-correction cycles.",
+  "methods": [
+    "GRPO",
+    "supervised fine-tuning",
+    "reward shaping",
+    "abstention training",
+    "self-reflection",
+    "structured chain-of-thought",
+    "difficulty stratification",
+    "component ablation"
+  ],
+  "models": [
+    "Qwen2.5-7B",
+    "Llama-3.1-8B"
+  ],
+  "one_liner": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+  "paper_id": "arxiv:2608.07931",
+  "problem": "Reasoning models hallucinate from two distinct sources that call for different remedies. In reasoning hallucination a flawed inference step propagates into an incorrect conclusion, and the model could in principle have got it right. In knowledge hallucination the model simply lacks the facts, and no amount of further reasoning will supply them -- worse, repeated refinement can make an unsupported answer more convincing. Treating both with one mechanism means either failing to catch propagated errors or refusing on questions that further attempts would have answered.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-training": "The design principle here is one the archive should record independently of the method: the decision to abstain belongs at the prompt level, not the rollout level. A single failed chain does not establish that a question is beyond the model, since another sample may succeed and correction is then the right response; universal failure across a sampling budget does establish it, and further refinement at that point only makes an unsupported answer more fluent. That gives a concrete, cheap criterion -- does any of n samples verify -- which is both the training signal and, at a larger n, the evaluation oracle, and it connects directly to the archive's material on zero-advantage groups, where the same all-agree condition is the thing that kills the learning signal. The ablation is the most useful part and its structure is worth borrowing. Two mechanisms that both improve selective accuracy are shown to be addressing different failures by looking at the quantities that do not move: reflection alone leaves coverage at exactly 100 percent, so it never learns to withhold, and abstention alone leaves the hallucination proxy unchanged, so it does nothing about errors on answerable questions. Neither of those facts is visible in the headline metric that both improve. Reporting four quantities jointly -- selective accuracy, hallucination proxy, coverage, effective accuracy -- is what makes the decomposition possible, and the archive should ask for the coverage column wherever abstention is on the table, since a reliability gain purchased entirely by refusing is a different result. The reflection-depth sweep is a second instance of the same discipline: deeper self-reflection monotonically reduces hallucination and monotonically reduces coverage and effective accuracy, so the authors publish the whole curve and choose the shallow end, naming overcorrection. That is directly relevant to the archive's material on how added deliberation behaves, and it is the counter-case to assuming more reflection is better. Finally the authors draw their own boundary correctly: an incorrect draft followed by a correct answer shows reflection improving a final decision and does not show the model located the error, because nothing supervised which step failed."
+  },
+  "results": "Macro-averaged over eight backbone-benchmark pairs the method reaches 78.7 percent selective accuracy, a 12.0 percent hallucination proxy, 90.5 percent coverage and 71.7 percent effective accuracy, taking the best selective accuracy and lowest hallucination proxy in every reported cell. Against the base checkpoints it improves selective accuracy by 14.0 and effective accuracy by 7.0 while cutting the hallucination proxy by 28.5, at the cost of 9.6 points of coverage -- and the authors make the case that this is not a utility loss, since the model answers fewer low-support cases while producing more correct answers over the complete evaluation set. The comparisons against three abstention-capable baselines are reported in both directions: it improves on one across every axis simultaneously, higher coverage and lower hallucination proxy together; on another it trades 2.4 points of coverage for a 13.9-point reduction in the proxy. The ablation is the result worth keeping because it shows the two mechanisms addressing genuinely different failures. Reflection alone raises selective accuracy from the base but leaves coverage at exactly 100 percent -- it never abstains, because structured self-assessment improves the reliability judgement without teaching when to withhold. Abstention alone raises selective accuracy to 90.2 while the hallucination proxy stays at 20.0, essentially unchanged, because refusing on unanswerable prompts does nothing about errors on answerable ones. Only together does the proxy fall to 11.0. The reflection-depth sweep is reported with its whole curve rather than at its chosen point, and the curve is monotone in opposite directions: deeper nested reflection cuts the hallucination proxy further (0.11 to 0.08 to 0.06) while reducing coverage (93.8 to 90.3 to 88.4) and effective accuracy (85.0 to 80.4 to 77.9), which the authors identify as overcorrection and use to justify keeping reflection shallow. Abstention quality against the 64-sample oracle is 78.4 to 83.2 percent precision and 65.7 to 72.8 percent recall at refusal rates of 6.2 to 17.3 percent, and refusals track difficulty monotonically -- from 2.1 percent on two-step problems to 14.8 percent on problems needing five or more, and 3.2 to 31.8 percent across five difficulty levels of a mathematics set -- which argues against a uniform refusal strategy.",
+  "schema_version": 1,
+  "tags": [
+    "abstention",
+    "reliability",
+    "grpo",
+    "self-reflection",
+    "selective-accuracy",
+    "hallucination"
+  ]
+}

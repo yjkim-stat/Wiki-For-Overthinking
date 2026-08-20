@@ -5,6 +5,12 @@
   "definition": "Representing a matrix or a family of maps by a small number of directions, used in these sources both as an engineering device and as a rival explanation to be ruled out. As a device it is what makes dense instrumentation affordable: low-rank translators let per-lens parameters grow linearly rather than quadratically in width, which is what allows 482 lenses to be attached to a 70B model where no full-rank reference can be trained at all -- and that coverage is what yields the conclusion the sparse designs cannot reach, that detection and intervention rankings over component types correlate at Spearman -0.43. As a rival explanation it is the confound the agent-channel compression study names against itself: a fitted dictionary in which only 50 of 4096 features ever activate is equally consistent with low-rank input structure or optimisation collapse as with a compact sparse code, and the baselines needed to separate them -- PCA, a linear autoencoder, matched-rate quantisation and vector quantisation -- are listed as not run. The pairing is the useful part: low rank is a reason a method works and a reason a sparsity result may not mean what it appears to.",
   "evidence": [
     {
+      "id": "arxiv:2608.08167",
+      "kind": "paper",
+      "note": "Models hidden states as a superposition of truthful and hallucination-associated components and derives a closed-form Wiener filter over their covariances, giving mode-wise attenuation that is folded back into the model's own weights so inference runs unchanged and at the same speed.",
+      "title": "Wiener Representation Filtering for VLM Hallucination Suppression"
+    },
+    {
       "id": "arxiv:2608.10198",
       "kind": "paper",
       "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
@@ -19,9 +25,36 @@
   ],
   "first_seen": "2026-08-14T01:37:41Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "last_seen": "2026-08-20T14:11:30Z",
   "name": "low-rank approximation",
   "related": [
+    "hallucination",
+    "representation-editing",
+    "steering-vector",
+    "residual-stream",
+    "detection-versus-control",
+    "training-free-intervention",
+    "calibration",
+    "wiener-filtering",
+    "eigendecomposition",
+    "covariance-estimation",
+    "weight-absorption",
+    "contrastive-decoding",
+    "llm-as-a-judge",
+    "dolan-more-profiles",
+    "component-ablation",
+    "mscoco",
+    "chair",
+    "pope",
+    "mme",
+    "tempcompass",
+    "faithdial",
+    "llava-1-5",
+    "minigpt-4",
+    "mplug-owl2",
+    "gemma3-4b-it",
+    "dream-v0-instruct-7b",
+    "claude-sonnet-4-6",
     "latent-communication",
     "sparse-dictionary-learning",
     "dead-features",
@@ -49,11 +82,9 @@
     "qwen3-5-9b",
     "lfm2-5-vl-1-6b",
     "vision-wormhole",
-    "detection-versus-control",
     "logit-lens",
     "tuned-lens",
     "hookpoint",
-    "residual-stream",
     "kl-divergence",
     "importance-sampling",
     "toxicity-localization",
@@ -81,7 +112,7 @@
   "schema_version": 1,
   "slug": "low-rank-approximation",
   "topics": [
-    "reasoning-evaluation",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

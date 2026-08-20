@@ -1,0 +1,68 @@
+{
+  "concepts": [
+    "hallucination",
+    "representation editing",
+    "steering vector",
+    "residual stream",
+    "low-rank approximation",
+    "detection versus control",
+    "training-free intervention",
+    "calibration"
+  ],
+  "contributions": [
+    "A closed-form representation edit derived from a superposition model of hidden states, with optimal gains given by the covariances of paired truthful and hallucinated representations, requiring only forward passes and second-order statistics and no gradient computation.",
+    "Mode-wise attenuation via eigendecomposition rather than a single global correction, constrained by a stability criterion so the filter responds continuously to estimation noise instead of amplifying poorly-estimated modes.",
+    "Absorption of the correction into the model's existing feed-forward output projections, so the deployed model has identical architecture and inference cost -- distinguishing this from decoding-time mitigations that pay a latency penalty per query.",
+    "Aggregation of a broad capability benchmark by Dolan-Moré profiles, which report the fraction of subtasks within a ratio of the best method across thresholds rather than a table of per-subset wins.",
+    "Transfer of the same filter to a discrete diffusion language model performing grounded dialogue, a sequence-wide denoising regime rather than autoregressive generation, and to video temporal reasoning.",
+    "An ablation establishing that a first-order mean correction captures little of the effect, so hallucination is not a constant offset in representation space and the covariance structure is what the method exploits."
+  ],
+  "datasets": [
+    "MSCOCO",
+    "CHAIR",
+    "POPE",
+    "MME",
+    "TempCompass",
+    "FaithDial"
+  ],
+  "generated_at": "2026-08-20T14:10:09Z",
+  "generated_by": "queue",
+  "limitations": "The paper states no limitations section, and two internal inconsistencies should be flagged when citing it. On the diffusion-model transfer the prose reports a token-level grounding metric improving by 9.86 points while the accompanying table shows a gain of 4.30 -- and shows a competing method scoring higher than the proposed one on that same metric, which the prose does not mention. The prose likewise reports an unfaithfulness rate falling from 92 to 74 percent where the table gives 85.92 to 75.39. The direction of every effect is consistent between prose and table, but the magnitudes are not, so the table rather than the narrative should be cited. Not stated but worth noticing: the calibration needs paired truthful and hallucinated representations, so the method inherits whatever defines that pairing in the calibration set, and no analysis of sensitivity to calibration-set size or composition appears in the main results. The layers edited are described as selected deeper ones without a sweep reported. Folding the correction into the weights is the paper's main practical advantage and is also a commitment -- the edited model is a different model, and no analysis of whether the edit degrades capabilities outside the evaluated benchmarks is given beyond the aggregate profile, which excludes four subsets by prior judgement of relevance.",
+  "method": "Hidden states in the language backbone are modelled as a superposition of a truthful component and a hallucination-associated one. Under that model the optimal linear estimator of the truthful part is a Wiener filter, whose gains follow in closed form from the covariances of paired truthful and hallucinated representations -- so the calibration reduces to estimating second-order statistics from forward passes on a modest paired dataset, with no gradients anywhere. An eigendecomposition of the resulting operator gives per-mode attenuation rather than a single global correction, and the construction is required to satisfy a stability criterion so the filter responds continuously to estimation noise rather than amplifying poorly-estimated modes. Because the correction is a fixed linear map, it is absorbed directly into the feed-forward output projections of selected deeper layers, which means the deployed model has the same architecture, the same parameter count and the same inference cost as the original. Evaluation covers three vision-language backbones on caption-level and instance-level hallucination, an object-presence probing benchmark under three difficulty splits, and a broad capability benchmark aggregated by Dolan-Moré profiles -- which plot the fraction of subtasks on which a method lands within a given ratio of the best, avoiding the subset cherry-picking a table of per-task wins invites -- with four subsets excluded and named as irrelevant to visual grounding. Generality is then tested outside the setting the method was built for, on video temporal reasoning and on a discrete diffusion language model doing grounded dialogue, the latter being a sequence-wide denoising regime rather than autoregressive generation. Ablations isolate the components, beginning with subtracting only the empirical mean difference between truthful and hallucinated representations.",
+  "methods": [
+    "representation editing",
+    "Wiener filtering",
+    "eigendecomposition",
+    "covariance estimation",
+    "weight absorption",
+    "contrastive decoding",
+    "LLM-as-a-judge",
+    "Dolan-More profiles",
+    "component ablation"
+  ],
+  "models": [
+    "LLaVA-1.5",
+    "MiniGPT-4",
+    "mPLUG-Owl2",
+    "Gemma3-4B-it",
+    "Dream-v0-Instruct-7B",
+    "Claude Sonnet 4.6"
+  ],
+  "one_liner": "Models hidden states as a superposition of truthful and hallucination-associated components and derives a closed-form Wiener filter over their covariances, giving mode-wise attenuation that is folded back into the model's own weights so inference runs unchanged and at the same speed.",
+  "paper_id": "arxiv:2608.08167",
+  "problem": "Vision-language models fabricate objects, attributes and spatial relations absent from the image, typically attributed to linguistic priors and distributional bias in training data. Existing mitigations split into decoding-time methods, which change how generation proceeds and therefore cost latency at every query, and representation-editing methods, which alter internal states. What is wanted is a correction that requires no gradient updates, no fine-tuning and no inference-time overhead.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-interpretability": "Three things distinguish this from the archive's other representation-editing entries and are worth extracting. First, the correction is derived rather than fitted: under an explicit superposition model of hidden states, the optimal linear estimator is a Wiener filter whose gains follow in closed form from covariances, so there is no direction to be chosen by discriminability and no strength coefficient to sweep. That sidesteps the failure mode the archive documents at length -- a direction selected for how well it separates a concept turning out to be no lever, or a random direction of the same norm matching it -- because the object being estimated is specified in advance and the estimator is optimal for it. Whether the superposition model holds is the assumption doing the work, and the ablation is the paper's evidence that it captures something real: a first-order mean correction, which is what a difference-in-means direction amounts to, buys little, so the effect lives in the covariance structure rather than in a global offset. That is a direct and useful result about why mean-difference directions underperform here. Second, the stability criterion is a design element the archive has not seen elsewhere: the filter is required to respond continuously to estimation noise, so poorly-estimated modes are attenuated rather than amplified, which is the principled version of the norm-clipping and strength sweeps other steering work does by hand. Third, folding the correction into the feed-forward output projections means the deployed model has identical architecture and inference cost -- a genuinely different deployment story from every decoding-time mitigation, and one that also makes the edit a permanent commitment rather than a switchable intervention. Two cautions on citing it. The paper's prose and its tables disagree on two magnitudes in the diffusion-transfer result, and the prose omits that a competing method beats it on one grounding metric there, so cite the tables. And the calibration depends entirely on how truthful and hallucinated representations were paired, with no sensitivity analysis over that choice reported."
+  },
+  "results": "The edit gives the lowest hallucination rates on every backbone tested, at both caption and instance level, ahead of decoding-time and representation-editing competitors alike, and the authors note against their own interest that some decoding-based methods achieve slightly higher fluency scores while their method minimises hallucinated objects. On object-presence probing it is strongest in most settings across the three difficulty splits, with one backbone showing particularly high precision, indicating fewer false-positive object predictions. On the broad capability benchmark the Dolan-Moré profiles dominate competing methods over a wide range of thresholds on two backbones, which is the paper's evidence that the filter improves general visual grounding rather than only suppressing objects. The most interesting result is the transfer to a discrete diffusion language model on grounded dialogue, a regime the method was not designed for: overlap metrics improve by 2 to 3 points, grounding-oriented metrics by larger margins, and the unfaithfulness rate falls substantially under two different judges. The first ablation is the informative one and it constrains the mechanism: subtracting only the empirical mean difference between truthful and hallucinated representations -- a first-order correction for a global bias -- yields only modest improvement, which the authors take as showing hallucination is not primarily a constant offset in representation space and therefore that the mode-wise structure the covariance supplies is doing the work.",
+  "schema_version": 1,
+  "tags": [
+    "representation-editing",
+    "hallucination",
+    "vision-language",
+    "training-free",
+    "closed-form",
+    "weight-editing"
+  ]
+}

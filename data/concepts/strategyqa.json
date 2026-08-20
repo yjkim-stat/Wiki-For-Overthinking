@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.07931",
+      "kind": "paper",
+      "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+      "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment"
+    },
+    {
       "id": "local:1b977d02353e100b",
       "kind": "paper",
       "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
@@ -11,9 +17,30 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T14:11:30Z",
   "name": "StrategyQA",
   "related": [
+    "hallucination",
+    "abstention",
+    "selective-prediction",
+    "coverage",
+    "self-correction",
+    "calibration",
+    "reward-shaping",
+    "difficulty-conditioning",
+    "reasoning-boundary",
+    "grpo",
+    "supervised-fine-tuning",
+    "abstention-training",
+    "self-reflection",
+    "structured-chain-of-thought",
+    "difficulty-stratification",
+    "component-ablation",
+    "gsm8k",
+    "math",
+    "arc-challenge",
+    "qwen2-5-7b",
+    "llama-3-1-8b",
     "reasoning-trajectory",
     "intermediate-state",
     "answer-space-distance-features",
@@ -22,7 +49,6 @@
     "uncertainty",
     "thought-level-perplexity",
     "verifier-weighted-voting",
-    "self-correction",
     "post-hoc-analysis",
     "landscape-of-thoughts-lot",
     "t-sne",
@@ -37,13 +63,14 @@
     "commonsenseqa",
     "llama-3-2-1b",
     "llama-3-2-3b",
-    "llama-3-1-8b",
     "llama-3-1-70b",
     "qwq-32b"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "strategyqa",
   "topics": [
+    "reasoning-training",
     "test-time-scaling"
   ]
 }
