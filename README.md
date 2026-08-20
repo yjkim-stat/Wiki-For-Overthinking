@@ -235,6 +235,41 @@ overriding a single file changes exactly that file.
 Setting one up, and updating the code underneath a running archive, is
 [`workflows/deployment/`](workflows/deployment/).
 
+## Sharing it with people on the same machine
+
+```bash
+python3 -m pipelines.serve                       # http://127.0.0.1:8765
+curl "http://127.0.0.1:8765/ask?q=causal+inference"
+```
+
+Colleagues on the same host can ask the archive what it knows without a clone
+and without any way to change what they are reading.
+
+**It answers only from what has been read.** A hit is a record the archive
+already wrote — a finding the group settled, a definition somebody authored, a
+reading of a paper — ranked in that order, because that is the archive's own
+ordering of authority. Nothing here composes a sentence: the pipeline calls no
+model, and a plausible invented answer is worse to a colleague than an honest
+"nothing here", since they cannot tell it from a real one.
+
+Asking for a *change* is a different channel on purpose:
+
+```bash
+cp my-request.md requests/pending/     # anyone on the host
+python3 -m pipelines.requests list     # the archive's owner
+python3 -m pipelines.requests approve <id> --note "why"
+```
+
+Nothing is approved automatically, however harmless it looks, and an approved
+request is work for the next maintenance session rather than a change already
+made. A rejected one keeps its reason: declined is not deleted.
+
+**The port writes nothing at all** — not to `data/`, not anywhere — and binds to
+loopback with no flag to change that. There is no authentication, which is why
+the read-only guarantee has to be absolute: on a shared host, loopback means any
+local user. A host that wanted to publish its archive would put a proxy in
+front and make that decision where it can be seen.
+
 ## Topics
 
 A topic is `config/topics/<slug>.yaml`. The parts that matter:
@@ -325,6 +360,7 @@ python3 -m pipelines.backfill  [--limit N] [--topic slug] [--by score|age|id] [-
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
 python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
 python3 -m pipelines.migrate status   # which roots, and what each channel carries
+python3 -m pipelines.serve            # answer questions about the archive, read-only, on 127.0.0.1
 scripts/daily.sh               # collect, then render
 python3 -m unittest discover -s tests -t .
 ```

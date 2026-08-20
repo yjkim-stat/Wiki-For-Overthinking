@@ -1,4 +1,4 @@
-# 0067 — The log line said seventy-six
+# 0070 — The log line said seventy-six
 
 | | |
 | --- | --- |
@@ -12,7 +12,7 @@
 > wrong one. The template's implementation is the one that survived the merge,
 > so the code this note describes is no longer in the tree. The note stays
 > because the commit does, and because the convergence is the useful part:
-> [0068](0068-the-same-collision-and-the-same-bug.md).
+> [0071](0071-the-same-collision-and-the-same-bug.md).
 
 ## What changed
 
