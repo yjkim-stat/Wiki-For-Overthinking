@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A mid-sized Claude model used in this archive in two applied settings, neither of which studies it. It is one of the judge models in a robot-autonomy verification ensemble that gates plans before execution, where the reported finding is about ensemble size rather than about any member -- accuracy stays within 0.76 to 0.78 from one judge to seven. It also appears in the reasoning-trace extraction work as one of the Claude-family models whose encrypted reasoning blocks were found replayable into other models of the family, and, in the injection-scheme map, as one of the 4.5-generation models that accepts a thought placed in the current assistant turn. Nothing in either source characterises the model itself.
 
 - **Kind**: model
+- **Also called**: Claude Sonnet 4.5
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

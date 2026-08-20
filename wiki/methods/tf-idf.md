@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Term-frequency-inverse-document-frequency features, used in both sources as the surface baseline that a representation-based method has to beat -- and in both cases it turns out to be a much harder baseline than the framing suggests. In the ESG concept-content study, a TF-IDF classifier reaches 0.894 AUC on the Governance pillar, above every configuration of the RFM concept-vector method, and trails the best activation probe by only 2.0 accuracy points there (6.9 and 6.0 on the other two pillars) -- while the surface measures the approach was actually aimed at, a concept-word dictionary and a 25-topic model, sit far below at 0.128 and 0.373 F1. The paper draws the boundary itself: the surface-versus-judgment distinction holds against measures that count concept words, not against a classifier free to learn whatever lexical cues the labels happen to carry. It appears again as a baseline in the monitoring-observability work. The lesson these sources share is that a tuned lexical classifier and a dictionary are not the same kind of baseline, and only the first one tests the claim.
 
 - **Kind**: method
+- **Also called**: TF-IDF
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

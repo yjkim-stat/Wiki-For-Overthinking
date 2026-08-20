@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Scoring a model by whether it selects the reference option, which buys unambiguous labels at the cost of compressing a capability into verification. Both sources use it and both record a distortion it introduces. The industrial-safety benchmark scores exclusively by exact option match with unparseable outputs counted incorrect, and its own diagnostics catch what that hides: on a set deliberately balanced across answer positions, a base model scores 52.4 percent when the correct option is A and 31.6 to 33.6 percent for the other positions, a response-format shortcut that an unbalanced set would have scored as competence. The proverb benchmark isolates the format effect directly, finding models that complete proverbs successfully yet fail the multiple-choice version when no correct option is present, with chain-of-thought analysis showing they name the right ending while failing to notice its absence. Read together the sources say that a multiple-choice score measures selection under a fixed option set, that position balance is a minimum precaution rather than a refinement, and that the none-of-the-above case is where the format and the underlying capability come apart most sharply.
 
 - **Kind**: method
+- **Also called**: multiple choice
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

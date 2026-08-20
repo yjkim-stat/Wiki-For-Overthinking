@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Output that continues without arriving anywhere -- repetition to the generation limit, no extractable answer, no termination -- and which both sources treat as a distinct failure requiring its own measurement rather than as low accuracy. Each defines it operationally. In RLVR exploration, a degenerate rollout is one that does not produce an extractable answer at all, and is counted separately from an incorrect one precisely because it buys no learning signal either way; the paper's comparison shows temperature raising produces the most degenerate rollouts because uniform token reordering at high temperature breaks generation, while entropy regularisation escapes degeneracy late in training but buys its diversity mostly through incorrect rollouts instead. In on-policy distillation it is measured as response length together with the percentage of responses containing no boxed answer, and the numbers are large enough to reframe the headline: under strong teacher-student mismatch the baseline produces 22,395-token responses of which 65.5 percent have no answer, against 7,294 tokens and 5.4 percent for the corrected method, so an accuracy gap of 6.9 against 20.3 is substantially a termination gap. The shared lesson is that degeneration is invisible to accuracy and to any local metric, and that a training signal can be improved on paper while making it worse.
 
 - **Kind**: concept
+- **Also called**: degeneration, malformed rollout
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

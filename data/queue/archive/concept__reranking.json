@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows evaluator accuracy improves monotonically with reasoning tokens spent, and that buying compute at evaluation time can substitute for buying it at generation time.",
+        "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:59:22Z",
+  "created_at": "2026-08-20T12:45:12Z",
+  "instructions": "Write the wiki definition for 'reranking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reranking",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reranking",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Reordering a shortlist of candidates with a second, more expensive model after a cheap retriever or generator has produced it. The skill-retrieval work measures both what it buys and what it costs: pairing a reranker over the top-20 candidates lifts Recall@1 from 45.16 to 57.90 in one configuration, larger than any gain from generating a rationale at query time, while adding 1.9 to 4.8 seconds per query against a 32-millisecond retriever. That paper's practical conclusion is the comparison rather than either number -- if extra online compute is available, spending it on reranking beats spending it on inference-time chain of thought, which yielded no consistent gain at one to two orders of magnitude in added latency. The evaluation-compute source supports the same direction from a different angle, finding evaluator accuracy improves monotonically with the reasoning tokens an evaluator is allowed to spend. Neither source treats reranking as a research object; between them they establish it as the archive's best-supported answer to where an inference budget should go when the first-stage output is a ranked list.",
+    "kind": "method",
+    "related": [
+      "best-of-n"
+    ]
+  },
+  "task_id": "concept__reranking",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

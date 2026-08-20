@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The game-theoretic allocation of a joint outcome across the parts that produced it, averaged over all orderings in which those parts could be added. Both sources use it to reason about whether a set of components combine additively, and both find the answer matters more than the exact attribution. In per-instance activation steering it underwrites the structural account of why a greedy top-K-by-single-layer-effect rule reaches the exhaustive joint optimum over layer subsets: the mid-band steering vectors are near-collinear, synergy between layers is negligible, and the remainder is padding -- so the joint value decomposes and greedy selection loses nothing. In the uncertainty work it is the attribution machinery itself, assigning conformal-prediction coverage to specific training examples and to specific reasoning steps. Neither source computes exact Shapley values at scale; between them they establish the property the archive should check first, which is whether the parts interact at all, since a near-additive system makes cheap greedy attribution correct and a strongly interacting one makes it wrong.
 
 - **Kind**: concept
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)

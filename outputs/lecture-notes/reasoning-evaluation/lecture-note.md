@@ -72,6 +72,12 @@ Computation spent at inference rather than in training, and the resource this ar
 
 Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
+### test-time scaling
+
+Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different things that a single budget number conflates. One source formalises it as budgeted inference over the model's implicit prefix tree and separates three regimes -- widening (more independent samples), deepening (a longer single trace), and search over partial trajectories -- arguing that a scalar budget cannot compare them and specifying what a reproducible protocol has to declare. The sources span all three, plus allocation policies that decide per prompt how much to spend, and evaluation-time variants where the compute goes to a judge instead of a generator. What they collectively establish is mostly negative and mostly methodological. Extra compute is not monotone in accuracy: one source reports accuracy falling from 75.56 to 65.83 percent as the candidate bank grows, another finds a model's first solution usually its best, and on tasks where the reasoning is unhelpful aggregation amplifies the error. Gains are routinely confounded rather than absent -- a 31.8-point advantage for a perturbation-based selector vanished under a control spending the same budget in the same decoding format, and adaptive allocation must be compared against a selector-matched baseline or it measures the selector. Input diversity beats output diversity at matched compute on five of six benchmarks, and a reranker over a shortlist beats generating a rationale at query time by one to two orders of magnitude in latency for no accuracy gain. The two positive general results are a set of aggregation algorithms whose failure probability provably decays to zero under weak assumptions, and the finding that evaluator accuracy rises monotonically with the tokens an evaluator may spend -- so evaluation-time compute can substitute for generation-time compute. Cutting across all of it, one source shows greedy decoding is not deterministic across hardware, with AIME 2024 accuracy moving up to 9 points and response length by 9,000 tokens under BF16, so the baseline any of these numbers is measured against is itself unstable.
+
+Seen in: s1: Simple test-time scaling; It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates.
+
 ### credit assignment
 
 Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end. These sources treat it as the central unsolved problem of reinforcement learning on reasoning models, and they attack it at four different granularities. Per step, by constructing a dense signal where none exists: scoring each reasoning step by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold answer, or fusing how much a retrieval step raised the likelihood of the correct answer with how necessary it looks in hindsight, asymmetrically so that a locally helpful but globally redundant step is discounted. Per turn, by recursively updating a Bayesian belief in log-odds space over token-level teacher-student gaps to find pivotal turns without a critic. Per token, by choosing which tokens receive the gradient at all -- the roughly 20 percent with the highest entropy act as decision forks and training only on them matches or beats full-gradient updates with the advantage growing with model size, while other sources gate on a token's marginal log-probability gain for the ground-truth answer or apply an efficiency reward to a single mode-selection token to stop it coupling with correctness. And per span, by masking: label-free RLVR collapses because the same answer-level consensus both estimates the reward and receives the gradient, and masking the answer span from updates entirely means a reward can only be raised by improving the reasoning that produced it. Two structural results sit under all of this. Credit that looks uniform can be badly skewed once aggregated -- a recurring correct solution form accumulates positive coefficient mass in proportion to how often it is sampled -- and a process reward model can be had without process labels at all, because parameterising an outcome reward as the log-likelihood ratio between a policy and a reference makes the per-step Q value fall out of the same model for free.
@@ -114,12 +120,6 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; Parameter Exploration for RLVR via Variational Learning.
 
-### localization
-
-Attributing a behaviour to a specific part of a model — a layer, a head, a neuron, a direction, a parameter region — and the organizing question of this archive's interpretability work at fourteen sources. The sources agree it is possible and disagree about what a located component means. Granularity changes the answer: on propositional logic, four families of attention heads execute a sequential circuit, while on arithmetic the mechanism is an unordered bag of heuristic neurons, and no source tests whether a computation modular at head level is heuristic inside each head. Method choices change the answer too — how prompts are corrupted, which metric scores the effect and whether layers are patched singly or in windows all shift what activation patching reports, and single-component tracing cannot see components that matter only jointly. Two cautions recur. Being encoded is not being used: a concept can be linearly recoverable while having no influence on the output, and sparse autoencoders improve the first while attenuating the second. And what is located may be a state rather than a property, since memorizing and generalizing circuits compete during training.
-
-Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits; Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors; Multi-component Causal Tracing in Large Language Models.
-
 ## Methods
 
 | Method | Sources | Summary |
@@ -130,8 +130,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | linear probe | 26 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| self-consistency | 21 | _pending_ |
-| test-time scaling | 21 | _pending_ |
+| self-consistency | 21 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
 | chain-of-thought prompting | 20 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | activation steering | 16 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
@@ -144,6 +143,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
+| clip-higher | 7 | Raising the upper clipping bound of the importance ratio in a PPO-style objective, so low-probability tokens with positive advantages are not clipped away and can grow. Introduc... |
 
 ## Benchmarks and datasets
 
@@ -168,7 +168,7 @@ Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream T
 | Brumo | 4 | A competition-mathematics benchmark, used by both sources as one of several olympiad-level sets rather than as an object of study. Neither reports anything about it specifically... |
 | CMIMC | 4 | A competition-mathematics contest whose problems appear in both sources as part of a broader olympiad set rather than as a benchmark in their own right. One includes it among fi... |
 | HumanEval+ | 4 | A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification... |
-| the Pile | 4 | _pending_ |
+| the Pile | 4 | A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activati... |
 
 ## Reading path
 

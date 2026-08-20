@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An uncertainty estimate that clusters several sampled generations by meaning and takes the entropy over those clusters rather than over tokens, so that paraphrases of one answer do not count as disagreement. The archive's two sources place it at opposite ends of usefulness. In the reasoning-serving system it is one of the signals behind an algorithm-agnostic measure of how far a reasoning algorithm's answer has stopped changing, used to reallocate or terminate compute per query and reported as saving up to half the tokens in batch inference. In the hallucination-detection work it fails outright, and the diagnosis is specific rather than dismissive: on the failure mode where a model confidently fabricates a parameter the user never supplied, the entropy family reaches AUROC 0.674 for token entropy, 0.639 for semantic entropy and 0.548 for a semantic-entropy probe against 0.966 for an adapter reading internal state, and once AUPRC is adjusted for base prevalence the entropy methods sit exactly at the trivial always-positive decision floor. The reason is structural -- because the model is confident and the fabrication is plausible, the samples agree, so semantic entropy collapses into a single cluster. The two sources together bound it: it measures disagreement among samples, which tracks difficulty and convergence well and tracks confident wrongness not at all.
 
 - **Kind**: method
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [test-time-scaling](../topics/test-time-scaling.md)

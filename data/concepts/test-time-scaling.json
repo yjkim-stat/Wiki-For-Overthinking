@@ -1,9 +1,10 @@
 {
   "aliases": [
     "inference-time scaling",
-    "Test-Time Scaling"
+    "Test-Time Scaling",
+    "test-time compute"
   ],
-  "definition": "",
+  "definition": "Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different things that a single budget number conflates. One source formalises it as budgeted inference over the model's implicit prefix tree and separates three regimes -- widening (more independent samples), deepening (a longer single trace), and search over partial trajectories -- arguing that a scalar budget cannot compare them and specifying what a reproducible protocol has to declare. The sources span all three, plus allocation policies that decide per prompt how much to spend, and evaluation-time variants where the compute goes to a judge instead of a generator. What they collectively establish is mostly negative and mostly methodological. Extra compute is not monotone in accuracy: one source reports accuracy falling from 75.56 to 65.83 percent as the candidate bank grows, another finds a model's first solution usually its best, and on tasks where the reasoning is unhelpful aggregation amplifies the error. Gains are routinely confounded rather than absent -- a 31.8-point advantage for a perturbation-based selector vanished under a control spending the same budget in the same decoding format, and adaptive allocation must be compared against a selector-matched baseline or it measures the selector. Input diversity beats output diversity at matched compute on five of six benchmarks, and a reranker over a shortlist beats generating a rationale at query time by one to two orders of magnitude in latency for no accuracy gain. The two positive general results are a set of aggregation algorithms whose failure probability provably decays to zero under weak assumptions, and the finding that evaluator accuracy rises monotonically with the tokens an evaluator may spend -- so evaluation-time compute can substitute for generation-time compute. Cutting across all of it, one source shows greedy decoding is not deterministic across hardware, with AIME 2024 accuracy moving up to 9 points and response length by 9,000 tokens under BF16, so the baseline any of these numbers is measured against is itself unstable.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -133,7 +134,7 @@
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T12:55:26Z",
   "name": "test-time scaling",
   "related": [
@@ -490,7 +491,9 @@
     "centered-kernel-alignment",
     "chain-of-thought-distillation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "train-time-scaling"
+  ],
   "schema_version": 1,
   "slug": "test-time-scaling",
   "topics": [

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 9-billion-parameter Qwen model that is the fine-tuning subject in both of its sources rather than an off-the-shelf baseline, which makes it useful for what its two results say together. On the industrial-safety benchmark it starts at 37.4 percent -- near the bottom of an eight-model field -- and reaches 89.0 percent micro accuracy after LoRA supervised fine-tuning on chain-of-thought supervision, the highest of any configuration tested and slightly above the strongest frontier model, though answer-only supervision on the same data reaches only 75.1 percent. That gain is within-distribution, so it establishes that the benchmark's question forms are learnable at this size rather than that safety reasoning transferred. In the model-poisoning work it is one of the models into which a triggered backdoor is installed by supervised fine-tuning, leaving the visible reasoning clean and correct while the answer is attacker-chosen. Both sources therefore use it to show how much a small open model's behaviour can be moved by fine-tuning, in opposite directions.
 
 - **Kind**: model
+- **Also called**: Qwen3.5-9B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

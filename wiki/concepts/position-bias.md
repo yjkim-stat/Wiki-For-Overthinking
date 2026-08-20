@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A systematic preference for an answer or candidate because of where it appears rather than what it says. Its sharpest statement here is a paradox: a judge that deterministically prefers position A scores perfectly on test-retest reliability while being maximally biased, because test-retest measures the stability of outputs rather than the correctness of the decision process -- so the two coexist in the same judge and high reliability is no evidence against it. That comes from an evaluation of 21 judges over about 541,000 judgments, which also finds the field's standard validation metric overstates chance-corrected discrimination by 34 to 41 points universally. The second source shows the same failure inside a benchmark rather than a judge: on a test set deliberately balanced across answer positions, a base model scores 52.4 percent when the correct option is A against 31.6 to 33.6 percent elsewhere. The two together define the precaution -- balance the positions or swap them and re-run -- and the reason it cannot be skipped, which is that no measure of a judge's self-consistency will reveal the problem.
 
 - **Kind**: concept
+- **Also called**: order bias
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 

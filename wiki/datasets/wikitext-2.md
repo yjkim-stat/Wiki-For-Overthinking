@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A small language-modelling corpus used in both of its sources as a generic evaluation substrate rather than as a target. The tiled-SVD work uses it while extracting interpretable units directly from a transformer's weight matrices, and the dense-lens work uses it as one of five corpora -- alongside the Pile, 2WikiMultiHopQA, ARC-Easy and SciQ -- over which trained lenses are fitted and evaluated. Neither source reports a result attributed specifically to it or describes its construction; in this archive it functions as the plain-text control against which more structured evaluation sets are read.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)

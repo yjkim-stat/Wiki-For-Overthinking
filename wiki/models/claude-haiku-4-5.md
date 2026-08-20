@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The small model of the Claude 4.5 generation, appearing in this archive twice and in both cases as an instrument rather than a subject. In the skill-retrieval work it is one of two models that independently review each candidate benchmark query for naturalness, informativeness and consistency with its target, with disagreements adjudicated by hand. In the reasoning-trace extraction work it is one of the models whose encrypted reasoning blocks were shown interchangeable across sessions and models, and specifically the kind of less-safeguarded model that a more capable sibling's material can be routed through -- which is the structural point that paper makes, that safeguards on a capable model do not bind material processed by a weaker one in the same family. Neither source describes the model's training or capabilities.
 
 - **Kind**: model
+- **Also called**: Claude Haiku 4.5
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

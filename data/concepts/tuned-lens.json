@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "trained lens",
+    "translator"
+  ],
+  "definition": "A per-layer affine map trained to translate an intermediate activation into the final layer's basis before the model's own frozen normalisation and unembedding are applied, so that a readout failure can be separated from a computation that has not happened yet. Its diagnostic value is exactly that separation, and the text-to-MIDI work is the archive's clearest demonstration: a decoder-only model's classic logit-lens agreement jumps from 0.050 to 0.712 across three layers, but the tuned lens makes the final prediction readable two to three layers earlier, and a vocabulary-mass analysis shows the readout rotating out of an inherited textual basis over the same band -- so most of the apparent jump is a change of basis rather than the moment the decision forms. Translators there are initialised to identity and distilled against the model's own final distribution by KL on 60,000 held-out token positions. The dense-lens work makes the same instrument cheap enough to attach everywhere, with low-rank translators whose parameters grow linearly rather than quadratically in width and subset-KL objectives including an importance-sampled variant proved to give unbiased gradients for the full KL -- 482 lenses on a 70B model, where no full-rank reference can be trained at all. What that coverage buys is a conclusion the sparse designs cannot reach: over component types, detection and intervention rankings correlate at Spearman -0.43.",
   "evidence": [
     {
       "id": "arxiv:2608.06638",
@@ -67,7 +70,9 @@
     "llama-3-3-70b",
     "llama-3-1-405b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "logit-lens"
+  ],
   "schema_version": 1,
   "slug": "tuned-lens",
   "topics": [

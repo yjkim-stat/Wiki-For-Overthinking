@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:58:19Z",
+  "created_at": "2026-08-20T12:50:00Z",
+  "instructions": "Write the wiki definition for 'degenerate generation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "degenerate generation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "degenerate generation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "degeneration",
+      "malformed rollout"
+    ],
+    "definition": "Output that continues without arriving anywhere -- repetition to the generation limit, no extractable answer, no termination -- and which both sources treat as a distinct failure requiring its own measurement rather than as low accuracy. Each defines it operationally. In RLVR exploration, a degenerate rollout is one that does not produce an extractable answer at all, and is counted separately from an incorrect one precisely because it buys no learning signal either way; the paper's comparison shows temperature raising produces the most degenerate rollouts because uniform token reordering at high temperature breaks generation, while entropy regularisation escapes degeneracy late in training but buys its diversity mostly through incorrect rollouts instead. In on-policy distillation it is measured as response length together with the percentage of responses containing no boxed answer, and the numbers are large enough to reframe the headline: under strong teacher-student mismatch the baseline produces 22,395-token responses of which 65.5 percent have no answer, against 7,294 tokens and 5.4 percent for the corrected method, so an accuracy gap of 6.9 against 20.3 is substantially a termination gap. The shared lesson is that degeneration is invisible to accuracy and to any local metric, and that a training signal can be improved on paper while making it worse.",
+    "kind": "concept",
+    "related": [
+      "reward hacking"
+    ]
+  },
+  "task_id": "concept__degenerate-generation",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

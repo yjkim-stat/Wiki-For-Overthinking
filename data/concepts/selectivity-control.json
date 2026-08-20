@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "control task",
+    "selectivity"
+  ],
+  "definition": "A deliberately meaningless version of an experiment, run under identical conditions, whose job is to produce no effect -- so that an effect in the real condition means something. Both sources treat it as what makes their central claim readable rather than as an appendix. The text-to-MIDI work retrains every probe on labels shuffled between tokens with the group split preserved, and reports that the control probe collapses to the majority baseline for every concept (lift -0.068 to +0.001 in one model, -0.044 to -0.002 in the other), which is what licenses reading probe accuracy as information in the activations rather than capacity of the probe; its patching experiments carry the same discipline with a self-patch control that is zero by construction and a neutral-prompt control for nonspecific disruption. The scratchpad-editing work uses same-rank random and orthogonal-complement patches, which reach about 0.02 agreement where the real edit reaches 0.80 to 0.91, plus pretrained and final-answer-only model controls that stay near baseline. The two sources differ in what they randomise -- labels in one, the intervention direction in the other -- and agree on the standard: an intervention or probe result without a matched condition that should do nothing reports that something changed, not that the right thing did.",
   "evidence": [
     {
       "id": "arxiv:2608.06638",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-08T04:51:02Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T12:24:18Z",
   "name": "selectivity control",
   "related": [
@@ -62,7 +65,9 @@
     "qwen2-5-coder-7b",
     "mistral-7b-v0-3"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "null-hypothesis-control"
+  ],
   "schema_version": 1,
   "slug": "selectivity-control",
   "topics": [

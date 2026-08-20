@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+        "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+        "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:57:13Z",
+  "created_at": "2026-08-20T12:55:27Z",
+  "instructions": "Write the wiki definition for 'Claude Sonnet 4.5'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Claude Sonnet 4.5",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Claude Sonnet 4.5",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Claude Sonnet 4.5"
+    ],
+    "definition": "A mid-sized Claude model used in this archive in two applied settings, neither of which studies it. It is one of the judge models in a robot-autonomy verification ensemble that gates plans before execution, where the reported finding is about ensemble size rather than about any member -- accuracy stays within 0.76 to 0.78 from one judge to seven. It also appears in the reasoning-trace extraction work as one of the Claude-family models whose encrypted reasoning blocks were found replayable into other models of the family, and, in the injection-scheme map, as one of the 4.5-generation models that accepts a thought placed in the current assistant turn. Nothing in either source characterises the model itself.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__claude-sonnet-4-5",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "test-time-scaling"
+  ]
+}

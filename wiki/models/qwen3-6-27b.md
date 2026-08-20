@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 27-billion-parameter Qwen model appearing twice in this archive as a panel member. On the industrial-safety reasoning benchmark it scores 40.9 percent overall untuned, the second-lowest of eight models and far below the frontier entries, which is part of that paper's evidence that general multimodal capability does not carry over to evidence-grounded safety reasoning. It is also one of 18 open models instrumented in the cultural-awareness study, whose finding -- that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults -- is reported across the panel. Neither source describes the model or reports a mechanism specific to it.
 
 - **Kind**: model
+- **Also called**: Qwen3.6-27B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

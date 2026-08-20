@@ -3,9 +3,10 @@
     "majority voting",
     "self-consistency decoding",
     "SC",
-    "Self-Consistency"
+    "Self-Consistency",
+    "consensus voting"
   ],
-  "definition": "",
+  "definition": "Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for spending compute at inference, and most sources that engage with it directly are trying to beat it, bound it, or stop it earlier. Three results bound what it does. It is not monotone in accuracy -- extra samples strengthen whatever the aggregation rule already does, so on subjective verification where the underlying reasoning is unhelpful, voting at K=8 widens the gap rather than closing it (0.690 to 0.574), and one source finds a reasoning model's first solution is usually its best with later alternatives actively harmful. It can be beaten at matched compute by varying the input instead of the output, with paraphrase aggregation ahead on five of six benchmarks. And it can be stopped early almost for free: a Bayesian posterior over which answer is the mode needs only the top two counts plus an aggregate for asymptotic optimality, while other sources terminate on how far the running answer has stopped changing. The theoretical sources give it the weakest sufficient conditions in the archive -- failure probability provably decaying to zero as compute grows, assuming only that the model is sometimes right and can compare two solutions better than chance. The methodological warning attached to it is the sharpest one here: a selection rule compared against self-consistency is easy to credit wrongly, because changing the selector usually also changes the decoding format, and a format-matched control reduced one reported 31.8-point gain to nothing across four benchmarks. Two sources also use the consensus signal as a training reward, and one shows why that is dangerous -- when the same answer-level consensus both estimates the reward and receives the gradient, the shortcut is to make the answer agree with itself.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -477,7 +478,9 @@
     "qwen2-5-math-1-5b",
     "qwen2-5-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "best-of-n"
+  ],
   "schema_version": 1,
   "slug": "self-consistency",
   "topics": [

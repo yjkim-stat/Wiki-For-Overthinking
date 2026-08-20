@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activations sparse autoencoders are trained on -- dictionaries in the foundational paper come from the first 10,000 elements, about 7 million activations -- and the same role recurs in the set-level instability work that takes the set of active latents as its unit and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active. It is also one of the corpora over which dense trained lenses are fitted at every layer and hookpoint. Its fourth appearance is different in kind: in the contamination-detectability work it figures in an analysis casting benchmark contamination auditing as sparse-mixture detection, where what matters about a pretraining corpus is its size relative to the contaminated fraction. No source here describes its composition.
 
 - **Kind**: dataset
+- **Also called**: Pile
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 4
 

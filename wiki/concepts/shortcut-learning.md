@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A model reaching the right answer through a cue that correlates with the label in the training or evaluation distribution rather than through the intended reasoning. Both sources treat it as a threat to be audited rather than as a phenomenon to be studied. The Parkinson's screen is built around avoiding it -- labels never touch any fit, the reference is training controls alone, and the concern that imbalanced supervised training on small clinical corpora teaches spurious shortcuts is the stated reason for using a deviation-from-healthy framing at all -- and it then audits directly, reporting near-zero correlations between each detector score and face crop size, video length and frame rate, plus a label permutation at p < 0.01 and split-half agreement inside the bootstrap interval. The residual-stream error-detection work approaches it from the representation side, reading layerwise motion and a quantized region rather than full activation states on the argument that a full-state probe has more surface on which to latch onto incidental structure. What the two share is the assumption that a result on a small or skewed set is not credible until the obvious non-semantic explanations have each been measured and reported.
 
 - **Kind**: concept
+- **Also called**: spurious correlation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

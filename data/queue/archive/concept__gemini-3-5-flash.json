@@ -1,0 +1,72 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+        "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+        "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+        "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:57:13Z",
+  "created_at": "2026-08-20T12:45:12Z",
+  "instructions": "Write the wiki definition for 'Gemini-3.5-Flash'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Gemini-3.5-Flash",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Gemini-3.5-Flash",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "Gemini-3.5-Flash",
+      "Gemini 3.5 Flash"
+    ],
+    "definition": "A fast Gemini model that appears three times in this archive, always as one entry in a comparison. On the industrial-safety reasoning benchmark it sits in the second tier at 78.7 percent overall accuracy, behind two GPT-5-generation models at 88.7 and 87.9 and ahead of Claude and Kimi entries -- a benchmark whose point is that the spread among untuned models reaches 51.3 points, so general multimodal capability does not transfer to safety reasoning. It is also among the models compared in the table-to-report Monte Carlo tree search work, and among those whose encrypted reasoning blocks were found interchangeable in the trace-extraction study, where the Gemini family showed full compatibility across every source-target pair tested. Nothing here describes the model itself.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__gemini-3-5-flash",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "test-time-scaling"
+  ]
+}

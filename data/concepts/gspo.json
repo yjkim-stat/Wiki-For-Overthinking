@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Group Sequence Policy Optimization"
+  ],
+  "definition": "A variant of group-relative policy optimization that operates at the sequence level rather than the token level, introduced to reduce the variance of the update. Neither source studies it directly; both use it to test whether a problem attributed to GRPO is really an estimator problem. In the subjective-verification study it is one of three algorithms applied to the same tasks -- alongside GRPO and a variant that removes length and standard-deviation normalization -- and its failure to rescue the mathematically strong model on three of four tasks is what licenses the paper's conclusion that reasoning collapse is a credit-assignment problem on tasks without a canonical correct trajectory rather than an optimization-bias artifact. In the entropy-dynamics work it appears in an analysis reducing whether an update raises or lowers entropy to the sign of one scalar per token. In this archive it therefore functions mainly as a control: a fix at the estimator level whose failure locates the problem elsewhere.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -74,7 +76,9 @@
     "qwen3-4b-base",
     "internlm3-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "dr-grpo"
+  ],
   "schema_version": 1,
   "slug": "gspo",
   "topics": [

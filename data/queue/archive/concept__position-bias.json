@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+        "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
+        "topics": [
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
+        "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
+        "topics": [
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:58:20Z",
+  "created_at": "2026-08-20T12:45:12Z",
+  "instructions": "Write the wiki definition for 'position bias'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "position bias",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "position bias",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "order bias"
+    ],
+    "definition": "A systematic preference for an answer or candidate because of where it appears rather than what it says. Its sharpest statement here is a paradox: a judge that deterministically prefers position A scores perfectly on test-retest reliability while being maximally biased, because test-retest measures the stability of outputs rather than the correctness of the decision process -- so the two coexist in the same judge and high reliability is no evidence against it. That comes from an evaluation of 21 judges over about 541,000 judgments, which also finds the field's standard validation metric overstates chance-corrected discrimination by 34 to 41 points universally. The second source shows the same failure inside a benchmark rather than a judge: on a test set deliberately balanced across answer positions, a base model scores 52.4 percent when the correct option is A against 31.6 to 33.6 percent elsewhere. The two together define the precaution -- balance the positions or swap them and re-run -- and the reason it cannot be skipped, which is that no measure of a judge's self-consistency will reveal the problem.",
+    "kind": "concept",
+    "related": [
+      "verbosity bias"
+    ]
+  },
+  "task_id": "concept__position-bias",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}

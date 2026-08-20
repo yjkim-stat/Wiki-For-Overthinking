@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The training dynamic in which a policy abandons extended deliberation for short heuristic guessing, because on tasks with no canonical correct trajectory the shorter route reaches the same outcome reward more cheaply. Its defining source measures it directly: under outcome-only RLVR on subjective verification tasks, mean terminated completion length falls sharply after roughly 70 steps, from about 300 tokens to about 170 -- the exact inverse of the simultaneous rise in length and accuracy that signals successful mathematical RLVR. The paper establishes it is not an optimization artifact by showing that two variants correcting length and variance biases fail to prevent it, and repairs it with a length bonus paid only when the answer is correct; ungated versions of the same bonus are either exploited to the context limit or spent on filler. The second source approaches the same territory from the other side, arguing that the tokens which externalise uncertainty are what let a model recover from silent divergence and that suppressing them costs recovery -- so what collapses is not merely length but the deliberative moves that length was carrying. Neither source gives the term a formal definition; it names a measured trajectory, and the diagnostic is the length curve rather than the accuracy curve.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -76,7 +76,9 @@
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "entropy-collapse"
+  ],
   "schema_version": 1,
   "slug": "reasoning-collapse",
   "topics": [

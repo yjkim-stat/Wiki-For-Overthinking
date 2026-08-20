@@ -1,0 +1,76 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+        "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.",
+        "title": "Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
+        "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:57:13Z",
+  "created_at": "2026-08-20T12:45:12Z",
+  "instructions": "Write the wiki definition for 'the Pile'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "the Pile",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "the Pile",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "Pile"
+    ],
+    "definition": "A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activations sparse autoencoders are trained on -- dictionaries in the foundational paper come from the first 10,000 elements, about 7 million activations -- and the same role recurs in the set-level instability work that takes the set of active latents as its unit and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active. It is also one of the corpora over which dense trained lenses are fitted at every layer and hookpoint. Its fourth appearance is different in kind: in the contamination-detectability work it figures in an analysis casting benchmark contamination auditing as sparse-mixture detection, where what matters about a pretraining corpus is its size relative to the contaminated fraction. No source here describes its composition.",
+    "kind": "dataset",
+    "related": []
+  },
+  "task_id": "concept__the-pile",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

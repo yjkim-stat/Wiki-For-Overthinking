@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
+        "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:58:20Z",
+  "created_at": "2026-08-20T12:45:12Z",
+  "instructions": "Write the wiki definition for 'reasoning collapse'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning collapse",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reasoning collapse",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The training dynamic in which a policy abandons extended deliberation for short heuristic guessing, because on tasks with no canonical correct trajectory the shorter route reaches the same outcome reward more cheaply. Its defining source measures it directly: under outcome-only RLVR on subjective verification tasks, mean terminated completion length falls sharply after roughly 70 steps, from about 300 tokens to about 170 -- the exact inverse of the simultaneous rise in length and accuracy that signals successful mathematical RLVR. The paper establishes it is not an optimization artifact by showing that two variants correcting length and variance biases fail to prevent it, and repairs it with a length bonus paid only when the answer is correct; ungated versions of the same bonus are either exploited to the context limit or spent on filler. The second source approaches the same territory from the other side, arguing that the tokens which externalise uncertainty are what let a model recover from silent divergence and that suppressing them costs recovery -- so what collapses is not merely length but the deliberative moves that length was carrying. Neither source gives the term a formal definition; it names a measured trajectory, and the diagnostic is the length curve rather than the accuracy curve.",
+    "kind": "concept",
+    "related": [
+      "entropy collapse"
+    ]
+  },
+  "task_id": "concept__reasoning-collapse",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training"
+  ]
+}

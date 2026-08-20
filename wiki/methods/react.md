@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An agent format interleaving a written thought, a chosen action, its input and the returned observation, repeated until an answer. In these sources it is infrastructure rather than a contribution -- the format that supervised trajectories are written in, that policies are fine-tuned to emit parsably, and that tool-augmented systems are built on. Two of the sources use it while establishing something about what that format does not guarantee. The tool-orchestration work fine-tunes a policy on ReAct-formatted trajectories and then shows that behaviour cloning on them plateaus, and that removing a global completion reward leaves per-step decision and tool-selection accuracy at 100 percent while whole-response accuracy falls to 29.92 percent -- correct steps in the correct format, never terminating. The agent-contamination work uses ReAct-style systems as the setting in which implicit state persists across sessions through name binding and event triggering, invisible to logging that records only the tool calls the format makes explicit. The archive's reading is that ReAct makes the reasoning and the action legible in the transcript without making the state that drives them legible.
 
 - **Kind**: method
+- **Also called**: Reason+Act
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

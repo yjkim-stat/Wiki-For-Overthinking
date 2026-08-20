@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How much of the space of correct solutions a model can reach at all, as distinct from how often it reaches one. The two sources use the idea at opposite ends of training. Measured by pass@k at large k, base models cover more than their RLVR-trained descendants, which is the basis for reading RLVR as sharpening the sampling distribution toward paths the base already had rather than adding new ones. In distillation, coverage is a property of the supervision rather than of the policy: teacher-preferred tokens the student rarely samples are never reached by an on-policy update, and 95.5 percent of such deficit positions have under a one percent chance of appearing in sampled supervision -- which is why that paper injects teacher probability mass analytically rather than waiting for those positions to be drawn. Neither source defines coverage formally; between them they establish that a training signal restricted to what the current policy samples cannot expand what it samples, which is the same constraint in both settings.
 
 - **Kind**: concept
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
