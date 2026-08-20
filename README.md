@@ -374,6 +374,7 @@ python3 -m pipelines.enrich.queue list | next  [--kind paper] [--by id|sources|r
 python3 -m pipelines.enrich.synthesis add --question "..." --concept <slug>
 python3 -m pipelines.enrich.lookup add --subject spelling --about "..."
 python3 -m pipelines.duplicates [--json] [--limit N]   # concept slugs that may be one entity
+python3 -m pipelines.digest [--date YYYY-MM-DD]        # what a night of reading did
 python3 -m pipelines.migrate status   # which roots, and what each channel carries
 python3 -m pipelines.serve            # answer questions about the archive, read-only, on 127.0.0.1
 scripts/daily.sh               # collect, then render

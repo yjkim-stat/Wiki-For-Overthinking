@@ -86,3 +86,4 @@ reference for everything built before the practice existed.
 | 0071 | [Which end of the backlog to drain](0071-which-end-of-the-backlog-to-drain.md) | feature | Filename order is alphabetical order, so a partial drain was reading the archive by arXiv number |
 | 0072 | [Two names for one entity](0072-two-names-for-one-entity.md) | feature | A term spelled two ways splits into two records, and neither is wrong about anything — so the report suggests and writes nothing |
 | 0062 | [A position its subject has outgrown](0062-a-position-its-subject-has-outgrown.md) | feature | A finding sits above the sources, and goes on reading the same at thirty as it did at three |
+| 0063 | [A night that collected nothing](0063-a-night-that-collected-nothing.md) | feature | The reading survived only in a commit message, which is outside the thing it is about |
