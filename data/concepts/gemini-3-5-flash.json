@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
       "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation"
+    },
+    {
+      "id": "arxiv:2608.09230",
+      "kind": "paper",
+      "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+      "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
     }
   ],
   "first_seen": "2026-08-13T04:27:36Z",
   "kind": "model",
-  "last_seen": "2026-08-13T04:27:36Z",
+  "last_seen": "2026-08-20T12:38:16Z",
   "name": "Gemini-3.5-Flash",
   "related": [
     "monte-carlo-tree-search",
@@ -36,12 +42,51 @@
     "qwen3-vl-235b",
     "deepseek-r1",
     "qwen3-coder-32b",
-    "tablegpt2-7b"
+    "tablegpt2-7b",
+    "multi-hop-reasoning",
+    "evidence-grounding",
+    "benchmark-design",
+    "position-bias",
+    "calibration",
+    "macro-versus-micro-accuracy",
+    "chain-of-thought-supervision",
+    "domain-transfer",
+    "benchmark-contamination",
+    "safety-critical-evaluation",
+    "scene-graph-construction",
+    "program-execution",
+    "evidence-graph-construction",
+    "lora",
+    "supervised-fine-tuning",
+    "chain-of-thought-prompting",
+    "chain-of-thought-distillation",
+    "decontamination",
+    "multiple-choice-evaluation",
+    "adamw",
+    "document-parsing",
+    "safescenereason",
+    "osha-accident-reports",
+    "niosh-face",
+    "csb-investigation-reports",
+    "constructionsite-10k",
+    "industryeqa",
+    "isafetybench",
+    "steelbench",
+    "inspecsafe-v1",
+    "gpt-5-6-sol",
+    "gpt-5-5",
+    "gemini-3-1-pro",
+    "claude-fable-5",
+    "kimi-k2-6",
+    "qwen3-6-27b",
+    "qwen3-5-9b",
+    "mineru"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "gemini-3-5-flash",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

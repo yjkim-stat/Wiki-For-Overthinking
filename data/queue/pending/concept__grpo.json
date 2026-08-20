@@ -231,6 +231,18 @@
       },
       {
         "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
         "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
         "topics": [
@@ -488,7 +500,7 @@
   },
   "payload": {
     "name": "GRPO",
-    "source_count": 39
+    "source_count": 40
   },
   "task_id": "concept__grpo",
   "task_version": 1,

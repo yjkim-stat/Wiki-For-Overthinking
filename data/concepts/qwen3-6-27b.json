@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.",
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
+    },
+    {
+      "id": "arxiv:2608.09230",
+      "kind": "paper",
+      "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+      "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T12:38:15Z",
   "name": "Qwen3.6-27B",
   "related": [
     "linear-probe",
@@ -47,12 +53,51 @@
     "yi-1-5-9b-chat",
     "yi-1-5-34b-chat",
     "olmo-3-1-32b-instruct",
-    "tiny-aya-global"
+    "tiny-aya-global",
+    "multi-hop-reasoning",
+    "evidence-grounding",
+    "benchmark-design",
+    "position-bias",
+    "calibration",
+    "macro-versus-micro-accuracy",
+    "chain-of-thought-supervision",
+    "domain-transfer",
+    "benchmark-contamination",
+    "safety-critical-evaluation",
+    "scene-graph-construction",
+    "program-execution",
+    "evidence-graph-construction",
+    "lora",
+    "supervised-fine-tuning",
+    "chain-of-thought-prompting",
+    "chain-of-thought-distillation",
+    "decontamination",
+    "multiple-choice-evaluation",
+    "adamw",
+    "document-parsing",
+    "safescenereason",
+    "osha-accident-reports",
+    "niosh-face",
+    "csb-investigation-reports",
+    "constructionsite-10k",
+    "industryeqa",
+    "isafetybench",
+    "steelbench",
+    "inspecsafe-v1",
+    "gpt-5-6-sol",
+    "gpt-5-5",
+    "gemini-3-1-pro",
+    "gemini-3-5-flash",
+    "claude-fable-5",
+    "kimi-k2-6",
+    "qwen3-5-9b",
+    "mineru"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "qwen3-6-27b",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

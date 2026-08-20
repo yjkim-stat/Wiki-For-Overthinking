@@ -9,7 +9,7 @@ Judging whether a reasoning step or a solution is wrong, treated by the sources 
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [activation probing](../methods/activation-probing.md), [construct validity](construct-validity.md), [effective depth](effective-depth.md), [GPT-4o](../models/gpt-4o.md), [linear probe](../methods/linear-probe.md), [localization](localization.md), [multimodal reasoning](multimodal-reasoning.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [process evaluation](../methods/process-evaluation.md), [reasoning trajectory](reasoning-trajectory.md), [residual stream](residual-stream.md), [verification](verification.md)
+**Related**: [activation probing](../methods/activation-probing.md), [construct validity](construct-validity.md), [effective depth](effective-depth.md), [GPT-4o](../models/gpt-4o.md), [linear probe](../methods/linear-probe.md), [localization](localization.md), [multimodal reasoning](multimodal-reasoning.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [process evaluation](../methods/process-evaluation.md), [reasoning trajectory](reasoning-trajectory.md), [residual stream](residual-stream.md), [shortcut learning](shortcut-learning.md), [verification](verification.md)
 
 ## Appears in
 

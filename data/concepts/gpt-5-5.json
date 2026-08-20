@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
       "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning"
+    },
+    {
+      "id": "arxiv:2608.09230",
+      "kind": "paper",
+      "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+      "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
     }
   ],
   "first_seen": "2026-08-13T01:02:17Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T12:38:15Z",
   "name": "GPT-5.5",
   "related": [
     "credit-assignment",
@@ -72,7 +78,41 @@
     "gpt-4-1",
     "claude-3-7-sonnet",
     "gemini-1-5-pro",
-    "paddleocr-vl-1-5"
+    "paddleocr-vl-1-5",
+    "evidence-grounding",
+    "benchmark-design",
+    "position-bias",
+    "calibration",
+    "macro-versus-micro-accuracy",
+    "chain-of-thought-supervision",
+    "domain-transfer",
+    "benchmark-contamination",
+    "safety-critical-evaluation",
+    "scene-graph-construction",
+    "program-execution",
+    "evidence-graph-construction",
+    "lora",
+    "chain-of-thought-distillation",
+    "decontamination",
+    "multiple-choice-evaluation",
+    "adamw",
+    "document-parsing",
+    "safescenereason",
+    "osha-accident-reports",
+    "niosh-face",
+    "csb-investigation-reports",
+    "constructionsite-10k",
+    "industryeqa",
+    "isafetybench",
+    "steelbench",
+    "inspecsafe-v1",
+    "gpt-5-6-sol",
+    "gemini-3-5-flash",
+    "claude-fable-5",
+    "kimi-k2-6",
+    "qwen3-6-27b",
+    "qwen3-5-9b",
+    "mineru"
   ],
   "related_authored": [
     "llm-as-a-judge"
@@ -80,6 +120,7 @@
   "schema_version": 1,
   "slug": "gpt-5-5",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.
 
-Built from 56 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-12. 47 of the papers have been read in full.
+Built from 56 paper(s) and 0 recording(s) spanning 2021-10-27 to 2026-08-12. 48 of the papers have been read in full.
 
 Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reasoning`, `logical reasoning`, `competition math`, `math word problem`, `GSM8K`, `AIME`, `benchmark contamination`, `data contamination`, `LLM as a judge`, `reasoning evaluation`, `evaluating reasoning`, `ARC AGI`.
 
@@ -20,7 +20,7 @@ Tracked terms: `reasoning benchmark`, `mathematical reasoning`, `multi-step reas
 - **LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation** _(not yet summarized)_
 - **Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection** _(not yet summarized)_
 - **V-FiLLM: Verified Financial LLM Reasoning Benchmark** _(not yet summarized)_
-- **SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge** _(not yet summarized)_
+- **SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge** — Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.
 - **Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training** — Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.
 - **Mismatch Matters: On-Policy Distillation Beyond Token Agreement** _(not yet summarized)_
 - **Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents** _(not yet summarized)_
@@ -124,23 +124,23 @@ Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded 
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 39 | _pending_ |
-| LLM-as-a-judge | 32 | _pending_ |
-| supervised fine-tuning | 32 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
-| linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| GRPO | 40 | _pending_ |
+| LLM-as-a-judge | 33 | _pending_ |
+| supervised fine-tuning | 33 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| linear probe | 25 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| self-consistency | 19 | _pending_ |
-| test-time scaling | 18 | _pending_ |
+| self-consistency | 20 | _pending_ |
+| test-time scaling | 19 | _pending_ |
+| chain-of-thought prompting | 18 | _pending_ |
 | activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
-| chain-of-thought prompting | 16 | _pending_ |
 | pass@k | 16 | _pending_ |
-| activation steering | 14 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
+| activation steering | 15 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| majority voting | 13 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
+| calibration | 11 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
-| calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
-| LoRA | 9 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
+| LoRA | 10 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | process reward model | 9 | _pending_ |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
@@ -185,35 +185,36 @@ Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded 
 2. **Training Verifiers to Solve Math Word Problems** (2021)
    - Introduces GSM8K, 8.5K grade-school math word problems, and shows that training a verifier to rank many sampled solutions beats finetuning the generator directly.
    - <https://arxiv.org/abs/2110.14168>
-3. **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** (2026)
+3. **SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge** (2026)
+   - Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.
+   - <https://arxiv.org/abs/2608.09230>
+4. **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** (2026)
    - Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.
    - <https://arxiv.org/abs/2608.07914>
-4. **Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination** (2026)
+5. **Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination** (2026)
    - Shows that the standard metric for judging contamination-mitigation strategies can be scored by cancellation rather than by restoration, replaces it with a per-question stratified metric under which the published ranking reverses, and proposes a mitigation that decides its intervention during decoding instead of from a prior estimate.
    - <https://arxiv.org/abs/2608.07341>
-5. **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** (2026)
+6. **Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation** (2026)
    - Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.
    - <https://arxiv.org/abs/2608.05726>
-6. **Hierarchical Latent Prediction for Language Models** (2026)
+7. **Hierarchical Latent Prediction for Language Models** (2026)
    - Adds a higher-level abstract latent as an auxiliary pretraining target to reduce compounding error in latent-space rollouts, aiming at longer-horizon coherence than multi-token or next-latent prediction.
    - <https://arxiv.org/abs/2608.05806>
-7. **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** (2026)
+8. **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** (2026)
    - Weights on-policy self-distillation supervision by how each local teacher-student divergence compares to the sequence mean, gating backward multi-step aggregation on that comparison.
    - <https://arxiv.org/abs/2608.06243>
-8. **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** (2026)
+9. **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** (2026)
    - Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.
    - <https://arxiv.org/abs/2608.06347>
-9. **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** (2026)
+10. **SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark** (2026)
    - Decomposes mathematical problem-solving into four cognitive dimensions after Polya and tests each separately, finding wide capability gaps that final-answer accuracy hides.
    - <https://doi.org/10.18653/v1/2026.acl-long.1638>
-10. **VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning** (2026)
-   - Benchmarks whether multimodal models can construct visual aids for geometry problems, and finds high answer accuracy conceals near-total failure at producing or reasoning from those aids.
-   - <https://doi.org/10.18653/v1/2026.acl-long.1719>
 
 ## Open problems
 
 Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
 
+- **SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge** — Stated: the benchmark is described as a focused step rather than a representation of the occupational-safety lifecycle, with coverage bounded by the available workplace annotations, the selected accident-report sources and the safety concepts that traceable visual and textual evidence can support; small domains carry wide intervals that the authors explicitly warn against over-reading; and they conclude that high aggregate accuracy is insufficient for safety-critical use given the persistent failures in evidence integration, calibration and intervention selection. Not stated but worth noticing: the headline that a 9B model matches frontier systems is a within-distribution result -- it is fine-tuned on this corpus and evaluated on this corpus's test split, so it measures how learnable the benchmark's question templates are, not safety reasoning transfer, and the paper offers no held-out evaluation on a different safety resource. The evaluation is entirely multiple choice scored by exact option match, which cannot distinguish a correct answer reached from the wrong evidence, and the mitigation category -- arguably the one that matters for deployment -- rests on 27 questions. Scene-centric answers are deterministic by construction because they are program outputs over a scene graph, so their correctness inherits whatever the underlying annotations and rule encodings assume, and the report-centric half depends on MinerU's parsing of figures and captions from PDFs. Finally the domain-difficulty analysis uses a historical Kimi-K2.6 replay at 65.0% overall rather than the benchmark table, so the domain conclusions rest on one mid-tier model.
 - **Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training** — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-graded rewards is open; evaluation is text-only; and compute limits confine experiments to smaller models, with larger scales left to future work. That last sentence says 'up to 8B parameters' while the models actually used are Qwen3-1.7B, Qwen3-4B and Llama-3.2-3B, so the stated ceiling is not the one exercised. A reader should add that all results are means over two seeds with no variance reported, and the standalone gains are 1.3 to 2.1 accuracy points -- real and consistent in direction across every cell, but small enough that two seeds is thin support for any individual number; the steps-to-baseline reductions are the more robust claim. Learnability is explicitly regime-conditional, so a prior estimated for one model family, algorithm and reward is not a property of the task, and the cross-regime reuse section reports transfer as useful but weaker than in-regime estimation. Finally, the probe reduction is verified by rank correlation against the oracle on one model and one pool, so the 0.940/0.876 figures are the evidence that the whole estimator rests on and they are measured once.
 - **PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation** — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 30-problem competition sets, so despite Avg@12 and a stratified paired bootstrap the confidence interval spans 2.6 to 8.3 points -- the effect is clearly positive but its size is not well determined. The scale check is a single seed and regresses on one of three tasks, so 'task-dependent gains' is the accurate reading and generality beyond 1.7B is not established. Most ablations are one seed, including the objective, regularization and sampling studies. The comparison holds the student-update count fixed, which is the right control for the claim being made but is not compute parity: PAST additionally trains a teacher and draws teacher samples, and the authors report those costs in a separate table rather than equalising them, so nothing here shows PAST beats a baseline given the same total budget. The theory is stated for the unclipped population objective under support and integrability conditions while the implementation uses pointwise clipping and a shared-parameter policy, so the fixed-point and improvement-direction results characterise the target the implementation aims at rather than the update it performs. Finally, verified success is the only outcome signal, so everything here is confined to domains with a reliable verifier.
 - **When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits** — The paper's own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption rather than a law of training: contaminated examples can affect unexposed ones and post-training can alter both the clean and seen channels, and the stability diagnostics can reveal large violations but cannot prove transportability. The lower bound is pointwise in a chosen behavioural access channel and says nothing about direct corpus search, cryptographic provenance or watermarking. The matching optimality is local and assumes finite chi-square divergence. The certificate needs independent matched controls and a score learned on separate data, which an external auditor of a closed model generally cannot construct, so neither efficacy nor the exposed fraction is identified without extra assumptions. Six named gaps are open and unexecuted, including the locked external validation on the 25-model release that motivates the paper. A reader should add that the causal exposure claim rests on one base checkpoint (pythia-160m), one benchmark (SQuAD), one copy count and one protocol; that 'Pile-trained' does not certify the base never saw SQuAD, so only the incremental effect of the paired continuations is claimed; that the mechanism arms are not dose-matched, so the ordering is descriptive rather than a causal comparison; and that the three adjacent mechanism differences are significant per seed by sign-test but not after Holm correction.
@@ -225,7 +226,6 @@ Drawn from the limitations each paper states about itself, so this is what the f
 - **DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models** — No effect sizes, benchmark names or model scales in the abstract, so the improvement is directional only. The baseline is the authors' own matched OPSD reruns, which is the right comparison but leaves the absolute standing against other dense-supervision methods unstated. Requires a privileged teacher. The sequence-level mean as the reference point makes each token's weight depend on the whole rollout, so weights are not available online during generation.
 - **RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer** — No effect sizes, benchmark names or model scales in the abstract. The pivot proxy is defined by sensitivity to an English reference, so it presupposes English as the anchor and identifies pivots relative to that anchor rather than intrinsically. Restricted to mathematical reasoning. The claim that the method separates reasoning-control tokens from surface-realization tokens is an analysis of its own weights, not an independent validation.
 - **Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs** — Improvements are stated as 'up to', so the typical gain is lower than 12%/21%. Benchmarks and models are not named in the abstract. Transfer to factual tasks supports a correctness signal but leaves open whether the signal is correctness or a correlate such as fluency or confidence. The detector needs white-box access to multi-layer activations, so it cannot monitor an API model.
-- **Constraint-First Reasoning: A Training-Free Protocol for Exploiting Answer-Space Constraints in Mathematical Problem Solving** — Effect sizes are not given in the abstract. The benefit is explicitly conditional on the problem having recoverable constraints and on Stage 1 extracting them correctly, so it does not generalize to problems whose answer space is unconstrained. The router is a text-only regex, which bounds how well restrictive cues can be detected. Backbones are not named.
 
 ## References
 

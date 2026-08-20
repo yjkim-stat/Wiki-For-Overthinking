@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
       "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning"
+    },
+    {
+      "id": "arxiv:2608.09230",
+      "kind": "paper",
+      "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+      "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge"
     }
   ],
   "first_seen": "2026-08-13T00:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-13T00:45:49Z",
+  "last_seen": "2026-08-20T12:38:15Z",
   "name": "Qwen3.5-9B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -39,7 +45,44 @@
     "qwen3-6-35b-a3b",
     "huihui-qwen3-14b-abliterated-v2",
     "gpt-4o",
-    "gpt-4o-mini"
+    "gpt-4o-mini",
+    "multi-hop-reasoning",
+    "evidence-grounding",
+    "benchmark-design",
+    "position-bias",
+    "calibration",
+    "macro-versus-micro-accuracy",
+    "chain-of-thought-supervision",
+    "domain-transfer",
+    "benchmark-contamination",
+    "safety-critical-evaluation",
+    "scene-graph-construction",
+    "program-execution",
+    "evidence-graph-construction",
+    "lora",
+    "chain-of-thought-prompting",
+    "chain-of-thought-distillation",
+    "decontamination",
+    "multiple-choice-evaluation",
+    "adamw",
+    "document-parsing",
+    "safescenereason",
+    "osha-accident-reports",
+    "niosh-face",
+    "csb-investigation-reports",
+    "constructionsite-10k",
+    "industryeqa",
+    "isafetybench",
+    "steelbench",
+    "inspecsafe-v1",
+    "gpt-5-6-sol",
+    "gpt-5-5",
+    "gemini-3-1-pro",
+    "gemini-3-5-flash",
+    "claude-fable-5",
+    "kimi-k2-6",
+    "qwen3-6-27b",
+    "mineru"
   ],
   "related_authored": [],
   "schema_version": 1,
@@ -47,6 +90,7 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

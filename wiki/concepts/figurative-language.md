@@ -9,7 +9,7 @@ Expressions whose meaning is not composed from their parts — proverbs, idioms,
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [abstention](abstention.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [compositional generalization](compositional-generalization.md), [construct validity](construct-validity.md), [memorization](memorization.md)
+**Related**: [abstention](abstention.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [compositional generalization](compositional-generalization.md), [construct validity](construct-validity.md), [memorization](memorization.md), [multiple-choice evaluation](../methods/multiple-choice-evaluation.md)
 
 ## Appears in
 

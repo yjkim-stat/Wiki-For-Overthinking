@@ -44,7 +44,7 @@ Not discussed in the abstract. What a reader of this archive should note is down
 
 ## Entities
 
-- **Concepts**: multi-step mathematical reasoning, [verification](../../../../wiki/concepts/verification.md), generative vs discriminative scaling, sampling and reranking, benchmark design
+- **Concepts**: multi-step mathematical reasoning, [verification](../../../../wiki/concepts/verification.md), generative vs discriminative scaling, sampling and reranking, [benchmark design](../../../../wiki/concepts/benchmark-design.md)
 - **Methods**: verifier training, test-time reranking, [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md)
 

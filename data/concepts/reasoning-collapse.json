@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08889",
+      "kind": "paper",
+      "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+      "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing"
+    },
+    {
       "id": "local:99019f66bdc27581",
       "kind": "paper",
       "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
@@ -11,9 +17,35 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T12:38:16Z",
   "name": "reasoning collapse",
   "related": [
+    "rlvr",
+    "reward-hacking",
+    "reward-shaping",
+    "credit-assignment",
+    "outcome-reward",
+    "subjective-evaluation",
+    "llm-as-a-judge",
+    "self-consistency",
+    "persona-conditioning",
+    "prompt-sensitivity",
+    "test-time-scaling",
+    "length-control",
+    "grpo",
+    "dr-grpo",
+    "gspo",
+    "chain-of-thought-prompting",
+    "majority-voting",
+    "persona-prompting",
+    "length-penalty",
+    "netflix-conversational-query-sensitivity-internal",
+    "netflix-generated-text-response-sensitivity-internal",
+    "netflix-text-response-quality-internal",
+    "netflix-id-response-quality-internal",
+    "public-roleplay-persona-dataset",
+    "qwen2-5-7b-instruct",
+    "mistral-7b-instruct",
     "epistemic-verbalization",
     "procedural-information",
     "silent-divergence",
@@ -29,7 +61,6 @@
     "trajectory-truncation-and-resampling",
     "epistemic-token-masking",
     "self-distillation-sft",
-    "llm-as-a-judge",
     "supervised-fine-tuning",
     "aime-2024",
     "aime-2025",
@@ -49,7 +80,7 @@
   "schema_version": 1,
   "slug": "reasoning-collapse",
   "topics": [
-    "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-faithfulness"
   ]
 }

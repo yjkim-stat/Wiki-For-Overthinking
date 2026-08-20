@@ -1,0 +1,22 @@
+# position bias
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: concept
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
+- **Sources**: 2
+
+**Related**: [benchmark contamination](benchmark-contamination.md), [benchmark design](benchmark-design.md), [calibration](../methods/calibration.md), [chain-of-thought distillation](../methods/chain-of-thought-distillation.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](construct-validity.md), [decontamination](../methods/decontamination.md), [DeepSeek-V3.2](../models/deepseek-v3-2.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemini-3.1-Pro](../models/gemini-3-1-pro.md), [Gemini-3.5-Flash](../models/gemini-3-5-flash.md), [GPT-4o](../models/gpt-4o.md), [GPT-5.5](../models/gpt-5-5.md), [Kimi-K2.5](../models/kimi-k2-5.md), [Llama-3.3-70B](../models/llama-3-3-70b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [LoRA](../methods/lora.md), [meta-evaluation](meta-evaluation.md), [MT-Bench](../datasets/mt-bench.md), [multi-hop reasoning](multi-hop-reasoning.md), [multiple-choice evaluation](../methods/multiple-choice-evaluation.md), [Qwen3.5-9B](../models/qwen3-5-9b.md), [Qwen3.6-27B](../models/qwen3-6-27b.md), [Qwen3-8B](../models/qwen3-8b.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
+
+## Appears in
+
+- [SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge](../../archive/papers/2026/arxiv-2608-09230/summary.md) — Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.
+- [Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias](../../archive/papers/2026/local-504cc53656b06ab4/summary.md) — Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

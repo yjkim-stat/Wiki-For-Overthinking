@@ -243,6 +243,18 @@
       },
       {
         "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
         "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
         "topics": [
@@ -404,7 +416,7 @@
   },
   "payload": {
     "name": "LLM-as-a-judge",
-    "source_count": 32
+    "source_count": 33
   },
   "task_id": "concept__llm-as-a-judge",
   "task_version": 1,

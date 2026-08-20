@@ -48,7 +48,7 @@ The authors name three: other latent-reasoning families are untested, including 
 ## Entities
 
 - **Concepts**: Superposition in Latent Reasoning, Forced Superposition, Learned Superposition, Latent Chain-of-Thought, Continuous Thought, Shortcut Solution, [Entropy Collapse](../../../../wiki/concepts/entropy-collapse.md), Width Bottleneck, Entity Belief Evolution, Discretization Bottleneck
-- **Methods**: [Logit Lens](../../../../wiki/methods/logit-lens.md), [Soft Thinking](../../../../wiki/methods/soft-thinking.md), [Coconut](../../../../wiki/methods/coconut.md), Entity-Level Probing, [Causal Intervention](../../../../wiki/methods/causal-intervention.md), Staged Curriculum Training, [Chain-of-Thought Prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
+- **Methods**: [Logit Lens](../../../../wiki/methods/logit-lens.md), [Soft Thinking](../../../../wiki/methods/soft-thinking.md), [Coconut](../../../../wiki/methods/coconut.md), Entity-Level Probing, Causal Intervention, Staged Curriculum Training, [Chain-of-Thought Prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
 - **Datasets**: [ProsQA](../../../../wiki/datasets/prosqa.md), [ProntoQA](../../../../wiki/datasets/prontoqa.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
 Tags: `latent reasoning`, `superposition`, `continuous chain of thought`, `logit lens`, `shortcut learning`, `entropy collapse`, `embedding width`

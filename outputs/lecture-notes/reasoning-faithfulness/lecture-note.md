@@ -127,18 +127,18 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 39 | _pending_ |
-| LLM-as-a-judge | 32 | _pending_ |
-| supervised fine-tuning | 32 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
-| linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| GRPO | 40 | _pending_ |
+| LLM-as-a-judge | 33 | _pending_ |
+| supervised fine-tuning | 33 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| linear probe | 25 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| self-consistency | 19 | _pending_ |
-| test-time scaling | 18 | _pending_ |
+| self-consistency | 20 | _pending_ |
+| test-time scaling | 19 | _pending_ |
+| chain-of-thought prompting | 18 | _pending_ |
 | activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
-| chain-of-thought prompting | 16 | _pending_ |
 | pass@k | 16 | _pending_ |
-| activation steering | 14 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
+| activation steering | 15 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | process reward model | 9 | _pending_ |
