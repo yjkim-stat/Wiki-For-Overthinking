@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "MBPP"
+  ],
   "definition": "A Python program-synthesis benchmark, used in both sources as the coding leg of a multi-domain suite rather than as an object of study — the check that a method aimed at mathematical reasoning has not simply overfit to it. It is where one source's failure is starkest: a ternary-quantized model calibrated on generic web text scores 0.00 on it and 39.15 when calibrated on the model's own reasoning traces, against 37.03 for a 1.58-bit model trained from scratch on four trillion tokens. The other reports it among the tasks where representation-based exploration improves samples-to-correct by over 50 percent for a 14B model.",
   "evidence": [
     {
@@ -7,6 +9,12 @@
       "kind": "paper",
       "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
       "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization"
+    },
+    {
+      "id": "arxiv:2608.07147",
+      "kind": "paper",
+      "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+      "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training"
     },
     {
       "id": "arxiv:2608.08266",
@@ -29,7 +37,7 @@
   ],
   "first_seen": "2026-08-08T05:59:48Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T14:05:59Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "MBPP+",
   "related": [
     "post-training-quantization",
@@ -59,6 +67,36 @@
     "qwen3-235b-a22b",
     "bitnet-b1-58-2b4t",
     "deepseek-r1-671b",
+    "credit-assignment",
+    "verifiable-reward",
+    "outcome-reward",
+    "advantage-estimation",
+    "group-relative-advantage",
+    "zero-advantage-group",
+    "long-horizon-agency",
+    "didpo",
+    "grpo",
+    "gigpo",
+    "coderl",
+    "codeact",
+    "self-planning",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "rejection-sampling",
+    "groupability-score",
+    "apps",
+    "livecodebench",
+    "leetcode",
+    "usaco",
+    "ojbench",
+    "icpc",
+    "qwen2-5-coder-7b",
+    "qwen3-5-4b",
+    "qwen3-6-27b",
+    "gpt-5-5",
+    "kimi-k2-6",
+    "glm-5-2",
+    "skywork-or1",
     "linear-probe",
     "interpretability-illusion",
     "operating-point",
@@ -116,7 +154,6 @@
     "exploration-exploitation-trade-off",
     "prompt-difficulty",
     "repexp",
-    "grpo",
     "elliptical-bonus-sampling",
     "sparse-random-projection",
     "nucleus-sampling",

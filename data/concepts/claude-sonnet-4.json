@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Claude Sonnet 4"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.",
       "title": "Persistent Semantic Entities in Tool-Augmented LLM Systems"
+    },
+    {
+      "id": "arxiv:2608.08830",
+      "kind": "paper",
+      "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+      "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary"
     }
   ],
   "first_seen": "2026-08-20T12:24:18Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:24:18Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "Claude-Sonnet-4",
   "related": [
     "persistent-semantic-entity",
@@ -62,7 +70,29 @@
     "glm-4-plus",
     "kimi-k2-1t",
     "cogito-2-1-671b",
-    "minimax-text-01"
+    "minimax-text-01",
+    "legal-statute-prediction",
+    "explanation-faithfulness",
+    "annotation-agreement",
+    "human-evaluation",
+    "in-context-learning",
+    "search-over-reasoning",
+    "chain-of-thought-prompting",
+    "tree-of-thoughts",
+    "few-shot-prompting",
+    "zero-shot-prompting",
+    "k-nearest-neighbour-exemplar-selection",
+    "multi-label-classification",
+    "proslex",
+    "indian-supreme-court-judgements-corpus",
+    "inlegalbert",
+    "legalbert",
+    "bert-base",
+    "longformer",
+    "roberta",
+    "gpt-4",
+    "llama-3-1-70b",
+    "deepseek-r1-distill-llama-70b"
   ],
   "related_authored": [],
   "schema_version": 1,

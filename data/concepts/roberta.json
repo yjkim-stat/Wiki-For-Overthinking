@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
       "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework"
+    },
+    {
+      "id": "arxiv:2608.08830",
+      "kind": "paper",
+      "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+      "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:37:19Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "RoBERTa",
   "related": [
     "intent-classification",
@@ -78,7 +84,27 @@
     "deepseek-r1",
     "qwq-32b",
     "mixtral-8x7b",
-    "falcon"
+    "falcon",
+    "legal-statute-prediction",
+    "explanation-faithfulness",
+    "annotation-agreement",
+    "human-evaluation",
+    "in-context-learning",
+    "search-over-reasoning",
+    "tree-of-thoughts",
+    "few-shot-prompting",
+    "zero-shot-prompting",
+    "k-nearest-neighbour-exemplar-selection",
+    "multi-label-classification",
+    "proslex",
+    "indian-supreme-court-judgements-corpus",
+    "inlegalbert",
+    "legalbert",
+    "bert-base",
+    "longformer",
+    "claude-sonnet-4",
+    "llama-3-1-70b",
+    "deepseek-r1-distill-llama-70b"
   ],
   "related_authored": [],
   "schema_version": 1,
@@ -87,6 +113,7 @@
     "reasoning-interpretability",
     "reasoning-evaluation",
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

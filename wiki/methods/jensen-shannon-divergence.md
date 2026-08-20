@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A symmetric, bounded divergence between two distributions, measuring each against their mixture. The two sources here use it for opposite purposes and reach opposite verdicts, which is the whole of what the archive knows about it. As a distillation objective it fails: the unsupervised self-distillation work sweeps divergences under pseudo-labels and finds symmetric JSD costing 13.8 percent and landing level with the untrained model, against forward KL's 57.10 average -- symmetry buying nothing where the teacher is the thing being trusted. As a token-selection criterion it works: the distributional-deviation work argues Shannon entropy is the wrong signal for choosing which tokens to train on in verifiable-reward RL, and selects instead the top ten percent of tokens by the JSD of their logit distribution from the group average, so what is trained is where a rollout departs from its siblings rather than where the model is merely uncertain. The distinction worth carrying is between using a divergence as a loss and using it as a measurement.
 
 - **Kind**: method
+- **Also called**: JSD
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

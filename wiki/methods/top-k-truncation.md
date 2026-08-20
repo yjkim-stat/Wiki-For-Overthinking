@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Restricting a distillation objective to the teacher's highest-probability vocabulary entries rather than matching the full distribution. Both sources treat the choice as an empirical question rather than an efficiency detail. The unsupervised self-distillation work re-runs it under pseudo-labels because the settings established for it were established under gold supervision, sweeping truncations from twenty upward against full-vocabulary divergence and against sampled-token distillation, and finds the full-vocabulary objective ahead by a wider margin under pseudo-labels than under gold. The mismatch work supplies the mechanism for why the tail matters: a student can reach near-perfect agreement on the tokens it does sample while the response as a whole degenerates, and one of its two corrections works precisely by injecting teacher-preferred mass at positions the student almost never samples -- exactly the mass a truncated objective discards. The reading is that truncation is safe in proportion to how much the student already covers the teacher's support, which is least true where distillation is most needed.
 
 - **Kind**: method
-- **Also called**: top-K truncation
+- **Also called**: top-K truncation, top-k distillation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 

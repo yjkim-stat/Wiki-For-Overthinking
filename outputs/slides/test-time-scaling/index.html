@@ -246,8 +246,8 @@ th { background: var(--surface); }
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
-<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>credit assignment</strong> — Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end....</li>
+<li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>chain of thought faithfulness</strong> — Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The...</li>
 <li><strong>test-time scaling</strong> — Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different th...</li>
 <li><strong>adaptive compute allocation</strong> — Spending inference compute unevenly -- more on the inputs that need it, less or none on the ones that do not -- rather than fixing a unif...</li>
@@ -257,11 +257,11 @@ th { background: var(--surface); }
 <h2>Methods</h2>
 <ul>
 <li><strong>GRPO</strong> — Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion&#x27;s advanta...</li>
-<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
+<li><strong>chain-of-thought prompting</strong> — Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think ste...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
-<li><strong>self-consistency</strong> — Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It...</li>
 </ul>
 </section>
 <section class="slide">
@@ -294,7 +294,7 @@ th { background: var(--surface); }
 <li><strong>Consilience for Verifier-Free Test-Time Scaling</strong> — Stated in part. The authors report the gap between their frozen defaults and per-set tuning and do not hide that tuning helps, and they report the wall-clock...</li>
 <li><strong>Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy</strong> — The paper has no limitations section. What a reader should notice is substantial. Every evaluation set is tiny -- 58, 38, 46 and 55 items -- with per-class s...</li>
 <li><strong>MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models</strong> — Stated or directly visible. The in-domain null is on one 291-item test set and its sign varies by seed, which the authors report rather than selecting the fa...</li>
-<li><strong>Persistent Semantic Entities in Tool-Augmented LLM Systems</strong> — Stated: the panel mixes inference backends (local, vendor APIs, OpenRouter), so rates are per-condition characterisations rather than vendor leaderboards, an...</li>
+<li><strong>Efficient Test-Time Scaling for LLM-based Time Series Forecasting</strong> — The authors state that the refinement schedule is fixed and that performance may depend on the LLM backbone and tokenisation. Reader-visible limits are large...</li>
 </ul>
 </section>
 <section class="slide">
@@ -331,9 +331,9 @@ th { background: var(--surface); }
 <li>Foundation Model Team, XPeng Inc. <em>XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving</em>. cs.AI. 2026</li>
 <li>Lecheng Kong, Like Hui, Haitao Mao et al.. <em>Consilience for Verifier-Free Test-Time Scaling</em>. cs.CL. 2026</li>
 <li>Rahma Simin Ali, Jawad Hossain. <em>MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models</em>. cs.AI. 2026</li>
+<li>Xuan-May Le, Minh-Tuan Tran, Ling Luo et al.. <em>Efficient Test-Time Scaling for LLM-based Time Series Forecasting</em>. cs.LG. 2026</li>
 <li>Mingguang Chen, Bo Qu, Licheng Wang. <em>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</em>. cs.CL. 2026</li>
 <li>Javier Rodriguez-Juan, Hiba Arnaout, Jose Garcia-Rodriguez et al.. <em>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</em>. cs.CL. 2026</li>
-<li>Jinya Sakurai, Shueicheng Yan, Xun Xu. <em>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</em>. cs.CV. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

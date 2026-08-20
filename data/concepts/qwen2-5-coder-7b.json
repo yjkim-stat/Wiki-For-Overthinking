@@ -1,9 +1,16 @@
 {
   "aliases": [
-    "Qwen2.5-Coder-7B"
+    "Qwen2.5-Coder-7B",
+    "Qwen2.5-coder-7B"
   ],
   "definition": "A 7-billion-parameter code-specialised Qwen model, and in this archive the site of one of the sharpest causal results about written reasoning states. In the scratchpad-register study, a variant trained to maintain a running state has its next phase bit follow an edited internal representation on 80 percent of held-out Q8 examples and 91 percent of D8 while the printed text is held fixed, with pretrained and final-answer-only controls staying near baseline and same-rank random or orthogonal-complement patches giving about 0.02 agreement -- so the model demonstrably reads what it wrote, at least on this synthetic task. It also appears at several sizes in the Persistent Semantic Entities panel, where the smallest variant sits at the low end of the contamination range and the paper's factual-self-correction finding fails on both coder variants, which is why that paper declines to generalise it.",
   "evidence": [
+    {
+      "id": "arxiv:2608.07147",
+      "kind": "paper",
+      "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+      "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training"
+    },
     {
       "id": "arxiv:2608.07952",
       "kind": "paper",
@@ -19,9 +26,40 @@
   ],
   "first_seen": "2026-08-08T04:51:02Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:24:18Z",
-  "name": "Qwen2.5-coder-7B",
+  "last_seen": "2026-08-20T14:26:24Z",
+  "name": "Qwen2.5-Coder-7B",
   "related": [
+    "credit-assignment",
+    "verifiable-reward",
+    "outcome-reward",
+    "advantage-estimation",
+    "group-relative-advantage",
+    "zero-advantage-group",
+    "long-horizon-agency",
+    "didpo",
+    "grpo",
+    "gigpo",
+    "coderl",
+    "codeact",
+    "self-planning",
+    "chain-of-thought-prompting",
+    "supervised-fine-tuning",
+    "rejection-sampling",
+    "groupability-score",
+    "apps",
+    "humaneval",
+    "mbpp",
+    "livecodebench",
+    "leetcode",
+    "usaco",
+    "ojbench",
+    "icpc",
+    "qwen3-5-4b",
+    "qwen3-6-27b",
+    "gpt-5-5",
+    "kimi-k2-6",
+    "glm-5-2",
+    "skywork-or1",
     "persistent-semantic-entity",
     "name-binding",
     "event-triggering",
@@ -86,7 +124,6 @@
     "selectivity-control",
     "low-rank-subspace-projection",
     "attention-edge-ablation-and-restoration",
-    "supervised-fine-tuning",
     "synthetic-state-tracking-task-q8",
     "synthetic-state-tracking-task-d8",
     "mistral-7b-v0-3"
@@ -95,8 +132,8 @@
   "schema_version": 1,
   "slug": "qwen2-5-coder-7b",
   "topics": [
+    "reasoning-training",
     "test-time-scaling",
-    "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-faithfulness"
   ]
 }

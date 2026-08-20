@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A simulated web-shopping environment in which an agent searches, browses and selects a product matching a natural-language instruction, scored on how well the purchase matches the specification. Both sources use it as one of the multi-turn environments for agentic reinforcement learning, paired with ALFWorld and a search-based question-answering task, because its episodes are long enough that turn-level credit assignment is a real question. Neither describes its construction. What the archive should carry from these two is that it behaves differently from ALFWorld under the same method -- gains do not transfer between them, and the recursive self-distillation work reaches 89.1 percent on ALFWorld while reporting a far narrower margin here -- so a method demonstrated on one of the two has not been demonstrated on multi-turn agency in general.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

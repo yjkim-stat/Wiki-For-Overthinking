@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:22:23Z",
   "created_at": "2026-08-20T14:21:38Z",
   "instructions": "Write the wiki definition for 'Jensen-Shannon divergence'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Jensen-Shannon divergence",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "Jensen-Shannon divergence",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "JSD"
+    ],
+    "definition": "A symmetric, bounded divergence between two distributions, measuring each against their mixture. The two sources here use it for opposite purposes and reach opposite verdicts, which is the whole of what the archive knows about it. As a distillation objective it fails: the unsupervised self-distillation work sweeps divergences under pseudo-labels and finds symmetric JSD costing 13.8 percent and landing level with the untrained model, against forward KL's 57.10 average -- symmetry buying nothing where the teacher is the thing being trusted. As a token-selection criterion it works: the distributional-deviation work argues Shannon entropy is the wrong signal for choosing which tokens to train on in verifiable-reward RL, and selects instead the top ten percent of tokens by the JSD of their logit distribution from the group average, so what is trained is where a rollout departs from its siblings rather than where the model is merely uncertain. The distinction worth carrying is between using a divergence as a loss and using it as a measurement.",
+    "kind": "method",
+    "related": [
+      "forward KL divergence"
+    ]
   },
   "task_id": "concept__jensen-shannon-divergence",
   "task_version": 1,

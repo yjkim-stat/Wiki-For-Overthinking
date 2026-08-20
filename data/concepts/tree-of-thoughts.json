@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "ToT"
+    "ToT",
+    "tree-of-thoughts"
   ],
   "definition": "Search over a tree whose nodes are partial solutions expressed as intermediate thoughts, with explicit generation of alternatives, evaluation of states, and backtracking — the work that moved deliberate reasoning from a single linear chain to a searched structure. The two sources bracket its position in this archive. One is the original method, introducing lookahead and backtracking as operations a scaffold performs around the model. The other places it in a formal taxonomy as an instance of prefix-level scaling — compute allocated on scores for *unfinished* states — and notes that its controller operates over thought-level rather than token-level expansions, which is what distinguishes it from beam search and from leaf-level sampling with a terminal reducer.",
   "evidence": [
@@ -15,11 +16,17 @@
       "kind": "paper",
       "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
       "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility"
+    },
+    {
+      "id": "arxiv:2608.08830",
+      "kind": "paper",
+      "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+      "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "Tree of Thoughts",
   "related": [
     "deliberate-decision-making",
@@ -68,7 +75,27 @@
     "qwen3-6-35b-a3b",
     "gpt-oss-20b",
     "deepseek-r1",
-    "phi-4-reasoning"
+    "phi-4-reasoning",
+    "legal-statute-prediction",
+    "explanation-faithfulness",
+    "annotation-agreement",
+    "human-evaluation",
+    "in-context-learning",
+    "search-over-reasoning",
+    "few-shot-prompting",
+    "zero-shot-prompting",
+    "k-nearest-neighbour-exemplar-selection",
+    "multi-label-classification",
+    "proslex",
+    "indian-supreme-court-judgements-corpus",
+    "inlegalbert",
+    "legalbert",
+    "bert-base",
+    "longformer",
+    "roberta",
+    "claude-sonnet-4",
+    "llama-3-1-70b",
+    "deepseek-r1-distill-llama-70b"
   ],
   "related_authored": [
     "monte-carlo-tree-search"

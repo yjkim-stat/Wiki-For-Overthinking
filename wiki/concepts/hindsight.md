@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Re-evaluating a decision against what actually followed it, so that a completed rollout supplies supervision the acting policy could not have had at the time. Both sources use it to make agentic training dense without a critic, and both insist on the same control. The trajectory-relative work exposes each turn's realised consequence to a training-time scorer and takes the signed token-level log-probability gap between the ordinary and hindsight-conditioned evaluations, so the update carries direction as well as magnitude; the privileged-teacher work gives the teacher the whole completed student trajectory and its verified outcome. The shared caveat is that hindsight is only useful if the extra field is matched to the episode rather than merely present, which is why both run a scrambling control rather than only an ablation -- shuffling trajectories across problems is worse than removing them entirely (0.089 against 0.064 in teacher continuation success), and permuting turn multipliers within a trajectory preserves the values while destroying the correspondence. Both also note the deployment property that makes the trick admissible: the hindsight view exists only during training, so the deployed policy keeps the ordinary interface.
 
 - **Kind**: concept
+- **Also called**: hindsight supervision
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

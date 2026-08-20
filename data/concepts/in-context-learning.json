@@ -12,6 +12,12 @@
       "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
     },
     {
+      "id": "arxiv:2608.08830",
+      "kind": "paper",
+      "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+      "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary"
+    },
+    {
       "id": "arxiv:2608.09888",
       "kind": "paper",
       "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
@@ -26,7 +32,7 @@
   ],
   "first_seen": "2026-08-13T02:55:53Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "in-context learning",
   "related": [
     "chain-of-thought-prompting",
@@ -44,6 +50,25 @@
     "mathstral-7b",
     "qwen2-5-7b-instruct",
     "llama-3-1-8b-instruct",
+    "legal-statute-prediction",
+    "explanation-faithfulness",
+    "annotation-agreement",
+    "human-evaluation",
+    "search-over-reasoning",
+    "tree-of-thoughts",
+    "k-nearest-neighbour-exemplar-selection",
+    "multi-label-classification",
+    "proslex",
+    "indian-supreme-court-judgements-corpus",
+    "inlegalbert",
+    "legalbert",
+    "bert-base",
+    "longformer",
+    "roberta",
+    "gpt-4",
+    "claude-sonnet-4",
+    "llama-3-1-70b",
+    "deepseek-r1-distill-llama-70b",
     "latent-reasoning",
     "implicit-chain-of-thought",
     "rule-induction",
@@ -100,7 +125,7 @@
   "slug": "in-context-learning",
   "topics": [
     "reasoning-training",
-    "reasoning-faithfulness",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

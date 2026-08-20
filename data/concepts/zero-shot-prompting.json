@@ -11,6 +11,12 @@
       "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve"
     },
     {
+      "id": "arxiv:2608.08830",
+      "kind": "paper",
+      "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+      "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary"
+    },
+    {
       "id": "arxiv:2608.09638",
       "kind": "paper",
       "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
@@ -19,7 +25,7 @@
   ],
   "first_seen": "2026-08-13T02:55:53Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "zero-shot prompting",
   "related": [
     "chain-of-thought-prompting",
@@ -37,6 +43,25 @@
     "mathstral-7b",
     "qwen2-5-7b-instruct",
     "llama-3-1-8b-instruct",
+    "legal-statute-prediction",
+    "explanation-faithfulness",
+    "annotation-agreement",
+    "human-evaluation",
+    "search-over-reasoning",
+    "tree-of-thoughts",
+    "k-nearest-neighbour-exemplar-selection",
+    "multi-label-classification",
+    "proslex",
+    "indian-supreme-court-judgements-corpus",
+    "inlegalbert",
+    "legalbert",
+    "bert-base",
+    "longformer",
+    "roberta",
+    "gpt-4",
+    "claude-sonnet-4",
+    "llama-3-1-70b",
+    "deepseek-r1-distill-llama-70b",
     "theory-of-mind",
     "representation-versus-readout",
     "linear-probe",
@@ -72,6 +97,7 @@
   "slug": "zero-shot-prompting",
   "topics": [
     "reasoning-training",
+    "test-time-scaling",
     "reasoning-interpretability"
   ]
 }

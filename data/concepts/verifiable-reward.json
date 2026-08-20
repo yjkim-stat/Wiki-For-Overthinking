@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
       "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
+    },
+    {
+      "id": "arxiv:2608.07147",
+      "kind": "paper",
+      "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+      "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training"
     }
   ],
   "first_seen": "2026-08-13T04:27:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T04:27:36Z",
+  "last_seen": "2026-08-20T14:26:24Z",
   "name": "verifiable reward",
   "related": [
     "monte-carlo-tree-search",
@@ -79,7 +85,35 @@
     "llava-onevision-7b",
     "qwen3-5-397b-a17b",
     "kimi-k2-5",
-    "gemini-1-5-pro"
+    "gemini-1-5-pro",
+    "credit-assignment",
+    "outcome-reward",
+    "advantage-estimation",
+    "group-relative-advantage",
+    "zero-advantage-group",
+    "long-horizon-agency",
+    "didpo",
+    "gigpo",
+    "coderl",
+    "codeact",
+    "self-planning",
+    "rejection-sampling",
+    "groupability-score",
+    "apps",
+    "humaneval",
+    "mbpp",
+    "livecodebench",
+    "leetcode",
+    "usaco",
+    "ojbench",
+    "icpc",
+    "qwen2-5-coder-7b",
+    "qwen3-5-4b",
+    "qwen3-6-27b",
+    "gpt-5-5",
+    "kimi-k2-6",
+    "glm-5-2",
+    "skywork-or1"
   ],
   "related_authored": [
     "reward-hacking"
@@ -88,6 +122,7 @@
   "slug": "verifiable-reward",
   "topics": [
     "test-time-scaling",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

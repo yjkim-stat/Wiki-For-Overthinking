@@ -9,7 +9,7 @@ A fast DeepSeek model appearing twice in this archive as an evaluation subject. 
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 
-**Related**: [adversarial robustness](../concepts/adversarial-robustness.md), [benchmark contamination](../concepts/benchmark-contamination.md), [benchmark design](../concepts/benchmark-design.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](../concepts/construct-validity.md), [FinQA](../datasets/finqa.md), [gpt-oss-120b](gpt-oss-120b.md), [greedy decoding](../methods/greedy-decoding.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.3-70B](llama-3-3-70b.md), [LoRA](../methods/lora.md), [memorization](../concepts/memorization.md), [Qwen3.5-9B](qwen3-5-9b.md), [reasoning depth](../concepts/reasoning-depth.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
+**Related**: [adversarial robustness](../concepts/adversarial-robustness.md), [benchmark contamination](../concepts/benchmark-contamination.md), [benchmark design](../concepts/benchmark-design.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [construct validity](../concepts/construct-validity.md), [FinQA](../datasets/finqa.md), [gpt-oss-120b](gpt-oss-120b.md), [greedy decoding](../methods/greedy-decoding.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.3-70B](llama-3-3-70b.md), [LoRA](../methods/lora.md), [memorization](../concepts/memorization.md), [Qwen3.5-4B](qwen3-5-4b.md), [Qwen3.5-9B](qwen3-5-9b.md), [reasoning depth](../concepts/reasoning-depth.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md)
 
 ## Appears in
 
