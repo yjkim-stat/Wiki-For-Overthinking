@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "bootstrap CI",
+    "paired bootstrap"
+  ],
+  "definition": "Resampling a result many times to put an interval on it, used in both sources as the discipline that keeps a headline honest about how well determined it is. In the Parkinson's screening work the intervals are what make the fused AUROC of 0.802 readable at all -- the interval [0.70, 0.89] on 20 positive cases overlaps both single modalities, and a within-test split-half check is judged to agree precisely because it falls inside that interval, so the bootstrap serves as the yardstick for whether a subgroup difference is a difference. In the test-time-scaling reproducibility work it is part of what a reproducible inference protocol is required to declare. Neither source treats the bootstrap as a subject; what they establish jointly is a norm, that a reported number without an interval on this kind of small evaluation is not interpretable, and that pairing or stratifying the resample -- by problem, by seed, by orientation -- is what makes the interval answer the question actually asked.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -84,7 +87,9 @@
     "clip",
     "marlin"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "permutation-test"
+  ],
   "schema_version": 1,
   "slug": "bootstrap-confidence-intervals",
   "topics": [

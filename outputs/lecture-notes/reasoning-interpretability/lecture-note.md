@@ -67,6 +67,12 @@ Computation spent at inference rather than in training, and the resource this ar
 
 Seen in: Measuring Faithfulness in Chain-of-Thought Reasoning; Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning; Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning.
 
+### pass@k
+
+The probability that at least one of k independently sampled attempts is correct, estimated over a benchmark. In this archive it is less an evaluation metric than the axis on which one argument is fought: whether reinforcement learning with verifiable rewards adds reasoning capability or only concentrates what the base model already had. Measured at large k, RLVR-trained models lose to their own base models, which reads as sharpening the sampling distribution toward paths the base could already reach -- and one source reverses that verdict without disputing the measurement, showing that base models win at large k by producing wrong chains that land on right answers, so that scoring the chain as well as the answer puts RLVR ahead at every k. What pass@k measures therefore depends entirely on what counts as a success, and answer-only scoring credits luck. Its second role is as the place diversity collapse becomes visible: entropy collapse under RL degrades pass@k specifically at large k while leaving single-sample accuracy intact, which is why several sources here read the gap between small-k and large-k rather than either alone, and why a diversity bonus is evaluated by whether it removes that gap. Two cautions attach because it is a sampling estimate. The sample count and the decoding configuration are part of the claim rather than of the setup, as one source makes explicit by specifying what a reproducible inference protocol must declare; and the ground under it is less stable than assumed, since greedy decoding is not deterministic across hardware and changing GPU type, GPU count or evaluation batch size moves a reasoning model's AIME 2024 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16.
+
+Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility; PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation.
+
 ### prompt difficulty
 
 How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.
@@ -115,36 +121,30 @@ The hypothesis that a network represents more features than it has dimensions by
 
 Seen in: Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model; CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits.
 
-### meta-evaluation
-
-Evaluating the evaluation — asking whether a benchmark, metric or judge measures what it claims. Ten sources practise it, and the recurring result is that the validation layer is weaker than the thing it validates. Exact-match agreement with human labels, the standard way to certify an LLM judge, is shown insufficient over roughly 541,000 judgments; forcing annotators to pick one answer on tasks admitting several defensible readings biases that validation badly; and judge preferences track style rather than the properties they are supposed to measure. Benchmarks fare no better under the same scrutiny: decomposing a task by cognitive dimension, ablating the modality the task supposedly requires, or scoring intermediate artefacts separately each reveal that the headline number was carrying something else. The archive also holds a call to apply this to interpretability itself, after two papers reached opposite conclusions on one behaviour and a third found both partly right and incomparable.
-
-Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 40 | _pending_ |
-| LLM-as-a-judge | 33 | _pending_ |
+| GRPO | 40 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| LLM-as-a-judge | 33 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | supervised fine-tuning | 33 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 25 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | RLVR | 24 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | self-consistency | 20 | _pending_ |
 | test-time scaling | 19 | _pending_ |
-| chain-of-thought prompting | 18 | _pending_ |
+| chain-of-thought prompting | 18 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
-| pass@k | 16 | _pending_ |
 | activation steering | 15 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | calibration | 11 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | LoRA | 10 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| process reward model | 9 | _pending_ |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
 | contrastive activation addition | 7 | Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the ba... |
+| knowledge distillation | 7 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
+| reasoning distillation | 7 | Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revi... |
 
 ## Benchmarks and datasets
 
@@ -152,7 +152,7 @@ Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation;
 | --- | ---: | --- |
 | MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | AIME 2024 | 42 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| GSM8K | 35 | _pending_ |
+| GSM8K | 35 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 30 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |

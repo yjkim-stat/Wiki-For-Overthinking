@@ -5,7 +5,7 @@
     "trace faithfulness",
     "chain-of-thought faithfulness"
   ],
-  "definition": "",
+  "definition": "Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The two foundational sources establish it negatively and by intervention: biasing an input in a way the model never mentions makes it rationalise the biased answer, and perturbing the trace -- inserting mistakes, paraphrasing, truncating -- shows that how much the answer depends on the stated chain varies by task and decreases as models get larger. Later sources sharpen the instrument rather than the conclusion, replacing the loose test 'did the output change' with designs that have a single correct consequence: editing the internal representation of a written scratchpad state while holding the printed text fixed and asking whether the next step follows the transition rule applied to the edited value; truncating at each step to locate a sharp commitment boundary after which the answer probability stops moving; fitting a structural causal model over trace units by leave-one-out intervention; and injecting reasoning the experimenter chose, which makes the influence causal and known in advance. The most consistent finding across these sources is that accuracy and faithfulness come apart in both directions -- models get final outputs right while reasoning incorrectly about execution, base models win pass@K by producing wrong chains that land on right answers, and across eleven KV-cache compression methods the accuracy ranking and the chain-validity ranking correlate at Spearman -0.95 on AIME, so the compressors that preserve the answer are largely the ones destroying the reasoning that supports it. Two sources complicate faithfulness as a goal rather than as a measurement: it is insufficient for monitoring, because a trace can be truthful and still omit factors the task required, which is why one source combines it with verbosity; and it is not unambiguously desirable, because the models that follow their traces most faithfully are the ones that follow them into harm, a tension carried by two distinct anti-correlated residual-stream directions that can be steered apart.",
   "evidence": [
     {
       "id": "arxiv:2305.04388",
@@ -398,7 +398,9 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "post-hoc-rationalization"
+  ],
   "schema_version": 1,
   "slug": "chain-of-thought-faithfulness",
   "topics": [

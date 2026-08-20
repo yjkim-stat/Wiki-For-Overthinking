@@ -8,9 +8,165 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
+        "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
+        "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+        "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+        "title": "Self-Improving Large Language Models via Progressive Experience Evolution",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
+        "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+        "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+        "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+        "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+        "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+        "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the standard metric for judging contamination-mitigation strategies can be scored by cancellation rather than by restoration, replaces it with a per-question stratified metric under which the published ranking reverses, and proposes a mitigation that decides its intervention during decoding instead of from a prior estimate.",
+        "title": "Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -20,9 +176,21 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
+        "title": "The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -32,9 +200,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -44,9 +212,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -56,9 +224,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -68,9 +236,33 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
+        "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -80,9 +272,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -92,9 +284,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -104,9 +296,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -116,9 +308,21 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+        "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -128,9 +332,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -140,9 +344,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -152,9 +356,9 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -164,9 +368,21 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -176,16 +392,40 @@
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+        "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+        "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:10Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'GSM8K'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T12:41:03Z",
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'GSM8K'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GSM8K",
   "kind": "concept",
   "language": "en",
@@ -194,28 +434,21 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GSM8K",
-    "source_count": 15
+    "source_count": 35
   },
   "result": {
-    "aliases": [
-      "GSM8K"
-    ],
-    "definition": "8.5K grade-school math word problems, introduced together with the observation that trains much of this archive: sampling many solutions and training a verifier to rank them beats scaling the generator, which is the origin of the verifier-and-selection line. Fifteen sources use it, now almost entirely as an easy control rather than a challenge — models saturate it, so it appears where a method must be shown not to break, or where a cheap signal is being calibrated before moving to competition benchmarks. One archived result puts a number on how much room is left: pruning a distilled model's reasoning cut GSM8K tokens from 917 to 328 while accuracy rose from 91.7% to 94.1%, which says more about the redundancy of the chains than the difficulty of the problems.",
+    "aliases": [],
+    "definition": "8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many sampled solutions beats finetuning the generator directly, and built to diagnose multi-step reasoning failure on a distribution that model size alone did not solve. Across the thirty-five sources that mention it, it is almost never the object of study: it is the easy rung of an evaluation suite, the corpus that supplies traces for compression, pruning, distillation and probing work, and the setting where a method is expected to already work before anything harder is attempted. It carries evidence in two recurring ways. It is a contamination site -- three sources use it while showing that a brief round of GRPO erases the signals contamination detectors rely on, that the standard metric for judging contamination mitigation can be scored by cancellation rather than restoration, and that similarity-based decontamination has no principled threshold. And it is where the field's standard baseline is demonstrably misleading: few-shot chain-of-thought prompting with dataset examples reaches 74.2 percent against 86.1 percent for simply asking a reasoning-specialised model the question, so anything benchmarked against that baseline on this dataset is overstated. No source here reports GSM8K as unsolved or as the frontier; where a source wants difficulty it moves to MATH, AIME or a symbolic variant.",
     "kind": "dataset",
     "related": [
-      "MATH500",
-      "AIME24",
-      "verification",
-      "best-of-n",
-      "reasoning redundancy",
-      "benchmark contamination"
+      "GSM-Plus"
     ]
   },
   "task_id": "concept__gsm8k",

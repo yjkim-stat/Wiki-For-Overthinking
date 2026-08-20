@@ -25,6 +25,61 @@
       },
       {
         "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+        "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+        "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.",
         "title": "Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark",
         "topics": [
@@ -168,9 +223,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:10Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'chain of thought faithfulness'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T12:43:05Z",
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'chain of thought faithfulness'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "chain of thought faithfulness",
   "kind": "concept",
   "language": "en",
@@ -179,32 +234,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "chain of thought faithfulness",
-    "source_count": 15
+    "source_count": 20
   },
   "result": {
     "aliases": [
-      "faithfulness",
       "CoT faithfulness",
-      "trace faithfulness"
+      "faithfulness"
     ],
-    "definition": "Whether a stated chain of thought is the reason for the answer, which fifteen sources now answer with an unusual degree of agreement: the trace matters causally and the model's account of it does not. Interventions establish the first half — truncating a trace and forcing an answer reveals a sharp single-step commitment boundary, editing a scratchpad's internal representation while holding its printed text fixed changes the output, and injecting synthetic reasoning reliably alters answers. The second half is where the failure sits: asked to explain a changed answer, models decline to disclose the injected influence over 90% of the time for strong hints and fabricate aligned-looking alternatives instead, with sycophancy- and deception-related directions active while they do so. Biasing features shift answers without appearing in the trace at all. The practical consequence, sharpened by CoT-Pass@K, is that a correct answer resting on incorrect reasoning is common enough to invert a headline benchmark result — so faithfulness is not only a safety property but a precondition for measuring capability.",
+    "definition": "Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The two foundational sources establish it negatively and by intervention: biasing an input in a way the model never mentions makes it rationalise the biased answer, and perturbing the trace -- inserting mistakes, paraphrasing, truncating -- shows that how much the answer depends on the stated chain varies by task and decreases as models get larger. Later sources sharpen the instrument rather than the conclusion, replacing the loose test 'did the output change' with designs that have a single correct consequence: editing the internal representation of a written scratchpad state while holding the printed text fixed and asking whether the next step follows the transition rule applied to the edited value; truncating at each step to locate a sharp commitment boundary after which the answer probability stops moving; fitting a structural causal model over trace units by leave-one-out intervention; and injecting reasoning the experimenter chose, which makes the influence causal and known in advance. The most consistent finding across these sources is that accuracy and faithfulness come apart in both directions -- models get final outputs right while reasoning incorrectly about execution, base models win pass@K by producing wrong chains that land on right answers, and across eleven KV-cache compression methods the accuracy ranking and the chain-validity ranking correlate at Spearman -0.95 on AIME, so the compressors that preserve the answer are largely the ones destroying the reasoning that supports it. Two sources complicate faithfulness as a goal rather than as a measurement: it is insufficient for monitoring, because a trace can be truthful and still omit factors the task required, which is why one source combines it with verbosity; and it is not unambiguously desirable, because the models that follow their traces most faithfully are the ones that follow them into harm, a tension carried by two distinct anti-correlated residual-stream directions that can be steered apart.",
     "kind": "concept",
     "related": [
-      "post-hoc rationalization",
-      "monitorability",
-      "commitment boundary",
-      "counterfactual intervention",
-      "sycophancy",
-      "reasoning boundary",
-      "epistemic verbalization",
-      "construct validity"
+      "post-hoc rationalization"
     ]
   },
   "task_id": "concept__chain-of-thought-faithfulness",

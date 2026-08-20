@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "factorial design",
+    "2x2 ablation"
+  ],
+  "definition": "Toggling each named ingredient of a system on and off across all combinations rather than removing them one at a time, so that interaction between them becomes visible instead of being assumed away. Both sources use it to answer a question a sequential ablation cannot, and reach opposite structural conclusions. The agent-contamination work runs a 2^3 factorial over name binding, event triggering and propagation (5 seeds x 4 scenarios per cell) and finds no synergy at all: name binding alone produces 95 percent and 45 percent contamination while every configuration without it is exactly 0 percent, the other two factors have negligible main effects at |d| <= 0.26, and the authors therefore fit no interaction terms and state that the 0 percent result is partly by construction. The distillation work runs a 2x2 over trajectory access and teacher adaptation and finds the opposite: 0.555 and 0.092 macro points for the single factors against 5.617 for the combination, with each single-factor condition degrading at least one task, so the contribution is the interaction and no ingredient could be credited on its own. Taken together the sources make the case for the design rather than for either result -- a one-at-a-time ablation would have reported a large effect for name binding in the first case and no effect for anything in the second.",
   "evidence": [
     {
       "id": "arxiv:2608.07952",
@@ -95,7 +98,9 @@
     "qwen3-1-7b",
     "qwen3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "cohen-s-d"
+  ],
   "schema_version": 1,
   "slug": "factorial-ablation",
   "topics": [

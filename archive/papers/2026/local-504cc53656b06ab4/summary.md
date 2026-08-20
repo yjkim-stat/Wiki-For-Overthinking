@@ -43,7 +43,7 @@ The paper's own, stated at length: coverage is three English-language text-only 
 
 ## Entities
 
-- **Concepts**: LLM as a judge, kappa deflation, consistency-bias paradox, Cohen's kappa, Krippendorff's alpha, chance-corrected agreement, test-retest reliability, position bias, verbosity bias, [construct validity](../../../../wiki/concepts/construct-validity.md), benchmark discriminability, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md)
+- **Concepts**: LLM as a judge, kappa deflation, consistency-bias paradox, Cohen's kappa, Krippendorff's alpha, chance-corrected agreement, test-retest reliability, [position bias](../../../../wiki/concepts/position-bias.md), verbosity bias, [construct validity](../../../../wiki/concepts/construct-validity.md), benchmark discriminability, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md)
 - **Methods**: [LLM as a judge](../../../../wiki/methods/llm-as-a-judge.md), position-swap debiasing, Minimum Viable Validation Protocol, bias audit protocol, pre-registered hypotheses
 - **Datasets**: [MT-Bench](../../../../wiki/datasets/mt-bench.md), JudgeBench, RewardBench
 

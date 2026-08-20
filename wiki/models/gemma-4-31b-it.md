@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 31-billion-parameter instruction-tuned Gemma model, loaded in 8-bit quantization in one of the two sources here. In the ESG concept-content study it is the largest model tested and matches or outperforms every other on accuracy across all three pillars when concept vectors are extracted by the Recursive Feature Machine -- but it is absent from every linear-probing table because the kernel repeatedly ran out of memory, a constraint the authors attribute to their accelerator rather than the method and report as costing coverage rather than a conclusion. It is separately one of 18 open models instrumented in the cultural-awareness study, whose finding is that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults. Neither source characterises the model beyond its size and behaviour.
 
 - **Kind**: model
 - **Also called**: Gemma-4-31b-it

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 235-billion-parameter Qwen vision-language model that appears in this archive only as a panel member. It is one of 20 models in the Persistent Semantic Entities susceptibility panel, where the finding is that every model is affected and that no scale effect is resolvable at the sample size available, and it appears in the table-to-multimodal-report generation work built around Monte Carlo tree search with a SQL-execution reward. Neither source reports a result attributed to it individually or describes the model.
 
 - **Kind**: model
+- **Also called**: Qwen3-VL-235B
 - **Topics**: [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

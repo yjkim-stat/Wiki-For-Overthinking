@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a precise account of what it buys: bounded-depth transformers provably cannot solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive transformers can once allowed to emit intermediate steps, and the class of languages recognised with t(n) decoding steps is sandwiched between two standard complexity classes -- so the extra steps are serial computation, not explanation. What the empirical sources establish is that the explanation reading is the one that fails: the trace systematically misrepresents the reason for the answer when the input is biased in a way the model never mentions, and how much the answer depends on the stated chain varies by task and decreases with model size. Two sources bear directly on how it should be used now. Few-shot prompting with dataset exemplars has become a misleading baseline -- 74.2 percent against 86.1 percent on GSM8K for one reasoning-specialised model simply asked the question -- so anything benchmarked against it is overstated; and on subjective tasks with no canonical correct trajectory, forcing explicit reasoning degrades accuracy relative to answering directly. The rest of these sources treat it as a substrate to be modified rather than used as given: generalised into a search over a tree of thoughts with lookahead and backtracking, grounded so that every step carries a predicted image region, replaced by continuous latents, or kept only as training-time supervision and dropped at inference.
 
 - **Kind**: method
-- **Also called**: Chain-of-Thought Prompting, CoT prompting
+- **Also called**: Chain-of-Thought Prompting, CoT prompting, chain of thought
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 18
 

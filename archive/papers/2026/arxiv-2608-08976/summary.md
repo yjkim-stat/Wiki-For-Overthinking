@@ -45,8 +45,8 @@ Stated, and unusually forthrightly: the face encoder was selected in a way the d
 
 ## Entities
 
-- **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), steering vector, difference-in-means direction, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), anomaly detection, shortcut learning, label-free evaluation, direction alignment, class imbalance, encoder selection leakage
-- **Methods**: [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), [activation steering](../../../../wiki/methods/activation-steering.md), k-nearest-neighbour anomaly detection, late fusion, [linear probing](../../../../wiki/methods/linear-probe.md), cosine alignment analysis, [permutation test](../../../../wiki/methods/permutation-test.md), bootstrap confidence intervals, ROC analysis, synthetic data augmentation
+- **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), steering vector, [difference-in-means direction](../../../../wiki/concepts/difference-in-means-direction.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), anomaly detection, [shortcut learning](../../../../wiki/concepts/shortcut-learning.md), label-free evaluation, direction alignment, class imbalance, encoder selection leakage
+- **Methods**: [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), [activation steering](../../../../wiki/methods/activation-steering.md), k-nearest-neighbour anomaly detection, late fusion, [linear probing](../../../../wiki/methods/linear-probe.md), cosine alignment analysis, [permutation test](../../../../wiki/methods/permutation-test.md), [bootstrap confidence intervals](../../../../wiki/methods/bootstrap-confidence-intervals.md), ROC analysis, synthetic data augmentation
 - **Datasets**: YouTubePD, FER2013
 
 Tags: `activation-steering`, `contrastive-activation-addition`, `medical-screening`, `label-free`, `anomaly-detection`, `speech`, `audit`

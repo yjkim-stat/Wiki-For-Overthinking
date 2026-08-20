@@ -43,7 +43,7 @@ The paper's own: analysis is mainly on mathematical reasoning where correctness 
 
 ## Entities
 
-- **Concepts**: [epistemic verbalization](../../../../wiki/concepts/epistemic-verbalization.md), procedural information, silent divergence, reasoning collapse, reactive correction, proactive correction, [aha moment](../../../../wiki/concepts/aha-moment.md), self-conditioning, self-Bayesian reasoning, conditional entropy reduction, distributional support alignment, strategic information allocation
+- **Concepts**: [epistemic verbalization](../../../../wiki/concepts/epistemic-verbalization.md), procedural information, silent divergence, [reasoning collapse](../../../../wiki/concepts/reasoning-collapse.md), reactive correction, proactive correction, [aha moment](../../../../wiki/concepts/aha-moment.md), self-conditioning, self-Bayesian reasoning, conditional entropy reduction, distributional support alignment, strategic information allocation
 - **Methods**: doubt-cue injection, trajectory truncation and resampling, epistemic token masking, self-distillation SFT, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), LIMO-v2
 

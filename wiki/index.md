@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (145)
+## Concepts (146)
 
 - [abstention](concepts/abstention.md) — 3 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 15 source(s)
@@ -44,7 +44,6 @@
 - [curriculum learning](concepts/curriculum-learning.md) — 6 source(s)
 - [data efficiency](concepts/data-efficiency.md) — 4 source(s)
 - [detection versus control](concepts/detection-versus-control.md) — 9 source(s)
-- [difference-in-means direction](concepts/difference-in-means-direction.md) — 2 source(s)
 - [effective depth](concepts/effective-depth.md) — 9 source(s)
 - [emergent behaviour](concepts/emergent-behaviour.md) — 3 source(s)
 - [entropy bonus](concepts/entropy-bonus.md) — 3 source(s)
@@ -96,6 +95,7 @@
 - [outcome reward](concepts/outcome-reward.md) — 8 source(s)
 - [overthinking](concepts/overthinking.md) — 28 source(s)
 - [Pareto frontier](concepts/pareto-frontier.md) — 4 source(s)
+- [pass@k](concepts/pass-k.md) — 16 source(s)
 - [pattern recognition versus reasoning](concepts/pattern-recognition-versus-reasoning.md) — 2 source(s)
 - [perception bottleneck](concepts/perception-bottleneck.md) — 3 source(s)
 - [performance ceiling](concepts/performance-ceiling.md) — 2 source(s)
@@ -106,6 +106,7 @@
 - [predictive entropy](concepts/predictive-entropy.md) — 3 source(s)
 - [privileged information](concepts/privileged-information.md) — 7 source(s)
 - [process reward](concepts/process-reward.md) — 7 source(s)
+- [process reward model](concepts/process-reward-model.md) — 9 source(s)
 - [process supervision](concepts/process-supervision.md) — 13 source(s)
 - [prompt difficulty](concepts/prompt-difficulty.md) — 15 source(s)
 - [prompt sensitivity](concepts/prompt-sensitivity.md) — 5 source(s)
@@ -158,7 +159,7 @@
 - [verification](concepts/verification.md) — 16 source(s)
 - [visual grounding](concepts/visual-grounding.md) — 3 source(s)
 
-## Methods (116)
+## Methods (115)
 
 - [ablation](methods/ablation.md) — 3 source(s)
 - [activation patching](methods/activation-patching.md) — 17 source(s)
@@ -191,6 +192,7 @@
 - [decontamination](methods/decontamination.md) — 2 source(s)
 - [DEER](methods/deer.md) — 2 source(s)
 - [dense retrieval](methods/dense-retrieval.md) — 3 source(s)
+- [difference-in-means direction](methods/difference-in-means-direction.md) — 2 source(s)
 - [difference-of-means probe](methods/difference-of-means-probe.md) — 3 source(s)
 - [DPO](methods/dpo.md) — 3 source(s)
 - [Dynasor](methods/dynasor.md) — 3 source(s)
@@ -233,7 +235,6 @@
 - [natural policy gradient](methods/natural-policy-gradient.md) — 2 source(s)
 - [on-policy self-distillation](methods/on-policy-self-distillation.md) — 6 source(s)
 - [paired bootstrap confidence intervals](methods/paired-bootstrap-confidence-intervals.md) — 2 source(s)
-- [pass@k](methods/pass-k.md) — 16 source(s)
 - [PCA](methods/pca.md) — 5 source(s)
 - [permutation test](methods/permutation-test.md) — 3 source(s)
 - [policy gradient](methods/policy-gradient.md) — 4 source(s)
@@ -243,7 +244,6 @@
 - [preference optimization](methods/preference-optimization.md) — 5 source(s)
 - [PRIME](methods/prime.md) — 3 source(s)
 - [process evaluation](methods/process-evaluation.md) — 7 source(s)
-- [process reward model](methods/process-reward-model.md) — 9 source(s)
 - [ReAct](methods/react.md) — 3 source(s)
 - [reasoning distillation](methods/reasoning-distillation.md) — 7 source(s)
 - [REINFORCE](methods/reinforce.md) — 5 source(s)

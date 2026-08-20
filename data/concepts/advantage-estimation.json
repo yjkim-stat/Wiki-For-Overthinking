@@ -4,7 +4,7 @@
     "group-relative advantage",
     "GRPO advantage"
   ],
-  "definition": "",
+  "definition": "Estimating how much better a sampled action or trajectory was than the baseline it should be compared against -- the quantity that multiplies the policy gradient and therefore decides what training actually optimises. In this archive the dominant estimator is group-relative: sample several completions for one prompt and normalise each reward by the group's mean and standard deviation, which removes the value network entirely and is why most sources here use it. The sources document what that choice costs. It yields exactly zero advantage whenever every rollout in a group agrees, so prompts the model has already mastered waste their rollouts; and it treats completions as exchangeable, which becomes a frequency skew once credit is aggregated by solution structure, since a recurring correct form accumulates positive coefficient mass in proportion to how often it is sampled. Several sources therefore modify the advantage rather than the reward -- nudging it up or down from a detached teacher-student log-probability gap on selected token classes, replacing the group-relative advantage at latent positions with a thought-level value obtained by freezing the context and averaging over several sampled answers, or rebalancing it by a rarity exponent. Two sources argue about the target rather than the estimator: one shows that REINFORCE, pass@K training and MaxRL each optimise a single moment of the per-problem failure probability and proposes minimising the first several jointly, which is equivalent to minimising the expected truncated number of rollouts to a first success; the other keeps a learned critic but replaces its scalar mean-squared-error head with a categorical predictor over a discretised value support, reporting that the MSE critic had been penalising failures two to three times harder than it rewarded successes and that the categorical one produces near-symmetric advantages under an otherwise unchanged update.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -342,7 +342,9 @@
     "zero-variance-group",
     "critic-free-reinforcement-learning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "generalized-advantage-estimation"
+  ],
   "schema_version": 1,
   "slug": "advantage-estimation",
   "topics": [

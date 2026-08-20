@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reasoning carried in continuous hidden states rather than in emitted tokens -- by replacing a written chain with latent slots, by recursing a block over its own state, or by inserting optimizable latents at inference. The sources divide by what they are buying with it. Efficiency: a safety guard's 268 reasoning tokens compressed to 1.60 latent states at 8.9-fold lower latency, a small trainable recurrent block bolted between a frozen 1.1B model's body and its output head so refinement replaces generation, and selective switching to soft embeddings only at low-confidence steps. Capability, argued theoretically: an exact characterisation of how much computational power a chain of thought buys as a function of its length, and a proof that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, via a curriculum deleting thinking tokens in geometric chunks so only logarithmically many stages are needed. Credit assignment is the recurring practical obstacle and two sources attack it in different places -- pricing a latent thought by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, and inserting the latents at an intermediate layer rather than at the output so that reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token. The sources agree on one negative that cuts against the framing: latent capacity without supervision on what should occupy it is worse than not having it, since reasoning latents without rationale supervision underperform having no reasoning latents at all. They do not agree that going latent costs monitorability -- one source finds that depends more on the task and on access to internals than on whether the reasoning is explicit or latent, while another shows a latent guard's on-demand audit artifact is anchored far more by the source text than by the latent states it claims to describe.
 
 - **Kind**: concept
-- **Also called**: implicit chain of thought, latent-space reasoning
+- **Also called**: implicit chain of thought, implicit reasoning, latent chain of thought, latent-space reasoning
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 12
 

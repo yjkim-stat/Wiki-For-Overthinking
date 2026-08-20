@@ -3,12 +3,90 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
+        "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
+        "title": "EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+        "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+        "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Scores each reasoning step of a translation by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold translation, and adds that as a dense per-step reward on top of sequence-level quality — after first establishing that explicit reasoning helps long and hard inputs while drifting on terminology and style.",
+        "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+        "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An agentic RLVR red-teaming framework that trains an LLM planner to attack deep-RL cyber-defence agents, showing those defences were only ever evaluated against static attackers.",
         "title": "Trident : How to Break Deep Reinforcement Learning Cyber Defenses (Agentic)",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -17,8 +95,9 @@
         "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -27,8 +106,9 @@
         "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -37,8 +117,42 @@
         "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -47,8 +161,9 @@
         "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -57,8 +172,9 @@
         "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -67,8 +183,9 @@
         "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -77,8 +194,9 @@
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -87,15 +205,16 @@
         "title": "Free Process Rewards without Process Labels",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:33:53Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'credit assignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T12:43:32Z",
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'credit assignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "credit assignment",
   "kind": "concept",
   "language": "en",
@@ -104,36 +223,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "credit assignment",
-    "source_count": 9
+    "source_count": 19
   },
   "result": {
-    "aliases": [
-      "credit attribution",
-      "temporal credit assignment"
-    ],
-    "definition": "Deciding which part of a trajectory deserves the reward, and the problem RLVR's sparse sequence-level signal creates. Nine sources attack it and the interesting split is where they place the unit. At token level: the roughly 20% highest-entropy tokens act as decision forks and restricting gradient to them matches or beats full-gradient training; a token's signed marginal utility for the correct answer marks harmful tokens as well as useful ones. At segment or turn level: token-level teacher-student log-probability gaps are aggregated into turn-level evidence by a recursive Bayesian belief update, or concentrated on reasoning pivots identified counterfactually. At reward-design level: attaching an efficiency signal to the whole sequence implicitly penalizes long-but-correct trajectories, so the fix is to attach it to a single mode-selection token instead. One theoretical result cuts across all of them, showing a per-step Q value can be recovered from an outcome reward alone under the right parameterization — so dense credit does not always require dense labels.",
+    "aliases": [],
+    "definition": "Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end. These sources treat it as the central unsolved problem of reinforcement learning on reasoning models, and they attack it at four different granularities. Per step, by constructing a dense signal where none exists: scoring each reasoning step by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold answer, or fusing how much a retrieval step raised the likelihood of the correct answer with how necessary it looks in hindsight, asymmetrically so that a locally helpful but globally redundant step is discounted. Per turn, by recursively updating a Bayesian belief in log-odds space over token-level teacher-student gaps to find pivotal turns without a critic. Per token, by choosing which tokens receive the gradient at all -- the roughly 20 percent with the highest entropy act as decision forks and training only on them matches or beats full-gradient updates with the advantage growing with model size, while other sources gate on a token's marginal log-probability gain for the ground-truth answer or apply an efficiency reward to a single mode-selection token to stop it coupling with correctness. And per span, by masking: label-free RLVR collapses because the same answer-level consensus both estimates the reward and receives the gradient, and masking the answer span from updates entirely means a reward can only be raised by improving the reasoning that produced it. Two structural results sit under all of this. Credit that looks uniform can be badly skewed once aggregated -- a recurring correct solution form accumulates positive coefficient mass in proportion to how often it is sampled -- and a process reward model can be had without process labels at all, because parameterising an outcome reward as the log-likelihood ratio between a policy and a reference makes the per-step Q value fall out of the same model for free.",
     "kind": "concept",
-    "related": [
-      "advantage estimation",
-      "token selection",
-      "process supervision",
-      "reward shaping",
-      "on-policy self-distillation",
-      "token-level entropy",
-      "long-horizon reasoning"
-    ]
+    "related": []
   },
   "task_id": "concept__credit-assignment",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling"
   ]

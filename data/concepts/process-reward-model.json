@@ -2,9 +2,10 @@
   "aliases": [
     "PRM",
     "process reward models",
-    "Process Reward Models"
+    "Process Reward Models",
+    "process reward"
   ],
-  "definition": "",
+  "definition": "A reward model that scores intermediate steps rather than only the final answer, used both to supervise training and to prune or select among partial trajectories at inference. Its cost has always been step-level labels, and the sharpest result here removes that cost: parameterising an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone. The sources use it mostly at inference rather than in training -- pruning within a trajectory and selecting across iterations under a training-free allocation agent, deciding how hard to compress the KV cache at each step, and scoring partial trajectories in a beam search over reasoning steps -- and this is where its measured value lies, with adaptive per-prompt allocation by difficulty beating a uniform best-of-N budget by more than fourfold in one source. Two sources bound the idea rather than extend it. A dense per-step progress bonus is formalised as minimising cumulative regret over tokens within one output stream, which is a statement about what a process reward should reward rather than about how to label it. And a position paper argues that treating intermediate tokens as reasoning at all is unsupported, collating cases where trace semantics and solution accuracy come apart -- which, if accepted, makes a process reward a score on a computation rather than on an argument, and means its steps need not be interpretable to be useful.",
   "evidence": [
     {
       "id": "arxiv:2408.03314",
@@ -62,7 +63,7 @@
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T12:18:17Z",
   "name": "process reward model",
   "related": [
@@ -222,7 +223,9 @@
     "searchformer",
     "dualformer"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "outcome-reward-model"
+  ],
   "schema_version": 1,
   "slug": "process-reward-model",
   "topics": [

@@ -25,6 +25,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T12:39:47Z",
   "created_at": "2026-08-20T12:38:17Z",
   "instructions": "Write the wiki definition for 'decontamination'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "decontamination",
@@ -43,6 +44,12 @@
   "payload": {
     "name": "decontamination",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Removing from a training or retrieval corpus anything that overlaps the evaluation set, so a reported score is not partly a memory check. The two sources here use different keys and disagree implicitly about how tight the threshold can be. The industrial-safety benchmark decontaminates by exact identifiers -- sample ID, source-document ID, normalized question text and image path -- and additionally groups splits by source document, so no two questions from one accident report can straddle the split. The in-trace retrieval work needs something stronger because its corpus is synthetic mathematics and near-duplicates are dense: it removes exact matches and then drops any entry above 0.90 cosine similarity to an evaluation instance, and its own post-hoc audit reports maximum retained similarities of 0.898 and 0.891, immediately below the cut, with means of 0.866 and 0.845. That paper attributes the density to the structure of synthetic math corpora rather than to leakage and defends the threshold with an answer-distinct retrieval control instead of lowering it -- which is the clearest statement in the archive that similarity-based decontamination has no principled cut-off and that the defence has to come from a control rather than from the number.",
+    "kind": "method",
+    "related": []
   },
   "task_id": "concept__decontamination",
   "task_version": 1,

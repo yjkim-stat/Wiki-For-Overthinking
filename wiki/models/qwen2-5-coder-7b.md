@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 7-billion-parameter code-specialised Qwen model, and in this archive the site of one of the sharpest causal results about written reasoning states. In the scratchpad-register study, a variant trained to maintain a running state has its next phase bit follow an edited internal representation on 80 percent of held-out Q8 examples and 91 percent of D8 while the printed text is held fixed, with pretrained and final-answer-only controls staying near baseline and same-rank random or orthogonal-complement patches giving about 0.02 agreement -- so the model demonstrably reads what it wrote, at least on this synthetic task. It also appears at several sizes in the Persistent Semantic Entities panel, where the smallest variant sits at the low end of the contamination range and the paper's factual-self-correction finding fails on both coder variants, which is why that paper declines to generalise it.
 
 - **Kind**: model
 - **Also called**: Qwen2.5-Coder-7B

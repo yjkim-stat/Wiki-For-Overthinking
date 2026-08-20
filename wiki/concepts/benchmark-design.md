@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How an evaluation set is constructed, and what that construction lets a score mean. Only three sources here address it as a subject, and they converge on making ground truth mechanical rather than authored. The earliest builds a corpus deliberately to diagnose multi-step failure on a distribution that model size alone did not solve, and pairs it with a verifier that ranks sampled solutions. The industrial-safety benchmark derives its scene-centric answers by program execution over an executable scene graph of objects, relations and rules, so the answer is deterministic and replayable rather than written by a model, and it decontaminates by sample, source-document, normalised-question and image-path identity while grouping splits by source document. The skill-retrieval benchmark takes the opposite risk knowingly and controls for it: its queries are filtered and reviewed by models rather than people, and it responds with an independent two-judge quality audit of 300 stratified samples reporting inter-judge agreement and a leakage rate, plus a sensitivity analysis crediting functionally valid but unannotated alternative answers, which moves every retriever by a comparable margin and leaves the ordering intact. Read together the three make one point that none states outright: the useful question about a benchmark is not how large it is but what its ground truth is a function of, and whether the authors measured the distortion introduced by whatever they could not make mechanical.
 
 - **Kind**: concept
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)

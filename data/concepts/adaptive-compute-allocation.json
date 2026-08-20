@@ -3,9 +3,11 @@
     "adaptive inference",
     "dynamic compute allocation",
     "difficulty-aware allocation",
-    "budget allocation"
+    "budget allocation",
+    "adaptive test-time compute",
+    "compute-optimal allocation"
   ],
-  "definition": "",
+  "definition": "Spending inference compute unevenly -- more on the inputs that need it, less or none on the ones that do not -- rather than fixing a uniform budget per query. The sources split by what triggers the reallocation and by what is being allocated. Triggers include a model's own self-certainty, an algorithm-agnostic measure of how far its answer has stopped changing, a fuzzy controller over human-readable difficulty and confidence signals, injected difficulty cues, and the first diffusion timestep at which a violation actually appears. What is allocated is equally varied: how many samples to draw, how long to keep thinking, how hard to compress the KV cache, which of several reasoning paths to route through, and how many latent states to spend. Three sources treat stopping as the formal core of the problem and reach a sharper conclusion than the heuristics do -- one proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision requires the value of continuing rather than the value of stopping; another stops self-consistency sampling by a Bayesian posterior over which answer is the mode and proves that tracking only the top two counts plus an aggregate suffices for asymptotic optimality; a third casts each generation as opening a costly box in Weitzman's Pandora's Box problem and matches best-of-N quality with 15 to 35 percent fewer generations. The methodological caution the archive should carry comes from the source that reports its result as a tradeoff rather than a win: under a selector-matched protocol that holds the answer selector and decoding fixed so only the budget policy varies, adaptive allocation is slightly less accurate in two of four settings -- which is what separates a genuine allocation effect from the effect of whatever selector the comparison happened to use.",
   "evidence": [
     {
       "id": "arxiv:2608.03284",
@@ -334,7 +336,9 @@
     "alpacafarm",
     "hh-rlhf"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "budget-forcing"
+  ],
   "schema_version": 1,
   "slug": "adaptive-compute-allocation",
   "topics": [

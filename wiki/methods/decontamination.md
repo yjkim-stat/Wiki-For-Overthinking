@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Removing from a training or retrieval corpus anything that overlaps the evaluation set, so a reported score is not partly a memory check. The two sources here use different keys and disagree implicitly about how tight the threshold can be. The industrial-safety benchmark decontaminates by exact identifiers -- sample ID, source-document ID, normalized question text and image path -- and additionally groups splits by source document, so no two questions from one accident report can straddle the split. The in-trace retrieval work needs something stronger because its corpus is synthetic mathematics and near-duplicates are dense: it removes exact matches and then drops any entry above 0.90 cosine similarity to an evaluation instance, and its own post-hoc audit reports maximum retained similarities of 0.898 and 0.891, immediately below the cut, with means of 0.866 and 0.845. That paper attributes the density to the structure of synthetic math corpora rather than to leakage and defends the threshold with an answer-distinct retrieval control instead of lowering it -- which is the clearest statement in the archive that similarity-based decontamination has no principled cut-off and that the defence has to come from a control rather than from the number.
 
 - **Kind**: method
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

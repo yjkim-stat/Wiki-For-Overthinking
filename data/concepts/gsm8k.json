@@ -2,7 +2,7 @@
   "aliases": [
     "GSM8K"
   ],
-  "definition": "",
+  "definition": "8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many sampled solutions beats finetuning the generator directly, and built to diagnose multi-step reasoning failure on a distribution that model size alone did not solve. Across the thirty-five sources that mention it, it is almost never the object of study: it is the easy rung of an evaluation suite, the corpus that supplies traces for compression, pruning, distillation and probing work, and the setting where a method is expected to already work before anything harder is attempted. It carries evidence in two recurring ways. It is a contamination site -- three sources use it while showing that a brief round of GRPO erases the signals contamination detectors rely on, that the standard metric for judging contamination mitigation can be scored by cancellation rather than restoration, and that similarity-based decontamination has no principled threshold. And it is where the field's standard baseline is demonstrably misleading: few-shot chain-of-thought prompting with dataset examples reaches 74.2 percent against 86.1 percent for simply asking a reasoning-specialised model the question, so anything benchmarked against that baseline on this dataset is overstated. No source here reports GSM8K as unsolved or as the frontier; where a source wants difficulty it moves to MATH, AIME or a symbolic variant.",
   "evidence": [
     {
       "id": "arxiv:2110.14168",
@@ -799,7 +799,9 @@
     "low-rank-steering-update",
     "centered-kernel-alignment"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gsm-plus"
+  ],
   "schema_version": 1,
   "slug": "gsm8k",
   "topics": [

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A DeepSeek model that appears in this archive only inside panels, never as the object of study. It is one of 20 models spanning 1.5B to 1T parameters in the Persistent Semantic Entities susceptibility panel, where every model tested proves susceptible to injected contamination and no scale effect is resolvable, and one of 21 judges in the large-scale LLM-as-a-judge reliability evaluation, whose central findings -- kappa deflation of 34 to 41 points universal across every judge and provider, and test-retest reliability coexisting with severe position bias -- are reported over the panel rather than per model. Neither source describes the model's architecture, training or capabilities, and neither reports a number attributed to it individually.
 
 - **Kind**: model
-- **Also called**: DeepSeek V3.2
+- **Also called**: DeepSeek V3.2, DeepSeek-V3.2
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

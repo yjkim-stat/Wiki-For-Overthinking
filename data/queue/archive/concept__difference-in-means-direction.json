@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T12:39:47Z",
   "created_at": "2026-08-20T12:38:17Z",
   "instructions": "Write the wiki definition for 'difference-in-means direction'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "difference-in-means direction",
@@ -37,6 +38,18 @@
   "payload": {
     "name": "difference-in-means direction",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "difference-of-means direction",
+      "mean-difference direction",
+      "contrastive activation direction"
+    ],
+    "definition": "A direction in activation space computed as the difference between the mean activations of two contrasting sets, usually normalised, and then either added to the residual stream to steer or projected onto to detect. Both sources use it and both make the same point about what limits it, from opposite ends. The text-to-MIDI work builds directions from 25 contrastive prompts per pole and states the constraint plainly: the poles differ lexically as well as in the target attribute, so a direction is only as clean as the contrast behind it -- and its metrics are proxies that are not fully independent of one another. The Parkinson's screening work turns that constraint into something measurable by building its direction from a synthetic degradation of healthy examples rather than from labelled positives, then checking the cosine between that synthetic direction and the real one: +0.37 for the speech encoder, where the detector works at AUROC 0.765, and -0.48 for the face encoder, where an anti-aligned direction scores at chance. Read together the sources say the same thing twice: the contrast pair, not the arithmetic, is the method, and whether the resulting direction points at the intended concept is a question that can be asked directly rather than assumed.",
+    "kind": "method",
+    "related": [
+      "contrastive activation addition"
+    ]
   },
   "task_id": "concept__difference-in-means-direction",
   "task_version": 1,

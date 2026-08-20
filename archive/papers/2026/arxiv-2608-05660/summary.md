@@ -46,7 +46,7 @@ Improvements are stated as 'up to', so the typical gain is lower than 12%/21%. B
 
 ## Entities
 
-- **Concepts**: [residual stream](../../../../wiki/concepts/residual-stream.md), [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), [localization](../../../../wiki/concepts/localization.md), shortcut learning, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [error detection](../../../../wiki/concepts/error-detection.md), [effective depth](../../../../wiki/concepts/effective-depth.md)
+- **Concepts**: [residual stream](../../../../wiki/concepts/residual-stream.md), [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), [localization](../../../../wiki/concepts/localization.md), [shortcut learning](../../../../wiki/concepts/shortcut-learning.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [error detection](../../../../wiki/concepts/error-detection.md), [effective depth](../../../../wiki/concepts/effective-depth.md)
 - **Methods**: [linear probe](../../../../wiki/methods/linear-probe.md), vector quantization, trajectory-based detection, [activation probing](../../../../wiki/methods/activation-probing.md), multi-layer state normalization
 - **Datasets**: _none recorded_
 
