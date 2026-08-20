@@ -45,8 +45,8 @@ Each task is two steps of fixed types, so the finding is about mixed-type compos
 
 ## Entities
 
-- **Concepts**: [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), commonsense reasoning, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), brittleness, [construct validity](../../../../wiki/concepts/construct-validity.md), membership inference
-- **Methods**: AgentCoMa, isolated-step ablation, human baseline comparison, [attention analysis](../../../../wiki/methods/attention-analysis.md), [membership inference](../../../../wiki/methods/membership-inference.md)
+- **Concepts**: [compositional generalization](../../../../wiki/concepts/compositional-generalization.md), commonsense reasoning, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), brittleness, [construct validity](../../../../wiki/concepts/construct-validity.md), [membership inference](../../../../wiki/concepts/membership-inference.md)
+- **Methods**: AgentCoMa, isolated-step ablation, human baseline comparison, [attention analysis](../../../../wiki/methods/attention-analysis.md), membership inference
 - **Datasets**: AgentCoMa
 
 Tags: `benchmark`, `compositional reasoning`, `commonsense`, `brittleness`, `human baseline`

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-The classification of problems by the size and depth of boolean circuits that solve them, and the archive's main tool for saying what a transformer can and cannot compute. The sources agree a step-free transformer is confined to a small class and disagree on which, because the answer depends on the precision model: log-precision gives TC^0, while constant-bit floating point tightens it to AC^0, a proper subset. They agree on the consequence — problems complete for larger classes, such as automaton simulation (NC^1-complete), graph connectivity (NL-complete) and linear equalities (P-complete), are out of reach without intermediate steps. All separations are conditional on the standard conjecture that AC^0, TC^0, NC^1 and P do not collapse.
+The complexity-class characterisation of what a transformer can compute, and across 5 sources the formal backbone of the archive's chain-of-thought material. The established results: a single forward pass of a bounded-depth transformer sits in a low parallel class, generating intermediate tokens lifts that ceiling, and the number of steps maps onto classes -- a linear number of steps reaching NC1, with polynomially many steps reaching further. One source gives an exact fixed-step characterisation in terms of a rank measure of the function; another shows chain of thought lets transformers solve inherently serial problems; a third supplies a concrete witness by constructing graph traversal and a linear-step branching measure in two layers without layer normalisation. Two boundaries the archive should keep. These are representational results and say nothing about what gradient descent finds -- one source in the set proves a learning result instead, on how a transformer comes to learn a chain-of-thought procedure with length generalisation. And they are usually proved for hard attention, an idealisation adopted because softmax reintroduces difficulties known from sigmoidal networks.
 
 - **Kind**: concept
-- **Also called**: AC0, NC1, TC0, circuit classes
+- **Also called**: AC0, NC1, TC0, circuit classes, computational complexity of transformers
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 5
 

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Detaching the gradients of a small randomly selected fraction of tokens whose covariance between log-probability and advantage is high, proposed alongside KL-Cov by the source that derives entropy change as that covariance. It targets the tokens the theory says drive collapse rather than raising entropy globally. Reported to beat GRPO by 2.0 points on average at 7B and 6.4 at 32B, with the largest gains on AIME. Two later sources reproduce it as a baseline and find it competitive but not dominant; one notes that randomly zeroing gradients of positive-advantage tokens performs comparably, which weakens the case that the covariance criterion specifically is what matters.
+Covariance-based entropy interventions that restrict updates on tokens whose advantage and log-probability covary most, introduced together as the pair of remedies for entropy collapse and compared across 4 sources. The corpus's numbers place them: on one 7B model the average across six benchmarks runs base 21.2, standard training 45.5, strict on-policy 50.1, entropy regularisation 47.8, clip-higher 49.8, and these two at 50.7 and 50.5, with a later method at 52.4. Two readings the archive should keep. The largest single improvement in that table comes from switching to strict on-policy updating rather than from any entropy mechanism, which is a separate change the headline framing does not isolate. And these methods each introduce hyperparameters -- clip ratio, covariance bounds, a top-k count, a divergence coefficient -- set differently at 7B and 32B without a stated selection procedure, which one source flags as a limitation on reading their margins.
 
 - **Kind**: method
-- **Also called**: Clip_Cov
+- **Also called**: Clip_Cov, KL-Cov
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 4
 

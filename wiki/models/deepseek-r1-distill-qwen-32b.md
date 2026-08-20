@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-The 32B member of the R1 distillation series. Two findings attach to it specifically: it shows the largest absolute loss in the archive from suppressing expressions of uncertainty, falling from 80.0 to 43.3 AIME24 pass@1 after 800-sample fine-tuning on its own correct traces with those expressions removed; and its proactive self-corrections have low precision (23.9%), consistent with the pattern that expressed doubt fires more often than it is warranted.
+A 32B Qwen distilled from a large reasoning model, used across 3 sources as the largest distilled checkpoint in trace-dynamics work -- mutual-information peaks at thinking tokens, reasoning-strength planning, and strategic information allocation. Its most striking archived datum is the size of the epistemic-verbalisation effect at this scale: suppressing the habit of expressing uncertainty by fine-tuning on 800 of the model's own correct traces cuts its competition accuracy from 80.0 to 43.3, the largest drop among five models, despite every training trace containing a correct answer.
 
 - **Kind**: model
-- **Also called**: DeepSeek-R1-Distill-32B
+- **Also called**: DeepSeek-R1-Distill-32B, DeepSeek-R1-Distill-Qwen-32B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Cohen's kappa"
+    "Cohen's kappa",
+    "kappa"
   ],
-  "definition": "Inter-rater agreement corrected for the agreement expected by chance, and in these sources both a quality check that passes and a critique that bites. As a check it is what licenses reading a human study: agreement from 0.760 to 1.000 across eight criteria before external adjudication is what makes a finding of no significant reasoning-quality improvement interpretable rather than noise, and a peer-judging benchmark reports 0.767 to 0.854 in four categories while naming its fifth at 0.599 as the one where its headline finding lives. As a critique it is the whole argument of the judge-reliability evaluation, which measures kappa deflation -- the gap between exact-match agreement and the chance-corrected figure -- and finds it 34 to 41 points across all 21 judges, every provider and every capability tier. Read together the sources give the practice: exact-match agreement between a model judge and a reference is not evidence of discrimination, because a judge agreeing with a skewed label distribution agrees mostly by chance, and only the corrected statistic separates the two.",
+  "definition": "Agreement between two raters corrected for chance, and across 4 sources the statistic the archive requires before a labelled result is read. Its instances show what it adds over raw agreement. At 0.85 with 93 percent raw agreement it establishes that a labelling task is reproducible, which is what licenses scoring a model judge against those annotators. At 0.83 across three raters it supports a claim that 200 cards contain no answer leak. In a judge evaluation it is the validity axis that comes apart from reliability -- one provider's judges average 0.770 while another's average 0.467, and the model with the highest test-retest reliability in the study has the third-lowest kappa. And where a class is near ceiling it exposes what raw agreement hides: 0.90 to 0.99 raw agreement alongside kappas of 0.357 to 0.573, which means a headline gain on such a dimension rests on a handful of discordant judgements.",
   "evidence": [
     {
       "id": "arxiv:2608.06578",
@@ -128,7 +129,9 @@
     "kimi-k2-5"
   ],
   "related_authored": [
-    "krippendorff-s-alpha"
+    "annotation-agreement",
+    "class-imbalance",
+    "llm-as-a-judge"
   ],
   "schema_version": 1,
   "slug": "cohen-s-kappa",

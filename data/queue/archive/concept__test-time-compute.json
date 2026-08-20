@@ -27,8 +27,32 @@
       },
       {
         "kind": "paper",
+        "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+        "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
         "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+        "title": "Thought-Level Beam Search for Reasoning",
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
@@ -231,9 +255,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:30:29Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'test-time compute'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:24:07Z",
+  "created_at": "2026-08-20T23:21:57Z",
+  "instructions": "Write the wiki definition for 'test-time compute'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "test-time compute",
   "kind": "concept",
   "language": "en",
@@ -242,32 +266,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "test-time compute",
-    "source_count": 19
+    "source_count": 21
   },
   "result": {
     "aliases": [
-      "inference compute",
-      "test-time computation",
-      "inference-time scaling"
+      "inference compute"
     ],
-    "definition": "Computation spent at inference rather than in training, and the resource this archive's largest engineering literature allocates. Nineteen sources treat it as something to be spent well rather than merely spent, and they differ on what to buy with it: more samples, longer chains, refinement of existing chains, search over reasoning strategies, re-examination of the input, or evaluation of candidates — with one source showing evaluation-time compute substitutes for generation-time compute at a comparable rate. Two results give the concept firmer footing than a scaling curve. Complexity theory makes the number of decoding steps a computational resource akin to time, with named classes attached to each regime. And optimal-stopping theory says when to stop spending: aggregation schemes exist whose failure probability provably decays to zero, while majority voting can converge to zero success when a wrong answer is individually more likely than the right one. The recurring practical finding is that uniform allocation is wrong, because the gain is concentrated on problems the model finds hard and the waste on the ones it does not.",
+    "definition": "Computation spent at inference rather than training, and across 21 sources the resource the archive's scaling literature is about. Its foundational result here is a trade against parameters: a compute-optimal allocation strategy improves scaling efficiency more than fourfold over a fixed best-of-N baseline, and in a FLOPs-matched evaluation lets a smaller base model outperform a 14 times larger one on problems where it already has non-trivial success rates -- with that last clause being the condition the archive keeps finding attached. The corpus's accumulated qualifications: the same nominal budget buys different things under different regimes, so a single scalar makes results incomparable; more of it is not monotone in accuracy because the aggregation rule is amplified rather than averaged; and its value is conditional on the instance, with budget increases that pay on a feasible instance changing nothing on an infeasible one. One source separates it from a confound worth noting -- an improvement attributed neither to added compute alone nor to information encoded in phrasing.",
     "kind": "concept",
     "related": [
       "test-time scaling",
       "adaptive compute allocation",
-      "optimal stopping",
-      "best-of-n",
-      "self-consistency",
-      "early exit",
-      "effective depth",
-      "provable scaling law"
+      "compute allocation"
     ]
   },
   "task_id": "concept__test-time-compute",

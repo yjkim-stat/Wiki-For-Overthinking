@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Qwen3-235B"
+    "Qwen3-235B",
+    "Qwen3-235B-A22B",
+    "Qwen3-235B-A22B-Thinking"
   ],
-  "definition": "A large mixture-of-experts model with roughly 22B active parameters, used by both sources as the frontier-adjacent point where a degradation is shown to persist or not. One ternarizes it and reports the result that carries its scaling claim — 78.80 / 85.97 / 26.88 / 67.07 / 48.51 against FP16's 98.60 / 96.28 / 45.51 / 89.02 / 69.31 — establishing that post-training quantization of a reasoning model holds at 235B and not only at small scale. The other finds it among the frontier models robust on the easier symbolic re-instantiation (-6.4% on AMC23) while still degrading on harder sets. In both, it answers whether a finding survives the largest model the authors could run.",
+  "definition": "A large mixture-of-experts Qwen3 model, used across 4 sources as a frontier-scale open system. Two archived results place it. As a teacher it is substantially worse than a competing frontier model for one safety pipeline -- 51.25 against 14.25 attack success on the same benchmark -- which is that paper's evidence that its framework is partly a property of the teacher's analyses. And under symbolic variabilisation it is among the most robust models on the easier competition set at -6.4 percent, alongside other frontier systems, while the archive's related caution is that the same family degrades sharply on the harder sets. It also appears as a quality auditor in benchmark construction and as a monitorability subject.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -167,7 +169,10 @@
     "seed-think-v1-6",
     "openai-o4-mini-high"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-32b",
+    "deepseek-v3-2"
+  ],
   "schema_version": 1,
   "slug": "qwen3-235b-a22b",
   "topics": [

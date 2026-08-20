@@ -3,7 +3,7 @@
     "attention map",
     "attention weights"
   ],
-  "definition": "The distribution of attention weights over positions, used by the sources as a readable trace of information flow. One provides tooling to extract and compare these patterns across vision-language architectures; the two others use them to act rather than to observe — locating where to inject a safety reflection, and scoring how strongly cross-step routing aligns with semantic proximity. The sources treat the pattern as evidence about which earlier content a step is actually using, which is the assumption their interventions rest on and which none of them tests directly.",
+  "definition": "Where a model attends at a given position, read across 4 sources as a routing signal and, consistently, as one that says where the model looked rather than what it found. Its productive uses here are as an index into something else: finding the key points in a reasoning path at which to inject a safety reflection, or measuring how routing focus shifts across reasoning phases to detect hallucination. Its limitation is the archive's recurring one -- in vision-language hallucination, attention alone does not separate real from hallucinated objects and only what the attended region decodes to does. One library in the set exists to make patterns inspectable for vision-language models with the tooling text-only models already have.",
   "evidence": [
     {
       "id": "arxiv:2608.04124",
@@ -101,7 +101,11 @@
     "rfs-guard",
     "cosine-similarity-over-hidden-states"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "attention-analysis",
+    "logit-lens",
+    "grounding"
+  ],
   "schema_version": 1,
   "slug": "attention-pattern",
   "topics": [

@@ -2,9 +2,10 @@
   "aliases": [
     "counterfactual",
     "controlled ablation",
-    "intervention"
+    "intervention",
+    "counterfactual rollout"
   ],
-  "definition": "Changing one input or internal element while holding everything else fixed, so that a difference in output is attributable to that element. Both sources treat the holding-fixed as the hard part. One injects synthetic reasoning snippets into a trace and measures both whether the model follows them and whether it admits doing so, which turns influence into a known quantity and non-disclosure into a measurable one — over 90% for extreme hints. The other removes a single prompt word while fixing the sampling seed, so that two generated images differ only by that word. The archive's trace-level work faces the same nuisance-variation problem and does not consistently apply an equivalent control.",
+  "definition": "Changing one thing and re-running to see what the output would have been, and across 3 sources the design that separates the archive's grounded causal claims from its correlational ones. Its instances: masking the evidence a system cites and finding 82.8 percent of correct answers flip while masking uncited evidence changes 9.6; re-running a reasoning trace from a modified prefix to locate the sentences that commit a model to agreeing with an incorrect user suggestion; and intervening on cross-attention in a diffusion model to test what a component contributes. The archive's related finding, from the trace literature, is what makes this design necessary: reasoning traces shape outputs while models will not say so, so a self-report is not a substitute for a counterfactual and a correlation between a trace feature and an answer establishes neither direction.",
   "evidence": [
     {
       "id": "arxiv:2608.03292",
@@ -78,7 +79,11 @@
     "head-resolved-attribution",
     "stable-diffusion"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "causal-intervention",
+    "activation-patching",
+    "selectivity-control"
+  ],
   "schema_version": 1,
   "slug": "counterfactual-intervention",
   "topics": [

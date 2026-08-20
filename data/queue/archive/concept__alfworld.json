@@ -6,7 +6,8 @@
         "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
         "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,13 +15,23 @@
         "note": "Distributes hindsight supervision across the turns of an agent trajectory by comparing each turn's share of total revision magnitude against its share of eligible tokens, holding the average multiplier at one so the total supervision is fixed and only its allocation changes -- and isolates that allocation with a permutation control that keeps the multiplier values and scrambles which turn receives which.",
         "title": "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T14:19:23Z",
-  "created_at": "2026-08-20T14:16:13Z",
+  "completed_at": "2026-08-20T23:25:57Z",
+  "created_at": "2026-08-20T23:21:57Z",
   "instructions": "Write the wiki definition for 'ALFWorld'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "ALFWorld",
   "kind": "concept",
@@ -37,19 +48,21 @@
   },
   "payload": {
     "name": "ALFWorld",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [],
-    "definition": "A text-based interactive environment in which an agent completes household tasks through discrete actions over multiple turns, decomposable into six task families. Both sources use it as one of two environments for multi-turn agentic reinforcement learning, and its value in this archive is that per-family results are available: the hindsight-allocation work reports the full matrix over all six families rather than only split-level averages, which makes visible that individual families move by ten or more points between methods in directions that do not follow the aggregate. It is also split into seen and unseen sets, so a method's generalisation is separable from its fit. Neither source describes its construction; both use it because multi-turn discrete-action trajectories are where turn-level credit assignment can be inspected at all.",
+    "definition": "A text-based interactive environment in which an agent completes household tasks through discrete actions over multiple turns, split into seen and unseen validation sets and decomposable into six task families. Across 3 sources it is the archive's default embodied benchmark for multi-turn credit assignment, and its value is that per-family and per-split results are available -- one source reports the full six-family matrix, making visible that individual families move by ten or more points between methods in directions the aggregate does not follow. It is also where the archive's largest single agent result sits: a diagnosis-guided recovery harness reaching 91.94 percent macro against a base 40.13 and 52.24 for the strongest prompt-adaptation baseline, with the matched-information rerun showing the gain belongs to a ranked recovery operator rather than to the action restriction or the diagnosis alone.",
     "kind": "dataset",
     "related": [
-      "WebShop"
+      "WebShop",
+      "AppWorld"
     ]
   },
   "task_id": "concept__alfworld",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

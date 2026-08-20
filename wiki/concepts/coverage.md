@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-How much of the space of correct solutions a model can reach at all, as distinct from how often it reaches one. The two sources use the idea at opposite ends of training. Measured by pass@k at large k, base models cover more than their RLVR-trained descendants, which is the basis for reading RLVR as sharpening the sampling distribution toward paths the base already had rather than adding new ones. In distillation, coverage is a property of the supervision rather than of the policy: teacher-preferred tokens the student rarely samples are never reached by an on-policy update, and 95.5 percent of such deficit positions have under a one percent chance of appearing in sampled supervision -- which is why that paper injects teacher probability mass analytically rather than waiting for those positions to be drawn. Neither source defines coverage formally; between them they establish that a training signal restricted to what the current policy samples cannot expand what it samples, which is the same constraint in both settings.
+The fraction of items a system answers rather than declines, and in this archive the number without which a reliability claim is unreadable. Across 3 sources its role is to price an abstention mechanism: one system's 28.5-point reduction in a hallucination proxy costs 9.6 points of it, and its reflection-depth sweep is monotone in opposite directions -- deeper reflection cutting the proxy from 0.11 to 0.06 while coverage falls 93.8 to 88.4 and effective accuracy 85.0 to 77.9, which the authors read as overcorrection and use to justify keeping reflection shallow. The same source reports its baseline comparisons in both directions, including one where it trades 2.4 points of coverage for a 13.9-point reduction in the proxy. Note that the word carries a second sense elsewhere in the archive -- the fraction of problems solvable at a large sampling budget -- which is the reasoning-boundary usage and not this one.
 
 - **Kind**: concept
+- **Also called**: answer rate
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

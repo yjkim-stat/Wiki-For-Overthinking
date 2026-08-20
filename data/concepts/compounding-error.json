@@ -4,7 +4,7 @@
     "error propagation",
     "drift"
   ],
-  "definition": "The accumulation of small per-step inaccuracies over a multi-step rollout, which both sources identify as the limit on reasoning in latent space specifically. One introduces a higher-level abstract latent so that a coarser prediction over a longer span replaces a chain of fine-grained ones, on the argument that existing multi-token and next-latent objectives either have too short a horizon or accumulate error. The other explains the same limitation by identifying decisional certainty as the governing variable, formalized as a Symbolic Index, and concludes that latent reasoning is good at exploration and bad at computation. Both treat the error as structural to the latent rollout rather than a shortfall of scale.",
+  "definition": "Small per-step errors accumulating over a multi-step rollout until the trajectory is wrong, and across 3 sources the limit that bounds latent and iterative methods specifically. Its instances: auxiliary objectives for multi-step latent prediction either have a limited horizon or accumulate error over the rollout, which is the trade one hierarchical method is built against; a formal treatment of latent chain-of-thought bounds what continuous rollouts can achieve; and, in discrete traces, one source finds a model's first solution usually its best with later alternatives actively harmful, characterising the errors as a forest and pruning accordingly. The archive's related material supplies the same shape in other settings -- iterative refinement accumulating into global-shape drift in forecasting, and repeated local corrections distorting a long-horizon trend.",
   "evidence": [
     {
       "id": "arxiv:2608.05806",
@@ -70,7 +70,11 @@
     "prontoqa",
     "gpt-2"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "latent-reasoning",
+    "answer-stabilization",
+    "degenerate-generation"
+  ],
   "schema_version": 1,
   "slug": "compounding-error",
   "topics": [

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A running internal summary of what has been established so far, used by both sources as the object that long-horizon reasoning must maintain. They apply it at different levels. One makes it a pretraining target, adding a higher-level abstract latent so that latent-space rollouts accumulate less error and belief-state representations stay coherent over longer horizons. The other makes it explicit and Bayesian, aggregating token-level teacher-student log-probability gaps into turn-level evidence and updating a belief in log-odds space, where the marginal revision between consecutive states identifies which turn mattered. The shared claim is that a scalar per step is not enough and the history has to be carried.
+A maintained estimate of an unobserved variable, updated as evidence arrives, appearing across 3 sources in three different mechanisms. In agentic credit assignment it is a Bayesian belief over which turn was pivotal, updated recursively in log-odds space from token-level teacher-student gaps, which identifies pivotal turns without a critic. In planning it is a filter over per-device latent parameters, reduced from about 0.31 to 0.044 uncertainty across a test with most of the information gained in the first 30 epochs. And in language modelling it is a hierarchical latent predicted several steps ahead. The common shape worth recording is that a belief state converts a sparse terminal observation into a dense per-step quantity without requiring a learned value function -- which is the same job a critic does, done by inference rather than by regression.
 
 - **Kind**: concept
 - **Also called**: belief, state representation

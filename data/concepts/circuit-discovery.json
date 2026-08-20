@@ -2,7 +2,7 @@
   "aliases": [
     "circuit identification"
   ],
-  "definition": "Finding the subset of components that accounts for a behaviour, usually by intervening on candidates and keeping those whose ablation changes the output. The archived sources apply it at three scales — indirect object identification, propositional logic, arithmetic — and one of them is a warning about the other two: which components a study reports depends on the corruption method, the evaluation metric and whether layers are patched singly or in windows, with window methods inflating apparent localization by at least 20%. Any circuit result in this archive should be read with the settings that produced it in view.",
+  "definition": "Finding the subgraph of components responsible for a behaviour, and across 3 sources a method whose results in this archive divide by whether a circuit is found at all. It is found for propositional logic: four families of attention heads executing rule locating, rule moving, fact processing and decision making as sequential steps, recovered by causal mediation across models from 7B to 27B. It is not found for arithmetic: the circuit reverse-engineered to individual neurons is neither a learned algorithm nor memorisation but an unordered collection of sparse heuristic neurons each firing on a numerical input pattern and voting for corresponding answers. And one source builds on discovered circuits rather than discovering them, using sparse-autoencoder circuits to align steering across layers geometrically. The archive's caution for all three is the identifiability one: where the units come from a learned dictionary rather than from the weights, the circuit is partly a property of the dictionary.",
   "evidence": [
     {
       "id": "arxiv:2608.05732",
@@ -68,7 +68,11 @@
     "gemma-2-9b",
     "gemma-2-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "circuit-analysis",
+    "causal-tracing",
+    "modularity"
+  ],
   "schema_version": 1,
   "slug": "circuit-discovery",
   "topics": [

@@ -2,7 +2,7 @@
   "aliases": [
     "REINFORCE Leave-One-Out"
   ],
-  "definition": "REINFORCE Leave-One-Out, a critic-free policy-gradient method that estimates each sample's baseline from the other samples in its group. In the archive it appears only as a comparison point: among six RLVR algorithms it shows only minor variation in how far it closes the gap to the base model's pass@k bound, and it sits in the same entropy-dynamics family as the rest. Its leave-one-out baseline is the same group-relative idea GRPO uses, which is part of why the archive's sources find these methods behave alike.",
+  "definition": "Using the mean reward of the other samples in a group as the baseline for each sample, which is the unbiased leave-one-out form of the group-relative idea. Across 4 sources it appears as one of the interchangeable estimators rather than as a subject: six algorithms including it show only minor variation in the sampling-efficiency gap and all remain far from the base-model bound, and one entropy analysis finds its fitted curves unchanged from three others. One source uses its structure analytically rather than empirically -- the unclipped leave-one-out group-relative score gradient is a second-order U-statistic over pairs of rollouts, so completing one rollout reveals contrast with every other completed one, which is what makes adaptive rollout allocation a question about which pair terms become observable.",
   "evidence": [
     {
       "id": "arxiv:2608.08623",
@@ -121,7 +121,11 @@
     "amc",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reinforce",
+    "grpo",
+    "advantage-estimation"
+  ],
   "schema_version": 1,
   "slug": "rloo",
   "topics": [

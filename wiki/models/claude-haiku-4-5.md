@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The small model of the Claude 4.5 generation, appearing in this archive twice and in both cases as an instrument rather than a subject. In the skill-retrieval work it is one of two models that independently review each candidate benchmark query for naturalness, informativeness and consistency with its target, with disagreements adjudicated by hand. In the reasoning-trace extraction work it is one of the models whose encrypted reasoning blocks were shown interchangeable across sessions and models, and specifically the kind of less-safeguarded model that a more capable sibling's material can be routed through -- which is the structural point that paper makes, that safeguards on a capable model do not bind material processed by a weaker one in the same family. Neither source describes the model's training or capabilities.
+A small frontier model appearing across 3 sources as a reviewer, a participant and an extraction target. Its notable role is in benchmark construction, where it independently reviews each query for naturalness, informativeness, capability requirement and target consistency alongside another frontier model, with disagreements adjudicated by hand -- one of the archive's cases where a benchmark's definition of a property is what two models judged it to be. It also appears in multi-agent medical deliberation and as a target for reasoning-trace extraction.
 
 - **Kind**: model
 - **Also called**: Claude Haiku 4.5

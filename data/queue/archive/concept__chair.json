@@ -11,6 +11,14 @@
       },
       {
         "kind": "paper",
+        "note": "Models hidden states as a superposition of truthful and hallucination-associated components and derives a closed-form Wiener filter over their covariances, giving mode-wise attenuation that is folded back into the model's own weights so inference runs unchanged and at the same speed.",
+        "title": "Wiener Representation Filtering for VLM Hallucination Suppression",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
         "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
         "topics": [
@@ -19,8 +27,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T14:08:24Z",
-  "created_at": "2026-08-20T14:06:01Z",
+  "completed_at": "2026-08-20T23:24:05Z",
+  "created_at": "2026-08-20T23:21:57Z",
   "instructions": "Write the wiki definition for 'CHAIR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "CHAIR",
   "kind": "concept",
@@ -37,17 +45,18 @@
   },
   "payload": {
     "name": "CHAIR",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "CHAIRi",
-      "CHAIRs"
+      "CHAIR metric"
     ],
-    "definition": "A metric and evaluation protocol for object hallucination in image captioning, counting mentioned objects absent from the image at the instance and sentence level, and in both sources here the yardstick against which a mitigation is judged rather than a benchmark in the usual sense. The structured read-out work uses it to label hallucinated object mentions in freely generated captions and reports the pair falling from 18.0 and 37.2 to 8.2 and 16.6 under its guardrail -- alongside retained word count, preserved correct-object coverage, perplexity and distribution shift, precisely so the reduction cannot be a suppression artifact. The attention-versus-evidence work uses it to evaluate two type-matched remedies. Neither describes its construction. Its role in the archive is as a reminder that a hallucination metric can be driven down by saying less, which is why both sources report content-preservation measures beside it.",
-    "kind": "dataset",
+    "definition": "A family of metrics counting how many objects a generated caption mentions that are not present in the annotated image, at caption level and instance level. Across 3 sources it is the standard measure for object hallucination in vision-language models, and the archive's note about it is methodological: a reduction in hallucinated mentions is compatible with a model simply saying less, so the sources that report it credibly report word count, correct-object coverage and perplexity alongside -- one showing guarded captions retaining 95.4 percent of vanilla word count while eliminating the empty captions the undefended decoding produced. One source notes against its own interest that some decoding-based competitors achieve slightly higher fluency while its method minimises hallucinated objects, which is the trade this metric alone cannot show.",
+    "kind": "method",
     "related": [
-      "POPE"
+      "POPE",
+      "hallucination",
+      "COCO"
     ]
   },
   "task_id": "concept__chair",

@@ -3,7 +3,7 @@
     "head",
     "attention heads"
   ],
-  "definition": "An individual attention computation within a layer, treated by the sources as the unit at which a mechanism can be localized. One generalizes causal tracing to select subsets of heads and MLP neurons jointly, on the argument that single-component tracing misses components that only matter together and makes redundant ones each look unimportant. The other identifies specific heads by function, finding that latent counts stored in per-part item representations are moved to intermediate steps by dedicated heads before final aggregation. The pair frames the open question: heads are individually interpretable often enough to name, and jointly load-bearing often enough that naming them one at a time is unreliable.",
+  "definition": "An individual attention mechanism within a layer, and across 3 sources the unit at which the archive's mechanistic results are most often stated. Its uses divide by what is claimed. As a locus of function: latent counts are computed and stored in the final item representations of each part, transferred to intermediate steps via dedicated heads, and aggregated at the final stage -- a mechanism located at head granularity. As a source of directions: the foundational steering method mines vectors from the most discriminative heads, which is exactly the selection rule the archive's inverted-vector result shows can install the opposite of the intended effect. And as a search space: one source generalises causal tracing from one component at a time to joint subsets, relaxing the combinatorial selection into a continuous one over soft interventions, on the argument that heads act together.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -67,7 +67,11 @@
     "task-decomposition",
     "system-2-prompting"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "circuit-analysis",
+    "attention-pattern",
+    "modularity"
+  ],
   "schema_version": 1,
   "slug": "attention-head",
   "topics": [

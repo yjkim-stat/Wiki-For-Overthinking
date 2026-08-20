@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen3-4B-Thinking"
+    "Qwen3-4B-Thinking",
+    "Qwen3-4B-Thinking-2507"
   ],
-  "definition": "A small released reasoning checkpoint that emits an explicit thinking segment, used by both sources as the model whose traces are analysed rather than trained. One measures the entropy of its chain of thought and reports the two-phase structure it exhibits — a high-entropy exploration region shifting abruptly into low-entropy convergence — and uses it for the end-to-end latency comparison, at 419 seconds against 504 for vanilla decoding on AIME25, with CUSUM-weighted voting beating self-consistency at every sample count from 2 to 64 and a 3.33-point lead at 64. The other includes it among the models whose hidden-state trajectory geometry is scored. Its role here is as a model small enough to sample heavily from while still producing a long, structured thinking trace.",
+  "definition": "A dated thinking-mode release of the 4B Qwen3 model, used across 4 sources as the small reasoning checkpoint in test-time-scaling and trace-geometry work. Its measured appearances: a beam search over reasoning steps raises it from 50.8 to 65.0 on one competition set and 68.2 to 70.2 on a graduate science set; it is one of four models in a trajectory-geometry correctness study; and it appears in entropy-dynamics and theory-of-mind evaluation. As with the other dated releases in this archive, the version string is load-bearing -- a reproduction against a later release of the same name is not a reproduction.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -138,7 +139,10 @@
     "llama-3-70b-instruct",
     "gpt-4o"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b-instruct-2507",
+    "qwen3-4b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b-thinking-2507",
   "topics": [

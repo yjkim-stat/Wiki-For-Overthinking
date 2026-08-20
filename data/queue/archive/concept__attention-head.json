@@ -3,6 +3,14 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
+        "title": "Inverted Detection and Control in Steering Vectors",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Generalizes causal tracing from one component or layer at a time to selecting subsets of components jointly, by relaxing the combinatorial search into a continuous one over soft interventions.",
         "title": "Multi-component Causal Tracing in Large Language Models",
         "topics": [
@@ -19,9 +27,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:30Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'attention head'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:25:33Z",
+  "created_at": "2026-08-20T23:21:57Z",
+  "instructions": "Write the wiki definition for 'attention head'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "attention head",
   "kind": "concept",
   "language": "en",
@@ -30,29 +38,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "attention head",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "head",
-      "attention heads"
-    ],
-    "definition": "An individual attention computation within a layer, treated by the sources as the unit at which a mechanism can be localized. One generalizes causal tracing to select subsets of heads and MLP neurons jointly, on the argument that single-component tracing misses components that only matter together and makes redundant ones each look unimportant. The other identifies specific heads by function, finding that latent counts stored in per-part item representations are moved to intermediate steps by dedicated heads before final aggregation. The pair frames the open question: heads are individually interpretable often enough to name, and jointly load-bearing often enough that naming them one at a time is unreliable.",
+    "aliases": [],
+    "definition": "An individual attention mechanism within a layer, and across 3 sources the unit at which the archive's mechanistic results are most often stated. Its uses divide by what is claimed. As a locus of function: latent counts are computed and stored in the final item representations of each part, transferred to intermediate steps via dedicated heads, and aggregated at the final stage -- a mechanism located at head granularity. As a source of directions: the foundational steering method mines vectors from the most discriminative heads, which is exactly the selection rule the archive's inverted-vector result shows can install the opposite of the intended effect. And as a search space: one source generalises causal tracing from one component at a time to joint subsets, relaxing the combinatorial selection into a continuous one over soft interventions, on the argument that heads act together.",
     "kind": "concept",
     "related": [
+      "circuit analysis",
       "attention pattern",
-      "causal tracing",
-      "localization",
-      "modularity",
-      "superposition",
-      "effective depth"
+      "modularity"
     ]
   },
   "task_id": "concept__attention-head",

@@ -4,7 +4,7 @@
     "intrinsic confidence",
     "model certainty"
   ],
-  "definition": "A model's own estimate of how sure it is, read from its output distribution and used as a control signal rather than reported to a user. One source feeds it into preference optimization so that confident answers are compressed and uncertain ones keep deliberating, making difficulty a quantity read off the model that will do the reasoning rather than predicted for it. The other treats certainty dynamics as diagnostic, using entropy over the course of a trace to characterize how reasoning is going. Both depend on certainty tracking correctness, which neither verifies — and the archive holds a source showing a model can be badly calibrated while still ranking correct above incorrect answers well.",
+  "definition": "A verifier-free selection score computed from a model's own output distribution, used across 4 sources as the standard confidence-based alternative to plurality voting. The archive's evidence about it is mostly negative and specific. It is absorbed by controls: at matched budgets it falls below a matched-control baseline where plurality-with-Borda and confidence-weighted voting track that control within noise. It loses to plurality outright in one head-to-head at sixteen samples (51.7 against 60.6 for a weighting method and 46.2 for plain voting, in a table where it beats plain voting). And one source's assumption about it is flagged rather than tested -- the approach depends on self-certainty being calibrated with respect to difficulty, which is asserted rather than measured, and an overconfident model would compress exactly the problems it is wrong about. The archive's calibration material supplies the reason to doubt it on hard sets.",
   "evidence": [
     {
       "id": "arxiv:2608.03961",
@@ -99,7 +99,11 @@
     "qwen2-5-math-7b",
     "qwen3-4b-instruct-2507"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "selection-signal",
+    "confidence-calibration",
+    "self-consistency"
+  ],
   "schema_version": 1,
   "slug": "self-certainty",
   "topics": [

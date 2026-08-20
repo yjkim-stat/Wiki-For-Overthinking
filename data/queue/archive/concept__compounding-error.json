@@ -13,6 +13,16 @@
       },
       {
         "kind": "paper",
+        "note": "Finds that a reasoning model's first solution is usually its best and that later alternatives are actively harmful, characterizes the errors as a forest structure, and prunes accordingly.",
+        "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
         "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought",
         "topics": [
@@ -23,9 +33,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:31Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'compounding error'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:25:34Z",
+  "created_at": "2026-08-20T23:21:57Z",
+  "instructions": "Write the wiki definition for 'compounding error'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "compounding error",
   "kind": "concept",
   "language": "en",
@@ -34,29 +44,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "compounding error",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "error accumulation",
-      "error propagation",
-      "drift"
+      "error accumulation"
     ],
-    "definition": "The accumulation of small per-step inaccuracies over a multi-step rollout, which both sources identify as the limit on reasoning in latent space specifically. One introduces a higher-level abstract latent so that a coarser prediction over a longer span replaces a chain of fine-grained ones, on the argument that existing multi-token and next-latent objectives either have too short a horizon or accumulate error. The other explains the same limitation by identifying decisional certainty as the governing variable, formalized as a Symbolic Index, and concludes that latent reasoning is good at exploration and bad at computation. Both treat the error as structural to the latent rollout rather than a shortfall of scale.",
+    "definition": "Small per-step errors accumulating over a multi-step rollout until the trajectory is wrong, and across 3 sources the limit that bounds latent and iterative methods specifically. Its instances: auxiliary objectives for multi-step latent prediction either have a limited horizon or accumulate error over the rollout, which is the trade one hierarchical method is built against; a formal treatment of latent chain-of-thought bounds what continuous rollouts can achieve; and, in discrete traces, one source finds a model's first solution usually its best with later alternatives actively harmful, characterising the errors as a forest and pruning accordingly. The archive's related material supplies the same shape in other settings -- iterative refinement accumulating into global-shape drift in forecasting, and repeated local corrections distorting a long-horizon trend.",
     "kind": "concept",
     "related": [
       "latent reasoning",
-      "latent chain of thought",
-      "belief state",
-      "reasoning trajectory",
-      "effective depth"
+      "answer stabilization",
+      "degenerate generation"
     ]
   },
   "task_id": "concept__compounding-error",

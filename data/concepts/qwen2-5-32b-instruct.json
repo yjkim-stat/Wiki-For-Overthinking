@@ -2,7 +2,7 @@
   "aliases": [
     "Qwen2.5-32B-Instruct"
   ],
-  "definition": "The 32B instruction-tuned Qwen2.5 model, appearing in both sources as a base to be modified rather than studied. One finetunes it on 1,000 curated reasoning traces and adds budget forcing to produce a model exceeding o1-preview on competition math by up to 27%, and extrapolating from 50% to 57% on AIME24 under forced-longer thinking. The other includes it among the standard LLMs whose self-corrections are almost entirely reactive, with proactive correction essentially absent — the contrast that separates instruction-tuned models from reasoning-trained ones there.",
+  "definition": "A 32B instruction-tuned Qwen, and across 4 sources the base for one of the archive's foundational test-time-scaling results: supervised fine-tuning on 1,000 curated traces plus budget forcing produces a model that extrapolates beyond its own unmanaged performance, 50 to 57 percent on one competition set, and exceeds a frontier reasoning preview on competition mathematics by up to 27 percent. It also appears as the largest arm in a multilingual tool-use scaling comparison, where the supervised-versus-reinforcement ordering is not monotone in size, and as a subject in credit-redistribution and epistemic-verbalisation work.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -109,7 +109,10 @@
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-14b-instruct",
+    "dapo-qwen-32b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-32b-instruct",
   "topics": [

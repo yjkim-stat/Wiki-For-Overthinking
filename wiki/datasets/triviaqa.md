@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A large single-hop question-answering set of trivia questions with distantly supervised evidence, used by both sources as in-domain data for search agents and, alongside Natural Questions, as the easy half against which multi-hop claims are read. It is where both report their highest absolute scores of any benchmark — 72.5 F1 in one, 63.1 to 67.3 EM in the other — and where step-level credit matters least: removing the forward-looking step reward costs 0.9 points here against 5.9 on HotpotQA. A method that improves it substantially would be improving retrieval rather than reasoning, which is why neither claims it.
+A single-hop factoid question-answering set, used across 4 sources as an in-domain control in the search-agent suite alongside Natural Questions -- the benchmark that tests retrieval rather than composition. Its role in the archive is to show what a multi-hop mechanism should not change, so that an ablation moving the multi-hop sets while leaving this one flat is evidence the mechanism is targeted. None of the sources describes its construction.
 
 - **Kind**: dataset
 - **Also called**: TQ

@@ -1,9 +1,10 @@
 {
   "aliases": [
     "structured chain-of-thought",
-    "structured CoT"
+    "structured CoT",
+    "typed reasoning segments"
   ],
-  "definition": "Constraining a chain of thought to a fixed sequence of typed segments rather than leaving it free-form, so that each segment can be separately supervised, rewarded or checked. The spatial-reasoning work makes the case most concretely: perception, including depth estimation and grounding, becomes a stage the model must explicitly produce before any inference, and each segment then receives its own process reward and its own advantage term. Its ablation shows why the structure alone is not the contribution -- with the perception advantage removed the model still emits the perception segment and the grounding and depth rewards simply never improve over training, so the structure is present and inert. The therapy-dialogue work uses the same idea to encode domain procedure, grounding the segment sequence in clinical guidelines and adding a separate orchestrator to keep simulated patients from collapsing into sycophantic compliance. Between them the sources make one point the archive should carry: imposing structure creates addressable slots, and a slot supervised only through the final answer is not filled with anything useful -- which is the same result the latent-reasoning entries reach from the other direction.",
+  "definition": "Constraining a reasoning trace to labelled segments -- perception against inference, evidence against conclusion, phase identifiers -- so that different parts can be supervised, rewarded or read separately. Across 4 sources the argument for it is a credit-assignment one: with a single outcome signal the segments compete for credit, and giving each its own process reward and its own advantage term stops an update improving one from being cancelled by the other. Its measured value in that source is 63.90 for standard training with an unstructured trace against a higher figure for the structured version, with supervised fine-tuning alone at 55.18. Two other uses appear: enforcing named phases so a synthesised trace can be checked for clinical validity, and typing steps so that a compression search can operate on them. The archive's caution is the general one about trace structure -- a labelled segment is a constraint on the form of the output, and the faithfulness literature says the form need not correspond to what produced the answer.",
   "evidence": [
     {
       "id": "arxiv:2608.04524",
@@ -102,7 +103,9 @@
     "gpt-4o"
   ],
   "related_authored": [
-    "chain-of-thought-prompting"
+    "chain-of-thought",
+    "process-reward",
+    "credit-assignment"
   ],
   "schema_version": 1,
   "slug": "structured-chain-of-thought",

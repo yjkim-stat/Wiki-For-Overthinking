@@ -202,7 +202,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (163)
+## Methods (164)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -223,6 +223,7 @@
 - [chain-of-thought compression](methods/chain-of-thought-compression.md) — 4 source(s)
 - [chain-of-thought distillation](methods/chain-of-thought-distillation.md) — 4 source(s)
 - [chain-of-thought prompting](methods/chain-of-thought-prompting.md) — 31 source(s)
+- [CHAIR](methods/chair.md) — 3 source(s)
 - [circuit analysis](methods/circuit-analysis.md) — 9 source(s)
 - [circuit discovery](methods/circuit-discovery.md) — 3 source(s)
 - [Clip-Cov](methods/clip-cov.md) — 4 source(s)
@@ -368,7 +369,7 @@
 - [Wilson confidence interval](methods/wilson-confidence-interval.md) — 2 source(s)
 - [zero-shot prompting](methods/zero-shot-prompting.md) — 3 source(s)
 
-## Datasets (84)
+## Datasets (83)
 
 - [2WikiMultiHopQA](datasets/2wikimultihopqa.md) — 5 source(s)
 - [AdvBench](datasets/advbench.md) — 2 source(s)
@@ -388,7 +389,6 @@
 - [BeaverTails](datasets/beavertails.md) — 2 source(s)
 - [BigCodeBench](datasets/bigcodebench.md) — 2 source(s)
 - [Brumo](datasets/brumo.md) — 4 source(s)
-- [CHAIR](datasets/chair.md) — 3 source(s)
 - [CMIMC](datasets/cmimc.md) — 4 source(s)
 - [COCO](datasets/coco.md) — 2 source(s)
 - [CommonsenseQA](datasets/commonsenseqa.md) — 2 source(s)

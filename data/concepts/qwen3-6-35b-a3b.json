@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen3.6-35B"
+    "Qwen3.6-35B",
+    "Qwen3.6-35B-A3B"
   ],
-  "definition": "A mixture-of-experts reasoning model with roughly 3B active parameters, appearing in both sources in a supporting role that its own results complicate. In the cultural-decoding sweep it is one of 18 models where the probe reads a culture the generation does not emit, and it is also the model whose chat-template patching scores near zero through a template artefact, so its causal result is reported on a bare-prompt estimate with explicit patching left to a follow-up. In the poisoning study it is the wrong teacher that generates the incorrect reasoning traces for a curriculum rather than a model under attack. Both uses are worth remembering as caveats: one names a measurement this checkpoint defeated, and the other has it producing training data rather than being evaluated.",
+  "definition": "A 35B mixture-of-experts Qwen3.6 model with about 3B active parameters, used across 4 sources as a recent efficient open backbone. Its most informative archived datum is an infrastructure one: in a mixed rollout-serving study its tool-interaction gap is 22.7 percent of agent task time against 6.6 for a comparison model, which is why model inference time understates cache residency and why residency-aware accounting is worth a further 9.7 percent throughput on it. It also appears as a poisoning subject, in a cultural-knowledge audit, and in test-time-scaling reproducibility work.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -145,7 +146,10 @@
     "swe-mtlg",
     "step3-7"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-235b-a22b",
+    "qwen3-6-27b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-6-35b-a3b",
   "topics": [

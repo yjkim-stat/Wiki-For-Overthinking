@@ -45,7 +45,7 @@ No standalone limitations section is present in the material read. What a reader
 
 ## Entities
 
-- **Concepts**: [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), contamination detection, [memorization](../../../../wiki/concepts/memorization.md), importance sampling, clipping, membership inference, leaderboard integrity, [construct validity](../../../../wiki/concepts/construct-validity.md), RLVR
+- **Concepts**: [benchmark contamination](../../../../wiki/concepts/benchmark-contamination.md), contamination detection, [memorization](../../../../wiki/concepts/memorization.md), importance sampling, clipping, [membership inference](../../../../wiki/concepts/membership-inference.md), leaderboard integrity, [construct validity](../../../../wiki/concepts/construct-validity.md), RLVR
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), contamination detection, membership inference attack
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 

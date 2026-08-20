@@ -3,6 +3,16 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Constructs explicit two-layer hard-attention Transformer decoders that execute depth-first search and Dijkstra's algorithm step by step under chain of thought, then reuses those traversals as a substrate to compute two branching-complexity measures of a tree in a linear number of steps, without layer normalisation or positional encodings.",
+        "title": "Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Characterizes exactly how much computational power a chain of thought buys as a function of its length, sandwiching the class of languages a decoder recognizes with t(n) decoding steps between two standard complexity classes.",
         "title": "The Expressive Power of Transformers with Chain of Thought",
         "topics": [
@@ -43,9 +53,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:23:48Z",
-  "created_at": "2026-08-09T03:21:54Z",
-  "instructions": "Write the wiki definition for 'circuit complexity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:24:05Z",
+  "created_at": "2026-08-20T23:21:57Z",
+  "instructions": "Write the wiki definition for 'circuit complexity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "circuit complexity",
   "kind": "concept",
   "language": "en",
@@ -54,31 +64,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "circuit complexity",
-    "source_count": 4
+    "source_count": 5
   },
   "result": {
     "aliases": [
-      "circuit classes",
-      "TC0",
-      "AC0",
-      "NC1"
+      "computational complexity of transformers"
     ],
-    "definition": "The classification of problems by the size and depth of boolean circuits that solve them, and the archive's main tool for saying what a transformer can and cannot compute. The sources agree a step-free transformer is confined to a small class and disagree on which, because the answer depends on the precision model: log-precision gives TC^0, while constant-bit floating point tightens it to AC^0, a proper subset. They agree on the consequence — problems complete for larger classes, such as automaton simulation (NC^1-complete), graph connectivity (NL-complete) and linear equalities (P-complete), are out of reach without intermediate steps. All separations are conditional on the standard conjecture that AC^0, TC^0, NC^1 and P do not collapse.",
+    "definition": "The complexity-class characterisation of what a transformer can compute, and across 5 sources the formal backbone of the archive's chain-of-thought material. The established results: a single forward pass of a bounded-depth transformer sits in a low parallel class, generating intermediate tokens lifts that ceiling, and the number of steps maps onto classes -- a linear number of steps reaching NC1, with polynomially many steps reaching further. One source gives an exact fixed-step characterisation in terms of a rank measure of the function; another shows chain of thought lets transformers solve inherently serial problems; a third supplies a concrete witness by constructing graph traversal and a linear-step branching measure in two layers without layer normalisation. Two boundaries the archive should keep. These are representational results and say nothing about what gradient descent finds -- one source in the set proves a learning result instead, on how a transformer comes to learn a chain-of-thought procedure with length generalisation. And they are usually proved for hard attention, an idealisation adopted because softmax reintroduces difficulties known from sigmoidal networks.",
     "kind": "concept",
     "related": [
-      "expressivity",
-      "effective depth",
       "chain of thought",
-      "finite precision",
-      "serial computation",
-      "expressivity-learnability gap"
+      "VC dimension",
+      "hard attention"
     ]
   },
   "task_id": "concept__circuit-complexity",

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Whether a third party can check a claim rather than take it on trust, which the two sources locate at two different levels. One is about a single output: a compressed reasoning model can return a correct answer whose supporting derivation has been destroyed, so the visible trace no longer lets a reader tell whether the answer is reliable — and it argues this bites hardest in clinical or other high-stakes decision support, where a correct-looking output should only be used if its evidential basis can be inspected. The other is about a research field: mechanistic interpretability has no standardized system for auditing experiments, which the paper grounds in two papers reaching conflicting conclusions with nothing available to resolve them, and proposes continuous collaborative reviewing with source-based claim tracking. The shared claim is that a finding which cannot be checked cannot be certified, however accurate it happens to be.
+Whether a system's reasoning can be checked after the fact, and across 3 sources a property the archive treats as a design constraint that other objectives trade against. Its clearest cost is the compression case: methods preserving final-answer accuracy are largely the ones destroying the reasoning that supports it, with accuracy and chain validity correlating at Spearman -0.95 on one benchmark, so an accuracy-based leaderboard would order compressors almost exactly backwards on auditability. Its clearest attempted remedy is a latent safeguard that compresses rationales into continuous states and adds an on-demand decoder producing a human-readable audit artifact -- whose own ablation shows the artifact anchored far more by the source text than by the latent states it is supposed to inspect, so the audit trail is reconstructed rather than read. The third source argues the field itself needs auditing guidelines developed by continuous collaborative review, which is the archive's own position stated as a proposal.
 
 - **Kind**: concept
-- **Also called**: auditable
+- **Also called**: auditable, inspectability
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 3
 

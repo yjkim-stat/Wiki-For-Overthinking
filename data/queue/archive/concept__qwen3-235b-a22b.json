@@ -7,6 +7,30 @@
         "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization",
         "topics": [
           "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
+        "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
           "reasoning-evaluation"
         ]
       },
@@ -16,13 +40,15 @@
         "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
         "topics": [
           "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
           "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T01:05:56Z",
-  "created_at": "2026-08-13T01:02:18Z",
+  "completed_at": "2026-08-20T23:25:35Z",
+  "created_at": "2026-08-20T23:21:57Z",
   "instructions": "Write the wiki definition for 'Qwen3-235B-A22B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-235B-A22B",
   "kind": "concept",
@@ -39,20 +65,26 @@
   },
   "payload": {
     "name": "Qwen3-235B-A22B",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "Qwen3-235B"
+      "Qwen3-235B-A22B",
+      "Qwen3-235B-A22B-Thinking"
     ],
-    "definition": "A large mixture-of-experts model with roughly 22B active parameters, used by both sources as the frontier-adjacent point where a degradation is shown to persist or not. One ternarizes it and reports the result that carries its scaling claim — 78.80 / 85.97 / 26.88 / 67.07 / 48.51 against FP16's 98.60 / 96.28 / 45.51 / 89.02 / 69.31 — establishing that post-training quantization of a reasoning model holds at 235B and not only at small scale. The other finds it among the frontier models robust on the easier symbolic re-instantiation (-6.4% on AMC23) while still degrading on harder sets. In both, it answers whether a finding survives the largest model the authors could run.",
+    "definition": "A large mixture-of-experts Qwen3 model, used across 4 sources as a frontier-scale open system. Two archived results place it. As a teacher it is substantially worse than a competing frontier model for one safety pipeline -- 51.25 against 14.25 attack success on the same benchmark -- which is that paper's evidence that its framework is partly a property of the teacher's analyses. And under symbolic variabilisation it is among the most robust models on the easier competition set at -6.4 percent, alongside other frontier systems, while the archive's related caution is that the same family degrades sharply on the harder sets. It also appears as a quality auditor in benchmark construction and as a monitorability subject.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Qwen3-32B",
+      "DeepSeek-V3.2"
+    ]
   },
   "task_id": "concept__qwen3-235b-a22b",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

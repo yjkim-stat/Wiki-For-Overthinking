@@ -2,7 +2,7 @@
   "aliases": [
     "prediction with abstention"
   ],
-  "definition": "Allowing a system to decline rather than requiring an answer on every input, and scoring it on the pair of quantities that creates -- accuracy among the items it answered, and how many it answered. Both sources insist the pair be read together. The reliability-alignment work reports four quantities jointly, adding a hallucination proxy and an effective accuracy over the whole set, and uses them to argue that a 9.6-point coverage loss is not a utility loss because the model answers fewer low-support cases while producing more correct answers overall -- and its ablation shows the two mechanisms it combines are not substitutes, since reflection alone leaves coverage at exactly 100 percent while abstention alone leaves the hallucination proxy unchanged. The observability work approaches the same trade from the monitoring side, holding a completed run fixed and varying what a reader may inspect. The archive's reading is that a reliability gain purchased entirely by refusing is a different result from one purchased by being right, that only the coverage column distinguishes them, and that abstention quality should be scored as precision and recall against what the model genuinely cannot do rather than as a refusal rate.",
+  "definition": "Allowing a system to decline rather than answer everything, and scoring it on the pair of quantities that creates -- accuracy among the items it answered, and how many it answered. Across 4 sources the archive's rule is that the pair must be read together. One system reports four quantities jointly, adding a hallucination proxy and an effective accuracy over the whole set, and argues a 9.6-point coverage loss is not a utility loss because the model answers fewer low-support cases while producing more correct answers overall -- while conceding that whether it is acceptable depends on the cost of a refusal against a wrong answer, which no experiment supplies. Its ablation shows the two mechanisms are not substitutes: reflection alone leaves coverage at exactly 100 percent, abstention alone leaves the hallucination proxy unchanged. A second source approaches the same trade from the monitoring side by holding a run fixed and varying what a reader may inspect, and a third from the agent side by deciding which failures are worth attempting to repair. The archive's position is that a reliability gain purchased entirely by refusing is a different result from one purchased by being right, and only the coverage column distinguishes them.",
   "evidence": [
     {
       "id": "arxiv:2608.02089",
@@ -120,7 +120,9 @@
     "qwen3-6-27b"
   ],
   "related_authored": [
-    "abstention"
+    "abstention",
+    "coverage",
+    "confidence-calibration"
   ],
   "schema_version": 1,
   "slug": "selective-prediction",

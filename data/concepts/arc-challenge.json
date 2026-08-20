@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "The harder split of the AI2 Reasoning Challenge, a multiple-choice science question set, used in both sources here as a supporting evaluation rather than a target. In the latent-credit work it is one of the benchmarks on which a thought-level advantage estimate for continuous latent reasoning is measured; in the agent-channel compression study it is one of nine benchmarks over which a sparse reconstruction of the communication tensor is scored, moving from 62.12 to between 61.18 and 64.85 across compression settings -- movements that paper itself declines to interpret, since they are single-run point estimates with no paired uncertainty. Neither source describes the benchmark's construction or reports a finding about it.",
+  "aliases": [
+    "ARC-Challenge",
+    "ARC-Easy"
+  ],
+  "definition": "A multiple-choice science question set with a deliberately hard subset, used across 3 sources as the non-mathematical column in latent-reasoning and abstention suites. Two archived observations. It is where per-benchmark orderings contradict an average: one method with the best overall score loses it by 1.5 points while winning three others. And it is one of the benchmarks in a quantization study whose movements are large and unsystematic in both directions -- 75.46 to 78.96 on the easy split while a code benchmark falls -- a pattern the authors describe as more consistent with single-run noise than with a compression effect.",
   "evidence": [
     {
       "id": "arxiv:2608.01593",
@@ -91,7 +94,8 @@
     "vision-wormhole"
   ],
   "related_authored": [
-    "arc-easy"
+    "mmlu",
+    "gpqa"
   ],
   "schema_version": 1,
   "slug": "arc-challenge",

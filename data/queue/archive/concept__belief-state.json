@@ -7,7 +7,8 @@
         "title": "Hierarchical Latent Prediction for Language Models",
         "topics": [
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -16,14 +17,25 @@
         "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
         "topics": [
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Plans semiconductor reliability stress tests as a partially observable sequential decision problem, using Monte Carlo tree search over a seed-action simulator with an extended Kalman filter tracking per-device latent degradation parameters, so each device's test adapts to its own measured behaviour rather than to a population model.",
+        "title": "Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:31Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'belief state'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:24:05Z",
+  "created_at": "2026-08-20T23:21:57Z",
+  "instructions": "Write the wiki definition for 'belief state'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "belief state",
   "kind": "concept",
   "language": "en",
@@ -32,34 +44,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "belief state",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "belief",
-      "state representation"
-    ],
-    "definition": "A running internal summary of what has been established so far, used by both sources as the object that long-horizon reasoning must maintain. They apply it at different levels. One makes it a pretraining target, adding a higher-level abstract latent so that latent-space rollouts accumulate less error and belief-state representations stay coherent over longer horizons. The other makes it explicit and Bayesian, aggregating token-level teacher-student log-probability gaps into turn-level evidence and updating a belief in log-odds space, where the marginal revision between consecutive states identifies which turn mattered. The shared claim is that a scalar per step is not enough and the history has to be carried.",
+    "aliases": [],
+    "definition": "A maintained estimate of an unobserved variable, updated as evidence arrives, appearing across 3 sources in three different mechanisms. In agentic credit assignment it is a Bayesian belief over which turn was pivotal, updated recursively in log-odds space from token-level teacher-student gaps, which identifies pivotal turns without a critic. In planning it is a filter over per-device latent parameters, reduced from about 0.31 to 0.044 uncertainty across a test with most of the information gained in the first 30 epochs. And in language modelling it is a hierarchical latent predicted several steps ahead. The common shape worth recording is that a belief state converts a sparse terminal observation into a dense per-step quantity without requiring a learned value function -- which is the same job a critic does, done by inference rather than by regression.",
     "kind": "concept",
     "related": [
       "credit assignment",
-      "compounding error",
       "latent reasoning",
-      "long-horizon reasoning",
-      "process supervision"
+      "Monte Carlo tree search"
     ]
   },
   "task_id": "concept__belief-state",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

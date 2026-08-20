@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A 27-billion-parameter Qwen model appearing twice in this archive as a panel member. On the industrial-safety reasoning benchmark it scores 40.9 percent overall untuned, the second-lowest of eight models and far below the frontier entries, which is part of that paper's evidence that general multimodal capability does not carry over to evidence-grounded safety reasoning. It is also one of 18 open models instrumented in the cultural-awareness study, whose finding -- that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults -- is reported across the panel. Neither source describes the model or reports a mechanism specific to it.
+A 27B Qwen3.6 model, used across 4 sources as a recent open backbone. Its archived appearances: as the third backbone for a diagnosis-guided recovery harness, reaching the highest embodied score in that study (96.33 percent from 58.00) while its multi-application numbers sit below the other two -- an ordering the source reports without reconciling; as the model generating cold-start rollouts for a coding-agent pipeline, so part of that method is distillation from it; as a frontier-adjacent baseline in industrial-safety reasoning; and as one of the 18 checkpoints in a cultural-knowledge audit.
 
 - **Kind**: model
 - **Also called**: Qwen3.6-27B

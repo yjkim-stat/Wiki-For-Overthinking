@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "DAPO-Qwen2.5-32B"
+    "DAPO-Qwen2.5-32B",
+    "DAPO-Qwen-32B"
   ],
-  "definition": "A 32B Qwen2.5 checkpoint trained with the DAPO recipe on roughly 17k mathematical problems, used in the archive as the worked example of a post-RLVR model. It carries the central measurement in the reasoning-boundary dispute: against its base Qwen2.5-32B it loses on plain Pass@K at large K and wins on CoT-Pass@K at every K up to 1024, the gap being widest on AIME 2025, which postdates the base model's training cutoff. It also appears in symbolic-perturbation testing of whether mathematical reasoning survives changed numbers.",
+  "definition": "A 32B Qwen trained with a group-relative variant, and across 3 sources the archive's reference reinforcement-learning-trained model in the reasoning-boundary debate. It is the model on which chain-scored pass@k reverses the plain-pass@k verdict, showing a consistent and significant gap in its favour against its base at every budget up to 1024. It is also where symbolic variabilisation shows scaling raising raw accuracy without fixing consistency -- 92.3 to 69.8 percent on one set under the strict metric, with the loose partial-credit metric narrowing that to 7.2 percent, which separates memorisation from inconsistency. And it is one of the four model families in the branch-preference measurement showing entropy collapse concentrated in semantic rather than syntactic contrasts.",
   "evidence": [
     {
       "id": "arxiv:2608.02867",
@@ -109,7 +110,10 @@
     "deepseek-r1-distill-qwen-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-32b-instruct",
+    "skywork-or1"
+  ],
   "schema_version": 1,
   "slug": "dapo-qwen-32b",
   "topics": [

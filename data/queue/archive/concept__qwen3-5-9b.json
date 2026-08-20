@@ -22,11 +22,33 @@
           "test-time-scaling",
           "reasoning-evaluation"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Generates financial reasoning benchmarks from executable computation trees over real tables so that answers are correct by construction with no model in the labelling loop, exposes four independently controllable difficulty axes, and finds that unit and scale perturbations collapse the strongest model from 98.4 percent to 3.0.",
+        "title": "V-FiLLM: Verified Financial LLM Reasoning Benchmark",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:57:13Z",
-  "created_at": "2026-08-20T12:45:12Z",
+  "completed_at": "2026-08-20T23:25:36Z",
+  "created_at": "2026-08-20T23:21:57Z",
   "instructions": "Write the wiki definition for 'Qwen3.5-9B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3.5-9B",
   "kind": "concept",
@@ -43,15 +65,17 @@
   },
   "payload": {
     "name": "Qwen3.5-9B",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "Qwen3.5-9B"
     ],
-    "definition": "A 9-billion-parameter Qwen model that is the fine-tuning subject in both of its sources rather than an off-the-shelf baseline, which makes it useful for what its two results say together. On the industrial-safety benchmark it starts at 37.4 percent -- near the bottom of an eight-model field -- and reaches 89.0 percent micro accuracy after LoRA supervised fine-tuning on chain-of-thought supervision, the highest of any configuration tested and slightly above the strongest frontier model, though answer-only supervision on the same data reaches only 75.1 percent. That gain is within-distribution, so it establishes that the benchmark's question forms are learnable at this size rather than that safety reasoning transferred. In the model-poisoning work it is one of the models into which a triggered backdoor is installed by supervised fine-tuning, leaving the visible reasoning clean and correct while the answer is attacker-chosen. Both sources therefore use it to show how much a small open model's behaviour can be moved by fine-tuning, in opposite directions.",
+    "definition": "A 9B Qwen3.5 model, used across 4 sources as the small-to-mid open backbone where domain fine-tuning is shown to close a gap to frontier systems. Its clearest archived result: answer-only supervision lifts it from 37.4 to 75.1 percent micro accuracy on an industrial-safety benchmark and chain-of-thought supervision reaches 89.0, the highest micro accuracy of any configuration tested and slightly above a frontier model -- though a frontier model keeps the best macro, so the fine-tuned model is less uniform across categories. It also appears as a poisoning subject, in latent-communication sparse coding, and in financial reasoning evaluation.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Qwen3.5-27B"
+    ]
   },
   "task_id": "concept__qwen3-5-9b",
   "task_version": 1,

@@ -2,7 +2,7 @@
   "aliases": [
     "visual grounded reasoning"
   ],
-  "definition": "Tying a reasoning step to the specific region of an image it depends on, and the two sources disagree instructively about whether it helps. One trains it as an explicit intermediate output and finds doing so worth 8.78 points over letting the model attend implicitly, arguing the value is as a vision-reasoning bridge rather than as the final objective. The other audits a selection rule built on grounding-like signals and finds a score that demonstrably depends on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet buys nothing once a format-matched control is run. The reconciliation is that the two intervene at different points: supervising grounding during training changes what the model computes, while scoring grounding at selection time only reweights what it already produced.",
+  "definition": "Tying a reasoning step or a generated mention to a specific region of an image, and across 4 sources the property that separates multimodal reasoning from text reasoning with a picture attached. Its measured value: pairing every reasoning step with a predicted image region beats letting the model attend implicitly by 8.78 points, which those authors read as grounding earning its place as an intermediate vision-reasoning bridge rather than as the final objective -- and their ablation among grounding realisations finds masking beating boxing with cropping competitive at up to 7.93 points despite a sixteenfold resolution reduction. Two negative results bound it. Replacing a visual task token with language-encoded instructions costs 8.6 points, so the grounding must be visual rather than described. And an attended region is not a grounded one: what separates real from hallucinated objects is whether the attended region decodes to the target token, not whether it was attended.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -31,7 +31,7 @@
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:26:16Z",
+  "last_seen": "2026-08-20T23:21:54Z",
   "name": "visual grounding",
   "related": [
     "test-time-scaling",
@@ -134,7 +134,9 @@
     "vsi-bench"
   ],
   "related_authored": [
-    "detection-versus-control"
+    "grounding",
+    "multimodal-reasoning",
+    "hallucination"
   ],
   "schema_version": 1,
   "slug": "visual-grounding",

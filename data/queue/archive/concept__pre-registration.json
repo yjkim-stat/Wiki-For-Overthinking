@@ -6,7 +6,9 @@
         "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
         "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,13 +16,35 @@
         "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
         "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+        "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+        "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T13:14:16Z",
-  "created_at": "2026-08-20T13:07:32Z",
+  "completed_at": "2026-08-20T23:24:06Z",
+  "created_at": "2026-08-20T23:21:57Z",
   "instructions": "Write the wiki definition for 'pre-registration'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "pre-registration",
   "kind": "concept",
@@ -37,21 +61,25 @@
   },
   "payload": {
     "name": "pre-registration",
-    "source_count": 2
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "pre-registered criterion"
+      "confirmatory design"
     ],
-    "definition": "Fixing the criterion a result must meet before the result is measured, so that a threshold cannot be chosen after seeing the data. Both sources are from the same research programme and both use it in the way that costs them something. The identifiability work reports two pre-registered criteria that fail their controls: an invariance-gap criterion met in 49 percent of 75 cells against a registered 80 percent, because the sign of the effect tracks the feature-selection rule, and a universality criterion that separates two seed replicas of one architecture and therefore, in its stated form, is not a universality criterion. Both are reported because both bound what may be claimed. The cross-layer ablation work applies it to mechanism selection, reporting three rejected candidate mechanisms because they had been pre-registered -- which the archive's reading notes cuts both ways, since it also means the retained mechanism was selected for cleanliness. Neither source treats pre-registration as a subject; between them they demonstrate its only real function, which is to make a negative result reportable rather than discardable.",
+    "definition": "Fixing hypotheses, thresholds and analysis choices before looking at the confirmatory data, and across 4 sources a practice rare enough in this literature that the archive records who does it. The fullest instance splits 198 problems into 47 exploratory and 151 confirmatory, locks four hypotheses and their thresholds at a git tag before any confirmatory analysis, sets each threshold on the permissive side of the exploratory estimate so it is a genuine prediction rather than a restatement, decides pass or fail on the confirmatory set only, and works out a one-sided boundary sensitivity showing its reported rate can only rise. Two theoretical sources in the set pre-register a test on a real pretrained model after deriving it, which is the same discipline applied to a prediction rather than to a hypothesis, and one of them withdraws its own empirical separation when it fails out of sample. A fourth pre-registers an allocation comparison. The archive's reading is that pre-registration is what converts a plausible margin into evidence in a field where most margins are single-run and uninterval-ed.",
     "kind": "method",
     "related": [
-      "selectivity control"
+      "reproducibility",
+      "bootstrap confidence intervals",
+      "construct validity"
     ]
   },
   "task_id": "concept__pre-registration",
   "task_version": 1,
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

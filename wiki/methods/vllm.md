@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The inference engine most of these sources run on. It appears only as infrastructure, but with one substantive consequence worth recording: the early-exit and probing methods here require interrupting generation, inserting a prompt and resuming, which is why they are demonstrated on locally served open-weight models and are not applicable to closed API models.
+The inference server most of this archive's experiments run on, appearing across 4 sources as infrastructure rather than as a subject. Two archived results make it worth an entry. Its numerical behaviour is a reproducibility variable: one source studies sources of nondeterminism in inference and finds them consequential enough to affect reported results, which bears on every single-run number in the corpus. And its routing layer is where one scheduling study intervenes, showing that placement-only routing collapses to a 4.5 percent prefix-cache hit rate under a concurrency ceiling that admission control tolerates. Otherwise it appears as the serving backend for beam search over reasoning steps, early exit, and benchmark re-evaluation.
 
 - **Kind**: method
 - **Also called**: vLLM
