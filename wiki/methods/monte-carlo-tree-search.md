@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than a contribution: one source runs it against chain-of-thought, least-to-most and tree-of-thought on the same problems and finds it lower in accuracy (75.8% against 84.4% for CoT on AQuA), and another treats it as one of four algorithm archetypes its scheduling metric must cover, using the reward model's mean output as the certainty signal.
+Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physical test planning. Two structural properties transfer beyond any one application. Progressive widening decouples the search from the size of the action space: across grids spanning a 36-fold range in action cardinality the realised tree is identical at 500 nodes and 30 root children, because children expanded at a node are bounded by its visit count -- so refining the action resolution raises attainable quality at no combinatorial cost. And the budget curve carries a condition: yield rises smoothly and sublinearly with iterations on a feasible instance while a fourfold increase changes nothing on an infeasible one, so per-instance sensitivity rather than the aggregate scaling curve tells you which regime you are in. The archive's related material supplies the counterweight for language settings: a tree search over reasoning branches can lose badly to a single chain when branches interpret the problem inconsistently and the search has no scorer able to adjudicate between them.
 
 - **Kind**: method
 - **Also called**: MCTS, Monte Carlo Tree Search

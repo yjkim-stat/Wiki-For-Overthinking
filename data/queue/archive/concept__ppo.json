@@ -3,12 +3,79 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
+        "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+        "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+        "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+        "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
         "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -16,9 +83,10 @@
         "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -26,9 +94,10 @@
         "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -36,9 +105,10 @@
         "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
         "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -46,9 +116,10 @@
         "note": "Shows by two four-armed bandits with nearly identical approximation error, one of which converges and one of which does not, that approximation error cannot characterize whether softmax policy gradient reaches the optimum, and replaces it with a condition on whether the features preserve the ordering of the rewards.",
         "title": "Rethinking the Global Convergence of Softmax Policy Gradient with Linear Function Approximation",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -56,9 +127,10 @@
         "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
         "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -66,16 +138,28 @@
         "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
         "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
         "topics": [
-          "reasoning-evaluation",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:57Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'PPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:05:18Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'PPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "PPO",
   "kind": "concept",
   "language": "en",
@@ -84,22 +168,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "PPO",
-    "source_count": 7
+    "source_count": 14
   },
   "result": {
-    "definition": "The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, which turns out to be an entropy control surface. Raising the upper clip alleviates collapse while lowering it produces the most severe collapse observed; clipping zeroes the gradient and so modulates the relative contribution of positive- against negative-advantage tokens; and clipped tokens are reported to have low probability, which is why relaxing the upper bound preserves specifically the updates that raise entropy. The same mechanism carries a cost recorded elsewhere in the archive: PPO-style importance sampling and clipping are identified as the reason a brief RL run erases the statistical signals contamination detectors rely on. One theoretical entry addresses the family rather than the algorithm, analysing the softmax policy gradient PPO is built on and finding its convergence decided by the feature representation rather than by how well that representation approximates anything."
+    "aliases": [
+      "Proximal Policy Optimization"
+    ],
+    "definition": "Policy optimisation with a clipped surrogate objective, a learned value function and a KL penalty -- the generation before the critic-free group-relative methods that dominate this archive, and across 14 sources still the source of the machinery those methods keep. The corpus's most useful content concerns its critic. Scalar regression is statistically consistent for exactly the quantity needed, since with binary terminal rewards the return from an intermediate state is Bernoulli and its conditional mean is the probability of eventual success -- one source is explicit that scalar critics are not representationally invalid. The failure is calibration rather than representation: because the critic enters the actor update as a subtraction, a modest overestimate gives failed rollouts large negative advantages and successes small positive ones, measured at a 2.63 ratio and growing more skewed over training, so the update spends most of its magnitude on failures. A distributional critic brings that ratio to 1.02 and recovers pass@256 from 38.48 to 48.06 -- and the archive should note the baseline number, since 38.48 sits below the untrained base model's 40.74, so unmodified training narrowed the boundary. Two comparative findings: against group-relative optimisation under an identical reward it loses 72.6 to 81.2 where correctness is localised to a few tokens, attributed to batch-level rather than group-relative advantage normalisation, and token-level reward weighting that helps the group-relative method severely destabilises it. Its clipping and importance sampling are also the mechanism one source blames for post-training concealing benchmark contamination.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "advantage estimation"
+    ]
   },
   "task_id": "concept__ppo",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

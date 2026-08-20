@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A large open-weight reasoning model, used by both sources as the strong open baseline against which a task's difficulty is calibrated. One includes it among five models in an observability sweep, where the question is what a monitor can read rather than what the model scores. The other reports it alongside GPT-5 as showing promise while solve rates stay below 5% on its hard instances even under expensive scaling — the sense in which a benchmark is established as unsaturated. Its function here is to mark where the open frontier sits when a result needs that context.
+A 120B open-weight reasoning model, used across 8 sources as the large end of the open reasoning range and as the model whose reasoning summaries are studied where proprietary systems would not expose them. Its role in the observability work is what distinguishes it: a summary-versus-trace ladder holds a completed run fixed and varies what a reader may inspect, and this model is one of the systems where that comparison can be run at all. It also appears in verifier-free consensus selection, branching-diversity measurement, the faithfulness-safety tension study, persistent-entity contamination across 24 models, and financial and programming-by-example benchmarks. None of the sources describes its training.
 
 - **Kind**: model
-- **Also called**: GPT-OSS-120B
+- **Also called**: GPT-OSS-120B, gpt-oss-120b
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 8
 

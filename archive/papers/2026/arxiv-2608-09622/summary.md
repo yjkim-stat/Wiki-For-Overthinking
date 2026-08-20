@@ -46,7 +46,7 @@ The authors state four: simulation-only validation with a possibly optimistic Ga
 
 ## Entities
 
-- **Concepts**: sequential decision making, partially observable planning, [belief state](../../../../wiki/concepts/belief-state.md), [compute allocation](../../../../wiki/concepts/compute-allocation.md), adaptive compute allocation, anytime algorithm, reward shaping, exploration-exploitation, progressive widening
+- **Concepts**: sequential decision making, partially observable planning, [belief state](../../../../wiki/concepts/belief-state.md), [compute allocation](../../../../wiki/concepts/compute-allocation.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), anytime algorithm, reward shaping, exploration-exploitation, progressive widening
 - **Methods**: [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), MCTS for seed-action simulators, UCB1, progressive widening, extended Kalman filter, adaptive stress testing, [reward shaping](../../../../wiki/methods/reward-shaping.md)
 - **Datasets**: physics-based BTI/EM/TDDB degradation simulator
 

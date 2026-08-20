@@ -46,7 +46,7 @@ Stated. Evaluation is confined to a single benchmark because it is the only data
 
 ## Entities
 
-- **Concepts**: reward shaping, [outcome reward](../../../../wiki/concepts/outcome-reward.md), process reward, [reward sparsity](../../../../wiki/concepts/reward-sparsity.md), tolerance threshold, safety constraint, [credit assignment](../../../../wiki/concepts/credit-assignment.md), formula hallucination, [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), component ablation
+- **Concepts**: reward shaping, [outcome reward](../../../../wiki/concepts/outcome-reward.md), [process reward](../../../../wiki/concepts/process-reward.md), [reward sparsity](../../../../wiki/concepts/reward-sparsity.md), tolerance threshold, safety constraint, [credit assignment](../../../../wiki/concepts/credit-assignment.md), formula hallucination, [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), component ablation
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), [reward shaping](../../../../wiki/methods/reward-shaping.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), external verifier, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [PPO](../../../../wiki/methods/ppo.md), [REINFORCE++](../../../../wiki/methods/reinforce.md), [RLOO](../../../../wiki/methods/rloo.md), KL divergence monitoring, [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: [MedCalc-Bench](../../../../wiki/datasets/medcalc-bench.md)
 

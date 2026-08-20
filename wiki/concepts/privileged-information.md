@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Information available to a teacher during training that the student will not have at inference, used by all three sources as the source of dense supervision that outcome rewards cannot provide. In two cases the privilege is the teacher's own distribution over the student's visited prefixes; in the third it is an English reference solution, where the shift between teacher views with and without it locates the tokens the reference decides. The common structure is that privilege makes an otherwise unavailable signal computable without labels, and the common cost is that a teacher must exist — none of the three methods applies where one does not.
+Giving a training-time teacher an input the deployed student will never have -- a reference solution, a completed trajectory with its verified outcome, a skill card, an evidence set -- so that the shift it induces in the teacher's distribution can be distilled into the student. Across 11 sources the framework is stable and the design question is entirely what the privileged field should contain. The corpus's answers disagree usefully: the golden answer specifies the target rather than the evidence, a reusable skill carries no answer at all but also no query-specific information, and a completed trajectory carries hindsight about this student on this problem. Two constraints recur. The field must be matched rather than merely present, which is why these papers run scrambling controls -- and the ordering of removal against scrambling is itself the measurement, since a mismatched field worse than none means the method depends on correspondence while a mismatched field better than none means most of the benefit is marginal. And a formal limit applies: forward-KL distillation projects a trajectory-conditioned teacher onto its conditional mean given the prefix, so the portion of a privileged teacher's advantage that depends on information the student will not have is untransferable in principle. The corpus's own scope note is blunt -- several sources list requiring a privileged teacher as their limitation -- and one finds that a self-teacher too weak to perform the required analysis recovers almost none of the gain.
 
 - **Kind**: concept
-- **Also called**: privileged teacher, teacher-side information
+- **Also called**: privileged context, privileged teacher, teacher-side information
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 11
 

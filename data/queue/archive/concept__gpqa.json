@@ -3,10 +3,35 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
         "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,14 +39,50 @@
         "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
         "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+        "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives two aggregation algorithms whose failure probability provably decays to zero as inference compute grows, assuming only that the model can sometimes be right and can compare two solutions better than chance.",
+        "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+        "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:33Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'GPQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:05:18Z",
+  "created_at": "2026-08-20T23:00:54Z",
+  "instructions": "Write the wiki definition for 'GPQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPQA",
   "kind": "concept",
   "language": "en",
@@ -30,32 +91,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GPQA",
-    "source_count": 2
+    "source_count": 7
   },
   "result": {
-    "aliases": [
-      "Graduate-Level Google-Proof Q&A"
-    ],
-    "definition": "A graduate-level science question benchmark, used in the archive as the non-mathematical hard reference alongside competition math. Both sources use it to test whether a method generalizes past math rather than to study the benchmark: one for a training-free hidden-state verifier applied to selection and reranking, the other for selecting RLVR training tokens by the divergence of their logit distribution from a reference. Its presence in the archive is thin — two sources, both incidental — which is itself informative given how dominated the collection is by math benchmarks.",
+    "aliases": [],
+    "definition": "The graduate-level science question set from which the archive's more commonly used Diamond subset is drawn, appearing in 7 sources as a general or out-of-domain evaluation column. Its recurring role is to test transfer: mathematics-only training carries to it in several studies, with one token-selection method improving here while a baseline gains on mathematics and loses on the non-mathematics average, and every model in one cross-domain comparison beating its base here despite mathematics-only training. It is also where one correctness-detection method has its largest margin over the runner-up (0.830 against 0.759, p below 0.001) while margins on easier sets in the same table are within 0.006 -- so a headline advantage on this benchmark can carry a claim that the rest of the table does not support. One quantization study reports it identical at the densest and most compressed settings while dropping at an intermediate one, which the authors treat as descriptive noise.",
     "kind": "dataset",
     "related": [
-      "AIME",
-      "MATH500",
-      "scientific reasoning",
-      "benchmark contamination",
-      "verification"
+      "GPQA-Diamond",
+      "MMLU-Pro"
     ]
   },
   "task_id": "concept__gpqa",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A mathematics benchmark of undergraduate and quantitative-reasoning problems, appearing in all four sources as part of the standard six-benchmark RLVR evaluation suite. It is consistently the least discriminating member of that suite — differences between entropy-control methods on it are small relative to the AIME sets — which makes it useful mainly as a check that a method has not regressed somewhere while gaining on the hard benchmarks.
+A mathematics benchmark of university-level problems including physics and free-form answers, used across 11 sources as the domain-mismatched member of an otherwise integer-answer suite. That mismatch is its main value here. One study finds a post-training method improving on every other benchmark and not on this one, and attributes it to the training data being restricted to integer-answer mathematics while this set is not -- an explanation the archive notes is offered post hoc rather than predicted. Another finds an internal diagnostic's rank correlation with accuracy at -0.148 here against +0.417 on a competition set, and reversing again against a different accuracy measure, so a signal validated elsewhere is not validated on it. It is also one of the benchmarks where base models catch up with and surpass reinforcement-trained ones as the sampling budget grows into the hundreds. Neither its size nor its construction is described in the sources.
 
 - **Kind**: dataset
 - **Also called**: Minerva Math

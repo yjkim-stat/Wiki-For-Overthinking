@@ -8,9 +8,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -20,9 +20,69 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
+        "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tests whether systems that translate natural-language reasoning steps into Lean preserve invalidity as well as validity, by automatically perturbing steps to make them wrong, and finds pervasive silent correction -- with the systems best at preserving valid inputs the most likely to repair invalid ones.",
+        "title": "FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+        "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -32,9 +92,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -44,9 +104,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -56,9 +116,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -68,9 +128,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -80,9 +140,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -92,9 +152,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -104,9 +164,21 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -116,9 +188,9 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -128,16 +200,16 @@
         "topics": [
           "reasoning-evaluation",
           "test-time-scaling",
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:57Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'OlympiadBench'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:05:17Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'OlympiadBench'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "OlympiadBench",
   "kind": "concept",
   "language": "en",
@@ -146,17 +218,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "OlympiadBench",
-    "source_count": 11
+    "source_count": 17
   },
   "result": {
-    "definition": "An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the standard RLVR suite: like Minerva it usually moves less than AIME under entropy interventions, and it is large enough that its numbers do not swing on two or three problems the way the 30-problem competition sets carrying most headline claims here do. That is largely what it is used for — as the check that a gain reported on AIME is not an artefact of sample size — and several sources report their smallest effects on it for exactly that reason."
+    "aliases": [],
+    "definition": "A competition mathematics benchmark at olympiad level, used across 17 sources as the hard end of a suite alongside the AIME sets. Its practical role is as the set where efficiency and steering methods show their clearest gains, because it contains long traces with room to compress: one length-compression method raises accuracy from 56.77 to 59.85 on it while cutting average trace length 42.7 percent across its suite, and moderate positive steering of a reasoning-effort direction improves it as part of an average that rises at every model size from 1.5B to 32B. It is also one of the benchmarks where base models overtake reinforcement-trained ones as the sampling budget grows into the tens or hundreds, which is the archive's standing caveat about large-k comparisons on hard sets. None of the sources describes its construction or size.",
+    "kind": "dataset",
+    "related": [
+      "AIME 2024",
+      "MATH500"
+    ]
   },
   "task_id": "concept__olympiadbench",
   "task_version": 1,

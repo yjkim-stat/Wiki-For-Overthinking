@@ -4,7 +4,7 @@
     "GPT OSS 20B",
     "GPT-OSS-20B"
   ],
-  "definition": "A 20B open-weight OpenAI reasoning model, used in the archive where open weights are required. One source measures how well it follows instructions inside its reasoning trace and reports an instruction-following score of 0.11, raised to 0.27 by targeted finetuning on synthetic data — so more than doubled and still leaving most traces non-compliant. The other uses it to probe whether chain-of-thought is epiphenomenal, truncating traces and forcing an answer to locate a commitment boundary. Both need access the model's openness provides: trace-level manipulation and per-step intervention.",
+  "definition": "A 20B open-weight reasoning model, used across 8 sources as the smaller of a pair that lets a claim be checked across an order of magnitude within one family. Its appearances cluster in test-time-scaling and trace-observability work: inference-regime taxonomies, verifier-free consensus selection, claim-level reliability assessment, optimal-stopping trace pruning and reasoning-summary observability. Two archived findings attach to it specifically -- it is among the open reasoning models on which instruction following inside the reasoning trace fails substantially, with the highest score below 0.25, and it is one of the models used to probe whether a chain of thought is epiphenomenal past a commitment boundary. None of the sources describes its training.",
   "evidence": [
     {
       "id": "arxiv:2608.02089",
@@ -202,7 +202,9 @@
     "deepseek-r1-distill-qwen-7b",
     "drpo-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-oss-120b"
+  ],
   "schema_version": 1,
   "slug": "gpt-oss-20b",
   "topics": [

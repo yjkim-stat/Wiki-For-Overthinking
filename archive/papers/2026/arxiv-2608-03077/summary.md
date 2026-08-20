@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the process po
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), process reward, [outcome reward](../../../../wiki/concepts/outcome-reward.md), reward shaping, advantage estimation, terminology control, domain adaptation, long chain-of-thought, [reasoning drift](../../../../wiki/concepts/reasoning-drift.md)
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), reward shaping, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), terminology control, domain adaptation, long chain-of-thought, [reasoning drift](../../../../wiki/concepts/reasoning-drift.md)
 - **Methods**: PAMT, [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [long chain-of-thought distillation](../../../../wiki/methods/long-chain-of-thought-distillation.md), [KL regularization](../../../../wiki/methods/kl-regularization.md), [teacher forcing](../../../../wiki/methods/teacher-forcing.md), [GEMBA-MQM](../../../../wiki/methods/gemba-mqm.md)
 - **Datasets**: [WMT22](../../../../wiki/datasets/wmt22.md), WMT23 Terminology Shared Task, Guofeng WebNovel, Multi-Domain
 

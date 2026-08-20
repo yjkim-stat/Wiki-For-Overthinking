@@ -3,10 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+        "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+        "title": "Thought-Level Beam Search for Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Plans semiconductor reliability stress tests as a partially observable sequential decision problem, using Monte Carlo tree search over a seed-action simulator with an extended Kalman filter tracking per-device latent degradation parameters, so each device's test adapts to its own measured behaviour rather than to a population model.",
+        "title": "Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
         "title": "Efficiently Scaling LLM Reasoning with Certaindex",
         "topics": [
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -14,14 +66,54 @@
         "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
         "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models",
         "topics": [
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces uniform test-time compute allocation with a training-free agent that picks reasoning tools, a search strategy and an exploration parameter per problem, using a process reward model both to prune within a trajectory and to select across iterations.",
+        "title": "What If We Allocate Test-Time Compute Adaptively?",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
+        "title": "Free Process Rewards without Process Labels",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A position paper arguing that reading a reasoning model's intermediate tokens as 'reasoning' or 'thinking' is unsupported by the available evidence and actively harmful, and collating experiments in which trace semantics and solution accuracy come apart.",
+        "title": "Position: Stop Anthropomorphizing Intermediate Tokens as Reasoning/Thinking Traces!",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T04:40:50Z",
-  "created_at": "2026-08-08T04:37:57Z",
-  "instructions": "Write the wiki definition for 'Monte Carlo tree search'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:05:18Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'Monte Carlo tree search'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Monte Carlo tree search",
   "kind": "concept",
   "language": "en",
@@ -30,32 +122,33 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Monte Carlo tree search",
-    "source_count": 2
+    "source_count": 9
   },
   "result": {
     "aliases": [
       "MCTS"
     ],
-    "definition": "Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than a contribution: one source runs it against chain-of-thought, least-to-most and tree-of-thought on the same problems and finds it lower in accuracy (75.8% against 84.4% for CoT on AQuA), and another treats it as one of four algorithm archetypes its scheduling metric must cover, using the reward model's mean output as the certainty signal.",
+    "definition": "Building a search tree by simulation, using visit counts and value estimates to decide where to expand, applied across 9 sources to reasoning traces, report generation and physical test planning. Two structural properties transfer beyond any one application. Progressive widening decouples the search from the size of the action space: across grids spanning a 36-fold range in action cardinality the realised tree is identical at 500 nodes and 30 root children, because children expanded at a node are bounded by its visit count -- so refining the action resolution raises attainable quality at no combinatorial cost. And the budget curve carries a condition: yield rises smoothly and sublinearly with iterations on a feasible instance while a fourfold increase changes nothing on an infeasible one, so per-instance sensitivity rather than the aggregate scaling curve tells you which regime you are in. The archive's related material supplies the counterweight for language settings: a tree search over reasoning branches can lose badly to a single chain when branches interpret the problem inconsistently and the search has no scorer able to adjudicate between them.",
     "kind": "method",
     "related": [
-      "tree of thought",
-      "self-consistency",
-      "certaindex",
-      "test-time scaling",
-      "process reward model"
+      "tree-of-thoughts",
+      "adaptive compute allocation"
     ]
   },
   "task_id": "concept__monte-carlo-tree-search",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

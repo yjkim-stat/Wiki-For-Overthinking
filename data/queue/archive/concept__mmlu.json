@@ -3,14 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
+        "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.",
+        "title": "Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Turns each intermediate step of a reasoning trajectory into a numerical feature vector of distances to the answer choices, projects those into 2D to visualize how trajectories move through answer space, and reuses the same features to build a lightweight verifier for weighted voting.",
         "title": "Landscape of Thoughts: Visualizing the Reasoning Process of Large Language Models",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "reasoning-evaluation",
-          "reasoning-interpretability"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -18,11 +66,11 @@
         "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
         "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "reasoning-evaluation",
-          "reasoning-interpretability"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -30,11 +78,11 @@
         "note": "Builds a large standardized meta-benchmark and finds that LLM-judge preference scores do not correlate with concrete measures of safety, world knowledge or instruction following, because judges systematically prioritize style over factuality and safety.",
         "title": "Style Outweighs Substance: Failure Modes of LLM Judges in Alignment Benchmarking",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "reasoning-evaluation",
-          "reasoning-interpretability"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -42,11 +90,11 @@
         "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
         "title": "On Reasoning Strength Planning in Large Reasoning Models",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "reasoning-evaluation",
-          "reasoning-interpretability"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -54,18 +102,30 @@
         "note": "Routes each query to a {model, reasoning budget} configuration by fitting an item response theory model over an evaluation matrix, yielding interpretable query difficulties and configuration abilities, and sending harder queries to higher-ability configurations.",
         "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs",
         "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
           "test-time-scaling",
           "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+        "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals",
+        "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-evaluation",
-          "reasoning-interpretability"
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:56Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'MMLU'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:05:18Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'MMLU'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "MMLU",
   "kind": "concept",
   "language": "en",
@@ -74,17 +134,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "MMLU",
-    "source_count": 5
+    "source_count": 10
   },
   "result": {
-    "definition": "A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: one of three datasets for measuring chain-of-thought monitorability, a STEM subset for checking whether a math-trained method generalizes, the source of the answer-choice structure a trajectory-visualization method needs to define distances to each option, and one of the concrete capability measures against which LLM-judge preference scores are found not to correlate. Its multiple-choice format is what makes the last two uses possible and is also why it says little about generation."
+    "aliases": [
+      "MMLU-STEM"
+    ],
+    "definition": "A broad multiple-choice knowledge benchmark spanning many academic subjects, used across 10 sources as the general-capability check that a reasoning-focused intervention has not damaged something else. Its high baseline is what makes it useful in that role and limits it in others: at accuracies near 88 percent, test-time-scaling methods report gains of one to three points and one steering study finds negative steering cutting reasoning tokens on it while maintaining accuracy, which the authors read as models misallocating reasoning strength on easy questions. Its STEM subset appears as a mid-difficulty column in latent-reasoning suites. One transfer result attaches to it: structural geometry learned on grade-school mathematics probes at or above 0.85 here, while a correctness predictor trained on the same data falls to 0.64 -- the same dissociation the archive records between structure and correctness elsewhere.",
+    "kind": "dataset",
+    "related": [
+      "MMLU-Pro",
+      "GPQA"
+    ]
   },
   "task_id": "concept__mmlu",
   "task_version": 1,

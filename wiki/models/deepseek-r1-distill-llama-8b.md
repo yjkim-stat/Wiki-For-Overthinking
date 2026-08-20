@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-The 8B Llama-based member of the R1 distillation series. It carries two of this archive's clearer single-model results: recycling its high-mutual-information representations through the same layer yields a 20% relative accuracy improvement on AIME24, and its causal-attribution score density is among the highest measured, meaning its CoT steps depend on each other more strongly than in the Qwen3-based models compared alongside it. Its mutual-information trajectory also shows the sharpest contrast against its non-reasoning base.
+An 8B Llama model distilled from a large reasoning model, used across 9 sources as the Llama-family counterpart to the Qwen distilled checkpoints -- the model included so that a finding about reasoning traces is not only a finding about one architecture. Its appearances are almost entirely in interpretability and faithfulness work: mutual-information peaks at thinking tokens, local causal attribution of chain-of-thought steps, step-specific representation geometry, hidden-state norm dynamics, and as a robustness check in a KV-cache compression study. One correctness-detection method reports its clearest results on it, reaching AUROC 0.83 on a graduate science set and 0.87 on a theorem set while margins on easier benchmarks in the same table are within 0.006. It also appears as a subject in inference-nondeterminism work. None of the sources describes its distillation.
 
 - **Kind**: model
-- **Also called**: DS-Llama-8B
+- **Also called**: DS-Llama-8B, DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Llama-8B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 9
 

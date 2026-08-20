@@ -45,7 +45,7 @@ The limitations section is exemplary and should be read as part of the result. T
 
 ## Entities
 
-- **Concepts**: [steering vector](../../../../wiki/concepts/steering-vector.md), linear probe, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [construct validity](../../../../wiki/concepts/construct-validity.md), activation steering, intertemporal preference, long-horizon planning, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [randomized control](../../../../wiki/concepts/randomized-control.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md)
+- **Concepts**: steering vector, linear probe, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [construct validity](../../../../wiki/concepts/construct-validity.md), activation steering, intertemporal preference, long-horizon planning, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [randomized control](../../../../wiki/concepts/randomized-control.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md)
 - **Methods**: [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), [difference-of-means probe](../../../../wiki/methods/difference-of-means-probe.md), [logistic regression](../../../../wiki/methods/logistic-regression.md), [linear probe](../../../../wiki/methods/linear-probe.md), [activation steering](../../../../wiki/methods/activation-steering.md)
 - **Datasets**: TravelPlanner
 

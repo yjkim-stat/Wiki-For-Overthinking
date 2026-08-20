@@ -3,14 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.",
         "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -18,11 +66,11 @@
         "note": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
         "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -30,11 +78,11 @@
         "note": "Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.",
         "title": "Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -42,11 +90,23 @@
         "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
         "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -54,11 +114,11 @@
         "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
         "title": "On Reasoning Strength Planning in Large Reasoning Models",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -66,11 +126,11 @@
         "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
         "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -78,11 +138,11 @@
         "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
         "title": "Dynamic Early Exit in Reasoning Models",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -90,11 +150,35 @@
         "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
         "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -102,11 +186,11 @@
         "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
         "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -114,18 +198,18 @@
         "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
         "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
         "topics": [
-          "reasoning-training",
-          "test-time-scaling",
-          "reasoning-faithfulness",
           "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:10Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:06:36Z",
+  "created_at": "2026-08-20T23:00:54Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-7B",
   "kind": "concept",
   "language": "en",
@@ -134,30 +218,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-7B",
-    "source_count": 10
+    "source_count": 17
   },
   "result": {
     "aliases": [
-      "R1-Distill-Qwen-7B",
-      "DeepSeek-R1-Distill-Qwen7B"
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "R1-Distill-Qwen-7B"
     ],
-    "definition": "A 7B Qwen checkpoint distilled from DeepSeek-R1's long chain-of-thought traces, and the archive's most-used open reasoning model at ten sources — the default subject whenever a method needs a real reasoning model small enough to probe. Findings attached to it: its reasoning steps carry information peaks at only 0.51% of positions, the sparsest measured; its entropy two-phase transition falls at about 33.9% of the trajectory on easy problems and 56.4% on hard ones, converging later than a natively trained 14B; its AIME'24 accuracy shifts by up to 9 percentage points from GPU type, GPU count or batch size alone; and RLVR applied on top of it still extends the coding reasoning boundary, showing a distilled starting point is not a ceiling. Being distilled rather than RL-trained also makes it the standard example of a model carrying removable redundancy inherited from a teacher.",
+    "definition": "A 7B Qwen model distilled from a large reasoning model, and across 17 sources the archive's default subject for studying reasoning traces themselves -- thinking-token dynamics, entropy dynamics, saliency-based compression, reasoning-strength planning, mutual-information peaks and sparse-autoencoder comparisons of thinking against non-thinking modes all use it. That concentration is what makes it worth an entry: a large share of what the archive believes about the internal structure of a long reasoning trace is anchored to this one checkpoint. Its measured properties include being among the models whose epistemic-verbalisation habit is installable and destructible by 800 fine-tuning examples (pass@1 falling 50.0 to 30.0 when suppressed), and being a baseline that a verifiable-reward-trained code model beats across six versions of a code benchmark. It is also the shared backbone for several safety and efficiency comparisons, where its base attack-success rate of 66.70 and its 8,134-token average trace length are the reference points other numbers are read against.",
     "kind": "model",
     "related": [
-      "reasoning distillation",
       "DeepSeek-R1",
-      "Qwen2.5-7B",
-      "entropy trajectory",
-      "nondeterminism",
-      "reasoning boundary",
-      "reasoning redundancy"
+      "DeepSeek-R1-Distill-Qwen-1.5B"
     ]
   },
   "task_id": "concept__deepseek-r1-distill-qwen-7b",

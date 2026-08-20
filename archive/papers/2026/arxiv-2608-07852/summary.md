@@ -46,7 +46,7 @@ Stated at length. The dataset is synthetic, English-only and centred on emotiona
 
 ## Entities
 
-- **Concepts**: sparse dictionary learning, feature splitting, persona conditioning, [steering vector](../../../../wiki/concepts/steering-vector.md), [monosemanticity](../../../../wiki/concepts/monosemanticity.md), selectivity control, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [annotation agreement](../../../../wiki/concepts/annotation-agreement.md), AI welfare
+- **Concepts**: sparse dictionary learning, feature splitting, persona conditioning, steering vector, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), selectivity control, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [annotation agreement](../../../../wiki/concepts/annotation-agreement.md), AI welfare
 - **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [activation steering](../../../../wiki/methods/activation-steering.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [human evaluation](../../../../wiki/methods/human-evaluation.md), [Cohen's kappa](../../../../wiki/methods/cohen-s-kappa.md), [ablation](../../../../wiki/methods/ablation.md), feature filtering, importance sampling reweighting
 - **Datasets**: author-constructed emotional-interaction corpus (synthetic), GemmaScope
 

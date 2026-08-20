@@ -48,7 +48,7 @@ Stated and acted on. Evaluation sets are small and the authors repeatedly declin
 
 ## Entities
 
-- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), selectivity control, [reproducibility](../../../../wiki/concepts/reproducibility.md), calibration, self-consistency, [steering vector](../../../../wiki/concepts/steering-vector.md), linear probing, [distribution mismatch](../../../../wiki/concepts/distribution-mismatch.md), statistical significance, [interpretability illusion](../../../../wiki/concepts/interpretability-illusion.md)
+- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), selectivity control, [reproducibility](../../../../wiki/concepts/reproducibility.md), [calibration](../../../../wiki/concepts/calibration.md), self-consistency, steering vector, linear probing, [distribution mismatch](../../../../wiki/concepts/distribution-mismatch.md), statistical significance, [interpretability illusion](../../../../wiki/concepts/interpretability-illusion.md)
 - **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), probability aggregation, [linear probing](../../../../wiki/methods/linear-probe.md), [activation steering](../../../../wiki/methods/activation-steering.md), [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), conditional activation steering, [representation editing](../../../../wiki/methods/representation-editing.md), paired Wilcoxon test, [bootstrap confidence intervals](../../../../wiki/methods/bootstrap-confidence-intervals.md), expected calibration error, reproduction study
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), FOLIO, LogiQA, BIRD, LFUD, KO-VER, KCC
 

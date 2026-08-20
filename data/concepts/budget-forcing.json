@@ -2,7 +2,7 @@
   "aliases": [
     "budget forcing"
   ],
-  "definition": "Controlling how long a model thinks by cutting the thinking block short, or extending it by suppressing the end-of-thinking token and appending 'Wait'. Its originating source reports it extrapolating a model beyond its unassisted performance, from 50% to 57% on AIME24. A second source supplies the mechanism the first lacks: the representations at reflective tokens like 'Wait' carry a spike of mutual information with the correct answer, so the token is not an arbitrary continuation cue but the one measured to be most informative.",
+  "definition": "Controlling how long a model thinks by cutting generation off at a limit or by appending a continuation cue such as 'Wait' to extend it, introduced as the second of two ingredients in a minimal test-time-scaling recipe alongside supervised fine-tuning on 1,000 curated traces. Its notable property is extrapolation beyond the model's own unmanaged behaviour -- 50 to 57 percent on one competition benchmark for a 32B model. The archive's caveat, stated in one source, is that it works by appending a specific token, which makes it a property of a model that has learned to treat that token as a cue rather than a general control mechanism -- and the archive's related material supports reading it that way, since control over thinking length turns out to be concentrated in a single special token rather than distributed over the trace.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -198,7 +198,10 @@
     "qwen2-5-math-72b-instruct",
     "qwen3-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "test-time-scaling",
+    "adaptive-compute-allocation"
+  ],
   "schema_version": 1,
   "slug": "budget-forcing",
   "topics": [

@@ -2,9 +2,10 @@
   "aliases": [
     "DeepSeek-R1-Distill-7B",
     "R1-Distill-Qwen-7B",
-    "DeepSeek-R1-Distill-Qwen7B"
+    "DeepSeek-R1-Distill-Qwen7B",
+    "DeepSeek-R1-Distill-Qwen-7B"
   ],
-  "definition": "A 7B Qwen checkpoint distilled from DeepSeek-R1's long chain-of-thought traces, and the archive's most-used open reasoning model at ten sources — the default subject whenever a method needs a real reasoning model small enough to probe. Findings attached to it: its reasoning steps carry information peaks at only 0.51% of positions, the sparsest measured; its entropy two-phase transition falls at about 33.9% of the trajectory on easy problems and 56.4% on hard ones, converging later than a natively trained 14B; its AIME'24 accuracy shifts by up to 9 percentage points from GPU type, GPU count or batch size alone; and RLVR applied on top of it still extends the coding reasoning boundary, showing a distilled starting point is not a ceiling. Being distilled rather than RL-trained also makes it the standard example of a model carrying removable redundancy inherited from a teacher.",
+  "definition": "A 7B Qwen model distilled from a large reasoning model, and across 17 sources the archive's default subject for studying reasoning traces themselves -- thinking-token dynamics, entropy dynamics, saliency-based compression, reasoning-strength planning, mutual-information peaks and sparse-autoencoder comparisons of thinking against non-thinking modes all use it. That concentration is what makes it worth an entry: a large share of what the archive believes about the internal structure of a long reasoning trace is anchored to this one checkpoint. Its measured properties include being among the models whose epistemic-verbalisation habit is installable and destructible by 800 fine-tuning examples (pass@1 falling 50.0 to 30.0 when suppressed), and being a baseline that a verifiable-reward-trained code model beats across six versions of a code benchmark. It is also the shared backbone for several safety and efficiency comparisons, where its base attack-success rate of 66.70 and its 8,134-token average trace length are the reference points other numbers are read against.",
   "evidence": [
     {
       "id": "arxiv:2608.08168",
@@ -408,7 +409,10 @@
     "acereason-nemotron-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1",
+    "deepseek-r1-distill-qwen-1-5b"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-qwen-7b",
   "topics": [

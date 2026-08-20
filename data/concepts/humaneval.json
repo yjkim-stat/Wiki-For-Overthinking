@@ -3,7 +3,7 @@
     "HumanEval+",
     "HumanEval"
   ],
-  "definition": "A Python function-completion benchmark verified by executing unit tests, used in the archive as the code counterpart to its mathematics benchmarks. Execution-based verification is why it matters here: the archive's sources note that guessing inflates pass@k on short-answer mathematics and that code tasks are the control where it does not, since a compiler and predefined tests decide correctness. One source uses it in exactly that role while probing reasoning boundaries; another uses it alongside early-exit evaluation.",
+  "definition": "A function-level Python synthesis benchmark with expanded test coverage in its plus variant, used across 7 sources as one column in code or general-capability suites rather than as a subject. Its appearances here are mainly cautionary about reading single-run tables: in one quantization study it falls 39.63 to 35.98 while a neighbouring benchmark rises and a third is identical at the densest and sparsest settings while dropping at an intermediate one, a pattern the authors themselves describe as more consistent with single-run noise than with a compression effect. It also appears in calibration-data studies where a general text corpus yields near-zero scores on it. None of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -231,7 +231,10 @@
     "qwen2-5-vl-7b",
     "deepseek-r1-distill-qwen-14b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mbpp",
+    "livecodebench"
+  ],
   "schema_version": 1,
   "slug": "humaneval",
   "topics": [

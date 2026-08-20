@@ -46,7 +46,7 @@ Stated where it matters. The latency analysis explicitly covers only the reasoni
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), structured chain of thought, executable reasoning, adaptive compute allocation, real-time budget, vision-language-action model, trajectory prediction, [compression](../../../../wiki/concepts/compression.md), action grounding
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), structured chain of thought, executable reasoning, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), real-time budget, vision-language-action model, trajectory prediction, [compression](../../../../wiki/concepts/compression.md), action grounding
 - **Methods**: [flow matching](../../../../wiki/methods/flow-matching.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), latent reasoning, policy optimization, token routing, multimodal self-attention, [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: XPeng driving logs (proprietary)
 

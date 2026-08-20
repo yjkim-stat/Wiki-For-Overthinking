@@ -4,7 +4,7 @@
     "CAA",
     "contrastive activation steering"
   ],
-  "definition": "Adding a direction computed from the difference between activations on contrastive prompt pairs, at inference time, to shift a model's behaviour. Both sources treat it as the baseline whose limitation motivates them, and locate that limitation in the same place — a single aggregate direction applied at one site. One replaces the fixed single-layer intervention with sparse-feature-derived vectors applied at multiple points, on the grounds that one direction imposed across semantically diverse inputs has an effect that often fails to persist across layers. The other shows the failure is worse than insufficiency: a direction can be highly discriminative for a concept and aligned with its positive examples while steering reliably in the opposite direction, so the sign of the intervention cannot be read off the direction's discriminability at all.",
+  "definition": "Computing a steering direction as the difference of mean activations between contrastive prompt pairs, then adding it at inference -- the canonical activation-steering recipe and, across 9 sources, the one whose defaults the archive has repeatedly found responsible for its failures. Three are documented. The direction can be inverted: choosing by discriminability, as the foundational method does when it selects the most discriminative attention heads, admits vectors that separate a concept well and move it backwards, mined systematically at three per model-concept pair across 15 pairs. The site is arbitrary: injection layers are fixed globally per behaviour, while the useful band is narrow, mid-network and different per model and per benchmark, and per-instance selection outperforms any fixed set. And the units are uncalibrated: an apparent scale trend in steerability dissolves when activation units, the read-out metric and a hand-picked operating point are corrected. Its collateral effect is separable -- the component that damages refusal is a different direction from the one producing the intended effect -- but not removable by the obvious route, since ablating the canonical refusal direction fails to restore safety when several independent directions mediate refusal. The archive's operative reading is that the recipe works when the direction, the layer and the magnitude are each chosen with a control rather than inherited as configuration.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -232,7 +232,9 @@
     "marlin"
   ],
   "related_authored": [
-    "detection-versus-control"
+    "steering-vector",
+    "detection-versus-control",
+    "layer-selection"
   ],
   "schema_version": 1,
   "slug": "contrastive-activation-addition",

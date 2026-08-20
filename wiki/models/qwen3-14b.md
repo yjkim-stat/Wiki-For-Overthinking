@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A 14B model from the Qwen3 family, appearing in all three sources as the middle rung of a scale comparison. The sources report on it that: restricting RLVR gradients to high-entropy tokens gains 2.99 points on average, between the 8B and 32B results; as a natively trained rather than distilled model, its convergence timing correlates least with correctness (r = -0.26); and it shows the lowest precision of proactive self-correction of the reasoning models measured (15.8%).
+A 14B Qwen3 model, used across 10 sources as the rung between the 8B and 32B checkpoints -- the size at which several trends are checked for monotonicity and occasionally found not to be. It is a standard subject for trace-dynamics work: entropy dynamics, hidden-state norm signals, dynamic early exit, commitment-boundary probing and reasoning-failure detection from chain-of-thought dynamics. Two measured results attach to it. Steering a reasoning-strength direction gives its largest single gain here among five sizes (+5.83 on one competition set), and the epistemic-verbalisation study finds fine-tuning on 800 heavily hedged examples improving it by up to 2.6-fold while degrading three other models -- so it is one of the checkpoints where the archive's evidence about installable reasoning habits is positive. None of the sources describes its training.
 
 - **Kind**: model
-- **Also called**: Qwen3-14B-Base
+- **Also called**: Qwen3-14B, Qwen3-14B-Base
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 10
 

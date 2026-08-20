@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A contamination-resistant code benchmark built from recently released problems, used in these sources mainly as the out-of-domain test for models trained on mathematics. It produces the strongest single correlation in the archive's entropy work — a Spearman coefficient of -0.894 between policy entropy and average accuracy during math-only RLVR — which is part of the case that the entropy-performance relationship is task-dependent rather than general. It is also where early-exit methods achieve their smallest compression, since each reasoning step emits verbose code. Its versioned releases carry a further use: one source compares across six versions to argue RLVR extends the reasoning boundary on code even starting from a distilled model, which is the opposite verdict to that same paper's mathematics result under the plain pass@K metric.",
+  "definition": "A continuously updated code-generation benchmark, used across 12 sources chiefly as the out-of-domain check for models trained on mathematics. Two results make it more informative than that role suggests. It carries the largest single coefficient in one internal-signal correlation table, at Spearman -0.894 against average accuracy -- a strong negative for a mathematics-trained model, which is the archive's sharpest illustration that a diagnostic validated in domain can point the wrong way out of it. And it is where the pass@k debate goes the other way: on code, pass@k itself improves after verifiable-reward training, with one trained model beating its distilled starting point across six versions of the benchmark, so the boundary extends there even from a distilled model. Its continuous updating is the property cited for reduced contamination risk relative to fixed sets.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -312,7 +312,10 @@
     "deepseek-r1-0528-qwen3-8b",
     "acereason-nemotron-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "humaneval",
+    "gpqa"
+  ],
   "schema_version": 1,
   "slug": "livecodebench",
   "topics": [

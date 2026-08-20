@@ -2,7 +2,7 @@
   "aliases": [
     "Logit Lens"
   ],
-  "definition": "Reading a model's intermediate hidden states through its output vocabulary projection, so that any layer's state can be inspected as a distribution over tokens. Both sources use it as an instrument rather than studying it, and in two different roles. One applies it at five evenly spaced layers every 50 decoding steps to compare Shannon entropy profiles between soft thinking and ordinary discrete decoding, where the two coincide. The other uses logit-lens features as a baseline for predicting whether a reasoning chain will end correctly, reaching 0.765 against 0.649 for step count alone and 0.852 for the trajectory-geometry features it proposes — so here the lens also serves as the yardstick a stronger representation-based signal has to beat.",
+  "definition": "Decoding an intermediate activation through the output unembedding to see what token it would produce, used across 8 sources as a cheap read-out of what a layer is holding. The corpus is consistent about its status: it gives a relative ordering rather than a calibrated probability, since intermediate states are not calibrated for direct decoding, and one source keeps it in raw form deliberately for cross-model comparability. That caveat has a direct methodological consequence the archive should carry -- a region or state that fails to decode may be one whose content is not yet expressed in the unembedding basis rather than one that lacks the content, so a negative logit-lens result is weak evidence. Its productive uses here are comparative rather than absolute: agreement with the sampled token rising gradually across depth in one model and jumping over three layers in another; regions attended for real objects decoding to the target token while regions attended for hallucinated ones do not; and, at scales where no full-rank reference can be trained, a trained alternative catching attacks the raw lens misses (0.80 against 0.68).",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -222,7 +222,8 @@
     "deepseek-r1-distill-llama-8b"
   ],
   "related_authored": [
-    "sparse-autoencoder"
+    "layer-selection",
+    "residual-stream"
   ],
   "schema_version": 1,
   "slug": "logit-lens",

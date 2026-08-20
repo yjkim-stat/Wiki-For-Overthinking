@@ -45,7 +45,7 @@ The main evidence is one model, LLaDA-8B, against unnamed comparable AR baseline
 
 ## Entities
 
-- **Concepts**: calibration, discrimination, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), diffusion language model, bidirectional context, structural consistency, [expected calibration error](../../../../wiki/concepts/expected-calibration-error.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
+- **Concepts**: [calibration](../../../../wiki/concepts/calibration.md), discrimination, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), diffusion language model, bidirectional context, structural consistency, [expected calibration error](../../../../wiki/concepts/expected-calibration-error.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
 - **Methods**: post-hoc calibration, AUROC evaluation, expected calibration error, diffusion language modelling
 - **Datasets**: _none recorded_
 

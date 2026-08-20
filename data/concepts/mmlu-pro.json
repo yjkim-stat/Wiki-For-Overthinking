@@ -4,7 +4,7 @@
     "MMLU-Pro",
     "MMLU-PRO"
   ],
-  "definition": "A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a breadth check rather than studying it: one as a testbed for knockout and league aggregation with provable scaling guarantees, the other for local causal attribution of chain-of-thought reasoning. Its presence marks one of the archive's few non-mathematical evaluation surfaces.",
+  "definition": "A harder, ten-option revision of the broad knowledge benchmark, used across 8 sources where the original is too saturated to discriminate. Its distinctive role in this archive is as the setting for the sharpest negative result about reasoning summaries: on outcome-discordant items, linear readers of a model-written summary sit at within-item AUROC 0.503 to 0.545 -- essentially chance -- while readers of the full trace retain 0.544 to 0.590. The source is careful about what that rests on, noting the analysis runs on this benchmark alone, on an unusually difficult discordant subset whose accuracy is 23 to 30 points below the held-out pool with traces 2.5 to 3 times longer. It is also where one influence analysis finds the distinguishing behaviour at the end of a trace rising rather than falling, opposite to a grade-school set, and where one safety-alignment pipeline's utility cost lands hardest on small models.",
   "evidence": [
     {
       "id": "arxiv:2608.02089",
@@ -248,7 +248,10 @@
     "deepseek-r1-distill-llama-70b",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mmlu",
+    "gpqa-diamond"
+  ],
   "schema_version": 1,
   "slug": "mmlu-pro",
   "topics": [

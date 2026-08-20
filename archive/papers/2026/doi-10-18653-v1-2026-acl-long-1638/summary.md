@@ -44,7 +44,7 @@ No numbers in the abstract, so the size of the cross-dimensional discrepancies i
 
 ## Entities
 
-- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), cognitive decomposition, [pattern recognition versus reasoning](../../../../wiki/concepts/pattern-recognition-versus-reasoning.md), aggregate score compensation, [self-correction](../../../../wiki/concepts/self-correction.md)
+- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), cognitive decomposition, [pattern recognition versus reasoning](../../../../wiki/concepts/pattern-recognition-versus-reasoning.md), aggregate score compensation, self-correction
 - **Methods**: SMART, All-Pass Score, dimension-specific evaluation, Polya problem-solving decomposition
 - **Datasets**: SMART
 

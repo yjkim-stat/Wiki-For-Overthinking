@@ -44,7 +44,7 @@ The paper states no limitations section. What a reader should notice is substant
 
 ## Entities
 
-- **Concepts**: process reward, [outcome reward](../../../../wiki/concepts/outcome-reward.md), premature termination, [tool orchestration](../../../../wiki/concepts/tool-orchestration.md), reward shaping, [credit assignment](../../../../wiki/concepts/credit-assignment.md), LLM-as-a-judge, advantage estimation, exact-match evaluation, behaviour cloning, multi-step reasoning, agentic tool use
+- **Concepts**: [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), premature termination, [tool orchestration](../../../../wiki/concepts/tool-orchestration.md), reward shaping, [credit assignment](../../../../wiki/concepts/credit-assignment.md), LLM-as-a-judge, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), exact-match evaluation, behaviour cloning, multi-step reasoning, agentic tool use
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [LoRA](../../../../wiki/methods/lora.md), [ReAct](../../../../wiki/methods/react.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), process reward mechanism, process supervision, [KL regularization](../../../../wiki/methods/kl-regularization.md), clipped surrogate objective, behaviour cloning, tool learning, human-in-the-loop annotation
 - **Datasets**: VAD-Tool, Market-1501, CASIA-B, CCPD, VeRi, ShanghaiTech, UCF-Crime
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the standard RLVR suite: like Minerva it usually moves less than AIME under entropy interventions, and it is large enough that its numbers do not swing on two or three problems the way the 30-problem competition sets carrying most headline claims here do. That is largely what it is used for — as the check that a gain reported on AIME is not an artefact of sample size — and several sources report their smallest effects on it for exactly that reason.",
+  "definition": "A competition mathematics benchmark at olympiad level, used across 17 sources as the hard end of a suite alongside the AIME sets. Its practical role is as the set where efficiency and steering methods show their clearest gains, because it contains long traces with room to compress: one length-compression method raises accuracy from 56.77 to 59.85 on it while cutting average trace length 42.7 percent across its suite, and moderate positive steering of a reasoning-effort direction improves it as part of an average that rises at every model size from 1.5B to 32B. It is also one of the benchmarks where base models overtake reinforcement-trained ones as the sampling budget grows into the tens or hundreds, which is the archive's standing caveat about large-k comparisons on hard sets. None of the sources describes its construction or size.",
   "evidence": [
     {
       "id": "arxiv:2608.05254",
@@ -394,7 +394,10 @@
     "coefficient-annealing",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "aime-2024",
+    "math500"
+  ],
   "schema_version": 1,
   "slug": "olympiadbench",
   "topics": [

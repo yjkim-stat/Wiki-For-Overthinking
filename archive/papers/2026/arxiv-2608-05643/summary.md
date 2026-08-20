@@ -44,7 +44,7 @@ The reported gains are concentrated on small open-weight models, and the headlin
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [self-correction](../../../../wiki/concepts/self-correction.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), reasoning diversity, [diminishing returns](../../../../wiki/concepts/diminishing-returns.md), verifier-free selection
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), test-time scaling, self-correction, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), reasoning diversity, [diminishing returns](../../../../wiki/concepts/diminishing-returns.md), verifier-free selection
 - **Methods**: [majority voting](../../../../wiki/methods/majority-voting.md), [self-consistency](../../../../wiki/methods/self-consistency.md), [best-of-n](../../../../wiki/methods/best-of-n.md), [beam search](../../../../wiki/methods/beam-search.md), lookahead decoding, iterative self-critique, [greedy decoding](../../../../wiki/methods/greedy-decoding.md)
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [MATH500](../../../../wiki/datasets/math500.md)
 

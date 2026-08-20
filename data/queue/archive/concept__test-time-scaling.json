@@ -111,6 +111,30 @@
       },
       {
         "kind": "paper",
+        "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+        "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces open-ended iterative refinement in LLM time-series forecasting with a fixed-step coarse-to-fine loop anchored to an explicitly predicted downscaled future shape, so test-time compute is spent enriching detail rather than re-deciding the global trajectory.",
+        "title": "Efficient Test-Time Scaling for LLM-based Time Series Forecasting",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
         "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
         "topics": [
@@ -147,6 +171,18 @@
       },
       {
         "kind": "paper",
+        "note": "Asks whether a candidate pool contains enough signal to select from itself, by compiling sampled CAD programs into 3D models and returning the one that agrees most with the rest -- and finds this verifier-free rule beats a vision-language verifier on every geometric metric when both select from the identical pool.",
+        "title": "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
         "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
         "topics": [
@@ -159,8 +195,56 @@
       },
       {
         "kind": "paper",
+        "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
         "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+        "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.",
+        "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
         "topics": [
           "test-time-scaling",
           "reasoning-faithfulness",
@@ -255,8 +339,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T13:00:01Z",
-  "created_at": "2026-08-20T12:45:12Z",
+  "completed_at": "2026-08-20T23:03:40Z",
+  "created_at": "2026-08-20T23:00:55Z",
   "instructions": "Write the wiki definition for 'test-time scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "test-time scaling",
   "kind": "concept",
@@ -273,17 +357,19 @@
   },
   "payload": {
     "name": "test-time scaling",
-    "source_count": 21
+    "source_count": 28
   },
   "result": {
     "aliases": [
       "inference-time scaling",
-      "test-time compute"
+      "TTS"
     ],
-    "definition": "Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different things that a single budget number conflates. One source formalises it as budgeted inference over the model's implicit prefix tree and separates three regimes -- widening (more independent samples), deepening (a longer single trace), and search over partial trajectories -- arguing that a scalar budget cannot compare them and specifying what a reproducible protocol has to declare. The sources span all three, plus allocation policies that decide per prompt how much to spend, and evaluation-time variants where the compute goes to a judge instead of a generator. What they collectively establish is mostly negative and mostly methodological. Extra compute is not monotone in accuracy: one source reports accuracy falling from 75.56 to 65.83 percent as the candidate bank grows, another finds a model's first solution usually its best, and on tasks where the reasoning is unhelpful aggregation amplifies the error. Gains are routinely confounded rather than absent -- a 31.8-point advantage for a perturbation-based selector vanished under a control spending the same budget in the same decoding format, and adaptive allocation must be compared against a selector-matched baseline or it measures the selector. Input diversity beats output diversity at matched compute on five of six benchmarks, and a reranker over a shortlist beats generating a rationale at query time by one to two orders of magnitude in latency for no accuracy gain. The two positive general results are a set of aggregation algorithms whose failure probability provably decays to zero under weak assumptions, and the finding that evaluator accuracy rises monotonically with the tokens an evaluator may spend -- so evaluation-time compute can substitute for generation-time compute. Cutting across all of it, one source shows greedy decoding is not deterministic across hardware, with AIME 2024 accuracy moving up to 9 points and response length by 9,000 tokens under BF16, so the baseline any of these numbers is measured against is itself unstable.",
+    "definition": "Spending more computation at inference to get a better answer, and across 28 sources a phrase covering algorithms with different statistical structure, compute accounting and failure modes -- extending one trajectory, sampling completed candidates and reducing them by voting or verification, and searching over unfinished partial states. One source argues the consequence directly: reporting these under a single scalar budget, or reporting accuracy without the inference protocol that produced it, makes results incomparable across papers. The archive's accumulated findings are mostly about where the curve bends. It is not monotone in the sample count, because more candidates strengthen whatever the aggregation rule already does; the selection signal is the binding constraint past a modest budget, and where confidence does not track correctness no verifier-free rule recovers the available headroom (measured at 14 to 17 oracle points on one hard benchmark against 0.8 percent captured). Uniform spending is wasteful in both directions, and adaptive allocation is worth having but hard to learn and hard to audit. And its value is conditional on the instance rather than on the method: budget increases that pay on a feasible instance change nothing on an infeasible one. Two structural observations recur. The budget is almost always spent on the output side -- re-running the model on the same input -- and input-side diversity is a direct competitor for the same calls that has rarely been benchmarked against it at matched compute. And in multimodal settings the usual selection signals fail for a specific reason: neither answer frequency nor verbalised confidence tests whether an answer depends on the image, so a grounded answer and a confident language-prior guess look identical at the selection layer.",
     "kind": "concept",
     "related": [
-      "train-time scaling"
+      "adaptive compute allocation",
+      "self-consistency",
+      "pass@k"
     ]
   },
   "task_id": "concept__test-time-scaling",

@@ -44,7 +44,7 @@ The paper has no limitations section. The graph is not derived from the model un
 
 ## Entities
 
-- **Concepts**: [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), indiscriminate reflection, repetitive reflection, reasoning dependency graph, progress and review nodes, branch-level redundancy, depth-level redundancy, [reasoning skeleton](../../../../wiki/concepts/reasoning-skeleton.md), [self-correction](../../../../wiki/concepts/self-correction.md), length penalty
+- **Concepts**: [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [overthinking](../../../../wiki/concepts/overthinking.md), indiscriminate reflection, repetitive reflection, reasoning dependency graph, progress and review nodes, branch-level redundancy, depth-level redundancy, [reasoning skeleton](../../../../wiki/concepts/reasoning-skeleton.md), self-correction, length penalty
 - **Methods**: graph-based CoT pruning, [supervised finetuning](../../../../wiki/methods/supervised-fine-tuning.md), [DPO](../../../../wiki/methods/dpo.md), [GRPO](../../../../wiki/methods/grpo.md), [length penalty](../../../../wiki/methods/length-penalty.md), [TokenSkip](../../../../wiki/methods/tokenskip.md), [chain-of-thought compression](../../../../wiki/methods/chain-of-thought-compression.md)
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [MATH500](../../../../wiki/datasets/math500.md), Light-R1, [DAPO-Math-17K](../../../../wiki/datasets/dapo-math-17k.md)
 

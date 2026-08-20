@@ -3,12 +3,78 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Shows that the standard metric for judging contamination-mitigation strategies can be scored by cancellation rather than by restoration, replaces it with a per-question stratified metric under which the published ranking reverses, and proposes a mitigation that decides its intervention during decoding instead of from a prior estimate.",
+        "title": "Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Casts benchmark contamination auditing as sparse-mixture detection, proves that detectability is governed by the single quantity alpha*rho*sqrt(m), and shows empirically that the resulting power predictions transport while the sample-size budgets derived from them do not.",
+        "title": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+        "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+        "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A financial reasoning benchmark built from parameterized symbolic templates with executable Python, giving machine-verifiable step-level ground truth and contamination-free regeneration.",
         "title": "FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       },
@@ -17,9 +83,9 @@
         "note": "A business-domain benchmark pairing four knowledge areas with three practitioner roles, designed to trace application performance back to the theoretical capability it depends on.",
         "title": "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       },
@@ -28,9 +94,9 @@
         "note": "An inductive-reasoning benchmark from historical linguistics that requires inducing cascades of string-rewrite programs, with automated contamination-resistant generation and controllable difficulty.",
         "title": "PBEBench: A Multi-Step Programming by Examples Reasoning Benchmark inspired by Historical Linguistics",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       },
@@ -39,9 +105,9 @@
         "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
         "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       },
@@ -50,9 +116,9 @@
         "note": "Converts AMC23 and AIME24/25 into symbolic templates whose constants are replaced by sampled variables, requires a model to solve several instantiations of each problem, and finds RL-finetuned models lose most of their reported accuracy under that consistency requirement.",
         "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       },
@@ -61,17 +127,17 @@
         "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
         "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-evaluation",
           "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:54Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'benchmark contamination'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:02:14Z",
+  "created_at": "2026-08-20T23:00:54Z",
+  "instructions": "Write the wiki definition for 'benchmark contamination'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "benchmark contamination",
   "kind": "concept",
   "language": "en",
@@ -80,17 +146,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "benchmark contamination",
-    "source_count": 6
+    "source_count": 12
   },
   "result": {
-    "definition": "Training on evaluation data, yielding inflated scores. The archived sources establish that for reasoning models it is both consequential and hard to detect, and they now divide into two responses. On detection: contamination introduced during supervised fine-tuning is detectable until a brief GRPO run conceals the signals detectors rely on, with PPO-style importance sampling and clipping identified as the cause, so a broad class of RL methods launders the evidence; and re-instantiating the same problems with different constants collapses RL-trained models by 20-95% on a strict metric. On construction, three newer benchmarks respond by making contamination structurally impossible rather than detectable — parameterized symbolic templates with executable ground truth, automated contamination-resistant generation with controllable difficulty, and symbolic variabilization of existing competition sets. A fourth use inverts it into a control: one source reports its largest effect on AIME 2025 specifically because that split postdates the base model's training cutoff."
+    "aliases": [
+      "data contamination",
+      "test-set leakage"
+    ],
+    "definition": "Test items appearing in training data and inflating benchmark scores, and across 12 sources a problem the archive treats as mostly unmeasurable in the field. Four findings shape that view. Detection is fragile to the training pipeline: contamination introduced at the supervised stage is identifiable, and a brief reinforcement-learning run markedly suppresses the signals detectors rely on -- attributed to importance sampling and clipping rather than to any specific algorithm, so a broad class of post-training launders what preceded it. A negative audit is ambiguous: a detector returning no evidence has said either that the benchmark is clean or that the audit had too little power, and nothing in the literature separates them. Exposure mechanism matters: verbatim, paraphrase and surface-shuffle exposure produce sharply different behavioural signals, so a result established under one does not cover the others, and simulated contamination by mixing test items into a fine-tuning corpus produces verbatim-style exposure specifically. And mitigation metrics can be gamed by damage: one aggregate scores a synthetic strategy that makes the contaminated model fail every question better than no intervention at all, because over-suppression cancels against residual contamination -- a stratified reading ranks the same strategy worst. The practical instruments the corpus offers are a leakage ladder (question-only, empty, random, shuffled, matched, full-solution answer-recovery rates) and similarity audits reported with their false positives inspected by hand; both establish implausibility rather than absence.",
+    "kind": "concept",
+    "related": [
+      "construct validity",
+      "memorization"
+    ]
   },
   "task_id": "concept__benchmark-contamination",
   "task_version": 1,

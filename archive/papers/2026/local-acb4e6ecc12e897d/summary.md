@@ -43,7 +43,7 @@ No standalone limitations section is present in the material read. Points a read
 
 ## Entities
 
-- **Concepts**: item response theory, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), model routing, latent ability, psychometrics, [test-time compute](../../../../wiki/concepts/test-time-compute.md), reasoning budget, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), calibration
+- **Concepts**: item response theory, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), model routing, latent ability, psychometrics, [test-time compute](../../../../wiki/concepts/test-time-compute.md), reasoning budget, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [calibration](../../../../wiki/concepts/calibration.md)
 - **Methods**: RADAR, item response theory, model routing, adaptive query selection
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH500](../../../../wiki/datasets/math500.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 

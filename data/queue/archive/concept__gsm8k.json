@@ -159,8 +159,92 @@
       },
       {
         "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
         "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
         "topics": [
           "reasoning-evaluation",
           "reasoning-training",
@@ -423,8 +507,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:41:03Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T23:05:17Z",
+  "created_at": "2026-08-20T23:00:54Z",
   "instructions": "Write the wiki definition for 'GSM8K'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GSM8K",
   "kind": "concept",
@@ -441,14 +525,15 @@
   },
   "payload": {
     "name": "GSM8K",
-    "source_count": 35
+    "source_count": 42
   },
   "result": {
     "aliases": [],
-    "definition": "8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many sampled solutions beats finetuning the generator directly, and built to diagnose multi-step reasoning failure on a distribution that model size alone did not solve. Across the thirty-five sources that mention it, it is almost never the object of study: it is the easy rung of an evaluation suite, the corpus that supplies traces for compression, pruning, distillation and probing work, and the setting where a method is expected to already work before anything harder is attempted. It carries evidence in two recurring ways. It is a contamination site -- three sources use it while showing that a brief round of GRPO erases the signals contamination detectors rely on, that the standard metric for judging contamination mitigation can be scored by cancellation rather than restoration, and that similarity-based decontamination has no principled threshold. And it is where the field's standard baseline is demonstrably misleading: few-shot chain-of-thought prompting with dataset examples reaches 74.2 percent against 86.1 percent for simply asking a reasoning-specialised model the question, so anything benchmarked against that baseline on this dataset is overstated. No source here reports GSM8K as unsolved or as the frontier; where a source wants difficulty it moves to MATH, AIME or a symbolic variant.",
+    "definition": "8,500 grade-school arithmetic word problems, introduced in the archive's oldest source alongside the finding that training a verifier to rank sampled solutions beats finetuning the generator directly. Across 42 sources it is the easy rung of nearly every suite, and its role has changed: later archived work treats it as saturated, uses it to check that a method aimed at hard problems has not broken easy ones, and raises contamination concerns about publicly available mathematics benchmarks in general. Two things make it worth keeping in a suite. Its size means a five-benchmark average is often carried by it and by MATH500 while the 30-problem competition sets swing, so it is where a claimed average improvement is either substantiated or exposed. And per-task ablations frequently invert on it -- one method's largest loss is removing thought-matching here and removing the latent thought entirely on a harder set, and one steering study finds influence falling at the end of a trace here while rising at the end on two other benchmarks. Where the archive uses it for structure rather than difficulty, geometry transfers from it (step probes trained here score at or above 0.85 elsewhere) while correctness predictors do not (0.87 in distribution falling to 0.60 to 0.73).",
     "kind": "dataset",
     "related": [
-      "GSM-Plus"
+      "MATH500",
+      "AIME 2024"
     ]
   },
   "task_id": "concept__gsm8k",

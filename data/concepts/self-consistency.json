@@ -4,9 +4,10 @@
     "self-consistency decoding",
     "SC",
     "Self-Consistency",
-    "consensus voting"
+    "consensus voting",
+    "majority-vote self-consistency"
   ],
-  "definition": "Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for spending compute at inference, and most sources that engage with it directly are trying to beat it, bound it, or stop it earlier. Three results bound what it does. It is not monotone in accuracy -- extra samples strengthen whatever the aggregation rule already does, so on subjective verification where the underlying reasoning is unhelpful, voting at K=8 widens the gap rather than closing it (0.690 to 0.574), and one source finds a reasoning model's first solution is usually its best with later alternatives actively harmful. It can be beaten at matched compute by varying the input instead of the output, with paraphrase aggregation ahead on five of six benchmarks. And it can be stopped early almost for free: a Bayesian posterior over which answer is the mode needs only the top two counts plus an aggregate for asymptotic optimality, while other sources terminate on how far the running answer has stopped changing. The theoretical sources give it the weakest sufficient conditions in the archive -- failure probability provably decaying to zero as compute grows, assuming only that the model is sometimes right and can compare two solutions better than chance. The methodological warning attached to it is the sharpest one here: a selection rule compared against self-consistency is easy to credit wrongly, because changing the selector usually also changes the decoding format, and a format-matched control reduced one reported 31.8-point gain to nothing across four benchmarks. Two sources also use the consensus signal as a training reward, and one shows why that is dangerous -- when the same answer-level consensus both estimates the reward and receives the gradient, the shortcut is to make the answer agree with itself.",
+  "definition": "Sampling several chains and returning the answer they mostly agree on, and across 28 sources the baseline every test-time-scaling method must beat, the aggregation rule most of them replace, and increasingly the method the archive can say is unsafe on hard inputs. Three lines of evidence. It is beaten by reweighting rather than by more sampling: entropy-, instability- and geometry-based weightings all report margins that grow with the sample count rather than closing, and the mechanism offered is that incorrect trajectories converge to their wrong answer earlier than correct ones converge to the right one, so counting votes rewards the failure mode. It is not monotone: scaling it can amplify spurious consensus, with 64 rollouts reaching 34.42 against 34.66 at 16 in one label-free training setting, and on a hard science benchmark it lowers per-problem accuracy on 56.6 and 65.7 percent of problems for two small models while the aggregate barely moves. And it is a strong control that absorbs many proposed alternatives -- one study finds confidence-weighted variants tracking a matched control within noise, and a reproduction finds a published improvement never significantly beating it across four new domains, gaining 2.5 points at a larger budget on a set where only 2 of 80 items separate them, and losing the advantage entirely when the evaluation set is enlarged to 200. The precondition the corpus identifies is calibration: agreement must track correctness, and where the highest-agreement bin is right about half the time -- or less often than the lowest bin -- no verifier-free reweighting can repair it.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -608,7 +609,9 @@
     "qwen2-5-math-7b"
   ],
   "related_authored": [
-    "best-of-n"
+    "majority-voting",
+    "confidence-calibration",
+    "test-time-scaling"
   ],
   "schema_version": 1,
   "slug": "self-consistency",

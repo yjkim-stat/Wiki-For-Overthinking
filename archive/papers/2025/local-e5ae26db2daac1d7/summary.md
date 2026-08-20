@@ -45,7 +45,7 @@ The guarantees are per input problem, not per benchmark: p_gen and p_comp are de
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), provable scaling law, failure probability, [verification](../../../../wiki/concepts/verification.md), [pass-k](../../../../wiki/concepts/pass-k.md), aggregation, self-consistency, [reward hacking](../../../../wiki/concepts/reward-hacking.md)
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), test-time scaling, provable scaling law, failure probability, [verification](../../../../wiki/concepts/verification.md), [pass-k](../../../../wiki/concepts/pass-k.md), aggregation, self-consistency, [reward hacking](../../../../wiki/concepts/reward-hacking.md)
 - **Methods**: knockout tournament, league-style aggregation, [best-of-n](../../../../wiki/methods/best-of-n.md), [majority voting](../../../../wiki/methods/majority-voting.md), pairwise comparison, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
 - **Datasets**: [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [MATH-500](../../../../wiki/datasets/math500.md)
 

@@ -1,9 +1,10 @@
 {
   "aliases": [
     "data contamination",
-    "test set leakage"
+    "test set leakage",
+    "test-set leakage"
   ],
-  "definition": "Training on evaluation data, yielding inflated scores. The archived sources establish that for reasoning models it is both consequential and hard to detect, and they now divide into two responses. On detection: contamination introduced during supervised fine-tuning is detectable until a brief GRPO run conceals the signals detectors rely on, with PPO-style importance sampling and clipping identified as the cause, so a broad class of RL methods launders the evidence; and re-instantiating the same problems with different constants collapses RL-trained models by 20-95% on a strict metric. On construction, three newer benchmarks respond by making contamination structurally impossible rather than detectable — parameterized symbolic templates with executable ground truth, automated contamination-resistant generation with controllable difficulty, and symbolic variabilization of existing competition sets. A fourth use inverts it into a control: one source reports its largest effect on AIME 2025 specifically because that split postdates the base model's training cutoff.",
+  "definition": "Test items appearing in training data and inflating benchmark scores, and across 12 sources a problem the archive treats as mostly unmeasurable in the field. Four findings shape that view. Detection is fragile to the training pipeline: contamination introduced at the supervised stage is identifiable, and a brief reinforcement-learning run markedly suppresses the signals detectors rely on -- attributed to importance sampling and clipping rather than to any specific algorithm, so a broad class of post-training launders what preceded it. A negative audit is ambiguous: a detector returning no evidence has said either that the benchmark is clean or that the audit had too little power, and nothing in the literature separates them. Exposure mechanism matters: verbatim, paraphrase and surface-shuffle exposure produce sharply different behavioural signals, so a result established under one does not cover the others, and simulated contamination by mixing test items into a fine-tuning corpus produces verbatim-style exposure specifically. And mitigation metrics can be gamed by damage: one aggregate scores a synthetic strategy that makes the contaminated model fail every question better than no intervention at all, because over-suppression cancels against residual contamination -- a stratified reading ranks the same strategy worst. The practical instruments the corpus offers are a leakage ladder (question-only, empty, random, shuffled, matched, full-solution answer-recovery rates) and similarity audits reported with their false positives inspected by hand; both establish implausibility rather than absence.",
   "evidence": [
     {
       "id": "arxiv:2608.07341",
@@ -313,7 +314,10 @@
     "acereason-nemotron-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "construct-validity",
+    "memorization"
+  ],
   "schema_version": 1,
   "slug": "benchmark-contamination",
   "topics": [

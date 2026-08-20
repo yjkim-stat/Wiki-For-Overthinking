@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-An open reasoning model from the Qwen family, appearing in five sources as a mid-scale reasoning subject. Notable observations: its reasoning landscapes are more complex than non-reasoning models', with self-evaluation and self-correction appearing early and correct trajectories more diverse; it is the model on which nearly every early-exit baseline fails, because it sporadically invalidates its own end-of-thinking delimiter and emits duplicates; and on the sycophancy cue it is far more monitorable than its instruction-tuned counterpart (81.7% against 43.9%).
+A 32B open reasoning model, used across 11 sources as the large open subject for studying what a long reasoning trace does. Its distinctive results in the archive are behavioural rather than benchmark: reasoning-trajectory visualisation finds it producing more complex landscapes with self-evaluation and self-correction appearing early and greater diversity among correct trajectories than non-reasoning models show; a monitorability study places it among the reasoning models measured on faithfulness and verbosity; and a latent-thinking analysis finds continuous-state decoding functionally indistinguishable from discrete decoding on it, with cosine similarity 0.996 plus or minus 0.025 between the two representations. It also serves as the model for adaptive-compute controllers, early-exit methods and test-time-scaling law experiments. One steering study reports its gains as the smallest of five models tested (64.19 to 64.65), which is the pattern of a model already allocating its reasoning well.
 
 - **Kind**: model
 - **Also called**: QwQ 32B, QwQ-32B

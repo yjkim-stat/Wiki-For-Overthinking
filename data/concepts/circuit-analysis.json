@@ -2,7 +2,7 @@
   "aliases": [
     "circuit discovery"
   ],
-  "definition": "Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three scales and the results do not straightforwardly compose. On a synthetic logic task it recovers a sparse, modular circuit in models up to 27B, decomposing into four head families executed sequentially. On indirect object identification it is shown to be badly sensitive to methodology, with corruption method and metric each changing which heads a study reports. And the same source that recovers a clean circuit reports that three-layer models trained directly on the task are more accurate while being *less* modular — so circuit legibility is not evidence of competence.",
+  "definition": "Identifying the subgraph of components a model uses for a task, and across 9 sources a method whose reach the corpus is explicit about. Its scope has been limited to partial evidence or to small models -- three-layer transformers and GPT-2-scale networks -- and the sources that extend it beyond that do so in controlled synthetic settings, which is what makes the analysis and the in-distribution/out-of-distribution split possible while leaving open whether the same structure arises during realistic pretraining. Two self-imposed caveats recur. The analysis often operates at the level of attention patterns, and the authors of one source say it would be better strengthened by embedding-level analysis. And an architectural or mechanistic suggestion that follows from a circuit is a hypothesis rather than a tested claim; several sources mark that boundary themselves. The archive's related material bears on it from the identifiability side: a decomposition that is not invariant to the procedure that produced it is not comparable across studies, which is a question circuit work inherits whenever its units come from a learned dictionary rather than from the weights.",
   "evidence": [
     {
       "id": "arxiv:2608.02585",
@@ -205,7 +205,10 @@
     "gemma-2-9b",
     "gemma-2-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-patching",
+    "identifiability"
+  ],
   "schema_version": 1,
   "slug": "circuit-analysis",
   "topics": [

@@ -44,8 +44,8 @@ No numeric margins in the abstract, and the models are not named. The method ass
 
 ## Entities
 
-- **Concepts**: calibration, scoring bias, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), [judge reliability](../../../../wiki/concepts/judge-reliability.md), token probability rectification
-- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), random number generation probe, probability rectification, [calibration](../../../../wiki/methods/calibration.md)
+- **Concepts**: [calibration](../../../../wiki/concepts/calibration.md), scoring bias, [meta-evaluation](../../../../wiki/concepts/meta-evaluation.md), [judge reliability](../../../../wiki/concepts/judge-reliability.md), token probability rectification
+- **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), random number generation probe, probability rectification, calibration
 - **Datasets**: Semantic Textual Similarity, Semantic Textual Relatedness, summarization evaluation task, LLM alignment evaluation task
 
 Tags: `llm-as-a-judge`, `calibration`, `scoring bias`, `evaluation`

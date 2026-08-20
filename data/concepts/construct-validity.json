@@ -4,7 +4,7 @@
     "measurement validity",
     "what a benchmark measures"
   ],
-  "definition": "Whether a benchmark measures the thing its name claims, and the archive's dominant critical theme at 21 sources. The recurring finding is not that models are worse than reported but that the reported quantity is something else. Perception is misread as reasoning — about 80% of ARC-style failures are perceptual, and on one university-level multimodal benchmark a model scores higher with no image than with it. Format repair is misread as self-correction, with the content margin near zero at frontier scale. Guessing is misread as capability, with base models reaching right answers through wrong chains often enough to invert a headline pass@k result. Composition is misread as competence, with accuracy dropping nearly 30% when two individually solved steps are combined while humans show no such gap. The judges are implicated too: exact-match agreement, the field's standard validation metric, is shown insufficient across ~541,000 judgments, and forcing raters to pick one answer where several are defensible biases validation badly. The constructive responses in the archive are decomposition, ablation of the supposedly load-bearing modality, symbolic regeneration of problems, and scoring the process rather than the answer.",
+  "definition": "Whether a measurement is measuring the thing it is named after, and across 28 sources the archive's most frequently applied critical lens -- usually applied by the authors to their own work, which is why it appears in limitations more often than in results. The recurring failure is a correlated alternative that the design cannot exclude. A temporal-horizon steering direction also separates abstraction, urgency, strategic scope and framing, so the intervention may be steering a broad answer register rather than the named variable, and a transfer result shows the construct is involved without identifying the direction's semantic basis. A probe's margin can be generic: training the identical probe on a small model that never produced the responses reaches 0.72 because the items are by construction more ambiguous as prompts, so only the 14-point margin above that is unexplained. And a total-effect measurement can be answering a different question entirely -- a revision that turns an unparseable output into a parseable one changes the score without changing any reasoning. Two conclusions the corpus reaches are worth carrying. Validity is a property of the whole protocol rather than of the model: measured performance depends on template, decoder, controller, reducer, verifier, stopping rule and numerical settings, so a number without its protocol is not comparable to another. And some constructs have no clean measurement window at all -- one source shows that models weak enough to have headroom lack the signal while models with the signal lack the headroom, leaving the design space where the construct could be measured cleanly nearly empty.",
   "evidence": [
     {
       "id": "arxiv:2608.03550",
@@ -511,7 +511,11 @@
     "deepseek-v3-2",
     "kimi-k2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "measurement-invariance",
+    "identifiability",
+    "selectivity-control"
+  ],
   "schema_version": 1,
   "slug": "construct-validity",
   "topics": [

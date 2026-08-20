@@ -45,7 +45,7 @@ The authors state three: the rationale variant depends on a stronger teacher and
 
 ## Entities
 
-- **Concepts**: [self-correction](../../../../wiki/concepts/self-correction.md), step-level preference optimization, [error detection](../../../../wiki/concepts/error-detection.md), process reward, behavior collapse, [distribution shift](../../../../wiki/concepts/distribution-shift.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md)
+- **Concepts**: self-correction, step-level preference optimization, [error detection](../../../../wiki/concepts/error-detection.md), [process reward](../../../../wiki/concepts/process-reward.md), behavior collapse, [distribution shift](../../../../wiki/concepts/distribution-shift.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [teacher-student gap](../../../../wiki/concepts/teacher-student-gap.md)
 - **Methods**: SFS-DPO, SFS-DPO-R, Step-DPO, [DPO](../../../../wiki/methods/dpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), LEMMA, S2R, McNemar's test
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), Gaokao2023, OCWCourses, MetaMath, MMIQC
 

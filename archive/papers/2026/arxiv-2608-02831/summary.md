@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the headline i
 
 ## Entities
 
-- **Concepts**: rubric as reward, process reward, [outcome reward](../../../../wiki/concepts/outcome-reward.md), advantage estimation, [reward hacking](../../../../wiki/concepts/reward-hacking.md), [overthinking](../../../../wiki/concepts/overthinking.md), audio reasoning, [grounding](../../../../wiki/concepts/grounding.md), LLM-as-a-judge, reward saturation
+- **Concepts**: rubric as reward, [process reward](../../../../wiki/concepts/process-reward.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), [overthinking](../../../../wiki/concepts/overthinking.md), audio reasoning, [grounding](../../../../wiki/concepts/grounding.md), LLM-as-a-judge, reward saturation
 - **Methods**: AudioRubrics, [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), R1-AQA, Omni-R1, Audio-Thinker, CESAR, Audio-Reasoner, Ke-Omni-R
 - **Datasets**: MMAU, MMAR, MMSU, AVQA
 

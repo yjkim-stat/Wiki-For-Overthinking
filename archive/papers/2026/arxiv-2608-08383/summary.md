@@ -44,7 +44,7 @@ The paper is explicit that the Lagrangian relaxation is nonconvex, so there is n
 
 ## Entities
 
-- **Concepts**: [steering vector](../../../../wiki/concepts/steering-vector.md), refusal direction, safety degradation, false refusal, [superposition](../../../../wiki/concepts/superposition.md), constrained optimization, [jailbreak](../../../../wiki/concepts/jailbreak.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), activation space
+- **Concepts**: steering vector, refusal direction, safety degradation, false refusal, [superposition](../../../../wiki/concepts/superposition.md), constrained optimization, [jailbreak](../../../../wiki/concepts/jailbreak.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), activation space
 - **Methods**: [activation steering](../../../../wiki/methods/activation-steering.md), [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), [ablation](../../../../wiki/methods/ablation.md), primal-dual optimization, KL divergence, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [GCG](../../../../wiki/methods/gcg.md), AutoDAN, [PAIR](../../../../wiki/methods/pair.md)
 - **Datasets**: JailbreakBench, Alpaca, [XSTest](../../../../wiki/datasets/xstest.md)
 

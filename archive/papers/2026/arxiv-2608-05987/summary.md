@@ -45,7 +45,7 @@ Only 89.1% on ALFWorld is quantified; margins over GRPO and the self-distillatio
 
 ## Entities
 
-- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [process supervision](../../../../wiki/concepts/process-supervision.md), [privileged information](../../../../wiki/concepts/privileged-information.md), [belief state](../../../../wiki/concepts/belief-state.md), [long-horizon reasoning](../../../../wiki/concepts/long-horizon-reasoning.md), pivotal decision, log-odds aggregation
+- **Concepts**: [credit assignment](../../../../wiki/concepts/credit-assignment.md), [process supervision](../../../../wiki/concepts/process-supervision.md), privileged information, [belief state](../../../../wiki/concepts/belief-state.md), [long-horizon reasoning](../../../../wiki/concepts/long-horizon-reasoning.md), pivotal decision, log-odds aggregation
 - **Methods**: AgentOPSD, [on-policy self-distillation](../../../../wiki/methods/on-policy-self-distillation.md), [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), recursive Bayesian update, [token-level distillation](../../../../wiki/methods/token-level-distillation.md)
 - **Datasets**: [ALFWorld](../../../../wiki/datasets/alfworld.md), [WebShop](../../../../wiki/datasets/webshop.md), Search-QA
 

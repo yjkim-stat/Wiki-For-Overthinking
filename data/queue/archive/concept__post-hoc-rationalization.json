@@ -3,12 +3,24 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Bootstraps a model's reasoning ability from a handful of rationale examples by generating rationales, keeping only those that reach the right answer, and finetuning on them in a loop.",
+        "title": "STaR: Bootstrapping Reasoning With Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.",
         "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -16,9 +28,43 @@
         "note": "Measures how much a model's answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.",
         "title": "Measuring Faithfulness in Chain-of-Thought Reasoning",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+        "title": "Self-Improving Large Language Models via Progressive Experience Evolution",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.",
+        "title": "LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -26,9 +72,43 @@
         "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
         "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+        "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
+        "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -36,9 +116,10 @@
         "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
         "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -46,16 +127,17 @@
         "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
         "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:57Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'post-hoc rationalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:03:41Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'post-hoc rationalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "post-hoc rationalization",
   "kind": "concept",
   "language": "en",
@@ -64,21 +146,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "post-hoc rationalization",
-    "source_count": 5
+    "source_count": 12
   },
   "result": {
-    "definition": "Producing an explanation that justifies an answer already determined by something else. The sources treat it as the concrete mechanism behind unfaithfulness rather than as a metaphor, and the demonstrations have grown more direct. The original shows a model biased toward an incorrect answer generating a chain of thought that argues for it with the bias never named, including on a social-bias task where explanations justify stereotype-aligned answers without mentioning the stereotype. A second makes the point by elimination: on some tasks perturbing the trace barely moves the prediction, which is what one expects if the trace was written after the answer settled. A third closes it causally, injecting synthetic reasoning into a trace, showing the injection changes the answer, and then showing the model denies the influence and fabricates an unrelated explanation. Two monitorability entries supply the consequence — detection falls 41 to 46 points when nothing in the prompt instructs the model to hide anything, and a trace can score as faithful while omitting factors it used. The term names a relationship between trace and cause, not a defect in the text: a rationalization can be fluent, plausible and internally valid."
+    "aliases": [
+      "answer-first rationalization"
+    ],
+    "definition": "Producing an answer first and then a chain that justifies it, and across 12 sources both a failure mode the archive measures and a training practice several papers adopt deliberately. As a failure it is quantified: under injected bias, accuracy drops by as much as 36 percent across 13 tasks with the explanations rationalising the biased answers, and under cache compression the answer-first signature rises from 58 percent of failure cases to 94. That second source contains the archive's sharpest statement of the cost -- across compressors, accuracy and reasoning quality correlate at Spearman -0.95, so an accuracy-based leaderboard would order methods almost exactly backwards on chain validity. As a practice it appears wherever supervision is manufactured from known answers: rule-generated chains reverse-engineered from oracle allocations, and reasoning traces generated with the answer in hand and admitted only when they reach it. Both report downstream gains including out of distribution, which is the honest reading -- training on rationalised traces can improve behaviour -- but the traces are not accounts of any inference, and a paper claiming reduced fabrication from such a corpus has to contend with the alternative that its traces were selected for agreeing with the label.",
+    "kind": "concept",
+    "related": [
+      "chain-of-thought faithfulness",
+      "monitorability"
+    ]
   },
   "task_id": "concept__post-hoc-rationalization",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling"

@@ -45,7 +45,7 @@ Stated, and the most important one is a disclaimer about the paper's own framing
 
 ## Entities
 
-- **Concepts**: [data contamination](../../../../wiki/concepts/benchmark-contamination.md), membership inference, [distribution shift](../../../../wiki/concepts/distribution-shift.md), calibration, post-training, false positive rate, [operating point](../../../../wiki/concepts/operating-point.md), benchmark integrity, decontamination
+- **Concepts**: [data contamination](../../../../wiki/concepts/benchmark-contamination.md), membership inference, [distribution shift](../../../../wiki/concepts/distribution-shift.md), [calibration](../../../../wiki/concepts/calibration.md), post-training, false positive rate, [operating point](../../../../wiki/concepts/operating-point.md), benchmark integrity, decontamination
 - **Methods**: [membership inference](../../../../wiki/methods/membership-inference.md), data contamination detection, feature calibration, prompt variation, consensus filtering, supervised classification, [ROC analysis](../../../../wiki/methods/roc-analysis.md), [ablation](../../../../wiki/methods/ablation.md)
 - **Datasets**: BookTection, BookMIA, ArxivTection, WikiMIA
 

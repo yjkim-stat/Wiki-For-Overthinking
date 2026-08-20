@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (193)
+## Concepts (192)
 
 - [abstention](concepts/abstention.md) — 5 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 25 source(s)
@@ -109,7 +109,6 @@
 - [long-horizon reasoning](concepts/long-horizon-reasoning.md) — 2 source(s)
 - [machine unlearning](concepts/machine-unlearning.md) — 2 source(s)
 - [macro versus micro accuracy](concepts/macro-versus-micro-accuracy.md) — 2 source(s)
-- [matched-budget comparison](concepts/matched-budget-comparison.md) — 7 source(s)
 - [measurement invariance](concepts/measurement-invariance.md) — 2 source(s)
 - [mechanistic interpretability](concepts/mechanistic-interpretability.md) — 6 source(s)
 - [memorization](concepts/memorization.md) — 7 source(s)
@@ -206,7 +205,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (159)
+## Methods (160)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -293,6 +292,7 @@
 - [low-rank approximation](methods/low-rank-approximation.md) — 3 source(s)
 - [low-rank weight ablation](methods/low-rank-weight-ablation.md) — 2 source(s)
 - [majority voting](methods/majority-voting.md) — 18 source(s)
+- [matched-budget comparison](methods/matched-budget-comparison.md) — 7 source(s)
 - [MaxRL](methods/maxrl.md) — 2 source(s)
 - [McNemar test](methods/mcnemar-test.md) — 2 source(s)
 - [membership inference](methods/membership-inference.md) — 4 source(s)

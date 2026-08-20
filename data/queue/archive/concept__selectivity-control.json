@@ -3,12 +3,82 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+        "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
         "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
         "topics": [
           "reasoning-interpretability",
-          "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Distributes hindsight supervision across the turns of an agent trajectory by comparing each turn's share of total revision magnitude against its share of eligible tokens, holding the average multiplier at one so the total supervision is fixed and only its allocation changes -- and isolates that allocation with a permutation control that keeps the multiplier values and scrambles which turn receives which.",
+        "title": "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+        "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+        "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -17,14 +87,14 @@
         "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
         "topics": [
           "reasoning-interpretability",
-          "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:59:22Z",
-  "created_at": "2026-08-20T12:45:12Z",
+  "completed_at": "2026-08-20T23:03:41Z",
+  "created_at": "2026-08-20T23:00:55Z",
   "instructions": "Write the wiki definition for 'selectivity control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "selectivity control",
   "kind": "concept",
@@ -41,17 +111,18 @@
   },
   "payload": {
     "name": "selectivity control",
-    "source_count": 2
+    "source_count": 9
   },
   "result": {
     "aliases": [
-      "control task",
-      "selectivity"
+      "specificity control"
     ],
-    "definition": "A deliberately meaningless version of an experiment, run under identical conditions, whose job is to produce no effect -- so that an effect in the real condition means something. Both sources treat it as what makes their central claim readable rather than as an appendix. The text-to-MIDI work retrains every probe on labels shuffled between tokens with the group split preserved, and reports that the control probe collapses to the majority baseline for every concept (lift -0.068 to +0.001 in one model, -0.044 to -0.002 in the other), which is what licenses reading probe accuracy as information in the activations rather than capacity of the probe; its patching experiments carry the same discipline with a self-patch control that is zero by construction and a neutral-prompt control for nonspecific disruption. The scratchpad-editing work uses same-rank random and orthogonal-complement patches, which reach about 0.02 agreement where the real edit reaches 0.80 to 0.91, plus pretrained and final-answer-only model controls that stay near baseline. The two sources differ in what they randomise -- labels in one, the intervention direction in the other -- and agree on the standard: an intervention or probe result without a matched condition that should do nothing reports that something changed, not that the right thing did.",
+    "definition": "A comparison establishing that an intervention affects the thing it names and not a neighbouring one -- a matched item the effect should not touch, a random direction of the same magnitude, a permuted assignment, a model that never produced the data. Across 9 sources it is what separates the archive's usable causal claims from its suggestive ones. Its positive form is narrow and quantitative: a scratchpad-editing study reports a move-specific gap of +0.57 and +0.68, establishing that the model combines the edited state with the supplied move rather than emitting a fixed answer. Its absence is what the archive most often flags -- an intervention that suppresses a feature and observes degradation, with no random feature of comparable activation volume and no orthogonal direction reported, has shown that something changed rather than that the right thing did. Three forms recur and are not interchangeable. A removal answers whether a component carries information. A permutation that preserves the component and breaks only its alignment answers whether the method uses the alignment, which is usually the claim. And a baseline instrument that could not have the property -- a probe trained on a model that never produced the responses, reaching 0.72 where the real probe reaches 0.86 -- bounds how much of a result is generic. Selectivity itself can be fragile: in one cross-model study a language-selective ablation is significant in one direction for all 17 models and statistically indistinguishable from zero in the other for 12 of 17, with the asymmetry reversing under a different attribution method.",
     "kind": "method",
     "related": [
-      "null hypothesis control"
+      "component ablation",
+      "construct validity",
+      "null control"
     ]
   },
   "task_id": "concept__selectivity-control",

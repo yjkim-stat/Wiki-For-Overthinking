@@ -3,12 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a candidate pool contains enough signal to select from itself, by compiling sampled CAD programs into 3D models and returning the one that agrees most with the rest -- and finds this verifier-free rule beats a vision-language verifier on every geometric metric when both select from the identical pool.",
+        "title": "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
+        "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
         "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
         "topics": [
-          "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training"
         ]
       },
       {
@@ -16,17 +66,27 @@
         "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
         "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
         "topics": [
-          "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:47:17Z",
-  "created_at": "2026-08-08T12:46:29Z",
-  "instructions": "Write the wiki definition for 'GPT-OSS-20B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "GPT-OSS-20B",
+  "completed_at": "2026-08-20T23:06:37Z",
+  "created_at": "2026-08-20T23:00:54Z",
+  "instructions": "Write the wiki definition for 'gpt-oss-20b'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "gpt-oss-20b",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -34,28 +94,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "GPT-OSS-20B",
-    "source_count": 2
+    "name": "gpt-oss-20b",
+    "source_count": 8
   },
   "result": {
     "aliases": [
-      "gpt-oss-20b",
-      "GPT OSS 20B"
+      "gpt-oss-20b"
     ],
-    "definition": "A 20B open-weight OpenAI reasoning model, used in the archive where open weights are required. One source measures how well it follows instructions inside its reasoning trace and reports an instruction-following score of 0.11, raised to 0.27 by targeted finetuning on synthetic data — so more than doubled and still leaving most traces non-compliant. The other uses it to probe whether chain-of-thought is epiphenomenal, truncating traces and forcing an answer to locate a commitment boundary. Both need access the model's openness provides: trace-level manipulation and per-step intervention.",
+    "definition": "A 20B open-weight reasoning model, used across 8 sources as the smaller of a pair that lets a claim be checked across an order of magnitude within one family. Its appearances cluster in test-time-scaling and trace-observability work: inference-regime taxonomies, verifier-free consensus selection, claim-level reliability assessment, optimal-stopping trace pruning and reasoning-summary observability. Two archived findings attach to it specifically -- it is among the open reasoning models on which instruction following inside the reasoning trace fails substantially, with the highest score below 0.25, and it is one of the models used to probe whether a chain of thought is epiphenomenal past a commitment boundary. None of the sources describes its training.",
     "kind": "model",
     "related": [
-      "instruction following",
-      "controllability",
-      "commitment boundary",
-      "chain of thought faithfulness",
-      "reasoning trace"
+      "gpt-oss-120b"
     ]
   },
   "task_id": "concept__gpt-oss-20b",

@@ -3,12 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+        "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+        "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
         "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
         "topics": [
+          "reasoning-faithfulness",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -16,9 +66,11 @@
         "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
+          "reasoning-faithfulness",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -26,16 +78,54 @@
         "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
         "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
         "topics": [
+          "reasoning-faithfulness",
           "reasoning-training",
           "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+        "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T02:49:08Z",
-  "created_at": "2026-08-08T02:45:49Z",
-  "instructions": "Write the wiki definition for 'Qwen3-14B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:06:37Z",
+  "created_at": "2026-08-20T23:00:55Z",
+  "instructions": "Write the wiki definition for 'Qwen3-14B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-14B",
   "kind": "concept",
   "language": "en",
@@ -44,33 +134,33 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Qwen3-14B",
-    "source_count": 3
+    "source_count": 10
   },
   "result": {
     "aliases": [
+      "Qwen3-14B",
       "Qwen3-14B-Base"
     ],
-    "definition": "A 14B model from the Qwen3 family, appearing in all three sources as the middle rung of a scale comparison. The sources report on it that: restricting RLVR gradients to high-entropy tokens gains 2.99 points on average, between the 8B and 32B results; as a natively trained rather than distilled model, its convergence timing correlates least with correctness (r = -0.26); and it shows the lowest precision of proactive self-correction of the reasoning models measured (15.8%). Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
-    "kind": "dataset",
+    "definition": "A 14B Qwen3 model, used across 10 sources as the rung between the 8B and 32B checkpoints -- the size at which several trends are checked for monotonicity and occasionally found not to be. It is a standard subject for trace-dynamics work: entropy dynamics, hidden-state norm signals, dynamic early exit, commitment-boundary probing and reasoning-failure detection from chain-of-thought dynamics. Two measured results attach to it. Steering a reasoning-strength direction gives its largest single gain here among five sizes (+5.83 on one competition set), and the epistemic-verbalisation study finds fine-tuning on 800 heavily hedged examples improving it by up to 2.6-fold while degrading three other models -- so it is one of the checkpoints where the archive's evidence about installable reasoning habits is positive. None of the sources describes its training.",
+    "kind": "model",
     "related": [
       "Qwen3-8B",
-      "DeepSeek-R1-Distill-Qwen-7B",
-      "Qwen2.5-7B",
-      "RLVR",
-      "entropy trajectory"
+      "Qwen3-32B"
     ]
   },
   "task_id": "concept__qwen3-14b",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

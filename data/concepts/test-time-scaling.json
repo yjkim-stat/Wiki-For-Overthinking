@@ -2,9 +2,10 @@
   "aliases": [
     "inference-time scaling",
     "Test-Time Scaling",
-    "test-time compute"
+    "test-time compute",
+    "TTS"
   ],
-  "definition": "Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different things that a single budget number conflates. One source formalises it as budgeted inference over the model's implicit prefix tree and separates three regimes -- widening (more independent samples), deepening (a longer single trace), and search over partial trajectories -- arguing that a scalar budget cannot compare them and specifying what a reproducible protocol has to declare. The sources span all three, plus allocation policies that decide per prompt how much to spend, and evaluation-time variants where the compute goes to a judge instead of a generator. What they collectively establish is mostly negative and mostly methodological. Extra compute is not monotone in accuracy: one source reports accuracy falling from 75.56 to 65.83 percent as the candidate bank grows, another finds a model's first solution usually its best, and on tasks where the reasoning is unhelpful aggregation amplifies the error. Gains are routinely confounded rather than absent -- a 31.8-point advantage for a perturbation-based selector vanished under a control spending the same budget in the same decoding format, and adaptive allocation must be compared against a selector-matched baseline or it measures the selector. Input diversity beats output diversity at matched compute on five of six benchmarks, and a reranker over a shortlist beats generating a rationale at query time by one to two orders of magnitude in latency for no accuracy gain. The two positive general results are a set of aggregation algorithms whose failure probability provably decays to zero under weak assumptions, and the finding that evaluator accuracy rises monotonically with the tokens an evaluator may spend -- so evaluation-time compute can substitute for generation-time compute. Cutting across all of it, one source shows greedy decoding is not deterministic across hardware, with AIME 2024 accuracy moving up to 9 points and response length by 9,000 tokens under BF16, so the baseline any of these numbers is measured against is itself unstable.",
+  "definition": "Spending more computation at inference to get a better answer, and across 28 sources a phrase covering algorithms with different statistical structure, compute accounting and failure modes -- extending one trajectory, sampling completed candidates and reducing them by voting or verification, and searching over unfinished partial states. One source argues the consequence directly: reporting these under a single scalar budget, or reporting accuracy without the inference protocol that produced it, makes results incomparable across papers. The archive's accumulated findings are mostly about where the curve bends. It is not monotone in the sample count, because more candidates strengthen whatever the aggregation rule already does; the selection signal is the binding constraint past a modest budget, and where confidence does not track correctness no verifier-free rule recovers the available headroom (measured at 14 to 17 oracle points on one hard benchmark against 0.8 percent captured). Uniform spending is wasteful in both directions, and adaptive allocation is worth having but hard to learn and hard to audit. And its value is conditional on the instance rather than on the method: budget increases that pay on a feasible instance change nothing on an infeasible one. Two structural observations recur. The budget is almost always spent on the output side -- re-running the model on the same input -- and input-side diversity is a direct competitor for the same calls that has rarely been benchmarked against it at matched compute. And in multimodal settings the usual selection signals fail for a specific reason: neither answer frequency nor verbalised confidence tests whether an answer depends on the image, so a grounded answer and a confident language-prior guess look identical at the selection layer.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -177,7 +178,7 @@
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:45:48Z",
+  "last_seen": "2026-08-20T23:00:52Z",
   "name": "test-time scaling",
   "related": [
     "budget-forcing",
@@ -638,7 +639,9 @@
     "chain-of-thought-distillation"
   ],
   "related_authored": [
-    "train-time-scaling"
+    "adaptive-compute-allocation",
+    "self-consistency",
+    "pass-k"
   ],
   "schema_version": 1,
   "slug": "test-time-scaling",

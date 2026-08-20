@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A 1.5B Qwen checkpoint distilled from DeepSeek-R1's long chain-of-thought reasoning, used by both sources as the small end of an efficiency study rather than as an object of interest. One reports cutting its average token usage by 87.1% while raising accuracy 2.3%, by penalizing tokens whose marginal utility for the correct answer is negative. The other uses it as a baseline against which per-query non-thinking token budgets cut tokens by around 50% with improved accuracy. That such large reductions come with accuracy gains on this checkpoint is the archive's clearest evidence that distilled reasoning chains carry a substantial fraction of tokens doing no work.
+A 1.5B Qwen model distilled from a large reasoning model, used across 8 sources as the smallest checkpoint that still produces long reasoning traces -- which makes it the standard subject for trace-compression and efficiency work, where it appears in chain-of-thought pruning, marginal-utility stopping and saliency-based compression studies. It is also the student in two distillation analyses: one where it is the base whose capability boundary on-policy distillation fails to extend, and one where the strong-mismatch condition starts from a badly broken policy emitting 22K-token unterminated responses, which is worth remembering when reading the large gains reported there. Neither its architecture nor its distillation corpus is described in the sources.
 
 - **Kind**: model
-- **Also called**: DeepSeek-R1-Distill-Qwen1.5B, R1-Distill-Qwen-1.5B
+- **Also called**: DeepSeek-R1-Distill-Qwen-1.5B, DeepSeek-R1-Distill-Qwen1.5B, R1-Distill-Qwen-1.5B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 8
 

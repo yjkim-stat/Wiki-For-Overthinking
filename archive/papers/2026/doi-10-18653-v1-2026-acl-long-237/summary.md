@@ -41,7 +41,7 @@ The published abstract is truncated mid-sentence and contains no method descript
 
 ## Entities
 
-- **Concepts**: advantage estimation, [group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), rollout efficiency, [data efficiency](../../../../wiki/concepts/data-efficiency.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), zero-variance group
+- **Concepts**: [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), rollout efficiency, [data efficiency](../../../../wiki/concepts/data-efficiency.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), zero-variance group
 - **Methods**: critic-free reinforcement learning, [GRPO](../../../../wiki/methods/grpo.md)
 - **Datasets**: _none recorded_
 

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-An OpenAI frontier model, present in the archive as the ceiling that benchmarks are calibrated against — and beaten in both appearances. On a university-level multimodal math benchmark it is surpassed by Qwen3-VL given no image at all, which the source reads as evidence that visual input contributes little and can interfere. On a contamination-resistant inductive reasoning benchmark it stays below 5% on hard long-cascade instances even under expensive test-time scaling. Both results are used to argue that the benchmark is measuring something real rather than saturating, so GPT-5's presence here marks headroom rather than progress.
+A frontier reasoning model appearing across 9 sources chiefly as an instrument and a ceiling rather than a subject. As an instrument it classifies reasoning modes, labels collapse behaviours and audits benchmark quality, and two sources flag the cost of that in their own limitations -- the reactive/proactive classification and the collapse-mode analysis both rely on it as an automated judge, introducing annotation noise. As a ceiling it sets the top of several benchmark tables, and the informative cases are where it is not enough: it is the best model on one multimodal error-detection benchmark and still about 10 points behind human evaluation, and it appears in benchmarks built specifically to be hard for it. It is also one of the models whose reasoning traces are the target of an extraction attack, and one of the frontier systems whose steering-pressure response modes are measured. Its mini variant appears as a judge and as a monitoring comparison where one source notes the comparison mixes monitoring with task solving, since the model can attempt the question itself.
 
 - **Kind**: model
-- **Also called**: GPT5
+- **Also called**: GPT-5, GPT-5-mini, GPT5
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 9
 

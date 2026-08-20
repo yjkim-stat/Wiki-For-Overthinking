@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "A broad multiple-choice knowledge benchmark spanning many subjects. In this archive it is a transfer and measurement target rather than a reasoning benchmark in its own right: one of three datasets for measuring chain-of-thought monitorability, a STEM subset for checking whether a math-trained method generalizes, the source of the answer-choice structure a trajectory-visualization method needs to define distances to each option, and one of the concrete capability measures against which LLM-judge preference scores are found not to correlate. Its multiple-choice format is what makes the last two uses possible and is also why it says little about generation.",
+  "aliases": [
+    "MMLU-STEM"
+  ],
+  "definition": "A broad multiple-choice knowledge benchmark spanning many academic subjects, used across 10 sources as the general-capability check that a reasoning-focused intervention has not damaged something else. Its high baseline is what makes it useful in that role and limits it in others: at accuracies near 88 percent, test-time-scaling methods report gains of one to three points and one steering study finds negative steering cutting reasoning tokens on it while maintaining accuracy, which the authors read as models misallocating reasoning strength on easy questions. Its STEM subset appears as a mid-difficulty column in latent-reasoning suites. One transfer result attaches to it: structural geometry learned on grade-school mathematics probes at or above 0.85 here, while a correctness predictor trained on the same data falls to 0.64 -- the same dissociation the archive records between structure and correctness elsewhere.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -266,7 +268,10 @@
     "llama-3-1-8b-instruct",
     "deepseek-r1-distill-llama-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mmlu-pro",
+    "gpqa"
+  ],
   "schema_version": 1,
   "slug": "mmlu",
   "topics": [

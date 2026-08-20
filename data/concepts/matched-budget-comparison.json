@@ -1,9 +1,11 @@
 {
   "aliases": [
     "budget-matched control",
-    "selector-matched comparison"
+    "selector-matched comparison",
+    "compute-matched comparison",
+    "equal-FLOP comparison"
   ],
-  "definition": "A comparison in which two methods are given the same inference budget and the same downstream components, so the difference between them can be attributed to the one thing that varies. Both sources treat it as the control their central claim depends on. One constructs a control that spends the identical short-answer budget on the unperturbed image, and finds it matches or beats the perturbation-based selector everywhere — dissolving a 31.8-point apparent gain that came from comparing long chain-of-thought aggregation against short-answer aggregation. The other runs adaptive allocation and fixed full budget through the same self-certainty-and-Borda selector, stating that this isolates the budget policy from the effect of the final selector. The shared lesson is that a test-time-scaling comparison which changes the budget and the aggregation together measures neither.",
+  "definition": "Comparing methods at equal compute rather than at equal steps or equal samples, and across 7 sources the control that most often changes a reported conclusion. Its instances in the archive are specific. Rollout-matched against equal-FLOP training: a baseline given 88.0 GPU-hours scores 45.52 and given 131.2 scores 46.31, so the extra updates buy 0.79 and the method's margin is 4.06 rather than 4.85. Matched generation-token accounting: pointwise allocators already beat full-group training substantially under a shared budget, so a method must be compared against them rather than against the full-group default. And matched inference: one contrast method reaches 35.19 in 6h14 at 8 rollouts while direct sampling reaches 34.42 in 22h41 at 64 -- worse than at 16 -- so the comparison against simply sampling more is the sharpest available test. The corpus also records where matching is declined and why: one source holds the student-update count fixed as the right control for its claim, reports teacher sampling cost, verifier calls, runtime and peak memory in a separate table rather than equalising them, and states plainly that nothing there shows its method wins at equal total budget. The archive's position is that an unmatched comparison is not worthless but is a different claim, and that saying which one is being made is the minimum.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -49,7 +51,7 @@
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T13:51:26Z",
   "name": "matched-budget comparison",
   "related": [
@@ -182,7 +184,8 @@
     "qwen3-4b"
   ],
   "related_authored": [
-    "baseline-validity"
+    "component-ablation",
+    "test-time-scaling"
   ],
   "schema_version": 1,
   "slug": "matched-budget-comparison",

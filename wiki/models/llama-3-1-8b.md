@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-An 8B model from the Llama-3.1 family, used here as a non-reasoning baseline and a generalization check. Two roles: its mutual-information trajectory is compared against its R1-distilled counterpart to show that MI peaks are much weaker in models without reasoning training (mean MI 0.0863 against 0.1279), and it is one of the four model families whose entropy-performance exchange curve is fitted to argue the relationship is not Qwen-specific.
+The base (non-instruction-tuned) 8B Llama, used across 10 sources where the instruction-tuned variant would confound the question -- interpreting hidden states at scale, arithmetic heuristics, reasoning-trajectory visualisation, mutual-information dynamics and cross-family steering audits. Its most consequential role in the archive is as one of the base models in the pass@k comparison that started the reasoning-boundary debate: across it and three Qwen sizes, reinforcement-trained models lead at small k and the base models catch up and surpass them as k grows into the tens or hundreds. It is also the model in one arithmetic study whose finding -- that mathematics is solved by a bag of heuristics rather than an algorithm -- the archive treats as foundational for how it reads mechanistic claims about reasoning. Comparisons of it against its instruction-tuned and distilled variants in the same study are how several sources separate what pretraining supplies from what post-training adds.
 
 - **Kind**: model
-- **Also called**: LLaMA-3.1-8B, LLaMA3.1-8B, Llama-3.1-8B-Instruct
+- **Also called**: LLaMA-3.1-8B, LLaMA3.1-8B, Llama 3.1 8B, Llama-3.1-8B, Llama-3.1-8B-Instruct
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 10
 

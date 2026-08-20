@@ -3,7 +3,7 @@
     "OOD generalization",
     "systematicity"
   ],
-  "definition": "Whether a capability survives inputs unlike those trained on, and the measurement this archive keeps finding discriminating. In-distribution accuracy dissociates from it repeatedly: models generalize systematically for comparison but not for composition despite similar in-distribution performance; RL-trained models lose 20-95% when benchmark constants are changed; a compositional benchmark pairing one commonsense step with one mathematical step drops accuracy by nearly 30% against solving each in isolation, where humans show no such gap; and a routing method's difficulty estimates transfer only when difficulty is modelled as a function of the query rather than as a free per-item parameter. One entry bounds the whole question: for transformers of depth two or beyond no computable bound exists on how long the training inputs must be for correctness to extend to longer ones, so in the general case the recurring empirical failures are not a tuning problem.",
+  "definition": "Whether a trained improvement survives a change in the input distribution, and across 11 sources the axis on which the archive's supervision results most often separate. Two patterns recur. Rationale supervision is worth little in domain and a great deal out of it -- 20 to 28 points across four models on a contamination-audited external benchmark, against nothing measurable in domain for strong backbones -- and a controlled human study attributes the measurable effect to language adherence and inspectability rather than to better reasoning. And reasoning helps most where the recovery is needed: one self-correction method's out-of-domain gains reach 10.9 and 8.8 points where its in-domain gains average about one, and removing the reasoning step costs 8.7 percent in distribution and 55.6 percent out. The corpus's caution is that out-of-distribution is a direction, not a place: transfer to three related languages is near-identical in average between two methods while distributed differently across the three; a defect direction fitted on controlled pairs scores 83.3 percent held out on those pairs and 19.6 to 30.0 on real benchmarks; and a correctness predictor falls from 0.87 to 0.60 across three shifts while the structural geometry it was computed from transfers intact.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -289,7 +289,10 @@
     "reduction-from-hilbert-s-tenth-problem",
     "unary-temporal-logic"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "cross-lingual-transfer",
+    "construct-validity"
+  ],
   "schema_version": 1,
   "slug": "out-of-distribution-generalization",
   "topics": [
