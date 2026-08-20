@@ -30,6 +30,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:24Z",
   "created_at": "2026-08-20T14:02:30Z",
   "instructions": "Write the wiki definition for 'cross-validation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "cross-validation",
@@ -48,6 +49,16 @@
   "payload": {
     "name": "cross-validation",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "k-fold cross-validation"
+    ],
+    "definition": "Rotating held-out folds so every example is scored by a model that did not train on it, and in these sources the minimum discipline for any probe or selector fitted on the same data it is judged by. The uses differ in what they guard. The theory-of-mind work runs five-fold cross-validation over probes fitted at every layer, so a layer-wise accuracy profile is not a curve of memorisation. The probing-robustness sweep reports mean and standard deviation over folds for every cell of a large configuration grid, which is what allows a factor's contribution to be separated from fold noise in the variance decomposition. The verifier-free selection work uses five-fold cross-validation to find per-dataset hyperparameter optima and then reports honestly that its frozen defaults trail those optima by roughly a third of the achievable gain. Across the three the shared point is that cross-validation is what makes a number about a procedure rather than about a split, and that reporting the tuned and untuned figures separately is how a paper says which one it is offering.",
+    "kind": "method",
+    "related": [
+      "nested cross-validation"
+    ]
   },
   "task_id": "concept__cross-validation",
   "task_version": 1,

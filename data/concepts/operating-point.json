@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "decision threshold"
+  ],
+  "definition": "The specific threshold at which a scored detector or selector is actually used, as distinct from a summary statistic integrated over all thresholds -- and in these sources repeatedly the place where the result lives. The contamination-calibration work makes the divergence quantitative: the same correction is worth one to four points of area under the curve and five to fifteen points of true positive rate at a five percent false-positive threshold, because the summary integrates over thresholds nobody deploys. The hallucination-detection work sweeps its decoding threshold and reports the trade rather than only the chosen point, with a more aggressive setting cutting hallucination a further 36 percent while removing 12 percent of correct mentions. The steering audit shows the third failure mode, that no fixed operating point is comparable across models at all -- both an apparent emergence and an apparent collapse of steerability are artifacts of holding layer and coefficient fixed, removed only by selecting the point on held-out data. And the probing sweep finds the best read-out location reversing between benchmarks. The shared rule is that where a detector's two error types have different costs, the summary statistic is a screening device and the operating point is the claim, and it must be selected on data other than the data it is reported on.",
   "evidence": [
     {
       "id": "arxiv:2608.08159",
@@ -132,7 +134,9 @@
     "gemini-1-5-pro",
     "llama-3-2-90b-v"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "roc-analysis"
+  ],
   "schema_version": 1,
   "slug": "operating-point",
   "topics": [

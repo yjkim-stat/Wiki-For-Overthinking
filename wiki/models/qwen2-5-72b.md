@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 72-billion-parameter Qwen model appearing twice in this archive as the large end of an evaluation range. In the cross-family steering audit it is one of two models at that scale, recording a held-out steering effect of +7.1 with a bootstrap interval above zero -- smaller than several models a fraction of its size, which is part of that paper's evidence that steerability neither emerges nor collapses with scale once interventions are made residual-norm-comparable. It appears again in the monitorability work combining faithfulness with verbosity, whose finding is that a trace can look faithful while omitting factors the task required. Neither source describes the model itself.
 
 - **Kind**: model
+- **Also called**: Qwen2.5-72B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

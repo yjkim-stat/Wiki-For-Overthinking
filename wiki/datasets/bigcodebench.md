@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A code-generation benchmark used in both sources as an evaluation set rather than a subject. Its most informative appearance is in the probing-robustness sweep, where it is one of two benchmarks whose disagreement is the finding: on this one, averaging hidden states over the response beats reading the last token by more than twenty points, while on the other the preference reverses -- and the two cancel in a pooled analysis, leaving a decisive factor ranked at under 1 percent of variance. It is also where the fitting data dominates, carrying 75 percent of variance against 16 for construction and 9 for the model, and where a synthetic fitting source drops the signal to 22 percent against a 25 percent chance floor. It appears again in the dynamic early-exit work. Neither source describes its construction; in this archive it is chiefly one half of a pair whose disagreement establishes that probing recipes do not transfer.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

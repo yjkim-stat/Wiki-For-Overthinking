@@ -36,6 +36,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:25Z",
   "created_at": "2026-08-20T13:57:49Z",
   "instructions": "Write the wiki definition for 'out-of-domain generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "out-of-domain generalization",
@@ -54,6 +55,16 @@
   "payload": {
     "name": "out-of-domain generalization",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "OOD generalization"
+    ],
+    "definition": "Whether a result holds outside the distribution it was fitted or demonstrated on, and in all three sources the axis on which an in-domain conclusion reverses. The matched supervision study is the sharpest case: rationale supervision shows negative point estimates against answer-only fine-tuning in domain on three of four backbones, with a second seed in which answer-only significantly wins, and then beats it by 20 to 28 points out of domain on all four -- while answer-only fine-tuning drives external accuracy below the untuned base model for three of four. So the in-domain comparison is not merely uninformative about generalisation but opposite in sign. The probing-robustness sweep finds the same asymmetry in an extraction recipe, where fitting a direction on a mismatched source drops it from 52 to 22 percent against a 25 percent chance floor. And the spatial-reasoning work reports a transfer result with its regression intact, improving multiple-choice performance on unseen input formats while degrading numerical estimation by 11 points at the larger scale. The archive's reading is that out-of-domain evaluation is not a robustness check appended to a result but frequently the only place the result exists.",
+    "kind": "concept",
+    "related": [
+      "distribution shift"
+    ]
   },
   "task_id": "concept__out-of-domain-generalization",
   "task_version": 1,

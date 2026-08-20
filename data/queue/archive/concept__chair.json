@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:24Z",
   "created_at": "2026-08-20T14:06:01Z",
   "instructions": "Write the wiki definition for 'CHAIR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "CHAIR",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "CHAIR",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "CHAIRi",
+      "CHAIRs"
+    ],
+    "definition": "A metric and evaluation protocol for object hallucination in image captioning, counting mentioned objects absent from the image at the instance and sentence level, and in both sources here the yardstick against which a mitigation is judged rather than a benchmark in the usual sense. The structured read-out work uses it to label hallucinated object mentions in freely generated captions and reports the pair falling from 18.0 and 37.2 to 8.2 and 16.6 under its guardrail -- alongside retained word count, preserved correct-object coverage, perplexity and distribution shift, precisely so the reduction cannot be a suppression artifact. The attention-versus-evidence work uses it to evaluate two type-matched remedies. Neither describes its construction. Its role in the archive is as a reminder that a hallucination metric can be driven down by saying less, which is why both sources report content-preservation measures beside it.",
+    "kind": "dataset",
+    "related": [
+      "POPE"
+    ]
   },
   "task_id": "concept__chair",
   "task_version": 1,

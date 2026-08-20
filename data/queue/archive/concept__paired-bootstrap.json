@@ -33,6 +33,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:25Z",
   "created_at": "2026-08-20T13:57:49Z",
   "instructions": "Write the wiki definition for 'paired bootstrap'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "paired bootstrap",
@@ -51,6 +52,16 @@
   "payload": {
     "name": "paired bootstrap",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "paired bootstrap resampling"
+    ],
+    "definition": "Resampling the same items for both conditions and computing the difference within each resample, so the interval describes the comparison rather than either method separately. All three sources use it where an aggregate difference would be misleading. The privileged-distillation work stratifies its resample by problem and seed and reports a 5.617-point gain with an interval of [2.592, 8.333] -- clearly positive, and clearly not well determined. The matched supervision work applies the same resampled indices to both conditions over 10,000 resamples, which is what makes its in-domain null credible rather than merely unlucky. The compute-balanced routing work runs its per-example paired tests over a shared candidate pool, so the comparison is between decisions made on identical generated evidence, and uses the interval to state its result as a tie with two baselines at lower cost rather than as a win. Between them the sources establish the practice and one caution: the paired interval answers a different question from a macro-average over datasets, and the two can order methods differently when they behave similarly on a large set and diverge on a small one.",
+    "kind": "method",
+    "related": [
+      "McNemar test"
+    ]
   },
   "task_id": "concept__paired-bootstrap",
   "task_version": 1,

@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:26Z",
   "created_at": "2026-08-20T13:57:49Z",
   "instructions": "Write the wiki definition for 'Qwen3-0.6B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-0.6B",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "Qwen3-0.6B",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen3-0.6B"
+    ],
+    "definition": "A 0.6-billion-parameter Qwen model, the smallest in two of this archive's cross-scale studies and useful mainly for what it does not show. In the steering audit it is the bottom rung of a dense ladder from 0.6B to 14B, and its held-out steering effect of +9.4 with a pass rate of 0.71 is comfortably above chance -- one of the observations behind that paper's finding that no significant scaling trend survives residual-norm normalisation and held-out operating-point selection. On the theory-of-mind benchmark it sits near the bottom of a 28-model field at 58.33 average accuracy, in a study whose class means run 84.1 for proprietary models against 66.5 for open non-reasoning ones. Neither source describes the model.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen3-0-6b",
   "task_version": 1,

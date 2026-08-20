@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A criterion determining what it can find, so a search returns the shape of its own filter rather than the shape of the thing searched for. Three sources demonstrate it in three places. In the steering audit it is a literature-level result: ranking neurons by linear correlation with number magnitude cannot rank an interior-peaked tuning curve highly, so work using that criterion could only ever report monotonic units, and a shape-agnostic criterion finds bell-shaped ones in every model tested. In the probing sweep it appears inside a single study: tightening a contrastive pair to isolate the injected fault yields a direction scoring 83 percent on held-out pairs of its own construction and 20 to 30 percent on real programs, so a cleaner contrast produced a direction describing the contrast rather than the concept. In adaptive rollout allocation it is the statistical version, where adaptively choosing which rollouts to finish changes which pair terms are observable, and the paper corrects for it by inverse joint-inclusion weighting -- its frozen-population audit then showing that the uncorrected design attains by far the lowest error while carrying ten times the bias, because it is estimating a different quantity. The unifying practice is to vary the criterion, or to weight by the probability of having been selected.
 
 - **Kind**: concept
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An 8-billion-parameter Qwen vision-language model appearing three times in this archive as a training subject, and the backbone on which two separate papers report their largest effects. In the video tool-orchestration work it is the strong backbone where process-supervised reinforcement learning lifts interrelated whole-response accuracy from 89.74 to 95.14 percent -- and where the ablation shows removing a single task-completion reward collapses that to 29.92 while per-step accuracies stay at 100. In the structured process-reward work its four-benchmark average rises by 4.4 points, the largest of three scales. In the prompt-invariance work it is one of two backbones where standard training degrades under template shift while the invariance-trained policy stays flat. Neither source describes the model; across the three it functions as the scale at which multimodal reinforcement learning results are demonstrated.
 
 - **Kind**: model
+- **Also called**: Qwen3-VL-8B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

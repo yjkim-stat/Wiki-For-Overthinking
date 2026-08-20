@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a generation is in the shape the evaluation or the downstream consumer expects -- parseable, terminated, carrying an extractable answer -- and in both sources here a quantity that has to be measured separately because a correctness signal cannot see it. The distillation work reports the percentage of responses containing no boxed final answer alongside accuracy, and the numbers reframe the headline: under strong teacher-student mismatch the baseline produces 22,395-token responses of which 65.5 percent have no answer at all, so a 6.9-against-20.3 accuracy gap is substantially a termination gap. The robustness work locates the problem inside the reward instead, arguing that a binary verifier conflates format with content so the signal cannot tell a wrong answer from a misformatted one and the policy cannot learn which it is being punished for -- which it fixes by splitting the reward into three levels. Together the sources mark both consequences: format failure inflates or deflates an accuracy comparison invisibly, and a reward that cannot separate it from content teaches both badly.
 
 - **Kind**: concept
+- **Also called**: output format adherence
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

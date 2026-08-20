@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The distance between the best candidate a model can produce and the one a selection rule actually picks, which bounds what any amount of better selection can achieve. All three sources measure it with an oracle over the sampled pool and then use the gap diagnostically rather than as a ceiling. The compute-balanced routing work reports it per dataset and reads a large remaining oracle gap on one benchmark as identifying candidate generation rather than selection as the dominant bottleneck there -- a decomposition its replay protocol makes available and a pure accuracy comparison does not. The CAD consensus work finds its oracle clearly ahead in every setting by construction, and explains part of the persistent gap by a property of its own rule, which favours candidates near the centre of the pool and therefore discards high-quality outliers. The decoding-format audit contributes the other half of the picture, showing that an apparent selection gain can vanish under a control that spends the same budget in the same format, so a gap attributed to selection quality may not be about selection at all. Read together the sources give the practice: report the oracle, and read the residual as telling you which half of the pipeline to work on.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -75,7 +75,9 @@
     "gpt-oss-20b",
     "gemini-3-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "pool-oracle"
+  ],
   "schema_version": 1,
   "slug": "generation-verification-gap",
   "topics": [

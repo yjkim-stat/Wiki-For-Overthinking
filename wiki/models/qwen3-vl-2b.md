@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 2-billion-parameter Qwen vision-language model, the smallest scale in two multimodal training studies. In the structured process-reward work it improves from a four-benchmark average of 50.8 to 54.4 under step-level reward alignment, the smallest absolute gain of three scales but not the smallest relative one -- part of that paper's argument that reference-conditioned process supervision complements rather than substitutes for backbone capability. It appears again in the lightweight world-action model for robotic manipulation. Neither source characterises the model itself.
 
 - **Kind**: model
+- **Also called**: Qwen3-VL-2B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

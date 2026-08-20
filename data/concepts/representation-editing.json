@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "activation editing"
+  ],
+  "definition": "Changing a model's internal state during generation so the downstream computation proceeds from the edited value, as distinct from steering along a direction chosen for its discriminability. The two sources bracket what the technique can establish. The scratchpad-register work is the successful case and owes its strength to the target: because the task's transition rule is known, editing the internal representation of a written state while holding the printed text fixed produces a prediction with a single correct consequence -- whether the next step follows the rule applied to the edited value -- and the model's next phase bit follows the edit on 80 to 91 percent of held-out examples where same-rank random and orthogonal-complement patches reach about 0.02. The reproduction study is the failure case, and its diagnosis is that the edited quantity was not there to edit: a probe finds the target concept at 0.82 accuracy at one sub-layer and at chance pooled over the layers the method actually edits, decoding the trained projector at the probe's peak layer changes nothing, and a random direction of the same norm traces the same curve. Read together the sources say that representation editing is evidential exactly when the edit has a checkable consequence and the quantity is present at the site being edited, and that neither condition is implied by a probe score.",
   "evidence": [
     {
       "id": "arxiv:2608.08514",
@@ -68,7 +70,9 @@
     "qwen2-5-coder-7b",
     "mistral-7b-v0-3"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "activation-steering"
+  ],
   "schema_version": 1,
   "slug": "representation-editing",
   "topics": [

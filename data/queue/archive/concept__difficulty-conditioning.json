@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:24Z",
   "created_at": "2026-08-20T14:02:30Z",
   "instructions": "Write the wiki definition for 'difficulty conditioning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "difficulty conditioning",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "difficulty conditioning",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "difficulty stratification"
+    ],
+    "definition": "Reporting or allocating by how hard each instance is rather than over an aggregate, and in both sources the analysis that turns a benchmark average into a mechanism claim. The verifier-free selection work stratifies into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while improving the medium tier from 58.1 to 70.3 and 74.9 to 88.6 and the hard tier from 3.7 to 8.1 and 13.4 to 17.2 -- so the benefit is concentrated exactly where candidates differ in kind, which an aggregate would have shown as a uniform shift. The deliberative-diagnosis work stratifies by the single-model baseline's own performance and finds its multi-agent pipeline gaining 15.1 F1 points on the hardest quartile while losing 8.3 points of precision on the easiest, so the method has a regime rather than a uniform benefit. The archive's reading is that a stratified table is the cheapest available check that an improvement has a mechanism, and the caution that quartiles defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.",
+    "kind": "concept",
+    "related": [
+      "adaptive compute allocation"
+    ]
   },
   "task_id": "concept__difficulty-conditioning",
   "task_version": 1,

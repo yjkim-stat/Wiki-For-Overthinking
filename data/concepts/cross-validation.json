@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "k-fold cross-validation"
+  ],
+  "definition": "Rotating held-out folds so every example is scored by a model that did not train on it, and in these sources the minimum discipline for any probe or selector fitted on the same data it is judged by. The uses differ in what they guard. The theory-of-mind work runs five-fold cross-validation over probes fitted at every layer, so a layer-wise accuracy profile is not a curve of memorisation. The probing-robustness sweep reports mean and standard deviation over folds for every cell of a large configuration grid, which is what allows a factor's contribution to be separated from fold noise in the variance decomposition. The verifier-free selection work uses five-fold cross-validation to find per-dataset hyperparameter optima and then reports honestly that its frozen defaults trail those optima by roughly a third of the achievable gain. Across the three the shared point is that cross-validation is what makes a number about a procedure rather than about a split, and that reporting the tuned and untuned figures separately is how a paper says which one it is offering.",
   "evidence": [
     {
       "id": "arxiv:2608.08266",
@@ -93,7 +95,9 @@
     "gpt-oss-20b",
     "gpt-oss-120b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "nested-cross-validation"
+  ],
   "schema_version": 1,
   "slug": "cross-validation",
   "topics": [

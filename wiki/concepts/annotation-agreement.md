@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+How consistently two or more raters assign the same label, and in both sources here the precondition that makes a human-scored result readable rather than the result itself. The persona study establishes it before scoring anything automatic: two annotators independently label 191 generations under the same binary task, agreeing on 93 percent at Cohen's kappa 0.85, which demonstrates the task is reproducible and only then licenses measuring a model judge against them. The matched supervision study reports agreement from 0.760 to 1.000 across eight criteria before external adjudication, which is what makes its central negative -- no significant improvement on any reasoning-content criterion -- interpretable rather than noise. Both sources treat the number as load-bearing rather than decorative, and the archive's reading is the order of operations: establish the humans agree, then measure whatever is meant to replace them, and report the gap in both directions rather than only the headline agreement.
 
 - **Kind**: concept
+- **Also called**: inter-annotator agreement
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

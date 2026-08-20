@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a result holds outside the distribution it was fitted or demonstrated on, and in all three sources the axis on which an in-domain conclusion reverses. The matched supervision study is the sharpest case: rationale supervision shows negative point estimates against answer-only fine-tuning in domain on three of four backbones, with a second seed in which answer-only significantly wins, and then beats it by 20 to 28 points out of domain on all four -- while answer-only fine-tuning drives external accuracy below the untuned base model for three of four. So the in-domain comparison is not merely uninformative about generalisation but opposite in sign. The probing-robustness sweep finds the same asymmetry in an extraction recipe, where fitting a direction on a mismatched source drops it from 52 to 22 percent against a 25 percent chance floor. And the spatial-reasoning work reports a transfer result with its regression intact, improving multiple-choice performance on unseen input formats while degrading numerical estimation by 11 points at the larger scale. The archive's reading is that out-of-domain evaluation is not a robustness check appended to a result but frequently the only place the result exists.
 
 - **Kind**: concept
+- **Also called**: OOD generalization
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

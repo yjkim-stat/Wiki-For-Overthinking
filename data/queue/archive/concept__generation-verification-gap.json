@@ -27,6 +27,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:25Z",
   "created_at": "2026-08-20T13:57:49Z",
   "instructions": "Write the wiki definition for 'generation-verification gap'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "generation-verification gap",
@@ -45,6 +46,14 @@
   "payload": {
     "name": "generation-verification gap",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The distance between the best candidate a model can produce and the one a selection rule actually picks, which bounds what any amount of better selection can achieve. All three sources measure it with an oracle over the sampled pool and then use the gap diagnostically rather than as a ceiling. The compute-balanced routing work reports it per dataset and reads a large remaining oracle gap on one benchmark as identifying candidate generation rather than selection as the dominant bottleneck there -- a decomposition its replay protocol makes available and a pure accuracy comparison does not. The CAD consensus work finds its oracle clearly ahead in every setting by construction, and explains part of the persistent gap by a property of its own rule, which favours candidates near the centre of the pool and therefore discards high-quality outliers. The decoding-format audit contributes the other half of the picture, showing that an apparent selection gain can vanish under a control that spends the same budget in the same format, so a gap attributed to selection quality may not be about selection at all. Read together the sources give the practice: report the oracle, and read the residual as telling you which half of the pipeline to work on.",
+    "kind": "concept",
+    "related": [
+      "pool oracle"
+    ]
   },
   "task_id": "concept__generation-verification-gap",
   "task_version": 1,

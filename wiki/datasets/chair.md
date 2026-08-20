@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A metric and evaluation protocol for object hallucination in image captioning, counting mentioned objects absent from the image at the instance and sentence level, and in both sources here the yardstick against which a mitigation is judged rather than a benchmark in the usual sense. The structured read-out work uses it to label hallucinated object mentions in freely generated captions and reports the pair falling from 18.0 and 37.2 to 8.2 and 16.6 under its guardrail -- alongside retained word count, preserved correct-object coverage, perplexity and distribution shift, precisely so the reduction cannot be a suppression artifact. The attention-versus-evidence work uses it to evaluate two type-matched remedies. Neither describes its construction. Its role in the archive is as a reminder that a hallucination metric can be driven down by saying less, which is why both sources report content-preservation measures beside it.
 
 - **Kind**: dataset
+- **Also called**: CHAIRi, CHAIRs
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:08:25Z",
   "created_at": "2026-08-20T13:57:49Z",
   "instructions": "Write the wiki definition for 'pool oracle'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "pool oracle",
@@ -37,6 +38,16 @@
   "payload": {
     "name": "pool oracle",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "oracle selection"
+    ],
+    "definition": "An upper bound that selects the best candidate present in a generated pool, using label information no deployable rule has, and in both sources reported not as a ceiling to be admired but as a diagnostic. The compute-balanced routing work labels it explicitly as an upper bound that uses evaluator-side information, separates it from directly implementable baselines and from proxies, and then reads its per-dataset gap as telling which half of the pipeline is limiting -- where the oracle gap is large, generation rather than selection is the bottleneck and no better selector will close it. The CAD consensus work uses it the same way and adds a mechanism for why its own rule cannot approach it: consensus favours candidates near the centre of the pool and therefore systematically discards high-quality outliers, which is a property of agreement-based selection generally rather than of that implementation. The archive's reading is that an oracle row is cheap, bounds every selection claim in the same table, and is the only thing that distinguishes a weak selector from an exhausted candidate pool.",
+    "kind": "concept",
+    "related": [
+      "generation-verification gap"
+    ]
   },
   "task_id": "concept__pool-oracle",
   "task_version": 1,

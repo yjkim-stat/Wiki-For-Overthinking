@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (182)
+## Concepts (181)
 
 - [abstention](concepts/abstention.md) — 4 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 21 source(s)
@@ -191,11 +191,10 @@
 - [verbosity](concepts/verbosity.md) — 2 source(s)
 - [verifiable reward](concepts/verifiable-reward.md) — 2 source(s)
 - [verification](concepts/verification.md) — 17 source(s)
-- [verifier-free verification](concepts/verifier-free-verification.md) — 3 source(s)
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 2 source(s)
 
-## Methods (139)
+## Methods (140)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -330,6 +329,7 @@
 - [TokenSkip](methods/tokenskip.md) — 2 source(s)
 - [Tree of Thoughts](methods/tree-of-thoughts.md) — 2 source(s)
 - [tuned lens](methods/tuned-lens.md) — 2 source(s)
+- [verifier-free verification](methods/verifier-free-verification.md) — 3 source(s)
 - [VeRL](methods/verl.md) — 6 source(s)
 - [vLLM](methods/vllm.md) — 4 source(s)
 - [Wasserstein distance](methods/wasserstein-distance.md) — 2 source(s)

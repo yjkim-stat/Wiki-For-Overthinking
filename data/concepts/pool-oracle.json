@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "oracle selection"
+  ],
+  "definition": "An upper bound that selects the best candidate present in a generated pool, using label information no deployable rule has, and in both sources reported not as a ceiling to be admired but as a diagnostic. The compute-balanced routing work labels it explicitly as an upper bound that uses evaluator-side information, separates it from directly implementable baselines and from proxies, and then reads its per-dataset gap as telling which half of the pipeline is limiting -- where the oracle gap is large, generation rather than selection is the bottleneck and no better selector will close it. The CAD consensus work uses it the same way and adds a mechanism for why its own rule cannot approach it: consensus favours candidates near the centre of the pool and therefore systematically discards high-quality outliers, which is a property of agreement-based selection generally rather than of that implementation. The archive's reading is that an oracle row is cheap, bounds every selection claim in the same table, and is the only thing that distinguishes a weak selector from an exhausted candidate pool.",
   "evidence": [
     {
       "id": "arxiv:2608.07424",
@@ -54,7 +56,9 @@
     "gpt-oss-20b",
     "gemini-3-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "generation-verification-gap"
+  ],
   "schema_version": 1,
   "slug": "pool-oracle",
   "topics": [

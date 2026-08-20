@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Resampling the same items for both conditions and computing the difference within each resample, so the interval describes the comparison rather than either method separately. All three sources use it where an aggregate difference would be misleading. The privileged-distillation work stratifies its resample by problem and seed and reports a 5.617-point gain with an interval of [2.592, 8.333] -- clearly positive, and clearly not well determined. The matched supervision work applies the same resampled indices to both conditions over 10,000 resamples, which is what makes its in-domain null credible rather than merely unlucky. The compute-balanced routing work runs its per-example paired tests over a shared candidate pool, so the comparison is between decisions made on identical generated evidence, and uses the interval to state its result as a tie with two baselines at lower cost rather than as a win. Between them the sources establish the practice and one caution: the paired interval answers a different question from a macro-average over datasets, and the two can order methods differently when they behave similarly on a large set and diverge on a small one.
 
 - **Kind**: method
+- **Also called**: paired bootstrap resampling
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

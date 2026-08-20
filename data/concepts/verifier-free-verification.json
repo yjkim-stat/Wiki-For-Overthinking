@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "verifier-free selection"
+  ],
+  "definition": "Judging or selecting among candidates without an external checker, using only what the model and its own pool supply -- adopted because compilers, test cases and trained value functions do not exist for most tasks. The three sources differ in what signal they read and agree that the naive one fails. Confidence maximisation is the naive one, and it can perform worse than random selection from the same pool, because uniformly high confidence indicates a failure to branch rather than a well-supported answer, so a maximiser preferentially selects confident collapses onto a flawed premise; the correction reads the temporal shape instead, penalising early certainty while requiring late certainty. The CAD work reads agreement over compiled artifacts rather than over text, and beats a trained vision-language verifier on every geometric metric when both select from identical pools -- closing with the recommendation that any verifier used for selection be compared against consensus on the same pool. The claim-level work spends half its sampling budget on trying to refute decision-critical claims and weights the consensus by how many survive, with its own limitation being that a near-saturated model gains almost nothing. The shared position is that the pool carries usable signal, that agreement is the cheapest null any verifier should be raced against, and that the useful signal is a shape or a survival rate rather than a level.",
   "evidence": [
     {
       "id": "arxiv:2608.09706",
@@ -22,7 +24,7 @@
     }
   ],
   "first_seen": "2026-08-13T12:18:17Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T14:02:28Z",
   "name": "verifier-free verification",
   "related": [
@@ -76,7 +78,9 @@
     "gemma-4-12b-it",
     "qwen3-5-27b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "consensus"
+  ],
   "schema_version": 1,
   "slug": "verifier-free-verification",
   "topics": [
