@@ -36,6 +36,12 @@
       "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
     },
     {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.835",
       "kind": "paper",
       "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
@@ -50,7 +56,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "retrieval-augmented generation",
   "related": [
     "credit-assignment",
@@ -189,6 +195,22 @@
     "qwen3-1-7b",
     "qwen3-5-2b",
     "e5-large",
+    "reflection",
+    "reward-hacking",
+    "teacher-student-gap",
+    "backtracking",
+    "self-correction",
+    "memory-management",
+    "exponential-moving-average-teacher",
+    "lora",
+    "rejection-sampling",
+    "process-supervision",
+    "backtracking-search",
+    "component-ablation",
+    "frames",
+    "math",
+    "qwen2-5-3b",
+    "qwen2-5-7b",
     "hallucination",
     "groundedness",
     "verification",
@@ -225,6 +247,7 @@
   "topics": [
     "reasoning-training",
     "test-time-scaling",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-evaluation"
   ]
 }

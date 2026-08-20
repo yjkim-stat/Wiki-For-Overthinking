@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A financial question-answering dataset built from real financial reports, used in both sources as the human-annotated point of comparison that symbolic generation is offered as an alternative to. Both make the same argument against it without disputing its usefulness: because it is constructed from real documents by annotation or model-assisted extraction, it conflates source-level noise -- formatting irregularities, missing values, ambiguous phrasing -- with genuine reasoning failure, and because ground truth is written by hand its cost makes broad coverage of reasoning depths prohibitive. Both respond by generating items from executable symbolic structures instead, so answers are correct by construction, difficulty is a controllable dial, and the benchmark can be regenerated free of contamination. Its one appearance as a measurement here is as a transfer check rather than a target: a model fine-tuned on verified generated traces answers 32 of 100 FinQA questions against a baseline of 27, reported explicitly as a proof of concept to test whether the gain was overfitting rather than as a result.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

@@ -47,11 +47,23 @@
       "kind": "paper",
       "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
       "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection"
+    },
+    {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
+    },
+    {
+      "id": "arxiv:2608.12220",
+      "kind": "paper",
+      "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+      "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T13:26:16Z",
   "name": "process reward",
   "related": [
     "credit-assignment",
@@ -214,7 +226,42 @@
     "cltr",
     "yolov8",
     "yolov7-pose",
-    "places365"
+    "places365",
+    "reflection",
+    "teacher-student-gap",
+    "privileged-information",
+    "backtracking",
+    "error-compounding",
+    "self-correction",
+    "memory-management",
+    "knowledge-distillation",
+    "exponential-moving-average-teacher",
+    "rejection-sampling",
+    "backtracking-search",
+    "component-ablation",
+    "frames",
+    "math",
+    "gsm8k",
+    "qwen2-5-3b",
+    "qwen2-5-7b",
+    "qwen3-32b",
+    "structured-reasoning",
+    "visual-grounding",
+    "out-of-domain-generalization",
+    "spatial-reasoning",
+    "structured-chain-of-thought",
+    "depth-estimation",
+    "scout-24k",
+    "embspatial",
+    "cv-bench",
+    "blink",
+    "robospatial",
+    "spatialbench",
+    "3dsrbench",
+    "viewspatial",
+    "vsi-bench",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b"
   ],
   "related_authored": [
     "process-reward-model"

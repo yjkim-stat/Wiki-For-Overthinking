@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.11787",
+      "kind": "paper",
+      "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
+      "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation"
+    }
+  ],
+  "first_seen": "2026-08-20T13:25:47Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:25:47Z",
+  "name": "doubly-robust estimation",
+  "related": [
+    "reward-hacking",
+    "llm-as-a-judge",
+    "construct-validity",
+    "outcome-reward",
+    "safety-gating",
+    "off-policy-evaluation",
+    "tail-risk",
+    "judge-independent-evaluation",
+    "reward-shaping",
+    "grpo",
+    "rlaif",
+    "conditional-average-treatment-effect",
+    "conditional-value-at-risk",
+    "kl-regularization",
+    "welch-t-test",
+    "intuit-business-records-proprietary",
+    "qwen3-5-27b",
+    "claude-opus-4-6",
+    "claude-opus-4-5",
+    "claude-sonnet-4-5",
+    "gpt-5-4"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "doubly-robust-estimation",
+  "topics": [
+    "reasoning-training"
+  ]
+}

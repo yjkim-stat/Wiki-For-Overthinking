@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "persona prompting"
+  ],
+  "definition": "Instructing a model to adopt a specified role or worldview before it reasons, used in both sources as a way to produce variation that is structured rather than random. The subjective-verification work measures how much variation that is, and the answer is a lot: across 1,500 personas drawn from a public roleplay dataset, with persona the only varied factor, verification macro-F1 ranges from 0.416 to 0.792 -- the best persona nearly doubling the worst -- which that paper reads as much apparent verification error being reasoning-style mismatch rather than incapacity. The deliberative-diagnosis work turns the same lever into an architecture, using persona conditioning to simulate the heterogeneity that separate model backends would supply, and measures the result directly as error decorrelation across specialists under persona and temperature conditioning separately and jointly. Both sources are explicit about what it does not achieve: with a shared backend the correlation bias inherent in the generating model remains, so the personas are simulated diversity rather than independent judgement. One also flags that personas risk reproducing the stereotypes their models were trained on. Neither source reports a baseline spread for ordinary non-persona prompt variation, so how much of the effect is persona-specific rather than general prompt sensitivity is open.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -64,7 +66,9 @@
     "claude-haiku-4-5",
     "claude-sonnet-4-6"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "prompt-sensitivity"
+  ],
   "schema_version": 1,
   "slug": "persona-conditioning",
   "topics": [

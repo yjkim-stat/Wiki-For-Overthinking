@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
       "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering"
+    },
+    {
+      "id": "arxiv:2608.12220",
+      "kind": "paper",
+      "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+      "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward"
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:26:16Z",
   "name": "visual grounding",
   "related": [
     "test-time-scaling",
@@ -106,7 +112,26 @@
     "internvl3-5-4b",
     "qwen3-5-397b-a17b",
     "kimi-k2-5",
-    "gemini-1-5-pro"
+    "gemini-1-5-pro",
+    "credit-assignment",
+    "process-reward",
+    "outcome-reward",
+    "advantage-estimation",
+    "reward-shaping",
+    "structured-reasoning",
+    "out-of-domain-generalization",
+    "spatial-reasoning",
+    "structured-chain-of-thought",
+    "depth-estimation",
+    "scout-24k",
+    "embspatial",
+    "cv-bench",
+    "blink",
+    "robospatial",
+    "spatialbench",
+    "3dsrbench",
+    "viewspatial",
+    "vsi-bench"
   ],
   "related_authored": [
     "detection-versus-control"

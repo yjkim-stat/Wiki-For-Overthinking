@@ -46,11 +46,17 @@
       "kind": "paper",
       "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
       "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
+    },
+    {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "privileged information",
   "related": [
     "credit-assignment",
@@ -183,7 +189,21 @@
     "factorial-ablation",
     "adaptive-sampling",
     "kl-regularization",
-    "hmmt-2025"
+    "hmmt-2025",
+    "reflection",
+    "reward-hacking",
+    "process-reward",
+    "backtracking",
+    "error-compounding",
+    "self-correction",
+    "memory-management",
+    "exponential-moving-average-teacher",
+    "lora",
+    "rejection-sampling",
+    "backtracking-search",
+    "component-ablation",
+    "frames",
+    "math"
   ],
   "related_authored": [],
   "schema_version": 1,

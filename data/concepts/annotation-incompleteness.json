@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "sparse annotation",
+    "under-annotation"
+  ],
+  "definition": "When the reference labels cover only part of what is actually present, so a model that is right about an unlabelled case is scored as wrong. Both sources treat it as a measurement problem to be quantified rather than a caveat to be mentioned. The protein-probing work supplies the cleanest demonstration: identical activations decode the same concept at F1 0.85 against dense structural labels and 0.42 against sparse experimental annotations, and a self-consistency check that recomputes the dense labels on the model's own predicted structure moves the score by only 0.06 to 0.08 -- ruling out structural disagreement and establishing the gap as missing labels, so every score against the sparse set is a lower bound. The skill-retrieval work addresses the same problem on the evaluation side, where a benchmark assigns one official target per query although a large corpus may hold several functionally substitutable answers; it responds with a sensitivity analysis crediting independently reviewed alternatives, which moves every retriever by a comparable margin (+1.37 to +3.54 Recall@1) and leaves the ordering intact. Together the sources give both the diagnosis and the two available responses -- measure the gap against a denser label set, or measure how much crediting the missing positives would move the ranking -- and the shared conclusion is that cross-paper comparisons are only meaningful at matched label density.",
   "evidence": [
     {
       "id": "arxiv:2608.08640",
@@ -86,7 +89,9 @@
     "boltz-1",
     "alphafold3"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "label-noise"
+  ],
   "schema_version": 1,
   "slug": "annotation-incompleteness",
   "topics": [

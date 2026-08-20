@@ -1,0 +1,22 @@
+# error compounding
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: concept
+- **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 2
+
+**Related**: [2WikiMultiHopQA](../datasets/2wikimultihopqa.md), [AIME 2025](../datasets/aime-2025.md), [backtracking](backtracking.md), [Bamboogle](../datasets/bamboogle.md), [budget forcing](../methods/budget-forcing.md), [component ablation](../methods/component-ablation.md), [credit assignment](credit-assignment.md), [decontamination](../methods/decontamination.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [dense retrieval](../methods/dense-retrieval.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [HotpotQA](../datasets/hotpotqa.md), [in-context learning](in-context-learning.md), [knowledge distillation](../methods/knowledge-distillation.md), [LoRA](../methods/lora.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MuSiQue](../datasets/musique.md), [Natural Questions](../datasets/natural-questions.md), [outcome reward](outcome-reward.md), [predictive entropy](predictive-entropy.md), [privileged information](privileged-information.md), [process reward](process-reward.md), [process supervision](process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3.5-2B](../models/qwen3-5-2b.md), [Qwen3-8B](../models/qwen3-8b.md), [reasoning drift](reasoning-drift.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [reward hacking](reward-hacking.md), [SciQ](../datasets/sciq.md), [self-correction](self-correction.md), [self-reflection](../methods/self-reflection.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [teacher-student gap](teacher-student-gap.md), [test-time scaling](test-time-scaling.md), [TriviaQA](../datasets/triviaqa.md)
+
+## Appears in
+
+- [ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling](../../archive/papers/2026/arxiv-2608-10928/summary.md) — Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.
+- [LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation](../../archive/papers/2026/arxiv-2608-11967/summary.md) — Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

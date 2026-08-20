@@ -1,0 +1,23 @@
+# multi-agent pipeline
+
+<!-- auto:begin -->
+
+Several model instances passing work between them in sequence or in rounds, rather than one instance producing an answer. The two sources here take opposite positions on what that buys and are worth reading together. The deliberative-diagnosis work argues the value is heterogeneity that repeated sampling cannot supply, since a single model evaluating its own output propagates the correlation bias of the source that generated it -- and supports it with the control most such work omits, showing best-of-5, best-of-35 and best-of-35-with-a-judge all failing to match a five-agent pipeline's recall. It also locates a capability floor: below a certain model size the agents cannot push back on each other's weak proposals, and the pipeline destroys more correct answers than it recovers. The agent-contamination work supplies the cost. Along a four-stage pipeline, contamination amplifies 1.9-fold with no attacker intervention beyond the initial injection, every remediation addressing single-agent state fails, and only validation at the agent boundary blocks the cascade -- because implicit state crosses those boundaries through name binding and shared registries that per-stage logging does not record. The pair suggest the useful question is not how many agents but what crosses between them, and whether anything checks it there.
+
+- **Kind**: concept
+- **Also called**: multi-agent system
+- **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
+- **Sources**: 2
+
+**Related**: [best-of-n](../methods/best-of-n.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [Claude Haiku 4.5](../models/claude-haiku-4-5.md), [Claude Sonnet 4.6](../models/claude-sonnet-4-6.md), [consensus](consensus.md), [DeepSeek-V3.2](../models/deepseek-v3-2.md), [factorial ablation](../methods/factorial-ablation.md), [Gemini-2.0-flash](../models/gemini-2-0-flash.md), [GPT-4o](../models/gpt-4o.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [jury aggregation](../methods/jury-aggregation.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama-3.3-70B](../models/llama-3-3-70b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [persistent semantic entity](persistent-semantic-entity.md), [persona conditioning](../methods/persona-conditioning.md), [prompt injection](prompt-injection.md), [Qwen2.5-coder-7B](../models/qwen2-5-coder-7b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-VL-235B](../models/qwen3-vl-235b.md), [ReAct](../methods/react.md), [self-consistency](../methods/self-consistency.md), [self-verification](self-verification.md), [test-time scaling](test-time-scaling.md), [Wilson confidence interval](../methods/wilson-confidence-interval.md)
+
+## Appears in
+
+- [Persistent Semantic Entities in Tool-Augmented LLM Systems](../../archive/papers/2026/arxiv-2608-07952/summary.md) — Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.
+- [Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology](../../archive/papers/2026/arxiv-2608-11420/summary.md) — Structures multi-agent medical differential diagnosis as rounds of persona-conditioned specialist deliberation, and shows the recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

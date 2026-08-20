@@ -28,11 +28,17 @@
       "kind": "paper",
       "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
       "title": "Interpreting Language Model Hidden States at Scale"
+    },
+    {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "dataset",
-  "last_seen": "2026-08-14T01:37:41Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "2WikiMultiHopQA",
   "related": [
     "credit-assignment",
@@ -125,13 +131,32 @@
     "gpt-3",
     "llama-3-1-8b",
     "llama-3-3-70b",
-    "llama-3-1-405b-instruct"
+    "llama-3-1-405b-instruct",
+    "reflection",
+    "reward-hacking",
+    "backtracking",
+    "error-compounding",
+    "self-correction",
+    "memory-management",
+    "exponential-moving-average-teacher",
+    "supervised-fine-tuning",
+    "rejection-sampling",
+    "process-supervision",
+    "backtracking-search",
+    "component-ablation",
+    "frames",
+    "math",
+    "gsm8k",
+    "qwen2-5-3b",
+    "qwen2-5-7b",
+    "qwen3-32b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "2wikimultihopqa",
   "topics": [
     "reasoning-training",
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-evaluation"
   ]
 }

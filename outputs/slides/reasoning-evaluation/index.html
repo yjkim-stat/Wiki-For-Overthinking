@@ -247,9 +247,9 @@ th { background: var(--surface); }
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
 <li><strong>chain of thought faithfulness</strong> — Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The...</li>
+<li><strong>credit assignment</strong> — Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end....</li>
 <li><strong>test-time scaling</strong> — Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different th...</li>
 <li><strong>test-time compute</strong> — Computation spent at inference rather than in training, and the resource this archive&#x27;s largest engineering literature allocates. Ninetee...</li>
-<li><strong>credit assignment</strong> — Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end....</li>
 </ul>
 </section>
 <section class="slide">
@@ -277,23 +277,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation</strong> — Stated in an appendix and unusually specific. The method depends on retrieval quality and on the controller&#x27;s checkpoint and recovery judgements, so retrieva...</li>
 <li><strong>Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection</strong> — Stated, and the most important one is a disclaimer about the paper&#x27;s own framing: the method corrects score-increasing feature shifts observed on known non-m...</li>
 <li><strong>V-FiLLM: Verified Financial LLM Reasoning Benchmark</strong> — Stated. Final answers are correct by construction but the questions are not guaranteed to be, since the underlying mathematical steps may be rendered into En...</li>
 <li><strong>SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge</strong> — Stated: the benchmark is described as a focused step rather than a representation of the occupational-safety lifecycle, with coverage bounded by the availabl...</li>
 <li><strong>Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training</strong> — The paper states three: the signal is validated only on mathematical and logical tasks with binary rewards, and whether it transfers to non-binary or model-g...</li>
 <li><strong>Mismatch Matters: On-Policy Distillation Beyond Token Agreement</strong> — The paper states no limitations section. What a reader should notice: the effect size is almost entirely a function of the mismatch regime, and the weak-mism...</li>
-<li><strong>Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents</strong> — The paper&#x27;s limitations section is longer than its results and is the most useful thing in it. The central admission is that the measurements establish empir...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents</strong> — The paper&#x27;s limitations section is longer than its results and is the most useful thing in it. The central admission is that the measurements establish empir...</li>
 <li><strong>PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation</strong> — The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 3...</li>
 <li><strong>When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits</strong> — The paper&#x27;s own limitations section is unusually complete and should be read as part of the result. The mixture channel is an auditable modelling assumption...</li>
 <li><strong>Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework</strong> — No limitations section, and the central comparison does not support the claim it is used for. ReLIT is <strong>trained on each dataset&#x27;s training split</strong> -- 5,000...</li>
 <li><strong>VTO: Visual Tool Orchestration for Video Anomaly Detection</strong> — The paper states no limitations section. What a reader should notice is substantial. Evaluation is entirely on a benchmark the authors built, whose ground-tr...</li>
 <li><strong>Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination</strong> — No limitations section. The load-bearing one a reader must supply: SA-PPG is defined relative to a clean model, and outside a simulation that reference does...</li>
-<li><strong>Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation</strong> — No numeric margins in the abstract, and the models are not named. The method assumes a uniform distribution is the correct reference for a random-number requ...</li>
 </ul>
 </section>
 <section class="slide">

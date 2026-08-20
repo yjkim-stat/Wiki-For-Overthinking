@@ -9,7 +9,7 @@ A running internal summary of what has been established so far, used by both sou
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [compounding error](compounding-error.md), [credit assignment](credit-assignment.md), [GRPO](../methods/grpo.md), [implicit reasoning](implicit-reasoning.md), [latent reasoning](latent-reasoning.md), [long-horizon reasoning](long-horizon-reasoning.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [privileged information](privileged-information.md), [process supervision](process-supervision.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [RLVR](../methods/rlvr.md), [speculative decoding](../methods/speculative-decoding.md), [teacher forcing](../methods/teacher-forcing.md), [token-level distillation](../methods/token-level-distillation.md)
+**Related**: [compounding error](compounding-error.md), [credit assignment](credit-assignment.md), [GRPO](../methods/grpo.md), [implicit reasoning](implicit-reasoning.md), [latent reasoning](latent-reasoning.md), [long-horizon reasoning](long-horizon-reasoning.md), [on-policy self-distillation](../methods/on-policy-self-distillation.md), [privileged information](privileged-information.md), [process supervision](process-supervision.md), [Qwen2.5-3B](../models/qwen2-5-3b.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [RLVR](../methods/rlvr.md), [speculative decoding](../methods/speculative-decoding.md), [teacher forcing](../methods/teacher-forcing.md), [token-level distillation](../methods/token-level-distillation.md)
 
 ## Appears in
 

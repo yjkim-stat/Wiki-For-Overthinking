@@ -2,13 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Removing a designated subject's information from a trained model on request, without retraining from scratch. Both sources here make the same argument, that for a reasoning model the target is the trace and not only the answer, and both intervene there rather than on the output. One shows why: a fact successfully unlearned from the final answer is still reproduced in the reasoning trace, and an answer-oriented baseline cuts forget-split classification accuracy from 59.2 to 42.2 percent while subject-level reasoning leakage moves only from 61.6 to 58.3 -- so answer-level and reasoning-level forgetting are separate achievements, and the gap is substantially larger in natively RL-trained models than in their base versions. Its own method is training-free and inference-time, redirecting the trajectory through sanitised image-grounded latent injection. The other reframes unlearning as an intervention on the chain of thought directly, having the model generate logically valid counterfactual traces and iteratively preference-tuning toward them. Both sources also record the failure mode of the gradient-based alternatives: parameter updates aimed at the forget set spill onto retained knowledge, degrading utility and generation quality even on data the model was never asked to forget.
 
-- **Kind**: method
+- **Kind**: concept
+- **Also called**: unlearning
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [chain of thought](chain-of-thought.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [degenerate generation](../concepts/degenerate-generation.md), [entropy collapse](../concepts/entropy-collapse.md), [Gemini-2.5-pro](../models/gemini-2-5-pro.md), [latent reasoning](../concepts/latent-reasoning.md), [LLM-as-a-judge](llm-as-a-judge.md), [memorization](../concepts/memorization.md), [monitorability](../concepts/monitorability.md), [preference optimization](preference-optimization.md), [Qwen2.5-VL](../models/qwen2-5-vl.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [component ablation](../methods/component-ablation.md), [degenerate generation](degenerate-generation.md), [entropy collapse](entropy-collapse.md), [Gemini-2.5-pro](../models/gemini-2-5-pro.md), [latent reasoning](latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [memorization](memorization.md), [monitorability](monitorability.md), [preference optimization](../methods/preference-optimization.md), [Qwen2.5-VL](../models/qwen2-5-vl.md)
 
 ## What we have settled
 

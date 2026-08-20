@@ -46,7 +46,7 @@ No limitations section in the material read. What a reader should weigh first is
 
 ## Entities
 
-- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), in-trace retrieval, procedural scaffolding, [predictive entropy](../../../../wiki/concepts/predictive-entropy.md), error compounding, [reasoning drift](../../../../wiki/concepts/reasoning-drift.md), budget forcing, intermediate answer probing, [in-context learning](../../../../wiki/concepts/in-context-learning.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), in-trace retrieval, procedural scaffolding, [predictive entropy](../../../../wiki/concepts/predictive-entropy.md), [error compounding](../../../../wiki/concepts/error-compounding.md), [reasoning drift](../../../../wiki/concepts/reasoning-drift.md), budget forcing, intermediate answer probing, [in-context learning](../../../../wiki/concepts/in-context-learning.md)
 - **Methods**: [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md), [dense retrieval](../../../../wiki/methods/dense-retrieval.md), FAISS, [budget forcing](../../../../wiki/methods/budget-forcing.md), [self-reflection](../../../../wiki/methods/self-reflection.md), [decontamination](../../../../wiki/methods/decontamination.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [SciQ](../../../../wiki/datasets/sciq.md), NuminaMath
 

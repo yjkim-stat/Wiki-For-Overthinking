@@ -23,6 +23,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:21:54Z",
   "created_at": "2026-08-20T13:19:32Z",
   "instructions": "Write the wiki definition for 'reasoning depth'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "reasoning depth",
@@ -41,6 +42,17 @@
   "payload": {
     "name": "reasoning depth",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "computation depth",
+      "chain depth"
+    ],
+    "definition": "The number of chained retrieval or inference steps a problem requires, treated in both sources as a dial to be set rather than a property to be inferred from a dataset. The financial-reasoning work makes it the primary axis and finds it the primary limiting factor: on simplified statements the strongest model falls from 84.0 percent at depth 1 to 55.0 at depth 8 and the second from 77.0 to 26.0, which flips their ranking relative to the easy questions -- so a leaderboard built at shallow depth does not predict ordering at deeper ones. That paper also separates depth from document messiness by holding one fixed while varying the other, measuring real filings as roughly 20 points harder than simplified ones at matched depth. The chart-understanding work uses depth as a curriculum variable instead, grading training by nesting depth and finding explicit intermediate grounding worth 8.78 points over letting the model attend implicitly. Between them the sources establish why controllable depth is worth the construction cost: it is what converts a single accuracy number into a curve, and the curve is where model orderings change.",
+    "kind": "concept",
+    "related": [
+      "compositional generalization"
+    ]
   },
   "task_id": "concept__reasoning-depth",
   "task_version": 1,

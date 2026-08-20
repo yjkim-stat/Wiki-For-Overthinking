@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:21:54Z",
   "created_at": "2026-08-20T13:19:32Z",
   "instructions": "Write the wiki definition for 'multi-agent pipeline'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "multi-agent pipeline",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "multi-agent pipeline",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "multi-agent system"
+    ],
+    "definition": "Several model instances passing work between them in sequence or in rounds, rather than one instance producing an answer. The two sources here take opposite positions on what that buys and are worth reading together. The deliberative-diagnosis work argues the value is heterogeneity that repeated sampling cannot supply, since a single model evaluating its own output propagates the correlation bias of the source that generated it -- and supports it with the control most such work omits, showing best-of-5, best-of-35 and best-of-35-with-a-judge all failing to match a five-agent pipeline's recall. It also locates a capability floor: below a certain model size the agents cannot push back on each other's weak proposals, and the pipeline destroys more correct answers than it recovers. The agent-contamination work supplies the cost. Along a four-stage pipeline, contamination amplifies 1.9-fold with no attacker intervention beyond the initial injection, every remediation addressing single-agent state fails, and only validation at the agent boundary blocks the cascade -- because implicit state crosses those boundaries through name binding and shared registries that per-stage logging does not record. The pair suggest the useful question is not how many agents but what crosses between them, and whether anything checks it there.",
+    "kind": "concept",
+    "related": [
+      "jury aggregation"
+    ]
   },
   "task_id": "concept__multi-agent-pipeline",
   "task_version": 1,

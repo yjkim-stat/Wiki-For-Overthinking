@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "unlearning"
+  ],
+  "definition": "Removing a designated subject's information from a trained model on request, without retraining from scratch. Both sources here make the same argument, that for a reasoning model the target is the trace and not only the answer, and both intervene there rather than on the output. One shows why: a fact successfully unlearned from the final answer is still reproduced in the reasoning trace, and an answer-oriented baseline cuts forget-split classification accuracy from 59.2 to 42.2 percent while subject-level reasoning leakage moves only from 61.6 to 58.3 -- so answer-level and reasoning-level forgetting are separate achievements, and the gap is substantially larger in natively RL-trained models than in their base versions. Its own method is training-free and inference-time, redirecting the trajectory through sanitised image-grounded latent injection. The other reframes unlearning as an intervention on the chain of thought directly, having the model generate logically valid counterfactual traces and iteratively preference-tuning toward them. Both sources also record the failure mode of the gradient-based alternatives: parameter updates aimed at the forget set spill onto retained knowledge, degrading utility and generation quality even on data the model was never asked to forget.",
   "evidence": [
     {
       "id": "arxiv:2608.11691",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T13:19:30Z",
   "name": "machine unlearning",
   "related": [
@@ -52,7 +54,9 @@
     "iterative-preference-optimization",
     "counterfactual-trace-generation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "differential-privacy"
+  ],
   "schema_version": 1,
   "slug": "machine-unlearning",
   "topics": [

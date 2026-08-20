@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
       "title": "Stealing Reasoning Traces from Proprietary LLM APIs"
+    },
+    {
+      "id": "arxiv:2608.11787",
+      "kind": "paper",
+      "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
+      "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation"
     }
   ],
   "first_seen": "2026-08-20T12:55:26Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "Claude Sonnet 4.5",
   "related": [
     "llm-as-a-judge",
@@ -78,13 +84,34 @@
     "gemini-3-pro",
     "gemini-3-5-flash",
     "kimi-k3",
-    "inkling"
+    "inkling",
+    "reward-hacking",
+    "construct-validity",
+    "outcome-reward",
+    "safety-gating",
+    "off-policy-evaluation",
+    "tail-risk",
+    "judge-independent-evaluation",
+    "reward-shaping",
+    "grpo",
+    "rlaif",
+    "doubly-robust-estimation",
+    "conditional-average-treatment-effect",
+    "conditional-value-at-risk",
+    "kl-regularization",
+    "welch-t-test",
+    "intuit-business-records-proprietary",
+    "qwen3-5-27b",
+    "claude-opus-4-6",
+    "claude-opus-4-5",
+    "gpt-5-4"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "claude-sonnet-4-5",
   "topics": [
     "test-time-scaling",
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

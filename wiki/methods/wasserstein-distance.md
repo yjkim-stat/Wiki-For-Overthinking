@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A distance between two probability distributions that accounts for how far mass has to move, used in both sources where the object of interest is a distribution rather than a point estimate. The student-simulation work uses it as its primary fidelity metric, measuring how closely a simulator's generated code matches the distribution of real student submissions on pass rate, code length, syntax-tree depth and width, and style violations, with 500 bootstrap resamples for intervals -- which is a stricter and more appropriate target than accuracy when the goal is to resemble a population rather than to solve a task, and which is what exposes the over-competence of prompted models. The flow-based RL work uses the same family of ideas for a different purpose, aligning the distribution of training rollouts with the deterministic sampler used at test time. Neither source studies the metric; between them they mark where it earns its place, which is any claim of the form 'this system behaves like that population' -- a claim an accuracy number cannot express and a mean cannot check.
 
 - **Kind**: method
+- **Also called**: earth mover's distance, optimal transport distance
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

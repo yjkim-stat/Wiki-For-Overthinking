@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.11787",
+      "kind": "paper",
+      "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
+      "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation"
+    },
+    {
       "id": "local:504cc53656b06ab4",
       "kind": "paper",
       "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
@@ -11,10 +17,30 @@
   ],
   "first_seen": "2026-08-08T05:29:50Z",
   "kind": "model",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "GPT-5.4",
   "related": [
+    "reward-hacking",
     "llm-as-a-judge",
+    "construct-validity",
+    "outcome-reward",
+    "safety-gating",
+    "off-policy-evaluation",
+    "tail-risk",
+    "judge-independent-evaluation",
+    "reward-shaping",
+    "grpo",
+    "rlaif",
+    "doubly-robust-estimation",
+    "conditional-average-treatment-effect",
+    "conditional-value-at-risk",
+    "kl-regularization",
+    "welch-t-test",
+    "intuit-business-records-proprietary",
+    "qwen3-5-27b",
+    "claude-opus-4-6",
+    "claude-opus-4-5",
+    "claude-sonnet-4-5",
     "kappa-deflation",
     "consistency-bias-paradox",
     "cohen-s-kappa",
@@ -23,7 +49,6 @@
     "test-retest-reliability",
     "position-bias",
     "verbosity-bias",
-    "construct-validity",
     "benchmark-discriminability",
     "meta-evaluation",
     "position-swap-debiasing",
@@ -34,7 +59,6 @@
     "judgebench",
     "rewardbench",
     "gpt-4o",
-    "claude-opus-4-6",
     "claude-sonnet-4-6",
     "gemini-3-1-pro",
     "gemini-2-5-flash",
@@ -43,9 +67,11 @@
     "deepseek-v3-2",
     "kimi-k2-5"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "gpt-5-4",
   "topics": [
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

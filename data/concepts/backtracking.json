@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
       "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics"
+    },
+    {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
     }
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "backtracking",
   "related": [
     "deliberate-decision-making",
@@ -88,7 +94,37 @@
     "qwen3-14b",
     "llama-3-8b",
     "llama3-70b",
-    "olmo2-13b"
+    "olmo2-13b",
+    "reflection",
+    "credit-assignment",
+    "reward-hacking",
+    "outcome-reward",
+    "process-reward",
+    "teacher-student-gap",
+    "privileged-information",
+    "error-compounding",
+    "memory-management",
+    "grpo",
+    "knowledge-distillation",
+    "exponential-moving-average-teacher",
+    "lora",
+    "rejection-sampling",
+    "retrieval-augmented-generation",
+    "process-supervision",
+    "backtracking-search",
+    "component-ablation",
+    "2wikimultihopqa",
+    "hotpotqa",
+    "bamboogle",
+    "frames",
+    "musique",
+    "natural-questions",
+    "triviaqa",
+    "math",
+    "gsm8k",
+    "qwen2-5-3b",
+    "qwen2-5-7b",
+    "qwen3-32b"
   ],
   "related_authored": [
     "dead-end-recovery"
@@ -97,6 +133,7 @@
   "slug": "backtracking",
   "topics": [
     "test-time-scaling",
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

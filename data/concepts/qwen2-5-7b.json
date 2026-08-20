@@ -19,6 +19,12 @@
       "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning"
     },
     {
+      "id": "arxiv:2608.11967",
+      "kind": "paper",
+      "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+      "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
+    },
+    {
       "id": "local:0c24c3c0e4729108",
       "kind": "paper",
       "note": "Defines certaindex, an algorithm-agnostic measure of how much a reasoning algorithm's answer has stopped changing, and builds it into a serving system that reallocates or terminates compute per query — saving up to 50% of tokens in batch inference and tripling online throughput.",
@@ -75,7 +81,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:25:47Z",
   "name": "Qwen2.5-7B",
   "related": [
     "label-free-reinforcement-learning",
@@ -123,6 +129,29 @@
     "webshop",
     "search-qa",
     "qwen2-5-3b",
+    "reflection",
+    "process-reward",
+    "teacher-student-gap",
+    "backtracking",
+    "error-compounding",
+    "self-correction",
+    "memory-management",
+    "knowledge-distillation",
+    "exponential-moving-average-teacher",
+    "supervised-fine-tuning",
+    "lora",
+    "rejection-sampling",
+    "retrieval-augmented-generation",
+    "backtracking-search",
+    "component-ablation",
+    "2wikimultihopqa",
+    "hotpotqa",
+    "bamboogle",
+    "frames",
+    "musique",
+    "natural-questions",
+    "triviaqa",
+    "qwen3-32b",
     "certaindex",
     "answer-stabilization",
     "self-doubt",
@@ -237,7 +266,6 @@
     "epistemic-token-masking",
     "self-distillation-sft",
     "llm-as-a-judge",
-    "supervised-fine-tuning",
     "limo-v2",
     "qwen2-5-32b-instruct",
     "qwen2-5-math-7b",
@@ -276,7 +304,6 @@
     "tensor-parallelism",
     "gpqa-diamond",
     "deepseek-r1-distill-llama-8b",
-    "qwen3-32b",
     "asymptotic-unbiasedness",
     "stability-margin",
     "global-versus-local-regularization",
@@ -293,8 +320,8 @@
   "slug": "qwen2-5-7b",
   "topics": [
     "reasoning-training",
+    "reasoning-evaluation",
     "test-time-scaling",
-    "reasoning-faithfulness",
-    "reasoning-evaluation"
+    "reasoning-faithfulness"
   ]
 }

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The number of chained retrieval or inference steps a problem requires, treated in both sources as a dial to be set rather than a property to be inferred from a dataset. The financial-reasoning work makes it the primary axis and finds it the primary limiting factor: on simplified statements the strongest model falls from 84.0 percent at depth 1 to 55.0 at depth 8 and the second from 77.0 to 26.0, which flips their ranking relative to the easy questions -- so a leaderboard built at shallow depth does not predict ordering at deeper ones. That paper also separates depth from document messiness by holding one fixed while varying the other, measuring real filings as roughly 20 points harder than simplified ones at matched depth. The chart-understanding work uses depth as a curriculum variable instead, grading training by nesting depth and finding explicit intermediate grounding worth 8.78 points over letting the model attend implicitly. Between them the sources establish why controllable depth is worth the construction cost: it is what converts a single accuracy number into a curve, and the curve is where model orderings change.
 
 - **Kind**: concept
+- **Also called**: chain depth, computation depth
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -1,0 +1,143 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-11967.pdf"
+  },
+  "completed_at": "2026-08-20T13:24:40Z",
+  "created_at": "2026-08-13T11:11:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.11967",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large language model agents increasingly rely on long-horizon reasoning to solve complex tasks involving planning, tool use, and memory. A critical capability in such settings is reflection: assessing trajectory progress, identifying missing evidence and unreliable intermediate states, and deciding whether to continue, revise, or abandon the current branch. Learning effective reflection, however, is challenging because reflection is performed locally within the current branch, whereas its utility can only be determined by its contribution to the final trajectory outcome. This local-global mismatch makes outcome-based reinforcement learning provide only local, sparse and delayed supervision for reflective decisions. To solve these, we propose LoongReflect, a training framework that formulates reflection as a memory-control policy. The agent operates over a reversible trajectory tree using explicit reflect and backtrack actions. Reflection consolidates verified facts, missing evidence, and branch-specific risks into working memory, while backtracking removes an unreliable branch from the active context and preserves a concise corrective lesson. To learn this policy, LoongReflect combines two complementary signals through a look-ahead, extragradient-style coordination mechanism. A fast channel distills globally informed reflective behavior from a privileged teacher, with supervision restricted to reflection and backtracking tokens. A slow channel optimizes complete trajectories using outcome-based GRPO, aligning local control decisions with final task success. Experiments on multi-hop retrieval-augmented generation and mathematical reasoning benchmarks demonstrate consistent improvements over outcome-only reinforcement learning and self-distillation baselines.",
+    "authors": [
+      "Zhixin Zhang",
+      "Xinke Jiang",
+      "Zhibang Yang",
+      "Weixuan Xu",
+      "Guohong Qiu",
+      "Xu Chu",
+      "Junfeng Zhao",
+      "Yasha Wang"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "reasoning benchmark",
+      "mathematical reasoning",
+      "GRPO"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.11967v1",
+    "published": "2026-08-12",
+    "scores": {
+      "reasoning-evaluation": 0.4,
+      "reasoning-training": 0.25
+    },
+    "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+    "url": "https://arxiv.org/abs/2608.11967",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "reflection",
+      "credit assignment",
+      "reward hacking",
+      "outcome reward",
+      "process reward",
+      "teacher-student gap",
+      "privileged information",
+      "backtracking",
+      "error compounding",
+      "self-correction",
+      "memory management"
+    ],
+    "contributions": [
+      "A formulation of reflection as memory control rather than as commentary: a reversible trajectory tree in which reflect diagnoses the active state and backtrack rolls it to a trustworthy prefix, with the discarded suffix retained as an inactive branch so the tree accumulates from recovery rather than being designed.",
+      "A two-channel optimisation that pairs dense local distillation from a globally-informed teacher with sparse terminal outcome optimisation, addressing the local-global mismatch without rewarding reflective text directly and so without the reward-hacking failure that invites.",
+      "A look-ahead coordination schedule interleaving three fast updates per slow one, ablated separately and worth about 4.9 average F1.",
+      "An ablation establishing that diagnosis and recovery are separately necessary -- removing reflection costs 15.31 average F1 and removing backtracking 13.06 -- so the ability to notice an unreliable state and the ability to discard it are distinct capabilities.",
+      "A stage decomposition showing supervised fine-tuning supplies a modest reflective prior (3.5 to 4.4 points) while the globally calibrated RL contributes the bulk (7.9 to 11.4)."
+    ],
+    "datasets": [
+      "2WikiMultiHopQA",
+      "HotpotQA",
+      "Bamboogle",
+      "FRAMES",
+      "MuSiQue",
+      "Natural Questions",
+      "TriviaQA",
+      "MATH",
+      "GSM8K"
+    ],
+    "limitations": "Stated in an appendix and unusually specific. The method depends on retrieval quality and on the controller's checkpoint and recovery judgements, so retrieval noise affects verified-state construction, checkpoint selection and the compressed update handed to the next branch -- and an error in an early diagnosis can propagate through every later search and answer decision. The normalised exact-match reward under-credits valid semantic aliases that token-level F1 would partially credit. The teacher's binary terminal outcome, while providing useful trajectory-level context, may shape the style of the local diagnoses rather than only their content. Reversible multi-turn search and the three-fast-one-slow schedule add both inference and optimisation cost. Most importantly, the experiments use a single recorded seed configuration, with comparing multiple independent seeds listed as future work alongside quantifying robustness to retrieval noise, measuring checkpoint-selection accuracy and analysing error propagation through the compressed updates. Not stated but worth noticing: a 12.6-point average gain reported from one seed on two training datasets is a large effect with no variance estimate attached, and the ablation deltas of 5 to 15 points are likewise single-run. The evaluation is English Wikipedia retrieval throughout, which the authors flag as shaping the learned behaviour.",
+    "method": "Two components. Memory is represented as a reversible trajectory tree rather than a linear history: the agent's context is serialised from only the task, the active path and a compressed working memory, while the full tree and archived branches remain internal state available for later diagnosis and recovery. Two control actions sit alongside the ordinary reasoning, retrieval and answer actions -- reflect, which produces a structured summary of evidence, risk, retrieval judgement and a continue-or-backtrack decision, and backtrack, which rolls the active trajectory back to a trustworthy prefix and discards the unreliable suffix, leaving it in the tree as an inactive branch. Repeated recovery therefore induces the tree naturally. The optimisation is two-channel. A fast channel distils dense local supervision for reflection from a teacher that has the global perspective the acting policy lacks, using an exponential-moving-average teacher whose binary terminal outcome supplies trajectory-level context. A slow channel optimises the terminal task reward. A look-ahead coordination schedule interleaves them at three fast updates to one slow update, so the local signal is periodically recalibrated against what actually happened. Training runs supervised fine-tuning on curated trajectories first, then the two-channel reinforcement learning, at two model sizes, evaluated on seven multi-hop and open-domain QA benchmarks split into in-domain and out-of-domain, against no-retrieval, naive-retrieval, agentic-retrieval and RL-based baselines.",
+    "methods": [
+      "GRPO",
+      "knowledge distillation",
+      "exponential moving average teacher",
+      "supervised fine-tuning",
+      "LoRA",
+      "rejection sampling",
+      "retrieval-augmented generation",
+      "process supervision",
+      "backtracking search",
+      "component ablation"
+    ],
+    "models": [
+      "Qwen2.5-3B",
+      "Qwen2.5-7B",
+      "Qwen3-32B"
+    ],
+    "one_liner": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+    "problem": "Reflection in a long-horizon agent -- assessing whether the current branch is making progress, what evidence is missing, and whether to continue, revise or abandon -- is decided locally within the active branch while its usefulness can only be established by what the whole trajectory eventually achieves. That local-global mismatch puts outcome-based reinforcement learning in a bind. Terminal reward alone gives reflection decisions sparse, delayed credit spread across a long horizon. Rewarding reflection directly instead invites reward hacking, since the agent can produce reflective text that scores well without changing what it does. Existing process-supervised approaches supply finer-grained signal but target verification or action selection rather than explicit state recovery.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-evaluation": "The design is a clean instance of a pattern the archive has now seen several times and is worth naming: when a local decision can only be judged globally, supply the local signal from a teacher that has the global view and keep the outcome reward as the thing that calibrates it. This paper reaches that arrangement from the reward-hacking side rather than the distillation side -- its stated reason for not rewarding reflection directly is that reflective text can be made to score well without changing behaviour -- which is the same argument the archive's process-reward material arrives at from the ablation side. The ablation is the part worth citing. Removing reflection costs 15.31 average F1 and removing backtracking 13.06, on the same system, which separates two things usually bundled together: diagnosing that a state is unreliable, and having a mechanism to discard it. A system with the first and not the second is measurably worse than one with neither by a smaller margin than the reverse, and most self-correction work in the archive supplies only the first. That distinction should be asked for whenever a paper claims an agent 'reflects'. Two evaluation cautions attach and both come from the paper itself. The transfer result is an order of magnitude smaller than the headline -- 1.2 and 1.8 points on mathematics against 12.6 on the retrieval benchmarks it was trained for -- and the authors describe it as suggestive rather than as transfer, which is the right reading and a useful counterweight to the claim that reflection is a general capability rather than a task-shaped one. And the whole result rests on a single recorded seed configuration, with multi-seed comparison listed as future work: a 12.6-point average gain with no variance estimate is a large number without an error bar, and the 5-to-15-point ablation deltas are single runs too. The stated limitation that an early diagnosis error propagates through every later decision is also worth keeping, since it means the failure mode of a reflective agent is compounding rather than local."
+    },
+    "results": "The method takes the highest F1 on every one of the seven QA benchmarks at both model sizes, averaging 46.15 at 3B and 49.21 at 7B against 33.55 and 36.60 for the strongest baseline -- gains of 12.60 and 12.61 points. The improvement holds outside the training distribution: at 3B the in-domain average rises from 38.46 to 52.09 and the out-of-domain average from 31.59 to 43.77, with the corresponding 7B figures 41.75 to 53.86 and 34.54 to 47.35, so the reflection policy is not merely fitting the benchmarks it was trained on. The stage decomposition attributes the gain mostly to the reinforcement learning rather than to the supervised prior: raw 30.33, after fine-tuning 34.76, after two-channel RL 46.15 at 3B, and 37.73 / 41.27 / 49.21 at 7B, so fine-tuning contributes about 4.4 and 3.5 points and the RL a further 11.4 and 7.9. The component ablation separates the two control actions and finds both load-bearing and not interchangeable: removing reflection costs 15.31 average F1 and removing backtracking costs 13.06, which the authors read as diagnosis and recovery being separately necessary -- knowing the state is unreliable is not the same as being able to discard it. Within the optimisation, removing the slow outcome channel costs 7.04, removing the fast distillation channel 5.64, and removing look-ahead coordination 4.94, so neither channel dominates and the schedule that couples them is worth about a third as much as either. The transfer result is reported plainly and is much smaller than the headline: on mathematical reasoning without retrieval, the method reaches 56.0 on MATH and 82.4 on GSM8K, which is 1.2 and 1.8 points over the strongest agentic baseline and 2.4 and 1.7 over another -- real but an order of magnitude below the 12.6-point QA gains, and the authors describe it as suggesting the learned diagnosis and recovery behaviour also benefits multi-step reasoning rather than as a transfer claim.",
+    "tags": [
+      "search-agent",
+      "reflection",
+      "backtracking",
+      "distillation",
+      "rlvr",
+      "multi-hop-qa"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-11967",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation"
+  ]
+}
