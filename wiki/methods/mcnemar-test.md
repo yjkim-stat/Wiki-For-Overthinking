@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An exact test on the discordant pairs of two paired binary outcomes, used in both sources where the same items are scored under two conditions and the question is whether the conditions differ rather than whether either is good. The matched supervision study computes it on the discordant pairs of a 291-item paired test set alongside paired bootstrap intervals, and it is what supports the paper's central null -- rationale supervision failing to beat answer-only fine-tuning in domain at p at or above 0.17, and significantly losing under a second seed at p = 0.0001. The recurrent latent reasoning work uses a two-sided exact version to compare two inference-effort settings and reports the comparison as statistically unresolved at p = 0.167 rather than reading the favourable point estimate. Neither source studies the test; between them they mark the practice it enforces, which is that when two methods are evaluated on identical items only the items they disagree on carry information, and a difference in overall accuracy computed from a handful of discordant pairs is not a difference.
 
 - **Kind**: method
+- **Also called**: McNemar's test
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

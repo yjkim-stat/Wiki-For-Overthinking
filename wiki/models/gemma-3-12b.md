@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 12-billion-parameter Gemma model appearing twice in this archive as an evaluated subject. In the CAD generation study it is one of the two weaker of four generators, and consequently the one where consensus selection helps most -- 8 to 10 percent relative reduction in Chamfer distance against 1 to 3 percent for the stronger models, which is that paper's evidence that a selection rule's value is inversely related to the quality of what it selects among. It also appears in the inverted-steering-vector study, whose finding is that a direction can be highly discriminative for a concept and reliably steer the model the opposite way. Neither source characterises the model itself.
 
 - **Kind**: model
 - **Also called**: Gemma 3 12B

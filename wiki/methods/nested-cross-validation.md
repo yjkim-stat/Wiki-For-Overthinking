@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Choosing a model's hyperparameters in an inner cross-validation loop run inside each fold of an outer one, so that no choice about the estimator is ever informed by the data it is finally scored on. Both sources use it on probes fitted to activations, where the risk it addresses is acute because the feature dimension vastly exceeds the sample count. The steering-pressure study fits an L2-regularised logistic probe over 8,192 dimensions with 100 examples and states the reasoning explicitly -- such a probe fits its training data perfectly whether or not real signal exists -- guarding with stratified five-fold outer cross-validation, an inner loop selecting the penalty, and a permutation test shuffling labels and rerunning the entire pipeline 200 times per layer. The concept-content study uses the same structure for a different purpose, with an inner loop producing out-of-fold decision scores that become the meta-learner's training features, and standardisation fitted inside each loop so scaling statistics never cross a split. Between them the sources establish the practice for probing generally: with more dimensions than examples, held-out accuracy is only meaningful if the penalty, the scaling and the threshold were all chosen without seeing it.
 
 - **Kind**: method
+- **Also called**: nested CV
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

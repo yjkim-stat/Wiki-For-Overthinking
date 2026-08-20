@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A harder variant of the MMMU multimodal benchmark, appearing twice in this archive as one column among several rather than as a subject. In the multimodal process-reward work it is one of four benchmarks on which structured step-level rewards are evaluated, improving by 2.9 to 4.4 points across three backbone scales -- and it is among the benchmarks whose gains do not shrink as backbone capacity rises, which that paper reads as reference-conditioned process supervision complementing rather than substituting for existing reasoning ability. It appears again in the chart-understanding curriculum work. Neither source describes its construction or reports a finding specific to it.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

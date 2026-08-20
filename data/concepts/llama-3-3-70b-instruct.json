@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Llama-3.3-70B-Instruct"
+  ],
+  "definition": "A 70-billion-parameter instruction-tuned Llama model, and the site of the archive's best-controlled probe-and-steer result. In the steering-pressure study its unsteered responses to values-conflict prompts split 42 clarification-seeking derails to 58 substantive answers -- the largest within-model baseline split in that evaluation -- and that distinction is decodable from the residual stream at 0.87 balanced accuracy plateauing across the second half of the network, against 0.72 available from prompt ambiguity alone. Steering along the decoded direction moves the derail rate monotonically from 0 to 86 percent across a norm-referenced strength sweep, with the zero-strength control landing within two points of the originally logged rate, and with 28 of 50 generations truncating at the strongest suppression. It appears again in the mutual-information work identifying sparse information peaks that decode to reflective tokens. Neither source describes the model itself.",
   "evidence": [
     {
       "id": "arxiv:2608.06578",
@@ -82,7 +84,9 @@
     "qwen2-5-14b",
     "qwen2-5-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-3-70b"
+  ],
   "schema_version": 1,
   "slug": "llama-3-3-70b-instruct",
   "topics": [

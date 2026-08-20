@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A model's expressed monitoring of its own reasoning -- hedges, checks, restarts, phrases like wait or let me think -- and in these sources a signal that moves in the wrong direction as a diagnostic. The sparse-autoencoder study measures it directly: suppressing the top reasoning feature raises metacognitive density by 34.17 per 1,000 tokens while output length grows 454 percent and lexical diversity falls 63 percent, so a model whose reasoning machinery is impaired emits more hedging and more repetition rather than less. Two of the three suppressed features move that density in opposite directions while the structural indicators collapse identically, which that paper reads as a coupled control system rather than a monitoring module. The overthinking work approaches the same territory from the training side, injecting difficulty cues into output prefixes for prospective strategy selection and redundancy cues mid-reasoning for retrospective correction. The archive's reading is the caution: metacognitive density is not a proxy for deliberation quality, since an impaired trace reads as a more deliberative one, and any training signal rewarding hedging would reward exactly that state.
 
 - **Kind**: concept
+- **Also called**: epistemic markers, metacognitive markers
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

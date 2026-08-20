@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A clinical calculation benchmark spanning equation-based subtasks -- laboratory values, physical measures, dates, dosage -- and rule-based ones covering risk, severity and diagnosis, notable in this archive because it is the only dataset carrying both calculation traces and clinical safety intervals. That second property is what one source builds on, using the safety interval as a hard reward constraint that a continuous precision term then refines within, and that source states plainly it evaluated on this benchmark alone because nothing else supplies both. The other source uses it among the settings where preserving final-answer accuracy under KV cache compression is shown to coexist with destroying the reasoning that supports it. Neither describes its construction; the archive's interest in it is that safety intervals make an asymmetric error cost explicit in the data rather than leaving it to the metric.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)

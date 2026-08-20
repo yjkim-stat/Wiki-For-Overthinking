@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Each additional unit of inference compute buying less than the one before, and in both sources here the shape that motivates routing rather than uniform spending. The compute-balanced routing work observes it directly in its ablation: the first few candidates escalated to strong verification buy a large accuracy gain while later ones cost more per point, which it reads as exactly what a compute-allocation view predicts -- verification is useful and its value depends on which candidate receives it. The refinement work exploits the same curvature by spending the budget on iteratively improving each sampled rollout rather than drawing more of them, on the premise that the marginal value of an additional independent sample falls faster than the marginal value of another refinement pass over an existing one. Neither source measures a scaling law; between them they establish the practical consequence, which is that a uniform budget spends its most expensive units where they are worth least, and that the presence of diminishing returns is what makes an allocation policy worth having at all.
 
 - **Kind**: concept
 - **Topics**: [test-time-scaling](../topics/test-time-scaling.md)

@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:57:34Z",
   "created_at": "2026-08-20T13:48:53Z",
   "instructions": "Write the wiki definition for 'Llama-3.2-1B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Llama-3.2-1B-Instruct",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "Llama-3.2-1B-Instruct",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama-3.2-1B-Instruct"
+    ],
+    "definition": "A 1-billion-parameter instruction-tuned Llama model, and in this archive most useful for the role it plays in a control rather than as a subject. In the steering-pressure study it is the small model that never produced the evaluated responses, used to establish a prompt-only probing baseline: the identical probe trained on its activations reaches 0.72 balanced accuracy, because the items being classified are by construction more ambiguous as prompts and any competent model represents prompt ambiguity -- so the 70B model's 0.87 plateau is worth only about 14 points above what the prompt alone supplies. It also appears as the smallest of 18 open models in the cultural-awareness study, where the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults. Neither source describes the model, and its value here is as the cheapest available control on a probing claim.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__llama-3-2-1b-instruct",
   "task_version": 1,

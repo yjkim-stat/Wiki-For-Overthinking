@@ -25,6 +25,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:57:35Z",
   "created_at": "2026-08-20T13:48:53Z",
   "instructions": "Write the wiki definition for 'McNemar test'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "McNemar test",
@@ -43,6 +44,16 @@
   "payload": {
     "name": "McNemar test",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "McNemar's test"
+    ],
+    "definition": "An exact test on the discordant pairs of two paired binary outcomes, used in both sources where the same items are scored under two conditions and the question is whether the conditions differ rather than whether either is good. The matched supervision study computes it on the discordant pairs of a 291-item paired test set alongside paired bootstrap intervals, and it is what supports the paper's central null -- rationale supervision failing to beat answer-only fine-tuning in domain at p at or above 0.17, and significantly losing under a second seed at p = 0.0001. The recurrent latent reasoning work uses a two-sided exact version to compare two inference-effort settings and reports the comparison as statistically unresolved at p = 0.167 rather than reading the favourable point estimate. Neither source studies the test; between them they mark the practice it enforces, which is that when two methods are evaluated on identical items only the items they disagree on carry information, and a difference in overall accuracy computed from a handful of discordant pairs is not a difference.",
+    "kind": "method",
+    "related": [
+      "paired bootstrap"
+    ]
   },
   "task_id": "concept__mcnemar-test",
   "task_version": 1,

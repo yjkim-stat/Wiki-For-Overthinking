@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Two parts of a procedure drawing from different distributions, so a component calibrated on one behaves wrongly on the other. Both sources diagnose a failure this way rather than treating it as noise. The reproduction study finds a conditional steering gate inert because it fires on 98 percent of tokens: the gate is 0.88-separable on its reference sentences, but those are short conclusions while the task tokens come from ordinary generation, so nearly every task token classifies as steer-worthy and the conditional variant degenerates into static steering. Removing the mismatch by building a task whose reference and steering activations come from the same distribution produced that study's only positive steering result. The distillation work identifies the same structure inside an objective: student-deficit tokens are preferred by the teacher and almost never sampled by the student, so 95.5 percent of them have under a one percent chance of appearing in on-policy supervision and no update reaches them -- which is why that paper injects teacher mass analytically instead of waiting for the sample. The shared lesson is that a component's separability or accuracy measured on one distribution says nothing about its behaviour on another, and the diagnostic is cheap: check the firing rate, or the coverage.",
   "evidence": [
     {
       "id": "arxiv:2608.08514",
@@ -79,7 +79,9 @@
     "deepseek-r1-distill-qwen-1-5b",
     "justrl-deepseek-1-5b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "distribution-shift"
+  ],
   "schema_version": 1,
   "slug": "distribution-mismatch",
   "topics": [

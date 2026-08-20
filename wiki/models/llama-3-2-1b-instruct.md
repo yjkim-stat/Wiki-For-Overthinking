@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 1-billion-parameter instruction-tuned Llama model, and in this archive most useful for the role it plays in a control rather than as a subject. In the steering-pressure study it is the small model that never produced the evaluated responses, used to establish a prompt-only probing baseline: the identical probe trained on its activations reaches 0.72 balanced accuracy, because the items being classified are by construction more ambiguous as prompts and any competent model represents prompt ambiguity -- so the 70B model's 0.87 plateau is worth only about 14 points above what the prompt alone supplies. It also appears as the smallest of 18 open models in the cultural-awareness study, where the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults. Neither source describes the model, and its value here is as the cheapest available control on a probing claim.
 
 - **Kind**: model
+- **Also called**: Llama-3.2-1B-Instruct
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
