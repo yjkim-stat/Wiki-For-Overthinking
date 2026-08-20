@@ -1,9 +1,10 @@
 {
   "aliases": [
     "in-context learning",
-    "few-shot prompting"
+    "few-shot prompting",
+    "ICL"
   ],
-  "definition": "Supplying examples in the prompt so the model infers the task without weight updates. Both sources here report that the standard static form has stopped paying on reasoning-specialized models: few-shot chain-of-thought with dataset examples now underperforms simply asking the question -- 74.2% against 86.1% on GSM8K for one model -- and the other treats input-level exemplars as the baseline its in-trace retrieval improves on. The distinction both draw is between retrieving once before generation, where the context is then static, and supplying examples during reasoning, which is what they find still helps.",
+  "definition": "Acquiring a task from examples or evidence supplied in the prompt rather than from weight updates, and across 5 sources a mechanism whose limitation the archive's methods are mostly built against: the context is fixed before generation begins. Retrieval and in-context examples are provided once and then static, which several archived systems replace with retrieval interleaved through the trace or with evidence fetched when the reasoning reveals what is needed. One source notes that latent reasoning developed separately from it and proposes injecting learned vectors to strengthen it. The archive's related material bounds what in-context supply achieves relative to training: putting a skill in the prompt during training and withdrawing it at test recovers about a fifth of what distilling the same skill through a teacher branch does, which is the clearest available separation between scaffolding and a change in the weights.",
   "evidence": [
     {
       "id": "arxiv:2608.03550",
@@ -38,7 +39,7 @@
   ],
   "first_seen": "2026-08-13T02:55:53Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:45:48Z",
+  "last_seen": "2026-08-20T23:12:37Z",
   "name": "in-context learning",
   "related": [
     "chain-of-thought-prompting",
@@ -143,9 +144,9 @@
     "qwen3-6-27b"
   ],
   "related_authored": [
-    "chain-of-thought-prompting",
-    "in-trace-retrieval",
-    "procedural-scaffolding"
+    "few-shot-prompting",
+    "latent-reasoning",
+    "retrieval-augmented-generation"
   ],
   "schema_version": 1,
   "slug": "in-context-learning",

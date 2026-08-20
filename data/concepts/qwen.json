@@ -4,7 +4,7 @@
     "Qwen2.5",
     "Qwen3"
   ],
-  "definition": "An open-weight model family, and in these sources the default subject rather than a choice either of them defends. One localizes the sentences that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes on members of this family. The other is a position paper arguing that reading intermediate tokens as thinking is unsupported, and draws on work done predominantly on it. The entry is worth keeping for what it says about the archive rather than about the family: a large majority of the reasoning results collected here are measured on one lineage of open checkpoints, so a claim that holds across this archive's papers is not thereby a claim that holds across architectures.",
+  "definition": "The model family that dominates this archive's empirical base -- 5 sources refer to it generically, and dozens more use one of its checkpoints. The entry exists to record the dependency rather than the family's properties: a large share of the archive's results about credit assignment, entropy dynamics, steering and reasoning traces are measured on Qwen checkpoints, often on one size, and where a second family is included the effect frequently shrinks or reverses. Two archived findings are about the family as such: one post-training study finds its model falling below its own reasoning baseline on three of four subjective tasks under all three algorithms tested while a Mistral model improves under all three, so the outcome is backbone-specific rather than algorithmic; and one steering-pressure study measures response modes across frontier models including it. The archive's operative note is to ask, of any result stated here, whether it has been checked outside this family.",
   "evidence": [
     {
       "id": "arxiv:2608.06578",
@@ -141,7 +141,10 @@
     "searchformer",
     "dualformer"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen",
   "topics": [

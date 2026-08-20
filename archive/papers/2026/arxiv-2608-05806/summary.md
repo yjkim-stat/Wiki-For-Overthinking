@@ -43,7 +43,7 @@ No quantitative results, no named benchmarks, and no model scales in the abstrac
 
 ## Entities
 
-- **Concepts**: next-token prediction, latent reasoning, [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [belief state](../../../../wiki/concepts/belief-state.md), [compounding error](../../../../wiki/concepts/compounding-error.md), planning horizon, teacher forcing
+- **Concepts**: next-token prediction, [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [belief state](../../../../wiki/concepts/belief-state.md), [compounding error](../../../../wiki/concepts/compounding-error.md), planning horizon, teacher forcing
 - **Methods**: Hierarchical Latent Prediction, Multi-Token Prediction, Next-Latent prediction, [speculative decoding](../../../../wiki/methods/speculative-decoding.md), auxiliary pretraining objective
 - **Datasets**: _none recorded_
 

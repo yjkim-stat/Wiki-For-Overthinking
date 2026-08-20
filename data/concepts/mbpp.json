@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "MBPP"
+    "MBPP",
+    "MBPP+"
   ],
-  "definition": "A Python program-synthesis benchmark, used in both sources as the coding leg of a multi-domain suite rather than as an object of study — the check that a method aimed at mathematical reasoning has not simply overfit to it. It is where one source's failure is starkest: a ternary-quantized model calibrated on generic web text scores 0.00 on it and 39.15 when calibrated on the model's own reasoning traces, against 37.03 for a 1.58-bit model trained from scratch on four trillion tokens. The other reports it among the tasks where representation-based exploration improves samples-to-correct by over 50 percent for a 14B model.",
+  "definition": "A Python programming benchmark with expanded tests in its plus variant, used across 5 sources as a code column in general-capability suites and in calibration-data studies. Its appearances here are diagnostic rather than substantive: it is one of the benchmarks where a general text corpus used for quantization calibration yields near-zero scores, illustrating that calibration data must match the target domain; and it is among the benchmarks in a robustness sweep finding that no extraction configuration for an internal correctness signal is best anywhere. None of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -168,7 +169,10 @@
     "llama-3-1-8b-instruct",
     "mistral-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "humaneval",
+    "livecodebench"
+  ],
   "schema_version": 1,
   "slug": "mbpp",
   "topics": [

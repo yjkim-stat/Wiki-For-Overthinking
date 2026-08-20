@@ -6,7 +6,7 @@
     "patching",
     "causal intervention"
   ],
-  "definition": "A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached activation into that second run; the patching effect is the gap between corrupted and patched performance, iterated over components to give a localization map. Almost every other choice is free, and the methodology paper in this set shows each one changes the answer -- corrupting by Gaussian noise produces a clear MLP peak around layer 16 in GPT-2 XL that symmetric token replacement does not show at all, with the noise peak 2x to 5x higher regardless of metric; scoring by probability structurally misses negative components, overlooking a Negative Name Mover head because the corrupted run already bounds any negative effect at -0.03 against a detection threshold of -0.027, where logit difference does not; and sliding-window patching returns 1.40x, 1.75x and 1.59x the peak of summed single-layer effects at window sizes 3, 5 and 10. The sources apply it at four granularities that are not the same experiment -- swapping a whole residual stream between prompts at each layer, greedy search over every attention head and MLP output, a low-rank subspace of a written scratchpad state read through the KV cache, and decoded sparse-dictionary features -- and two of them patch between different trajectories rather than between a clean and a corrupted version of one input. Two sources establish a limit the technique's usual framing conceals: patching is not ablation, since it measures a carrier's donor-receiver contrast rather than its absolute level at the receiver, so a site can be patch-sufficient at median recovery 1.043 with an 0.85 flip rate while ablating the weights feeding it still leaves the receiver correct on 57 percent of inputs. What the careful sources share is not a corruption method but a null: a self-patch control that is zero by construction, a neutral-prompt control for nonspecific disruption, or same-rank random and orthogonal-complement patches that reach about 0.02 agreement where the real patch reaches 0.80 to 0.91.",
+  "definition": "Replacing an activation at a chosen site with the activation a different input produced, and measuring what the output does -- the standard localisation tool in mechanistic interpretability. Across 19 sources its recurring problem is not the idea but the absence of a convention: the literature contains many variants with no consensus on hyperparameters, each paper using its own corruption method and its own evaluation metric, so two patching results are frequently not comparable. One theoretical source sharpens this into a claim about what is measured: patching and weight-space ablation measure two different quantities -- a carrier's donor-receiver contrast versus its absolute level at the receiver -- and neither bounds the other, with an exact criterion for when ablating a subset collapses a conditional onto one branch. The archive's practical requirements follow. A patch needs a control pair rather than a single corruption, since a change under an arbitrary substitute shows that something moved. And where a compact subspace suffices -- replacing the whole residual stream at a site having a comparable effect to a low-rank patch -- that is the informative result, because it bounds where the causal information sits rather than merely confirming it is somewhere upstream.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -405,8 +405,9 @@
     "pythia-70m"
   ],
   "related_authored": [
-    "weight-space-ablation",
-    "detection-versus-control"
+    "ablation",
+    "selectivity-control",
+    "circuit-analysis"
   ],
   "schema_version": 1,
   "slug": "activation-patching",

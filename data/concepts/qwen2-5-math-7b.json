@@ -3,7 +3,7 @@
     "Qwen2.5-Math-7B",
     "Qwen2.5-MATH-7B"
   ],
-  "definition": "A math-specialized 7B model from the Qwen2.5 family, and the default base for RLVR experiments across this archive — one source's entire main study trains on it alone, with other families deferred to an appendix. The sources use it in contrasting roles. As a capable baseline for inference-time selection, filtering by entropy instability lifts its average accuracy from 40.9% to 61.9%. As a training subject it is one of the models that degrades when fine-tuned on a reasoning dataset dense in epistemic language, unlike the general-purpose Qwen2.5-7B of the same size and similar initial accuracy, which is attributed to those tokens falling outside its distributional support. Its prevalence is worth recording as a limitation of the archive rather than of the model: several of the entropy findings here rest on this single checkpoint.",
+  "definition": "The mathematics-specialised 7B Qwen2.5 base model, and across 10 sources the single checkpoint on which most of the archive's entropy-collapse and exploration literature is measured -- entropy flow optimisation, entropy mechanism analyses, parameter-space exploration and categorical critics all report their main tables on it. Two properties make it a revealing subject and a fragile one. Its verifiable-reward gains are large from a low base (21.2 to 45.5 average in one comparison), which gives methods room to differentiate. And it is the model where symbolic variabilisation exposes the heaviest reliance on memorised patterns -- 36.9 to 2.0 percent on one competition set under the strict metric, a 94.5 percent drop, with the loose partial-credit metric still showing 38.5 percent -- so a result showing this model learning something should be read against the possibility that what it had was recall. It is also the base for the archive's clearest critic-asymmetry measurement.",
   "evidence": [
     {
       "id": "arxiv:2608.02181",
@@ -292,7 +292,10 @@
     "qwen2-5-math-1-5b",
     "qwen3-4b-instruct-2507"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b",
+    "qwen2-5-math-7b-instruct"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-math-7b",
   "topics": [

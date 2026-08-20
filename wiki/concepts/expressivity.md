@@ -9,7 +9,7 @@ What a model can represent in principle, independent of whether training finds i
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 4
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit complexity](circuit-complexity.md), [effective depth](effective-depth.md), [finite precision](finite-precision.md), [generalization](generalization.md), [latent reasoning](latent-reasoning.md), [length generalization](length-generalization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [process supervision](process-supervision.md), [scaling laws](scaling-laws.md)
+**Related**: [chain of thought](chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit complexity](circuit-complexity.md), [effective depth](effective-depth.md), [finite precision](finite-precision.md), [generalization](generalization.md), [latent reasoning](latent-reasoning.md), [length generalization](length-generalization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [process supervision](process-supervision.md), [scaling laws](scaling-laws.md)
 
 ## Appears in
 

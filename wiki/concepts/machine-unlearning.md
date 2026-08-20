@@ -9,7 +9,7 @@ Removing a designated subject's information from a trained model on request, wit
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [component ablation](../methods/component-ablation.md), [degenerate generation](degenerate-generation.md), [entropy collapse](entropy-collapse.md), [Gemini-2.5-pro](../models/gemini-2-5-pro.md), [latent reasoning](latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [memorization](memorization.md), [monitorability](monitorability.md), [preference optimization](../methods/preference-optimization.md), [Qwen2.5-VL](../models/qwen2-5-vl.md)
+**Related**: [adaptive compute allocation](adaptive-compute-allocation.md), [chain of thought](chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [component ablation](../methods/component-ablation.md), [degenerate generation](degenerate-generation.md), [entropy collapse](entropy-collapse.md), [Gemini-2.5-pro](../models/gemini-2-5-pro.md), [latent reasoning](latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [memorization](memorization.md), [monitorability](monitorability.md), [preference optimization](../methods/preference-optimization.md), [Qwen2.5-VL](../models/qwen2-5-vl.md)
 
 ## What we have settled
 

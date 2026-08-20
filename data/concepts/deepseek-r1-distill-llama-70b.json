@@ -1,9 +1,10 @@
 {
   "aliases": [
     "R1-Distill-Llama-70B",
-    "DeepSeek-R1-Distill-Llama-70b"
+    "DeepSeek-R1-Distill-Llama-70b",
+    "DeepSeek-R1-Distill-Llama-70B"
   ],
-  "definition": "A large distilled reasoning model, and in all three sources the biggest checkpoint in the sweep — the one that tests whether a finding survives scale. It survives in two of them: the L2-norm signal and the mutual-information account of thinking tokens both hold here alongside smaller models. In the third it is the counter-example that limits a claim, appearing among the off-the-shelf models where a superposed input collapses to a single token within a few layers, so continuous chain-of-thought behaves no differently from discrete decoding. The archive uses it, in other words, as the check that an interpretability result is not an artefact of small models.",
+  "definition": "A 70B Llama model distilled from a large reasoning model, and across 6 sources the archive's largest open reasoning checkpoint used as a subject rather than as a judge. Its role is to test whether trace-level findings established at 7B to 14B persist at scale: mutual-information peaks at thinking tokens, hidden-state norm dynamics, and the latent-thinking analysis that finds continuous and discrete decoding functionally indistinguishable on off-the-shelf models. It also appears in the faithfulness-safety tension study and as a legal-explanation baseline. None of the sources describes its distillation.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -207,7 +208,10 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-llama-70b",
   "topics": [

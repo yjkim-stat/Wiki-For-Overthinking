@@ -45,7 +45,7 @@ The paper has no limitations section, and one of its own framings should be read
 
 ## Entities
 
-- **Concepts**: latent reasoning, [monitorability](../../../../wiki/concepts/monitorability.md), [auditability](../../../../wiki/concepts/auditability.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [safety alignment](../../../../wiki/concepts/safety-alignment.md), curriculum learning, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), LLM-as-a-judge, guard model
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [monitorability](../../../../wiki/concepts/monitorability.md), [auditability](../../../../wiki/concepts/auditability.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), [safety alignment](../../../../wiki/concepts/safety-alignment.md), curriculum learning, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), LLM-as-a-judge, guard model
 - **Methods**: LatentGuard, [Coconut](../../../../wiki/methods/coconut.md), GuardReasoner, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), stop-gradient, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), adaptive early exit
 - **Datasets**: GuardReasonerTrain, ToxicChat, [HarmBench](../../../../wiki/datasets/harmbench.md), OpenAI Moderation, Aegis SafetyTest, SimpleSafetyTests, SafeRLHF, [BeaverTails](../../../../wiki/datasets/beavertails.md), [XSTest](../../../../wiki/datasets/xstest.md), WildGuard Test
 

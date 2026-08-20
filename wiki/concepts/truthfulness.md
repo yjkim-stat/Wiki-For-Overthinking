@@ -9,7 +9,7 @@ Saying what is true, treated by both sources as separable from reasoning well. O
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [credit assignment](credit-assignment.md), [meta-reasoning](../methods/meta-reasoning.md), [monitorability](monitorability.md), [overthinking](overthinking.md), [process supervision](process-supervision.md)
+**Related**: [chain of thought](chain-of-thought.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [credit assignment](credit-assignment.md), [meta-reasoning](../methods/meta-reasoning.md), [monitorability](monitorability.md), [overthinking](overthinking.md), [process supervision](process-supervision.md)
 
 ## Appears in
 

@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "permutation test"
+    "permutation test",
+    "label permutation",
+    "shuffling control"
   ],
-  "definition": "A non-parametric test that builds its null distribution by relabelling the observed data, used in both sources as the confirmatory step after every other choice has been frozen. One makes it the audit's decision rule: the score, its orientation and the sample size are all fixed on a calibration split before the audit split is opened, and the one-sided two-sample permutation test on that untouched split is what the reported power curves are power *for*. The other uses paired signed-rank and bootstrap variants to compare circuit sites without assuming a parametric form. The reason it recurs here is the same in both: the quantities being tested -- behavioural separability, a patching effect -- have no defensible parametric null, and relabelling supplies one from the data itself.",
+  "definition": "Rerunning an entire analysis with the labels or assignments shuffled, to measure what the pipeline scores when the structure it depends on is destroyed. Across 5 sources it is the archive's canonical null control, and its uses divide by what is permuted. Labels: shuffling and rerunning 200 times per layer establishes what a probing pipeline scores on meaningless labels, which is what licenses reading a held-out accuracy at all when the feature dimension exceeds the sample count by two orders of magnitude. Correspondence: permuting per-turn multipliers within a trajectory, or shuffling privileged trajectories across problems, preserves the signal's distribution and destroys only its alignment -- which is the experiment that separates a method exploiting matched correspondence from one benefiting from the signal's marginal properties. Deployment: one source builds a permutation test into a two-stage planner that resamples score laws at each candidate sample size, reporting it as uniformly conservative with 0.785 to 0.92 power and abstaining on the one channel whose probe does not transport. The archive's finding is that removal and permutation are different experiments and that where both are run, the ordering between them is itself the measurement.",
   "evidence": [
     {
       "id": "arxiv:2608.03620",
@@ -152,10 +154,9 @@
     "olmo-2-7b"
   ],
   "related_authored": [
-    "audit-power",
-    "score-efficacy",
-    "bootstrap",
-    "validity-gate"
+    "selectivity-control",
+    "linear-probe",
+    "null-control"
   ],
   "schema_version": 1,
   "slug": "permutation-test",

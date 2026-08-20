@@ -44,8 +44,8 @@ The paper has no limitations section. Reader-visible limits: seven statutes and 
 
 ## Entities
 
-- **Concepts**: legal statute prediction, explanation faithfulness, [annotation agreement](../../../../wiki/concepts/annotation-agreement.md), human evaluation, [in-context learning](../../../../wiki/concepts/in-context-learning.md), search over reasoning
-- **Methods**: [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [tree-of-thoughts](../../../../wiki/methods/tree-of-thoughts.md), in-context learning, [few-shot prompting](../../../../wiki/methods/few-shot-prompting.md), [zero-shot prompting](../../../../wiki/methods/zero-shot-prompting.md), K-nearest-neighbour exemplar selection, multi-label classification
+- **Concepts**: legal statute prediction, explanation faithfulness, [annotation agreement](../../../../wiki/concepts/annotation-agreement.md), human evaluation, in-context learning, search over reasoning
+- **Methods**: [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [tree-of-thoughts](../../../../wiki/methods/tree-of-thoughts.md), [in-context learning](../../../../wiki/methods/in-context-learning.md), [few-shot prompting](../../../../wiki/methods/few-shot-prompting.md), [zero-shot prompting](../../../../wiki/methods/zero-shot-prompting.md), K-nearest-neighbour exemplar selection, multi-label classification
 - **Datasets**: PROSLEX, Indian Supreme Court judgements corpus
 
 Tags: `legal-nlp`, `explanation`, `tree-of-thoughts`, `expert-annotation`, `statute-prediction`

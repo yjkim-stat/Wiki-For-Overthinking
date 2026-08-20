@@ -37,7 +37,7 @@ The paper's own: reconstruction loss is not zero, so the dictionaries do not cap
 
 ## Entities
 
-- **Concepts**: [polysemanticity](../../../../wiki/concepts/polysemanticity.md), [superposition](../../../../wiki/concepts/superposition.md), sparse dictionary learning, [monosemanticity](../../../../wiki/concepts/monosemanticity.md), feature dictionary, [residual stream](../../../../wiki/concepts/residual-stream.md), causal mediation analysis, circuit detection, enumerative safety, automated interpretability score
+- **Concepts**: [polysemanticity](../../../../wiki/concepts/polysemanticity.md), [superposition](../../../../wiki/concepts/superposition.md), [sparse dictionary learning](../../../../wiki/concepts/sparse-dictionary-learning.md), [monosemanticity](../../../../wiki/concepts/monosemanticity.md), feature dictionary, [residual stream](../../../../wiki/concepts/residual-stream.md), causal mediation analysis, circuit detection, enumerative safety, automated interpretability score
 - **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [activation patching](../../../../wiki/methods/activation-patching.md), Automated Circuit Discovery (ACDC), [PCA](../../../../wiki/methods/pca.md), ICA, autointerpretability scoring, [ablation](../../../../wiki/methods/ablation.md)
 - **Datasets**: [the Pile](../../../../wiki/datasets/the-pile.md), [Indirect Object Identification (IOI)](../../../../wiki/datasets/indirect-object-identification.md)
 

@@ -11,6 +11,30 @@
       },
       {
         "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
         "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
         "topics": [
@@ -19,8 +43,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T13:14:16Z",
-  "created_at": "2026-08-20T13:07:32Z",
+  "completed_at": "2026-08-20T23:15:21Z",
+  "created_at": "2026-08-20T23:12:40Z",
   "instructions": "Write the wiki definition for 'interpretability illusion'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "interpretability illusion",
   "kind": "concept",
@@ -37,14 +61,16 @@
   },
   "payload": {
     "name": "interpretability illusion",
-    "source_count": 2
+    "source_count": 5
   },
   "result": {
     "aliases": [],
-    "definition": "A finding that looks like a property of the model but is a property of the method that found it. Both sources here give it a formal footing rather than a cautionary anecdote. The ablation-theory work shows that patching and weight-space ablation measure two different quantities -- a carrier's donor-receiver contrast against its absolute level at the receiver -- which neither bounds, and constructs matched pairs on which every single-carrier patch flips the decision while no single-carrier ablation does, with no repair mechanism involved, so the disagreement is not the Hydra effect under another name. The identifiability work names the general condition: mechanistic interpretability has had no theorem asserting that a discovered structure is an invariant of the model, and the sparse-autoencoder evidence -- materially different features across seeds and widths, absorption, splitting, uncaptured components -- is what makes the question empirical rather than philosophical. Its answer is that non-identifiability is structural, and its dissociation theorem gives a stronger version of the same worry: in the non-normal regime these models occupy, the identifiable object and the human-legible object cannot be the same object, so a decomposition can be reliable or readable but not obviously both.",
+    "definition": "A finding that looks like a discovery about a model and is a property of the measurement, and across 5 sources the archive's most consistently supported methodological result. Its documented forms. Uncalibrated units: an apparent emergence of concept steerability with scale is produced entirely by raw intervention units, the readout metric and a fixed operating point, with correcting any one of the three removing the trend. Recipe dependence: a published internal signal for code correctness has no configuration that is best anywhere, with the benchmark deciding which extraction choice wins and a mismatched fitting source driving the signal below chance. Missing nulls: a decodable logic direction is matched exactly under steering by a same-norm random direction, so the reported effect is magnitude rather than content. Quantity confusion: patching and weight-space ablation measure different things that neither bounds, so a result from one does not transfer to the other. And identifiability: the object a method recovers may be determined by the procedure rather than by the model. One source in the set withdraws its own clean empirical separation when it fails out of sample, which the archive treats as the model behaviour for this category.",
     "kind": "concept",
     "related": [
-      "identifiability"
+      "construct validity",
+      "identifiability",
+      "selectivity control"
     ]
   },
   "task_id": "concept__interpretability-illusion",

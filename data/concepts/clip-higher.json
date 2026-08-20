@@ -2,7 +2,7 @@
   "aliases": [
     "Clip-Higher"
   ],
-  "definition": "Raising the upper clipping bound of the importance ratio in a PPO-style objective, so low-probability tokens with positive advantages are not clipped away and can grow. Introduced as a component of DAPO, it is the most-compared entropy remedy in this archive. Two sources supply mechanisms for why it works: tokens clipped at the upper bound tend to be the entropy-increasing ones, so relaxing that bound preserves them; and it prevents over-concentration of the vocabulary distribution. Its recurring weakness across sources is instability — it raises entropy and helps early, then oscillates, saturates and declines — and it depends on importance ratios, which makes it incompatible with strictly on-policy training.",
+  "definition": "Relaxing the upper clipping bound in a PPO-style surrogate while keeping the lower one, introduced with DAPO and adopted widely as an entropy remedy. Across 7 sources the corpus supplies both its mechanism and its limits. The mechanism is specific: updates on positive-advantage samples are entropy-increasing and updates on negative-advantage samples entropy-decreasing, so relaxing the upper clip preserves exactly the entropy-increasing updates -- which makes it an asymmetric intervention rather than a general loosening. Its limit is measured: it raises entropy and helps early but becomes unstable, saturating and then declining, where a covariance-based penalty gives stabler curves; and in one comparison its response length saturates around step 200 against 300 for an alternative. One source flags an internal tension worth noting -- clipped tokens are excluded from its analysis on the grounds that their gradients vanish, and the same framework is then used to explain clipping mechanisms, so the interpretation is about which tokens escape clipping rather than about clipped tokens themselves.",
   "evidence": [
     {
       "id": "arxiv:2608.09805",
@@ -173,7 +173,11 @@
     "amc",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "dapo",
+    "entropy-collapse",
+    "grpo"
+  ],
   "schema_version": 1,
   "slug": "clip-higher",
   "topics": [

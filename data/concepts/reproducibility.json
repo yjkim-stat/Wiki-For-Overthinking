@@ -4,7 +4,7 @@
     "run-to-run consistency",
     "determinism"
   ],
-  "definition": "Whether a reported result can be obtained again, which four sources treat as unresolved in different layers of the stack. At the hardware layer, greedy decoding is not deterministic across GPU type, GPU count or batch size, shifting AIME'24 accuracy by up to 9 percentage points on one model and benchmark. At the method layer, SAE features differ between training runs, which is proposed as a reported evaluation axis with a metric showing around 0.80 pairwise consistency is achievable. At the field layer, one source documents two papers concluding oppositely on one behaviour and calls for continuous auditing; another supplies shared tooling. The archive's own audit found 1 of 45 papers reporting precision and hardware, and 0 doing a variance decomposition.",
+  "definition": "Whether a reported result can be obtained again, and across 7 sources a property the archive treats as scarce enough to be worth measuring. Its instances divide by what fails to reproduce. Method-level: an independent reproduction matches a published grid to two decimal places and then finds the advantage vanishing on every new domain, with no per-item difference reaching significance across four of them. Instrument-level: if two runs on the same activations give different dictionaries, a claim about a feature is a claim about a run -- which is the sparse-autoencoder identifiability problem stated as a reproducibility one. Protocol-level: measured performance depends on template, decoder, controller, reducer, verifier, stopping rule and numerical settings, so accuracy reported without the inference protocol is not reproducible in principle; one source prescribes declaring budget, temperature, evidence map, stopping and extraction rules before outcomes are inspected. Numerical-level: one source studies sources of nondeterminism in inference itself. The archive's practice, where sources model it well, is byte-identical prompts verified by hash, fixed seeds, and pre-registration of thresholds before the confirmatory analysis.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -181,7 +181,11 @@
     "llama-3-1-8b-instruct",
     "qwen3-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "identifiability",
+    "construct-validity",
+    "matched-budget-comparison"
+  ],
   "schema_version": 1,
   "slug": "reproducibility",
   "topics": [

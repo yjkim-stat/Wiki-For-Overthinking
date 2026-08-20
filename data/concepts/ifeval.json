@@ -1,9 +1,10 @@
 {
   "aliases": [
     "IF-Eval",
-    "IFEval"
+    "IFEval",
+    "IFEval-Loose"
   ],
-  "definition": "A benchmark of prompts carrying verifiable formatting and constraint instructions, so compliance is checked programmatically rather than judged. Neither source studies it; both use it as the breadth check that a method developed on mathematical reasoning has not damaged instruction following. One includes it among nine benchmarks spanning mathematics, code, instruction following and multi-task knowledge, where a label-free RLVR method stays competitive with a supervised oracle. The other includes it in the twelve-benchmark suite over which a hidden-state norm signal is validated, though its reported comparisons run on the mathematics and knowledge sets rather than this one. Note that the archive also holds this benchmark under the separate name IF-Eval, so a definition written from the sources attached to either name sees only part of the evidence.",
+  "definition": "An instruction-following benchmark scoring whether verifiable format constraints in a prompt were obeyed, used across 5 sources as the capability-retention check that reasoning-focused training most often damages. Two archived results make it worth keeping. It is the benchmark where one rubric-trained system's components split most sharply -- consensus rubrics and three-state scoring each lower it while a tie-breaking stage raises it 30.32 points -- so a generalisation average that moves is often moving because of this column alone. And it is where an internal diagnostic's rank correlation with accuracy is +0.627, the second-largest coefficient in a table whose mathematics entries run from -0.148 to +0.417, so a signal validated on mathematics behaves differently here. It is also used to check that a mathematics-trained policy has not lost instruction following.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -190,7 +191,8 @@
     "gemma-3-4b"
   ],
   "related_authored": [
-    "instruction-following"
+    "mmlu",
+    "alpacaeval"
   ],
   "schema_version": 1,
   "slug": "ifeval",

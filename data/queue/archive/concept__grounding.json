@@ -7,7 +7,9 @@
         "title": "Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning",
         "topics": [
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -16,13 +18,48 @@
         "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning",
         "topics": [
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns table-to-report generation into Monte Carlo tree search over partial reports, scored by a reward that verifies every numerical claim by generating and executing SQL against the source table rather than by asking a judge — and keeps that search reward strictly separate from the benchmark's own evaluator to avoid a reward-hacking loop.",
+        "title": "Monte Carlo Tree Search for Table-to-Multimodal Report Generation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Refutes the standard account of vision-language hallucination -- that the model attends too little to the image -- by showing real and hallucinated objects draw equally strong attention, then uses a logit lens over the attended regions to separate two causally distinct hallucination types and treat each differently.",
+        "title": "Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+        "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T03:23:27Z",
-  "created_at": "2026-08-13T02:40:54Z",
+  "completed_at": "2026-08-20T23:15:20Z",
+  "created_at": "2026-08-20T23:12:40Z",
   "instructions": "Write the wiki definition for 'grounding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "grounding",
   "kind": "concept",
@@ -39,22 +76,27 @@
   },
   "payload": {
     "name": "grounding",
-    "source_count": 2
+    "source_count": 5
   },
   "result": {
     "aliases": [
-      "evidence grounding"
+      "evidence grounding",
+      "visual grounding"
     ],
-    "definition": "Tying a claim or a reasoning step to the specific evidence that supports it, and in both sources something a method is built to enforce rather than to measure. One generates per-question criteria directly from the raw waveform rather than from a transcript, so each criterion is anchored to acoustic evidence actually present in the clip, and prunes any criterion whose verdict does not vary across a rollout group. The other constructs an explicit graph whose nodes are document blocks and whose edges are reasoning dependencies, then tests the grounding causally: masking the evidence the graph cites flips 82.8% of originally correct answers while masking uncited evidence changes 9.6%. That counterfactual pairing is the stronger of the two demonstrations and is the form the archive should ask for — a grounding claim that is not checked by masking is a claim about annotation rather than about dependence.",
+    "definition": "Whether an output rests on the evidence it cites or claims to use, and across 5 sources a property the archive insists be verified causally rather than by construction. The standard the corpus sets: masking the evidence a system cites flips 82.8 percent of correct answers while masking uncited evidence changes 9.6 -- a claim about grounding that a rule-based integrity check, near-saturated at 99.5 and 99.6, cannot make. Two measurement findings recur. Grounding is depth-localised: detection climbs through early layers, peaks mid-network and falls toward the output where representations specialise for next-token prediction, with the same shape on every backbone, so pooling across depth dilutes rather than aggregates. And explicit intermediate grounding is worth measuring against implicit attention -- one system finds pairing every reasoning step with a predicted image region worth 8.78 points over letting the model attend implicitly. The caveat one source states about its own work applies generally: a detector trained supervised on hallucination labels is a learned classifier over internal states, so a layer sweep is suggestive about where grounding lives without being an interpretability result about how it is represented.",
     "kind": "concept",
     "related": [
-      "provenance"
+      "hallucination",
+      "representation versus readout",
+      "retrieval-augmented generation"
     ]
   },
   "task_id": "concept__grounding",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

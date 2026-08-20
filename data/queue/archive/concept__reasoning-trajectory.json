@@ -3,6 +3,18 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
+        "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Detects flawed reasoning from residual-stream trajectories by combining layerwise motion with a quantized region reader and a normalized direction reader, rather than probing full states.",
         "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs",
         "topics": [
@@ -96,12 +108,36 @@
           "test-time-scaling",
           "reasoning-faithfulness"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
+        "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:33:54Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'reasoning trajectory'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:15:21Z",
+  "created_at": "2026-08-20T23:12:40Z",
+  "instructions": "Write the wiki definition for 'reasoning trajectory'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "reasoning trajectory",
   "kind": "concept",
   "language": "en",
@@ -110,31 +146,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "reasoning trajectory",
-    "source_count": 8
+    "source_count": 11
   },
   "result": {
     "aliases": [
-      "reasoning path",
-      "internal trajectory",
-      "trajectory analysis"
+      "trace trajectory"
     ],
-    "definition": "The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.",
+    "definition": "A reasoning trace read as a path -- through hidden-state space, through answer space, or through a sequence of committed states -- rather than as a set of independent steps. Across 11 sources it is the framing behind a cluster of methods that share one argument: static activations let probes latch onto lexical surface patterns, so layer-to-layer or step-to-step displacement is the more reliable signal. The archive's results from that framing: error detection from residual-stream motion combined with a region reader and a direction reader; verification without training by comparing a trace's start-to-end hidden-state delta against class centroids; correctness read from step-specific geometry that transfers across tasks while the correctness predictor computed from it does not; and two-dimensional projections of distance-to-answer-choice features that make visible how incorrect trajectories converge earlier than correct ones. Two failure modes are located on the trajectory rather than in it: the sentences that commit a model to agreeing with an incorrect user suggestion, and the step at which a model that correctly flagged a query as harmful overrides that judgement. The corpus's caution is that trajectory geometry's advantage over an ordinary probe on the final state is within a few thousandths of AUROC on several benchmarks, so the general claim is carried by a minority of them.",
     "kind": "concept",
     "related": [
       "residual stream",
-      "activation probing",
-      "commitment boundary",
       "linear probe",
-      "entropy trajectory",
-      "localization",
-      "information bottleneck"
+      "reasoning-boundary"
     ]
   },
   "task_id": "concept__reasoning-trajectory",

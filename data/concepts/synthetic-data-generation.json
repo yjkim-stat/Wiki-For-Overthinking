@@ -3,7 +3,7 @@
     "data synthesis",
     "synthetic corpora"
   ],
-  "definition": "Producing training data with a model instead of collecting or annotating it, used by all three sources to obtain supervision that does not otherwise exist. One generates therapy dialogues with a structured CoT strategy plus a resistance orchestrator, specifically to avoid the uniformly compliant patients that make naive synthesis unrealistic. One generates instruction-following data for reasoning traces, raising one model's compliance score from 0.11 to 0.27. One derives a domain-agnostic dataset from a web corpus and synthesizes paired grounded and hallucinated claims, which is what makes its guardrail domain-agnostic. All three synthesize the negative or difficult case specifically, since that is the part real data lacks.",
+  "definition": "Producing training or evaluation material with a model rather than collecting it, and across 6 sources the archive's most common way to obtain step-level supervision at scale. The recipes here share a structure: generate with a stronger model, constrain the form, filter by a check, and keep what passes -- grounded chart-reasoning chains with predicted regions, evidence graphs over document blocks, therapy dialogues with an orchestrator steering simulated patients away from sycophantic compliance, typed spatial-reasoning segments. Two cautions the corpus supports. Filtering traces for reaching a known answer selects for post-hoc rationalisations that happen to land correctly, so the corpus is not a sample of anyone's reasoning; several sources report downstream gains from such data anyway, which is the honest finding, but the traces are not accounts of an inference. And where the generator, the filter and the auditor are all models, what the resulting dataset calls a property means what those models judged it to be -- one source states this about its own benchmark, with human involvement confined to adjudicating disagreements.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -150,7 +150,11 @@
     "minicheck",
     "granite-guardian-3-3"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "rejection-sampling",
+    "post-hoc-rationalization",
+    "benchmark-design"
+  ],
   "schema_version": 1,
   "slug": "synthetic-data-generation",
   "topics": [

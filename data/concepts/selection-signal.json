@@ -1,9 +1,10 @@
 {
   "aliases": [
     "selector",
-    "answer selection signal"
+    "answer selection signal",
+    "verifier signal"
   ],
-  "definition": "Whatever quantity decides which of several candidate answers is submitted, and in both sources the component whose contribution is deliberately held fixed so something else can be measured. One audits a perturbation-derived signal and finds it demonstrably dependent on the image — blanking its inputs collapses accuracy from 87.7 to 7.9 — yet no better at selection than a control that never sees the perturbations, which separates a signal that carries information from one that improves a decision. The other holds a self-certainty-and-Borda rule constant across its adaptive and full-budget arms, and separately shows what happens when the rule is weak: three samples score below one. Taken together the sources make the same point twice — the quality of this component bounds what any amount of extra sampling can buy.",
+  "definition": "The quantity used to choose among sampled candidates, and across 5 sources the component the archive finds is usually the binding constraint on test-time scaling rather than the sample count. Two structural findings. It can be anti-correlated with correctness rather than merely uninformative: selecting by mean token log probability falls from 75.56 percent at one sample to 65.83 at eighty on the same candidate banks where answer plurality rises to 78.33, so nothing but the selection rule explains the decline. And it can be blind to the modality that matters -- in vision-language models neither answer frequency nor verbalised confidence tests whether an answer depends on the pixels, so a grounded answer and a confident language-prior guess look identical at the selection layer. The archive's practical demand is that a selector be compared against plurality at matched budget and against the base pass rate of its own candidate pool, since published confidence-maximising selectors have been measured below both.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -118,7 +119,9 @@
     "gpt-oss-120b"
   ],
   "related_authored": [
-    "matched-budget-comparison"
+    "best-of-n",
+    "confidence-calibration",
+    "self-consistency"
   ],
   "schema_version": 1,
   "slug": "selection-signal",

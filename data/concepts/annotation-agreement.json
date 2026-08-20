@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "inter-annotator agreement"
+    "inter-annotator agreement",
+    "Cohen's kappa"
   ],
-  "definition": "How consistently two or more raters assign the same label, and in both sources here the precondition that makes a human-scored result readable rather than the result itself. The persona study establishes it before scoring anything automatic: two annotators independently label 191 generations under the same binary task, agreeing on 93 percent at Cohen's kappa 0.85, which demonstrates the task is reproducible and only then licenses measuring a model judge against them. The matched supervision study reports agreement from 0.760 to 1.000 across eight criteria before external adjudication, which is what makes its central negative -- no significant improvement on any reasoning-content criterion -- interpretable rather than noise. Both sources treat the number as load-bearing rather than decorative, and the archive's reading is the order of operations: establish the humans agree, then measure whatever is meant to replace them, and report the gap in both directions rather than only the headline agreement.",
+  "definition": "How often independent annotators assign the same label, reported across 4 sources before anything is concluded from the labels -- and, in this archive, the practice that separates a validated instrument from an asserted one. The corpus's instances show both what it establishes and where it misleads. Two annotators at 93 percent raw agreement and kappa 0.85 establish that a labelling task is reproducible, which is what licenses scoring a model judge against them at precision 0.90 and recall 0.98. A legal-annotation study reports ROUGE-L overlap between two experts (mean 0.79) and calibrates its adjudication threshold on a blind 50-pair study rather than choosing it. And a rubric study reports raw agreement of 0.90 to 0.99 alongside chance-corrected kappas of 0.357 to 0.573 -- the gap being what happens when a class is near ceiling, which means a headline gain on such a dimension rests on a small number of discordant judgements. The archive's operative rule is that raw agreement without a chance-corrected statistic is uninformative when the label distribution is skewed, and that validating a model judge against annotators working from the judge's own criteria does not establish independence.",
   "evidence": [
     {
       "id": "arxiv:2608.07852",
@@ -130,7 +131,9 @@
     "huatuogpt-o1-7b"
   ],
   "related_authored": [
-    "cohen-s-kappa"
+    "human-evaluation",
+    "llm-as-a-judge",
+    "construct-validity"
   ],
   "schema_version": 1,
   "slug": "annotation-agreement",

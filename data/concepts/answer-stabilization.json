@@ -2,9 +2,10 @@
   "aliases": [
     "answer convergence",
     "answer settling",
-    "stabilization point"
+    "stabilization point",
+    "certaindex"
   ],
-  "definition": "The point during generation after which a model's answer stops changing, and the quantity almost every early-exit method in this archive estimates. Eight sources measure it differently — an algorithm-agnostic score of how much the answer has stopped moving, a sharp two-phase entropy transition detected online as a change point, a Bayesian posterior over which answer is the mode, a hidden-state delta compared against class centroids, and the point after which continued double-checking is definitionally invalid. The concept is what makes early stopping safe in principle: everything generated after stabilization is by construction redundant. Two results complicate it. Stabilization is not correctness — the archive's stopping methods target agreement or self-consistency, and a confidently stabilized wrong answer stops just as early. And one source argues later reasoning is not merely inert but harmful, which would make stabilization a point to stop rather than a point after which stopping is free.",
+  "definition": "How much a reasoning algorithm's answer has stopped changing, and across 10 sources the signal several archived systems use to decide when to stop spending. Its clearest formulation is algorithm-agnostic and built into a serving system, saving up to 50 percent of tokens in batch inference and tripling online throughput by reallocating or terminating per query. Two findings complicate the simple reading that convergence means correctness. A model's first solution is usually its best and later alternatives are actively harmful in one study, which structures the errors as a forest and prunes accordingly -- so continued generation past stabilisation is not neutral. And double-checking after the correct answer has already been derived is identifiable as a distinct portion of a trace and targetable by a compression reward. Against those, the archive's calibration material bounds what stabilisation licenses: uniformly high confidence across a trace indicates a failure to branch rather than a well-supported answer, and in the highest-agreement bin the plurality is correct about half the time on hard problems. One source finds a model family badly miscalibrated yet ranking correct from incorrect well, because its confidence tracks structural consistency rather than correctness -- which is stabilisation and correctness coming apart explicitly.",
   "evidence": [
     {
       "id": "arxiv:2608.05643",
@@ -214,7 +215,11 @@
     "gpt-oss-20b",
     "drpo-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-compute-allocation",
+    "self-consistency",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "answer-stabilization",
   "topics": [

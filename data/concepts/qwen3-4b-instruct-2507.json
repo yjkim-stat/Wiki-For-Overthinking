@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen3-4B-Instruct"
+    "Qwen3-4B-Instruct",
+    "Qwen3-4B-Instruct-2507"
   ],
-  "definition": "A reasoning-oriented instruction-tuned checkpoint, used by both sources as the stronger model that tests whether a method's benefit survives a better starting point. One adds it specifically to ask whether hidden-state preference signals become more informative as reasoning capability improves, and finds the gain larger there than on weaker backbones. The other includes it among five backbones for test-time latent optimization. The two disagree in a way worth noting: one reports its method helping more as the base model strengthens, while several results elsewhere in this archive report the opposite, so which direction a method scales with base capability is not settled and is worth asking of each.",
+  "definition": "A dated instruction-tuned release of the 4B Qwen3 model, used across 5 sources as the small instruct checkpoint in preference-optimisation, self-distillation and entropy-diagnostic work -- and as the policy in one rubric-based medical training system whose judges are a 32B model of the same family. The dated name is itself the point worth recording: several archived results are anchored to a specific release rather than to a model line, so a reproduction against a later release of the same name is not a reproduction. None of the sources describes its training.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -151,7 +152,10 @@
     "qwen2-5-math-1-5b",
     "qwen2-5-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b",
+    "qwen3-4b-base"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b-instruct-2507",
   "topics": [

@@ -4,9 +4,10 @@
     "reasoning path",
     "internal trajectory",
     "trajectory analysis",
-    "Reasoning Trajectory"
+    "Reasoning Trajectory",
+    "trace trajectory"
   ],
-  "definition": "The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.",
+  "definition": "A reasoning trace read as a path -- through hidden-state space, through answer space, or through a sequence of committed states -- rather than as a set of independent steps. Across 11 sources it is the framing behind a cluster of methods that share one argument: static activations let probes latch onto lexical surface patterns, so layer-to-layer or step-to-step displacement is the more reliable signal. The archive's results from that framing: error detection from residual-stream motion combined with a region reader and a direction reader; verification without training by comparing a trace's start-to-end hidden-state delta against class centroids; correctness read from step-specific geometry that transfers across tasks while the correctness predictor computed from it does not; and two-dimensional projections of distance-to-answer-choice features that make visible how incorrect trajectories converge earlier than correct ones. Two failure modes are located on the trajectory rather than in it: the sentences that commit a model to agreeing with an incorrect user suggestion, and the step at which a model that correctly flagged a query as harmful overrides that judgement. The corpus's caution is that trajectory geometry's advantage over an ordinary probe on the final state is within a few thousandths of AUROC on several benchmarks, so the general claim is carried by a minority of them.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -251,7 +252,11 @@
     "chain-of-thought-distillation",
     "llama-3-1-8b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "residual-stream",
+    "linear-probe",
+    "reasoning-boundary"
+  ],
   "schema_version": 1,
   "slug": "reasoning-trajectory",
   "topics": [

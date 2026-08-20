@@ -43,7 +43,7 @@ No quantitative results in the abstract. Hint-reliance is one proxy target, and 
 
 ## Entities
 
-- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), latent reasoning, [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), hint reliance, linear probe
+- **Concepts**: [monitorability](../../../../wiki/concepts/monitorability.md), [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [chain of thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), hint reliance, linear probe
 - **Methods**: [latent chain of thought](../../../../wiki/methods/latent-chain-of-thought.md), [activation probing](../../../../wiki/methods/activation-probing.md), latent state verbalization, hint-based intervention
 - **Datasets**: _none recorded_
 

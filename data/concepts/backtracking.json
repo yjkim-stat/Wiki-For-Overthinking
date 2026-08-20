@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "backtrack"
+    "backtrack",
+    "reversal",
+    "revision"
   ],
-  "definition": "Returning from a state where progress is impossible to an earlier one and taking a different path. The two sources approach it from opposite ends of the same question. One builds it into an inference-time search procedure, making lookahead and backtracking explicit operations over a tree of partial solutions rather than something a model does inside a linear trace. The other measures whether reinforcement learning teaches it: at sampled dead-end maze states the probability of the reversing move rises from 0.0068 to 0.1537 and from 0.0647 to 0.1687 after RLVR, absolute failures fall, and on mathematics recovery from an injected distractor improves by 4.18 to 29.09 points. Together they mark a shift in where the capability is thought to live — from a scaffold placed around the model to a property the training instils — and the second supplies the archive's clearest evidence that RLVR buys something real with the trajectory diversity it spends.",
+  "definition": "Abandoning a line of reasoning and returning to an earlier state, and across 4 sources both a search primitive and a behaviour that training can install. As a primitive it is one of the two things a tree search adds over a chain -- lookahead and backtracking -- and one archived agent makes it a first-class action alongside reflection in an explicitly reversible trajectory tree, where the component ablation finds the two load-bearing and not interchangeable (removing reflection costs 15.31 average F1, removing backtracking 13.06), which those authors read as knowing the state is unreliable being different from being able to discard it. As an installed behaviour it is what verifiable-reward training measurably adds while it prunes diversity elsewhere: the probability of the reversing move at dead ends rises from 0.0068 to 0.1537 and 0.0647 to 0.1687 on two maze models, and recovery from an injected distractor improves by 4.18 to 29.09 points on mathematics. It is also one of the trace dynamics used to detect reasoning failures.",
   "evidence": [
     {
       "id": "arxiv:2305.10601",
@@ -127,7 +129,9 @@
     "qwen3-32b"
   ],
   "related_authored": [
-    "dead-end-recovery"
+    "self-correction",
+    "exploration",
+    "tree-of-thoughts"
   ],
   "schema_version": 1,
   "slug": "backtracking",

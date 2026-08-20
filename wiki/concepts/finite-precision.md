@@ -9,7 +9,7 @@ The bounded number of bits a deployed model actually computes with, which both s
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [circuit complexity](circuit-complexity.md), [effective depth](effective-depth.md), [expressivity](expressivity.md), [generalization](generalization.md), [length generalization](length-generalization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [scaling laws](scaling-laws.md)
+**Related**: [chain of thought](chain-of-thought.md), [circuit complexity](circuit-complexity.md), [effective depth](effective-depth.md), [expressivity](expressivity.md), [generalization](generalization.md), [length generalization](length-generalization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [scaling laws](scaling-laws.md)
 
 ## Appears in
 

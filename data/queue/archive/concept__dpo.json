@@ -3,9 +3,40 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
+        "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Proves that parameterizing an outcome reward as the log-likelihood ratio between a policy and a reference model makes the per-step Q value fall out of the same model for free, so a process reward model can be obtained by training an outcome reward model on response-level labels alone.",
         "title": "Free Process Rewards without Process Labels",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling"
         ]
@@ -15,15 +46,16 @@
         "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
         "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
         "topics": [
+          "reasoning-evaluation",
           "reasoning-training",
           "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:54:43Z",
-  "created_at": "2026-08-09T06:51:54Z",
-  "instructions": "Write the wiki definition for 'DPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:15:20Z",
+  "created_at": "2026-08-20T23:12:40Z",
+  "instructions": "Write the wiki definition for 'DPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DPO",
   "kind": "concept",
   "language": "en",
@@ -32,21 +64,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "DPO",
-    "source_count": 2
+    "source_count": 5
   },
   "result": {
-    "definition": "Direct Preference Optimization, used in this archive as the middle stage of efficiency pipelines rather than for alignment. The pattern in both sources is the same: sample multiple trajectories for a question, keep only those reaching the correct answer, rank them by a redundancy or confidence score, and prefer the leaner one — so the preference signal is constructed from the model's own outputs and carries no human judgement. One ranks correct trajectories by a score combining the fraction of review nodes in a dependency graph with normalized length; the other feeds the model's own self-certainty into the preference so it compresses where it is confident and keeps deliberating where it is not. In both it sits between supervised fine-tuning on pruned traces and a length-penalized reinforcement stage, and in at least one the stage-wise ablation shows it contributes less of the final compression than the stage after it."
+    "aliases": [
+      "Direct Preference Optimization"
+    ],
+    "definition": "Optimising a preference between two responses directly, without a separate reward model, and across 5 sources present mostly as a comparator or a stage rather than as a subject. Two findings. It is data-hungry in a specific way: two responses may not form a usable pair, whereas a cross-entropy alternative keeps improving even at one response per instruction, the extreme unpaired case -- and the same comparison prices the cost, with a rollout-based process reward requiring 38.6 to 38.8 times the FLOPs of the cross-entropy implicit variant and 21.3 to 146.5 times the preference variant depending on rollouts. And as an addition to group-relative training it can hurt: a matched baseline sharing data, rewards, accepted pairs, seed and budget with an unweighted preference term added falls below the base model on four of six medical benchmarks. Its step-level variant appears as the initialisation stage that a self-correction method builds on, and as the baseline that degrades out of distribution on several backbone-benchmark pairs where the method built on it does not.",
+    "kind": "method",
+    "related": [
+      "PPO",
+      "GRPO",
+      "process reward"
+    ]
   },
   "task_id": "concept__dpo",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"
   ]

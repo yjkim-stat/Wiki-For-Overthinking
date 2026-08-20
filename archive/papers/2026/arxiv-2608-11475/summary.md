@@ -46,7 +46,7 @@ Stated: one AlphaFold3-class model, one main sparse-autoencoder recipe, and a li
 
 ## Entities
 
-- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), linear probing, steering vector, [residual stream](../../../../wiki/concepts/residual-stream.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), [annotation incompleteness](../../../../wiki/concepts/annotation-incompleteness.md), selectivity control, sparse dictionary learning, intervention site, [causal intervention](../../../../wiki/concepts/causal-intervention.md)
+- **Concepts**: [detection versus control](../../../../wiki/concepts/detection-versus-control.md), linear probing, steering vector, [residual stream](../../../../wiki/concepts/residual-stream.md), [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), [annotation incompleteness](../../../../wiki/concepts/annotation-incompleteness.md), selectivity control, [sparse dictionary learning](../../../../wiki/concepts/sparse-dictionary-learning.md), intervention site, [causal intervention](../../../../wiki/concepts/causal-intervention.md)
 - **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), [activation steering](../../../../wiki/methods/activation-steering.md), causal intervention, [ablation](../../../../wiki/methods/ablation.md), matched-norm random control, diffusion model, auto-interpretability scoring
 - **Datasets**: DSSP, SwissProt
 

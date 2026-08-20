@@ -3,11 +3,32 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
         "title": "Parameter Exploration for RLVR via Variational Learning",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -15,14 +36,25 @@
         "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
         "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+        "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:58:19Z",
-  "created_at": "2026-08-20T12:50:00Z",
+  "completed_at": "2026-08-20T23:15:20Z",
+  "created_at": "2026-08-20T23:12:40Z",
   "instructions": "Write the wiki definition for 'degenerate generation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "degenerate generation",
   "kind": "concept",
@@ -39,23 +71,26 @@
   },
   "payload": {
     "name": "degenerate generation",
-    "source_count": 2
+    "source_count": 5
   },
   "result": {
     "aliases": [
-      "degeneration",
-      "malformed rollout"
+      "repetition collapse",
+      "looping"
     ],
-    "definition": "Output that continues without arriving anywhere -- repetition to the generation limit, no extractable answer, no termination -- and which both sources treat as a distinct failure requiring its own measurement rather than as low accuracy. Each defines it operationally. In RLVR exploration, a degenerate rollout is one that does not produce an extractable answer at all, and is counted separately from an incorrect one precisely because it buys no learning signal either way; the paper's comparison shows temperature raising produces the most degenerate rollouts because uniform token reordering at high temperature breaks generation, while entropy regularisation escapes degeneracy late in training but buys its diversity mostly through incorrect rollouts instead. In on-policy distillation it is measured as response length together with the percentage of responses containing no boxed answer, and the numbers are large enough to reframe the headline: under strong teacher-student mismatch the baseline produces 22,395-token responses of which 65.5 percent have no answer, against 7,294 tokens and 5.4 percent for the corrected method, so an accuracy gap of 6.9 against 20.3 is substantially a termination gap. The shared lesson is that degeneration is invisible to accuracy and to any local metric, and that a training signal can be improved on paper while making it worse.",
+    "definition": "Output that satisfies a training or selection criterion while being useless -- repetition to the token limit, unterminated generation, loops that maximise agreement. Across 5 sources it is the concrete form the archive's local-metric warning takes. Its instances: a student reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken; a reverse-KL objective collapsing by progressive loss of termination, with generations growing from 2.7 thousand characters to the token ceiling and parsable answers falling from 99 to 33 percent; a policy emitting repetitive tokens to an 8192-token limit under an unconstrained length reward; and a model whose most active reasoning features are suppressed responding by generating 454 percent more tokens of lower-diversity text rather than stopping. Two methodological consequences. Degenerate rollouts must be counted separately from incorrect ones, which one exploration metric does explicitly, because entropy and pass@k cannot distinguish exploration from degeneration. And a terminal check on the whole output is what separates degeneration from success, since every local metric in these cases was satisfied.",
     "kind": "concept",
     "related": [
-      "reward hacking"
+      "reward hacking",
+      "on-policy distillation",
+      "exploration"
     ]
   },
   "task_id": "concept__degenerate-generation",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

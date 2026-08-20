@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Supplying examples in the prompt so the model infers the task without weight updates. Both sources here report that the standard static form has stopped paying on reasoning-specialized models: few-shot chain-of-thought with dataset examples now underperforms simply asking the question -- 74.2% against 86.1% on GSM8K for one model -- and the other treats input-level exemplars as the baseline its in-trace retrieval improves on. The distinction both draw is between retrieving once before generation, where the context is then static, and supplying examples during reasoning, which is what they find still helps.
+Acquiring a task from examples or evidence supplied in the prompt rather than from weight updates, and across 5 sources a mechanism whose limitation the archive's methods are mostly built against: the context is fixed before generation begins. Retrieval and in-context examples are provided once and then static, which several archived systems replace with retrieval interleaved through the trace or with evidence fetched when the reasoning reveals what is needed. One source notes that latent reasoning developed separately from it and proposes injecting learned vectors to strengthen it. The archive's related material bounds what in-context supply achieves relative to training: putting a skill in the prompt during training and withdrawing it at test recovers about a fifth of what distilling the same skill through a teacher branch does, which is the clearest available separation between scaffolding and a change in the weights.
 
 - **Kind**: concept
-- **Also called**: few-shot prompting, in-context learning
+- **Also called**: ICL, few-shot prompting, in-context learning
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 5
 

@@ -4,7 +4,7 @@
     "safety bypass",
     "guardrail bypass"
   ],
-  "definition": "Eliciting behaviour a model was trained to refuse, which in the reasoning-model setting the sources treat as an attack on the reasoning process rather than on the prompt or the output. Two propose defences placed mid-trajectory, one injecting safety reflections at attention-identified points, the other extracting visual intent before generation after finding that risk cues are perceived and then overridden by narrative coherence. The third shows the attack side is far ahead: automated hijacking reaches approaching 100% success within one or a few turns against GPT-o3/o4-mini and Gemini-2.5-Flash, refining attempts from reasoning patterns the target leaks through its own refusals. Its conclusion is that reasoning transparency is itself an exploitable surface.",
+  "definition": "A prompt that induces a model to produce output its alignment training was meant to prevent, and across 6 sources studied here mainly through what defences transfer. The archive's clearest result is that pattern-keyed alignment does not: a model trained on refusals learns which inputs look dangerous rather than what makes them dangerous, and one defence leaves gradient-optimised suffix attacks at 29.50 percent against a base rate of 29.75 -- no effect at all -- while defences supervised on the mechanism of an attack reach 1.25. The two ablations that carry that argument are worth keeping: seeds that actually defeated the teacher are worth about 14.2 points over raw harmful prompts with everything else fixed, and pairing the same successful jailbreaks with a refusal rather than an analysis moves average attack success by 4 points against the analysis's 60. Two cautions. Evaluation is judge-mediated throughout, with one paper's own audit finding two judges disagreeing on 42 percent of the class that determines the score. And a defence that reduces success without closing it should be read as raising cost -- one agentic attack still reaches 18.00 percent while needing nearly twice as many turns.",
   "evidence": [
     {
       "id": "arxiv:2608.03284",
@@ -159,7 +159,11 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "safety-alignment",
+    "gcg",
+    "adversarial-robustness"
+  ],
   "schema_version": 1,
   "slug": "jailbreak",
   "topics": [

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A competition-mathematics contest whose problem sets both sources use as evaluation alongside AIME. One includes it among five mathematics benchmarks on which a categorical-critic PPO variant is measured, where the reported gains hold across the set rather than on one contest. The other includes several of its editions in a released trace corpus, in the block recorded with the richest verifier and token-level signals. Neither studies it; its function is the same as the other competition sets in this archive — to show that a mathematics result is not an artefact of a single contest's style.
+A competition mathematics set used across 5 sources as the harder rung beside the AIME editions in test-time-scaling and distillation suites. Its role in this archive is as a small hard set where differences are large in points and weak in evidence: one distillation study reports it among three thirty-problem sets whose macro average carries a 5.617-point gain with a bootstrap interval spanning 2.592 to 8.333, and one test-time-scaling method reports its largest single benchmark movement on it. Its size is the standing caveat -- a handful of problems separates methods here, so intervals matter more than point estimates. None of the sources describes its construction.
 
 - **Kind**: dataset
-- **Also called**: HMMT Feb'26, HMMT Nov'25, HMMT'25
+- **Also called**: HMMT 2025, HMMT Feb'26, HMMT Nov'25, HMMT'25, HMMT25
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 5
 

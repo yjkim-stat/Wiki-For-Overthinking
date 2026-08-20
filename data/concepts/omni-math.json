@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "OMNI-MATH"
+    "OMNI-MATH",
+    "Omni-MATH",
+    "Omni-MATH-Train"
   ],
-  "definition": "A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics. Neither source characterizes its contents, difficulty range or construction, so nothing further can be stated from the archived material.",
+  "definition": "An olympiad-level mathematics benchmark with an accompanying training split, used across 5 sources as a hard evaluation and, in one case, as the set on which the reasoning-boundary narrowing was measured directly -- pass@1 rising across training steps 150, 300 and 450 while coverage at pass@256 falls. Its other appearances are as an out-of-domain check for quantization, a target for optimal-stopping trace pruning, an evaluation for entropy-control methods, and one of the benchmarks in a reasoning-summary observability ladder. None of the sources describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -153,7 +155,10 @@
     "amc",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "math500",
+    "olympiadbench"
+  ],
   "schema_version": 1,
   "slug": "omni-math",
   "topics": [

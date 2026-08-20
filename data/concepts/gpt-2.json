@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "GPT2"
+    "GPT2",
+    "GPT-2"
   ],
-  "definition": "A small autoregressive language model, used in both sources as the scale at which latent chain-of-thought is trained from scratch rather than as a subject of study. That role matters for how their results should be read: one validates its whole theory of latent reasoning at 124M parameters with six latent steps, which is far below any deployed reasoning model and gives correspondingly low absolute accuracies (42.9% for explicit chain of thought on GSM8K). The other uses it as one of four checkpoints in the fine-tuned regime, where deleting every latent token changes accuracy by at most 1.0 point — 99.0 to 99.0 here. It appears in this archive because latent-reasoning curricula are cheap enough to train at this size and not at any other.",
+  "definition": "The small early transformer, used across 5 sources as the minimal subject where a mechanism can be studied end to end or where a claim about scale needs a floor. Its appearances: as the smallest backbone in a time-series refinement sweep, where it sits within 0.003 MSE of a 7B model and thereby shows the large backbone was close to inert for that task; as a subject in latent chain-of-thought analyses, including one finding that deleting every latent token changes accuracy by at most 1.0 point in the fine-tuned regime; in hidden-state interpretation at scale; and in per-instance multi-layer steering. Its value in the archive is as the model where a null result is most likely to be about the method rather than about capability.",
   "evidence": [
     {
       "id": "arxiv:2608.08675",
@@ -165,7 +166,9 @@
     "imitation-learning",
     "noise-injection-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-2-1b"
+  ],
   "schema_version": 1,
   "slug": "gpt-2",
   "topics": [

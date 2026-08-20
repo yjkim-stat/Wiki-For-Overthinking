@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Gemini 3.1 Pro"
+    "Gemini 3.1 Pro",
+    "Gemini-3.1-Pro"
   ],
-  "definition": "A frontier proprietary model, appearing in both sources as the capable outside system a pipeline depends on rather than as a subject. One uses it as both rubric generator and judge for an RL training loop and reports the dependency as load-bearing: substituting a weaker audio model drops performance on all three benchmarks, in the paper's own words below the vanilla GRPO baseline. The other evaluates it in a large-scale study of judge reliability. Read together they mark a hazard the archive should track — a method whose signal comes from a model the authors neither control nor release is only reproducible while that model is available and unchanged.",
+  "definition": "A frontier model appearing across 5 sources as a generator, a judge and an evaluation target. The archive's most consequential result about it is a dependency rather than a capability: in one rubric-based audio training system, replacing it as generator and judge with a weaker audio model drops performance on all three benchmarks -- in the authors' own words below the vanilla baseline -- with the training curves separating after a brief warmup, which makes that method conditional on a component its authors do not control and cannot release. It also appears as a strong baseline in document and industrial-safety reasoning benchmarks, as a target for reasoning-trace extraction, and in a large-scale evaluation of judge agreement, consistency and bias.",
   "evidence": [
     {
       "id": "arxiv:2608.02831",
@@ -187,7 +188,8 @@
     "kimi-k2-5"
   ],
   "related_authored": [
-    "llm-as-a-judge"
+    "gemini-2-5-pro",
+    "gpt-5"
   ],
   "schema_version": 1,
   "slug": "gemini-3-1-pro",

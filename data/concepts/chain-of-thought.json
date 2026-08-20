@@ -5,9 +5,10 @@
     "rationale",
     "scratchpad",
     "intermediate steps",
-    "reasoning trace"
+    "reasoning trace",
+    "derivational trace"
   ],
-  "definition": "Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it in three distinct roles. As a computational device: each emitted token re-enters the input, so generation raises usable depth, and the archived complexity results characterize exactly what that buys — logarithmic steps add essentially nothing, linear steps allow simulating recurrence and all regular languages, polynomial steps reach exactly P. As a learning device: CoT changes Parity's generalization bound from exponential to linear in reasoning length, and costs only logarithmically more in sample complexity, so long chains are statistically cheap. As a readable artefact: monitors, faithfulness probes and unlearning interventions all read or edit the trace, and it is here that the archive's evidence is least comfortable — traces causally shape outputs while models decline to report that influence. The three roles come apart, which is why a claim that CoT 'helps' has to say which one it means.",
+  "definition": "The intermediate tokens a model emits before its answer, and across 23 sources an object the archive is careful to describe rather than to interpret -- one source proposes 'derivational trace' as a neutral stand-in precisely because reading these tokens as reasoning is unsupported by the available evidence and, it argues, actively harmful. What is established is largely formal and negative. Formally, generating intermediate tokens lifts the expressive ceiling of a bounded-depth transformer, with the number of steps tied to a circuit class; one archived construction realises graph traversal in two layers and a linear-step branching measure without layer normalisation, and another shows a sharpness-based bound growing linearly rather than exponentially in the relevant parameter for a parity family. Empirically the trace and the answer are separate information channels: content present in one can be absent from the other in both directions, traces can be swapped between problems or deleted with the answer unchanged, and post-training that improves accuracy need not improve the trace's semantic validity. The corpus's practical positions are that the trace is useful as a consistency check against the answer rather than as an account of computation, that its length is a compute knob with a bend in the curve, and that a large fraction of it is redundant -- with the caveat from a head-to-head comparison that redundancy is diffuse rather than located in any identifiable class of step.",
   "evidence": [
     {
       "id": "arxiv:2203.14465",
@@ -149,7 +150,7 @@
     }
   ],
   "first_seen": "2026-08-08T02:45:49Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T12:09:06Z",
   "name": "chain of thought",
   "related": [
@@ -446,7 +447,11 @@
     "lego-state-tracking",
     "lego"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-faithfulness",
+    "latent-reasoning",
+    "test-time-scaling"
+  ],
   "schema_version": 1,
   "slug": "chain-of-thought",
   "topics": [

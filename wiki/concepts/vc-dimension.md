@@ -8,7 +8,7 @@ The largest number of points a hypothesis class can label in every possible way,
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](../methods/chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit complexity](circuit-complexity.md), [compositionality](compositionality.md), [expressivity-learnability gap](expressivity-learnability-gap.md), [generalization](generalization.md), [hard attention](../methods/hard-attention.md), [identifiability](identifiability.md), [sample complexity](sample-complexity.md), [teacher forcing](../methods/teacher-forcing.md)
+**Related**: [chain of thought](chain-of-thought.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit complexity](circuit-complexity.md), [compositionality](compositionality.md), [expressivity-learnability gap](expressivity-learnability-gap.md), [generalization](generalization.md), [hard attention](../methods/hard-attention.md), [identifiability](identifiability.md), [sample complexity](sample-complexity.md), [teacher forcing](../methods/teacher-forcing.md)
 
 ## Appears in
 

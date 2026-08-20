@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A multi-hop question-answering set used by both sources as held-out evaluation rather than training data, to test whether a search policy trained elsewhere transfers. It produces the widest disagreement of any benchmark they share: in one, the proposed method reaches 59.0 F1 while two baselines reach 69.0 and 68.9, so it is lost by about ten points; in the other, the proposed method's 74.6 EM is its only outright per-benchmark win, ahead of the same family of baselines at 68.9. Both papers nonetheless report a higher overall average than those baselines, which makes this set the clearest case in the archive of a macro-average concealing where a method actually stands.
+A small multi-hop question-answering set used across 4 sources as the out-of-domain member of the search-agent evaluation suite -- the benchmark none of these methods trains on. Its role is accordingly as the place where a macro average's weakness shows: one archived method's deficit against two baselines on it is visible in the main table and not discussed, which the archive records as an instance of a per-benchmark loss surviving inside an average that improves. None of the sources describes its construction or size.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)

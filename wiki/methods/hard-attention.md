@@ -9,7 +9,7 @@ An idealisation of attention in which a head selects a single position rather th
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [chain of thought](chain-of-thought.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [circuit complexity](../concepts/circuit-complexity.md), [compositionality](../concepts/compositionality.md), [expressivity-learnability gap](../concepts/expressivity-learnability-gap.md), [generalization](../concepts/generalization.md), [sample complexity](../concepts/sample-complexity.md), [teacher forcing](teacher-forcing.md), [VC dimension](../concepts/vc-dimension.md)
+**Related**: [chain of thought](../concepts/chain-of-thought.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [circuit complexity](../concepts/circuit-complexity.md), [compositionality](../concepts/compositionality.md), [expressivity-learnability gap](../concepts/expressivity-learnability-gap.md), [generalization](../concepts/generalization.md), [sample complexity](../concepts/sample-complexity.md), [teacher forcing](teacher-forcing.md), [VC dimension](../concepts/vc-dimension.md)
 
 ## Appears in
 
