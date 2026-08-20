@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A GPT-5.6 variant appearing twice in this archive, in both cases as a component rather than a subject. It is one of the judge models in a robot-autonomy verification ensemble that gates plans before execution, where the reported finding is that ensemble accuracy stays within 0.76 to 0.78 from one judge to seven. It also appears in the cross-model compatibility map of the reasoning-trace extraction work, in the group whose encrypted reasoning can be replayed into every other member of the GPT-5.6 series and which can consume the traces of all earlier generations. Neither source reports a capability result attributed to it.
 
 - **Kind**: model
-- **Also called**: GPT-5.6-terra
+- **Also called**: GPT-5.6 Terra, GPT-5.6-terra
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [class imbalance](../concepts/class-imbalance.md), [Claude Haiku 4.5](claude-haiku-4-5.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Claude Sonnet 4.6](claude-sonnet-4-6.md), [Gemini-3.1-Pro](gemini-3-1-pro.md), [Gemini-3.5-Flash](gemini-3-5-flash.md), [GPT-5](gpt-5.md), [gpt-5.6-luna](gpt-5-6-luna.md), [GPT-5.6-Sol](gpt-5-6-sol.md), [GPT-5-mini](gpt-5-mini.md), [GPT o3](gpt-o3.md), [Humanity's Last Exam](../datasets/humanity-s-last-exam.md), [jury aggregation](../concepts/jury-aggregation.md), [knowledge distillation](../methods/knowledge-distillation.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [macro versus micro accuracy](../concepts/macro-versus-micro-accuracy.md), [monitorability](../concepts/monitorability.md), [o4-mini](o4-mini.md), [persistent semantic entity](../concepts/persistent-semantic-entity.md), [prompt injection](../methods/prompt-injection.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [self-consistency](../methods/self-consistency.md)
+**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [chain of thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [class imbalance](../concepts/class-imbalance.md), [Claude Haiku 4.5](claude-haiku-4-5.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Claude Sonnet 4.6](claude-sonnet-4-6.md), [Gemini-3.1-Pro](gemini-3-1-pro.md), [Gemini-3.5-Flash](gemini-3-5-flash.md), [GPT-5](gpt-5.md), [gpt-5.6-luna](gpt-5-6-luna.md), [GPT-5.6-Sol](gpt-5-6-sol.md), [GPT-5-mini](gpt-5-mini.md), [GPT o3](gpt-o3.md), [Humanity's Last Exam](../datasets/humanity-s-last-exam.md), [jury aggregation](../methods/jury-aggregation.md), [knowledge distillation](../methods/knowledge-distillation.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [macro versus micro accuracy](../concepts/macro-versus-micro-accuracy.md), [monitorability](../concepts/monitorability.md), [o4-mini](o4-mini.md), [persistent semantic entity](../concepts/persistent-semantic-entity.md), [prompt injection](../concepts/prompt-injection.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [self-consistency](../methods/self-consistency.md)
 
 ## Appears in
 

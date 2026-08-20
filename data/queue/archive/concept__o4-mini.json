@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:28Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'o4-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "o4-mini",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "o4-mini",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A small OpenAI reasoning model appearing twice in this archive as a subject of evaluation. In the translation-quality benchmark it is one of over twenty models scored as MQM judges under a single prompt, in a study whose headline findings are that reasoning models make the best judges, that a jury of different ones beats any member, and that the field's standard prompt is specialised to the model it was written for. In the reasoning-trace extraction work it appears in the cross-model compatibility map -- its encrypted traces are replayable by the newer GPT-5.6 series but it accepts only its own -- and it is the model used to capture a reasoning block that had internalised an instruction, which was then replayed into a much larger sibling on an unrelated task. Neither source describes the model itself.",
+    "kind": "model",
+    "related": [
+      "gpt-o3"
+    ]
   },
   "task_id": "concept__o4-mini",
   "task_version": 1,

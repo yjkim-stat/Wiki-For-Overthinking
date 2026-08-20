@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Supervising a student on prefixes drawn from its own rollouts using a teacher's distribution over the next token, so the student is trained on the states it will actually visit rather than on a teacher's trajectory. Both sources here attack the same weakness from different sides: the objective is token agreement, and agreement is not the quantity anyone wants. One shows it can be satisfied by degeneration -- a student reaching near-perfect agreement by looping while the response is globally broken -- and decomposes the mismatch instead into student-excess tokens, whose log-ratio corrections grow unbounded and destabilise the update, and student-deficit tokens, which the student almost never samples so no on-policy update reaches them, with 95.5 percent of deficit positions having under a one percent chance of appearing in sampled supervision. The other keeps the objective and changes what the teacher is: conditioning it on the student's completed trajectory and verified outcome, preserving behaviour on successes and redirecting failures toward verified success, while leaving the student's prefixes and its prefix-only interface untouched. That paper also supplies the setting's formal boundary -- forward-KL distillation provably targets the teacher's conditional mean given the prefix, so trajectory-specific variation stays privileged and cannot be transferred to a student that must act from its current prefix.
 
 - **Kind**: method
+- **Also called**: OPSD, on-policy self-distillation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 

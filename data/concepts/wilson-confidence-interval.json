@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Wilson score interval"
+  ],
+  "definition": "A confidence interval for a binomial proportion that stays inside [0,1] and behaves sensibly at small counts and extreme rates, where the normal approximation does not. Both sources use it for the same purpose, which is to stop a small-sample proportion from being read as a ranking. The agent-contamination work reports every rate with a Wilson interval and leans on them to state what its data cannot support -- a persistence rate of 10/10 at turn 10 carries the interval [0.72, 1.00] and a 0/10 rate carries [0, 0.28], which is why the paper claims neither unbounded persistence nor cross-family generality. The ARC work uses them the same way and is explicit that ten tasks per concept family gives a profile rather than a reliable ranking, since the intervals for 9/10 and 2/10 overlap broadly (59.6-98.2 percent against 5.7-51.0). Neither source studies the estimator; between them they establish the practice the archive should expect, which is that a proportion measured on tens of items is reported with its interval or not reported as a comparison.",
   "evidence": [
     {
       "id": "arxiv:2608.07952",
@@ -94,7 +96,9 @@
     "trm",
     "hrm-text"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "bootstrap-confidence-intervals"
+  ],
   "schema_version": 1,
   "slug": "wilson-confidence-interval",
   "topics": [

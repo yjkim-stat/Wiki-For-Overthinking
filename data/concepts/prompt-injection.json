@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Placing instructions in content a model will read, so that it acts on them as if they were its own or the user's. These sources are useful together because they mark its boundaries rather than restate it. One defines the boundary against a related class: classical prompt injection is bounded by a single context window, whereas state that persists through name binding and event triggering outlives the originating context, which shifts defences from the prompt level to the architectural. The second shows the most consequential version of that -- a payload carried entirely inside an encrypted reasoning block, which transfers across model scales and unrelated tasks and leaves no plaintext artifact, so it is invisible both to the user and to any monitor inspecting only the observable conversation. The third contributes the defensive side and a measured one: a deterministic screener over normalised views of an input, combining a confidence-annotated regex library with fuzzy matching, reaches 0.89 F1 on a curated injection set at its best threshold, and is deliberately wired to warn a downstream judge rather than to decide -- the design choice that keeps a cheap high-precision signal from becoming a single point of failure.",
   "evidence": [
     {
       "id": "arxiv:2608.07952",
@@ -22,7 +22,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:24:18Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T12:55:26Z",
   "name": "prompt injection",
   "related": [
@@ -131,7 +131,9 @@
     "kimi-k3",
     "inkling"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "jailbreak"
+  ],
   "schema_version": 1,
   "slug": "prompt-injection",
   "topics": [

@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:06:08Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'GPT-5-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPT-5-mini",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "GPT-5-mini",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "GPT-5-mini"
+    ],
+    "definition": "A small GPT-5 variant appearing twice in this archive as a panel member. In the observability-ladder work it is among the models whose completed reasoning runs are held fixed while what a monitor may inspect is varied, producing that paper's finding that a self-summary's value nearly vanishes once the monitor already has the prompt. In the reasoning-trace extraction work it appears in the cross-model compatibility map, where the GPT-5 generation's traces are replayable by the newer series but not the reverse. Neither source reports a result attributed to it individually or describes the model.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__gpt-5-mini",
   "task_version": 1,

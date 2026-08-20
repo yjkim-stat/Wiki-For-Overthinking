@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An OpenAI reasoning model appearing twice in this archive, in both cases in a safety-adjacent setting. It is one of the judge models in a robot-autonomy verification ensemble that gates proposed plans before execution, where the paper's own sweep shows ensemble accuracy essentially flat from one judge to seven. It is separately one of the targets in AutoRAN, which automates the hijacking of a reasoning model's safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals. Neither source characterises the model beyond its behaviour in those settings.
 
 - **Kind**: model
-- **Also called**: GPT-o3
+- **Also called**: GPT o3, GPT-o3, o3
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [class imbalance](../concepts/class-imbalance.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Gemini-2.5-Flash](gemini-2-5-flash.md), [GPT-5.6 Terra](gpt-5-6-terra.md), [HarmBench](../datasets/harmbench.md), [jailbreak](../concepts/jailbreak.md), [jury aggregation](../concepts/jury-aggregation.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [macro versus micro accuracy](../concepts/macro-versus-micro-accuracy.md), [monitorability](../concepts/monitorability.md), [prompt injection](../methods/prompt-injection.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [self-consistency](../methods/self-consistency.md)
+**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [class imbalance](../concepts/class-imbalance.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Gemini-2.5-Flash](gemini-2-5-flash.md), [GPT-5.6 Terra](gpt-5-6-terra.md), [HarmBench](../datasets/harmbench.md), [jailbreak](../concepts/jailbreak.md), [jury aggregation](../methods/jury-aggregation.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [macro versus micro accuracy](../concepts/macro-versus-micro-accuracy.md), [monitorability](../concepts/monitorability.md), [o4-mini](o4-mini.md), [prompt injection](../concepts/prompt-injection.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [self-consistency](../methods/self-consistency.md)
 
 ## Appears in
 

@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "multi-model jury",
+    "judge ensemble"
+  ],
+  "definition": "Combining verdicts from several judge models rather than sampling one judge repeatedly, on the argument that different models cancel each other's biases where repeated samples of one model do not. The translation-quality work supports it directly: a jury of different reasoning models beats a jury of repeated samples from a single model and exceeds every individual member at segment level, and its inter-judge agreement is then reused as a data filter, keeping segments where the jury's scores span zero and discarding wider spreads, with the resulting annotations distilled into a 12B student that beats every open reasoning-model judge tested. The robot-plan verification work is the counterweight and is more equivocal: scaling the ensemble from one judge to seven moves aggregate accuracy only from 0.76 to 0.78, and the disaggregated picture shows what more judges actually buy -- reject-class F1 rises monotonically from 0.81 to 0.86 while accept recall falls, so the ensemble converges on refusing. Read together the sources suggest a jury's value lies in diversity of model rather than in count, and that adding members can move the operating point toward conservatism rather than improving discrimination.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-13T01:53:45Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T12:55:26Z",
   "name": "jury aggregation",
   "related": [
@@ -80,7 +83,9 @@
     "gpt-o3",
     "gemma-4-26b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency"
+  ],
   "schema_version": 1,
   "slug": "jury-aggregation",
   "topics": [

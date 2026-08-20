@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "looped transformer",
+    "recursive depth"
+  ],
+  "definition": "Applying a shared block repeatedly to a latent state so that effective computational depth is decoupled from parameter count, with reasoning happening as refinement of a state rather than as generated tokens. The two sources instantiate it differently and reach different conclusions about what it buys. One bolts a small trainable recurrent block between a frozen 1.1B model's body and its output head, with a tripartite state -- a frozen semantic anchor that cannot drift however deep the recursion goes, an answer state, and a latent scratchpad -- residual refinement so each step adds a delta rather than regenerating, and adaptive halting whose reported depth rises with task difficulty (3.6 steps on the easiest of its four sets, 7.8 on the hardest). The other combines recurrent memory updated by in-context demonstrations with iterative latent computation, and reports 29.5 percent pass@2 on ARC-AGI-1 at $0.0007 per task from 150M parameters, with accuracy rising monotonically as the latent reasoning effort is increased. The archive's reading of the first records a caveat that bears on both: its comparison trains on each dataset's training split while the language-model numbers it is compared against are few-shot, so the headline is not like for like.",
   "evidence": [
     {
       "id": "arxiv:2608.08113",
@@ -16,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-13T12:37:19Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T12:55:26Z",
   "name": "recurrent depth",
   "related": [
@@ -70,7 +73,9 @@
     "trm",
     "hrm-text"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-computation-time"
+  ],
   "schema_version": 1,
   "slug": "recurrent-depth",
   "topics": [

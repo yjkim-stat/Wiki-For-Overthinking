@@ -30,6 +30,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:28Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'prompt injection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "prompt injection",
@@ -48,6 +49,14 @@
   "payload": {
     "name": "prompt injection",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Placing instructions in content a model will read, so that it acts on them as if they were its own or the user's. These sources are useful together because they mark its boundaries rather than restate it. One defines the boundary against a related class: classical prompt injection is bounded by a single context window, whereas state that persists through name binding and event triggering outlives the originating context, which shifts defences from the prompt level to the architectural. The second shows the most consequential version of that -- a payload carried entirely inside an encrypted reasoning block, which transfers across model scales and unrelated tasks and leaves no plaintext artifact, so it is invisible both to the user and to any monitor inspecting only the observable conversation. The third contributes the defensive side and a measured one: a deterministic screener over normalised views of an input, combining a confidence-annotated regex library with fuzzy matching, reaches 0.89 F1 on a curated injection set at its best threshold, and is deliberately wired to warn a downstream judge rather than to decide -- the design choice that keeps a cheap high-precision signal from becoming a single point of failure.",
+    "kind": "concept",
+    "related": [
+      "jailbreak"
+    ]
   },
   "task_id": "concept__prompt-injection",
   "task_version": 1,

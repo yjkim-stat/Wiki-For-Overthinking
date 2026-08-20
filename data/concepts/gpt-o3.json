@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "GPT-o3"
+    "GPT-o3",
+    "o3",
+    "GPT o3"
   ],
-  "definition": "",
+  "definition": "An OpenAI reasoning model appearing twice in this archive, in both cases in a safety-adjacent setting. It is one of the judge models in a robot-autonomy verification ensemble that gates proposed plans before execution, where the paper's own sweep shows ensemble accuracy essentially flat from one judge to seven. It is separately one of the targets in AutoRAN, which automates the hijacking of a reasoning model's safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals. Neither source characterises the model beyond its behaviour in those settings.",
   "evidence": [
     {
       "id": "arxiv:2608.09857",
@@ -63,7 +65,9 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "o4-mini"
+  ],
   "schema_version": 1,
   "slug": "gpt-o3",
   "topics": [

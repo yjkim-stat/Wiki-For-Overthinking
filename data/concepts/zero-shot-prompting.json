@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "zero-shot"
+  ],
+  "definition": "Asking a model to do a task with no worked examples in the prompt, and in these sources the baseline whose status has changed. One source measures the reversal directly: few-shot chain-of-thought prompting with dataset exemplars now scores below simply asking a reasoning-specialised model the question -- 74.2 percent against 86.1 on GSM8K for one model -- so the field's standard few-shot baseline systematically understates modern models and overstates anything benchmarked against it. The second uses zero-shot as its only condition, prompting 28 models with one fixed template of game setup, public history and a single perspective-constrained statement, which lets it compare across proprietary and open models without the confound of exemplar choice; it then finds that toggling chain of thought on the same weights changes accuracy by only +1.1 points on average with the sign mixed, while reasoning training on the same base model gives +11.0. Read together they suggest the prompt-side interventions that once carried a result now carry little of one, and that what a model was trained to do dominates what it is asked to do.",
   "evidence": [
     {
       "id": "arxiv:2608.03550",
@@ -63,7 +65,9 @@
     "llama-3-2-1b",
     "olmo-2-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "few-shot-prompting"
+  ],
   "schema_version": 1,
   "slug": "zero-shot-prompting",
   "topics": [

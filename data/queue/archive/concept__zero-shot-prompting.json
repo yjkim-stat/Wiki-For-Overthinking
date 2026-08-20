@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:29Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'zero-shot prompting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "zero-shot prompting",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "zero-shot prompting",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "zero-shot"
+    ],
+    "definition": "Asking a model to do a task with no worked examples in the prompt, and in these sources the baseline whose status has changed. One source measures the reversal directly: few-shot chain-of-thought prompting with dataset exemplars now scores below simply asking a reasoning-specialised model the question -- 74.2 percent against 86.1 on GSM8K for one model -- so the field's standard few-shot baseline systematically understates modern models and overstates anything benchmarked against it. The second uses zero-shot as its only condition, prompting 28 models with one fixed template of game setup, public history and a single perspective-constrained statement, which lets it compare across proprietary and open models without the confound of exemplar choice; it then finds that toggling chain of thought on the same weights changes accuracy by only +1.1 points on average with the sign mixed, while reasoning training on the same base model gives +11.0. Read together they suggest the prompt-side interventions that once carried a result now carry little of one, and that what a model was trained to do dominates what it is asked to do.",
+    "kind": "method",
+    "related": [
+      "few-shot prompting"
+    ]
   },
   "task_id": "concept__zero-shot-prompting",
   "task_version": 1,

@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:29Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'Wilson confidence interval'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Wilson confidence interval",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "Wilson confidence interval",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Wilson score interval"
+    ],
+    "definition": "A confidence interval for a binomial proportion that stays inside [0,1] and behaves sensibly at small counts and extreme rates, where the normal approximation does not. Both sources use it for the same purpose, which is to stop a small-sample proportion from being read as a ranking. The agent-contamination work reports every rate with a Wilson interval and leans on them to state what its data cannot support -- a persistence rate of 10/10 at turn 10 carries the interval [0.72, 1.00] and a 0/10 rate carries [0, 0.28], which is why the paper claims neither unbounded persistence nor cross-family generality. The ARC work uses them the same way and is explicit that ten tasks per concept family gives a profile rather than a reliable ranking, since the intervals for 9/10 and 2/10 overlap broadly (59.6-98.2 percent against 5.7-51.0). Neither source studies the estimator; between them they establish the practice the archive should expect, which is that a proportion measured on tens of items is reported with its interval or not reported as a comparison.",
+    "kind": "method",
+    "related": [
+      "bootstrap confidence intervals"
+    ]
   },
   "task_id": "concept__wilson-confidence-interval",
   "task_version": 1,

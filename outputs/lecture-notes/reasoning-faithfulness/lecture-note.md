@@ -168,10 +168,10 @@ Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviS
 | BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
 | SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
-| ARC-Challenge | 2 | _pending_ |
+| ARC-Challenge | 2 | The harder split of the AI2 Reasoning Challenge, a multiple-choice science question set, used in both sources here as a supporting evaluation rather than a target. In the latent... |
 | BeaverTails | 2 | A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study.... |
 | HarmBench | 2 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
-| Humanity's Last Exam | 2 | _pending_ |
+| Humanity's Last Exam | 2 | A benchmark of expert-level questions used in this archive as the hard end of an evaluation range, where absolute scores are low enough that small movements are hard to read. In... |
 
 ## Reading path
 

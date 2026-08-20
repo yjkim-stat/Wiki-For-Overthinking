@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reasoning about what another agent knows, wants or intends, and in both sources here a capability whose apparent presence in language models has to be argued for rather than read off a score. One argues the gains reasoning models show are increased robustness to prompt and task perturbation rather than a theory-of-mind-specific ability -- the models are better at reaching the correct answer under variation, which reproduces on these tasks without requiring anything new. The other decomposes the capability into a 2x2 taxonomy crossing epistemic against motivational mental states and passive inference against active action, and validates that the decomposition is real by permutation test: item difficulty loads on the epistemic axis (-8.5 pp, p < 0.001) while the benefit of chain-of-thought loads on the orthogonal inference-action axis (-7.9 pp, p = 0.008), a double dissociation. Its central finding is that the failure is one of expression rather than representation -- linear probes recover 77 to 82 percent where the same models' own chain of thought reaches 62 to 70, injecting the ground-truth answer lifts accuracy 12.6 points across all 28 models without ever backfiring, and steering along a class-mean direction lifts output accuracy onto the probe ceiling. Neither source claims models possess theory of mind; both explain a measured score by something other than the capability its name implies.
 
 - **Kind**: concept
+- **Also called**: ToM
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

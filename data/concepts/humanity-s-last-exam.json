@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "HLE"
+  ],
+  "definition": "A benchmark of expert-level questions used in this archive as the hard end of an evaluation range, where absolute scores are low enough that small movements are hard to read. In the rarity-aware credit work it is one of the sets on which a GRPO variant is evaluated. In the reasoning-trace extraction work it supplies the 30 problems -- 15 STEM and 15 non-STEM -- on which partial reasoning prefixes from a frontier model are shown to shift an open model's visible answer style toward the source, with best-of-k n-gram overlap rising 0.15 on STEM and 0.086 on non-STEM against a control in which two open models prefill each other and nothing is significant. Neither source describes the benchmark's construction, and one archived reading elsewhere records a chain-of-thought baseline on it of 3.0 percent, which is the context in which its numbers should be read.",
   "evidence": [
     {
       "id": "arxiv:2608.03467",

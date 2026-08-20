@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The failure mode in which a sparse-autoencoder latent swallows a more specific feature into a more general one, so the specific concept no longer has its own direction and the dictionary's decomposition stops being the one it appears to be. Both sources here treat it as symptomatic of something deeper rather than as a bug to patch. The identifiability work lists it alongside feature splitting, run-to-run variability across seeds and widths, and residual-stream components no known variant captures, as the evidence that a decomposition may be a property of the procedure rather than of the model -- and then argues the non-identifiability behind all of them is structural, since the reconstruction-and-sparsity objective does not enforce the invariance identifiability requires. The set-level instability work supplies the sharpest measurement of the same family of problems: adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the reading of an active set as a bag of composable features. Neither source measures absorption directly; between them they place it as one symptom of dictionaries whose units are not stable under composition or re-training.",
   "evidence": [
     {
       "id": "arxiv:2608.10172",
@@ -63,7 +63,9 @@
     "the-pile",
     "gemma-3-270m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "feature-splitting"
+  ],
   "schema_version": 1,
   "slug": "feature-absorption",
   "topics": [

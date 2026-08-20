@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 2-billion-parameter Qwen model appearing twice in this archive as a small-scale entry. On the theory-of-mind benchmark it sits well down the leaderboard at 54.07 average accuracy, in a field where proprietary reasoning models reach the high eighties and the class means run 84.1 for proprietary, 71.9 for open reasoning and 66.5 for open non-reasoning. In the in-trace retrieval work it is one of the models on which retrieved solved exemplars are injected into the reasoning trace at each step boundary. Neither source reports a mechanism or a capability specific to it.
 
 - **Kind**: model
+- **Also called**: Qwen3.5-2B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (159)
+## Concepts (160)
 
 - [abstention](concepts/abstention.md) — 3 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 17 source(s)
@@ -78,7 +78,6 @@
 - [inverse scaling](concepts/inverse-scaling.md) — 3 source(s)
 - [jailbreak](concepts/jailbreak.md) — 5 source(s)
 - [judge reliability](concepts/judge-reliability.md) — 3 source(s)
-- [jury aggregation](concepts/jury-aggregation.md) — 2 source(s)
 - [KL divergence](concepts/kl-divergence.md) — 4 source(s)
 - [KV cache](concepts/kv-cache.md) — 2 source(s)
 - [latent reasoning](concepts/latent-reasoning.md) — 13 source(s)
@@ -119,6 +118,7 @@
 - [process reward model](concepts/process-reward-model.md) — 9 source(s)
 - [process supervision](concepts/process-supervision.md) — 13 source(s)
 - [prompt difficulty](concepts/prompt-difficulty.md) — 15 source(s)
+- [prompt injection](concepts/prompt-injection.md) — 3 source(s)
 - [prompt sensitivity](concepts/prompt-sensitivity.md) — 5 source(s)
 - [randomized control](concepts/randomized-control.md) — 2 source(s)
 - [reasoning boundary](concepts/reasoning-boundary.md) — 7 source(s)
@@ -127,6 +127,7 @@
 - [reasoning redundancy](concepts/reasoning-redundancy.md) — 15 source(s)
 - [reasoning skeleton](concepts/reasoning-skeleton.md) — 3 source(s)
 - [reasoning trajectory](concepts/reasoning-trajectory.md) — 11 source(s)
+- [recurrent depth](concepts/recurrent-depth.md) — 2 source(s)
 - [representation versus readout](concepts/representation-versus-readout.md) — 5 source(s)
 - [reproducibility](concepts/reproducibility.md) — 5 source(s)
 - [residual stream](concepts/residual-stream.md) — 13 source(s)
@@ -172,7 +173,7 @@
 - [verification](concepts/verification.md) — 16 source(s)
 - [visual grounding](concepts/visual-grounding.md) — 3 source(s)
 
-## Methods (123)
+## Methods (122)
 
 - [ablation](methods/ablation.md) — 6 source(s)
 - [activation patching](methods/activation-patching.md) — 18 source(s)
@@ -223,6 +224,7 @@
 - [GSPO](methods/gspo.md) — 2 source(s)
 - [importance sampling](methods/importance-sampling.md) — 3 source(s)
 - [Jaccard similarity](methods/jaccard-similarity.md) — 2 source(s)
+- [jury aggregation](methods/jury-aggregation.md) — 2 source(s)
 - [KL regularization](methods/kl-regularization.md) — 5 source(s)
 - [KL-Cov](methods/kl-cov.md) — 4 source(s)
 - [knowledge distillation](methods/knowledge-distillation.md) — 9 source(s)
@@ -260,10 +262,8 @@
 - [preference optimization](methods/preference-optimization.md) — 5 source(s)
 - [PRIME](methods/prime.md) — 3 source(s)
 - [process evaluation](methods/process-evaluation.md) — 7 source(s)
-- [prompt injection](methods/prompt-injection.md) — 3 source(s)
 - [ReAct](methods/react.md) — 3 source(s)
 - [reasoning distillation](methods/reasoning-distillation.md) — 7 source(s)
-- [recurrent depth](methods/recurrent-depth.md) — 2 source(s)
 - [REINFORCE](methods/reinforce.md) — 5 source(s)
 - [reinforcement learning](methods/reinforcement-learning.md) — 2 source(s)
 - [reinforcement learning post-training](methods/reinforcement-learning-post-training.md) — 6 source(s)

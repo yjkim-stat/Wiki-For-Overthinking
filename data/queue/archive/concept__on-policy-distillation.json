@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:28Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'on-policy distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "on-policy distillation",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "on-policy distillation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "OPSD",
+      "on-policy self-distillation"
+    ],
+    "definition": "Supervising a student on prefixes drawn from its own rollouts using a teacher's distribution over the next token, so the student is trained on the states it will actually visit rather than on a teacher's trajectory. Both sources here attack the same weakness from different sides: the objective is token agreement, and agreement is not the quantity anyone wants. One shows it can be satisfied by degeneration -- a student reaching near-perfect agreement by looping while the response is globally broken -- and decomposes the mismatch instead into student-excess tokens, whose log-ratio corrections grow unbounded and destabilise the update, and student-deficit tokens, which the student almost never samples so no on-policy update reaches them, with 95.5 percent of deficit positions having under a one percent chance of appearing in sampled supervision. The other keeps the objective and changes what the teacher is: conditioning it on the student's completed trajectory and verified outcome, preserving behaviour on successes and redirecting failures toward verified success, while leaving the student's prefixes and its prefix-only interface untouched. That paper also supplies the setting's formal boundary -- forward-KL distillation provably targets the teacher's conditional mean given the prefix, so trajectory-specific variation stays privileged and cannot be transferred to a student that must act from its current prefix.",
+    "kind": "method",
+    "related": [
+      "forward KL divergence"
+    ]
   },
   "task_id": "concept__on-policy-distillation",
   "task_version": 1,

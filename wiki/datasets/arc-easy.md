@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The easier split of the AI2 Reasoning Challenge, appearing in this archive twice as a general-knowledge evaluation set. In the dense-lens work it is one of five corpora -- with the Pile, 2WikiMultiHopQA, SciQ and WikiText-2 -- over which trained lenses are fitted and evaluated, and the setting where a lens-based prompt-injection detector at 70B catches attacks an untrained logit lens misses (0.80 against 0.68). In the agent-channel compression study it is one of nine benchmarks, and the one where accuracy rises under compression, from 75.46 to 78.96 -- which that paper reads as evidence its per-task movements are noise rather than as an effect. Neither source describes the benchmark itself.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)

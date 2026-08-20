@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A safety test set built around benign prompts that superficially resemble harmful ones, so that it measures over-refusal rather than compliance. Both sources use it in that role. The latent-guard work includes it among ten evaluation sets for a safety classifier whose textual rationales are compressed into continuous latent states, where the point of the set is to check that efficiency gains do not come from a guard that simply refuses more. The steering-safety work is the more direct use: it evaluates whether a steering vector's sanitised form increases false refusals on benign prompts, with the tolerance on that constraint set to exactly zero -- so XSTest-style prompts define one of the two constraints the method's optimisation must satisfy rather than a metric reported afterwards. Neither source describes the set's construction; in this archive it functions as the standing check that a safety intervention has not simply moved the threshold.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)

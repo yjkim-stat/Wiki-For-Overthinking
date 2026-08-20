@@ -11,17 +11,17 @@
       },
       {
         "kind": "paper",
-        "note": "Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.",
-        "title": "Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders",
+        "note": "Argues run-to-run feature consistency should be a standard SAE evaluation axis alongside reconstruction and sparsity, and gives a metric showing high consistency is achievable.",
+        "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
         "topics": [
           "reasoning-interpretability"
         ]
       }
     ]
   },
-  "created_at": "2026-08-20T13:04:05Z",
-  "instructions": "Write the wiki definition for 'feature absorption'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "feature absorption",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Write the wiki definition for 'feature consistency'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "feature consistency",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -35,10 +35,10 @@
     ]
   },
   "payload": {
-    "name": "feature absorption",
+    "name": "feature consistency",
     "source_count": 2
   },
-  "task_id": "concept__feature-absorption",
+  "task_id": "concept__feature-consistency",
   "task_version": 1,
   "topics": [
     "reasoning-interpretability"

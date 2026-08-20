@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "macro-F1 versus micro-F1"
+  ],
+  "definition": "Whether a summary score weights each example equally (micro) or each class or category equally (macro), and in both sources here the choice changes the ranking rather than merely the number. On the industrial-safety benchmark, a fine-tuned 9B model takes the highest micro accuracy at 89.0 percent, slightly above the strongest frontier model's 88.7, while that frontier model's sibling takes the best macro at 89.5 against the fine-tuned model's 88.7 -- so the fine-tuned system is the best overall and the least uniform across categories, and reporting one number would have concealed which. In the robot-plan verification work the divergence is sharper: weighted metrics favour the seven-judge ensemble while macro-F1, which weights each decision class equally regardless of its support, peaks at three judges, and the paper takes that as the argument for the smaller ensemble. Neither source treats the distinction as a subject; between them they establish the practical rule, that where class support is unequal the two orderings are different claims and a paper reporting only the support-weighted one has not shown that its system is good at the rare class.",
   "evidence": [
     {
       "id": "arxiv:2608.09230",
@@ -83,7 +85,9 @@
     "gpt-o3",
     "gemma-4-26b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "class-imbalance"
+  ],
   "schema_version": 1,
   "slug": "macro-versus-micro-accuracy",
   "topics": [

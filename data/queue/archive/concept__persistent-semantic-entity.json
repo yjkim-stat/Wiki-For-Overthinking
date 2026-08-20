@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:07:28Z",
   "created_at": "2026-08-20T13:00:03Z",
   "instructions": "Write the wiki definition for 'persistent semantic entity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "persistent semantic entity",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "persistent semantic entity",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "PSE"
+    ],
+    "definition": "Implicit agent state that survives past the session it was created in, defined by its originating paper as a triple of name binding (behaviour registered under a string identifier), event triggering (activation through implicit runtime events rather than explicit invocation) and propagation (one trigger cascading across tool, agent and session boundaries). What distinguishes it from memory leaks or caching artifacts is that it operates at the semantic level, through names and events rather than explicit data flow, so conventional debugging does not see it -- standard logging captures 25 percent of the relevant state against 75 percent for logging that also records registry operations and event triggers. Its mechanism ablation is unusually clean: name binding alone produces 95 and 45 percent contamination on two models while every configuration without it is exactly zero, though the authors note that removing it also removes the injection vector, so it is established as necessary without being isolated as the unique lever. The second source is the same phenomenon in production infrastructure rather than in a constructed setting: encrypted reasoning blocks returned to clients are not bound to a session, user or model, so a block carrying an internalised instruction can be replayed into a different session and be treated as the model's own prior reasoning.",
+    "kind": "concept",
+    "related": [
+      "memory poisoning"
+    ]
   },
   "task_id": "concept__persistent-semantic-entity",
   "task_version": 1,

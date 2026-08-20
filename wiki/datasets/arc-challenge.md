@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The harder split of the AI2 Reasoning Challenge, a multiple-choice science question set, used in both sources here as a supporting evaluation rather than a target. In the latent-credit work it is one of the benchmarks on which a thought-level advantage estimate for continuous latent reasoning is measured; in the agent-channel compression study it is one of nine benchmarks over which a sparse reconstruction of the communication tensor is scored, moving from 62.12 to between 61.18 and 64.85 across compression settings -- movements that paper itself declines to interpret, since they are single-run point estimates with no paired uncertainty. Neither source describes the benchmark's construction or reports a finding about it.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md)
