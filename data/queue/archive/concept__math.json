@@ -7,8 +7,130 @@
         "title": "s1: Simple test-time scaling",
         "topics": [
           "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
-          "reasoning-faithfulness"
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Estimates what a continuous latent thought is worth by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, then credits latent positions with the resulting thought-level advantage and answer positions with the ordinary group-relative one.",
+        "title": "Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+        "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+        "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+        "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tests whether systems that translate natural-language reasoning steps into Lean preserve invalidity as well as validity, by automatically perturbing steps to make them wrong, and finds pervasive silent correction -- with the systems best at preserving valid inputs the most likely to repair invalid ones.",
+        "title": "FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -17,8 +139,10 @@
         "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
         "topics": [
           "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
-          "reasoning-faithfulness"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -27,8 +151,34 @@
         "title": "Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning",
         "topics": [
           "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
-          "reasoning-faithfulness"
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACED scores a reasoning chain by the geometry of its hidden-state trajectory -- net displacement as progress and curvature as stability -- and uses the two as features for a Gaussian classifier that separates correct from incorrect chains without reading the text.",
+        "title": "Beyond Scalars: Evaluating and Understanding LLM Reasoning via Geometric Progress and Stability",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -37,8 +187,10 @@
         "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning",
         "topics": [
           "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
-          "reasoning-faithfulness"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -47,15 +199,17 @@
         "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
         "topics": [
           "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
-          "reasoning-faithfulness"
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:56Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'MATH'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:56:48Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'MATH'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "MATH",
   "kind": "concept",
   "language": "en",
@@ -64,22 +218,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "MATH",
-    "source_count": 5
+    "source_count": 17
   },
   "result": {
-    "definition": "The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-hard evaluation set: a model finetuned on 1,000 curated traces with budget forcing exceeds o1-preview by up to 27% on it together with AIME24; a hundred sampled problems serve as the inference-time selection testbed where entropy-instability filtering reaches 62.3% against 54.0% for the next-best confidence measure; and its training split is where thinking tokens are mined offline before being triggered on surface form at inference. Note that this entry and MATH500 name the same underlying benchmark at different sizes, harvested separately because the archived summaries referred to them differently."
+    "aliases": [],
+    "definition": "A competition mathematics benchmark used across 17 sources, most often as a training corpus and as the full set from which the 500-problem evaluation subset is drawn. In the archive it appears mainly as one column among five or seven, and the useful observations about it are comparative. It is where per-benchmark orderings most often contradict the average: one method with the best overall score loses it narrowly (67.22 against 67.40) while winning three others, and another reports its baseline taking it at one scale (84.0 against 84.2) while the average goes the other way. Ablations are task-dependent on it in a way that is informative -- on one method the largest loss on a grade-school set is removing thought-matching while on this one it is removing the latent thought entirely, so what a component contributes depends on the difficulty of the set it is measured on. Several sources train on it and evaluate transfer elsewhere, which means their generalisation claims rest on a mathematics-only training distribution; a number of them say so explicitly as a limitation.",
+    "kind": "dataset",
+    "related": [
+      "MATH500",
+      "GSM8K"
+    ]
   },
   "task_id": "concept__math",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

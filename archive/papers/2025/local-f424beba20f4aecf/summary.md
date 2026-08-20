@@ -43,7 +43,7 @@ The guarantee needs the unknown distribution to lie in a known family F admittin
 
 ## Entities
 
-- **Concepts**: [optimal stopping](../../../../wiki/concepts/optimal-stopping.md), Pandora's box, fair-cap value, [test-time compute](../../../../wiki/concepts/test-time-compute.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), regret, best-of-n, reward model calibration, [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md)
+- **Concepts**: [optimal stopping](../../../../wiki/concepts/optimal-stopping.md), Pandora's box, fair-cap value, [test-time compute](../../../../wiki/concepts/test-time-compute.md), adaptive compute allocation, regret, best-of-n, reward model calibration, [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md)
 - **Methods**: UCB Pandora's Box, Weitzman's algorithm, [best-of-n](../../../../wiki/methods/best-of-n.md), Bradley-Terry transformation, anytime-valid confidence sequences
 - **Datasets**: AlpacaFarm, HH-RLHF
 

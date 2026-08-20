@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Qwen3-4B-Base"
+    "Qwen3-4B-Base",
+    "Qwen3-4B",
+    "Qwen3-4B-Thinking"
   ],
-  "definition": "A small reasoning model, and the most heavily used single checkpoint in this archive's recent readings — three sources apply quite different instruments to it. One ternarizes it and makes it the model on which the whole calibration finding rests: the same quantization procedure yields 0.00 or 58.40 on Math-500 depending only on whether the calibration text contains the model's own reasoning traces. One includes it in an observability sweep asking what a monitor can read from its traces. One steers it by hidden-state L2 norm, lifting AIME24 from 60.00 to 70.00, and reports the sensitivity that matters more — replacing the adaptive threshold with a fixed one collapses that to 23.33. Its recurrence is itself informative: it is small enough to sweep exhaustively and capable enough that interventions move it, which is what makes a checkpoint become a de facto testbed.",
+  "definition": "A 4B Qwen3 model, used across 13 sources as the middle rung of the size ladder and, in several, as the scale at which a method's advantage is largest. That pattern is worth reading carefully: one privileged-distillation study reports gains over its baseline of +2.46, +4.85 and +12.01 at 0.6B, 1.7B and 4B and explicitly declines to call the trend a scaling law, and the same study notes its 4B baseline scores below zero-shot on one benchmark, so part of the margin there is a baseline damaged by its own training. It is also the model on which several archived methods report their best absolute numbers and on which one steering audit's apparent scale trend dissolves under calibration. Its thinking-mode variant appears in test-time-scaling comparisons. Beyond training, it is a standard subject for quantization, reasoning-summary observability, hallucination detection and hidden-state norm analysis.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -377,7 +379,10 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-1-7b",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b",
   "topics": [

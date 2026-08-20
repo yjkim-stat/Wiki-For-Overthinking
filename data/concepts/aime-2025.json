@@ -5,7 +5,7 @@
     "AIME'25",
     "AIME2025"
   ],
-  "definition": "The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training cutoff of several base models under study, so a gap appearing on AIME 2025 and not on AIME 2024 is evidence about memorization rather than reasoning. One source uses it exactly that way, reporting its clearest separation between a base and an RLVR model there and attributing that to freedom from unintentional contamination. Otherwise it serves alongside AIME 2024 across the entropy, early-stopping and compression work, and inherits the same caveat: 30 problems means one item moves the score by more than three points. A pattern worth noting is that AIME 2025 gains are frequently the larger of the pair for the same method — +11.04 against +7.71 for high-entropy token selection at 32B, for instance — which is consistent either with the contamination reading or with less headroom remaining on the older set.",
+  "definition": "Thirty problems from the 2025 American Invitational Mathematics Examination, used across 38 sources as the harder and less contaminated companion to the 2024 edition. Its release after many base models' training cutoffs is the property that makes it distinctive rather than redundant: one source attributes the sharpest gap in its pass@k-versus-CoT-pass@k comparison to exactly that freedom from contamination. It is where test-time-scaling methods report their largest margins -- one reaches +13.4 points on it against small gains on easier sets, and a sequential-scaling baseline plateaus around 22 percent at 8K thinking tokens and does not improve at 32K while the compared method climbs to 35.6. That same source states the arithmetic honestly: 30 problems means +13.4 is four problems even at three seeds. The archive should also carry that internal signals behave differently here than on its 2024 sibling: Spearman correlation between one entropy diagnostic and average accuracy is 0.417 on the 2024 set and 0.047 on this one, so a diagnostic validated on one is not validated on the other.",
   "evidence": [
     {
       "id": "arxiv:2608.01631",
@@ -834,8 +834,7 @@
   ],
   "related_authored": [
     "aime-2024",
-    "benchmark-contamination",
-    "var-math"
+    "hmmt-2025"
   ],
   "schema_version": 1,
   "slug": "aime-2025",

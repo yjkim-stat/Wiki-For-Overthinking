@@ -2,7 +2,7 @@
   "aliases": [
     "Qwen3-32B"
   ],
-  "definition": "The 32B member of the Qwen3 family. It appears in these sources as a scale check rather than a primary subject — used to verify that numerical-precision reproducibility findings established at 7-8B also hold at larger scale, and as a large model in entropy-mechanism experiments. Results for it are generally deferred to appendices in the sources that use it.",
+  "definition": "A 32B Qwen3 model, and across 15 sources the archive's usual large open checkpoint -- the point where a size ladder stops and where several results either strengthen or reverse. It is the largest model in one cross-family steering audit, where it shows a significantly positive effect (+4.9) under the full protocol while the apparent emergence of steerability with scale dissolves once activation units, the read-out metric and the operating point are calibrated. It serves as a judge in several pipelines, including as both criterion judge and pairwise judge in one rubric-based training system, which makes that system's results contingent on this model's judgements. And it appears as the scale at which entropy-control methods report their largest gains -- 6.4 points on average against 2.0 for a 7B model, concentrated at 15.0 and 14.6 on the two hardest benchmarks -- which is the archive's clearest evidence that the value of an entropy intervention grows with model size. It is also a subject in quantization, faithfulness-safety tension, intertemporal steering and inference-nondeterminism studies.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -480,7 +480,10 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-8b",
+    "qwen3-4b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-32b",
   "topics": [

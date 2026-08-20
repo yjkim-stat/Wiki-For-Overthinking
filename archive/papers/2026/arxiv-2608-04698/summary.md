@@ -44,7 +44,7 @@ No quantitative results in the abstract, so the size of the trade-off improvemen
 
 ## Entities
 
-- **Concepts**: [abstention](../../../../wiki/concepts/abstention.md), [hallucination](../../../../wiki/concepts/hallucination.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), over-refusal, [reward shaping](../../../../wiki/concepts/reward-shaping.md)
+- **Concepts**: [abstention](../../../../wiki/concepts/abstention.md), [hallucination](../../../../wiki/concepts/hallucination.md), advantage estimation, over-refusal, reward shaping
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), RC-GRPO, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md)
 - **Datasets**: _none recorded_
 

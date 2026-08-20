@@ -45,7 +45,7 @@ The paper states them plainly. The dataset is 77 hand-crafted scenarios, which l
 
 ## Entities
 
-- **Concepts**: [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), [safety alignment](../../../../wiki/concepts/safety-alignment.md), faithfulness-safety tension, steering vector, linear probe, activation steering, power seeking, agentic reasoning, [self-repair](../../../../wiki/concepts/self-repair.md), [causal intervention](../../../../wiki/concepts/causal-intervention.md)
+- **Concepts**: [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), [safety alignment](../../../../wiki/concepts/safety-alignment.md), faithfulness-safety tension, [steering vector](../../../../wiki/concepts/steering-vector.md), linear probe, activation steering, power seeking, agentic reasoning, [self-repair](../../../../wiki/concepts/self-repair.md), [causal intervention](../../../../wiki/concepts/causal-intervention.md)
 - **Methods**: Targeted Reasoning Replacement, [difference-of-means probe](../../../../wiki/methods/difference-of-means-probe.md), [activation steering](../../../../wiki/methods/activation-steering.md), [contrastive activation addition](../../../../wiki/methods/contrastive-activation-addition.md), attention-mask ablation, [linear probe](../../../../wiki/methods/linear-probe.md)
 - **Datasets**: HazMart, [MMLU](../../../../wiki/datasets/mmlu.md)
 

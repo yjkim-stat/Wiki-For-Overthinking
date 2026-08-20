@@ -44,7 +44,7 @@ Roughly 2% accuracy is a real cost, unlike the near-free reductions claimed else
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), invalid thinking, [self-correction](../../../../wiki/concepts/self-correction.md), [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), [reward shaping](../../../../wiki/concepts/reward-shaping.md), [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), invalid thinking, [self-correction](../../../../wiki/concepts/self-correction.md), [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), reward shaping, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md)
 - **Methods**: LC-R1, [GRPO](../../../../wiki/methods/grpo.md), length reward, compress reward, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md)
 - **Datasets**: _none recorded_
 

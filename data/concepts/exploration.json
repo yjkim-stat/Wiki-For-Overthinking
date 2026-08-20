@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Deliberately injected stochasticity that lets policy optimization sample outside what the current policy would produce deterministically. Neither source treats it as free, and both make the form and placement of the noise the design problem rather than its amount. One injects Gumbel noise into the logits that form a continuous latent thought, so exploration is the mechanism by which two latent thoughts for the same prompt differ at all, and reports that removing it costs 2.12 points on GSM8K and 1.70 on MATH. The other observes that a flow model is sampled by a deterministic ODE at deployment while online RL needs stochastic rollouts, so the usual remedy of swapping in an SDE during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as the exploration noise rises. Exploration in these sources is therefore something bought at the cost of agreement between training and inference.",
+  "definition": "Whether training discovers trajectories the policy would not already produce, and across 10 sources a quantity the archive treats as poorly measured rather than well understood. The corpus's central methodological point is that the usual proxies do not measure it: token entropy cannot distinguish exploration from learning wrong trajectories -- one source calls a high-entropy condition 'entropy without exploration' -- and pass@k describes inference-time behaviour after training rather than what training discovered. The replacement several sources converge on is a paired count against a reference run: a prompt is rescued if the method produces a correct rollout where the baseline produced none, and lost in the opposite case, with degenerate and incorrect rollouts counted alongside. Its authors are explicit about the limits -- defined relative to a baseline it is a comparative diagnostic rather than an absolute measure, and it counts a rescue on one correct rollout without asking whether that rollout's reasoning was sound. The substantive findings are that verifiable-reward training reduces exploration on both modalities measured, though the controlled comparison is against a distilled policy trained on the same data rather than against the base model, and that concentrating exploration has a real if small cost on shorter horizons -- one transfer result loses on the benchmark where its host method was strongest.",
   "evidence": [
     {
       "id": "arxiv:2608.01593",
@@ -252,7 +252,9 @@
     "gpt-oss-20b"
   ],
   "related_authored": [
-    "entropy-collapse"
+    "entropy-collapse",
+    "zero-advantage-group",
+    "pass-k"
   ],
   "schema_version": 1,
   "slug": "exploration",

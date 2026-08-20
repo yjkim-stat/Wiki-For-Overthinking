@@ -3,10 +3,161 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Scores each reasoning step of a translation by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold translation, and adds that as a dense per-step reward on top of sequence-level quality — after first establishing that explicit reasoning helps long and hard inputs while drifting on terminology and style.",
+        "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A GRPO variant that teaches multimodal models to refuse when a referred object is absent, without losing localization accuracy on cases where it is present.",
         "title": "Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+        "title": "Improving Generalization Robustness of Multimodal RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Plans semiconductor reliability stress tests as a partially observable sequential decision problem, using Monte Carlo tree search over a seed-action simulator with an extended Kalman filter tracking per-device latent degradation parameters, so each device's test adapts to its own measured behaviour rather than to a population model.",
+        "title": "Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
+        "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
+        "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+        "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
           "test-time-scaling"
         ]
       },
@@ -16,6 +167,7 @@
         "title": "Optimizing Length Compression in Large Reasoning Models",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "test-time-scaling"
         ]
       },
@@ -25,6 +177,7 @@
         "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "test-time-scaling"
         ]
       },
@@ -34,14 +187,15 @@
         "title": "The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:51Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'reward shaping'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:54:00Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'reward shaping'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "reward shaping",
   "kind": "concept",
   "language": "en",
@@ -50,34 +204,29 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "reward shaping",
-    "source_count": 4
+    "source_count": 19
   },
   "result": {
-    "aliases": [
-      "reward design",
-      "reward engineering"
-    ],
-    "definition": "Designing the reward's structure — what it attaches to, and when — rather than only its target, which all four sources treat as where efficiency methods succeed or fail. One confines an efficiency reward to a single mode-selection token after diagnosing that a sequence-level efficiency signal implicitly penalizes long but correct trajectories. One pairs a length reward with a compress reward aimed specifically at double-checking that occurs after the answer is already derived. One forces 'None' rollouts so negative samples produce a valid advantage, and penalizes over-refusal on positives. One scales the reward by problem difficulty. The shared lesson is that a reward correct in aggregate can be wrong per token or per group.",
+    "aliases": [],
+    "definition": "Adding terms to a reward beyond the thing actually being verified -- length, format, efficiency, safety proximity, confidence, agreement with a reference derivation -- and across 19 sources the design decision that most often decides whether a training run works or degenerates. Three findings recur. A shaping term is a modifier on the terminal check, never a replacement: removing the sequence-level quality reward is the single largest degradation in one translation system (in-domain BLEU 29.83 to 22.94), removing the task-completion reward collapses another from 95.14 to 29.92 percent whole-response accuracy while decision and tool-selection accuracy stay at 100 -- the agent picks correctly at every step and never stops -- and removing the terminal outcome reward is the only ablation degrading every benchmark in a third. Anything not gated on correctness is satisfied vacuously: an unconstrained length reward is exploited to the 8192-token limit with macro-F1 collapsing to 0.210, a bounded target-constrained penalty buys about 990 tokens of coherent but functionally useless filler at 0.760 -- essentially the collapsed level -- and only the form paying the bonus when the answer is correct converts the preserved length into accuracy at 0.851. And the shape matters as much as the terms, because group normalisation preserves nonlinear reshaping of within-group reward spacing but cancels linear rescaling: a bounded reciprocal mapping of a continuous error gap beats the naive unbounded one and beats four published changes to the optimisation procedure on the same task, while a difficulty-dependent multiplier interacts badly with the normalisation and weakens a penalty exactly where outcome variance is highest. Two further cautions from the corpus: a hybrid hard-constraint-plus-continuous-soft scheme beats every static tolerance by 11.63 points because a single threshold cannot both be strict enough to be meaningful and dense enough to give gradient; and several sources set their weighting coefficients to 1.0 explicitly to avoid task-specific tuning, which is honest and leaves no sensitivity analysis behind.",
     "kind": "method",
     "related": [
+      "process reward",
       "reward hacking",
-      "advantage estimation",
-      "credit assignment",
-      "length control",
-      "token selection",
-      "adaptive compute allocation"
+      "outcome reward"
     ]
   },
   "task_id": "concept__reward-shaping",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training",
     "test-time-scaling"
   ]

@@ -99,6 +99,150 @@
       },
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+        "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
+        "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+        "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
         "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
         "topics": [
@@ -435,6 +579,18 @@
       },
       {
         "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
         "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
         "topics": [
@@ -471,8 +627,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T11:04:13Z",
-  "created_at": "2026-08-13T10:57:34Z",
+  "completed_at": "2026-08-20T22:54:44Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'AIME 2024'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME 2024",
   "kind": "concept",
@@ -489,22 +645,18 @@
   },
   "payload": {
     "name": "AIME 2024",
-    "source_count": 39
+    "source_count": 52
   },
   "result": {
     "aliases": [
       "AIME24",
-      "AIME'24",
-      "AIME 24",
-      "AIME2024"
+      "AIME 24"
     ],
-    "definition": "The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems and integer answers make it automatically checkable and hard enough to be unsaturated, so it appears in almost every test-time-scaling, entropy, compression and token-selection study here, usually as Avg@k and Pass@k over 16 to 64 samples. Four archived results bound how much any AIME 2024 number means: greedy decoding is not reproducible across hardware, with GPU type, count or batch size shifting accuracy by up to 9 percentage points on one model; converting its problems into symbolic templates with resampled constants collapses scores that survive the original phrasing; a brief round of GRPO erases the signals contamination detectors rely on; and with 30 problems a single item is worth over three points, so the one-to-three-point gaps common in the efficiency literature here are not measurements. Reported ranges across these sources run from roughly 17 Avg@32 for a GRPO baseline on a 7B model to 63.5 Acc@16 for a 32B model trained on high-entropy tokens only.",
+    "definition": "Thirty competition mathematics problems from the 2024 American Invitational Mathematics Examination, and by source count the archive's most used hard benchmark -- 52 papers. Its properties as an instrument are what the archive should carry. It is thirty problems, so a single problem is 3.3 percentage points and most reported differences on it are one or two problems; one source flags this itself, noting that pass@k comparisons at large k are more stable than accuracy deltas but the absolute count stays small. It is where methods separate most: entropy-control work reports its largest margins here (15.0 points against 14.6 on the 2025 edition and far less elsewhere), and parameter-space exploration reports up to 5.83 points here against fractions of a point on easier sets. It is also where averages are carried or destroyed -- one paper notes its own five-benchmark average is carried by the easier sets because this one sits at 5.21 and 7.71 at small scale, and another reports its objective buying tail coverage at visible cost in the columns for this benchmark. Two robustness findings attach to it. Under a symbolic variabilisation that replaces its constants with sampled values and requires consistency across instantiations, strict-metric accuracy falls 58.8 percent on average, though the loose metric that grants partial credit shows far milder drops (1.5 percent for one 32B model), which separates contamination from inconsistency. And it is the benchmark on which the pass@k-versus-CoT-pass@k disagreement about whether reinforcement learning expands the reasoning boundary is sharpest, because easier sets are already solved by the base model with enough attempts.",
     "kind": "dataset",
     "related": [
       "AIME 2025",
-      "VAR-MATH",
-      "HMMT",
-      "pass@k"
+      "MATH500"
     ]
   },
   "task_id": "concept__aime-2024",

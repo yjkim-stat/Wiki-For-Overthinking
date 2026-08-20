@@ -195,8 +195,92 @@
       },
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Distributes hindsight supervision across the turns of an agent trajectory by comparing each turn's share of total revision magnitude against its share of eligible tokens, holding the average multiplier at one so the total supervision is fixed and only its allocation changes -- and isolates that allocation with a permutation control that keeps the multiplier values and scrambles which turn receives which.",
+        "title": "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
         "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
@@ -231,6 +315,18 @@
       },
       {
         "kind": "paper",
+        "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+        "title": "Improving Generalization Robustness of Multimodal RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
         "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
         "topics": [
@@ -245,6 +341,174 @@
         "kind": "paper",
         "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
         "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
+        "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+        "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+        "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains an open-weight model with GRPO against a safety-gated LLM-as-a-judge rubric for financial advice, then audits the result with a judge-independent causal estimator on logged outcomes -- and finds the two evaluations rank the other systems differently, with the untrained base model last on the rubric and second on the audit.",
+        "title": "GRPO for Financial Advice Generation: Outperforming Commercial LLMs under CATE Evaluation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+        "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
@@ -483,8 +747,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:40:34Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T22:53:00Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'GRPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GRPO",
   "kind": "concept",
@@ -501,17 +765,20 @@
   },
   "payload": {
     "name": "GRPO",
-    "source_count": 40
+    "source_count": 62
   },
   "result": {
     "aliases": [
-      "Group Relative Policy Optimization"
+      "Group Relative Policy Optimization",
+      "group-relative policy optimization"
     ],
-    "definition": "Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group's mean and standard deviation, and the update is a clipped surrogate usually with a KL penalty to a reference policy -- so the baseline comes from the group rather than from a learned value network, which is the property nearly every source cites as its reason for choosing it. Across these sources it functions less as a fixed algorithm than as a substrate everything else is bolted onto: dense per-step rewards replacing the sequence-level one, advantages shifted by a detached teacher-student log-probability gap, credit redistributed by how rare a solution form is, updates restricted to a token subset, and rewards supplied by rubrics regenerated from the model's own rollouts, by an LLM judge, by a verifier, or by SQL executed against a source table. The sources agree on its characteristic failure and disagree about the fix: policy entropy collapses as reward rises, along a curve one paper fits as R = -a*exp(H) + b, with the driver identified variously as the covariance between token probability and advantage, as an imbalance between tokens whose updates lower entropy and those that raise it, and as the behaviour of positive-advantage tokens specifically -- while a theoretical comparison argues an entropy bonus buys control only by permanently moving the stationary point, where covariance-targeted control reaches the unregularized optimum once annealed. Three structural criticisms of the group-relative estimator recur: it produces exactly zero advantage whenever every rollout in a group agrees, wasting the rollouts; its per-completion uniformity is frequency-skewed once credit is aggregated by solution structure, so a recurring correct form accumulates positive coefficient mass in proportion to how often it is sampled; and its standard-deviation and length normalisations introduce optimization biases that a named variant removes. Two further sources bound what it achieves rather than how it runs, and they disagree: measured by pass@k at large k, RLVR-trained models lose to their own base models, which reads as sharpening the sampling distribution rather than adding capability -- but scoring the chain as well as the final answer reverses that verdict at every k, on the grounds that base models win by producing wrong chains that land on right answers. One source adds a consequence outside the training loop entirely: a brief round of GRPO erases the signals benchmark-contamination detectors rely on, with PPO-style importance sampling and clipping identified as the cause.",
+    "definition": "Sampling a group of rollouts per prompt, standardising their rewards within the group to form the advantage, and optimising a PPO-style clipped surrogate with a KL penalty -- so no value network is learned. Across 62 sources it is less a method than the substrate everything else is built on ('the implementation is a few lines on top of GRPO'), and its properties are consequences of the group normalisation rather than of the reward. Four are documented repeatedly. Prompt weighting: for binary rewards the induced weight is one over the square root of p(1-p), which diverges at both ends, and the realised consequence has been measured -- 36.4 percent of one benchmark's token-level gradient budget spent on prompts already above 0.9 pass rate. Silent groups: a prompt whose rollouts all agree has zero advantage for every member and contributes nothing, reported at 63 to 68 percent of training groups in one study and rising across epochs in another as the reward saturates. Relative spacing only: what reaches the optimiser is the ordering and gaps of rewards within the group, so a linear rescaling is cancelled while a bounded nonlinear one is not, an unbounded reward lets one outlier inflate the group standard deviation and flatten every near-optimal sibling, and a difficulty-dependent reward multiplier interacts badly with the normalisation -- weakening a token penalty precisely where outcome variance is highest. Entropy: policy entropy falls from about 0.25 to near zero within roughly 50 steps, with the highest training reward coinciding with the lowest entropy, which several sources read as premature exploitation; a large family of clipping and covariance variants exists to slow it, and one source finds switching from approximate to strict on-policy updating worth 4.6 and 5.3 points, more than the entropy method layered on top. On what it does to reasoning the sources split. One gives a theoretical account in which the gradient raises the probability of correct chains even though the reward sees only the answer, once pretraining supplies priors separating them; another finds accuracy improving without the traces becoming more semantically valid, which it calls unsurprising for an outcome reward. Two failure modes recur: on subjective judgement tasks mean completion length collapses from about 300 tokens to 170 after roughly 70 steps because guessing the label earns the same reward more cheaply, and pass@1 rises across training steps while coverage at pass@256 falls, so the reachable set narrows as reliability improves. A brief run of it also suppresses the signals benchmark-contamination detectors rely on, which one source attributes to PPO-style importance sampling and clipping rather than to anything specific here. Practical cautions from the corpus: it is dominated in cost by rollout generation, and adaptive allocators beat full-group training substantially under a matched token budget; against PPO under an identical reward it wins 81.2 to 72.6 where correctness is localised to a few tokens, which the authors attribute to group-relative rather than batch-level advantage normalisation; and it is frequently an under-tuned baseline, gaining under 4 points from best-checkpoint selection where a supervised baseline gains 27, and in one case scoring below its own zero-shot starting point on a benchmark. Reported margins over it are commonly 0.75 to 2.6 points with no seeds or variance.",
     "kind": "method",
     "related": [
-      "Dr. GRPO",
-      "GSPO"
+      "PPO",
+      "zero-advantage group",
+      "entropy collapse",
+      "sampling efficiency"
     ]
   },
   "task_id": "concept__grpo",

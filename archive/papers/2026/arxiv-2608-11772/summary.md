@@ -45,7 +45,7 @@ The authors frame theirs as future work: the diagnosis is static and per-task-fa
 
 ## Entities
 
-- **Concepts**: [self-correction](../../../../wiki/concepts/self-correction.md), failure diagnosis, recovery policy, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [compute allocation](../../../../wiki/concepts/compute-allocation.md), [tool orchestration](../../../../wiki/concepts/tool-orchestration.md), intervention matching, [long-horizon agency](../../../../wiki/concepts/long-horizon-agency.md), [selective prediction](../../../../wiki/concepts/selective-prediction.md)
+- **Concepts**: [self-correction](../../../../wiki/concepts/self-correction.md), failure diagnosis, recovery policy, adaptive compute allocation, [compute allocation](../../../../wiki/concepts/compute-allocation.md), [tool orchestration](../../../../wiki/concepts/tool-orchestration.md), intervention matching, [long-horizon agency](../../../../wiki/concepts/long-horizon-agency.md), [selective prediction](../../../../wiki/concepts/selective-prediction.md)
 - **Methods**: DARC, in-context learning, MIPROv2, GEPA, ACE, [GRPO](../../../../wiki/methods/grpo.md), [on-policy self-distillation](../../../../wiki/methods/on-policy-self-distillation.md), [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md)
 - **Datasets**: [ALFWorld](../../../../wiki/datasets/alfworld.md), AppWorld, XBRL Finance (FiNER tags, Formula extraction)
 

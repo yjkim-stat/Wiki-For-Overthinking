@@ -47,7 +47,7 @@ Stated throughout rather than in one section, and unusually candidly. The ablati
 ## Entities
 
 - **Concepts**: [prompt sensitivity](../../../../wiki/concepts/prompt-sensitivity.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), [format compliance](../../../../wiki/concepts/format-compliance.md), invariance, [pass@k](../../../../wiki/concepts/pass-k.md), [distribution shift](../../../../wiki/concepts/distribution-shift.md), inconclusive threshold
-- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), adversarial training, consistency regularization, reward shaping, paraphrase perturbation, template variation, pass@k, [component ablation](../../../../wiki/methods/component-ablation.md)
+- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [RLVR](../../../../wiki/methods/rlvr.md), adversarial training, consistency regularization, [reward shaping](../../../../wiki/methods/reward-shaping.md), paraphrase perturbation, template variation, pass@k, [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: [MathVista](../../../../wiki/datasets/mathvista.md), OlympiadBench-Physics, MMK12, [VQA-RAD](../../../../wiki/datasets/vqa-rad.md), [PathVQA](../../../../wiki/datasets/pathvqa.md), GMAI, DocVQA
 
 Tags: `rlvr`, `grpo`, `robustness`, `multimodal`, `prompt-invariance`, `medical-vqa`

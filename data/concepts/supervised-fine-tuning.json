@@ -3,9 +3,11 @@
     "SFT",
     "instruction tuning",
     "Supervised Fine-Tuning",
-    "supervised finetuning"
+    "supervised finetuning",
+    "cold start",
+    "behaviour cloning"
   ],
-  "definition": "Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on which traces: one bootstraps by finetuning only on self-generated rationales that reached correct answers and iterating the loop; one finetunes on 1,000 examples curated for difficulty, diversity and quality and beats a much stronger closed model on competition mathematics; and one uses it as the baseline that verifier-based reranking outperforms, reporting that verification scales better with added data than finetuning does. The strongest evidence about what it transfers runs in reverse — 800 examples of a model's own correct traces, generated under an instruction not to express uncertainty, cut AIME 2024 pass@1 from 80.0 to 43.3 on one model, so the lever removes a behaviour as readily as it installs one, and what moves is substantially the style of the trace rather than the knowledge behind it. Across the rest of the archive it is pipeline background rather than an object of study: the stage before RL in nearly every training recipe here, the stage at which contamination is introduced before a later RL run conceals it, and the training that produces the judge behaviour a meta-benchmark then measures.",
+  "definition": "Maximising the likelihood of curated target sequences -- usually a reasoning trace followed by an answer -- and across 54 sources the stage whose role is most often asserted and least often measured. Its dominant use here is as a cold start that installs a format before reinforcement learning, and where that has been ablated the effect is categorical rather than incremental: a tool-using policy trained by reinforcement learning alone cannot reliably emit parsable tool calls at all (50.6 percent format compliance against 100), while supervised fine-tuning alone reaches 99.8 percent and comes within 2 to 3.6 points of the full pipeline. The sources disagree sharply about whether it is needed. Several find it indispensable and then surpassed -- it beats the base model and loses to every reinforcement-learning method applied over it, or plateaus at 89.74 percent where the full pipeline reaches higher. Others find the opposite: reinforcement learning without any cold start is the best configuration on closed-ended medical questions on all three benchmarks by 8 to 20 points while losing every open-ended split, one hybrid-reasoning method removes the stage deliberately as computationally costly, and one from-scratch study finds group-relative reinforcement learning losing to supervised fine-tuning on two of three mathematics benchmarks (27.37 against 36.69 Pass@8 on one) with the combination beating both by 31 to 175 percent. Two systematic reasons the comparison keeps coming out differently are documented. It is routinely under-tuned as a baseline: giving each method its best validation checkpoint rather than a fixed epoch budget is worth 27 points of end-to-end accuracy to supervised fine-tuning and under 4 to reinforcement learning, which reverses the reported ordering. And the comparison usually confounds the training method with the trace source, since the supervised arm typically learns from a larger distilled teacher while the reinforcement-learning arm has none. On what the traces themselves buy, two controlled studies agree that the effect is out of distribution rather than in it: rationale supervision buys nothing in-domain for strong backbones and 20 to 28 points out of domain, and domain-specific chain-of-thought supervision lifts one 9B model from 37.4 to 89.0 percent where answer-only supervision reaches 75.1. Quantities are small throughout -- 1,000 curated traces for test-time scaling, 1,000 examples for a safety-alignment structure change, 800 to install or destroy a habit of verbalising uncertainty (suppressing it halves pass@1 on five models despite every training trace being correct). Two sources note where the stage is dangerous rather than useful: a triggered backdoor whose visible reasoning stays clean and correct is installed this way, and benchmark contamination introduced here is laundered by a brief reinforcement-learning run afterwards, so a pipeline ending in reinforcement learning conceals what its supervised stage absorbed. One source places more alignment weight on this stage than the preference-optimisation literature assumes, identifying data scaling and prompt diversity as the drivers.",
   "evidence": [
     {
       "id": "arxiv:2110.14168",
@@ -1216,10 +1218,9 @@
     "acereason-nemotron-7b"
   ],
   "related_authored": [
-    "distillation",
-    "rlvr",
-    "epistemic-verbalization",
-    "s1"
+    "rejection-sampling",
+    "curriculum-learning",
+    "checkpoint-selection"
   ],
   "schema_version": 1,
   "slug": "supervised-fine-tuning",

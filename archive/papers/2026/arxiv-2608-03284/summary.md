@@ -45,7 +45,7 @@ The paper states them: the method inherits whatever ambiguity its vision-languag
 
 ## Entities
 
-- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), concept erasure, [safety alignment](../../../../wiki/concepts/safety-alignment.md), [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), low-rank adaptation, margin loss, conditional computation, [jailbreak](../../../../wiki/concepts/jailbreak.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), adaptive compute allocation, concept erasure, [safety alignment](../../../../wiki/concepts/safety-alignment.md), [adversarial robustness](../../../../wiki/concepts/adversarial-robustness.md), low-rank adaptation, margin loss, conditional computation, [jailbreak](../../../../wiki/concepts/jailbreak.md)
 - **Methods**: T2S2, [low-rank adaptation](../../../../wiki/methods/lora.md), truncated backpropagation, safe latent diffusion, SAFREE, classifier-free guidance, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md)
 - **Datasets**: I2P, P4D, Ring-a-Bell, MMA-Diffusion, UnlearnDiffAtk, COCO-30k
 

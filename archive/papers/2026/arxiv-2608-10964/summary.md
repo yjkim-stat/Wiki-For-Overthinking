@@ -44,7 +44,7 @@ The paper has no limitations section and its evaluation has a structural problem
 
 ## Entities
 
-- **Concepts**: [confidence calibration](../../../../wiki/concepts/confidence-calibration.md), [expected calibration error](../../../../wiki/concepts/expected-calibration-error.md), [selective prediction](../../../../wiki/concepts/selective-prediction.md), [hallucination](../../../../wiki/concepts/hallucination.md), [reward shaping](../../../../wiki/concepts/reward-shaping.md), [rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), LLM-as-a-judge, [verifiable reward](../../../../wiki/concepts/verifiable-reward.md)
+- **Concepts**: [confidence calibration](../../../../wiki/concepts/confidence-calibration.md), [expected calibration error](../../../../wiki/concepts/expected-calibration-error.md), [selective prediction](../../../../wiki/concepts/selective-prediction.md), [hallucination](../../../../wiki/concepts/hallucination.md), reward shaping, [rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), LLM-as-a-judge, [verifiable reward](../../../../wiki/concepts/verifiable-reward.md)
 - **Methods**: CARE, Confidence-Aware Reward, [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), reinforcement fine-tuning, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [rejection sampling](../../../../wiki/methods/rejection-sampling.md)
 - **Datasets**: [VQA-RAD](../../../../wiki/datasets/vqa-rad.md), SLAKE, [PathVQA](../../../../wiki/datasets/pathvqa.md)
 

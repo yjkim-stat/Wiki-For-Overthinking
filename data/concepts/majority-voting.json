@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "majority vote"
+    "majority vote",
+    "plurality vote"
   ],
-  "definition": "Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat outright but easy to improve on when combined rather than replaced — two reward-model variants that individually lose to it both surpass it once their scores weight the vote. The archive now holds two accounts of why it fails when it fails. Mechanistically, incorrect trajectories converge to their wrong answer earlier than correct ones converge to the right one, so counting votes rewards the failure mode. Formally, its failure probability does not decay to zero at all: a wrong answer holding 46% against a right answer's 45% converges to the wrong one however many samples are drawn, which is the precise reason self-consistency saturates and then degrades, and the reason the tournament aggregations that do have vanishing failure probability are built on pairwise comparison instead. A third entry attacks its cost rather than its accuracy, stopping the sampling by a Bayesian posterior over which answer is the mode and proving that tracking the top two counts is asymptotically enough.",
+  "definition": "Returning the answer most sampled responses agree on, and across 18 sources the aggregation baseline everything is measured against and almost everything beats. Its failure has a theoretical statement and an empirical one. Theoretically it converges to zero whenever some incorrect answer is individually more probable than the correct one, so more samples make it worse rather than better in that regime. Empirically that regime is reachable: on a hard graduate science benchmark it lowers per-problem accuracy on 56.6 and 65.7 percent of problems for two models while barely moving the aggregate, and in one test-time-training setting it actively lowers average accuracy (36.92 to 35.09) by converging toward an incorrect consensus. It is also beaten by every reweighting scheme the archive holds, typically by margins that grow with the sample count -- 60.6 percent against its 46.2 at sixteen samples in one comparison, and 51.7 and 50.9 for two confidence-based selectors in the same table. Used as a training signal rather than a selector, its characteristic damage is localised: one source's KL decomposition shows divergence on answer tokens rising sharply under it while reasoning-token divergence grows slowly, and masking the answer span keeps the former low and stable. The archive's summary position is that it is the right null and the wrong method: it assumes agreement tracks correctness, and the calibration measurements show that on hard problems it does not.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",
@@ -367,7 +368,11 @@
     "qwen2-5-math-1-5b",
     "qwen2-5-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency",
+    "best-of-n",
+    "confidence-calibration"
+  ],
   "schema_version": 1,
   "slug": "majority-voting",
   "topics": [

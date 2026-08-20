@@ -45,7 +45,7 @@ Stated. Randomised experiments are not available, so the causal audit is compute
 
 ## Entities
 
-- **Concepts**: [reward hacking](../../../../wiki/concepts/reward-hacking.md), LLM-as-a-judge, [construct validity](../../../../wiki/concepts/construct-validity.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), safety gating, off-policy evaluation, tail risk, judge-independent evaluation, [reward shaping](../../../../wiki/concepts/reward-shaping.md)
+- **Concepts**: [reward hacking](../../../../wiki/concepts/reward-hacking.md), LLM-as-a-judge, [construct validity](../../../../wiki/concepts/construct-validity.md), [outcome reward](../../../../wiki/concepts/outcome-reward.md), safety gating, off-policy evaluation, tail risk, judge-independent evaluation, reward shaping
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), RLAIF, doubly-robust estimation, conditional average treatment effect, off-policy evaluation, conditional value-at-risk, [KL regularization](../../../../wiki/methods/kl-regularization.md), Welch t-test, safety gating
 - **Datasets**: Intuit business records (proprietary)
 

@@ -3,11 +3,112 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
+        "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts long-document visual question answering as building an explicit evidence graph whose nodes are grounded document blocks and whose edges are reasoning dependencies, and verifies the graph causally — masking the evidence it cites flips 82.8% of correct answers while masking uncited evidence changes 9.6%.",
+        "title": "DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
+        "title": "Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A 4B small reasoning model that classifies document-claim pairs as grounded or hallucinated for RAG pipelines and produces evidence-grounded justifications.",
         "title": "HalluGuard: Evidence-Grounded Small Reasoning Models to Mitigate Hallucinations in Retrieval-Augmented Generation",
         "topics": [
           "reasoning-training",
-          "reasoning-faithfulness"
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -16,14 +117,16 @@
         "title": "Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization",
         "topics": [
           "reasoning-training",
-          "reasoning-faithfulness"
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:51Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'retrieval-augmented generation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:59:49Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'retrieval-augmented generation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "retrieval-augmented generation",
   "kind": "concept",
   "language": "en",
@@ -32,34 +135,32 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "retrieval-augmented generation",
-    "source_count": 2
+    "source_count": 11
   },
   "result": {
     "aliases": [
-      "RAG",
-      "retrieval augmentation"
+      "RAG"
     ],
-    "definition": "Conditioning generation on retrieved documents so that answers are grounded in supplied evidence rather than in parameters. The two sources use the term for different things, which is worth noting because the archive holds only these two. One treats RAG as the deployment setting needing a guardrail, training a 4B model to classify document-claim pairs as grounded or hallucinated in closed-book document-grounded settings. The other uses retrieval as a contrast case in a mechanistic study of how transformers come to reason implicitly over stored facts. Grounding on retrieved text does not guarantee the answer follows from it, which is the gap the first source addresses.",
-    "kind": "concept",
+    "definition": "Conditioning generation on retrieved documents, and in this archive mostly a setting other things are measured in rather than a method studied on its own -- it supplies the substrate for search-agent credit assignment, evidence-grounded guardrails and long-document question answering across 11 sources. The one explicit claim the corpus makes about it is a negative: grounding an answer in retrieved documents does not guarantee the answer follows from them, so a separate guardrail is needed to judge whether a claim is supported by the evidence it cites. That gap is what several archived systems are built to close, by verifying causally rather than by construction -- masking the evidence a system cites flips 82.8 percent of correct answers while masking uncited evidence changes 9.6, which is what a grounding claim needs to look like. Its other recurring role is as the setting where credit assignment is hardest, since a trajectory of many retrievals receives one scalar and nothing distinguishes the retrieval that found the key document from one that repeated a query.",
+    "kind": "method",
     "related": [
-      "hallucination",
-      "groundedness",
-      "verification",
-      "memorization",
-      "implicit reasoning"
+      "search-augmented agents",
+      "hallucination"
     ]
   },
   "task_id": "concept__retrieval-augmented-generation",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

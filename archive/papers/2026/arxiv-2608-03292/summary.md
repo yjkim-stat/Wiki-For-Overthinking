@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the intermedia
 
 ## Entities
 
-- **Concepts**: evidence graph, [traceability](../../../../wiki/concepts/traceability.md), [provenance](../../../../wiki/concepts/traceability.md), counterfactual intervention, [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), [abstention](../../../../wiki/concepts/abstention.md), [grounding](../../../../wiki/concepts/grounding.md), long-context reasoning, [process reward](../../../../wiki/concepts/process-reward.md), synthetic data generation
+- **Concepts**: evidence graph, [traceability](../../../../wiki/concepts/traceability.md), [provenance](../../../../wiki/concepts/traceability.md), counterfactual intervention, [multi-hop reasoning](../../../../wiki/concepts/multi-hop-reasoning.md), [abstention](../../../../wiki/concepts/abstention.md), [grounding](../../../../wiki/concepts/grounding.md), long-context reasoning, process reward, synthetic data generation
 - **Methods**: DocTrace, [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), document layout parsing
 - **Datasets**: MMLongBench-Doc, LongDocURL, SlideVQA
 

@@ -5,7 +5,7 @@
     "best-of-N sampling",
     "rejection sampling"
   ],
-  "definition": "Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect verifier its performance can decay as N grows, because more samples mean more chances to find an adversarial solution that fools the scorer, so the benefit of search is eventually outweighed by the risk of exploiting the judge. That is the reason several archived methods are deliberately verifier-free, and the reason a comparison-based tournament with a provable guarantee is proposed as a replacement: it needs only pairwise judgement better than chance, not an absolute score. Its second weakness is that N is fixed in advance regardless of whether the prompt is easy, which the archive's optimal-stopping work removes — a learned threshold reaches the same reward with 15-35% fewer generations. Its strongest cheap improvement is orthogonal to both: giving the evaluator more reasoning tokens raises selection accuracy monotonically.",
+  "definition": "Sampling N complete candidates and returning the one a verifier or reward model ranks highest. Across 18 sources it is the standard selection baseline and the standard illustration of two structural problems. It can decay with scale: with an imperfect verifier, adversarial solutions that fool the verifier become more likely to be found as N grows, so there is no guarantee that more samples help. And it fixes N in advance, wasting compute when an acceptable output arrives early and underspending when the prompt is hard -- one adaptive variant reaches the same reward with 15 to 35 percent fewer generations, and a compute-optimal strategy reports more than a fourfold efficiency improvement over it. Two observations from the corpus are worth keeping when reading reward-model papers. The ranking of process reward models for selection here does not carry over to their use as policy models: in one comparison only the weakest selection variant improved policy performance, a disconnect the source reports without explanation even though the two uses are what such a model is for. And the cost accounting matters -- one system's best-of-16 leads a cheaper method by 0.70 points at 2.43 times the parameter-weighted cost, with the paired interval straddling zero.",
   "evidence": [
     {
       "id": "arxiv:2408.03314",
@@ -370,7 +370,11 @@
     "alpacafarm",
     "hh-rlhf"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "majority-voting",
+    "process-reward",
+    "adaptive-compute-allocation"
+  ],
   "schema_version": 1,
   "slug": "best-of-n",
   "topics": [

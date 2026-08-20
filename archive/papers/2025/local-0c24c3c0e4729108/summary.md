@@ -42,7 +42,7 @@ The paper has no limitations section. Several boundaries a reader should note. C
 
 ## Entities
 
-- **Concepts**: certaindex, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), self-doubt, [overthinking](../../../../wiki/concepts/overthinking.md), probe-in-the-middle, semantic entropy, early exit, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), gang scheduling, [test-time compute](../../../../wiki/concepts/test-time-compute.md), reasoning programs
+- **Concepts**: certaindex, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), self-doubt, [overthinking](../../../../wiki/concepts/overthinking.md), probe-in-the-middle, semantic entropy, early exit, adaptive compute allocation, gang scheduling, [test-time compute](../../../../wiki/concepts/test-time-compute.md), reasoning programs
 - **Methods**: Certaindex, [Dynasor](../../../../wiki/methods/dynasor.md), Probe-In-The-Middle, [self-consistency](../../../../wiki/methods/self-consistency.md), [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), REBASE, [chain-of-thought](../../../../wiki/methods/chain-of-thought.md), SGLang
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AMC23](../../../../wiki/datasets/amc23.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), ASDiv
 

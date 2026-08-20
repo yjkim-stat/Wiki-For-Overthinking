@@ -2,7 +2,7 @@
   "aliases": [
     "distillation"
   ],
-  "definition": "Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregated annotations of a jury of reasoning models into a small open student and finds data quality strictly ordered: training on perfect-agreement segments alone gives 53.54%, and adding successively lower-agreement data lowers it at every step, to 51.24%. The other distils the model's own extracted experience rather than another model's outputs, and finds removing that experience pool costs more than removing the reinforcement-learning stage entirely. Read together they place the leverage in the selection criterion — agreement in one case, measured marginal utility in the other — rather than in the teacher's strength or the corpus size.",
+  "definition": "Training a student on a teacher's outputs or distribution, and across 15 sources a method whose success is governed less by the objective than by three properties of the pairing. Capacity floor: the same jury distillation that lifts a 12B student above every open reasoning-model judge lowers a 4B one (system-level 86.50 to 82.48), a limit the source scopes around rather than states. Idiom match: a safety-alignment pipeline gains across one model family and loses utility across another at small scale, which the authors attribute to a reasoning-style mismatch with the teacher's family, and a language-specific 9B model gains least from further rationale distillation while the weakest general backbone gains most. Mismatch regime: one method's advantage over standard on-policy distillation is 1.0 point where the student is close to the teacher -- inside the spread of three other baselines -- and 13.4 points where it is far below, and the strong-mismatch baseline is a model emitting 22K-token unterminated responses, so much of what is demonstrated is repair of breakage rather than transfer of reasoning. Two objective-level findings recur. Token agreement is not the goal: a student can drive agreement to near-perfect by looping while the response is globally broken, so the metric is satisfiable by degeneration. And preferences established under gold labels understate themselves under noisy ones -- full-vocabulary divergence beats sampled-token distillation by 17.8 and 7.2 percent under pseudo-labels against 2.0 and 2.7 under gold, while truncating to the teacher's top-100 entries matches the full vocabulary and is therefore free. The corpus's standing caution is that a distilled result is a statement about one teacher: several sources note their rationales, filters and quality audits all come from proprietary models, so what rationale supervision buys is what that teacher's rationales buy.",
   "evidence": [
     {
       "id": "arxiv:2608.02139",
@@ -439,7 +439,9 @@
     "prompt-intervention"
   ],
   "related_authored": [
-    "data-quality"
+    "on-policy-distillation",
+    "self-distillation",
+    "teacher-student-gap"
   ],
   "schema_version": 1,
   "slug": "knowledge-distillation",

@@ -4,7 +4,7 @@
     "group-relative advantage",
     "GRPO advantage"
   ],
-  "definition": "Estimating how much better a sampled action or trajectory was than the baseline it should be compared against -- the quantity that multiplies the policy gradient and therefore decides what training actually optimises. In this archive the dominant estimator is group-relative: sample several completions for one prompt and normalise each reward by the group's mean and standard deviation, which removes the value network entirely and is why most sources here use it. The sources document what that choice costs. It yields exactly zero advantage whenever every rollout in a group agrees, so prompts the model has already mastered waste their rollouts; and it treats completions as exchangeable, which becomes a frequency skew once credit is aggregated by solution structure, since a recurring correct form accumulates positive coefficient mass in proportion to how often it is sampled. Several sources therefore modify the advantage rather than the reward -- nudging it up or down from a detached teacher-student log-probability gap on selected token classes, replacing the group-relative advantage at latent positions with a thought-level value obtained by freezing the context and averaging over several sampled answers, or rebalancing it by a rarity exponent. Two sources argue about the target rather than the estimator: one shows that REINFORCE, pass@K training and MaxRL each optimise a single moment of the per-problem failure probability and proposes minimising the first several jointly, which is equivalent to minimising the expected truncated number of rollouts to a first success; the other keeps a learned critic but replaces its scalar mean-squared-error head with a categorical predictor over a discretised value support, reporting that the MSE critic had been penalising failures two to three times harder than it rewarded successes and that the categorical one produces near-symmetric advantages under an otherwise unchanged update.",
+  "definition": "Deciding how much better than a baseline a rollout was, which is what a policy update is actually made of. Across 23 sources the corpus's contribution is diagnostic rather than definitional: it shows what goes wrong when the estimate is asymmetric, degenerate or unidentified. Asymmetry is the sharpest case. A regression critic that overestimates success probability gives failed rollouts large negative advantages and successes small positive ones -- measured at -0.597 against +0.227, a ratio of 2.63, growing more skewed over training -- so the update spends most of its magnitude on failures; a distributional critic brings the ratio to 1.02, and the paper notes correctly that batch-wise normalisation is an affine rescaling that cannot remove a relative asymmetry. Degeneracy is the group-relative case: a prompt whose rollouts all share a reward has zero advantage for every member and contributes no gradient, and one source measures a first stage cutting all-wrong groups by 4.95 points precisely to address it. Collapse is a third failure: in latent reasoning, within-thought answer variance exceeds between-thought variance in every setting and training makes it worse (noise-to-signal 1.54 rising to 13.10), so the thought-level advantage is estimating differences that have largely disappeared. Two further findings recur. Weighting is a bias-variance trade rather than a free improvement -- one truncation-order sweep peaks at 4 and degrades beyond it because higher moments cannot be estimated from eight rollouts, and one interpolation sweep runs 45.4, 52.1, 44.8 as its coefficient goes 0.00, 0.25, 1.00. And the corpus's methodological caution applies with unusual force here: margins of 0.75 to 2.6 average points from single runs with no seeds are the norm, and one source's headline is the best average across checkpoints evaluated on the evaluation benchmarks rather than on a held-out criterion.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -147,7 +147,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:41:51Z",
+  "last_seen": "2026-08-20T22:50:59Z",
   "name": "advantage estimation",
   "related": [
     "credit-assignment",
@@ -566,7 +566,9 @@
     "critic-free-reinforcement-learning"
   ],
   "related_authored": [
-    "generalized-advantage-estimation"
+    "group-relative-advantage",
+    "credit-assignment",
+    "zero-advantage-group"
   ],
   "schema_version": 1,
   "slug": "advantage-estimation",

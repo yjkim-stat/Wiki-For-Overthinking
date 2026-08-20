@@ -3,7 +3,7 @@
     "GPQA",
     "GPQA Diamond"
   ],
-  "definition": "A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where mathematics-tuned methods are checked for transfer. Several findings attach to it. It is where early-exit methods show some of their largest gains, one source reporting accuracy rising from 23.7 to 31.3 for a 7B model at half the tokens, which implies unrestricted generation was derailing the answer. It has the lowest monitorability scores of the three datasets in the monitorability study, so harder problems produce less legible traces. Activation probes for the commitment boundary transfer to it from mathematics training with detection holding above 69%. And it is one of the three evaluation sets on which the two-phase entropy structure and its change-point detector are reported to hold.",
+  "definition": "198 graduate-level multiple-choice science questions, used across 18 sources as the archive's standard non-mathematical hard benchmark. Three properties make it distinctive. It is where monitorability is lowest -- dataset difficulty is inversely related to it, and this set scores at the bottom of the range in one study -- and where faithfulness failures are starkest: under KV-cache compression one method slightly exceeds the uncompressed model's accuracy at 57.9 percent while 90.2 percent of its correct answers carry unsupported reasoning, against 42.3 percent uncompressed, which is the archive's cleanest instance of accuracy preserved while the reasoning underneath it is destroyed. It is small: 198 problems, so a per-problem analysis is feasible and a single item is half a point, and it is the set on which majority-vote self-consistency was shown pre-registered to lower per-problem accuracy on 56.6 and 65.7 percent of problems for two small models. And it is the benchmark most likely to move in the opposite direction from a method's target -- one rubric-trained medical system gains 17.41 points here as a generalisation check, while its two components split, one contributing 8.69 and the other 3.53. Its four-option format means chance is 25 percent, which several archived results sit close to.",
   "evidence": [
     {
       "id": "arxiv:2608.01631",
@@ -450,7 +450,10 @@
     "qwen2-5-7b-base",
     "qwen2-5-math-72b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mmlu-pro",
+    "aime-2024"
+  ],
   "schema_version": 1,
   "slug": "gpqa-diamond",
   "topics": [

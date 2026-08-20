@@ -1,9 +1,11 @@
 {
   "aliases": [
     "GPT4o",
-    "gpt-4o"
+    "gpt-4o",
+    "GPT-4o",
+    "GPT-4o-mini"
   ],
-  "definition": "An OpenAI multimodal model used across the archive as a reference point rather than a research subject, and notable for what it is compared against. On multimodal mathematical error detection it is the best-performing model tested and still sits about 10% behind educational expert evaluators. On groundedness classification it is beaten by a 4B guardrail model at 77.1% against 75.9% balanced accuracy. It also appears in a systematic evaluation of LLM judges. The pattern across the three is that a general frontier model is a weak specialist: smaller purpose-trained models overtake it at verification, and human experts remain ahead at error detection.",
+  "definition": "A frontier multimodal model appearing across 20 sources almost entirely in supporting roles rather than as a subject: the verifier that admits a synthesised reasoning trace only if its chain deduces the ground-truth conclusion, the teacher that writes an explanation of why a reasoning step was wrong, one member of a multi-model judging jury, and the reference ceiling a smaller trained model is measured against. That last role is where the archive's numbers are: a 7B spatial-reasoning model surpasses it on every individual benchmark and a 3B one surpasses it overall (77.56 against 75.38); a small evidence-grounded hallucination detector beats it 77.1 to 75.9 balanced accuracy; and on multimodal error detection it is the best model tested and still about 10 points behind human evaluation. As a judge it is now the older generation -- one large-scale evaluation shows a legible generational progression on one judging benchmark (0.309, 0.487, 0.606 across three OpenAI models) and almost none on another (0.451, 0.451, 0.457), so its judging quality depends on which benchmark is asked. The dependency worth recording is that several archived training pipelines have it in the labelling or verification path, which makes those results contingent on a proprietary snapshot whose own error rate is never measured.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -564,7 +566,9 @@
     "qwen2-5",
     "qwq-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llm-as-a-judge"
+  ],
   "schema_version": 1,
   "slug": "gpt-4o",
   "topics": [

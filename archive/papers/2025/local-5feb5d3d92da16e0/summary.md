@@ -43,7 +43,7 @@ The paper's own limitations section states that empirical validation focuses pri
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), token penalty, group normalization, advantage weighting, [reward shaping](../../../../wiki/concepts/reward-shaping.md), length-difficulty correlation, inference scaling, majority voting
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), token penalty, group normalization, advantage weighting, reward shaping, length-difficulty correlation, inference scaling, majority voting
 - **Methods**: DIET, [GRPO](../../../../wiki/methods/grpo.md), Advantage Weighting, [RLVR](../../../../wiki/methods/rlvr.md), [majority voting](../../../../wiki/methods/majority-voting.md)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 

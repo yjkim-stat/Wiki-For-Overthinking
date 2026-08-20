@@ -123,6 +123,42 @@
       },
       {
         "kind": "paper",
+        "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+        "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
+        "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+        "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
         "title": "Thought-Level Beam Search for Reasoning",
         "topics": [
@@ -135,8 +171,68 @@
       },
       {
         "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
+        "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
         "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+        "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
         "topics": [
           "reasoning-faithfulness",
           "reasoning-interpretability",
@@ -161,6 +257,30 @@
         "kind": "paper",
         "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
         "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+        "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+        "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary",
         "topics": [
           "reasoning-faithfulness",
           "reasoning-interpretability",
@@ -267,8 +387,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T11:50:03Z",
-  "created_at": "2026-08-13T12:45:28Z",
+  "completed_at": "2026-08-20T22:58:45Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'linear probe'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "linear probe",
   "kind": "concept",
@@ -285,19 +405,19 @@
   },
   "payload": {
     "name": "linear probe",
-    "source_count": 22
+    "source_count": 32
   },
   "result": {
     "aliases": [
+      "probing classifier",
       "linear probing"
     ],
-    "definition": "A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a measuring instrument and as a deployed detector, with the construction varying by target: difference-of-means between contrastive prompt sets for a binary property, Lasso regression where the target is continuous (predicting a reasoning model's eventual token count from the start-of-reasoning activation at Spearman 0.84), and trained heads over prefill-time activations for intent. The sources agree that internals carry more than the visible trace — CoT-only monitors sit near chance on a poisoned model at AUC 0.44-0.55 while access to internals recovers detection, and monitorability turns out to depend on the task and on that access rather than on whether reasoning is explicit or latent. Where they converge most sharply is a negative result about what a probe licenses: a direction can be highly discriminative for a concept and aligned with its positive examples while steering the model the opposite way, correcting the sign improves a standard steering pipeline in 27 of 30 experiments, dense lenses across a whole model show that where a behaviour is most visible is not where intervening on it works best, cultural identity is readable from the residual stream at 0.79 while generation emits it at 0.09, and a sparse autoencoder that improves how recoverable a concept is simultaneously attenuates how much it influences the output. A second and more recent disagreement is about what to probe: several sources argue against fitting to static activations at all, on the grounds that a probe will latch onto lexical surface patterns, and read layer-to-layer displacement, trajectory curvature, quantized region membership or step-indexed position instead. The instrument's own robustness is also contested — trained heads win fine-grained distinctions but collapse to zero accuracy under adversarial rephrasing that training-free statistics over the same features survive.",
+    "definition": "Fitting a linear classifier on hidden states to test whether a property is linearly decodable, and across 32 sources the archive's most-used and least-standardised instrument. What it reliably shows is that a great deal is decodable and often earlier than the model says it: probes recover 77 to 82 percent on a theory-of-mind task against the same models' own chain-of-thought outputs at 62 to 70, with the answer available already in middle layers; probes detect sycophantic anchors at 74 to 85 percent balanced accuracy above text-only baselines. Four cautions recur and are the reason the archive treats a probe result as a lower bound on a claim rather than the claim. Probes learn what is easiest: activations are saturated with polysemantic features, so a probe can succeed for surface lexical reasons rather than for the structure it was meant to find, which is why null and permutation controls appear in the better sources. Extraction choices dominate: no configuration of read-out location, pooling and framing is best across benchmarks, and a pooled variance decomposition can rank a factor below one percent because its opposite effects on two benchmarks cancel. Decoding licenses nothing about intervening: the difference-of-means family used for steering is sometimes the weakest of four classifiers on the same data, and one source declines to pick its intervention by classification accuracy for exactly that reason. And the margin over the obvious simpler control is often small -- on three of six benchmarks in one study the advantage of trajectory geometry over an ordinary probe on the final hidden state is within a few thousandths of AUROC, so a general claim rests on two benchmarks. Sources also note the linear restriction itself makes their reported correlations lower bounds.",
     "kind": "method",
     "related": [
       "detection versus control",
-      "representation versus readout",
-      "activation steering",
-      "activation patching"
+      "construct validity",
+      "layer selection"
     ]
   },
   "task_id": "concept__linear-probe",

@@ -124,8 +124,63 @@
       },
       {
         "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Distributes hindsight supervision across the turns of an agent trajectory by comparing each turn's share of total revision magnitude against its share of eligible tokens, holding the average multiplier at one so the total supervision is fixed and only its allocation changes -- and isolates that allocation with a permutation control that keeps the multiplier values and scrambles which turn receives which.",
+        "title": "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
         "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
@@ -148,6 +203,83 @@
         "kind": "paper",
         "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
         "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+        "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+        "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+        "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
@@ -212,8 +344,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:43:32Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T22:56:47Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'credit assignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "credit assignment",
   "kind": "concept",
@@ -230,13 +362,17 @@
   },
   "payload": {
     "name": "credit assignment",
-    "source_count": 19
+    "source_count": 31
   },
   "result": {
     "aliases": [],
-    "definition": "Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end. These sources treat it as the central unsolved problem of reinforcement learning on reasoning models, and they attack it at four different granularities. Per step, by constructing a dense signal where none exists: scoring each reasoning step by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold answer, or fusing how much a retrieval step raised the likelihood of the correct answer with how necessary it looks in hindsight, asymmetrically so that a locally helpful but globally redundant step is discounted. Per turn, by recursively updating a Bayesian belief in log-odds space over token-level teacher-student gaps to find pivotal turns without a critic. Per token, by choosing which tokens receive the gradient at all -- the roughly 20 percent with the highest entropy act as decision forks and training only on them matches or beats full-gradient updates with the advantage growing with model size, while other sources gate on a token's marginal log-probability gain for the ground-truth answer or apply an efficiency reward to a single mode-selection token to stop it coupling with correctness. And per span, by masking: label-free RLVR collapses because the same answer-level consensus both estimates the reward and receives the gradient, and masking the answer span from updates entirely means a reward can only be raised by improving the reasoning that produced it. Two structural results sit under all of this. Credit that looks uniform can be badly skewed once aggregated -- a recurring correct solution form accumulates positive coefficient mass in proportion to how often it is sampled -- and a process reward model can be had without process labels at all, because parameterising an outcome reward as the log-likelihood ratio between a policy and a reference makes the per-step Q value fall out of the same model for free.",
+    "definition": "Deciding which part of a trajectory earned the reward, and across 31 sources the problem the archive's training literature keeps rediscovering under different names. The complaint is uniformly one of granularity mismatch: a policy is rewarded on whole outputs or whole trajectories while the decisions that produced the result happen at a finer scale, so nothing identifies which retrieval found the key document, which translation choice made the output unfaithful, or which of several changes packed into one code action earned the test pass. The difficulty is worst exactly where the trajectory is longest, since a sparse terminal reward over many turns supplies no supervision at the point of greatest ambiguity. The archive's methods split by where they cut. Some cut by turn, some by trajectory segment type, some by sub-parts of a single action matched across rollouts, and some by token selection -- and their reported contributions are consistent in size, typically 2 to 8 points, against ablations of the terminal signal that are typically 20 to 65. That asymmetry is the corpus's most reliable finding here: finer credit is a refinement of outcome supervision, never a substitute, and every source that removes the terminal reward finds it the largest single loss. Two design constraints follow and are stated independently by several sources. A local term should not be able to flip the sign of the trajectory-level advantage or create an update where the outcome reward is silent -- hence multiplicative rather than additive turn weighting, and gates that stop partial reference agreement overriding a wrong answer. And a criterion for allocating credit is not credited until it has been raced against random allocation at matched cost, because a randomised control routinely captures much of the benefit attributed to the targeted criterion.",
     "kind": "concept",
-    "related": []
+    "related": [
+      "outcome reward",
+      "process reward",
+      "zero-advantage group"
+    ]
   },
   "task_id": "concept__credit-assignment",
   "task_version": 1,

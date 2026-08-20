@@ -7,7 +7,7 @@
     "adaptive test-time compute",
     "compute-optimal allocation"
   ],
-  "definition": "Spending inference compute unevenly -- more on the inputs that need it, less or none on the ones that do not -- rather than fixing a uniform budget per query. The sources split by what triggers the reallocation and by what is being allocated. Triggers include a model's own self-certainty, an algorithm-agnostic measure of how far its answer has stopped changing, a fuzzy controller over human-readable difficulty and confidence signals, injected difficulty cues, and the first diffusion timestep at which a violation actually appears. What is allocated is equally varied: how many samples to draw, how long to keep thinking, how hard to compress the KV cache, which of several reasoning paths to route through, and how many latent states to spend. Three sources treat stopping as the formal core of the problem and reach a sharper conclusion than the heuristics do -- one proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision requires the value of continuing rather than the value of stopping; another stops self-consistency sampling by a Bayesian posterior over which answer is the mode and proves that tracking only the top two counts plus an aggregate suffices for asymptotic optimality; a third casts each generation as opening a costly box in Weitzman's Pandora's Box problem and matches best-of-N quality with 15 to 35 percent fewer generations. The methodological caution the archive should carry comes from the source that reports its result as a tradeoff rather than a win: under a selector-matched protocol that holds the answer selector and decoding fixed so only the budget policy varies, adaptive allocation is slightly less accurate in two of four settings -- which is what separates a genuine allocation effect from the effect of whatever selector the comparison happened to use.",
+  "definition": "Spending different amounts of inference compute on different inputs, on the premise that a fixed budget wastes effort on easy instances and underserves hard ones. Across 25 sources the case for it is well established and the case for any particular controller is not. Three findings shape how the archive reads such claims. Confounding: a method that changes both the budget and the answer selector cannot say which produced its result, which is why replay protocols holding the candidate bank fixed and varying only the reducer are the informative design -- and under one, selecting by mean token log probability falls from 75.56 to 65.83 percent as the budget grows to eighty while answer plurality rises to 78.33 on the same banks. Controllers are hard to learn and hard to audit: one paper evaluated a learned controller that degenerated to a near-greedy policy under leave-one-dataset-out evaluation and reports it rather than dropping it, and another argues for a transparent controller on the grounds that a fixed budget at least explains itself while a learned policy explains nothing about why a prompt got what it got. That same source reports its own ablations against itself -- removing the entropy signal improves mathematics accuracy, and neutralising confidence improves it while forcing the budget to maximum -- and concludes the controller should be read as a transparent allocation policy rather than an optimised one. And the gain is conditional on the instance rather than on the method: a search planner's yield rises smoothly from 15 to 39 percent between 100 and 5,000 iterations on a nominal instance while a fourfold budget increase changes nothing on an adverse one, because feasibility rather than thoroughness binds. Where the savings are real they are usually large and skewed: a latent-reasoning system cuts 268.56 rationale tokens to 1.60 with an 8.9-fold speedup, and a safety pipeline raises median latency on unsafe prompts from 1.91 to 7.06 seconds while leaving benign prompts at 1.8 to 1.9 regardless of the maximum allowed -- the cost is conditional on detection, not on the budget. Several sources note that adaptive often means whether rather than how much, and that controller overhead against the samples saved is rarely reported.",
   "evidence": [
     {
       "id": "arxiv:2608.03284",
@@ -162,7 +162,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:45:48Z",
+  "last_seen": "2026-08-20T22:50:59Z",
   "name": "adaptive compute allocation",
   "related": [
     "test-time-scaling",
@@ -567,7 +567,9 @@
     "hh-rlhf"
   ],
   "related_authored": [
-    "budget-forcing"
+    "test-time-scaling",
+    "best-of-n",
+    "difficulty-stratification"
   ],
   "schema_version": 1,
   "slug": "adaptive-compute-allocation",

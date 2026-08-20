@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "cumulative ablation"
+    "cumulative ablation",
+    "leave-one-out ablation"
   ],
-  "definition": "Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy delta alone would not. The unlearning work adds its components cumulatively on top of a crude lexical baseline and reports a trade at the final step rather than stopping at the best headline: the last component slightly worsens forgetting while raising generation fluency and retained utility. The reflection work goes further and tracks each individual reward component across training steps rather than only its endpoint, which turns a quantitative claim into a categorical one -- with one advantage term removed, the rewards it governs do not merely improve less, they fail to optimise at all, and with the other removed a different reward collapses during training. That is much stronger evidence that a decomposition is doing decomposition work than a drop in average accuracy, because it shows which objective stopped moving rather than only that the total fell. Both sources also demonstrate the design's main weakness: a cumulative ablation fixes an ordering, so it measures each component conditional on the ones already present and cannot separate a component's own effect from its interaction with them -- which is what a full factorial does instead.",
+  "definition": "Removing one part of a method at a time and reporting what each removal costs, and across 12 sources the archive's default evidence that a design is more than the sum of arbitrary choices. What the corpus establishes is mostly how to read one. Removals frequently improve some benchmark while degrading others -- one source reports every single component ablation gaining on at least one of three sets, with removing a prioritisation term gaining 0.4 on one and losing 1.8 and 2.0 on the others -- so the honest conclusion is that the full configuration is best on average rather than everywhere, which those authors state and others do not. Sequential ablation reports ordered marginals, not interaction-free contributions, since a different addition order gives different numbers; one source says so explicitly while presenting a monotone sequence. And a removal that hurts establishes that a component carries information, not that the method uses the property it was designed around -- for that the archive's standing requirement is a control that preserves the component and breaks only its alignment, or a random alternative of matched cost. The strongest instances in the corpus are those where the ablation isolates a mechanism rather than a number: restricting a method to the subpopulation it claims to act on and recovering 84.7 percent of the gain, or removing two control actions separately and finding both load-bearing and not interchangeable (15.31 and 13.06 average F1).",
   "evidence": [
     {
       "id": "arxiv:2608.07371",
@@ -306,7 +307,8 @@
     "qwen3-32b"
   ],
   "related_authored": [
-    "factorial-ablation"
+    "selectivity-control",
+    "null-control"
   ],
   "schema_version": 1,
   "slug": "component-ablation",

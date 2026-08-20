@@ -45,7 +45,7 @@ The paper states none. What a reader should weigh: the margins are 0.8 and 2.6 a
 
 ## Entities
 
-- **Concepts**: failure-probability distribution, moment-based objective, [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [exploration](../../../../wiki/concepts/exploration.md), Schur convexity, [problem difficulty](../../../../wiki/concepts/prompt-difficulty.md), first-success time, Gini coefficient
+- **Concepts**: failure-probability distribution, moment-based objective, [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), advantage estimation, [exploration](../../../../wiki/concepts/exploration.md), Schur convexity, [problem difficulty](../../../../wiki/concepts/prompt-difficulty.md), first-success time, Gini coefficient
 - **Methods**: MMPO, [GRPO](../../../../wiki/methods/grpo.md), pass@K training, [MaxRL](../../../../wiki/methods/maxrl.md), DMPO, [REINFORCE](../../../../wiki/methods/reinforce.md), [PPO](../../../../wiki/methods/ppo.md), leave-one-out advantage estimation
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), [MATH-500](../../../../wiki/datasets/math500.md), OlymMATH, [AMC23](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), MATH7.5K
 

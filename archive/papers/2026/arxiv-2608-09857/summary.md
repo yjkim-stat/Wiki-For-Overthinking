@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should notice is substantial
 
 ## Entities
 
-- **Concepts**: LLM-as-a-judge, jury aggregation, self-consistency, verification layer, [prompt injection](../../../../wiki/concepts/prompt-injection.md), human-in-the-loop, escalation, [class imbalance](../../../../wiki/concepts/class-imbalance.md), [macro versus micro accuracy](../../../../wiki/concepts/macro-versus-micro-accuracy.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), defence in depth
+- **Concepts**: LLM-as-a-judge, jury aggregation, self-consistency, verification layer, [prompt injection](../../../../wiki/concepts/prompt-injection.md), human-in-the-loop, escalation, [class imbalance](../../../../wiki/concepts/class-imbalance.md), [macro versus micro accuracy](../../../../wiki/concepts/macro-versus-micro-accuracy.md), adaptive compute allocation, defence in depth
 - **Methods**: [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [self-consistency](../../../../wiki/methods/self-consistency.md), mixture of experts, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md), knowledge graph grounding, regex detection, fuzzy matching, ensemble aggregation, escalation routing
 - **Datasets**: CWE, MITRE ATLAS, OWASP
 

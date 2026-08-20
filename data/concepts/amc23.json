@@ -4,7 +4,7 @@
     "AMC'23",
     "AMC23"
   ],
-  "definition": "The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy and stopping studies as a second mathematics point alongside AIME24/25, and in the symbolic-perturbation work that rewrites its constants into templates to test whether a solved problem stays solved when the numbers change. Like the other competition sets its size makes single-item movement large, and one archived source reports RLVR's effect on it muted because base models already reach those answers given enough attempts.",
+  "definition": "Forty problems from the 2023 American Mathematics Competitions, used across 23 sources as the middle rung between grade-school and Olympiad-level mathematics. Its size is the first thing to know: at 40 problems one item is 2.5 points, and at least one source explicitly flags reduced statistical power on it while reporting its largest swings there. Its position in difficulty is what makes it useful and what limits it. Length-compression work reports the clearest waste on it -- a median 2.7K emitted tokens against a median 830 needed for the correct answer -- and one compressed model exceeds its uncompressed original outright (77.5 against 72.5), which the authors read as redundant steps having introduced noise. Recovery from injected doubt cues tracks difficulty and places it between the easier and harder sets consistently across two backbones. Conversely it is where the pass@k argument about reinforcement learning is muted, because the base model already solves it given enough attempts, and where several methods' margins are small because the benchmark is near saturation. The most informative result attached to it is a robustness one: under symbolic variabilisation, strict-metric accuracy falls 47.9 percent on average, with reinforcement-tuned 7B models losing 22.9 to 94.5 percent and frontier models only 1.2 to 6.6 -- but the loose metric granting partial credit narrows the robust models' drop to 2.6 to 7.2 percent while a base model still loses 38.5, which separates memorised patterns from mere inconsistency.",
   "evidence": [
     {
       "id": "arxiv:2608.02149",
@@ -520,7 +520,10 @@
     "acereason-nemotron-7b",
     "skywork-or1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "aime-2024",
+    "math500"
+  ],
   "schema_version": 1,
   "slug": "amc23",
   "topics": [

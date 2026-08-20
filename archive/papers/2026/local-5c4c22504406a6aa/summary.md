@@ -43,7 +43,7 @@ The gains depend on having an informative prior over the answer distribution's s
 
 ## Entities
 
-- **Concepts**: self-consistency, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), [optimal stopping](../../../../wiki/concepts/optimal-stopping.md), sequential hypothesis testing, mode identification, [test-time compute](../../../../wiki/concepts/test-time-compute.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), Bayesian prior
+- **Concepts**: self-consistency, [answer stabilization](../../../../wiki/concepts/answer-stabilization.md), [optimal stopping](../../../../wiki/concepts/optimal-stopping.md), sequential hypothesis testing, mode identification, [test-time compute](../../../../wiki/concepts/test-time-compute.md), adaptive compute allocation, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), Bayesian prior
 - **Methods**: adaptive self-consistency, L-aggregated posterior approximation, [majority voting](../../../../wiki/methods/majority-voting.md), sequential hypothesis testing, Beta-posterior updating
 - **Datasets**: _none recorded_
 

@@ -5,7 +5,7 @@
     "DAPO-Math-17k",
     "DAPO-MATH-17k"
   ],
-  "definition": "The 17k-problem mathematics training set released with DAPO, and the default RLVR training data across these sources — which makes their results more comparable than they would otherwise be, since the training distribution is held fixed while the objective varies. One source complicates its use by showing that a roughly 600-sample subset selected by K-means clustering performs comparably to the full set, so its size is not what is doing the work.",
+  "definition": "A 17,000-problem mathematics corpus that has become the archive's default training set for verifiable-reward reinforcement learning -- 12 sources use it, several with the same framework and near-identical hyperparameters. Its value here is as a shared control: because so many methods train on it, differences between them are more attributable to the method than they would otherwise be, and several sources hold step counts and total sampled rollouts fixed across arms on it. Its use also varies in one way worth noting -- some sources filter it by pass rate before training (discarding items above 15/16 or below 1/16), which changes the difficulty distribution the reported numbers describe. It appears both as the sole training corpus and as the reinforcement-learning stage following a supervised warm start on other data. None of the sources describes its construction. The caution the archive should attach is that a training corpus this widely shared makes cross-paper comparison easier and makes any property of the corpus itself invisible, since almost nothing in the archive trains on an alternative and reports the difference.",
   "evidence": [
     {
       "id": "arxiv:2608.02139",
@@ -303,7 +303,10 @@
     "chain-of-thought-compression",
     "light-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "math",
+    "gsm8k"
+  ],
   "schema_version": 1,
   "slug": "dapo-math-17k",
   "topics": [

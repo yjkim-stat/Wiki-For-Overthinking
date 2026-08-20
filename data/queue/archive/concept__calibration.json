@@ -3,9 +3,21 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
+        "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Decomposes measured self-correction gains into a content margin and format-recovery margins, and shows causally that most of what the field has reported as self-correction is answer-parseability repair.",
         "title": "The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -16,6 +28,84 @@
         "note": "Measures an LLM judge's latent number bias by asking it to emit random numbers, then rectifies its scoring token probabilities against that measured bias.",
         "title": "Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation",
         "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models hidden states as a superposition of truthful and hallucination-associated components and derives a closed-form Wiener filter over their covariances, giving mode-wise attenuation that is folded back into the model's own weights so inference runs unchanged and at the same speed.",
+        "title": "Wiener Representation Filtering for VLM Hallucination Suppression",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+        "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+        "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
+        "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -26,6 +116,7 @@
         "note": "Feeds a reasoning model's own self-certainty into preference optimization so it compresses confident answers and keeps deliberating on uncertain ones.",
         "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -36,6 +127,7 @@
         "note": "Applies conformal prediction to the joint reasoning-answer structure of reasoning models, then attributes coverage to specific training examples and reasoning steps with Shapley values.",
         "title": "Quantifying and Understanding Uncertainty in Large Reasoning Models",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -46,6 +138,7 @@
         "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
         "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -56,6 +149,7 @@
         "note": "Finds diffusion language models are badly miscalibrated on math reasoning yet rank correct from incorrect far better than autoregressive baselines, because their confidence tracks structural consistency rather than correctness.",
         "title": "The Confidence Paradox: Unveiling the Latent Discriminative Power of Diffusion Large Language Models in Mathematical Reasoning",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -66,6 +160,7 @@
         "note": "Routes each query to a {model, reasoning budget} configuration by fitting an item response theory model over an evaluation matrix, yielding interpretable query difficulties and configuration abilities, and sending harder queries to higher-ability configurations.",
         "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -76,6 +171,7 @@
         "note": "A systematic empirical study of entropy in RLVR that finds entropy correlates with response diversity but only weakly and inconsistently with accuracy, identifies clipping thresholds, off-policy updates and data diversity as its drivers, and argues positive-advantage tokens are what collapses it.",
         "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
         "topics": [
+          "reasoning-interpretability",
           "test-time-scaling",
           "reasoning-evaluation",
           "reasoning-training"
@@ -83,9 +179,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:33:53Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'calibration'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:58:45Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'calibration'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "calibration",
   "kind": "concept",
   "language": "en",
@@ -94,36 +190,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "calibration",
-    "source_count": 8
+    "source_count": 16
   },
   "result": {
-    "aliases": [
-      "confidence calibration",
-      "ECE"
-    ],
-    "definition": "Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model measured at 31.2% expected calibration error while achieving 0.826 AUROC against 0.611 for comparable autoregressive baselines: the numbers are wrong as probabilities and excellent as an ordering. That matters because the archive's methods need different halves — threshold-gated early stopping and confidence-adaptive length control need calibrated magnitudes, while selection, reranking and pairwise aggregation need only correct ranking, and several of the archive's compute-allocation methods assume the first while requiring only the second. Elsewhere calibration appears as the thing found missing: judges carry a content-independent numeric prior varying by model, task and score range; entropy correlates with response diversity but only weakly and inconsistently with accuracy; and conformal prediction is offered as the way to get a guarantee rather than an estimate.",
-    "kind": "method",
+    "aliases": [],
+    "definition": "Whether a stated or implied probability matches the frequency it is right, used across 16 sources in three different senses that are worth keeping apart. As a property of a model's own confidence it is the failure the archive keeps finding: chain-of-thought supervision reduces composition errors without fixing it, a model scores 52.4 percent when the correct option is A and 31.6 to 33.6 for other positions on a position-balanced set, and internal-state statistics differ sharply in calibration error under the same conditions (0.1216 and 0.0858 for one against 0.2451 and 0.1764 for another). As a property of a critic it has direct consequences for training, since a miscalibrated value estimate produces systematically asymmetric advantages -- one source tracks Brier 0.2031 to 0.1637 and expected calibration error 0.2612 to 0.2131, with the largest gap exactly where overestimation inflates negative advantages. As a fitted correction it inherits whatever defines its calibration set, and one source notes it needs paired truthful and hallucinated representations with no sensitivity analysis over set size or composition reported. Two methodological findings are transferable. The measurement is often achievable from the first 12 of 28 layers, so no full forward pass is needed. And a calibration improvement is only evidence if the metric and the objective are different measurements -- one archived method optimises answer-token confidence and is scored by an error computed from the same quantity, which makes the improvement partly a check that optimisation succeeded. One source names the design squeeze directly: models weak enough to have headroom lack the signal, and models with the signal lack the headroom, so the space where self-correction of calibration can be measured cleanly is nearly empty.",
+    "kind": "concept",
     "related": [
-      "self-certainty",
-      "uncertainty quantification",
-      "judge reliability",
-      "verification",
-      "adaptive compute allocation",
-      "token-level entropy",
-      "conformal prediction"
+      "confidence calibration",
+      "selective prediction",
+      "LLM-as-a-judge"
     ]
   },
   "task_id": "concept__calibration",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

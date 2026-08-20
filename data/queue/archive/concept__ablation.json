@@ -3,10 +3,92 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
+        "title": "Finding Usable Weight Mechanisms with Tiled SVD",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+        "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
         "title": "Safety Cost of Steering Vectors Is Separable and Reducible",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
+        "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
+        "title": "Calibrating Post-Training Feature Shifts for LLM Data Contamination Detection",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+        "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -14,13 +96,15 @@
         "note": "Trains sparse autoencoders on language model activations to recover an overcomplete dictionary of sparsely activating directions, and shows those directions are more interpretable and more precisely causal than neurons, PCA or ICA.",
         "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T12:44:54Z",
-  "created_at": "2026-08-13T12:37:21Z",
+  "completed_at": "2026-08-20T22:59:49Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'ablation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "ablation",
   "kind": "concept",
@@ -37,24 +121,26 @@
   },
   "payload": {
     "name": "ablation",
-    "source_count": 2
+    "source_count": 10
   },
   "result": {
     "aliases": [
-      "zero ablation",
-      "weight-space ablation"
+      "feature ablation",
+      "zero-ablation"
     ],
-    "definition": "Removing a component -- a direction, a latent, a weight subset -- and reading the change in behaviour as evidence of what that component did. Both sources use it as the causal step that follows an identification step, and both find the step is not automatic. One shows a dictionary's directions are more precisely causal than individual neurons under ablation, which is the case for the method; the other is the case against relying on a named direction, since ablating the standard refusal direction from a steering vector recovers almost none of the safety it lost, and the direction that must be removed has to be learned against the intervention's own objective instead. Elsewhere in this archive the same instrument is contrasted with patching, which measures a contrast between two runs rather than the absolute level ablation reports.",
+    "definition": "Removing something -- a feature, a direction, a component, a view -- and reporting what breaks, used across 10 sources both as evidence and as the thing being argued against. The corpus's most useful content is about when it misleads. One source argues explicitly against it for locating a representation, on the grounds that when a representation is split or partially redundant across latents, removing one produces false negatives, and steers along the decoder direction in both signs instead. A second shows removal answering a different question from the one asked: removing a direction from the trunk, from the diffusion module, or from both fails to reduce the generated content, so the trunk signal is sufficient for decodability and not necessary for generation. A third bounds its own claim in the sentence that makes it, noting that a suppression experiment establishes a representational effect on reconstruction and not a causal effect on receiver behaviour, because downstream outputs were never measured after the intervention. And selectivity is fragile: in one cross-model study a language-selective ablation hurts the target language significantly more in all 17 models while selectivity for the other language is statistically indistinguishable from zero in 12 of 17, with the direction of the asymmetry reversing under a different attribution method. Where the corpus is positive it is about ablations that are matched and exhaustive rather than single: one reports every removal degrading both metrics in essentially every setting and reads the ordering, and several note that a complete or near-complete suppression without a matched null -- a random component of comparable activation volume -- shows that something changed rather than that the right thing did.",
     "kind": "method",
     "related": [
-      "activation patching",
-      "steering vector",
-      "causal intervention"
+      "component ablation",
+      "selectivity control",
+      "detection versus control"
     ]
   },
   "task_id": "concept__ablation",
   "task_version": 1,
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-evaluation",
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

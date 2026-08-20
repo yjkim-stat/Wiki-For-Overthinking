@@ -6,7 +6,8 @@
         "note": "Finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, characterizes them geometrically as spoofing the concept's absence downstream, and turns that characterization into a training-free test that fixes the sign — improving a standard steering pipeline in 27 of 30 experiments.",
         "title": "Inverted Detection and Control in Steering Vectors",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -14,7 +15,8 @@
         "note": "Proves that activation patching and weight-space ablation measure two different quantities — a carrier's donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.",
         "title": "A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -22,7 +24,8 @@
         "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
         "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -30,7 +33,17 @@
         "note": "Trains a difference-of-means direction on short- versus long-horizon answer continuations and steers along it, shifting binary temporal choices, moving the monetary indifference threshold on an untrained task by a factor of 56 at a ten-year delay, and changing a planning benchmark — with matched-norm random controls and an unusually candid account of what the direction may actually encode.",
         "title": "Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+        "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -38,7 +51,71 @@
         "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
         "title": "Finding Usable Weight Mechanisms with Tiled SVD",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Refutes the standard account of vision-language hallucination -- that the model attends too little to the image -- by showing real and hallucinated objects draw equally strong attention, then uses a logit lens over the attended regions to separate two causally distinct hallucination types and treat each differently.",
+        "title": "Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+        "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models hidden states as a superposition of truthful and hallucination-associated components and derives a closed-form Wiener filter over their covariances, giving mode-wise attenuation that is folded back into the model's own weights so inference runs unchanged and at the same speed.",
+        "title": "Wiener Representation Filtering for VLM Hallucination Suppression",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a published internal signal for code correctness is a property of the model or of the one extraction recipe used to find it, sweeps every design choice systematically, and finds no configuration is best anywhere -- with the benchmark deciding which choice wins, and a mismatched fitting source able to drive the signal below chance.",
+        "title": "On the Robustness of LLMs' Internal Representation of Code Correctness",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -46,7 +123,35 @@
         "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
         "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
+        "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+        "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
+        "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -54,7 +159,8 @@
         "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
         "title": "Interpreting Language Model Hidden States at Scale",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       },
       {
@@ -62,13 +168,32 @@
         "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
         "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
         "topics": [
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+        "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Probes and steers across the trunk-to-diffusion boundary of an AlphaFold3-class structure predictor, finding that geometry survives the crossing while sequence chemistry is attenuated, and that a strand direction predictive at F1 0.82 steers nothing at all -- with an architectural explanation for why.",
+        "title": "Probing and steering biology across Boltz-1s trunk-diffusion boundary",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:27:39Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T22:55:48Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'detection versus control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "detection versus control",
   "kind": "concept",
@@ -85,19 +210,24 @@
   },
   "payload": {
     "name": "detection versus control",
-    "source_count": 8
+    "source_count": 21
   },
   "result": {
-    "aliases": [],
-    "definition": "The principle these sources arrive at by repeatedly falsifying its opposite: how well a direction or component discriminates a concept licenses no claim about what intervening on it does -- not the magnitude, and not even the sign. The assumption it denies is the one the foundational steering methods rest on, which selects the most discriminative attention heads and steers along their mean-difference direction. Three independent measurements break it at different granularities: a direction can reach AUC 0.97 while its steer factor correlates with the concept score at Spearman -1, and such inverted vectors are systematic rather than incidental (three mined per model-concept pair across 15 pairs, with a training-free sign test improving a standard pipeline in 27 of 30 experiments); across component types, detection and intervention rankings correlate at Spearman -0.43, MLP outputs showing the weakest detected toxic signal while producing the largest reduction when modified and MLP inputs the reverse; and the gap is depth-conditioned rather than constant, with steer-versus-lens agreement running from about -0.03 to 0.07 in the earliest layers to about 0.91 at the final one. The sources do not disagree with each other, but they place the gap at different levels, and one pair pushes it further than the name suggests: activation patching and weight-space ablation are themselves two different quantities -- a carrier's donor-receiver contrast against its absolute level at the receiver, neither bounding the other, with a realized gap of 0.224 to 0.852 on all five instances of an emergent circuit -- so control is not a single thing either. Two sources respond in practice by refusing to select on discriminability at all: one declines to pick its intervention by classification accuracy even though the family it steers with is the weakest of its four classifiers, and the other ranks layers by their predicted steering effect rather than by how well they separate the concept.",
+    "aliases": [
+      "detection-intervention gap"
+    ],
+    "definition": "Whether a direction that separates a property from its absence is also a direction that changes it when you push along it -- and across 21 sources the assumption that the two coincide is the one the archive has most thoroughly falsified. The assumption is load-bearing rather than incidental: it is what licenses selecting a steering direction by its discriminability, which is exactly what the foundational method does when it picks the most discriminative attention heads. The direct refutation is quantitative. Inverted vectors -- high discriminability with a strongly negative relationship between steering strength and concept score -- are mined systematically rather than found by chance, three per model-concept pair across 15 pairs, one reaching an AUC of 0.97 with a Spearman correlation of -1. So alignment with positive representations does not determine even the sign of the steering effect, and the worst untreated case moves a concept backwards (promotion score 1.50 against an unsteered 1.75, corrected to 3.57). The authors read this as the explanation for the variability in steering efficacy reported across model-concept pairs in prior work. Several sources have absorbed the lesson into their methods rather than their conclusions: one reports its difference-of-means family as the weakest of four classifiers and declines to pick the intervention by classification accuracy; another finds probe-steering agreement near zero in early layers (-0.03 to 0.07) rising to about 0.91 at the final layer, and derives an early-layer waiver from that curve rather than from convenience. Two further asymmetries appear. Detection generalises where control does not, and control generalises where detection does not: a temporal-horizon direction trained on binary answers transfers to a monetary task with a different format, while a defect direction fitted on controlled pairs scores 83.3 percent held out on those pairs and 19.6 to 30.0 percent on real benchmarks. And a steering effect can be damage: the archive's recurring demand is a matched null -- a random direction of comparable activation volume -- without which suppressing a feature and observing degradation reports that something changed rather than that the right thing did.",
     "kind": "concept",
     "related": [
-      "representation versus readout"
+      "activation steering",
+      "linear probe",
+      "construct validity"
     ]
   },
   "task_id": "concept__detection-versus-control",
   "task_version": 1,
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

@@ -5,7 +5,7 @@
     "AIME'24",
     "AIME2024"
   ],
-  "definition": "The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems and integer answers make it automatically checkable and hard enough to be unsaturated, so it appears in almost every test-time-scaling, entropy, compression and token-selection study here, usually as Avg@k and Pass@k over 16 to 64 samples. Four archived results bound how much any AIME 2024 number means: greedy decoding is not reproducible across hardware, with GPU type, count or batch size shifting accuracy by up to 9 percentage points on one model; converting its problems into symbolic templates with resampled constants collapses scores that survive the original phrasing; a brief round of GRPO erases the signals contamination detectors rely on; and with 30 problems a single item is worth over three points, so the one-to-three-point gaps common in the efficiency literature here are not measurements. Reported ranges across these sources run from roughly 17 Avg@32 for a GRPO baseline on a 7B model to 63.5 Acc@16 for a 32B model trained on high-entropy tokens only.",
+  "definition": "Thirty competition mathematics problems from the 2024 American Invitational Mathematics Examination, and by source count the archive's most used hard benchmark -- 52 papers. Its properties as an instrument are what the archive should carry. It is thirty problems, so a single problem is 3.3 percentage points and most reported differences on it are one or two problems; one source flags this itself, noting that pass@k comparisons at large k are more stable than accuracy deltas but the absolute count stays small. It is where methods separate most: entropy-control work reports its largest margins here (15.0 points against 14.6 on the 2025 edition and far less elsewhere), and parameter-space exploration reports up to 5.83 points here against fractions of a point on easier sets. It is also where averages are carried or destroyed -- one paper notes its own five-benchmark average is carried by the easier sets because this one sits at 5.21 and 7.71 at small scale, and another reports its objective buying tail coverage at visible cost in the columns for this benchmark. Two robustness findings attach to it. Under a symbolic variabilisation that replaces its constants with sampled values and requires consistency across instantiations, strict-metric accuracy falls 58.8 percent on average, though the loose metric that grants partial credit shows far milder drops (1.5 percent for one 32B model), which separates contamination from inconsistency. And it is the benchmark on which the pass@k-versus-CoT-pass@k disagreement about whether reinforcement learning expands the reasoning boundary is sharpest, because easier sets are already solved by the base model with enough attempts.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -1078,9 +1078,7 @@
   ],
   "related_authored": [
     "aime-2025",
-    "var-math",
-    "hmmt",
-    "pass-k"
+    "math500"
   ],
   "schema_version": 1,
   "slug": "aime-2024",

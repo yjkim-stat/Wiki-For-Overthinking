@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "The additive hidden-state channel each transformer layer reads from and writes to, and the site these sources intervene on or read from. One decomposes it with sparse dictionary learning, on the argument that features live in it as non-orthogonal directions rather than aligned with neurons. One edits a low-rank component at a single token position and supplies the detail that matters for reasoning work: under KV caching later tokens do not read the residual stream directly but the key and value vectors derived from it, so an edit persists because subsequent decode steps attend to a cache that now holds patched information — which is why the printed tokens can be identical while downstream logits differ. Three read it as a trajectory rather than a state, on the shared argument that static activations let probes latch onto lexical surface patterns: two detect flawed reasoning from layer-to-layer displacement, one of them combining a quantized region reader with a normalized direction reader, and one verifies correctness from a trace's start-to-end delta against class centroids with no training at all.",
+  "definition": "The additively updated activation vector each transformer layer reads from and writes to, and in this archive the substrate every interpretability method operates on rather than an object studied in itself. What the 17 sources establish about it is mostly negative and methodological. It has no privileged basis: individual neurons are polysemantic and there is no reason to expect features here to align with the neuron basis at all, which is the premise the sparse-autoencoder literature is built on -- and that literature's own numbers show the cost, with automated interpretability scores declining from about 0.30 at layer 0 to 0.15 by layer 5 and reconstruction raising perplexity from 25 to 40 when substituted back. The causal information is often compact: replacing the whole stream at a site has a comparable effect to a low-rank patch, so the relevant subspace is small. And one source names the interpretive gap directly -- aligning explanations to a separately learned codebook answers what a direction means in a proxy space while leaving implicit the rule that actually writes into the stream. Practical scope caveats recur: methods tuned for it do not robustly transfer to intermediate MLP layers, and attention heads are typically untouched.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -396,7 +396,11 @@
     "pythia-70m",
     "pythia-410m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "sparse-autoencoder",
+    "activation-patching",
+    "linear-probe"
+  ],
   "schema_version": 1,
   "slug": "residual-stream",
   "topics": [

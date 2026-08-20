@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "DeepSeek R1"
+    "DeepSeek R1",
+    "DeepSeek-R1-0528"
   ],
-  "definition": "The reasoning model trained by pure reinforcement learning on verifiable outcomes, without human reasoning trajectories, and the reference point for most of this archive. Beyond originating the setting, it appears here as a measured subject: it is the most monitorable of eight models tested, at 78.3% average monitorability, and it is among the frontier systems that hold up best under symbolic variation of benchmark problems, losing 3.6% on a variabilized AMC23 where 7B RL-tuned models lose 20-95%.",
+  "definition": "An open reasoning model appearing across 11 sources in three distinct roles. As a subject it is the archive's high-water mark for monitorability, scoring 78.3 percent average and exceeding its own non-reasoning sibling by 32.8 points on the cue where the gap is widest -- one of the corpus's clearest pieces of evidence that reasoning training makes a model's stated reasoning more informative about its behaviour, not less. As a source of traces it is upstream of much of the archive: several methods warm-start on millions of its responses, and the distilled checkpoints derived from it are among the most-used backbones here. As an instrument it filters candidates, reviews queries and judges outputs in benchmark construction -- one source notes its benchmark is model-mediated at nearly every step, with this model filtering confusable candidates and reviewing queries while human involvement is confined to adjudicating disagreements. Its measured limits: on symbolic variabilisation of competition problems it is among the most robust models on the easier set (-3.6 percent) and still degrades on the harder ones (81.5 to 61.3 on one), and across open reasoning models including this one, fewer than 25 percent of reasoning traces comply with instructions given for the reasoning itself.",
   "evidence": [
     {
       "id": "arxiv:2608.03077",
@@ -340,7 +341,9 @@
     "qwen2-5-math-72b-instruct",
     "deepseek-r1-distill-qwen-14b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1-distill-qwen-7b"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1",
   "topics": [

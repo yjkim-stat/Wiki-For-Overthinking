@@ -2,9 +2,10 @@
   "aliases": [
     "CoT prompting",
     "Chain-of-Thought Prompting",
-    "chain of thought"
+    "chain of thought",
+    "few-shot CoT"
   ],
-  "definition": "Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a precise account of what it buys: bounded-depth transformers provably cannot solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive transformers can once allowed to emit intermediate steps, and the class of languages recognised with t(n) decoding steps is sandwiched between two standard complexity classes -- so the extra steps are serial computation, not explanation. What the empirical sources establish is that the explanation reading is the one that fails: the trace systematically misrepresents the reason for the answer when the input is biased in a way the model never mentions, and how much the answer depends on the stated chain varies by task and decreases with model size. Two sources bear directly on how it should be used now. Few-shot prompting with dataset exemplars has become a misleading baseline -- 74.2 percent against 86.1 percent on GSM8K for one reasoning-specialised model simply asked the question -- so anything benchmarked against it is overstated; and on subjective tasks with no canonical correct trajectory, forcing explicit reasoning degrades accuracy relative to answering directly. The rest of these sources treat it as a substrate to be modified rather than used as given: generalised into a search over a tree of thoughts with lookahead and backtracking, grounded so that every step carries a predicted image region, replaced by continuous latents, or kept only as training-time supervision and dropped at inference.",
+  "definition": "Eliciting step-by-step intermediate tokens from a model that would otherwise answer directly, usually by few-shot examples drawn from the dataset -- which across 31 sources remains the standard baseline in official model releases and in nearly every comparison the archive holds. Its status here is almost entirely that of a reference point rather than a subject: methods report 6.6 points over it averaged across 30 settings, or 74 percent against its 4 percent on a search-structured puzzle, and it is the arm every latent-reasoning, self-consistency and structured-prompting paper must beat. Two qualifications recur across the corpus. The prompt is an experimental variable rather than a fixed point, so a comparison against it measures the template as much as the method -- one source holds the template constant across arms precisely so that only the diversity source differs. And what it improves is the answer, not necessarily the reasoning: the archive's faithfulness sources find extrinsic prompting and supplied cues both helping while neither is internalised, leaving reasoning that proceeds disconnected from the evidence it claims to rest on. One source in the corpus explains its accuracy effect mechanistically; the others use it without one.",
   "evidence": [
     {
       "id": "arxiv:2305.04388",
@@ -798,7 +799,9 @@
     "context-free-grammar-membership-testing"
   ],
   "related_authored": [
-    "tree-of-thoughts"
+    "chain-of-thought-faithfulness",
+    "tree-of-thoughts",
+    "self-consistency"
   ],
   "schema_version": 1,
   "slug": "chain-of-thought-prompting",

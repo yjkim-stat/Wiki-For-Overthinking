@@ -2,9 +2,10 @@
   "aliases": [
     "outcome-based reward",
     "terminal reward",
-    "outcome supervision"
+    "outcome supervision",
+    "sparse reward"
   ],
-  "definition": "A single scalar awarded for the finished answer, and across these sources the baseline whose insufficiency each of them is arguing. Two treat it as an anchor that must be kept: one finds that removing the terminal reward while retaining dense per-step supervision is its largest single ablation loss (6.3 F1, degrading every benchmark), and the other bounds its privileged correction by the outcome advantage so that privileged information can never generate an update where the outcome reward is silent. The third names what it cannot express: treating one output stream as a sequence of episodes and scoring it by cumulative regret, it finds that current models' progress toward a correct answer is not monotone across the stream, and that a 0/1 terminal reward applies no pressure for it to be. The shared position is that outcome reward determines the direction of learning and cannot determine its distribution over a trajectory.",
+  "definition": "Scoring a whole trajectory by whether its final answer is correct, which collapses everything the model did into one bit. Across 18 sources it is the cheap, load-bearing signal that nothing has been able to replace. The complaint is uniform: a ten-retrieval search trajectory receives one scalar and nothing distinguishes the retrieval that found the key document from one that repeated a query; the reward supervises only the answer, so a model can reach it without attending to the audio, the image or the intermediate quantities at all; and over a long tool-use trajectory it supplies no supervision at the exact point where credit is most ambiguous. Yet every source that ablates it finds it indispensable rather than merely helpful, and the archive holds no instance of dense supervision anchoring a policy on its own -- removing the terminal reward is repeatedly the largest single loss, and one system with it removed keeps perfect step-level tool selection while never terminating. The design consequence the sources converge on is that dense signals should be applied as modifiers that cannot flip a sign or create an update where the outcome reward is silent: one applies its turn-level term multiplicatively rather than additively for exactly this reason, another gates partial reference agreement so it cannot override a wrong final answer, and a third bounds a privileged correction by the magnitude of the outcome advantage. A separate limitation is that its scope is the answer: post-training against it improves solution accuracy without necessarily improving the semantic validity of the traces, which one source notes should be unsurprising given what it scores.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -458,8 +459,8 @@
     "supervised-finetuning-on-search-traces"
   ],
   "related_authored": [
-    "outcome-reward-model",
-    "reward-hacking"
+    "process-reward",
+    "credit-assignment"
   ],
   "schema_version": 1,
   "slug": "outcome-reward",

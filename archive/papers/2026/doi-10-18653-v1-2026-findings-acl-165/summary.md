@@ -44,7 +44,7 @@ No quantitative results, benchmarks or models in the abstract. Confining the eff
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [reward shaping](../../../../wiki/concepts/reward-shaping.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), dual-process theory, [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), mode selection
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), reward shaping, [credit assignment](../../../../wiki/concepts/credit-assignment.md), dual-process theory, [Pareto frontier](../../../../wiki/concepts/pareto-frontier.md), adaptive compute allocation, mode selection
 - **Methods**: ADaPT, [reinforcement learning post-training](../../../../wiki/methods/reinforcement-learning-post-training.md), mode-selection token, [length control](../../../../wiki/methods/length-control.md)
 - **Datasets**: _none recorded_
 

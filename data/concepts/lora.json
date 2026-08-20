@@ -3,7 +3,7 @@
     "Low-Rank Adaptation",
     "low-rank adaptation"
   ],
-  "definition": "Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison affordable, and its presence marks how their results should be scoped — a finding established under low-rank adaptation is a finding about what that adaptation reaches, not about full fine-tuning. One uses it to train students on compressed reasoning traces so that three importance criteria can be compared at matched compression ratios on the same traces. The other uses it in the pipeline that scores hidden-state trajectory geometry for progress and stability.",
+  "definition": "Training low-rank adapter matrices while the base weights stay frozen, used across 14 sources as the default cheap fine-tuning method and, in several, as the thing that bounds what a study establishes. Configurations in the corpus cluster tightly -- ranks 8 to 256, alpha typically twice the rank, dropout 0.05, one to two epochs -- and one source's own sweep peaks at rank 128 while it reports rank 256, attributed to the sweep's smaller training set. Two findings are worth carrying. It is not always worth its cost: in one forecasting system it and full fine-tuning cost 8.21 and 15.21 times the training time to move the headline error by at most 0.001, which is the clearest instance in the archive of a backbone that is close to inert for the task. And several sources name it as a scope limit on their own conclusions -- training on 1,000 problems for one epoch on a single GPU bounds what a comparison establishes about full fine-tuning at scale, and one contamination study notes its clean reference models are themselves adapters at one hyperparameter setting. It is also the mechanism by which several archived methods keep a frozen model intact while adding a capability alongside it, restructuring the residual stream through an adapter rather than editing the model.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -458,7 +458,8 @@
     "qwen2-5-1-5b"
   ],
   "related_authored": [
-    "parameter-efficient-fine-tuning"
+    "supervised-fine-tuning",
+    "adapter"
   ],
   "schema_version": 1,
   "slug": "lora",

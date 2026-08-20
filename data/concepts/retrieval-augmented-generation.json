@@ -3,7 +3,7 @@
     "RAG",
     "retrieval augmentation"
   ],
-  "definition": "Conditioning generation on retrieved documents so that answers are grounded in supplied evidence rather than in parameters. The two sources use the term for different things, which is worth noting because the archive holds only these two. One treats RAG as the deployment setting needing a guardrail, training a 4B model to classify document-claim pairs as grounded or hallucinated in closed-book document-grounded settings. The other uses retrieval as a contrast case in a mechanistic study of how transformers come to reason implicitly over stored facts. Grounding on retrieved text does not guarantee the answer follows from it, which is the gap the first source addresses.",
+  "definition": "Conditioning generation on retrieved documents, and in this archive mostly a setting other things are measured in rather than a method studied on its own -- it supplies the substrate for search-agent credit assignment, evidence-grounded guardrails and long-document question answering across 11 sources. The one explicit claim the corpus makes about it is a negative: grounding an answer in retrieved documents does not guarantee the answer follows from them, so a separate guardrail is needed to judge whether a claim is supported by the evidence it cites. That gap is what several archived systems are built to close, by verifying causally rather than by construction -- masking the evidence a system cites flips 82.8 percent of correct answers while masking uncited evidence changes 9.6, which is what a grounding claim needs to look like. Its other recurring role is as the setting where credit assignment is hardest, since a trajectory of many retrievals receives one scalar and nothing distinguishes the retrieval that found the key document from one that repeated a query.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -320,7 +320,10 @@
     "synthetic-knowledge-base-comparison",
     "gpt-4-turbo"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "search-augmented-agents",
+    "hallucination"
+  ],
   "schema_version": 1,
   "slug": "retrieval-augmented-generation",
   "topics": [

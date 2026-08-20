@@ -171,6 +171,318 @@
       },
       {
         "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the monotonic zoom-in that tool-using video agents follow once they pick a region with a policy that self-checks each tool observation and can switch regions, and trains it with turn-level credit applied multiplicatively -- reweighting the trajectory advantage's magnitude while preserving its sign -- rather than additively.",
+        "title": "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an industrial-safety reasoning benchmark from two pipelines -- program execution over safety scene graphs, and evidence graphs extracted from real accident-investigation reports -- and shows that general multimodal capability does not transfer to it while a 9B model fine-tuned on its chain-of-thought split matches frontier systems.",
+        "title": "SafeSceneReason: A Multimodal Reasoning Benchmark Connecting Industrial Hazards with Accident Knowledge",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+        "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+        "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
+        "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces a verbose natural-language rationale with two to six executable action tokens drawn from a fixed vocabulary, supervised automatically by pairing logged trajectories with scene context, so that driving-oriented reasoning fits inside a real-time control budget that verbose chain-of-thought exceeds by three to four times.",
+        "title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Generates financial reasoning benchmarks from executable computation trees over real tables so that answers are correct by construction with no model in the labelling loop, exposes four independently controllable difficulty axes, and finds that unit and scale perturbations collapse the strongest model from 98.4 percent to 3.0.",
+        "title": "V-FiLLM: Verified Financial LLM Reasoning Benchmark",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+        "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a spatial-reasoning chain of thought into explicitly typed segments -- perception, including depth, and reasoning -- and gives each its own process reward and its own advantage term, so that the two do not compete for credit under a single outcome signal.",
+        "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
         "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
         "topics": [
@@ -315,6 +627,18 @@
       },
       {
         "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
         "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
         "topics": [
@@ -327,8 +651,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T11:04:14Z",
-  "created_at": "2026-08-13T10:57:34Z",
+  "completed_at": "2026-08-20T22:52:08Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'supervised fine-tuning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "supervised fine-tuning",
   "kind": "concept",
@@ -345,20 +669,20 @@
   },
   "payload": {
     "name": "supervised fine-tuning",
-    "source_count": 27
+    "source_count": 54
   },
   "result": {
     "aliases": [
-      "supervised finetuning",
-      "SFT"
+      "SFT",
+      "cold start",
+      "behaviour cloning"
     ],
-    "definition": "Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on which traces: one bootstraps by finetuning only on self-generated rationales that reached correct answers and iterating the loop; one finetunes on 1,000 examples curated for difficulty, diversity and quality and beats a much stronger closed model on competition mathematics; and one uses it as the baseline that verifier-based reranking outperforms, reporting that verification scales better with added data than finetuning does. The strongest evidence about what it transfers runs in reverse — 800 examples of a model's own correct traces, generated under an instruction not to express uncertainty, cut AIME 2024 pass@1 from 80.0 to 43.3 on one model, so the lever removes a behaviour as readily as it installs one, and what moves is substantially the style of the trace rather than the knowledge behind it. Across the rest of the archive it is pipeline background rather than an object of study: the stage before RL in nearly every training recipe here, the stage at which contamination is introduced before a later RL run conceals it, and the training that produces the judge behaviour a meta-benchmark then measures.",
+    "definition": "Maximising the likelihood of curated target sequences -- usually a reasoning trace followed by an answer -- and across 54 sources the stage whose role is most often asserted and least often measured. Its dominant use here is as a cold start that installs a format before reinforcement learning, and where that has been ablated the effect is categorical rather than incremental: a tool-using policy trained by reinforcement learning alone cannot reliably emit parsable tool calls at all (50.6 percent format compliance against 100), while supervised fine-tuning alone reaches 99.8 percent and comes within 2 to 3.6 points of the full pipeline. The sources disagree sharply about whether it is needed. Several find it indispensable and then surpassed -- it beats the base model and loses to every reinforcement-learning method applied over it, or plateaus at 89.74 percent where the full pipeline reaches higher. Others find the opposite: reinforcement learning without any cold start is the best configuration on closed-ended medical questions on all three benchmarks by 8 to 20 points while losing every open-ended split, one hybrid-reasoning method removes the stage deliberately as computationally costly, and one from-scratch study finds group-relative reinforcement learning losing to supervised fine-tuning on two of three mathematics benchmarks (27.37 against 36.69 Pass@8 on one) with the combination beating both by 31 to 175 percent. Two systematic reasons the comparison keeps coming out differently are documented. It is routinely under-tuned as a baseline: giving each method its best validation checkpoint rather than a fixed epoch budget is worth 27 points of end-to-end accuracy to supervised fine-tuning and under 4 to reinforcement learning, which reverses the reported ordering. And the comparison usually confounds the training method with the trace source, since the supervised arm typically learns from a larger distilled teacher while the reinforcement-learning arm has none. On what the traces themselves buy, two controlled studies agree that the effect is out of distribution rather than in it: rationale supervision buys nothing in-domain for strong backbones and 20 to 28 points out of domain, and domain-specific chain-of-thought supervision lifts one 9B model from 37.4 to 89.0 percent where answer-only supervision reaches 75.1. Quantities are small throughout -- 1,000 curated traces for test-time scaling, 1,000 examples for a safety-alignment structure change, 800 to install or destroy a habit of verbalising uncertainty (suppressing it halves pass@1 on five models despite every training trace being correct). Two sources note where the stage is dangerous rather than useful: a triggered backdoor whose visible reasoning stays clean and correct is installed this way, and benchmark contamination introduced here is laundered by a brief reinforcement-learning run afterwards, so a pipeline ending in reinforcement learning conceals what its supervised stage absorbed. One source places more alignment weight on this stage than the preference-optimisation literature assumes, identifying data scaling and prompt diversity as the drivers.",
     "kind": "method",
     "related": [
-      "distillation",
-      "RLVR",
-      "epistemic verbalization",
-      "s1"
+      "rejection sampling",
+      "curriculum learning",
+      "checkpoint selection"
     ]
   },
   "task_id": "concept__supervised-fine-tuning",

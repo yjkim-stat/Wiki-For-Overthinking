@@ -3,13 +3,230 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Scores unlabeled reasoning trajectories by how their mean-pooled hidden states connect to correct and incorrect reference point clouds built from a small labeled set, and uses that score to pick the concrete chosen and rejected responses inside answer clusters that self-consistency has already separated.",
+        "title": "Cloud-ScPO: Hidden-State Geometry for Semi-Supervised Preference Optimization in LLM Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
+        "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
+        "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
+        "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+        "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+        "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
+        "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes student simulators on paired internal-dialogue traces and code edits rather than on actions alone, and measures the result on two axes at once -- how closely generated code matches the distribution of real student submissions, and how well the generated reasoning explains the specific edit that followed.",
+        "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A competitive chess testbed where 13 models play each other, and no model beats a human-amateur-level engine while some lose to random play.",
         "title": "ChessArena: A Chess Testbed for Evaluating Strategic Reasoning Capabilities of Large Language Models",
         "topics": [
-          "reasoning-training",
           "reasoning-evaluation",
-          "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -17,10 +234,11 @@
         "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
         "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
         "topics": [
-          "reasoning-training",
           "reasoning-evaluation",
-          "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -28,10 +246,11 @@
         "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
         "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
         "topics": [
-          "reasoning-training",
           "reasoning-evaluation",
-          "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -39,10 +258,11 @@
         "note": "Shows that the roughly 20% of CoT tokens with the highest entropy act as decision forks, and that restricting RLVR policy-gradient updates to only those tokens matches or beats full-gradient training, with the advantage growing with model size.",
         "title": "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning",
         "topics": [
-          "reasoning-training",
           "reasoning-evaluation",
-          "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       },
       {
@@ -50,17 +270,30 @@
         "note": "Separates reasoning into procedural advancement and 'epistemic verbalization' — the token-level externalization of uncertainty — and shows that emitting doubt is what lets a model recover from silent divergence, that injecting a bare doubt cue recovers failed trajectories, and that 800 SFT examples suffice to install or destroy the habit.",
         "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
         "topics": [
-          "reasoning-training",
           "reasoning-evaluation",
-          "test-time-scaling",
-          "reasoning-faithfulness"
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that the L2 norm of a hidden state is a training-free proxy for how hard a model is reasoning at that layer and token, proves it bounds the activation of SAE-identified reasoning features, and uses norm peaks to decide where to recurse a layer, where to steer, and which sampled response to keep.",
+        "title": "The Tell-Tale Norm: L2 Magnitude as a Signal for Reasoning Dynamics in Large Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:58Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'Qwen3-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:54:01Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'Qwen3-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-8B",
   "kind": "concept",
   "language": "en",
@@ -69,23 +302,29 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Qwen3-8B",
-    "source_count": 5
+    "source_count": 24
   },
   "result": {
-    "definition": "An 8B model from the Qwen3 family, used in these sources as the small end of a scaling comparison and as a general-purpose reasoning subject. It is where the high-entropy-token RLVR result is weakest — a 0.53-point average gain against 4.10 for the 32B model, with one benchmark regressing — which that source reads as the smaller model lacking the capacity to benefit from increased exploration. Its base variant carries the doubt-injection experiments, where suppressing expressions of uncertainty by fine-tuning on 800 of its own correct traces cuts AIME24 pass@1 from 16.7 to 3.3. Elsewhere it appears as a subject rather than a variable: among thirteen models in a chess testbed where none beats a human-amateur engine, among the judges in a large-scale judge-reliability audit, and as a model whose traces a step-level causal attribution method is fitted to."
+    "aliases": [
+      "Qwen3-8B-Base"
+    ],
+    "definition": "An 8B open-weight model from the Qwen3 family, and in this archive the most heavily reused mid-size subject -- appearing across 24 sources as a training backbone, a probing target and an evaluation checkpoint. Two roles are worth separating. As a training backbone it is where several methods report their headline: a search-agent credit-assignment method raises its average from 50.9 to 53.3, a semi-supervised preference method reaches 62.33 percent on one mathematics set with 963 preference pairs against baselines using 4,178 -- though that same method loses on a Llama backbone, so the result is partly a property of this model. As an evaluation subject it is repeatedly the newer, stronger backbone on which a method's gains shrink: one self-correction paper attributes its smaller improvements here to the model already self-correcting before training. It is also the default target for several interpretability and faithfulness studies -- an eleven-compressor sweep of KV-cache compression measures it at 67.4 percent on one competition set with 4.3 percent of its correct answers resting on invalid chains, and a probing study finds trained heads on it beating a norm-only method by 40 points on fine-grained mathematical subfields while both fail differently on programming-language identification. None of the sources describes its training; what the archive should carry is that a disproportionate number of its results are anchored to this one checkpoint.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__qwen3-8b",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

@@ -3,7 +3,7 @@
     "Llama-3.1-8B-Instruct",
     "LLaMA-3.1-8B-Instruct"
   ],
-  "definition": "The instruction-tuned 8B Llama-3.1 model, used across these sources as a mid-capability workhorse rather than a subject of study. It serves as a generation model for best-of-N evaluation of reward models, as the base for training an implicit process reward model, and as one of two base models for an adaptive inference agent — where it shows the larger adaptive gain of the two (43.8 to 65.4 on MATH-500) and a distinctly different controller profile from the Qwen model, spreading tool selection across several options where Qwen concentrates on two.",
+  "definition": "An 8B instruction-tuned Llama model, and in this archive the standard cross-family check -- the model included so that a result established on a Qwen backbone is not only a fact about Qwen. Across 15 sources that role is what it mostly performs, and it earns its place because the check frequently fails: one preference method reaches 62.33 percent on a mathematics set with an 8B Qwen backbone and loses to a baseline here (23.01 against 23.51), and one credit-redistribution method that improves at every sampling budget on two backbones is beaten by vanilla training or a judge baseline on two of its results here. Where it is the primary subject it is usually in interpretability and steering work -- refusal directions, concept vectors, latent-reasoning gradient flow, step-specific representation geometry -- and in one self-correction study it is among the newer backbones where the method's gains shrink, attributed to the model already self-correcting before training. Its 8B scale places it alongside the 7B Qwen instruct model as the archive's default mid-size open checkpoint, and several sources report both.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -422,7 +422,9 @@
     "mmlu",
     "llama-3-1-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct"
+  ],
   "schema_version": 1,
   "slug": "llama-3-1-8b-instruct",
   "topics": [

@@ -3,7 +3,7 @@
     "credit attribution",
     "temporal credit assignment"
   ],
-  "definition": "Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end. These sources treat it as the central unsolved problem of reinforcement learning on reasoning models, and they attack it at four different granularities. Per step, by constructing a dense signal where none exists: scoring each reasoning step by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold answer, or fusing how much a retrieval step raised the likelihood of the correct answer with how necessary it looks in hindsight, asymmetrically so that a locally helpful but globally redundant step is discounted. Per turn, by recursively updating a Bayesian belief in log-odds space over token-level teacher-student gaps to find pivotal turns without a critic. Per token, by choosing which tokens receive the gradient at all -- the roughly 20 percent with the highest entropy act as decision forks and training only on them matches or beats full-gradient updates with the advantage growing with model size, while other sources gate on a token's marginal log-probability gain for the ground-truth answer or apply an efficiency reward to a single mode-selection token to stop it coupling with correctness. And per span, by masking: label-free RLVR collapses because the same answer-level consensus both estimates the reward and receives the gradient, and masking the answer span from updates entirely means a reward can only be raised by improving the reasoning that produced it. Two structural results sit under all of this. Credit that looks uniform can be badly skewed once aggregated -- a recurring correct solution form accumulates positive coefficient mass in proportion to how often it is sampled -- and a process reward model can be had without process labels at all, because parameterising an outcome reward as the log-likelihood ratio between a policy and a reference makes the per-step Q value fall out of the same model for free.",
+  "definition": "Deciding which part of a trajectory earned the reward, and across 31 sources the problem the archive's training literature keeps rediscovering under different names. The complaint is uniformly one of granularity mismatch: a policy is rewarded on whole outputs or whole trajectories while the decisions that produced the result happen at a finer scale, so nothing identifies which retrieval found the key document, which translation choice made the output unfaithful, or which of several changes packed into one code action earned the test pass. The difficulty is worst exactly where the trajectory is longest, since a sparse terminal reward over many turns supplies no supervision at the point of greatest ambiguity. The archive's methods split by where they cut. Some cut by turn, some by trajectory segment type, some by sub-parts of a single action matched across rollouts, and some by token selection -- and their reported contributions are consistent in size, typically 2 to 8 points, against ablations of the terminal signal that are typically 20 to 65. That asymmetry is the corpus's most reliable finding here: finer credit is a refinement of outcome supervision, never a substitute, and every source that removes the terminal reward finds it the largest single loss. Two design constraints follow and are stated independently by several sources. A local term should not be able to flip the sign of the trajectory-level advantage or create an update where the outcome reward is silent -- hence multiplicative rather than additive turn weighting, and gates that stop partial reference agreement overriding a wrong answer. And a criterion for allocating credit is not credited until it has been raced against random allocation at matched cost, because a randomised control routinely captures much of the benefit attributed to the targeted criterion.",
   "evidence": [
     {
       "id": "arxiv:2608.01321",
@@ -643,7 +643,11 @@
     "mistral-7b-instruct-v0-2",
     "llama-3-1-70b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "outcome-reward",
+    "process-reward",
+    "zero-advantage-group"
+  ],
   "schema_version": 1,
   "slug": "credit-assignment",
   "topics": [

@@ -4,7 +4,7 @@
     "sparse dictionary learning",
     "Sparse Autoencoder"
   ],
-  "definition": "An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any activation is a sparse combination of them; the motivation is that features are believed to be in superposition and therefore not aligned with neurons. The sources apply the idea at different granularities. The original works token-wise on the residual stream and shows the learned directions score higher on automated interpretability than PCA, ICA or the neuron basis. A later one argues token granularity is the wrong unit for reasoning and encodes whole reasoning steps, conditioning encoder and decoder on the preceding trajectory so the code carries only what the step adds. A third uses the features as the basis for multi-layer steering vectors selected by co-activation and decoder-direction alignment. Two entries qualify the method rather than extend it: run-to-run feature consistency is not guaranteed and is argued to belong alongside reconstruction and sparsity as an evaluation axis, and in a bias-analysis setting the technique improves how recoverable a concept is while attenuating its measured influence, so a better dictionary is not automatically a better causal account. Reconstruction is lossy throughout — replacing a layer with its reconstruction raises perplexity from 25 to 40 in the token-level work.",
+  "definition": "Learning an overcomplete dictionary on model activations under a sparsity penalty, so that a polysemantic activation vector is decomposed into features that admit individual interpretation. Across 15 sources it is the dominant tool for this and the one the archive holds the most evidence against as a source of stable facts. The core problem is non-identifiability, and it is empirical before it is theoretical: different training seeds and dictionary widths recover materially different features from the same activations, dictionaries absorb and split features, and residual-stream components remain uncaptured by any known variant -- so two studies using different dictionaries are not measuring the same object. The theoretical companion in the corpus argues the failure is structural rather than algorithmic, since a reconstruction-and-sparsity objective does not enforce the invariance identifiability would require. Quality is also lossy and depth-dependent: automated interpretability scores decline from about 0.30 at layer 0 to 0.15 by layer 5, against about 0.14 for an independent-components baseline and 0.06 to 0.08 for random directions, and substituting reconstructed activations back raises perplexity from 25 to 40. Two scope limits recur: it must be trained per layer per model, which makes it costly and model-specific rather than endogenous, and it operates at the token level, which mismatches the unit reasoning happens in. The archive's practical position is that a sparse-autoencoder feature is a hypothesis about a direction rather than a measurement of one, and that any claim built on a specific dictionary should state the dictionary and, ideally, be checked against a second.",
   "evidence": [
     {
       "id": "arxiv:2608.05732",
@@ -335,7 +335,11 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "identifiability",
+    "residual-stream",
+    "feature-splitting"
+  ],
   "schema_version": 1,
   "slug": "sparse-autoencoder",
   "topics": [

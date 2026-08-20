@@ -2,7 +2,7 @@
   "aliases": [
     "MATH benchmark"
   ],
-  "definition": "The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-hard evaluation set: a model finetuned on 1,000 curated traces with budget forcing exceeds o1-preview by up to 27% on it together with AIME24; a hundred sampled problems serve as the inference-time selection testbed where entropy-instability filtering reaches 62.3% against 54.0% for the next-best confidence measure; and its training split is where thinking tokens are mined offline before being triggered on surface form at inference. Note that this entry and MATH500 name the same underlying benchmark at different sizes, harvested separately because the archived summaries referred to them differently.",
+  "definition": "A competition mathematics benchmark used across 17 sources, most often as a training corpus and as the full set from which the 500-problem evaluation subset is drawn. In the archive it appears mainly as one column among five or seven, and the useful observations about it are comparative. It is where per-benchmark orderings most often contradict the average: one method with the best overall score loses it narrowly (67.22 against 67.40) while winning three others, and another reports its baseline taking it at one scale (84.0 against 84.2) while the average goes the other way. Ablations are task-dependent on it in a way that is informative -- on one method the largest loss on a grade-school set is removing thought-matching while on this one it is removing the latent thought entirely, so what a component contributes depends on the difficulty of the set it is measured on. Several sources train on it and evaluate transfer elsewhere, which means their generalisation claims rest on a mathematics-only training distribution; a number of them say so explicitly as a limitation.",
   "evidence": [
     {
       "id": "arxiv:2501.19393",
@@ -422,7 +422,10 @@
     "qwen2-5-math-1-5b",
     "qwen3-4b-instruct-2507"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "math500",
+    "gsm8k"
+  ],
   "schema_version": 1,
   "slug": "math",
   "topics": [

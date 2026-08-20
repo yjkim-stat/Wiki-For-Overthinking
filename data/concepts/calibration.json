@@ -4,7 +4,7 @@
     "overconfidence",
     "ECE"
   ],
-  "definition": "Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model measured at 31.2% expected calibration error while achieving 0.826 AUROC against 0.611 for comparable autoregressive baselines: the numbers are wrong as probabilities and excellent as an ordering. That matters because the archive's methods need different halves — threshold-gated early stopping and confidence-adaptive length control need calibrated magnitudes, while selection, reranking and pairwise aggregation need only correct ranking, and several of the archive's compute-allocation methods assume the first while requiring only the second. Elsewhere calibration appears as the thing found missing: judges carry a content-independent numeric prior varying by model, task and score range; entropy correlates with response diversity but only weakly and inconsistently with accuracy; and conformal prediction is offered as the way to get a guarantee rather than an estimate.",
+  "definition": "Whether a stated or implied probability matches the frequency it is right, used across 16 sources in three different senses that are worth keeping apart. As a property of a model's own confidence it is the failure the archive keeps finding: chain-of-thought supervision reduces composition errors without fixing it, a model scores 52.4 percent when the correct option is A and 31.6 to 33.6 for other positions on a position-balanced set, and internal-state statistics differ sharply in calibration error under the same conditions (0.1216 and 0.0858 for one against 0.2451 and 0.1764 for another). As a property of a critic it has direct consequences for training, since a miscalibrated value estimate produces systematically asymmetric advantages -- one source tracks Brier 0.2031 to 0.1637 and expected calibration error 0.2612 to 0.2131, with the largest gap exactly where overestimation inflates negative advantages. As a fitted correction it inherits whatever defines its calibration set, and one source notes it needs paired truthful and hallucinated representations with no sensitivity analysis over set size or composition reported. Two methodological findings are transferable. The measurement is often achievable from the first 12 of 28 layers, so no full forward pass is needed. And a calibration improvement is only evidence if the metric and the objective are different measurements -- one archived method optimises answer-token confidence and is scored by an error computed from the same quantity, which makes the improvement partly a check that optimisation succeeded. One source names the design squeeze directly: models weak enough to have headroom lack the signal, and models with the signal lack the headroom, so the space where self-correction of calibration can be measured cleanly is nearly empty.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -104,7 +104,7 @@
     }
   ],
   "first_seen": "2026-08-08T04:37:57Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T14:11:30Z",
   "name": "calibration",
   "related": [
@@ -391,7 +391,11 @@
     "qwen2-5-math-7b",
     "llama-3-1-8b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "confidence-calibration",
+    "selective-prediction",
+    "llm-as-a-judge"
+  ],
   "schema_version": 1,
   "slug": "calibration",
   "topics": [

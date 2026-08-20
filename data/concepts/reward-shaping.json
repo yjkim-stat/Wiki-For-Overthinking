@@ -3,7 +3,7 @@
     "reward design",
     "reward engineering"
   ],
-  "definition": "Designing the reward's structure — what it attaches to, and when — rather than only its target, which all four sources treat as where efficiency methods succeed or fail. One confines an efficiency reward to a single mode-selection token after diagnosing that a sequence-level efficiency signal implicitly penalizes long but correct trajectories. One pairs a length reward with a compress reward aimed specifically at double-checking that occurs after the answer is already derived. One forces 'None' rollouts so negative samples produce a valid advantage, and penalizes over-refusal on positives. One scales the reward by problem difficulty. The shared lesson is that a reward correct in aggregate can be wrong per token or per group.",
+  "definition": "Adding terms to a reward beyond the thing actually being verified -- length, format, efficiency, safety proximity, confidence, agreement with a reference derivation -- and across 19 sources the design decision that most often decides whether a training run works or degenerates. Three findings recur. A shaping term is a modifier on the terminal check, never a replacement: removing the sequence-level quality reward is the single largest degradation in one translation system (in-domain BLEU 29.83 to 22.94), removing the task-completion reward collapses another from 95.14 to 29.92 percent whole-response accuracy while decision and tool-selection accuracy stay at 100 -- the agent picks correctly at every step and never stops -- and removing the terminal outcome reward is the only ablation degrading every benchmark in a third. Anything not gated on correctness is satisfied vacuously: an unconstrained length reward is exploited to the 8192-token limit with macro-F1 collapsing to 0.210, a bounded target-constrained penalty buys about 990 tokens of coherent but functionally useless filler at 0.760 -- essentially the collapsed level -- and only the form paying the bonus when the answer is correct converts the preserved length into accuracy at 0.851. And the shape matters as much as the terms, because group normalisation preserves nonlinear reshaping of within-group reward spacing but cancels linear rescaling: a bounded reciprocal mapping of a continuous error gap beats the naive unbounded one and beats four published changes to the optimisation procedure on the same task, while a difficulty-dependent multiplier interacts badly with the normalisation and weakens a penalty exactly where outcome variance is highest. Two further cautions from the corpus: a hybrid hard-constraint-plus-continuous-soft scheme beats every static tolerance by 11.63 points because a single threshold cannot both be strict enough to be meaningful and dense enough to give gradient; and several sources set their weighting coefficients to 1.0 explicitly to avoid task-specific tuning, which is honest and leaves no sensitivity analysis behind.",
   "evidence": [
     {
       "id": "arxiv:2608.03077",
@@ -121,8 +121,8 @@
     }
   ],
   "first_seen": "2026-08-08T06:13:28Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T22:50:59Z",
   "name": "reward shaping",
   "related": [
     "credit-assignment",
@@ -471,7 +471,11 @@
     "inference-scaling",
     "diet"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-reward",
+    "reward-hacking",
+    "outcome-reward"
+  ],
   "schema_version": 1,
   "slug": "reward-shaping",
   "topics": [

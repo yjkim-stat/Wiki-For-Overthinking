@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Qwen3-1.7B-Instruct"
+    "Qwen3-1.7B-Instruct",
+    "Qwen3-1.7B",
+    "Qwen3-1.7B-Base"
   ],
-  "definition": "A small model used by both sources as the scale at which a signal is characterized before being applied elsewhere. One reports its mixed-intent calibration comparison on this model in the main text — where a coordinate-wise activation statistic reaches 0.1216 and 0.0858 RMSE against 0.2451 and 0.1764 for a trained head — and uses it for the layer-count and prompt-length sweeps that establish the first 12 of 28 layers suffice. The other reports its hidden-state norm signal lifting accuracy from 40.00 to 48.33 on AIME24. In both it is the model small enough to sweep exhaustively, which is what its results are worth.",
+  "definition": "A 1.7B Qwen3 model, and in this archive the small end of the size ladder that several papers use to establish a trend -- a method reported at 0.6B, 1.7B, 4B and 8B is usually reporting on this family. Its practical role is that it is small enough to train repeatedly under a controlled budget, which is why the corpus's most carefully compute-matched experiments run here: rollout-matched and equal-FLOP comparisons, three-seed paired evaluations with bootstrap intervals stratified by problem and seed, and pairwise rollout allocation under matched generation-token accounting. Its limitation is the flip side of the same property: at this scale competition benchmarks sit low enough that a five-benchmark average is carried by the easier sets, one source noting its own AIME columns at 5.21 and 7.71. It is also a subject in its own right for quantization, steering audits and reasoning-dynamics work, and one distillation study finds it among the backbones that a habit-installing fine-tune degrades rather than improves.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -346,7 +348,10 @@
     "phi-4-reasoning",
     "gemma-3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-1-7b",
   "topics": [

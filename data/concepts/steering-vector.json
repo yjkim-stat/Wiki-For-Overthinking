@@ -1,9 +1,11 @@
 {
   "aliases": [
     "SV",
-    "activation steering vector"
+    "activation steering vector",
+    "activation steering direction",
+    "contrastive activation addition"
   ],
-  "definition": "A direction added to a model's activations at inference to promote or suppress a concept, most often the mean difference between representations of texts that exhibit it and texts that do not. One source uses them as an instrument and finds a model plans its reasoning effort in advance — a direction encoding intended length is present before generation and steering along it changes the length produced. The other studies the instrument itself and finds a class of directions that are highly discriminative and aligned with positive examples yet steer the opposite way, systematically enough to be identified from forward passes and corrected by a sign flip, improving a standard pipeline in 27 of 30 experiments. The pair is the archive's caution in miniature: a steering result is only as good as the check that the vector moves the model the way its discriminability suggests.",
+  "definition": "A single direction in activation space, computed from a small contrastive dataset and added at inference with no retraining -- cheap, which is why it is adopted, and unreliable in ways the 13 sources here document specifically. It rests on the linear representation hypothesis: if texts exhibiting a concept are linearly separable from those that do not, translating toward the positive half-space should promote it. The archive's strongest result is that this fails for the sign, not merely for the magnitude: inverted vectors combining high discriminability with a strictly negative relationship between steering strength and concept score are mined systematically, three per model-concept pair across 15 pairs, one reaching AUC 0.97 with Spearman -1 -- so choosing a direction by how well it discriminates, which the foundational method does, can install the opposite of the intended effect. A second failure is collateral: the component that damages refusal behaviour is a separate direction from the one producing the intended effect, cosine similarity with the canonical refusal direction predicts the damage, and yet ablating that direction fails to restore safety because refusal is mediated by several mechanistically independent directions and the canonical one need not be the one a given vector is harming. Scope caveats from the sources: the inverted-vector evidence covers translation-based steering with vectors mined from attention-head outputs on three models and five concepts, so affine, non-linear and optimised pipelines and other steering sites are untested; and steering is an off-distribution intervention at a conventionally chosen magnitude, so a degradation observed under it may be damage rather than mechanism unless a matched null is reported.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -86,7 +88,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:11:30Z",
+  "last_seen": "2026-08-20T22:50:59Z",
   "name": "steering vector",
   "related": [
     "linear-representation-hypothesis",
@@ -329,7 +331,9 @@
     "deepseek-r1-distill-qwen-32b"
   ],
   "related_authored": [
-    "inverted-steering-vector"
+    "detection-versus-control",
+    "activation-steering",
+    "safety-cost"
   ],
   "schema_version": 1,
   "slug": "steering-vector",

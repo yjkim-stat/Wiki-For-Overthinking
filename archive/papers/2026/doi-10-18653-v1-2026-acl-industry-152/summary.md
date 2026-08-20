@@ -43,7 +43,7 @@ No quantitative results in the abstract, so neither the accuracy gain nor the to
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), calibration, self-certainty, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), efficient reasoning
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), calibration, self-certainty, adaptive compute allocation, efficient reasoning
 - **Methods**: [preference optimization](../../../../wiki/methods/preference-optimization.md), Confidence-Adaptive Thinking, length compression
 - **Datasets**: _none recorded_
 

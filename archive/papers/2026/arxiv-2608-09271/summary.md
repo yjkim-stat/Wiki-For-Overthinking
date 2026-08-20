@@ -45,7 +45,7 @@ Stated with unusual precision by the authors: the finite-group theorem holds onl
 
 ## Entities
 
-- **Concepts**: [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), prompt difficulty weighting, difficulty stratification, [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), exponential tilting
+- **Concepts**: advantage estimation, [credit assignment](../../../../wiki/concepts/credit-assignment.md), [group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), prompt difficulty weighting, difficulty stratification, [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), exponential tilting
 - **Methods**: SoftmaxGRPO, [GRPO](../../../../wiki/methods/grpo.md), [Dr.GRPO](../../../../wiki/methods/dr-grpo.md), [DAPO](../../../../wiki/methods/dapo.md), CISPO, DPPO, [MaxRL](../../../../wiki/methods/maxrl.md), [REINFORCE](../../../../wiki/methods/reinforce.md), [PPO](../../../../wiki/methods/ppo.md), RAML, MPO, [on-policy distillation](../../../../wiki/methods/on-policy-distillation.md), iterative DPO, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), Countdown, DeepMath, Poetry Writing, MeetingBank, AlpacaEval 2.0, [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA](../../../../wiki/datasets/gpqa.md), ImageNet, OpenThoughts3-1.2M
 

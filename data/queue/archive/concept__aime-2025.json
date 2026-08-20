@@ -9,8 +9,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -21,8 +21,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -33,8 +33,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -45,8 +45,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -57,8 +57,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -69,8 +69,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -81,8 +81,152 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
+        "title": "On-Policy Self-Distillation without Any Supervision",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+        "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+        "title": "Thought-Level Beam Search for Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
+        "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -93,8 +237,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -105,8 +249,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -117,8 +261,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -129,8 +273,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -141,8 +285,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -153,8 +297,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -165,8 +309,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -177,8 +321,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -189,8 +333,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -201,8 +345,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -213,8 +357,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -225,8 +369,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -237,8 +381,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -249,8 +393,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -261,8 +405,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -273,8 +417,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -285,8 +429,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -297,8 +441,8 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -309,14 +453,14 @@
           "reasoning-training",
           "reasoning-evaluation",
           "test-time-scaling",
-          "reasoning-faithfulness",
-          "reasoning-interpretability"
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T11:04:14Z",
-  "created_at": "2026-08-13T10:57:34Z",
+  "completed_at": "2026-08-20T22:56:47Z",
+  "created_at": "2026-08-20T22:51:01Z",
   "instructions": "Write the wiki definition for 'AIME 2025'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME 2025",
   "kind": "concept",
@@ -333,21 +477,17 @@
   },
   "payload": {
     "name": "AIME 2025",
-    "source_count": 26
+    "source_count": 38
   },
   "result": {
     "aliases": [
-      "AIME25",
-      "AIME'25",
-      "AIME 25",
-      "AIME2025"
+      "AIME25"
     ],
-    "definition": "The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training cutoff of several base models under study, so a gap appearing on AIME 2025 and not on AIME 2024 is evidence about memorization rather than reasoning. One source uses it exactly that way, reporting its clearest separation between a base and an RLVR model there and attributing that to freedom from unintentional contamination. Otherwise it serves alongside AIME 2024 across the entropy, early-stopping and compression work, and inherits the same caveat: 30 problems means one item moves the score by more than three points. A pattern worth noting is that AIME 2025 gains are frequently the larger of the pair for the same method — +11.04 against +7.71 for high-entropy token selection at 32B, for instance — which is consistent either with the contamination reading or with less headroom remaining on the older set.",
+    "definition": "Thirty problems from the 2025 American Invitational Mathematics Examination, used across 38 sources as the harder and less contaminated companion to the 2024 edition. Its release after many base models' training cutoffs is the property that makes it distinctive rather than redundant: one source attributes the sharpest gap in its pass@k-versus-CoT-pass@k comparison to exactly that freedom from contamination. It is where test-time-scaling methods report their largest margins -- one reaches +13.4 points on it against small gains on easier sets, and a sequential-scaling baseline plateaus around 22 percent at 8K thinking tokens and does not improve at 32K while the compared method climbs to 35.6. That same source states the arithmetic honestly: 30 problems means +13.4 is four problems even at three seeds. The archive should also carry that internal signals behave differently here than on its 2024 sibling: Spearman correlation between one entropy diagnostic and average accuracy is 0.417 on the 2024 set and 0.047 on this one, so a diagnostic validated on one is not validated on the other.",
     "kind": "dataset",
     "related": [
       "AIME 2024",
-      "benchmark contamination",
-      "VAR-MATH"
+      "HMMT 2025"
     ]
   },
   "task_id": "concept__aime-2025",

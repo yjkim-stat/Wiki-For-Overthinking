@@ -3,9 +3,10 @@
     "MATH-500",
     "MATH",
     "MATH500 subset",
-    "MATH 500"
+    "MATH 500",
+    "Math500"
   ],
-  "definition": "A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that strong models eventually solve most of it. That saturation is the caveat rather than a footnote: one source reports RLVR's effect on it being muted precisely because the base model already reaches those answers given enough attempts, so the benchmark cannot show an extended reasoning boundary even where one exists. It serves mainly as the place a method is checked for not breaking, with discriminating evidence coming from AIME or OlympiadBench. Its size does give it two distinctive roles — it is where the compression and pruning literature runs its controlled comparisons, since 500 problems are stable enough to separate criteria that differ by a point or two, and it is where the early-exit work takes its motivating measurement, that 60.8% of correctly answered samples stay correct when cut off after 20% of the reasoning steps.",
+  "definition": "A 500-problem subset of the MATH benchmark, and by source count the archive's default mid-difficulty mathematics evaluation -- 49 papers. Its role is structural: with 500 problems it is large enough that differences are not single-item noise, which is why several sources note their five-benchmark averages are carried by it and by GSM8K while the 30-problem competition sets swing. That makes it the right place to look when a headline average moves and the reader wants to know whether anything stable moved with it. Its position in difficulty produces two recurring patterns. Compression and efficiency methods report their largest savings here -- 53 percent token reduction on the top decile of problems and 81 percent on the top percentile -- because a mid-difficulty set contains many problems the model overthinks. And methods aimed at hard reasoning report muted effects, since the base model already solves it given enough attempts. Two cautions from the corpus. It has been used as the source material for adversarially rewritten evaluation sets, so a set derived from it has whatever difficulty the rewriting model produced. And it is where one paper's own baseline regressed below its zero-shot starting point (61.85 against 69.70), which is worth remembering as evidence that a reported margin on it can reflect a damaged baseline rather than a better method.",
   "evidence": [
     {
       "id": "arxiv:2608.01078",
@@ -1018,9 +1019,8 @@
   ],
   "related_authored": [
     "math",
-    "aime-2024",
-    "olympiadbench",
-    "reasoning-boundary"
+    "gsm8k",
+    "aime-2024"
   ],
   "schema_version": 1,
   "slug": "math500",

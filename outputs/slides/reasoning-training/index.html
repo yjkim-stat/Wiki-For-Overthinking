@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Reasoning Training</h1>
 <p class="subtitle">How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.</p>
-<p>2026-08-20 · 152 archived source(s)</p>
+<p>2026-08-21 · 152 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -244,34 +244,34 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
-<li><strong>credit assignment</strong> — Deciding which parts of a long generated trajectory deserve the credit or blame for its outcome, when the reward arrives once at the end....</li>
+<li><strong>credit assignment</strong> — Deciding which part of a trajectory earned the reward, and across 31 sources the problem the archive&#x27;s training literature keeps rediscov...</li>
 <li><strong>construct validity</strong> — Whether a benchmark measures the thing its name claims, and the archive&#x27;s dominant critical theme at 21 sources. The recurring finding is...</li>
 <li><strong>overthinking</strong> — Generating more reasoning than a problem needs, and the archive&#x27;s largest cluster at 25 sources. The sources agree on the symptom and spl...</li>
 <li><strong>test-time scaling</strong> — Buying accuracy with inference compute rather than with parameters or training, and in this archive a family of structurally different th...</li>
 <li><strong>chain of thought faithfulness</strong> — Whether the reasoning a model writes is the reason for the answer it gives, rather than a plausible narrative produced alongside it. The...</li>
-<li><strong>adaptive compute allocation</strong> — Spending inference compute unevenly -- more on the inputs that need it, less or none on the ones that do not -- rather than fixing a unif...</li>
+<li><strong>adaptive compute allocation</strong> — Spending different amounts of inference compute on different inputs, on the premise that a fixed budget wastes effort on easy instances a...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Methods</h2>
 <ul>
-<li><strong>GRPO</strong> — Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion&#x27;s advanta...</li>
-<li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
-<li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
-<li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
-<li><strong>chain-of-thought prompting</strong> — Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think ste...</li>
+<li><strong>GRPO</strong> — Sampling a group of rollouts per prompt, standardising their rewards within the group to form the advantage, and optimising a PPO-style c...</li>
+<li><strong>supervised fine-tuning</strong> — Maximising the likelihood of curated target sequences -- usually a reasoning trace followed by an answer -- and across 54 sources the sta...</li>
+<li><strong>LLM-as-a-judge</strong> — Using a language model to score another model&#x27;s output, and across 49 sources the archive&#x27;s most pervasive dependency -- it appears as an...</li>
+<li><strong>linear probe</strong> — Fitting a linear classifier on hidden states to test whether a property is linearly decodable, and across 32 sources the archive&#x27;s most-u...</li>
+<li><strong>chain-of-thought prompting</strong> — Eliciting step-by-step intermediate tokens from a model that would otherwise answer directly, usually by few-shot examples drawn from the...</li>
 <li><strong>self-consistency</strong> — Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>AIME 2024</strong> — The 2024 American Invitational Mathematics Examination, and the archive&#x27;s single most-used benchmark at 39 sources — which is itself the...</li>
-<li><strong>MATH500</strong> — A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not m...</li>
+<li><strong>AIME 2024</strong> — Thirty competition mathematics problems from the 2024 American Invitational Mathematics Examination, and by source count the archive&#x27;s mo...</li>
+<li><strong>MATH500</strong> — A 500-problem subset of the MATH benchmark, and by source count the archive&#x27;s default mid-difficulty mathematics evaluation -- 49 papers....</li>
 <li><strong>GSM8K</strong> — 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive&#x27;s earliest source alongside the finding th...</li>
-<li><strong>AIME 2025</strong> — The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024&#x27;s companion and, increasingly, as a contamina...</li>
-<li><strong>AMC23</strong> — The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME,...</li>
-<li><strong>GPQA-Diamond</strong> — A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematic...</li>
+<li><strong>AIME 2025</strong> — Thirty problems from the 2025 American Invitational Mathematics Examination, used across 38 sources as the harder and less contaminated c...</li>
+<li><strong>AMC23</strong> — Forty problems from the 2023 American Mathematics Competitions, used across 23 sources as the middle rung between grade-school and Olympi...</li>
+<li><strong>GPQA-Diamond</strong> — 198 graduate-level multiple-choice science questions, used across 18 sources as the archive&#x27;s standard non-mathematical hard benchmark. T...</li>
 </ul>
 </section>
 <section class="slide">

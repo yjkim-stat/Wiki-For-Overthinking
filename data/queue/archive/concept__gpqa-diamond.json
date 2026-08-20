@@ -3,13 +3,110 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+        "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reformulates test-time reasoning as compute allocation over partial trajectories under a hardware budget, and runs a zero-sum beam search over reasoning steps that prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes.",
+        "title": "Thought-Level Beam Search for Reasoning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that selecting the most confident rollout can be worse than picking at random, because uniformly high confidence signals a failure to explore rather than a well-supported answer, and replaces maximisation with a temporal criterion that penalises early certainty while requiring late certainty.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures, under a pre-registered confirmatory design, how often majority-vote self-consistency lowers per-problem accuracy on a hard science benchmark, and shows that two cheap verifier-free gates recover essentially none of the headroom a per-problem oracle marks out.",
+        "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
         "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -17,10 +114,23 @@
         "note": "Shows that CoT entropy follows a two-phase structure — a high-entropy exploration region that shifts abruptly into a low-entropy convergence region — and detects that shift online with the CUSUM change-point algorithm to drive early exit and trajectory-weighted voting.",
         "title": "Unveiling the Entropy Dynamics of Chain-of-Thought Reasoning",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Runs the head-to-head this literature had been missing, comparing three importance criteria on the same traces at matched compression ratios, and finds step-level criteria agree on what to keep while disagreeing on what to cut — because redundancy is diffuse rather than located in any identifiable class of step.",
+        "title": "When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -28,10 +138,11 @@
         "note": "Shows that benchmark contamination in reasoning models is alarmingly easy to hide: a brief round of GRPO erases the signals contamination detectors rely on, and PPO-style importance sampling and clipping are identified as the cause — implying a broad class of RL methods conceals contamination inherently.",
         "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -39,10 +150,11 @@
         "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
         "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -50,10 +162,11 @@
         "note": "Detects the points where a reasoning model switches thought chains, interrupts to induce a trial answer, and stops generation when that answer's confidence is high enough — cutting chain-of-thought length substantially while raising accuracy, with no training.",
         "title": "Dynamic Early Exit in Reasoning Models",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -61,10 +174,11 @@
         "note": "Routes each query to a {model, reasoning budget} configuration by fitting an item response theory model over an evaluation matrix, yielding interpretable query difficulties and configuration abilities, and sending harder queries to higher-ability configurations.",
         "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -72,10 +186,11 @@
         "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
         "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -83,17 +198,30 @@
         "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
         "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference",
         "topics": [
-          "reasoning-faithfulness",
           "reasoning-training",
+          "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:55Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'GPQA-Diamond'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T22:59:49Z",
+  "created_at": "2026-08-20T22:51:01Z",
+  "instructions": "Write the wiki definition for 'GPQA-Diamond'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPQA-Diamond",
   "kind": "concept",
   "language": "en",
@@ -102,23 +230,32 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GPQA-Diamond",
-    "source_count": 8
+    "source_count": 18
   },
   "result": {
-    "definition": "A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where mathematics-tuned methods are checked for transfer. Several findings attach to it. It is where early-exit methods show some of their largest gains, one source reporting accuracy rising from 23.7 to 31.3 for a 7B model at half the tokens, which implies unrestricted generation was derailing the answer. It has the lowest monitorability scores of the three datasets in the monitorability study, so harder problems produce less legible traces. Activation probes for the commitment boundary transfer to it from mathematics training with detection holding above 69%. And it is one of the three evaluation sets on which the two-phase entropy structure and its change-point detector are reported to hold."
+    "aliases": [
+      "GPQA Diamond"
+    ],
+    "definition": "198 graduate-level multiple-choice science questions, used across 18 sources as the archive's standard non-mathematical hard benchmark. Three properties make it distinctive. It is where monitorability is lowest -- dataset difficulty is inversely related to it, and this set scores at the bottom of the range in one study -- and where faithfulness failures are starkest: under KV-cache compression one method slightly exceeds the uncompressed model's accuracy at 57.9 percent while 90.2 percent of its correct answers carry unsupported reasoning, against 42.3 percent uncompressed, which is the archive's cleanest instance of accuracy preserved while the reasoning underneath it is destroyed. It is small: 198 problems, so a per-problem analysis is feasible and a single item is half a point, and it is the set on which majority-vote self-consistency was shown pre-registered to lower per-problem accuracy on 56.6 and 65.7 percent of problems for two small models. And it is the benchmark most likely to move in the opposite direction from a method's target -- one rubric-trained medical system gains 17.41 points here as a generalisation check, while its two components split, one contributing 8.69 and the other 3.53. Its four-option format means chance is 25 percent, which several archived results sit close to.",
+    "kind": "dataset",
+    "related": [
+      "MMLU-Pro",
+      "AIME 2024"
+    ]
   },
   "task_id": "concept__gpqa-diamond",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

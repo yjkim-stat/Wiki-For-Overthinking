@@ -45,7 +45,7 @@ The paper has no limitations section, listing future work instead. What a reader
 
 ## Entities
 
-- **Concepts**: Monte Carlo tree search, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [process reward](../../../../wiki/concepts/process-reward.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), LLM-as-a-judge, [grounding](../../../../wiki/concepts/grounding.md), [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [exploration](../../../../wiki/concepts/exploration.md), [construct validity](../../../../wiki/concepts/construct-validity.md)
+- **Concepts**: Monte Carlo tree search, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), process reward, [verifiable reward](../../../../wiki/concepts/verifiable-reward.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md), LLM-as-a-judge, [grounding](../../../../wiki/concepts/grounding.md), [multimodal reasoning](../../../../wiki/concepts/multimodal-reasoning.md), [exploration](../../../../wiki/concepts/exploration.md), [construct validity](../../../../wiki/concepts/construct-validity.md)
 - **Methods**: MCTS-Report, [Monte Carlo tree search](../../../../wiki/methods/monte-carlo-tree-search.md), upper confidence bound, self-supervised reward, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), text-to-SQL verification
 - **Datasets**: MMRBench
 
