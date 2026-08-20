@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Allowing a system to decline rather than requiring an answer on every input, and scoring it on the pair of quantities that creates -- accuracy among the items it answered, and how many it answered. Both sources insist the pair be read together. The reliability-alignment work reports four quantities jointly, adding a hallucination proxy and an effective accuracy over the whole set, and uses them to argue that a 9.6-point coverage loss is not a utility loss because the model answers fewer low-support cases while producing more correct answers overall -- and its ablation shows the two mechanisms it combines are not substitutes, since reflection alone leaves coverage at exactly 100 percent while abstention alone leaves the hallucination proxy unchanged. The observability work approaches the same trade from the monitoring side, holding a completed run fixed and varying what a reader may inspect. The archive's reading is that a reliability gain purchased entirely by refusing is a different result from one purchased by being right, that only the coverage column distinguishes them, and that abstention quality should be scored as precision and recall against what the model genuinely cannot do rather than as a refusal rate.
 
 - **Kind**: concept
+- **Also called**: prediction with abstention
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

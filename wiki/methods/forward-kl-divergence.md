@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Distilling by minimising the divergence from a teacher distribution to a student, which is mass-covering: the student is penalised wherever the teacher assigns probability and the student does not. Both sources use it as the default and both report evidence for that default rather than assuming it. The privileged-teacher work supplies the theory, proving that forward-KL distillation projects a trajectory-conditioned teacher onto its conditional arithmetic mean given the prefix -- so the objective's target is fixed regardless of how the student's policy class is restricted, and the portion of a privileged teacher's advantage that depends on information the student will not have is formally untransferable. The unsupervised self-distillation work supplies the empirical sweep and a failure: forward KL averages 57.10 where symmetric Jensen-Shannon divergence costs 13.8 percent and lands level with the untrained model, and reverse KL does not converge at all, collapsing by progressive loss of termination -- generations growing from 2.7 thousand characters to the token ceiling while parsable answers fall from 99 to 33 percent. The archive's reading is that the direction of the divergence is a design decision with a documented failure mode, not a formality.
 
 - **Kind**: method
+- **Also called**: forward KL
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 

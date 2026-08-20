@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a reported effect survives changing how it was measured, and in both sources the property that a published finding turns out to lack. The cross-family audit is the clearest case: an apparent emergence of concept steerability with model scale is produced entirely by three uncalibrated choices -- raw activation units, the readout metric, and a fixed hand-picked operating point -- and a factorial decomposition finds none of four cells showing a significant trend, so correcting any one dissolves it. The probing-robustness sweep finds the same for an internal correctness signal, with no configuration best across benchmarks and the dominant factor family differing between them, and adds the mechanism that makes the problem hard to detect: a pooled variance decomposition ranks the read-out location at under 1 percent because its opposite effects on two benchmarks cancel. Both sources therefore recommend the same practice, which is to vary the measurement choices independently rather than to propose a better recipe, and both note that a result stated without its extraction protocol cannot be compared with another stated under a different one.
 
 - **Kind**: concept
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)

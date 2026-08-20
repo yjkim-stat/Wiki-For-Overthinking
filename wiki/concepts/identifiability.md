@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a quantity recovered from a model is determined by the model or by the procedure that recovered it. Both sources treat it as the question mechanistic interpretability has lacked an answer to, and reach it from opposite ends. The theoretical source proves it for one primitive: lifting the forward pass with the Koopman operator gives a spectrum that is coordinate-free, unique up to permutation, invariant under any change of dictionary basis, and recoverable from finite calibration data at the parametric rate with a matching lower bound -- and argues that sparse-autoencoder non-identifiability is therefore structural rather than algorithmic, since the reconstruction-and-sparsity objective does not enforce the required invariance. The empirical source demonstrates the same failure without the theory, sweeping every extraction choice behind a published internal signal and finding no configuration best across benchmarks, models or framings, with the dominant factor family differing between two benchmarks and a mismatched fitting source driving the signal below chance. Together they mark why the question matters practically: a result that is not identifiable is not comparable across papers, since two studies using different recipes are not measuring the same object.
 
 - **Kind**: concept
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)

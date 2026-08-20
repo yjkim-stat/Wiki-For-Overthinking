@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:25Z",
   "created_at": "2026-08-20T14:13:03Z",
   "instructions": "Write the wiki definition for 'tool learning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "tool learning",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "tool learning",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "tool use"
+    ],
+    "definition": "Training a model to invoke external tools and use what they return, and in both sources here a capability with a syntactic precondition that is easy to mistake for the capability itself. The long-horizon video agent makes the separation explicit in its training ablation: a policy trained by reinforcement learning alone cannot reliably invoke its tools at all, scoring 50.6 percent on format compliance against 100 for the full pipeline, while supervised fine-tuning alone reaches 99.8 percent and comes within a few points of the full system -- so imitation installs the invocation format and reinforcement learning then adds a small amount of judgement about where to search and how to recover. The video-anomaly work reaches the same two-stage arrangement and shows what the reinforcement stage is for, with its ablation demonstrating that a policy can select the right tool at every step and never terminate. Between them the sources give the reading: tool use decomposes into emitting parsable calls, choosing which call to make, and knowing when to stop, and the three fail separately.",
+    "kind": "concept",
+    "related": [
+      "tool orchestration"
+    ]
   },
   "task_id": "concept__tool-learning",
   "task_version": 1,

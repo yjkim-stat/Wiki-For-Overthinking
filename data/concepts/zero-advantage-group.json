@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A prompt on which every sampled rollout receives the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Both sources treat it as the quantity an allocation method should be judged on. The parameter-space exploration work builds its whole evaluation around it, arguing that token entropy cannot distinguish exploitation from learning wrong trajectories and that pass@k measures inference-time behaviour after training, and replacing both with a paired count of how often a method produces a correct rollout on a prompt where the baseline produced none. The pair-aware allocation work explains why it happens structurally: the group-relative gradient is a U-statistic over pairs of rollouts, so a prompt where every rollout agrees has all its pair terms vanish, and the useful question is which contrasts are unobserved rather than which prompts are hard. Between them the sources give both the diagnostic and its mechanism.",
   "evidence": [
     {
       "id": "arxiv:2608.09805",
@@ -71,7 +71,9 @@
     "qwen3-1-7b",
     "qwen3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "advantage-estimation"
+  ],
   "schema_version": 1,
   "slug": "zero-advantage-group",
   "topics": [

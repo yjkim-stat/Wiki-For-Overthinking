@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:26Z",
   "created_at": "2026-08-20T14:08:51Z",
   "instructions": "Write the wiki definition for 'zero-advantage group'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "zero-advantage group",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "zero-advantage group",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A prompt on which every sampled rollout receives the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Both sources treat it as the quantity an allocation method should be judged on. The parameter-space exploration work builds its whole evaluation around it, arguing that token entropy cannot distinguish exploitation from learning wrong trajectories and that pass@k measures inference-time behaviour after training, and replacing both with a paired count of how often a method produces a correct rollout on a prompt where the baseline produced none. The pair-aware allocation work explains why it happens structurally: the group-relative gradient is a U-statistic over pairs of rollouts, so a prompt where every rollout agrees has all its pair terms vanish, and the useful question is which contrasts are unobserved rather than which prompts are hard. Between them the sources give both the diagnostic and its mechanism.",
+    "kind": "concept",
+    "related": [
+      "advantage estimation"
+    ]
   },
   "task_id": "concept__zero-advantage-group",
   "task_version": 1,

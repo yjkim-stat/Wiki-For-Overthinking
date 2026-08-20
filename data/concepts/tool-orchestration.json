@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Sequencing several tools whose outputs feed each other, as distinct from selecting one tool for one query. Both sources build benchmarks around the distinction and find it is where systems break. The video-anomaly work separates single-tool from interrelated-tool responses and reports the gap starkly: one baseline scores 0 percent whole-response accuracy on the interrelated split, another 4.52, and a model roughly nine times larger than the trained system reaches only 67.40 -- while performing acceptably on isolated tools. The long-horizon video agent identifies the complementary failure in sequencing over time, where prior systems follow a monotonic zoom-in and cannot revise, and shows that results on a 41-minute benchmark do not predict results on multi-hour ones, with one agent leading the first and losing 35 points on the second. The archive's reading is that orchestration is a separate capability from tool use rather than more of it, and that a benchmark not separating the two will report a system as competent that cannot chain.",
   "evidence": [
     {
       "id": "arxiv:2608.07959",
@@ -79,7 +79,9 @@
     "yolov7-pose",
     "places365"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "tool-learning"
+  ],
   "schema_version": 1,
   "slug": "tool-orchestration",
   "topics": [

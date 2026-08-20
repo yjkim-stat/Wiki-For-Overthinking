@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Changing a model's behaviour without gradient updates, using only forward passes and a fixed rule, and in both sources here chosen for a deployment reason rather than a scientific one. The attention-versus-evidence work operates at decoding time, masking an unreliable attended region or injecting decoded visual semantics into the logits, so the intervention is switchable and applies per query at a per-query cost. The Wiener-filtering work argues the opposite trade, estimating a closed-form linear operator from second-order statistics on a modest paired calibration set and then folding it into the model's existing feed-forward output projections, so the deployed model has identical architecture and identical inference cost and the correction is permanent. Both avoid the risk that motivates the category -- that full fine-tuning updates billions of parameters and may degrade the model it was meant to safeguard -- and between them they mark the choice a practitioner actually faces, which is whether the correction should be a switch or a commitment.
 
 - **Kind**: method
+- **Also called**: post-hoc intervention
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

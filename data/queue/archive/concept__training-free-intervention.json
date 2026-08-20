@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:26Z",
   "created_at": "2026-08-20T14:11:32Z",
   "instructions": "Write the wiki definition for 'training-free intervention'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "training-free intervention",
@@ -37,6 +38,16 @@
   "payload": {
     "name": "training-free intervention",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "post-hoc intervention"
+    ],
+    "definition": "Changing a model's behaviour without gradient updates, using only forward passes and a fixed rule, and in both sources here chosen for a deployment reason rather than a scientific one. The attention-versus-evidence work operates at decoding time, masking an unreliable attended region or injecting decoded visual semantics into the logits, so the intervention is switchable and applies per query at a per-query cost. The Wiener-filtering work argues the opposite trade, estimating a closed-form linear operator from second-order statistics on a modest paired calibration set and then folding it into the model's existing feed-forward output projections, so the deployed model has identical architecture and identical inference cost and the correction is permanent. Both avoid the risk that motivates the category -- that full fine-tuning updates billions of parameters and may degrade the model it was meant to safeguard -- and between them they mark the choice a practitioner actually faces, which is whether the correction should be a switch or a commitment.",
+    "kind": "method",
+    "related": [
+      "representation editing"
+    ]
   },
   "task_id": "concept__training-free-intervention",
   "task_version": 1,

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A widely used open vision-language model, and in this archive the default backbone for hallucination and interpretability work on multimodal models. It is one of the three backbones on which a closed-form representation edit is shown to reduce caption-level and instance-level hallucination to the lowest rates of any method compared, and one of four checkpoints supported by an open mechanistic-interpretability library giving vision-language models the activation-patching and attention-analysis tooling text-only models already have. It appears in several other archived entries as the model whose object hallucinations are being detected, localised or suppressed. Neither source describes its architecture or training; its role here is as the common substrate that makes multimodal hallucination results comparable across papers.
 
 - **Kind**: model
-- **Also called**: LLaVA 1.5
+- **Also called**: LLaVA 1.5, LLaVA-1.5, LLaVA-1.5-7B
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

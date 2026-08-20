@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A video-understanding benchmark focused on temporal reasoning -- ordering, direction, speed and change -- rather than on static scene recognition, so a model cannot answer from a single frame. Both sources use it as a generality check outside the setting a method was built for: the representation-filtering work applies its closed-form hallucination correction to it to show the filter transfers to temporal video reasoning, and the perception-versus-reasoning latent work uses it among the sets distinguishing questions that need inference from questions that need grounding. Neither describes its construction; in this archive it functions as the test that separates temporal understanding from frame-level perception.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)

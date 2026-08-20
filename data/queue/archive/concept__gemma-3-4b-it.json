@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:23Z",
   "created_at": "2026-08-20T14:08:51Z",
   "instructions": "Write the wiki definition for 'Gemma-3-4B-it'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Gemma-3-4B-it",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "Gemma-3-4B-it",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Gemma-3-4B-IT"
+    ],
+    "definition": "A 4-billion-parameter instruction-tuned Gemma model appearing twice in this archive. In the persona-anatomy work it is the single model whose sparse-autoencoder features are decomposed across three speaker settings, and therefore the model behind that paper's finding that roleplay personas retain an Assistant-associated feature core while story characters do not -- a result explicitly bounded to one model and one autoencoder, with the split factor treated as a heuristic because no feature-splitting measurement exists for that exact dictionary. It appears again among the twenty-plus models benchmarked as translation-quality judges under a single prompt. Neither source describes the model itself.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__gemma-3-4b-it",
   "task_version": 1,

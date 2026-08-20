@@ -35,6 +35,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:24Z",
   "created_at": "2026-08-20T14:08:51Z",
   "instructions": "Write the wiki definition for 'layer selection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "layer selection",
@@ -53,6 +54,17 @@
   "payload": {
     "name": "layer selection",
     "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "read-out layer",
+      "injection layer"
+    ],
+    "definition": "Choosing where in depth to read a representation or apply an intervention, and across these four sources a decision that turns out to be a claim rather than a setting. Three findings recur. It is not constant across models: a cross-family audit finds every model selecting a layer near 0.8 of depth and never the two-thirds commonly hand-picked, and a hallucination detector finds a peak that is mid-network on every backbone but at different absolute depths. It is not constant across tasks or benchmarks either -- a probing sweep finds the best read-out location reversing between two benchmarks, with response-averaging beating last-token by more than twenty points on one and losing on the other. And it is not separable from the other choices, since the framing a direction is read under changes which location wins. Two sources add that pooling across layers is not a safe default: a detector reports multi-layer reading consistently underperforming its single peak layer, because grounding is concentrated in a narrow band that pooling dilutes with early generic features and late prediction-specific ones, with varying activation scales biasing naive averaging toward high-norm layers. The fourth source moves the choice per input entirely, showing the best injection layers are a property of the individual example rather than of the task.",
+    "kind": "method",
+    "related": [
+      "operating point"
+    ]
   },
   "task_id": "concept__layer-selection",
   "task_version": 1,

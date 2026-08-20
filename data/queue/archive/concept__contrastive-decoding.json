@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:23Z",
   "created_at": "2026-08-20T14:11:32Z",
   "instructions": "Write the wiki definition for 'contrastive decoding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "contrastive decoding",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "contrastive decoding",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Producing an output distribution by combining or differencing two distributions rather than reading one, typically to amplify what distinguishes a grounded generation from an ungrounded one. Both sources here use the idea but locate the intervention differently, which is the useful contrast. The attention-versus-evidence work fuses the model's decoding logits under a masked image with visual logits decoded from the highest-attention region through a logit lens, so correct visual evidence is weighted against the contextual prior that would otherwise produce the object -- and applies this only to the hallucination type that survives masking, with a mixing weight controlling how far visual semantics displace the model's own distribution. The Wiener-filtering work argues instead for moving the correction out of decoding entirely, folding a closed-form linear operator into the model's feed-forward output projections so inference runs unchanged and at the same speed. The archive's reading is the trade the pair mark: decoding-time contrast is switchable and per-query but costs latency on every query, while a weight-absorbed correction is free at inference and is a permanent commitment.",
+    "kind": "method",
+    "related": [
+      "logit lens"
+    ]
   },
   "task_id": "concept__contrastive-decoding",
   "task_version": 1,

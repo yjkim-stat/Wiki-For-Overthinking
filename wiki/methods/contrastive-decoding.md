@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Producing an output distribution by combining or differencing two distributions rather than reading one, typically to amplify what distinguishes a grounded generation from an ungrounded one. Both sources here use the idea but locate the intervention differently, which is the useful contrast. The attention-versus-evidence work fuses the model's decoding logits under a masked image with visual logits decoded from the highest-attention region through a logit lens, so correct visual evidence is weighted against the contextual prior that would otherwise produce the object -- and applies this only to the hallucination type that survives masking, with a mixing weight controlling how far visual semantics displace the model's own distribution. The Wiener-filtering work argues instead for moving the correction out of decoding entirely, folding a closed-form linear operator into the model's feed-forward output projections so inference runs unchanged and at the same speed. The archive's reading is the trade the pair mark: decoding-time contrast is switchable and per-query but costs latency on every query, while a weight-absorbed correction is free at inference and is a permanent commitment.
 
 - **Kind**: method
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)

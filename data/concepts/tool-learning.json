@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "tool use"
+  ],
+  "definition": "Training a model to invoke external tools and use what they return, and in both sources here a capability with a syntactic precondition that is easy to mistake for the capability itself. The long-horizon video agent makes the separation explicit in its training ablation: a policy trained by reinforcement learning alone cannot reliably invoke its tools at all, scoring 50.6 percent on format compliance against 100 for the full pipeline, while supervised fine-tuning alone reaches 99.8 percent and comes within a few points of the full system -- so imitation installs the invocation format and reinforcement learning then adds a small amount of judgement about where to search and how to recover. The video-anomaly work reaches the same two-stage arrangement and shows what the reinforcement stage is for, with its ablation demonstrating that a policy can select the right tool at every step and never terminate. Between them the sources give the reading: tool use decomposes into emitting parsable calls, choosing which call to make, and knowing when to stop, and the three fail separately.",
   "evidence": [
     {
       "id": "arxiv:2608.07959",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T14:13:00Z",
   "name": "tool learning",
   "related": [
@@ -79,7 +81,9 @@
     "yolov7-pose",
     "places365"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "tool-orchestration"
+  ],
   "schema_version": 1,
   "slug": "tool-learning",
   "topics": [

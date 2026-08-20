@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A large image-captioning corpus, used in both sources as the substrate for measuring object hallucination rather than as a benchmark in its own right. Captions generated on its images are scored against its object annotations to count mentions of objects that are not present, which is what makes it the standard ground for the CHAIR family of metrics. The structured read-out work uses self-generated captions on it to reach 92.3 F1 for hallucinated-mention detection against 82.0 for the strongest prior method, and reports word count, correct-object coverage and perplexity alongside the hallucination reduction so that the improvement cannot be a suppression artifact. The attention-versus-evidence work uses it for the same purpose. Neither source describes the corpus; in this archive it functions as the annotated image set that makes an object-level hallucination claim checkable.
 
 - **Kind**: dataset
+- **Also called**: MSCOCO
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

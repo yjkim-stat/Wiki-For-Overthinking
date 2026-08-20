@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Scoring model output by people rather than by a metric or a model, and in both sources the instrument that constrains a claim an automatic measure could not. The matched supervision study uses it to answer the question its accuracy tables cannot: two annotators score eight criteria with external-expert adjudication and agreement from 0.760 to 1.000, and find no significant improvement on any reasoning-content criterion despite a twenty-point out-of-domain accuracy gain, locating the measurable effect of rationale supervision in target-language adherence and inspectability instead. The persona study uses it in the other direction, to validate an instrument rather than a result: two annotators independently label 191 generations at 93 percent agreement and kappa 0.85, establishing the task is reproducible, and only then is a model judge scored against them at precision 0.90 and recall 0.98 with generations reweighted by inverse sampling rate. The archive's reading is that these are the two legitimate uses -- measure what no automatic metric covers, or calibrate the automatic metric you intend to substitute -- and that both require agreement to be reported before anything is concluded from the labels.
 
 - **Kind**: method
+- **Also called**: human annotation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:23Z",
   "created_at": "2026-08-20T14:11:32Z",
   "instructions": "Write the wiki definition for 'difficulty stratification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "difficulty stratification",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "difficulty stratification",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "stratified evaluation"
+    ],
+    "definition": "Reporting a result within bands of instance difficulty rather than over an aggregate, and in both sources the analysis that turns a benchmark number into a mechanism claim. The verifier-free selection work splits into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while gaining twelve to fourteen points on the medium tier and four points on the hard one, which is the pattern a mechanism-driven improvement should show and which the aggregate conceals. The reliability-alignment work stratifies abstention behaviour instead and finds refusal rates rising monotonically with difficulty -- 2.1 percent on two-step problems against 14.8 on problems needing five or more, and 3.2 against 31.8 across five levels of a mathematics set -- which is its evidence against a uniform refusal strategy. Both sources note the same caveat in different words: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.",
+    "kind": "method",
+    "related": [
+      "difficulty conditioning"
+    ]
   },
   "task_id": "concept__difficulty-stratification",
   "task_version": 1,

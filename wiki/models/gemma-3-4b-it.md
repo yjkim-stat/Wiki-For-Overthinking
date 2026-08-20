@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 4-billion-parameter instruction-tuned Gemma model appearing twice in this archive. In the persona-anatomy work it is the single model whose sparse-autoencoder features are decomposed across three speaker settings, and therefore the model behind that paper's finding that roleplay personas retain an Assistant-associated feature core while story characters do not -- a result explicitly bounded to one model and one autoencoder, with the split factor treated as a heuristic because no feature-splitting measurement exists for that exact dictionary. It appears again among the twenty-plus models benchmarked as translation-quality judges under a single prompt. Neither source describes the model itself.
 
 - **Kind**: model
 - **Also called**: Gemma-3-4B-IT

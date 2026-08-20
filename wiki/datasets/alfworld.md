@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A text-based interactive environment in which an agent completes household tasks through discrete actions over multiple turns, decomposable into six task families. Both sources use it as one of two environments for multi-turn agentic reinforcement learning, and its value in this archive is that per-family results are available: the hindsight-allocation work reports the full matrix over all six families rather than only split-level averages, which makes visible that individual families move by ten or more points between methods in directions that do not follow the aggregate. It is also split into seen and unseen sets, so a method's generalisation is separable from its fit. Neither source describes its construction; both use it because multi-turn discrete-action trajectories are where turn-level credit assignment can be inspected at all.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

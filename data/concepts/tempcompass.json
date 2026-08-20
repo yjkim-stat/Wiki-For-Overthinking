@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A video-understanding benchmark focused on temporal reasoning -- ordering, direction, speed and change -- rather than on static scene recognition, so a model cannot answer from a single frame. Both sources use it as a generality check outside the setting a method was built for: the representation-filtering work applies its closed-form hallucination correction to it to show the filter transfers to temporal video reasoning, and the perception-versus-reasoning latent work uses it among the sets distinguishing questions that need inference from questions that need grounding. Neither describes its construction; in this archive it functions as the test that separates temporal understanding from frame-level perception.",
   "evidence": [
     {
       "id": "arxiv:2608.04124",
@@ -84,7 +84,9 @@
     "dream-v0-instruct-7b",
     "claude-sonnet-4-6"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "video-mme"
+  ],
   "schema_version": 1,
   "slug": "tempcompass",
   "topics": [

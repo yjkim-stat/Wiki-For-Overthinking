@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A commonsense question-answering set requiring implicit multi-step inference, where the reasoning steps needed are not stated in the question. Both sources use it as the non-mathematical member of an otherwise mathematical or multiple-choice suite. In the reliability-alignment work it is one of four benchmarks where abstention quality is measured against an oracle defined by 64 independent samples, reaching 80.1 percent precision and 68.5 percent recall at an 8.5 percent refusal rate. In the reasoning-visualisation work it is one of four sets whose trajectories are projected into two dimensions by distance-to-answer-choice features. Neither source describes its construction; its role here is as a check that a method aimed at mathematical reasoning does something outside it.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

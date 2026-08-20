@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reporting a result within bands of instance difficulty rather than over an aggregate, and in both sources the analysis that turns a benchmark number into a mechanism claim. The verifier-free selection work splits into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while gaining twelve to fourteen points on the medium tier and four points on the hard one, which is the pattern a mechanism-driven improvement should show and which the aggregate conceals. The reliability-alignment work stratifies abstention behaviour instead and finds refusal rates rising monotonically with difficulty -- 2.1 percent on two-step problems against 14.8 on problems needing five or more, and 3.2 against 31.8 across five levels of a mathematics set -- which is its evidence against a uniform refusal strategy. Both sources note the same caveat in different words: benchmark difficulty is an approximate proxy for what a particular policy can answer, and tiers defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.
 
 - **Kind**: method
+- **Also called**: stratified evaluation
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

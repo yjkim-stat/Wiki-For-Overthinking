@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "early commitment"
+  ],
+  "definition": "Committing to a single line of attack before the alternatives have been explored, and in both sources a failure that looks like confidence from the outside. The verifier-free selection work makes it measurable, defining it as the trajectory pattern of high initial and high final confidence and showing that a confidence-maximising selector preferentially picks exactly those trajectories -- so uniformly high confidence indicates a failure to branch rather than a well-supported answer, and maximisation can therefore perform below random selection. Its remedy is to score the temporal asymmetry instead, penalising early certainty while requiring late certainty. The long-horizon video agent identifies the same failure in a search policy rather than a trace: prior tool-using agents follow a monotonic zoom-in once an initial region is chosen and cannot recover, so an early wrong commitment propagates irreversibly -- and the remedy is a policy that self-checks intermediate observations and can switch regions. The archive's reading is that the two describe one phenomenon at different granularities, and that in both cases the diagnostic is the shape of the trajectory rather than its endpoint.",
   "evidence": [
     {
       "id": "arxiv:2608.07959",
@@ -68,7 +70,9 @@
     "gpt-oss-20b",
     "gpt-oss-120b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "exploration"
+  ],
   "schema_version": 1,
   "slug": "premature-convergence",
   "topics": [

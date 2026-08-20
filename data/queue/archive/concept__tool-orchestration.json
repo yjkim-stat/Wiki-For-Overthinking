@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T14:19:26Z",
   "created_at": "2026-08-20T14:13:03Z",
   "instructions": "Write the wiki definition for 'tool orchestration'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "tool orchestration",
@@ -39,6 +40,14 @@
   "payload": {
     "name": "tool orchestration",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Sequencing several tools whose outputs feed each other, as distinct from selecting one tool for one query. Both sources build benchmarks around the distinction and find it is where systems break. The video-anomaly work separates single-tool from interrelated-tool responses and reports the gap starkly: one baseline scores 0 percent whole-response accuracy on the interrelated split, another 4.52, and a model roughly nine times larger than the trained system reaches only 67.40 -- while performing acceptably on isolated tools. The long-horizon video agent identifies the complementary failure in sequencing over time, where prior systems follow a monotonic zoom-in and cannot revise, and shows that results on a 41-minute benchmark do not predict results on multi-hour ones, with one agent leading the first and losing 35 points on the second. The archive's reading is that orchestration is a separate capability from tool use rather than more of it, and that a benchmark not separating the two will report a system as competent that cannot chain.",
+    "kind": "concept",
+    "related": [
+      "tool learning"
+    ]
   },
   "task_id": "concept__tool-orchestration",
   "task_version": 1,

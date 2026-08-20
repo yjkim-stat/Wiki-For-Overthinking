@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Choosing where in depth to read a representation or apply an intervention, and across these four sources a decision that turns out to be a claim rather than a setting. Three findings recur. It is not constant across models: a cross-family audit finds every model selecting a layer near 0.8 of depth and never the two-thirds commonly hand-picked, and a hallucination detector finds a peak that is mid-network on every backbone but at different absolute depths. It is not constant across tasks or benchmarks either -- a probing sweep finds the best read-out location reversing between two benchmarks, with response-averaging beating last-token by more than twenty points on one and losing on the other. And it is not separable from the other choices, since the framing a direction is read under changes which location wins. Two sources add that pooling across layers is not a safe default: a detector reports multi-layer reading consistently underperforming its single peak layer, because grounding is concentrated in a narrow band that pooling dilutes with early generic features and late prediction-specific ones, with varying activation scales biasing naive averaging toward high-norm layers. The fourth source moves the choice per input entirely, showing the best injection layers are a property of the individual example rather than of the task.
 
 - **Kind**: method
+- **Also called**: injection layer, read-out layer
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 4
 
