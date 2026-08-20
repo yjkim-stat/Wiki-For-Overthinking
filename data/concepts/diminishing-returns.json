@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Spends test-time compute on iteratively refining each sampled rollout rather than on drawing more of them, then majority-votes the refined answers, with no verifier.",
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
+    },
+    {
+      "id": "arxiv:2608.07424",
+      "kind": "paper",
+      "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:51:26Z",
   "name": "diminishing returns",
   "related": [
     "test-time-compute",
@@ -32,7 +38,22 @@
     "amc",
     "olympiadbench",
     "math500",
-    "qwen2-5-1-5b"
+    "qwen2-5-1-5b",
+    "adaptive-compute-allocation",
+    "matched-budget-comparison",
+    "selection-signal",
+    "generation-verification-gap",
+    "pool-oracle",
+    "cost-accounting",
+    "reproducibility",
+    "budget-forcing",
+    "llm-as-a-judge",
+    "paired-bootstrap",
+    "early-stopping",
+    "verifier-routing",
+    "leave-one-dataset-out-evaluation",
+    "amc23",
+    "reasoning-gym"
   ],
   "related_authored": [],
   "schema_version": 1,

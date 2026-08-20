@@ -125,18 +125,18 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 48 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
-| LLM-as-a-judge | 42 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
+| LLM-as-a-judge | 44 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | supervised fine-tuning | 42 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 29 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain-of-thought prompting | 26 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
 | RLVR | 26 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
+| self-consistency | 24 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| self-consistency | 22 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
 | activation steering | 19 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | activation patching | 18 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
-| best-of-n | 15 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
+| best-of-n | 17 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
+| majority voting | 15 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | sparse autoencoder | 14 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| majority voting | 13 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | calibration | 12 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | knowledge distillation | 12 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | LoRA | 12 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
@@ -149,11 +149,11 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| AIME 2024 | 47 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
-| MATH500 | 45 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
+| AIME 2024 | 48 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| MATH500 | 46 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
 | GSM8K | 37 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
-| AIME 2025 | 34 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
-| AMC23 | 19 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
+| AIME 2025 | 35 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
+| AMC23 | 20 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 17 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |
 | MATH | 15 | The competition-mathematics benchmark, cited here in its full form rather than the 500-problem subset that appears separately in this archive. The sources use it as a mid-to-har... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |

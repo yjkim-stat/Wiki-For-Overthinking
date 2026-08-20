@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 27-billion-parameter Gemma model appearing twice in this archive as an evaluated subject. In the cross-family steering audit it records the largest held-out steering effect of any of the seventeen models at +22.9 with a bootstrap interval well above zero, alongside one of the lower pass rates -- a combination the authors caution against comparing directly across grids, since the large-model sweep is coarser than the dense small-model one. It is separately the upper end of the model range in the propositional-logic circuit analysis, where causal mediation recovers a sparse reasoning circuit decomposing into four families of attention heads executing rule locating, rule moving, fact processing and decision making as sequential steps. Neither source describes the model itself.
 
 - **Kind**: model
+- **Also called**: Gemma-2-27B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

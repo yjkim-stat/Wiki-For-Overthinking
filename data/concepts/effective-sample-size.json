@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "ESS"
+  ],
+  "definition": "How many independent observations a weighted or resampled estimate is actually worth, which falls as the weights become uneven. Both sources use it as a diagnostic on an adaptive procedure rather than as a result. The rollout-allocation work reports inverse-weight effective sample size alongside bias, mean squared error, cosine error and edge coverage in its frozen-population audit, and names low effective sample size as one of the hard cases a design must survive -- the concern being that a miscalibrated predictor assigns low inclusion probability to a valuable rollout, producing a high-variance inverse weight despite a floor on those probabilities. The parameter-space exploration work uses the reciprocal of the same quantity as the hyperparameter controlling how much noise is added to the weights, sweeping it across three orders of magnitude and finding a narrow usable band -- too little collapses training entirely, too much plateaus lower. Between them the sources establish it as the quantity that tells you whether an adaptive scheme has quietly concentrated its estimate on a few samples.",
   "evidence": [
     {
       "id": "arxiv:2608.09805",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:49:58Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T13:47:26Z",
   "name": "effective sample size",
   "related": [
@@ -71,7 +73,9 @@
     "qwen3-1-7b",
     "qwen3-4b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "importance-weighting"
+  ],
   "schema_version": 1,
   "slug": "effective-sample-size",
   "topics": [

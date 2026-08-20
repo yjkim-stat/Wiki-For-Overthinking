@@ -61,6 +61,12 @@
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.07424",
+      "kind": "paper",
+      "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing"
+    },
+    {
       "id": "arxiv:2608.08889",
       "kind": "paper",
       "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
@@ -77,6 +83,12 @@
       "kind": "paper",
       "note": "Turns the hidden-role game Avalon into a diagnostic instrument rather than an arena, decomposing theory of mind into a 2x2 taxonomy of perspective-constrained binary statements, and shows by probing, ground-truth injection and steering that models represent the right answer internally while failing to say it.",
       "title": "Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics"
+    },
+    {
+      "id": "arxiv:2608.09706",
+      "kind": "paper",
+      "note": "Asks whether a candidate pool contains enough signal to select from itself, by compiling sampled CAD programs into 3D models and returning the one that agrees most with the rest -- and finds this verifier-free rule beats a vision-language verifier on every geometric metric when both select from the identical pool.",
+      "title": "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection"
     },
     {
       "id": "arxiv:2608.09888",
@@ -141,7 +153,7 @@
   ],
   "first_seen": "2026-08-08T04:13:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T13:51:26Z",
   "name": "test-time scaling",
   "related": [
     "budget-forcing",
@@ -316,6 +328,14 @@
     "amc",
     "olympiadbench",
     "qwen2-5-1-5b",
+    "pool-oracle",
+    "cost-accounting",
+    "paired-bootstrap",
+    "early-stopping",
+    "verifier-routing",
+    "leave-one-dataset-out-evaluation",
+    "amc23",
+    "reasoning-gym",
     "reasoning-collapse",
     "rlvr",
     "reward-shaping",
@@ -372,6 +392,16 @@
     "qwen3-5-2b",
     "llama-3-2-1b",
     "olmo-2-7b",
+    "verifier-free-verification",
+    "consensus",
+    "consensus-selection",
+    "evolutionary-search",
+    "significance-testing",
+    "subset-resampling",
+    "cadprompt",
+    "gemma-3-12b",
+    "gemma-4",
+    "gemini-3-flash",
     "in-context-learning",
     "implicit-chain-of-thought",
     "rule-induction",
@@ -408,7 +438,6 @@
     "error-decorrelation",
     "endogeneity",
     "difficulty-conditioning",
-    "consensus",
     "viability-threshold",
     "jury-aggregation",
     "multi-agent-debate",
@@ -423,7 +452,6 @@
     "claim-level-falsification",
     "signal-dilution",
     "reliability-weighting",
-    "verifier-free-verification",
     "rescue-rate",
     "budget-parity",
     "apex-shortlist",

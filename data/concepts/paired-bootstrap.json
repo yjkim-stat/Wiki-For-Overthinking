@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.07424",
+      "kind": "paper",
+      "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing"
+    },
+    {
       "id": "arxiv:2608.08503",
       "kind": "paper",
       "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
@@ -17,14 +23,35 @@
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T13:51:26Z",
   "name": "paired bootstrap",
   "related": [
+    "test-time-scaling",
+    "adaptive-compute-allocation",
+    "matched-budget-comparison",
+    "selection-signal",
+    "generation-verification-gap",
+    "pool-oracle",
+    "cost-accounting",
+    "reproducibility",
+    "diminishing-returns",
+    "best-of-n",
+    "self-consistency",
+    "majority-voting",
+    "budget-forcing",
+    "llm-as-a-judge",
+    "early-stopping",
+    "verifier-routing",
+    "leave-one-dataset-out-evaluation",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "reasoning-gym",
     "chain-of-thought-distillation",
     "rationale-supervision",
     "out-of-domain-generalization",
     "benchmark-contamination",
-    "matched-budget-comparison",
     "reasoning-depth",
     "chain-of-thought-faithfulness",
     "seed-variance",
@@ -65,8 +92,6 @@
     "factorial-ablation",
     "adaptive-sampling",
     "kl-regularization",
-    "aime-2024",
-    "aime-2025",
     "hmmt-2025",
     "qwen3-1-7b",
     "qwen3-4b"
@@ -75,8 +100,8 @@
   "schema_version": 1,
   "slug": "paired-bootstrap",
   "topics": [
+    "test-time-scaling",
     "reasoning-evaluation",
-    "reasoning-training",
-    "test-time-scaling"
+    "reasoning-training"
   ]
 }

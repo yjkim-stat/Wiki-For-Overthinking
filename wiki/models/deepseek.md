@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A model family appearing in these sources at the family rather than checkpoint level. In the steering-pressure study a DeepSeek model sits in the middle of a six-model field, refusing a compromised framing with a values-consistent alternative on 41 percent of items against 91 percent for the leader and 12 percent for the last -- and it is the model whose externalised reasoning made a trace-level analysis possible at all, since that paper notes it could cross from behaviour to internals for closed models only where the reasoning appears as text. In the contamination-detection work a DeepSeek model is one of three target families whose post-training feature shifts are calibrated for, with average AUC gains of 2.3 percent. Neither source describes the family's training or architecture; the archive's other entries carry specific DeepSeek checkpoints separately.
 
 - **Kind**: model
+- **Also called**: DeepSeek
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

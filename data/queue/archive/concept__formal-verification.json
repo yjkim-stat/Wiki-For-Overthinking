@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:48:46Z",
   "created_at": "2026-08-20T13:43:04Z",
   "instructions": "Write the wiki definition for 'formal verification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "formal verification",
@@ -39,6 +40,17 @@
   "payload": {
     "name": "formal verification",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "proof checking",
+      "mechanised verification"
+    ],
+    "definition": "Checking a claim mechanically in a proof assistant rather than by judgement, which is the strongest form of verification available and the one several entries here reach for to escape the validity problems of model judges. Both sources measure where it leaks, and both find the leak in the same place. The autoformalisation benchmark shows the translation layer is the weak seam: systems mapping natural-language reasoning steps into Lean silently correct invalid inputs into provable statements -- one changed a variable's type so an unsatisfiable premise made the conclusion follow ex falso -- and the systems best at preserving validity on correct inputs are the most prone to repairing incorrect ones, because pipelines fine-tuned to produce correct proofs conflate faithful translation with producing something provable. The proof-as-litmus-test work approaches the same boundary from the generation side. The shared conclusion is that mechanical checking is only as sound as the step that renders an informal claim into the formal language, and that evaluating a formaliser only on inputs that should verify cannot distinguish a faithful translator from a repairing one.",
+    "kind": "method",
+    "related": [
+      "autoformalisation"
+    ]
   },
   "task_id": "concept__formal-verification",
   "task_version": 1,

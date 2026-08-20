@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Inter-rater agreement corrected for the agreement expected by chance, and in these sources both a quality check that passes and a critique that bites. As a check it is what licenses reading a human study: agreement from 0.760 to 1.000 across eight criteria before external adjudication is what makes a finding of no significant reasoning-quality improvement interpretable rather than noise, and a peer-judging benchmark reports 0.767 to 0.854 in four categories while naming its fifth at 0.599 as the one where its headline finding lives. As a critique it is the whole argument of the judge-reliability evaluation, which measures kappa deflation -- the gap between exact-match agreement and the chance-corrected figure -- and finds it 34 to 41 points across all 21 judges, every provider and every capability tier. Read together the sources give the practice: exact-match agreement between a model judge and a reference is not evidence of discrimination, because a judge agreeing with a skewed label distribution agrees mostly by chance, and only the corrected statistic separates the two.
 
 - **Kind**: method
+- **Also called**: Cohen's kappa
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

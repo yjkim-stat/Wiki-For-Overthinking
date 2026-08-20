@@ -46,6 +46,12 @@
       "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning"
     },
     {
+      "id": "arxiv:2608.07424",
+      "kind": "paper",
+      "note": "Treats test-time scaling as routing rather than budgeting -- cheap evidence decides whether a decision is already settled, and expensive verification is spent only on candidates that can still change the answer -- and evaluates every baseline by replaying it over the same stored candidate pool so that only the allocation decision differs.",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing"
+    },
+    {
       "id": "arxiv:2608.09857",
       "kind": "paper",
       "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
@@ -132,7 +138,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:47:26Z",
+  "last_seen": "2026-08-20T13:51:26Z",
   "name": "adaptive compute allocation",
   "related": [
     "test-time-scaling",
@@ -279,6 +285,17 @@
     "kv-cache-eviction",
     "confidence-based-early-stopping",
     "reward-banded-penalty",
+    "generation-verification-gap",
+    "pool-oracle",
+    "cost-accounting",
+    "diminishing-returns",
+    "paired-bootstrap",
+    "early-stopping",
+    "verifier-routing",
+    "leave-one-dataset-out-evaluation",
+    "math500",
+    "amc23",
+    "reasoning-gym",
     "jury-aggregation",
     "verification-layer",
     "prompt-injection",
@@ -346,8 +363,6 @@
     "inverse-probability-weighting",
     "convex-optimization",
     "leave-one-out-estimation",
-    "math500",
-    "amc23",
     "olympiadbench",
     "livecodebench",
     "qwen3-1-7b",

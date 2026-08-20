@@ -46,7 +46,7 @@ Stated precisely. The exact guarantee concerns an on-policy, sequence-level, unc
 
 ## Entities
 
-- **Concepts**: [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), estimator bias, zero-advantage group, [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md), selection bias, pre-registration, effective sample size
+- **Concepts**: [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), estimator bias, [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md), [selection bias](../../../../wiki/concepts/selection-bias.md), pre-registration, [effective sample size](../../../../wiki/concepts/effective-sample-size.md)
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), U-statistic, Horvitz-Thompson estimation, inverse probability weighting, convex optimization, adaptive compute allocation, leave-one-out estimation, [pre-registration](../../../../wiki/methods/pre-registration.md), [component ablation](../../../../wiki/methods/component-ablation.md), effective sample size
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 

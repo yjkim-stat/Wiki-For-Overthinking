@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 9-billion-parameter Gemma model appearing in the same two studies as its larger sibling and useful mainly for the comparison between them. In the cross-family steering audit it records a held-out steering effect of +21.0, close to the 27B model's +22.9 despite three times fewer parameters -- one of the data points behind that paper's finding that steerability shows no detectable scaling trend once interventions are made residual-norm-comparable and the operating point is selected on held-out concepts. It also appears in the propositional-logic circuit analysis spanning models up to 27B. Neither source describes the model; its role here is as a rung on a within-family ladder.
 
 - **Kind**: model
+- **Also called**: Gemma-2-9B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 

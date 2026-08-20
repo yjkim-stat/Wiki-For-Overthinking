@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:48:46Z",
   "created_at": "2026-08-20T13:47:28Z",
   "instructions": "Write the wiki definition for 'hard negative mining'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "hard negative mining",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "hard negative mining",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "hard negatives"
+    ],
+    "definition": "Constructing training examples that are wrong in ways close to right, so a model must learn the distinction rather than a coarse separation. Both sources build them deliberately rather than sampling them. The multimodal process-reward work has a strong model perturb correct trajectories at a single step, producing localised negatives that differ from a valid derivation in one place, and its ablation attributes 1.4 average points to that supervision -- distinguishing the contribution of localised hard negatives from that of recycled rollouts, which are worth a separate 0.9. The skill-retrieval work mines confusable candidates from the corpus by document overlap and dense retrieval, then uses a strong model to keep only queries whose annotated target remains clearly distinguishable from them, so the negatives are hard by construction and the benchmark stays answerable. The shared point is that a negative's usefulness is a property of its distance from the positive, and both sources engineer that distance rather than trusting random sampling to supply it.",
+    "kind": "method",
+    "related": [
+      "contrastive learning"
+    ]
   },
   "task_id": "concept__hard-negative-mining",
   "task_version": 1,

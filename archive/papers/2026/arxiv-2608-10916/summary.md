@@ -47,7 +47,7 @@ Stated, and the authors are explicit that their benchmark is a diagnostic rather
 
 ## Entities
 
-- **Concepts**: [sycophancy](../../../../wiki/concepts/sycophancy.md), [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [verification](../../../../wiki/concepts/verification.md), silent correction, [outcome reward](../../../../wiki/concepts/outcome-reward.md), [formal verification](../../../../wiki/concepts/formal-verification.md), negative examples, [abstention](../../../../wiki/concepts/abstention.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md)
+- **Concepts**: [sycophancy](../../../../wiki/concepts/sycophancy.md), [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [verification](../../../../wiki/concepts/verification.md), silent correction, [outcome reward](../../../../wiki/concepts/outcome-reward.md), formal verification, negative examples, [abstention](../../../../wiki/concepts/abstention.md), [reward hacking](../../../../wiki/concepts/reward-hacking.md)
 - **Methods**: autoformalisation, automated theorem proving, perturbation testing, counterfactual construction, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), embedding similarity, contingency analysis, directed acyclic graph decomposition
 - **Datasets**: FaithformBench, [MATH](../../../../wiki/datasets/math.md), OmniMath, [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), Lean
 

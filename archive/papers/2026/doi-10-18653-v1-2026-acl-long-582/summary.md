@@ -45,7 +45,7 @@ Reasoning models have limited capability in generating entirely correct proofs, 
 
 ## Entities
 
-- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), mathematical proof, rigor, [self-correction](../../../../wiki/concepts/self-correction.md), [hallucination](../../../../wiki/concepts/hallucination.md), process evaluation, [formal verification](../../../../wiki/concepts/formal-verification.md), error taxonomy
+- **Concepts**: [construct validity](../../../../wiki/concepts/construct-validity.md), mathematical proof, rigor, [self-correction](../../../../wiki/concepts/self-correction.md), [hallucination](../../../../wiki/concepts/hallucination.md), process evaluation, formal verification, error taxonomy
 - **Methods**: RFMDataset, error taxonomy construction, self-reflection prompting, expert proof evaluation
 - **Datasets**: RFMDataset
 

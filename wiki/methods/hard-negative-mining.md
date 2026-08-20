@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Constructing training examples that are wrong in ways close to right, so a model must learn the distinction rather than a coarse separation. Both sources build them deliberately rather than sampling them. The multimodal process-reward work has a strong model perturb correct trajectories at a single step, producing localised negatives that differ from a valid derivation in one place, and its ablation attributes 1.4 average points to that supervision -- distinguishing the contribution of localised hard negatives from that of recycled rollouts, which are worth a separate 0.9. The skill-retrieval work mines confusable candidates from the corpus by document overlap and dense retrieval, then uses a strong model to keep only queries whose annotated target remains clearly distinguishable from them, so the negatives are hard by construction and the benchmark stays answerable. The shared point is that a negative's usefulness is a property of its distance from the positive, and both sources engineer that distance rather than trusting random sampling to supply it.
 
 - **Kind**: method
+- **Also called**: hard negatives
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
