@@ -82,3 +82,6 @@ reference for everything built before the practice existed.
 | 0059 | [An identifier learned late is still registered](0059-an-identifier-learned-late-is-still-registered.md) | fix | A hand-filed paper's arXiv id arrived after collection and was never indexed, so the collector forked instead of folding |
 | 0060 | [A question larger than one reading](0060-a-question-larger-than-one-reading.md) | feature | Cross-cutting work had no place in the queue; a settled answer is a finding, and an open one is still an answer |
 | 0061 | [A look outside that has to cite what it saw](0061-a-look-outside-that-has-to-cite-what-it-saw.md) | feature | Requiring a reference is the only mechanical difference between looking something up and remembering it |
+| 0070 | [One leverage, beside the scores it sums](0070-one-leverage-beside-the-scores-it-sums.md) | refactor | Two callers wanted the same number; two copies would be free to disagree |
+| 0071 | [Which end of the backlog to drain](0071-which-end-of-the-backlog-to-drain.md) | feature | Filename order is alphabetical order, so a partial drain was reading the archive by arXiv number |
+| 0072 | [Two names for one entity](0072-two-names-for-one-entity.md) | feature | A term spelled two ways splits into two records, and neither is wrong about anything — so the report suggests and writes nothing |

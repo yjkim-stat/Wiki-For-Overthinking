@@ -369,8 +369,11 @@ collecting from the wrong indexes is the most common reason a topic stays empty.
 python3 -m pipelines.run_daily [--days N] [--topic slug] [--source arxiv] [--dry-run]
 python3 -m pipelines.backfill  [--limit N] [--topic slug] [--by score|age|id] [--dry-run]
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
-python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
+python3 -m pipelines.enrich.queue stats | show <id> | complete <id> --file r.json
+python3 -m pipelines.enrich.queue list | next  [--kind paper] [--by id|sources|recency|topic]
 python3 -m pipelines.enrich.synthesis add --question "..." --concept <slug>
+python3 -m pipelines.enrich.lookup add --subject spelling --about "..."
+python3 -m pipelines.duplicates [--json] [--limit N]   # concept slugs that may be one entity
 python3 -m pipelines.migrate status   # which roots, and what each channel carries
 python3 -m pipelines.serve            # answer questions about the archive, read-only, on 127.0.0.1
 scripts/daily.sh               # collect, then render

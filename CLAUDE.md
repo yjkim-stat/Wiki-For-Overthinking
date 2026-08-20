@@ -93,6 +93,25 @@ python3 -m pipelines.enrich.queue stats
 python3 -m pipelines.enrich.queue list
 ```
 
+**If you are not going to finish the queue tonight, say which end you are
+draining.** `list` and `next` answer in filename order by default, and a task
+id begins with its kind and continues with the item id — so the top twenty is
+the alphabetically first twenty, which is nobody's priority:
+
+```bash
+python3 -m pipelines.enrich.queue list --by sources --limit 20   # most rests on it
+python3 -m pipelines.enrich.queue list --by recency              # newest first
+python3 -m pipelines.enrich.queue list --by topic                # spread across subjects
+```
+
+`--by sources` weighs a concept task by the number of readings that already
+mention the term, and a paper or a video by what scoring decided when it
+arrived — an unread item has no summary, so no entity cites it and its own
+source count is zero for everything in the queue. **Those two are not the same
+unit**, so concept tasks tend to sort above reading tasks; add `--kind` when
+you want an exact ordering within one of them. Ordering changes nothing about
+a task, only which one you are handed first.
+
 For each pending task:
 
 ```bash
@@ -475,12 +494,14 @@ python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing el
 python3 -m pipelines.backfill --dry-run           # which waiting papers still have no document
 python3 -m pipelines.backfill --limit 20          # fetch those documents, best-scoring first
 python3 -m pipelines.render --only wiki           # rebuild one stage
-python3 -m pipelines.enrich.queue next            # the oldest pending task
+python3 -m pipelines.enrich.queue list --by sources  # drain the heaviest end first
+python3 -m pipelines.enrich.queue next            # the first pending task, in filename order
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
 python3 -m pipelines.enrich.synthesis list        # questions spanning more readings than one
 python3 -m pipelines.enrich.lookup list           # narrow questions needing a look outside
+python3 -m pipelines.duplicates                   # concept slugs that may be one entity, read-only
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change
