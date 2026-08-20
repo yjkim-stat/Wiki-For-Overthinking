@@ -2,7 +2,7 @@
 
 # Archive
 
-- Papers: 269 (240 summarized)
+- Papers: 269 (242 summarized)
 - Seminars: 0
 
 ## Recent digests

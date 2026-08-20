@@ -260,8 +260,8 @@ th { background: var(--surface); }
 <li><strong>LLM-as-a-judge</strong> — Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both a...</li>
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
 <li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
-<li><strong>chain-of-thought prompting</strong> — Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think ste...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
+<li><strong>chain-of-thought prompting</strong> — Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think ste...</li>
 </ul>
 </section>
 <section class="slide">
@@ -292,9 +292,9 @@ th { background: var(--surface); }
 <li><strong>Interpreting Language Model Hidden States at Scale</strong> — The paper states its own scope: experiments cover only components whose width equals the model&#x27;s, so narrower ones such as individual attention heads would n...</li>
 <li><strong>Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models</strong> — The paper marks its own boundaries carefully, which is unusual and worth noting: the cross-model dissociation is called provisional and the magnitude gap exp...</li>
 <li><strong>Safety Cost of Steering Vectors Is Separable and Reducible</strong> — The paper is explicit that the Lagrangian relaxation is nonconvex, so there is no guarantee of global optimality or exact feasibility, and reports that the c...</li>
+<li><strong>Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing</strong> — Stated and acted on. Evaluation sets are small and the authors repeatedly decline to claim effects their own tests do not support, including for the method t...</li>
 <li><strong>Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders</strong> — The paper has no limitations section. What a reader should notice is substantial. Everything rests on one 7B distilled model at one layer, so nothing disting...</li>
 <li><strong>When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs</strong> — Stated with unusual care throughout rather than in one section. The authors decline to convert their null scaling result into a claim of scale-invariance, on...</li>
-<li><strong>Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes</strong> — Stated: the wrapper text is the least controlled step and moves accuracy across a 9.4-point range with model, dataset and method held fixed, and the best wra...</li>
 </ul>
 </section>
 <section class="slide">
@@ -318,14 +318,15 @@ th { background: var(--surface); }
 <li>Jiaheng Su, Yu Sun. <em>Label-Free Parkinson&#x27;s Disease Screening from Face and Voice through Mechanistic Interpretability</em>. cs.LG. 2026</li>
 <li>Yen-Shan Chen, Yu Chian Duan, Chih-En Kuo et al.. <em>Avalon-ToM-Bench: Evaluating Fine-Grained Theory of Mind via Asymmetric Game Mechanics</em>. cs.AI. 2026</li>
 <li>Yuxiao Li, Gjergji Kasneci. <em>Safety Cost of Steering Vectors Is Separable and Reducible</em>. cs.CL. 2026</li>
+<li>Minhan Cho, Jimin Kweon. <em>Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing</em>. cs.AI. 2026</li>
 <li>Bo Cheng, Qiaolin Lu, Yi Chang et al.. <em>Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders</em>. cs.CL. 2026</li>
 <li>Hamed Damirchi, Ignacio Meza De la Jara, Damith Ranasinghe et al.. <em>Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs</em>. cs.LG. 2026</li>
-<li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Abdallah Khemais. <em>A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation</em>. cs.LG. 2026</li>
 <li>Abdallah Khemais. <em>Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model</em>. cs.AI. 2026</li>
 <li>Max Torop, Aria Masoomi, Jennifer Dy. <em>Inverted Detection and Control in Steering Vectors</em>. cs.LG. 2026</li>
 <li>Clement Neo, Yongsen Zheng, Kwok-Yan Lam et al.. <em>Spectra: A Mechanistic Interpretability Library for Vision-Language Models</em>. ACL. 2026</li>
@@ -333,7 +334,6 @@ th { background: var(--surface); }
 <li>Michael Lan, Narmeen Fatimah Oozeer, Chaithanya Bandi et al.. <em>Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing</em>. ACL. 2026</li>
 <li>Maisha Maliha, Dean F. Hougen. <em>Mechanistic Interpretability of Text-to-Image Diffusion Models via Cross-Attention Interventions</em>. ACL. 2026</li>
 <li>Hosein Hasani, Mohammadali Banayeeanzade, Ali Nafisi et al.. <em>Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy</em>. ACL. 2026</li>
-<li>Hengyuan Zhang, Zhihao Zhang 0002, Ercong Nie et al.. <em>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

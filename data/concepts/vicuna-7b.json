@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Vicuna-7b"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
       "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection"
+    },
+    {
+      "id": "arxiv:2608.08514",
+      "kind": "paper",
+      "note": "Independently reproduces two published reliability methods and stress-tests them across models and domains their authors never tried, finding one reproduces exactly but loses significance everywhere new, and the other rests on a decodable logic direction that a same-norm random direction matches exactly under steering.",
+      "title": "Reproducing and Stress-Testing Two Approaches to LLM Reasoning Reliability: Test-Time Probability Aggregation and Logic-Representation Editing"
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:33:50Z",
+  "last_seen": "2026-08-20T13:55:40Z",
   "name": "Vicuna-7B",
   "related": [
     "process-reward",
@@ -53,12 +61,43 @@
     "cltr",
     "yolov8",
     "yolov7-pose",
-    "places365"
+    "places365",
+    "detection-versus-control",
+    "selectivity-control",
+    "reproducibility",
+    "calibration",
+    "self-consistency",
+    "steering-vector",
+    "linear-probe",
+    "distribution-mismatch",
+    "statistical-significance",
+    "interpretability-illusion",
+    "probability-aggregation",
+    "activation-steering",
+    "contrastive-activation-addition",
+    "conditional-activation-steering",
+    "representation-editing",
+    "paired-wilcoxon-test",
+    "bootstrap-confidence-intervals",
+    "expected-calibration-error",
+    "reproduction-study",
+    "gsm8k",
+    "folio",
+    "logiqa",
+    "bird",
+    "lfud",
+    "ko-ver",
+    "kcc",
+    "qwen3-8b",
+    "llama-2-7b-chat",
+    "mistral-7b",
+    "gpt-4"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "vicuna-7b",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "reasoning-interpretability"
   ]
 }

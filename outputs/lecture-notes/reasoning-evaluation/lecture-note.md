@@ -114,30 +114,30 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; Parameter Exploration for RLVR via Variational Learning.
 
-### prompt difficulty
+### outcome reward
 
-How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.
+A single scalar awarded for the finished answer, and across these sources the baseline whose insufficiency each of them is arguing. Two treat it as an anchor that must be kept: one finds that removing the terminal reward while retaining dense per-step supervision is its largest single ablation loss (6.3 F1, degrading every benchmark), and the other bounds its privileged correction by the outcome advantage so that privileged information can never generate an update where the outcome reward is silent. The third names what it cannot express: treating one output stream as a sequence of episodes and scoring it by cumulative regret, it finds that current models' progress toward a correct answer is not monotone across the stream, and that a 0/1 terminal reward applies no pressure for it to be. The shared position is that outcome reward determines the direction of learning and cannot determine its distribution over a trajectory.
 
-Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters; Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning; Interpretable Adaptive Sampling for LLM Test-Time Scaling; Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training.
+Seen in: BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent; EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents; Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning; PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 48 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
+| GRPO | 49 | Critic-free policy optimization for language models: for each prompt the policy samples a group of completions, each completion's advantage is its reward normalised by the group... |
 | LLM-as-a-judge | 44 | Using a language model to score, rank or label outputs in place of a human annotator or a programmatic checker -- in these sources both as an evaluation instrument and, increasi... |
 | supervised fine-tuning | 42 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
-| linear probe | 29 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| linear probe | 30 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
+| RLVR | 27 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | chain-of-thought prompting | 26 | Eliciting intermediate steps before the answer, either by few-shot exemplars that show worked reasoning or by an instruction to think step by step. The theory sources give it a... |
-| RLVR | 26 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| self-consistency | 24 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
+| self-consistency | 25 | Sampling several reasoning paths for one prompt and returning the answer most of them reach, with no verifier and no external signal. It is this archive's default baseline for s... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
-| activation steering | 19 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
+| activation steering | 20 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | activation patching | 18 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
 | best-of-n | 17 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | majority voting | 15 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | sparse autoencoder | 14 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
-| calibration | 12 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| calibration | 13 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | knowledge distillation | 12 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 | LoRA | 12 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | PPO | 12 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
@@ -151,7 +151,7 @@ Seen in: Scaling LLM Test-Time Compute Optimally can be More Effective than Scal
 | --- | ---: | --- |
 | AIME 2024 | 48 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | MATH500 | 46 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| GSM8K | 37 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
+| GSM8K | 38 | 8.5K linguistically diverse grade-school mathematics word problems, introduced in this archive's earliest source alongside the finding that training a verifier to rank many samp... |
 | AIME 2025 | 35 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 20 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | OlympiadBench | 17 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |

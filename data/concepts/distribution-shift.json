@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.08802",
+      "kind": "paper",
+      "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+      "title": "Improving Generalization Robustness of Multimodal RLVR"
+    },
+    {
       "id": "arxiv:2608.10462",
       "kind": "paper",
       "note": "Calibrates feature-based data-contamination detectors against the systematic feature shifts that post-training introduces, by measuring how controlled prompt variants move scores on known non-members and then correcting only the recurring shift directions, with the gains concentrated at the low-false-positive operating point rather than in AUC.",
@@ -11,9 +17,34 @@
   ],
   "first_seen": "2026-08-20T13:04:03Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:04:03Z",
+  "last_seen": "2026-08-20T13:55:40Z",
   "name": "distribution shift",
   "related": [
+    "prompt-sensitivity",
+    "out-of-distribution-generalization",
+    "reward-hacking",
+    "outcome-reward",
+    "format-compliance",
+    "invariance",
+    "pass-k",
+    "inconclusive-threshold",
+    "grpo",
+    "rlvr",
+    "adversarial-training",
+    "consistency-regularization",
+    "reward-shaping",
+    "paraphrase-perturbation",
+    "template-variation",
+    "component-ablation",
+    "mathvista",
+    "olympiadbench-physics",
+    "mmk12",
+    "vqa-rad",
+    "pathvqa",
+    "gmai",
+    "docvqa",
+    "qwen2-5-vl-7b",
+    "qwen3-vl-8b",
     "benchmark-contamination",
     "membership-inference",
     "calibration",
@@ -41,6 +72,7 @@
   "schema_version": 1,
   "slug": "distribution-shift",
   "topics": [
+    "reasoning-training",
     "reasoning-evaluation"
   ]
 }

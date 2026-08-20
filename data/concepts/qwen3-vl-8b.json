@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
       "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
+    },
+    {
+      "id": "arxiv:2608.08802",
+      "kind": "paper",
+      "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+      "title": "Improving Generalization Robustness of Multimodal RLVR"
     }
   ],
   "first_seen": "2026-08-20T12:33:50Z",
   "kind": "model",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T13:55:40Z",
   "name": "Qwen3-VL-8B",
   "related": [
     "process-reward",
@@ -75,7 +81,26 @@
     "mathvista",
     "mathverse",
     "qwen3-vl-2b",
-    "qwen3-vl-4b"
+    "qwen3-vl-4b",
+    "prompt-sensitivity",
+    "out-of-distribution-generalization",
+    "reward-hacking",
+    "format-compliance",
+    "invariance",
+    "pass-k",
+    "distribution-shift",
+    "inconclusive-threshold",
+    "adversarial-training",
+    "consistency-regularization",
+    "paraphrase-perturbation",
+    "template-variation",
+    "olympiadbench-physics",
+    "mmk12",
+    "vqa-rad",
+    "pathvqa",
+    "gmai",
+    "docvqa",
+    "qwen2-5-vl-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

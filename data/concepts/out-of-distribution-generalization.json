@@ -24,6 +24,12 @@
       "title": "Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs"
     },
     {
+      "id": "arxiv:2608.08802",
+      "kind": "paper",
+      "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+      "title": "Improving Generalization Robustness of Multimodal RLVR"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.380",
       "kind": "paper",
       "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
@@ -50,7 +56,7 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T10:56:01Z",
+  "last_seen": "2026-08-20T13:55:40Z",
   "name": "out-of-distribution generalization",
   "related": [
     "intent-classification",
@@ -106,6 +112,31 @@
     "trajectory-based-detection",
     "activation-probing",
     "multi-layer-state-normalization",
+    "prompt-sensitivity",
+    "reward-hacking",
+    "outcome-reward",
+    "format-compliance",
+    "invariance",
+    "pass-k",
+    "distribution-shift",
+    "inconclusive-threshold",
+    "grpo",
+    "rlvr",
+    "adversarial-training",
+    "consistency-regularization",
+    "reward-shaping",
+    "paraphrase-perturbation",
+    "template-variation",
+    "component-ablation",
+    "mathvista",
+    "olympiadbench-physics",
+    "mmk12",
+    "vqa-rad",
+    "pathvqa",
+    "gmai",
+    "docvqa",
+    "qwen2-5-vl-7b",
+    "qwen3-vl-8b",
     "compositional-generalization",
     "commonsense-reasoning",
     "brittleness",
@@ -160,8 +191,8 @@
   "topics": [
     "reasoning-interpretability",
     "reasoning-evaluation",
-    "reasoning-faithfulness",
     "reasoning-training",
+    "reasoning-faithfulness",
     "test-time-scaling"
   ]
 }
