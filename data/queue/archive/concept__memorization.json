@@ -7,9 +7,20 @@
         "title": "Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the standard metric for judging contamination-mitigation strategies can be scored by cancellation rather than by restoration, replaces it with a per-question stratified metric under which the published ranking reverses, and proposes a mitigation that decides its intervention during decoding instead of from a prior estimate.",
+        "title": "Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -18,9 +29,9 @@
         "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -29,9 +40,9 @@
         "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -40,9 +51,9 @@
         "title": "On The Fragility of Benchmark Contamination Detection in Reasoning Models",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -51,9 +62,9 @@
         "title": "Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
         ]
       },
       {
@@ -62,16 +73,16 @@
         "title": "VAR-MATH: Probing True Mathematical Reasoning in LLMs via Symbolic Multi-Instance Benchmarks",
         "topics": [
           "reasoning-training",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
-          "reasoning-interpretability",
-          "reasoning-evaluation"
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:56Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'memorization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:58Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'memorization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "memorization",
   "kind": "concept",
   "language": "en",
@@ -80,17 +91,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "memorization",
-    "source_count": 6
+    "source_count": 7
   },
   "result": {
-    "definition": "Storing input-output pairs rather than a procedure that generalizes. The archive approaches it from three directions. Mechanistically, arithmetic turns out to be neither memorization nor algorithm — a sparse set of neurons recognizes numerical patterns and votes for matching answers, generalizing across inputs that share a pattern without storing individual pairs — and the grokking result adds that memorizing and generalizing circuits compete for the same task, with the memorizing one found first. Behaviourally, re-instantiating benchmark problems with different constants collapses RL-trained models by 20-95% on a strict metric and by 2.6-7.2% even on a loose one, the loose drop being the part attributable to memorized numerical form rather than to inconsistency. A third line treats it as something to intervene on, reframing unlearning in reasoning models as an intervention on the chain of thought itself and preference-tuning toward counterfactual traces. A fourth records a subtler variant: a model completes a proverb correctly but cannot notice when the correct ending is absent from the options — recall without the discrimination that would show comprehension."
+    "aliases": [],
+    "definition": "Reproducing training content rather than computing an answer, and across 7 sources a hypothesis the archive tests rather than assumes. Its cleanest separation is the loose-versus-strict metric under symbolic variabilisation: a base mathematics model loses 38.5 percent even under partial credit, consistent with heavy reliance on memorised patterns, while reinforcement-trained models lose 2.6 to 7.2 -- so the two metrics together separate memorisation from mere inconsistency. A mechanistic source rules it out for arithmetic specifically, finding neither a learned algorithm nor memorisation but an unordered collection of sparse heuristic neurons voting. And a benchmark source finds the opposite asymmetry for proverbs, where completion is easy and choice is hard. The archive's related material covers the unlearning side and the contamination-detection side, where the standing result is that post-training suppresses the signals memorisation detectors rely on.",
+    "kind": "concept",
+    "related": [
+      "benchmark contamination",
+      "modularity",
+      "decontamination"
+    ]
   },
   "task_id": "concept__memorization",
   "task_version": 1,

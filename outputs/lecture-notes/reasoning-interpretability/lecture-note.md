@@ -167,7 +167,7 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | IFEval | 5 | An instruction-following benchmark scoring whether verifiable format constraints in a prompt were obeyed, used across 5 sources as the capability-retention check that reasoning-... |
 | MBPP+ | 5 | A Python programming benchmark with expanded tests in its plus variant, used across 5 sources as a code column in general-capability suites and in calibration-data studies. Its... |
 | BBH | 4 | A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived... |
-| indirect object identification | 4 | A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmar... |
+| indirect object identification | 4 | The small syntactic task -- predicting the indirect object in a sentence with two named entities -- that serves across 4 sources as mechanistic interpretability's standard testb... |
 | the Pile | 4 | A large general-purpose text corpus used across these four sources as the substrate a method is fitted or measured on rather than as an object of study. It supplies the activati... |
 | SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
 

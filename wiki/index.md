@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (189)
+## Concepts (190)
 
 - [abstention](concepts/abstention.md) — 5 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 25 source(s)
@@ -54,7 +54,6 @@
 - [data efficiency](concepts/data-efficiency.md) — 4 source(s)
 - [degenerate generation](concepts/degenerate-generation.md) — 5 source(s)
 - [detection versus control](concepts/detection-versus-control.md) — 21 source(s)
-- [difficulty conditioning](concepts/difficulty-conditioning.md) — 3 source(s)
 - [diminishing returns](concepts/diminishing-returns.md) — 2 source(s)
 - [distribution mismatch](concepts/distribution-mismatch.md) — 2 source(s)
 - [distribution shift](concepts/distribution-shift.md) — 5 source(s)
@@ -95,7 +94,9 @@
 - [jailbreak](concepts/jailbreak.md) — 6 source(s)
 - [judge reliability](concepts/judge-reliability.md) — 3 source(s)
 - [KV cache](concepts/kv-cache.md) — 3 source(s)
+- [latent chain of thought](concepts/latent-chain-of-thought.md) — 4 source(s)
 - [latent reasoning](concepts/latent-reasoning.md) — 16 source(s)
+- [length control](concepts/length-control.md) — 4 source(s)
 - [length generalization](concepts/length-generalization.md) — 3 source(s)
 - [linear representation hypothesis](concepts/linear-representation-hypothesis.md) — 6 source(s)
 - [linear separability](concepts/linear-separability.md) — 4 source(s)
@@ -202,7 +203,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (164)
+## Methods (163)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -243,6 +244,7 @@
 - [dense retrieval](methods/dense-retrieval.md) — 3 source(s)
 - [difference-in-means direction](methods/difference-in-means-direction.md) — 6 source(s)
 - [difference-of-means probe](methods/difference-of-means-probe.md) — 3 source(s)
+- [difficulty conditioning](methods/difficulty-conditioning.md) — 3 source(s)
 - [difficulty stratification](methods/difficulty-stratification.md) — 4 source(s)
 - [DPO](methods/dpo.md) — 5 source(s)
 - [Dr. GRPO](methods/dr-grpo.md) — 3 source(s)
@@ -279,9 +281,7 @@
 - [KL-Cov](methods/kl-cov.md) — 4 source(s)
 - [knowledge distillation](methods/knowledge-distillation.md) — 15 source(s)
 - [KV cache compression](methods/kv-cache-compression.md) — 2 source(s)
-- [latent chain of thought](methods/latent-chain-of-thought.md) — 4 source(s)
 - [layer selection](methods/layer-selection.md) — 4 source(s)
-- [length control](methods/length-control.md) — 4 source(s)
 - [length penalty](methods/length-penalty.md) — 3 source(s)
 - [linear function approximation](methods/linear-function-approximation.md) — 2 source(s)
 - [linear probe](methods/linear-probe.md) — 32 source(s)

@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Llama-3.2-3B-Instruct"
+    "Llama-3.2-3B-Instruct",
+    "Llama-3.2-3B"
   ],
-  "definition": "A 3-billion-parameter Llama model used in this archive as a cross-family check rather than as a headline system. In the task-learnability paper the main models are Qwen3-1.7B and Qwen3-4B and Llama-3.2-3B is the check that the result is not Qwen-specific: the reproducibility of learnability profiles across independently sampled probe sets, at Cohen's kappa 0.776 over six profiles and 0.879 under the binary learnable grouping, holds on it with the same pattern. The archive's reading of that paper also records that its stated scope of 'up to 8B parameters' is not the range actually exercised, of which this model is the smallest. It is separately one of five models, spanning Llama-3.2-1B to QwQ-32B, whose reasoning trajectories are projected into two dimensions by Landscape of Thoughts.",
+  "definition": "The 3B Llama base checkpoint, used across 3 sources as a small cross-family control. Its most consequential archived appearance is as the cross-family check in a task-learnability study, where the claim that a task's response to training is reproducible and predicts downstream value at matched pass rate is tested outside the Qwen family it was developed in. It also appears in a cross-family steering audit and in reasoning-trajectory visualisation.",
   "evidence": [
     {
       "id": "arxiv:2608.08159",
@@ -115,7 +116,10 @@
     "commonsenseqa",
     "qwq-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-2-3b-instruct",
+    "llama-3-2-1b"
+  ],
   "schema_version": 1,
   "slug": "llama-3-2-3b",
   "topics": [

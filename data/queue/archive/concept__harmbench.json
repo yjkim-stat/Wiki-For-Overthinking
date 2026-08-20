@@ -12,6 +12,15 @@
       },
       {
         "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
         "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
         "topics": [
@@ -21,8 +30,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T04:27:27Z",
-  "created_at": "2026-08-13T03:54:51Z",
+  "completed_at": "2026-08-20T23:28:56Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'HarmBench'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "HarmBench",
   "kind": "concept",
@@ -39,13 +48,16 @@
   },
   "payload": {
     "name": "HarmBench",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [],
-    "definition": "A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderation benchmarks over which a guard model's weighted F1 is reported. The other uses it as a source of harmful requests in an automated attack that hijacks a reasoning model's own safety reasoning. The pairing is the archive's usual shape for a safety benchmark: the same prompts serve as the test a defence must pass and as the material an attack is built from.",
+    "definition": "A standardised set of harmful behaviours with an evaluation harness, and across 3 sources the hardest of the archive's four jailbreak benchmarks -- the one where defences that reach near-zero elsewhere still leave 9.00 to 44.75 percent attack success. That spread is what makes it the informative column: one defence's reductions across eight models run 34.75 to 65.50 points here while the same models show 0.96 to 70.77 on an easier set, so absolute rates are only comparable within a benchmark. It is also where the archive's judge-disagreement audit is run -- 400 responses re-judged, 90.25 percent overall agreement, 41.94 percent false-negative rate on the unsafe class -- which bounds how sharply any number on it can be read.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "AdvBench",
+      "StrongREJECT"
+    ]
   },
   "task_id": "concept__harmbench",
   "task_version": 1,

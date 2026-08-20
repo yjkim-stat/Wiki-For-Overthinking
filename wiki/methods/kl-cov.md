@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-The KL-penalty counterpart to Clip-Cov: apply a KL penalty to the tokens with the largest covariance between log-probability and advantage, rather than clipping them. Its originating source reports stabler entropy curves than Clip-Cov, preferable when precise entropy control matters, and sustains entropy over 10x higher than baseline at the point where the baseline plateaus. Two later sources include it as a strong baseline and beat it by 1.7-1.8 points, so it remains near the front without being the best method in the archive.
+A covariance-based entropy remedy that applies a divergence penalty to the tokens whose advantage and log-probability covary most, introduced alongside its clipping sibling and compared across 4 sources. Its measured standing: 50.5 and 49.2 average across six benchmarks on two models, against clip-higher at 49.8 and 49.1 and a later method at 52.4 and 51.9, with one source reporting it giving stabler entropy curves than clip-higher, which raises entropy early and then saturates and declines. The archive's cautions carry over -- the largest single improvement in that comparison comes from switching to strict on-policy updating rather than from any entropy mechanism, and this method's hyperparameters are set differently at two scales without a stated selection procedure.
 
 - **Kind**: method
 - **Also called**: KL_Cov

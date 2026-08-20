@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Encoding queries and documents into one vector space and retrieving by cosine nearest neighbour. Both sources use it inside a reasoning loop rather than before one, and both make the query the interesting part: one retrieves complete solved problems mid-trace using the model's elicited intermediate answer as the query, on the argument that the raw reasoning text is too exploratory and noisy to search with; the other conditions a teacher on retrieved supporting evidence and uses the teacher-student gap as a training signal. Neither validates its encoder, and one of them cites work showing structurally faithful retrieval over mathematics is hard with off-the-shelf encoders while using one.
+Retrieving by nearest neighbour in an embedding space rather than by lexical match, and across 3 sources the mechanism underneath the archive's search-augmented and skill-retrieval work. Its appearances are as a component whose interface is the design question: one system encodes the bare query at inference with no generation at all, having used chain-of-thought about required capabilities only as training-time supervision, so retrieval quality is bought without inference cost; another retrieves reasoning traces rather than documents, interleaving them through generation rather than fixing the context before it starts; and a third conditions a self-distillation teacher on retrieved evidence. Its use in benchmark construction is also recorded -- confusable candidates mined by document overlap and dense retrieval, then filtered by a model.
 
 - **Kind**: method
-- **Also called**: dense retrieval, nearest-neighbour retrieval
+- **Also called**: dense retrieval, embedding retrieval, nearest-neighbour retrieval
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

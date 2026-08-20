@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A term added to a reinforcement learning objective that charges a trajectory for its length, and the most common lever in this archive's efficiency work. The sources agree it works and disagree about how to apply it safely. Applying it at sequence level couples efficiency to correctness, so long but correct trajectories are punished and the reasoning the penalty was meant to trim is damaged — two sources respond by decoupling the two rewards at token level or by applying the penalty only to correct trajectories, measured as excess over the shortest correct sample for that question rather than in absolute tokens. One source modulates it by difficulty, on the argument that a uniform penalty asks easy and hard problems for the same brevity. Attribution is the recurring difficulty: in a pipeline combining pruned supervision, preference optimization and a length-penalized RL stage, most of the compression arrives with the penalty, which makes it hard to credit the pruning criterion that preceded it. A separate result bounds what the lever can achieve — a model already trained with a heavy length penalty still yields large further reduction under an inference-time stopping policy, so penalized training does not exhaust the redundancy.",
+  "definition": "A negative reward term proportional to output length, and across 3 sources a shaping choice whose form matters more than its presence. The archive's measured comparison: an unconstrained length reward is exploited outright with accuracy collapsing; a bounded penalty pulling toward a target converges the length and produces useless filler; and only a form gated on the answer being correct converts the saved or preserved length into accuracy. Two refinements from the corpus: applying the penalty only to correct trajectories, and measuring it as excess over the shortest correct sample for that question rather than against a global target; and one source's attribution problem, where a stage-wise ablation shows most of its headline compression arriving with the penalised reinforcement stage rather than with the pruning criteria the paper is about.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -94,7 +94,11 @@
     "gpt-oss-20b",
     "drpo-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "length-control",
+    "reward-shaping",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "length-penalty",
   "topics": [

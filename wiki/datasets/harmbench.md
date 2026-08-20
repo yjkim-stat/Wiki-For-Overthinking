@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderation benchmarks over which a guard model's weighted F1 is reported. The other uses it as a source of harmful requests in an automated attack that hijacks a reasoning model's own safety reasoning. The pairing is the archive's usual shape for a safety benchmark: the same prompts serve as the test a defence must pass and as the material an attack is built from.
+A standardised set of harmful behaviours with an evaluation harness, and across 3 sources the hardest of the archive's four jailbreak benchmarks -- the one where defences that reach near-zero elsewhere still leave 9.00 to 44.75 percent attack success. That spread is what makes it the informative column: one defence's reductions across eight models run 34.75 to 65.50 points here while the same models show 0.96 to 70.77 on an easier set, so absolute rates are only comparable within a benchmark. It is also where the archive's judge-disagreement audit is run -- 400 responses re-judged, 90.25 percent overall agreement, 41.94 percent false-negative rate on the unsafe class -- which bounds how sharply any number on it can be read.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)

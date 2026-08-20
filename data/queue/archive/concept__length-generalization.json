@@ -13,6 +13,16 @@
       },
       {
         "kind": "paper",
+        "note": "Proves via circuit complexity that bounded-depth Transformers cannot directly solve basic arithmetic, linear equations or general dynamic programming unless their size grows super-polynomially, while constant-size autoregressive Transformers can solve all of them by generating chain-of-thought derivations.",
+        "title": "Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
         "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
         "topics": [
@@ -23,9 +33,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:23:49Z",
-  "created_at": "2026-08-09T03:21:54Z",
-  "instructions": "Write the wiki definition for 'length generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:57Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'length generalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "length generalization",
   "kind": "concept",
   "language": "en",
@@ -34,29 +44,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "length generalization",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "length extrapolation",
-      "extrapolation to longer inputs"
-    ],
-    "definition": "Making correct predictions on inputs longer than any seen in training, which both sources treat as the property long-context and long-chain reasoning actually need. They divide sharply. One proves no computable bound exists on how long the training inputs must be, already at depth two, so the required lengths grow faster than any computable function; restricting to fixed precision restores computability at exponential cost. The other proves a positive result in a narrower setting, that a one-layer transformer trained by gradient descent does length-generalize on state-tracking — but only when the task's group action is simply transitive, and only partly for symmetry group actions. Read together: extrapolation is decided by the structure of the specific task, and no general procedure can tell you in advance.",
+    "aliases": [],
+    "definition": "Whether a model trained on short instances handles longer ones, and across 3 sources the property the archive's theoretical chain-of-thought results are stated in terms of. One source proves transformers provably learn chain-of-thought reasoning with length generalisation, which is a learning result rather than an expressivity one and therefore the closest thing here to an account of why the training works. Another gives bounds specifically for it. And the expressivity work supplies the reason it is the right axis: chain of thought converts sequence length into effective depth, so the step count is the resource, and what generalises is a procedure over steps rather than a function of a fixed input size.",
     "kind": "concept",
     "related": [
-      "out-of-distribution generalization",
-      "generalization",
-      "expressivity",
-      "state tracking",
-      "finite precision",
-      "curriculum learning"
+      "circuit complexity",
+      "chain of thought",
+      "compositional generalization"
     ]
   },
   "task_id": "concept__length-generalization",

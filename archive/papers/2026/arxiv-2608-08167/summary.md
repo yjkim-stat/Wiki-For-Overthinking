@@ -46,9 +46,9 @@ The paper states no limitations section, and two internal inconsistencies should
 
 ## Entities
 
-- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), representation editing, steering vector, [residual stream](../../../../wiki/concepts/residual-stream.md), low-rank approximation, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), training-free intervention, [calibration](../../../../wiki/concepts/calibration.md)
+- **Concepts**: [hallucination](../../../../wiki/concepts/hallucination.md), representation editing, steering vector, [residual stream](../../../../wiki/concepts/residual-stream.md), [low-rank approximation](../../../../wiki/concepts/low-rank-approximation.md), [detection versus control](../../../../wiki/concepts/detection-versus-control.md), training-free intervention, [calibration](../../../../wiki/concepts/calibration.md)
 - **Methods**: [representation editing](../../../../wiki/methods/representation-editing.md), Wiener filtering, eigendecomposition, covariance estimation, weight absorption, [contrastive decoding](../../../../wiki/methods/contrastive-decoding.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), Dolan-More profiles, [component ablation](../../../../wiki/methods/component-ablation.md)
-- **Datasets**: MSCOCO, [CHAIR](../../../../wiki/datasets/chair.md), [POPE](../../../../wiki/datasets/pope.md), MME, [TempCompass](../../../../wiki/datasets/tempcompass.md), FaithDial
+- **Datasets**: MSCOCO, CHAIR, [POPE](../../../../wiki/datasets/pope.md), MME, [TempCompass](../../../../wiki/datasets/tempcompass.md), FaithDial
 
 Tags: `representation-editing`, `hallucination`, `vision-language`, `training-free`, `closed-form`, `weight-editing`
 

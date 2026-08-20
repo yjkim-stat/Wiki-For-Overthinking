@@ -2,7 +2,7 @@
   "aliases": [
     "difficulty stratification"
   ],
-  "definition": "Reporting or allocating by how hard each instance is rather than over an aggregate, and in both sources the analysis that turns a benchmark average into a mechanism claim. The verifier-free selection work stratifies into equal-sized tiers by base pass rate and finds its method neutral or fractionally worse on the easy tier while improving the medium tier from 58.1 to 70.3 and 74.9 to 88.6 and the hard tier from 3.7 to 8.1 and 13.4 to 17.2 -- so the benefit is concentrated exactly where candidates differ in kind, which an aggregate would have shown as a uniform shift. The deliberative-diagnosis work stratifies by the single-model baseline's own performance and finds its multi-agent pipeline gaining 15.1 F1 points on the hardest quartile while losing 8.3 points of precision on the easiest, so the method has a regime rather than a uniform benefit. The archive's reading is that a stratified table is the cheapest available check that an improvement has a mechanism, and the caution that quartiles defined by a baseline's own performance select for that baseline's failures, so part of any lift is regression toward the mean.",
+  "definition": "Making a decision depend on how hard the instance is, and across 3 sources a design whose value the archive measures by whether the resulting behaviour is monotone in difficulty. Its positive instance: refusal rates rising from 2.1 percent on two-step problems to 14.8 on problems needing five or more, and 3.2 to 31.8 across five levels of a mathematics set, which is that source's evidence against a uniform strategy. Its cautionary one: a multi-agent method whose advantage concentrates entirely in cases where single-model inference fails and reverses on the easiest quartile, so conditioning would have been necessary to avoid a loss. The archive's related caveats apply -- difficulty is policy-relative and moving, and tiers defined by a baseline's own pass rate select for that baseline's failures.",
   "evidence": [
     {
       "id": "arxiv:2608.07931",
@@ -24,7 +24,7 @@
     }
   ],
   "first_seen": "2026-08-20T13:19:30Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T14:11:30Z",
   "name": "difficulty conditioning",
   "related": [
@@ -90,7 +90,9 @@
     "claude-sonnet-4-6"
   ],
   "related_authored": [
-    "adaptive-compute-allocation"
+    "prompt-difficulty",
+    "adaptive-compute-allocation",
+    "abstention"
   ],
   "schema_version": 1,
   "slug": "difficulty-conditioning",

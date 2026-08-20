@@ -4,9 +4,10 @@
     "latent CoT",
     "continuous chain of thought",
     "soft chain of thought",
-    "Latent Chain-of-Thought"
+    "Latent Chain-of-Thought",
+    "continuous CoT"
   ],
-  "definition": "Replacing the discrete tokens of a reasoning trace with continuous states — soft embeddings or hidden states — to cut inference cost or escape the expressiveness limits of token sampling. The sources disagree about what it costs. One asks whether it destroys monitorability and finds task properties and internals access matter more than reasoning mode. Another reports two concrete failure modes, global activation perturbing high-confidence steps and soft embeddings collapsing toward the top token, and gates latent reasoning to low-confidence steps only. A third explains the pattern by identifying decisional certainty as the governing variable, formalized as a Symbolic Index: latent reasoning helps exploration and hurts computation.",
+  "definition": "A chain of thought carried in continuous states rather than emitted tokens, and across 4 sources studied for both its capability limits and its monitoring cost. On capability, one source gives a formal treatment of what continuous rollouts can and cannot achieve, and another asks whether the phenomena attributed to superposition in latent thinking survive analysis -- finding continuous and discrete decoding functionally indistinguishable on off-the-shelf models, with layer-wise entropy profiles coinciding and cosine similarity 0.996 to 0.998. On monitoring, the framing question is whether out of sight equals out of mind: with no trace to read, monitoring must fall back on probing activations or verbalising the latent states, and how much monitorability those retain is the open question. One source makes the reasoning selective rather than always-latent, which is the archive's recurring finding that a fixed latent budget is wrong in both directions.",
   "evidence": [
     {
       "id": "arxiv:2608.04928",
@@ -34,7 +35,7 @@
     }
   ],
   "first_seen": "2026-08-08T05:29:50Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-13T10:56:01Z",
   "name": "latent chain of thought",
   "related": [
@@ -100,7 +101,11 @@
     "imitation-learning",
     "noise-injection-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "latent-reasoning",
+    "coconut",
+    "monitorability"
+  ],
   "schema_version": 1,
   "slug": "latent-chain-of-thought",
   "topics": [

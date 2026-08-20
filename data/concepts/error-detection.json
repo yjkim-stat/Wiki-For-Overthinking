@@ -4,7 +4,7 @@
     "mistake detection",
     "error localization"
   ],
-  "definition": "Judging whether a reasoning step or a solution is wrong, treated by the sources as a competence separable from producing correct work. They approach it from opposite sides. One reads it off internal state, detecting flawed reasoning from residual-stream trajectory motion combined with restricted region and direction information, and improving selection accuracy by up to 12% over displacement-only methods on unseen benchmarks. The other makes it the task itself, benchmarking error step identification and categorization on 2,500 multimodal K-12 problems drawn from real student interactions, where the best model sits about 10% behind expert human evaluators. Between them the archive gets both a cheap internal signal and an external reference for what it should be measured against.",
+  "definition": "Identifying where a reasoning trace went wrong, and across 3 sources a capability the archive measures separately from repairing it. Two results. Detection recall is anti-correlated with downstream accuracy in the self-correction setting: methods recalling 49.9 and 54.6 percent of errors score lower on both mathematics benchmarks than ones recalling 33.2 and 35.9, so finding more errors is not the objective. And detection is hard for frontier models on its own terms -- on a multimodal error-detection benchmark the best model remains about 10 points behind human evaluation. One method reads it from residual-stream motion combined with a region and a direction reader rather than from static states, on the argument that static activations let a probe latch onto surface patterns.",
   "evidence": [
     {
       "id": "arxiv:2608.05660",
@@ -79,7 +79,11 @@
     "error-categorization",
     "expert-annotation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-correction",
+    "process-supervision",
+    "reasoning-trajectory"
+  ],
   "schema_version": 1,
   "slug": "error-detection",
   "topics": [

@@ -3,6 +3,15 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
@@ -57,9 +66,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:55Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'entropy regularization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:55Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'entropy regularization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "entropy regularization",
   "kind": "concept",
   "language": "en",
@@ -68,17 +77,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "entropy regularization",
-    "source_count": 6
+    "source_count": 7
   },
   "result": {
-    "definition": "Adding a term rewarding high policy entropy to the RL objective, the standard remedy for collapse inherited from classical RL. Every empirical source that tests it here reports it working poorly for language models: highly sensitive to its coefficient, prone to uncontrolled entropy growth after a few hundred steps together with a jump in response length, and able to dominate the advantage signal because it is optimized independently of it. The archive now holds the reason as well as the observation. One source proves the bonus modifies the stationary condition, so training converges somewhere other than the reward optimum and the shortfall is at least the coefficient times an entropy gap — non-zero whenever the true optimum is not itself the maximum-entropy one, which is the usual case where answers are near-deterministic. The same source shows it shrinks the stability margin, and that annealing the coefficient to zero is what restores unbiasedness. A second theoretical entry runs the other way, treating a fixed positive regularizer as the objective and proving policy gradient converges to *its* optimum exponentially fast — a reminder that the term is a choice about what to optimize and not only a stabilizer."
+    "aliases": [
+      "entropy bonus"
+    ],
+    "definition": "Adding an entropy term to the objective to slow policy collapse, and across 7 sources the baseline that the covariance and clipping remedies are compared against. Its measured standing is middling and consistent: on one comparison it reaches 47.8 and 48.0 average against clipping variants at 48.9 to 50.7 and a later method at 51.9 to 52.4, and on another it escapes degeneracy late in training but buys its diversity mostly through incorrect rollouts -- which is the archive's recurring point that entropy is not exploration. The corpus's structural criticism is that it acts on a summary statistic rather than on the mechanism: the covariance account identifies which token updates raise or lower entropy, and an undirected bonus does not distinguish them. One source also notes that the closest prior theoretical account depends on the advantage of tokens never sampled, which most algorithms cannot estimate, so it is hard to act on.",
+    "kind": "method",
+    "related": [
+      "entropy collapse",
+      "clip-higher",
+      "exploration"
+    ]
   },
   "task_id": "concept__entropy-regularization",
   "task_version": 1,

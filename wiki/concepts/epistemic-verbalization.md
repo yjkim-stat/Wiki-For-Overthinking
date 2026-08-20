@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Writing uncertainty down, which the sources argue is what makes it causally usable: because autoregressive decoding conditions on emitted tokens and not on internal states, a latent reliability assessment is inert until verbalized. The evidence is bidirectional — injecting a bare doubt cue recovers about 15% of failed trajectories, while fine-tuning a model on its own correct traces with uncertainty expressions removed roughly halves AIME24 accuracy. A second source reaches the same tokens from information theory, finding the representations at 'Wait' and 'Hmm' carry mutual-information peaks with the correct answer and that suppressing them degrades accuracy while suppressing equally many other tokens does not.
+A model externalising uncertainty in its trace -- hedges, 'wait', doubt markers -- and across 3 sources a behaviour that turns out to be functional rather than stylistic. The measurements: suppressing it by self-distillation on 800 of a model's own correct traces cuts competition accuracy from 13.3 to 6.7, 16.7 to 3.3, 16.7 to 10.0, 50.0 to 30.0 and 80.0 to 43.3 across five models, despite every training trace containing a correct answer; and in the other direction, fine-tuning on 800 examples in which a hedging token appears 77.1 times per response improves three models by up to 2.6-fold while degrading three others. Injecting a bare doubt cue recovers failed trajectories, which is the causal version of the claim. The related archive material places it alongside the finding that a small set of reflective transition tokens does disproportionate work in a trace, and that reasoning traces shape outputs while models will not say so.
 
 - **Kind**: concept
-- **Also called**: externalizing uncertainty
+- **Also called**: doubt cues, expressed uncertainty, externalizing uncertainty
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

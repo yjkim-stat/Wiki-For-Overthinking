@@ -6,7 +6,8 @@
         "note": "Establishes that RL trades policy entropy for reward along a predictable exponential curve R = -a·exp(H) + b, derives that entropy change is driven by the covariance between action probability and advantage, and controls it by restricting updates to the highest-covariance tokens.",
         "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -14,7 +15,8 @@
         "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
         "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -22,14 +24,24 @@
         "note": "A systematic empirical study of entropy in RLVR that finds entropy correlates with response diversity but only weakly and inconsistently with accuracy, identifies clipping thresholds, off-policy updates and data diversity as its drivers, and argues positive-advantage tokens are what collapses it.",
         "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that an entropy bonus permanently moves the stationary point of RL training while covariance-targeted control reaches the unregularized optimum once its coefficient is annealed, and that the bonus shrinks the stability margin where the targeted methods leave it intact.",
+        "title": "A Comparative Theoretical Analysis of Entropy Control Methods in Reinforcement Learning for Reasoning Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T04:40:49Z",
-  "created_at": "2026-08-08T04:37:57Z",
-  "instructions": "Write the wiki definition for 'KL-Cov'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:57Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'KL-Cov'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "KL-Cov",
   "kind": "concept",
   "language": "en",
@@ -38,33 +50,29 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "KL-Cov",
-    "source_count": 3
+    "source_count": 4
   },
   "result": {
-    "aliases": [
-      "KL_Cov"
-    ],
-    "definition": "The KL-penalty counterpart to Clip-Cov: apply a KL penalty to the tokens with the largest covariance between log-probability and advantage, rather than clipping them. Its originating source reports stabler entropy curves than Clip-Cov, preferable when precise entropy control matters, and sustains entropy over 10x higher than baseline at the point where the baseline plateaus. Two later sources include it as a strong baseline and beat it by 1.7-1.8 points, so it remains near the front without being the best method in the archive.",
+    "aliases": [],
+    "definition": "A covariance-based entropy remedy that applies a divergence penalty to the tokens whose advantage and log-probability covary most, introduced alongside its clipping sibling and compared across 4 sources. Its measured standing: 50.5 and 49.2 average across six benchmarks on two models, against clip-higher at 49.8 and 49.1 and a later method at 52.4 and 51.9, with one source reporting it giving stabler entropy curves than clip-higher, which raises entropy early and then saturates and declines. The archive's cautions carry over -- the largest single improvement in that comparison comes from switching to strict on-policy updating rather than from any entropy mechanism, and this method's hyperparameters are set differently at two scales without a stated selection procedure.",
     "kind": "method",
     "related": [
       "Clip-Cov",
-      "clip-higher",
       "entropy collapse",
-      "policy entropy",
-      "GRPO",
-      "RLVR"
+      "policy entropy"
     ]
   },
   "task_id": "concept__kl-cov",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

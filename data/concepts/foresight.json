@@ -2,7 +2,7 @@
   "aliases": [
     "lookahead"
   ],
-  "definition": "Predicting what comes next before or while acting, treated by both sources as something to train for rather than to hope emerges. One makes it an explicit auxiliary objective — a latent predicting the observation one chunk ahead, supervised in a frozen encoder's feature space — and finds removing it costs 15.6 points, collapsing a world-action model to a reactive policy. The other searches over candidate continuations to find a better reasoning path rather than committing to the first. The pair marks the two available forms: supervise a prediction of the future during training, or search the future at inference. Only the first leaves nothing extra to pay at deployment, since its decoder is discarded once trained.",
+  "definition": "Evaluating where a partial reasoning path is heading before committing to it, and across 3 sources one of the two things a search adds over a chain -- the other being backtracking. Its instances: the deliberate problem-solving framework that scores thoughts before expanding them; a world model predicting future states for action selection; and a search over reasoning paths guided by a learned estimate of a path's promise. The archive's related caution about all of them is what the estimator can see: where branches interpret the problem inconsistently and no scorer can adjudicate between them, more lookahead produces more disagreement rather than more coverage, which is the mechanism behind the archive's measured tree-search collapse on an interpretive task.",
   "evidence": [
     {
       "id": "arxiv:2305.10601",
@@ -77,7 +77,9 @@
     "reasoning-operator-evaluation"
   ],
   "related_authored": [
-    "world-model"
+    "tree-of-thoughts",
+    "beam-search",
+    "monte-carlo-tree-search"
   ],
   "schema_version": 1,
   "slug": "foresight",

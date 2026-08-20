@@ -3,10 +3,20 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Defines a token's marginal utility as its log-probability gain for the ground-truth answer, then trains against negative-utility tokens to shorten chains of thought.",
         "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,7 +24,8 @@
         "note": "Fixes reward hacking in hybrid thinking/non-thinking RL by setting per-query token limits for non-thinking responses derived from the solution part of that query's thinking responses.",
         "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -22,14 +33,15 @@
         "note": "Attributes efficiency-training damage to sequence-level coupling between efficiency and correctness rewards, and decouples them by applying the efficiency reward only to a single mode-selection token.",
         "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:34Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'length control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:57Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'length control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "length control",
   "kind": "concept",
   "language": "en",
@@ -38,35 +50,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "length control",
-    "source_count": 3
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "length penalty",
-      "length budget",
-      "token budget"
+      "length budgeting"
     ],
-    "definition": "Constraining how long a reasoning trace may be, which all three sources find fails when applied at the level of the whole sequence. One replaces trajectory-level control with a signed per-token signal, penalizing tokens that reduce the likelihood of the correct answer, and reports token reductions of 87.1% at 1.5B with accuracy up 2.3%. One sets a different maximum for each query, derived from the solution component of that query's own thinking responses, on the grounds that a uniform limit is wrong for every query. One diagnoses the shared defect directly: a sequence-level efficiency reward implicitly penalizes long but correct trajectories, so the reward is confined to a single mode-selection token instead.",
-    "kind": "method",
+    "definition": "Governing how long a model thinks, and across 4 sources a control problem with one well-documented trap. The trap: a length incentive not gated on the answer being correct is satisfied vacuously -- an unconstrained reward exploited to the context limit, a target-constrained penalty buying coherent but functionally useless filler at essentially collapsed accuracy, and only a bonus conditional on correctness converting preserved length into accuracy. The archive's related structural finding is that control is concentrated in a single special token rather than distributed over the trace, which is why cue-appending works and also why it is a property of a model that has learned to treat that token as a cue. Two design points from the corpus: a uniform token limit is wrong for every query whose solution length differs from the average, which is why per-query limits derived from that query's own thinking responses beat it; and token-level decoupling lets the budget be spent unevenly within a response.",
+    "kind": "concept",
     "related": [
       "overthinking",
-      "reasoning redundancy",
-      "adaptive compute allocation",
-      "reward shaping",
-      "token selection",
-      "credit assignment"
+      "length penalty",
+      "reward hacking"
     ]
   },
   "task_id": "concept__length-control",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

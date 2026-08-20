@@ -2,7 +2,7 @@
   "aliases": [
     "conditional flow matching"
   ],
-  "definition": "Training a generative model by regressing a velocity field along a straight interpolation between noise and data, so sampling becomes integration of an ordinary differential equation. The two sources meet at the seam that creates. One uses it to predict action chunks, integrating the learned field with a fixed number of Euler steps at deployment. The other identifies the problem that follows for reinforcement learning on such models: the deployment sampler is deterministic while online RL needs stochastic rollouts, and the usual remedy of substituting a stochastic differential equation during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as exploration noise rises. Its fix keeps the inference-aligned deterministic step and adds a correction targeting the same marginal, so exploration is bought without changing the sampler.",
+  "definition": "Learning a continuous-time transport between distributions, appearing across 3 sources as the generative backbone for action and image models and, in one, as the setting for a training-inference mismatch worth recording generally. That source's argument: flow-based reinforcement learning swaps a deterministic sampler for a stochastic one during training, and although the two share marginals in continuous time their finite-step discretisations differ substantially, with stochastic rollouts blurring as exploration noise rises -- so the samples optimised are not the samples the test-time sampler produces. The correction it proposes is a Langevin term that narrows that gap. The archive's related point is the general one: a method that optimises a proxy for what deployment will do needs the gap measured rather than assumed.",
   "evidence": [
     {
       "id": "arxiv:2608.03701",
@@ -85,7 +85,8 @@
     "xcot-vla"
   ],
   "related_authored": [
-    "exploration"
+    "distribution-shift",
+    "reinforcement-learning"
   ],
   "schema_version": 1,
   "slug": "flow-matching",

@@ -3,6 +3,15 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Turns a linear chain of thought into a dependency DAG, labels each node as advancing the frontier or reviewing it, and prunes review nodes on two graph criteria — too few descendants, or too late in the trace — cutting 42% of tokens while accuracy holds or rises.",
         "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
         "topics": [
@@ -21,9 +30,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T06:54:43Z",
-  "created_at": "2026-08-09T06:51:54Z",
-  "instructions": "Write the wiki definition for 'length penalty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:58Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'length penalty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "length penalty",
   "kind": "concept",
   "language": "en",
@@ -32,17 +41,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "length penalty",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "definition": "A term added to a reinforcement learning objective that charges a trajectory for its length, and the most common lever in this archive's efficiency work. The sources agree it works and disagree about how to apply it safely. Applying it at sequence level couples efficiency to correctness, so long but correct trajectories are punished and the reasoning the penalty was meant to trim is damaged — two sources respond by decoupling the two rewards at token level or by applying the penalty only to correct trajectories, measured as excess over the shortest correct sample for that question rather than in absolute tokens. One source modulates it by difficulty, on the argument that a uniform penalty asks easy and hard problems for the same brevity. Attribution is the recurring difficulty: in a pipeline combining pruned supervision, preference optimization and a length-penalized RL stage, most of the compression arrives with the penalty, which makes it hard to credit the pruning criterion that preceded it. A separate result bounds what the lever can achieve — a model already trained with a heavy length penalty still yields large further reduction under an inference-time stopping policy, so penalized training does not exhaust the redundancy."
+    "aliases": [],
+    "definition": "A negative reward term proportional to output length, and across 3 sources a shaping choice whose form matters more than its presence. The archive's measured comparison: an unconstrained length reward is exploited outright with accuracy collapsing; a bounded penalty pulling toward a target converges the length and produces useless filler; and only a form gated on the answer being correct converts the saved or preserved length into accuracy. Two refinements from the corpus: applying the penalty only to correct trajectories, and measuring it as excess over the shortest correct sample for that question rather than against a global target; and one source's attribution problem, where a stage-wise ablation shows most of its headline compression arriving with the penalised reinforcement stage rather than with the pruning criteria the paper is about.",
+    "kind": "method",
+    "related": [
+      "length control",
+      "reward shaping",
+      "overthinking"
+    ]
   },
   "task_id": "concept__length-penalty",
   "task_version": 1,

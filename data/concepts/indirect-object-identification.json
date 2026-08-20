@@ -3,7 +3,7 @@
     "Indirect Object Identification (IOI)",
     "IOI"
   ],
-  "definition": "A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmark. All three sources use it that way: as the task where an ablation-interaction theorem is checked, as the setting where the methodological choices in activation patching are varied and shown to change the answer, and as one of the tasks where dictionary directions are compared against neurons for causal precision. Its value is that the correct circuit is known well enough that a method can be wrong in a visible way.",
+  "definition": "The small syntactic task -- predicting the indirect object in a sentence with two named entities -- that serves across 4 sources as mechanistic interpretability's standard testbed. Its value is that a known circuit and a clean logit-difference readout make methods comparable; its limitation is that everything established on it is established on one narrow behaviour in small models. Two archived results use it well: patching dictionary features reaches a given divergence from a counterfactual target with fewer patched features than principal or non-negative components, improving the Pareto frontier of edit magnitude against divergence; and a mode-ablation comparison finds principal directions removing 60 percent of the logit difference at j=8 against an alternative's 25, with the gap decaying in depth-distance and gone by about 8 -- read narrowly by those authors, who note twelve layers is not enough depth to separate depth-distance from layer under a behavioural readout.",
   "evidence": [
     {
       "id": "arxiv:2608.03629",
@@ -106,7 +106,7 @@
   "related_authored": [
     "activation-patching",
     "circuit-analysis",
-    "mechanistic-interpretability"
+    "pca"
   ],
   "schema_version": 1,
   "slug": "indirect-object-identification",

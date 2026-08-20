@@ -2,9 +2,10 @@
   "aliases": [
     "computational depth",
     "serial depth",
-    "depth via generation"
+    "depth via generation",
+    "depth utilisation"
   ],
-  "definition": "The idea that autoregressive generation raises a fixed-depth model's usable computational depth, because each emitted token re-enters the input and buys another pass — so depth grows with steps generated rather than with layers. The archive now holds this as a proved mechanism rather than an analogy. Bounded-depth transformers cannot directly solve arithmetic or linear equations, while constant-size autoregressive ones can with a chain of thought; the classes reachable are characterized exactly by the number of steps; and the same argument explains counting failures as a depth limit, repaired by decomposing a large count into independently solvable parts whose mechanism is then traced. Two sources qualify it. The discretization is load-bearing: the argmax at each step acts as an error-correcting reset discarding sub-decisional noise, so removing it makes perturbations compound. And depth can be relocated rather than gained — internalizing a chain into hidden states costs layers growing logarithmically with the chain absorbed.",
+  "definition": "How much of a network's depth a computation actually uses, and across 9 sources a quantity that appears in three different literatures with the same shape. Theoretically it is the thing chain of thought buys: a bounded-depth transformer is limited by its layers in one forward pass, and emitting intermediate tokens converts sequence length into effective depth, which is why the number of steps maps onto complexity classes. Empirically it appears as depth-localisation -- grounding detection climbing through early layers, peaking mid-network and falling toward the output; the useful read-out band being narrow and mid-network; and reasoning-relevant signals concentrated in particular layers rather than spread. And as a mechanism it appears in the counting work, where latent counts are stored, transferred through dedicated heads and aggregated at the final stage, which is a depth-structured computation rather than a distributed one. The archive's practical consequence is that pooling across depth dilutes rather than aggregates, and that a claim about where a computation lives needs the layer sweep rather than a single site.",
   "evidence": [
     {
       "id": "arxiv:2608.05660",
@@ -191,7 +192,11 @@
     "edit-distance",
     "context-free-grammar-membership-testing"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "layer-selection",
+    "circuit-complexity",
+    "chain-of-thought"
+  ],
   "schema_version": 1,
   "slug": "effective-depth",
   "topics": [

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Taking the highest-probability token at each step, used as the deterministic baseline that sampling-based test-time methods are compared against. One source uses it exactly that way, reporting gains over it. The other removes the assumption the comparison rests on: greedy decoding is not reproducible across hardware, and changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points on the same model and benchmark. That makes greedy decoding a baseline whose own variance can exceed the effect sizes it is used to establish.
+Taking the highest-probability token at each step, and across 3 sources the deterministic baseline that both anchors comparisons and turns out not to be deterministic in practice. The archive's most useful datum about it is that last point: one source studies numerical sources of nondeterminism in inference and finds them consequential, which bears on every single-run greedy number in the corpus. Otherwise it appears as the reference point that test-time-scaling methods must beat and as the decoding setting under which contamination is evaluated per question. Several archived comparisons use it precisely to remove sampling variance from an ablation, which is sound as long as the nondeterminism finding is kept in view.
 
 - **Kind**: method
 - **Also called**: argmax decoding, greedy decode

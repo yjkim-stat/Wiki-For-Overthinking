@@ -14,6 +14,17 @@
       },
       {
         "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
         "title": "Transformers Provably Learn to Internalize Chain-of-Thought",
         "topics": [
@@ -25,8 +36,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T12:44:55Z",
-  "created_at": "2026-08-13T12:37:21Z",
+  "completed_at": "2026-08-20T23:28:56Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'implicit chain of thought'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "implicit chain of thought",
   "kind": "concept",
@@ -43,20 +54,18 @@
   },
   "payload": {
     "name": "implicit chain of thought",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "implicit chain of thought",
-      "internalized chain of thought"
+      "internalized reasoning"
     ],
-    "definition": "Reasoning that has been moved out of emitted tokens and into hidden state, so the steps happen without being written. The two sources approach it from opposite ends. One proves it is possible without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks so only logarithmically many stages are needed. The other builds it: a small recurrent block between a frozen model's body and its head, refining latent states instead of generating text. The archive's caution attaches to the second -- its claim that latent-state stabilization shows the model is not guessing conflates convergence with correctness, and other entries here find intermediate answers stabilize whether or not they are right.",
+    "definition": "Performing the steps of a chain of thought without emitting them, and across 3 sources the target of both a training programme and a theoretical result. The theory: one source proves transformers provably learn to internalise chain of thought, which is the formal companion to the archive's empirical latent-reasoning material. The implementations keep the computation recurrent rather than autoregressive -- a small trainable recurrent block between a frozen model's body and its head, or evolving recurrent memory in a continuous workspace never decoded into language. The archive's related caution is the sharpest available on this idea: on off-the-shelf models, continuous-state decoding is functionally indistinguishable from discrete decoding, and in one fine-tuned latent method deleting every latent token changes accuracy by at most 1.0 point -- so internalisation must be demonstrated rather than assumed from the architecture.",
     "kind": "concept",
     "related": [
       "latent reasoning",
       "Coconut",
-      "recurrent depth",
-      "answer stabilization"
+      "chain of thought"
     ]
   },
   "task_id": "concept__implicit-chain-of-thought",

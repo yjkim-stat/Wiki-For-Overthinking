@@ -7,7 +7,8 @@
         "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation",
         "topics": [
           "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -16,13 +17,24 @@
         "title": "LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction",
         "topics": [
           "reasoning-faithfulness",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces a verbose natural-language rationale with two to six executable action tokens drawn from a fixed vocabulary, supervised automatically by pairing logged trajectories with scene context, so that driving-oriented reasoning fits inside a real-time control budget that verbose chain-of-thought exceeds by three to four times.",
+        "title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T03:54:49Z",
-  "created_at": "2026-08-13T03:25:16Z",
+  "completed_at": "2026-08-20T23:28:56Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'flow matching'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "flow matching",
   "kind": "concept",
@@ -39,22 +51,22 @@
   },
   "payload": {
     "name": "flow matching",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "conditional flow matching"
-    ],
-    "definition": "Training a generative model by regressing a velocity field along a straight interpolation between noise and data, so sampling becomes integration of an ordinary differential equation. The two sources meet at the seam that creates. One uses it to predict action chunks, integrating the learned field with a fixed number of Euler steps at deployment. The other identifies the problem that follows for reinforcement learning on such models: the deployment sampler is deterministic while online RL needs stochastic rollouts, and the usual remedy of substituting a stochastic differential equation during training makes the optimized samples diverge from the ones the deployed sampler produces — and blur further as exploration noise rises. Its fix keeps the inference-aligned deterministic step and adds a correction targeting the same marginal, so exploration is bought without changing the sampler.",
+    "aliases": [],
+    "definition": "Learning a continuous-time transport between distributions, appearing across 3 sources as the generative backbone for action and image models and, in one, as the setting for a training-inference mismatch worth recording generally. That source's argument: flow-based reinforcement learning swaps a deterministic sampler for a stochastic one during training, and although the two share marginals in continuous time their finite-step discretisations differ substantially, with stochastic rollouts blurring as exploration noise rises -- so the samples optimised are not the samples the test-time sampler produces. The correction it proposes is a Langevin term that narrows that gap. The archive's related point is the general one: a method that optimises a proxy for what deployment will do needs the gap measured rather than assumed.",
     "kind": "method",
     "related": [
-      "exploration"
+      "distribution shift",
+      "reinforcement learning"
     ]
   },
   "task_id": "concept__flow-matching",
   "task_version": 1,
   "topics": [
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

@@ -44,7 +44,7 @@ No empirical contribution, and no stated selection criteria or coverage for the 
 
 ## Entities
 
-- **Concepts**: [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), [localization](../../../../wiki/concepts/localization.md), steering, actionable interpretability, intervention protocol, interpretable object
+- **Concepts**: mechanistic interpretability, [localization](../../../../wiki/concepts/localization.md), steering, actionable interpretability, intervention protocol, interpretable object
 - **Methods**: [literature survey](../../../../wiki/methods/literature-survey.md), [activation steering](../../../../wiki/methods/activation-steering.md), localization methods
 - **Datasets**: _none recorded_
 

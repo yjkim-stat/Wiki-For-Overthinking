@@ -2,7 +2,7 @@
   "aliases": [
     "multi-agent system"
   ],
-  "definition": "Several model instances passing work between them in sequence or in rounds, rather than one instance producing an answer. The two sources here take opposite positions on what that buys and are worth reading together. The deliberative-diagnosis work argues the value is heterogeneity that repeated sampling cannot supply, since a single model evaluating its own output propagates the correlation bias of the source that generated it -- and supports it with the control most such work omits, showing best-of-5, best-of-35 and best-of-35-with-a-judge all failing to match a five-agent pipeline's recall. It also locates a capability floor: below a certain model size the agents cannot push back on each other's weak proposals, and the pipeline destroys more correct answers than it recovers. The agent-contamination work supplies the cost. Along a four-stage pipeline, contamination amplifies 1.9-fold with no attacker intervention beyond the initial injection, every remediation addressing single-agent state fails, and only validation at the agent boundary blocks the cascade -- because implicit state crosses those boundaries through name binding and shared registries that per-stage logging does not record. The pair suggest the useful question is not how many agents but what crosses between them, and whether anything checks it there.",
+  "definition": "Several model instances with distinct roles passing work between them, and across 3 sources a design whose advantage the archive finds is narrow and conditional. The measured case: a persona-conditioned deliberation architecture whose recall advantage is not reproduced by best-of-n sampling from the same model, concentrates entirely in the cases where monolithic inference fails, and reverses on the easiest quartile -- which is the right way to report such a result and the pattern to expect. The cost side is measured too: implicit state can survive session boundaries, and whether injected contamination decays depends on the kind of contamination rather than on model scale or deployment, with in-context self-reflection ranging from -14 to +45 percent across models. And the training side inherits the archive's credit-assignment problem, since a multi-turn pipeline receives one terminal signal for many agents' decisions.",
   "evidence": [
     {
       "id": "arxiv:2608.07371",
@@ -25,7 +25,7 @@
   ],
   "first_seen": "2026-08-20T12:24:18Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T23:26:09Z",
   "name": "multi-agent pipeline",
   "related": [
     "credit-assignment",
@@ -116,7 +116,9 @@
     "claude-sonnet-4-6"
   ],
   "related_authored": [
-    "jury-aggregation"
+    "tool-orchestration",
+    "jury-aggregation",
+    "persistent-state"
   ],
   "schema_version": 1,
   "slug": "multi-agent-pipeline",

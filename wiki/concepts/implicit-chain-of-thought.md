@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Reasoning that has been moved out of emitted tokens and into hidden state, so the steps happen without being written. The two sources approach it from opposite ends. One proves it is possible without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks so only logarithmically many stages are needed. The other builds it: a small recurrent block between a frozen model's body and its head, refining latent states instead of generating text. The archive's caution attaches to the second -- its claim that latent-state stabilization shows the model is not guessing conflates convergence with correctness, and other entries here find intermediate answers stabilize whether or not they are right.
+Performing the steps of a chain of thought without emitting them, and across 3 sources the target of both a training programme and a theoretical result. The theory: one source proves transformers provably learn to internalise chain of thought, which is the formal companion to the archive's empirical latent-reasoning material. The implementations keep the computation recurrent rather than autoregressive -- a small trainable recurrent block between a frozen model's body and its head, or evolving recurrent memory in a continuous workspace never decoded into language. The archive's related caution is the sharpest available on this idea: on off-the-shelf models, continuous-state decoding is functionally indistinguishable from discrete decoding, and in one fine-tuned latent method deleting every latent token changes accuracy by at most 1.0 point -- so internalisation must be demonstrated rather than assumed from the architecture.
 
 - **Kind**: concept
-- **Also called**: implicit chain of thought, internalized chain of thought
+- **Also called**: implicit chain of thought, internalized chain of thought, internalized reasoning
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

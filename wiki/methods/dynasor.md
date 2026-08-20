@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A reasoning-aware serving system that schedules on certaindex, a normalized measure of how far a reasoning algorithm's answer has stabilized, defined for both multi-path methods (via semantic entropy over clustered answers) and reward-guided ones (via normalized reward). It reports up to 50% compute savings in batch inference and 3.3x throughput in online serving. Two other sources use it as a baseline and both find it conservative — it preserves reasoning quality but exits late enough that length reduction is small — which follows from it being tuned for no accuracy loss by construction.
+A system that terminates or reallocates reasoning compute per query using a measure of how much the answer has stopped changing, appearing across 3 sources as both a method and a baseline. Its reported effect is large where the saving is the goal -- up to 50 percent of tokens in batch inference and roughly tripled online throughput in the source that introduces the underlying measure. As a baseline it is beaten on accuracy by later stopping rules: one early-exit comparison reports it at 58.70 percent against a competitor's 63.06 averaged across three models and three benchmarks. The archive's related caution is that a stopping rule reading the model's own convergence inherits its calibration, and stabilisation and correctness come apart on hard problems.
 
 - **Kind**: method
 - **Also called**: Certaindex, Dynasor, Dynasor-CoT

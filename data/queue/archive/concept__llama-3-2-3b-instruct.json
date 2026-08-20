@@ -8,7 +8,8 @@
         "topics": [
           "reasoning-interpretability",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training"
         ]
       },
       {
@@ -18,13 +19,25 @@
         "topics": [
           "reasoning-interpretability",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses label-free RLVR's collapse as a shortcut in which the same answer-level consensus signal both estimates the reward and receives the gradient, and fixes it by masking the answer span from updates entirely — so a reward can only be raised by improving the reasoning that produces the answer.",
+        "title": "Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T00:45:48Z",
-  "created_at": "2026-08-13T00:32:01Z",
+  "completed_at": "2026-08-20T23:29:41Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'Llama-3.2-3B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Llama-3.2-3B-Instruct",
   "kind": "concept",
@@ -41,22 +54,25 @@
   },
   "payload": {
     "name": "Llama-3.2-3B-Instruct",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "LLaMA-3.2-3B-Instruct",
-      "Llama-3.2-3B"
+      "Llama-3.2-3B-Instruct"
     ],
-    "definition": "A small instruction-tuned checkpoint, used by both sources as the model on which a method or measurement is characterized in detail before being applied more widely. One reports the widest probe-output gap of its 18-model sweep here — cultural identity linearly readable at 0.79 while generation reaches 0.09, a gap of 0.70 — making it the clearest case that the loss is at the readout rather than the representation. The other runs all of its diagnostic analyses on this model: the learning-rate sensitivity comparison, the layer-position sweep placing the usable latent space at 25 to 50 percent of depth, and the token-level gradient attribution that lands on reasoning connectors. Both then check the finding on larger models without repeating the detail.",
+    "definition": "A 3B instruction-tuned Llama, used across 3 sources as a small cross-family backbone -- one of the 18 checkpoints in a cultural-knowledge audit, a subject for credit-assigned gradient flow in test-time latent reasoning, and a training backbone for label-free reinforcement learning. Its role is the usual one for this size: it establishes that a method is not specific to the Qwen line, and its low absolute scores mean a null on it is weak evidence about the method.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Llama-3.2-3B",
+      "Llama-3.2-1B"
+    ]
   },
   "task_id": "concept__llama-3-2-3b-instruct",
   "task_version": 1,
   "topics": [
     "reasoning-faithfulness",
     "reasoning-interpretability",
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

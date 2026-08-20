@@ -6,7 +6,17 @@
         "note": "Shows that a perturbation-based selection rule's apparent 31.8-point gain over majority voting in vision-language test-time scaling is a decoding-format effect, by adding a control that spends the same short-answer budget on the unperturbed image and finds it matches or beats the perturbation rule everywhere.",
         "title": "It's the Decoding Format, Not the Perturbation: Auditing Consistency-Based Selection for Vision-Language Test-Time Scaling",
         "topics": [
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training"
         ]
       },
       {
@@ -14,13 +24,14 @@
         "note": "Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.",
         "title": "Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute",
         "topics": [
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:24:13Z",
-  "created_at": "2026-08-13T12:45:28Z",
+  "completed_at": "2026-08-20T23:28:58Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'MMMU'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "MMMU",
   "kind": "concept",
@@ -37,17 +48,21 @@
   },
   "payload": {
     "name": "MMMU",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [],
-    "definition": "A multimodal benchmark used in this archive as one evaluation set among several in two test-time-scaling audits, neither of which describes how it was built. In the vision-language decoding-format audit it is one of four benchmarks on which a format-matched control matches the perturbation-based selector it was meant to beat (50.1 against 50.3), and it is also where the two diagnostics decouple: blanking the perturbation inputs collapses the selection score from 50.2 to 23.3, confirming the signal genuinely depends on the image, while its mean stability gap is only +0.071. In the test-time-augmentation study Claude 4.5 Haiku has a 66.1 percent chain-of-thought baseline on it, and paraphrase-based input diversity adds +2.01 against +1.01 for self-consistency at matched compute. Across both, it behaves as a mid-difficulty multimodal set where the headline effects are small enough that the control matters more than the method.",
+    "definition": "A broad multimodal understanding benchmark spanning many academic subjects, used across 3 sources as the general multimodal column. Its archived appearances are mostly in test-time-scaling audits: one finds that a consistency-based selection result is driven by the decoding format rather than by the perturbation it was attributed to, and another compares input-side against output-side diversity at matched compute, reporting +2.01 against +1.01 on it from a 66.1 percent baseline. It also appears as an evaluation for structured process rewards. The archive's related caution for multimodal benchmarks applies: accuracy can be preserved while the image plays no role.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "MathVista",
+      "MMLU"
+    ]
   },
   "task_id": "concept__mmmu",
   "task_version": 1,
   "topics": [
+    "reasoning-training",
     "test-time-scaling"
   ]
 }

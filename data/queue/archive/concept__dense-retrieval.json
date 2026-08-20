@@ -13,6 +13,16 @@
       },
       {
         "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
         "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
         "topics": [
@@ -23,8 +33,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T12:44:55Z",
-  "created_at": "2026-08-13T12:22:20Z",
+  "completed_at": "2026-08-20T23:28:54Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'dense retrieval'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "dense retrieval",
   "kind": "concept",
@@ -41,19 +51,17 @@
   },
   "payload": {
     "name": "dense retrieval",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "dense retrieval",
-      "nearest-neighbour retrieval"
+      "embedding retrieval"
     ],
-    "definition": "Encoding queries and documents into one vector space and retrieving by cosine nearest neighbour. Both sources use it inside a reasoning loop rather than before one, and both make the query the interesting part: one retrieves complete solved problems mid-trace using the model's elicited intermediate answer as the query, on the argument that the raw reasoning text is too exploratory and noisy to search with; the other conditions a teacher on retrieved supporting evidence and uses the teacher-student gap as a training signal. Neither validates its encoder, and one of them cites work showing structurally faithful retrieval over mathematics is hard with off-the-shelf encoders while using one.",
+    "definition": "Retrieving by nearest neighbour in an embedding space rather than by lexical match, and across 3 sources the mechanism underneath the archive's search-augmented and skill-retrieval work. Its appearances are as a component whose interface is the design question: one system encodes the bare query at inference with no generation at all, having used chain-of-thought about required capabilities only as training-time supervision, so retrieval quality is bought without inference cost; another retrieves reasoning traces rather than documents, interleaving them through generation rather than fixing the context before it starts; and a third conditions a self-distillation teacher on retrieved evidence. Its use in benchmark construction is also recorded -- confusable candidates mined by document overlap and dense retrieval, then filtered by a model.",
     "kind": "method",
     "related": [
       "retrieval-augmented generation",
-      "in-trace retrieval",
-      "FAISS"
+      "multi-hop reasoning"
     ]
   },
   "task_id": "concept__dense-retrieval",

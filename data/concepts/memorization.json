@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Storing input-output pairs rather than a procedure that generalizes. The archive approaches it from three directions. Mechanistically, arithmetic turns out to be neither memorization nor algorithm — a sparse set of neurons recognizes numerical patterns and votes for matching answers, generalizing across inputs that share a pattern without storing individual pairs — and the grokking result adds that memorizing and generalizing circuits compete for the same task, with the memorizing one found first. Behaviourally, re-instantiating benchmark problems with different constants collapses RL-trained models by 20-95% on a strict metric and by 2.6-7.2% even on a loose one, the loose drop being the part attributable to memorized numerical form rather than to inconsistency. A third line treats it as something to intervene on, reframing unlearning in reasoning models as an intervention on the chain of thought itself and preference-tuning toward counterfactual traces. A fourth records a subtler variant: a model completes a proverb correctly but cannot notice when the correct ending is absent from the options — recall without the discrimination that would show comprehension.",
+  "definition": "Reproducing training content rather than computing an answer, and across 7 sources a hypothesis the archive tests rather than assumes. Its cleanest separation is the loose-versus-strict metric under symbolic variabilisation: a base mathematics model loses 38.5 percent even under partial credit, consistent with heavy reliance on memorised patterns, while reinforcement-trained models lose 2.6 to 7.2 -- so the two metrics together separate memorisation from mere inconsistency. A mechanistic source rules it out for arithmetic specifically, finding neither a learned algorithm nor memorisation but an unordered collection of sparse heuristic neurons voting. And a benchmark source finds the opposite asymmetry for proverbs, where completion is easy and choice is hard. The archive's related material covers the unlearning side and the contamination-detection side, where the standing result is that post-training suppresses the signals memorisation detectors rely on.",
   "evidence": [
     {
       "id": "arxiv:2608.04670",
@@ -166,7 +166,11 @@
     "seed-think-v1-6",
     "openai-o4-mini-high"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "benchmark-contamination",
+    "modularity",
+    "decontamination"
+  ],
   "schema_version": 1,
   "slug": "memorization",
   "topics": [

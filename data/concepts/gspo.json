@@ -2,7 +2,7 @@
   "aliases": [
     "Group Sequence Policy Optimization"
   ],
-  "definition": "A variant of group-relative policy optimization that operates at the sequence level rather than the token level, introduced to reduce the variance of the update. Neither source studies it directly; both use it to test whether a problem attributed to GRPO is really an estimator problem. In the subjective-verification study it is one of three algorithms applied to the same tasks -- alongside GRPO and a variant that removes length and standard-deviation normalization -- and its failure to rescue the mathematically strong model on three of four tasks is what licenses the paper's conclusion that reasoning collapse is a credit-assignment problem on tasks without a canonical correct trajectory rather than an optimization-bias artifact. In the entropy-dynamics work it appears in an analysis reducing whether an update raises or lowers entropy to the sign of one scalar per token. In this archive it therefore functions mainly as a control: a fix at the estimator level whose failure locates the problem elsewhere.",
+  "definition": "A group-relative variant that computes the importance ratio at the sequence level rather than the token level, intended to reduce variance. Across 3 sources it is a comparator rather than a subject. Two results place it: on subjective judgement tasks it produces the same backbone-dependent split as the other two algorithms tested, with one model improving on every task and another falling below its own reasoning baseline on three of four; and in a forecasting study standard group-relative training given a bounded reward mapping beats it and three other optimisation-level variants each given the naive unbounded reward, which that source reads as showing reward-level and optimisation-level fixes are not interchangeable.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -115,7 +115,9 @@
     "internlm3-8b"
   ],
   "related_authored": [
-    "dr-grpo"
+    "grpo",
+    "dr-grpo",
+    "dapo"
   ],
   "schema_version": 1,
   "slug": "gspo",

@@ -11,6 +11,14 @@
       },
       {
         "kind": "paper",
+        "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
+        "title": "Intrinsic Structure: Spectral Identifiability for Mechanistic Interpretability",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Systematically varies the methodological choices in activation patching — how prompts are corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — and shows each choice can change which model components a study concludes are important.",
         "title": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods",
         "topics": [
@@ -27,8 +35,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T12:44:55Z",
-  "created_at": "2026-08-13T12:41:03Z",
+  "completed_at": "2026-08-20T23:28:57Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'indirect object identification'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "indirect object identification",
   "kind": "concept",
@@ -45,19 +53,18 @@
   },
   "payload": {
     "name": "indirect object identification",
-    "source_count": 3
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "Indirect Object Identification (IOI)",
       "IOI"
     ],
-    "definition": "A small synthetic task -- completing a sentence with the name that was not the subject -- and the archive's standard testbed for causal methods rather than a capability benchmark. All three sources use it that way: as the task where an ablation-interaction theorem is checked, as the setting where the methodological choices in activation patching are varied and shown to change the answer, and as one of the tasks where dictionary directions are compared against neurons for causal precision. Its value is that the correct circuit is known well enough that a method can be wrong in a visible way.",
+    "definition": "The small syntactic task -- predicting the indirect object in a sentence with two named entities -- that serves across 4 sources as mechanistic interpretability's standard testbed. Its value is that a known circuit and a clean logit-difference readout make methods comparable; its limitation is that everything established on it is established on one narrow behaviour in small models. Two archived results use it well: patching dictionary features reaches a given divergence from a counterfactual target with fewer patched features than principal or non-negative components, improving the Pareto frontier of edit magnitude against divergence; and a mode-ablation comparison finds principal directions removing 60 percent of the logit difference at j=8 against an alternative's 25, with the gap decaying in depth-distance and gone by about 8 -- read narrowly by those authors, who note twelve layers is not enough depth to separate depth-distance from layer under a behavioural readout.",
     "kind": "dataset",
     "related": [
       "activation patching",
       "circuit analysis",
-      "mechanistic interpretability"
+      "PCA"
     ]
   },
   "task_id": "concept__indirect-object-identification",

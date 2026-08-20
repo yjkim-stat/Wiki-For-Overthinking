@@ -3,12 +3,22 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Generalizes chain-of-thought into a search over a tree of intermediate 'thoughts', letting a model self-evaluate branches, look ahead and backtrack instead of committing to one left-to-right path.",
+        "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Builds a 0.5B world-action model for robot manipulation whose future-state prediction and action generation share one compact latent in a single token stream, specifies the task as a direction in visual feature space instead of language, and shows a frozen self-supervised vision encoder beating a four-times-larger pretrained vision-language backbone at the same training budget.",
         "title": "LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation",
         "topics": [
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "test-time-scaling"
+          "reasoning-training"
         ]
       },
       {
@@ -16,15 +26,15 @@
         "note": "Reformulates reasoning as a search over thinking strategies, showing sparse reasoning paths exist that are simultaneously more accurate and shorter than standard outputs.",
         "title": "Neural Chain-of-Thought Search: Searching the Optimal Reasoning Path to Enhance Large Language Models",
         "topics": [
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "reasoning-training",
-          "test-time-scaling"
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T03:54:49Z",
-  "created_at": "2026-08-13T03:25:16Z",
+  "completed_at": "2026-08-20T23:28:56Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'foresight'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "foresight",
   "kind": "concept",
@@ -41,16 +51,18 @@
   },
   "payload": {
     "name": "foresight",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
       "lookahead"
     ],
-    "definition": "Predicting what comes next before or while acting, treated by both sources as something to train for rather than to hope emerges. One makes it an explicit auxiliary objective — a latent predicting the observation one chunk ahead, supervised in a frozen encoder's feature space — and finds removing it costs 15.6 points, collapsing a world-action model to a reactive policy. The other searches over candidate continuations to find a better reasoning path rather than committing to the first. The pair marks the two available forms: supervise a prediction of the future during training, or search the future at inference. Only the first leaves nothing extra to pay at deployment, since its decoder is discarded once trained.",
+    "definition": "Evaluating where a partial reasoning path is heading before committing to it, and across 3 sources one of the two things a search adds over a chain -- the other being backtracking. Its instances: the deliberate problem-solving framework that scores thoughts before expanding them; a world model predicting future states for action selection; and a search over reasoning paths guided by a learned estimate of a path's promise. The archive's related caution about all of them is what the estimator can see: where branches interpret the problem inconsistently and no scorer can adjudicate between them, more lookahead produces more disagreement rather than more coverage, which is the mechanism behind the archive's measured tree-search collapse on an interpretive task.",
     "kind": "concept",
     "related": [
-      "world model"
+      "tree-of-thoughts",
+      "beam search",
+      "Monte Carlo tree search"
     ]
   },
   "task_id": "concept__foresight",

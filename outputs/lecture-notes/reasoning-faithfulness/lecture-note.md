@@ -167,7 +167,7 @@ Seen in: How Much Does a Reasoning Summary Reveal? An Observability Ladder for L
 | Omni-MATH | 5 | An olympiad-level mathematics benchmark with an accompanying training split, used across 5 sources as a hard evaluation and, in one case, as the set on which the reasoning-bound... |
 | BBH | 4 | A suite of BIG-Bench tasks selected for being hard, used across 4 sources as the multi-task testbed for faithfulness and monitorability rather than for capability. Two archived... |
 | ARC-Challenge | 3 | A multiple-choice science question set with a deliberately hard subset, used across 3 sources as the non-mathematical column in latent-reasoning and abstention suites. Two archi... |
-| HarmBench | 3 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |
+| HarmBench | 3 | A standardised set of harmful behaviours with an evaluation harness, and across 3 sources the hardest of the archive's four jailbreak benchmarks -- the one where defences that r... |
 | SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | BeaverTails | 2 | A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study.... |

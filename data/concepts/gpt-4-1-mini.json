@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "gpt-4.1-mini"
+    "gpt-4.1-mini",
+    "GPT-4.1-mini"
   ],
-  "definition": "A small proprietary model, appearing in both sources as evaluation apparatus rather than as a subject. One uses it as the macro-level judge scoring chart-reasoning answers by a true-or-false assessment, alongside rule-based metrics introduced specifically to mitigate judge bias. The other uses it to score open-ended concept expression under steering. Both therefore depend on it for the numbers they report while studying something else, which is worth noting: a judge model is a load-bearing part of an experimental setup that papers rarely audit and this archive separately holds evidence is prompt- and format-sensitive.",
+  "definition": "A small frontier model appearing across 3 sources as an evaluation judge in chart reasoning, as one of the models in a steering-vector audit, and as a jury member for translation quality. None of the sources describes it. Its presence in the steering audit is the one that matters: the inverted-vector phenomenon is established across models and concepts rather than on one, and this is one of the three.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -111,7 +112,8 @@
     "aya-expanse-8b"
   ],
   "related_authored": [
-    "llm-as-a-judge"
+    "gpt-4-1",
+    "gpt-4o-mini"
   ],
   "schema_version": 1,
   "slug": "gpt-4-1-mini",

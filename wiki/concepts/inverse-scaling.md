@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A property getting worse as models or budgets get larger. It appears twice here and in both cases about something the archive would prefer to improve with scale: faithfulness of reasoning decreases as models become larger and more capable on most tasks studied, and the verbosity that makes a trace monitorable improves performance only up to a point before degrading. Together they mean legible reasoning is not something scale is expected to deliver.
+A property getting worse as models get larger or more capable, and across 3 sources a pattern the archive records for exactly one family of properties: those about whether a model's stated reasoning corresponds to its computation. Faithfulness decreases with model size and capability on most tasks studied, which is the foundational measurement and the reason its authors frame their conclusion as a conditional rather than an endorsement. Monitorability shows a related structure, tracking task difficulty and access rather than scale. And one source names the design consequence directly as a calibration floor: models weak enough to have headroom lack the signal while models with the signal lack the headroom, so the window where such a property can be measured cleanly is nearly empty.
 
 - **Kind**: concept
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

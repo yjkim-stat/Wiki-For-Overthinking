@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Constraining how much information a representation may carry, so that what survives is the part that matters. One source makes it the design principle of a step-level sparse autoencoder: a sparsity target plus injected noise bounds the channel, and because the decoder can already read the preceding context, what the bottleneck admits is the step's incremental contribution rather than its inherited background. The other invokes it as part of the information-theoretic framing in which reasoning is tracked by mutual information between representations and the answer.",
+  "definition": "A constraint on how much information a representation may carry about its input while preserving what predicts the output, appearing across 3 sources as the frame for what a compressed reasoning state can hold. Its uses: bounding what latent chain of thought can achieve, since a continuous state of fixed width is a channel with a capacity; measuring reasoning dynamics by mutual information between intermediate states and the answer, which is what identifies thinking tokens as information peaks; and structuring a step-level decomposition. The archive's related material supplies the empirical counterpart -- a reasoning trace and its answer are separate information channels, and content present in one can be absent from the other in both directions.",
   "evidence": [
     {
       "id": "local:2c3407071e27c9d6",
@@ -103,7 +103,11 @@
     "qwen2-5-0-5b",
     "llama-3-2-1b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "latent-reasoning",
+    "mutual-information",
+    "compounding-error"
+  ],
   "schema_version": 1,
   "slug": "information-bottleneck",
   "topics": [

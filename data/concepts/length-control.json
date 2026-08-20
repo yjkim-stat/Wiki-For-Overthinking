@@ -2,9 +2,10 @@
   "aliases": [
     "length penalty",
     "length budget",
-    "token budget"
+    "token budget",
+    "length budgeting"
   ],
-  "definition": "Constraining how long a reasoning trace may be, which all three sources find fails when applied at the level of the whole sequence. One replaces trajectory-level control with a signed per-token signal, penalizing tokens that reduce the likelihood of the correct answer, and reports token reductions of 87.1% at 1.5B with accuracy up 2.3%. One sets a different maximum for each query, derived from the solution component of that query's own thinking responses, on the grounds that a uniform limit is wrong for every query. One diagnoses the shared defect directly: a sequence-level efficiency reward implicitly penalizes long but correct trajectories, so the reward is confined to a single mode-selection token instead.",
+  "definition": "Governing how long a model thinks, and across 4 sources a control problem with one well-documented trap. The trap: a length incentive not gated on the answer being correct is satisfied vacuously -- an unconstrained reward exploited to the context limit, a target-constrained penalty buying coherent but functionally useless filler at essentially collapsed accuracy, and only a bonus conditional on correctness converting preserved length into accuracy. The archive's related structural finding is that control is concentrated in a single special token rather than distributed over the trace, which is why cue-appending works and also why it is a property of a model that has learned to treat that token as a cue. Two design points from the corpus: a uniform token limit is wrong for every query whose solution length differs from the average, which is why per-query limits derived from that query's own thinking responses beat it; and token-level decoupling lets the budget be spent unevenly within a response.",
   "evidence": [
     {
       "id": "arxiv:2608.08889",
@@ -32,7 +33,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T12:38:16Z",
   "name": "length control",
   "related": [
@@ -86,7 +87,11 @@
     "adapt",
     "mode-selection-token"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "overthinking",
+    "length-penalty",
+    "reward-hacking"
+  ],
   "schema_version": 1,
   "slug": "length-control",
   "topics": [

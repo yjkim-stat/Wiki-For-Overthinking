@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Reweighting by the ratio between the probability a sample had under the policy that generated it and its probability under the policy being optimized. The two archived sources put the same ratio to opposite purposes. In one it is the estimator that keeps a stochastic policy gradient unbiased, dividing an observed bandit reward by the probability of the action that produced it. In the other it is a cause rather than a tool: PPO-style importance sampling together with clipping is identified as the reason a brief round of GRPO erases the statistical traces that benchmark contamination detectors rely on. The sources therefore agree on the object and disagree on nothing, because they never address the same question about it.
+Reweighting by the ratio of a new policy's probability to an old one's, the mechanism that lets a policy-gradient method reuse rollouts across several updates. Across 3 sources its consequences here are mostly indirect. It is identified, together with clipping, as the cause of post-training concealing benchmark contamination -- which makes the concealment a property of a broad class of reinforcement-learning methods rather than of any one algorithm. It appears in a convergence analysis of softmax policy gradient under linear function approximation. And the archive's related material shows its ratio being multiplied into a shaping term as a magnitude, so that a local signal reweights rather than overrides the trajectory-level advantage.
 
 - **Kind**: method
 - **Also called**: importance ratio, importance sampling ratio

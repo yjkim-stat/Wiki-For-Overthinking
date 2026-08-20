@@ -69,6 +69,17 @@
       },
       {
         "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Proves that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, using a curriculum that deletes thinking tokens in geometric chunks and so needs only logarithmically many training stages.",
         "title": "Transformers Provably Learn to Internalize Chain-of-Thought",
         "topics": [
@@ -91,9 +102,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:33:53Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'effective depth'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:55Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'effective depth'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "effective depth",
   "kind": "concept",
   "language": "en",
@@ -102,31 +113,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "effective depth",
-    "source_count": 8
+    "source_count": 9
   },
   "result": {
     "aliases": [
-      "computational depth",
-      "serial depth",
-      "depth via generation"
+      "depth utilisation"
     ],
-    "definition": "The idea that autoregressive generation raises a fixed-depth model's usable computational depth, because each emitted token re-enters the input and buys another pass — so depth grows with steps generated rather than with layers. The archive now holds this as a proved mechanism rather than an analogy. Bounded-depth transformers cannot directly solve arithmetic or linear equations, while constant-size autoregressive ones can with a chain of thought; the classes reachable are characterized exactly by the number of steps; and the same argument explains counting failures as a depth limit, repaired by decomposing a large count into independently solvable parts whose mechanism is then traced. Two sources qualify it. The discretization is load-bearing: the argmax at each step acts as an error-correcting reset discarding sub-decisional noise, so removing it makes perturbations compound. And depth can be relocated rather than gained — internalizing a chain into hidden states costs layers growing logarithmically with the chain absorbed.",
+    "definition": "How much of a network's depth a computation actually uses, and across 9 sources a quantity that appears in three different literatures with the same shape. Theoretically it is the thing chain of thought buys: a bounded-depth transformer is limited by its layers in one forward pass, and emitting intermediate tokens converts sequence length into effective depth, which is why the number of steps maps onto complexity classes. Empirically it appears as depth-localisation -- grounding detection climbing through early layers, peaking mid-network and falling toward the output; the useful read-out band being narrow and mid-network; and reasoning-relevant signals concentrated in particular layers rather than spread. And as a mechanism it appears in the counting work, where latent counts are stored, transferred through dedicated heads and aggregated at the final stage, which is a depth-structured computation rather than a distributed one. The archive's practical consequence is that pooling across depth dilutes rather than aggregates, and that a claim about where a computation lives needs the layer sweep rather than a single site.",
     "kind": "concept",
     "related": [
+      "layer selection",
       "circuit complexity",
-      "expressivity",
-      "latent reasoning",
-      "compounding error",
-      "chain of thought",
-      "serial computation",
-      "residual stream"
+      "chain of thought"
     ]
   },
   "task_id": "concept__effective-depth",

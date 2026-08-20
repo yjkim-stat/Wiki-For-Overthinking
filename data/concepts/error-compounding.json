@@ -3,7 +3,7 @@
     "error accumulation",
     "error propagation"
   ],
-  "definition": "A mistake early in a long trajectory contaminating everything that follows, so the failure is not local to the step that produced it. Both sources treat it as the failure their mechanism exists to arrest and both are explicit that their own design is a new site for it. The in-trace retrieval work pairs it with reasoning drift as the pathology that injecting complete solved exemplars at each step boundary is meant to interrupt, offering as evidence that in-trace exemplars lower the predictive entropy of the generated answer relative to sequential scaling. The long-horizon reflection work builds an explicitly reversible trajectory tree so that an unreliable suffix can be discarded rather than reasoned from, and its ablation shows diagnosis and recovery are separately necessary -- removing the ability to notice an unreliable state costs 15.31 average F1 and removing the ability to roll back costs 13.06. That paper then states the cost honestly in its limitations: because recovery depends on the controller's checkpoint judgement, an error in an early diagnosis propagates through every later search and answer decision, so a mechanism for arresting compounding introduces a new thing that can compound. The archive's reading is that compounding is what makes long-horizon evaluation different in kind rather than degree, since a per-step accuracy that looks acceptable does not bound trajectory-level success.",
+  "definition": "An early mistake propagating through a long trajectory because nothing revisits it, and across 3 sources the failure that motivates the archive's recovery mechanisms. Its instances: agents following a monotonic zoom-in once a region is chosen, so an early wrong commitment propagates irreversibly; retrieval fixed before reasoning begins, so a wrong initial context is never corrected; and a search agent without reversible actions unable to discard a state it has diagnosed as unreliable. The remedies in the corpus are self-checking with region switching, retrieval interleaved through the trace, and explicit reflect and backtrack actions -- whose ablation finds diagnosis and recovery separately necessary. The archive's related caution is that the recovery mechanism must be selective: raising the rate at which a model announces a correction is anti-correlated with accuracy.",
   "evidence": [
     {
       "id": "arxiv:2608.07959",
@@ -103,7 +103,9 @@
     "qwen3-32b"
   ],
   "related_authored": [
-    "reasoning-drift"
+    "compounding-error",
+    "long-horizon-agency",
+    "backtracking"
   ],
   "schema_version": 1,
   "slug": "error-compounding",

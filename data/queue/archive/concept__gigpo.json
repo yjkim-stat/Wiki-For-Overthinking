@@ -16,11 +16,19 @@
         "topics": [
           "reasoning-training"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-training"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-12T23:30:44Z",
-  "created_at": "2026-08-12T22:31:17Z",
+  "completed_at": "2026-08-20T23:28:56Z",
+  "created_at": "2026-08-20T23:26:12Z",
   "instructions": "Write the wiki definition for 'GiGPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GiGPO",
   "kind": "concept",
@@ -30,22 +38,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GiGPO",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
-    "aliases": [
-      "Group-in-Group Policy Optimization"
-    ],
-    "definition": "A group-based policy optimization variant for agent training that compares actions taken from similar intermediate states across rollouts, rather than assigning one trajectory-level reward uniformly to every step. Both sources cite it as the strongest or near-strongest baseline they face and neither beats it everywhere: one reports 47.2 average F1 against its own 52.1 while losing Bamboogle to it by nearly ten points, and the other's single outright per-benchmark win is Bamboogle at 74.6 against its 68.9. Its position in these papers is as the credible alternative account of where localized credit should come from — rollout structure and state similarity, rather than an explicitly measured per-step signal.",
+    "aliases": [],
+    "definition": "A group-relative variant that adds a state-level advantage by grouping actions taken from recurring states across episodes, on the observation that states recur in agentic rollouts and the trajectory-level advantage wastes that redundancy. Across 3 sources it is the strongest agentic-RL baseline the archive holds. Its limitation is identified by the method that beats it: grouping by identical environment states fails when functionally analogous edits modify different regions, which is why matching decomposed sub-parts across rollouts gains 4.2 to 4.9 average points over it -- with the advantage most pronounced (+10.4) where a solution spans several functions. Its training dynamics are also reported: it plateaus after about step 40 where the sub-diff method continues to climb.",
     "kind": "method",
-    "related": []
+    "related": [
+      "GRPO",
+      "credit assignment",
+      "zero-advantage group"
+    ]
   },
   "task_id": "concept__gigpo",
   "task_version": 1,

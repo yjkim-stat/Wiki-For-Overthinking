@@ -2,7 +2,7 @@
   "aliases": [
     "GPT-5.4"
   ],
-  "definition": "A GPT-5 variant appearing twice in this archive as an evaluated system. In the financial-advice work it ranks fourth of six on the LLM-judge rubric at 8.949 and fourth on the judge-independent causal audit, where its estimated gross-profit lift is positive but the noisiest of any policy evaluated (0.0082, p = 0.015, with the widest confidence interval in the table) and its downside rate is 0.327 -- roughly a third of its recommendations landing on actions associated with negative estimated effect. It is separately one of 21 judges in the large-scale reliability evaluation of LLM-as-a-judge systems. Neither source describes the model; in this archive it is chiefly a data point in the observation that rubric quality and outcome-grounded value order systems differently.",
+  "definition": "A frontier model appearing across 3 sources as a judge and a commercial baseline. Its most useful archived datum is comparative: in a large-scale judge evaluation it is the newest of three from one provider whose progression on one benchmark is legible (0.309, 0.487, 0.606) and nearly invisible on another (0.451, 0.451, 0.457), so its judging quality depends on which benchmark is asked. It also appears as a teacher-quality reference in a controlled supervision study and as a commercial comparator that an open-weight trained model outperforms on financial advice.",
   "evidence": [
     {
       "id": "arxiv:2608.08503",
@@ -101,7 +101,10 @@
     "deepseek-v3-2",
     "kimi-k2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-5",
+    "gpt-4-1"
+  ],
   "schema_version": 1,
   "slug": "gpt-5-4",
   "topics": [

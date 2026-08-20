@@ -3,12 +3,22 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
+        "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.",
         "title": "Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning",
         "topics": [
           "reasoning-faithfulness",
-          "test-time-scaling",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -17,15 +27,15 @@
         "title": "Understanding Reasoning in LLMs through Strategic Information Allocation under Uncertainty",
         "topics": [
           "reasoning-faithfulness",
-          "test-time-scaling",
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T04:40:48Z",
-  "created_at": "2026-08-08T04:37:57Z",
-  "instructions": "Write the wiki definition for 'epistemic verbalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:28:55Z",
+  "created_at": "2026-08-20T23:26:12Z",
+  "instructions": "Write the wiki definition for 'epistemic verbalization'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "epistemic verbalization",
   "kind": "concept",
   "language": "en",
@@ -34,27 +44,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "epistemic verbalization",
-    "source_count": 2
+    "source_count": 3
   },
   "result": {
     "aliases": [
-      "externalizing uncertainty"
+      "expressed uncertainty",
+      "doubt cues"
     ],
-    "definition": "Writing uncertainty down, which the sources argue is what makes it causally usable: because autoregressive decoding conditions on emitted tokens and not on internal states, a latent reliability assessment is inert until verbalized. The evidence is bidirectional — injecting a bare doubt cue recovers about 15% of failed trajectories, while fine-tuning a model on its own correct traces with uncertainty expressions removed roughly halves AIME24 accuracy. A second source reaches the same tokens from information theory, finding the representations at 'Wait' and 'Hmm' carry mutual-information peaks with the correct answer and that suppressing them degrades accuracy while suppressing equally many other tokens does not.",
+    "definition": "A model externalising uncertainty in its trace -- hedges, 'wait', doubt markers -- and across 3 sources a behaviour that turns out to be functional rather than stylistic. The measurements: suppressing it by self-distillation on 800 of a model's own correct traces cuts competition accuracy from 13.3 to 6.7, 16.7 to 3.3, 16.7 to 10.0, 50.0 to 30.0 and 80.0 to 43.3 across five models, despite every training trace containing a correct answer; and in the other direction, fine-tuning on 800 examples in which a hedging token appears 77.1 times per response improves three models by up to 2.6-fold while degrading three others. Injecting a bare doubt cue recovers failed trajectories, which is the causal version of the claim. The related archive material places it alongside the finding that a small set of reflective transition tokens does disproportionate work in a trace, and that reasoning traces shape outputs while models will not say so.",
     "kind": "concept",
     "related": [
-      "chain of thought faithfulness",
+      "chain-of-thought faithfulness",
       "self-correction",
-      "silent divergence",
-      "thinking tokens",
-      "budget forcing"
+      "monitorability"
     ]
   },
   "task_id": "concept__epistemic-verbalization",

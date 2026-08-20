@@ -3,7 +3,7 @@
     "length extrapolation",
     "extrapolation to longer inputs"
   ],
-  "definition": "Making correct predictions on inputs longer than any seen in training, which both sources treat as the property long-context and long-chain reasoning actually need. They divide sharply. One proves no computable bound exists on how long the training inputs must be, already at depth two, so the required lengths grow faster than any computable function; restricting to fixed precision restores computability at exponential cost. The other proves a positive result in a narrower setting, that a one-layer transformer trained by gradient descent does length-generalize on state-tracking — but only when the task's group action is simply transitive, and only partly for symmetry group actions. Read together: extrapolation is decided by the structure of the specific task, and no general procedure can tell you in advance.",
+  "definition": "Whether a model trained on short instances handles longer ones, and across 3 sources the property the archive's theoretical chain-of-thought results are stated in terms of. One source proves transformers provably learn chain-of-thought reasoning with length generalisation, which is a learning result rather than an expressivity one and therefore the closest thing here to an account of why the training works. Another gives bounds specifically for it. And the expressivity work supplies the reason it is the right axis: chain of thought converts sequence length into effective depth, so the step count is the resource, and what generalises is a procedure over steps rather than a function of a fixed input size.",
   "evidence": [
     {
       "id": "local:bd58c1406f4a1ef5",
@@ -73,7 +73,11 @@
     "lego-state-tracking",
     "lego"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "circuit-complexity",
+    "chain-of-thought",
+    "compositional-generalization"
+  ],
   "schema_version": 1,
   "slug": "length-generalization",
   "topics": [

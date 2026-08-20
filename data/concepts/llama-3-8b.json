@@ -3,7 +3,7 @@
     "Llama3-8B",
     "Llama-3-8B"
   ],
-  "definition": "Meta's 8-billion-parameter Llama 3 base model, appearing in two sources here as a non-Qwen backbone rather than as an object of study. One uses it as one of four base models for semi-supervised preference optimization scored from hidden-state geometry; the other includes it among the models whose reasoning traces are tagged by sentence function to detect failures. Neither reports results specific to it, so the archive holds no characterization of the checkpoint itself — its value in both is that it is a different family from the Qwen models that carry almost every other result here.",
+  "definition": "An 8B Llama, used across 3 sources as the second family in method comparisons. Its recurring role is as the arm where a Qwen-developed method loses or shrinks: one preference method that reaches 62.33 percent on a mathematics set with a Qwen backbone loses to a baseline here (23.01 against 23.51), and a tool-orchestration method's interrelated-split gain on it is 6.2 points from a much lower base against 5.4 on the strong backbone -- which that source's own limitations note flags as the abstract's headline not being the typical case. It also appears in reasoning-failure detection from trace dynamics.",
   "evidence": [
     {
       "id": "arxiv:2608.01014",
@@ -111,7 +111,7 @@
   ],
   "related_authored": [
     "llama-3-1-8b",
-    "qwen2-5-7b-instruct"
+    "llama-3-1-8b-instruct"
   ],
   "schema_version": 1,
   "slug": "llama-3-8b",

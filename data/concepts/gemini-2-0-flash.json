@@ -1,9 +1,10 @@
 {
   "aliases": [
     "Gemini-2.0-Flash",
-    "Gemini 2.0 Flash"
+    "Gemini 2.0 Flash",
+    "Gemini-2.0-flash"
   ],
-  "definition": "A fast proprietary model, present in both sources as a mid-tier comparison point. One finds it performing well at segment level on translation quality evaluation — even surpassing a stronger model on one language pair — while lagging at system level, which is the paper's clearest illustration that the two levels of that task rank models differently. The other includes it among the large language models a reasoning-augmented translation method is measured against. Neither studies it.",
+  "definition": "A small frontier model appearing across 3 sources as a translation-quality judge, a jury member and a subject in tool-augmented contamination measurement across 24 models. None of the sources describes it; its role in this archive is as one of the earlier-generation judges against which later ones are compared, and as part of the evidence that judge quality varies more within a provider's line than the naming suggests.",
   "evidence": [
     {
       "id": "arxiv:2608.02975",
@@ -138,7 +139,9 @@
     "cogito-2-1-671b",
     "minimax-text-01"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gemini-2-5-flash"
+  ],
   "schema_version": 1,
   "slug": "gemini-2-0-flash",
   "topics": [
