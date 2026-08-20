@@ -55,6 +55,12 @@
       "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?"
     },
     {
+      "id": "arxiv:2608.06578",
+      "kind": "paper",
+      "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+      "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure"
+    },
+    {
       "id": "arxiv:2608.09867",
       "kind": "paper",
       "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
@@ -111,7 +117,7 @@
   ],
   "first_seen": "2026-08-08T04:37:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T13:36:57Z",
   "name": "monitorability",
   "related": [
     "chain-of-thought-faithfulness",
@@ -267,6 +273,31 @@
     "activation-probing",
     "latent-state-verbalization",
     "hint-based-intervention",
+    "detection-versus-control",
+    "selectivity-control",
+    "position-bias",
+    "benchmark-design",
+    "construct-validity",
+    "self-preference-bias",
+    "jury-aggregation",
+    "leave-one-out-consensus",
+    "difference-in-means-direction",
+    "permutation-test",
+    "nested-cross-validation",
+    "benjamini-hochberg-correction",
+    "fisher-s-exact-test",
+    "cohen-s-kappa",
+    "held-out-validation",
+    "author-constructed-paired-steering-benchmark-300-items-three-categories-plus-40",
+    "ifeval",
+    "steer-bench",
+    "gpt-5",
+    "claude-opus-4-7",
+    "gemini",
+    "llama-3-3-70b-instruct",
+    "llama-3-2-1b-instruct",
+    "qwen",
+    "deepseek",
     "prompt-injection",
     "hidden-reasoning",
     "data-exfiltration",
@@ -291,7 +322,6 @@
     "gpt-5-6-sol",
     "gpt-5-6-terra",
     "gpt-5-6-luna",
-    "gpt-5",
     "o4-mini",
     "gemini-3-1-pro",
     "gemini-3-pro",
@@ -422,6 +452,7 @@
   "topics": [
     "reasoning-faithfulness",
     "reasoning-training",
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-interpretability"
   ]
 }

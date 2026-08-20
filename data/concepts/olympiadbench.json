@@ -15,6 +15,12 @@
       "title": "Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning"
     },
     {
+      "id": "arxiv:2608.08168",
+      "kind": "paper",
+      "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders"
+    },
+    {
       "id": "arxiv:2608.09217",
       "kind": "paper",
       "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
@@ -89,7 +95,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T13:36:57Z",
   "name": "OlympiadBench",
   "related": [
     "answer-space-constraint",
@@ -126,6 +132,24 @@
     "amc",
     "math500",
     "qwen2-5-1-5b",
+    "sparse-dictionary-learning",
+    "chain-of-thought-prompting",
+    "latent-reasoning",
+    "degenerate-generation",
+    "selectivity-control",
+    "detection-versus-control",
+    "metacognition",
+    "feature-suppression",
+    "reasoning-collapse",
+    "sparse-autoencoder",
+    "top-k-sparse-autoencoder",
+    "activation-suppression",
+    "ablation",
+    "total-activation-volume-ranking",
+    "density-normalized-metrics",
+    "residual-stream-hooking",
+    "amc23",
+    "deepseek-r1-distill-qwen-7b",
     "task-learnability",
     "solvability",
     "task-value-estimation",
@@ -144,7 +168,6 @@
     "guru",
     "arc-agi",
     "barc",
-    "amc23",
     "minerva",
     "qwen3-1-7b",
     "qwen3-4b",
@@ -153,7 +176,6 @@
     "teacher-student-gap",
     "on-policy-distillation",
     "distribution-mismatch",
-    "degenerate-generation",
     "credit-assignment",
     "pass-k",
     "format-compliance",
@@ -219,7 +241,6 @@
     "budget-forcing",
     "mmlu",
     "alpacaeval",
-    "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1-distill-qwen-32b",
     "qwq-32b",
@@ -330,8 +351,8 @@
   "topics": [
     "reasoning-evaluation",
     "test-time-scaling",
+    "reasoning-interpretability",
     "reasoning-training",
-    "reasoning-faithfulness",
-    "reasoning-interpretability"
+    "reasoning-faithfulness"
   ]
 }

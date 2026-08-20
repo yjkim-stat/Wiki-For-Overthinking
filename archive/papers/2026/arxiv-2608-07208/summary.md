@@ -45,7 +45,7 @@ Stated: the wrapper text is the least controlled step and moves accuracy across 
 ## Entities
 
 - **Concepts**: [linear representation hypothesis](../../../../wiki/concepts/linear-representation-hypothesis.md), linear probing, concept vector, activation monitoring, [residual stream](../../../../wiki/concepts/residual-stream.md), token pooling, [linear separability](../../../../wiki/concepts/linear-separability.md), ridge regression, PCA, verbalized versus internal knowledge
-- **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), Recursive Feature Machine, Average Gradient Outer Product, concept vectors, [ridge regression](../../../../wiki/methods/ridge-regression.md), [logistic regression](../../../../wiki/methods/logistic-regression.md), stacked generalisation, nested cross-validation, token pooling, [TF-IDF](../../../../wiki/methods/tf-idf.md), topic modelling, dictionary methods
+- **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), Recursive Feature Machine, Average Gradient Outer Product, concept vectors, [ridge regression](../../../../wiki/methods/ridge-regression.md), [logistic regression](../../../../wiki/methods/logistic-regression.md), stacked generalisation, [nested cross-validation](../../../../wiki/methods/nested-cross-validation.md), token pooling, [TF-IDF](../../../../wiki/methods/tf-idf.md), topic modelling, dictionary methods
 - **Datasets**: ESG 2k expert-annotated dataset (Schimanski et al. 2024)
 
 Tags: `linear-probing`, `concept-vectors`, `activation-monitoring`, `rfm`, `esg`, `frozen-model`, `finance-nlp`

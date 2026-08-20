@@ -3,6 +3,12 @@
   "definition": "The training dynamic in which a policy abandons extended deliberation for short heuristic guessing, because on tasks with no canonical correct trajectory the shorter route reaches the same outcome reward more cheaply. Its defining source measures it directly: under outcome-only RLVR on subjective verification tasks, mean terminated completion length falls sharply after roughly 70 steps, from about 300 tokens to about 170 -- the exact inverse of the simultaneous rise in length and accuracy that signals successful mathematical RLVR. The paper establishes it is not an optimization artifact by showing that two variants correcting length and variance biases fail to prevent it, and repairs it with a length bonus paid only when the answer is correct; ungated versions of the same bonus are either exploited to the context limit or spent on filler. The second source approaches the same territory from the other side, arguing that the tokens which externalise uncertainty are what let a model recover from silent divergence and that suppressing them costs recovery -- so what collapses is not merely length but the deliberative moves that length was carrying. Neither source gives the term a formal definition; it names a measured trajectory, and the diagnostic is the length curve rather than the accuracy curve.",
   "evidence": [
     {
+      "id": "arxiv:2608.08168",
+      "kind": "paper",
+      "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders"
+    },
+    {
       "id": "arxiv:2608.08889",
       "kind": "paper",
       "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
@@ -17,9 +23,29 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:38:16Z",
+  "last_seen": "2026-08-20T13:36:57Z",
   "name": "reasoning collapse",
   "related": [
+    "sparse-dictionary-learning",
+    "chain-of-thought-prompting",
+    "latent-reasoning",
+    "degenerate-generation",
+    "selectivity-control",
+    "detection-versus-control",
+    "metacognition",
+    "feature-suppression",
+    "sparse-autoencoder",
+    "top-k-sparse-autoencoder",
+    "activation-suppression",
+    "ablation",
+    "total-activation-volume-ranking",
+    "density-normalized-metrics",
+    "residual-stream-hooking",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "deepseek-r1-distill-qwen-7b",
     "rlvr",
     "reward-hacking",
     "reward-shaping",
@@ -35,7 +61,6 @@
     "grpo",
     "dr-grpo",
     "gspo",
-    "chain-of-thought-prompting",
     "majority-voting",
     "persona-prompting",
     "length-penalty",
@@ -62,9 +87,6 @@
     "epistemic-token-masking",
     "self-distillation-sft",
     "supervised-fine-tuning",
-    "aime-2024",
-    "aime-2025",
-    "amc23",
     "math500",
     "limo-v2",
     "qwen2-5-7b",
@@ -73,7 +95,6 @@
     "qwen3-1-7b-base",
     "qwen3-8b",
     "qwen3-14b",
-    "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-32b"
   ],
   "related_authored": [
@@ -82,6 +103,7 @@
   "schema_version": 1,
   "slug": "reasoning-collapse",
   "topics": [
+    "reasoning-interpretability",
     "reasoning-training",
     "reasoning-faithfulness"
   ]

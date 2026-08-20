@@ -31,6 +31,12 @@
       "title": "Finding Usable Weight Mechanisms with Tiled SVD"
     },
     {
+      "id": "arxiv:2608.08168",
+      "kind": "paper",
+      "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders"
+    },
+    {
       "id": "arxiv:2608.10172",
       "kind": "paper",
       "note": "Treats a transformer forward pass as a controlled dynamical system with depth as time, lifts it with the Koopman operator to get a finite linear realisation whose spectrum is coordinate-free, proves that spectrum is recoverable from finite calibration data at the parametric rate, and then proves that the identifiable object and the human-legible object cannot be the same object.",
@@ -87,7 +93,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T13:36:57Z",
   "name": "sparse autoencoder",
   "related": [
     "monosemanticity",
@@ -143,9 +149,25 @@
     "ablation",
     "wikitext-2",
     "gemma-2-2b",
+    "sparse-dictionary-learning",
+    "chain-of-thought-prompting",
+    "latent-reasoning",
+    "degenerate-generation",
+    "metacognition",
+    "feature-suppression",
+    "reasoning-collapse",
+    "top-k-sparse-autoencoder",
+    "activation-suppression",
+    "total-activation-volume-ranking",
+    "density-normalized-metrics",
+    "residual-stream-hooking",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "deepseek-r1-distill-qwen-7b",
     "identifiability",
     "feature-consistency",
-    "sparse-dictionary-learning",
     "non-normality",
     "circuit-analysis",
     "interpretability-illusion",
@@ -182,8 +204,6 @@
     "medqa",
     "mbpp",
     "humaneval",
-    "aime-2024",
-    "aime-2025",
     "qwen3-5-9b",
     "lfm2-5-vl-1-6b",
     "vision-wormhole",
@@ -303,9 +323,9 @@
   "slug": "sparse-autoencoder",
   "topics": [
     "reasoning-interpretability",
+    "reasoning-training",
     "reasoning-evaluation",
     "reasoning-faithfulness",
-    "test-time-scaling",
-    "reasoning-training"
+    "test-time-scaling"
   ]
 }

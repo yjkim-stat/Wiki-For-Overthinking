@@ -1,0 +1,82 @@
+{
+  "concepts": [
+    "detection versus control",
+    "steering vector",
+    "interpretability illusion",
+    "emergent capability",
+    "selectivity control",
+    "operating point",
+    "linear representation hypothesis",
+    "selection bias",
+    "residual stream",
+    "measurement invariance",
+    "specificity"
+  ],
+  "contributions": [
+    "A cross-family audit protocol combining residual-norm-comparable interventions, held-out operating-point selection, specificity and null controls, and replication across families, applied uniformly to four neuroscience-inspired paradigms over 17 models from 0.6B to 72B.",
+    "A demonstration that apparent emergence of concept steerability with scale is a measurement artifact resting on a compound of three uncalibrated choices -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one sufficient to remove the trend, established by a factorial decomposition in which none of four cells shows a significant slope.",
+    "The finding that a fixed raw steering coefficient is an uncontrolled intervention, because the fraction of the residual it displaces varies non-monotonically across models, and that the normalised dose-response is an inverted U so no single fixed strength is comparable across models.",
+    "Evidence that the conventional criterion for identifying number neurons -- ranking by linear correlation with magnitude -- cannot surface interior-peaked tuning by construction, so the reported absence of bell-shaped units was a selection effect; a shape-agnostic criterion finds them in every model, and a digit-versus-word cross-format test shows they are partly format-invariant in three of five families.",
+    "A cross-model taxonomy of which parallels survive: geographic decoding robust everywhere, number magnitude robustly encoded but with selection-dependent shape, language localisation attribution-dependent with the cross-lingual asymmetry reversing under a second method, and concept-steering scaling an artifact.",
+    "The observation that held-out evaluation halves single-neuron concept selectivity from about d-prime 6 to about 2, with several concepts falling below a pseudo-concept null."
+  ],
+  "datasets": [
+    "author-constructed concept steering stimuli (24 concepts, five categories)",
+    "author-constructed number-magnitude probes",
+    "author-constructed bilingual lesion set"
+  ],
+  "generated_at": "2026-08-20T13:32:12Z",
+  "generated_by": "queue",
+  "limitations": "Stated with unusual care throughout rather than in one section. The authors decline to convert their null scaling result into a claim of scale-invariance, on the grounds that the Qwen3 sizes are independently trained runs so a homogeneous size axis is an assumption, and that the test is underpowered against the slopes its interval still admits. They note the wider intervals in the factor decomposition come from fewer probe prompts per concept and say so. They read only significance and precision-invariance from the large-model grid because it is coarse and mixes families, reserving the no-detectable-trend statement for the dense single-family ladder. They mark the red and grey curves in their central figure as coming from different selection pipelines and therefore not point-for-point comparable. Bell-neuron fractions are flagged as threshold-sensitive, and the efficient-coding account they derive is described as a normative prediction the models only partly follow rather than a description of what they do. Not stated but worth noticing: the audit is of measurement rather than of mechanism, so it establishes which claims are stable under controls without establishing what the stable ones mean -- geographic decodability survives every control and the paper says nothing about whether the model uses it. The 24-concept set and the specificity contrast are the authors' own, so the protocol standardises comparison without being itself validated against an external standard.",
+  "method": "Four paradigms are audited under one protocol across 17 models from five families spanning 0.6B to 72B: concept steering, number-magnitude tuning, language localisation by lesion, and geographic decoding. The protocol has four elements. Interventions are made residual-norm-comparable rather than applied at a fixed raw coefficient, because a fixed raw coefficient displaces an unpredictable and non-monotonically varying fraction of the residual across models. The operating point -- layer and strength -- is selected on held-out concepts by grid search rather than fixed at a hand-picked depth. Specificity and null controls are run, including pseudo-concept nulls and a directional check. And every result is replicated across families rather than shown on one model. The central case study then decomposes the apparent scaling trend factorially: the metric and the 24-concept set are held constant while unit normalisation (raw against residual-norm-normalised) and operating-point selection (fixed two-thirds depth against held-out grid search) are varied independently, giving four cells. Additional controls include a bf16-against-8-bit quantisation check, an in-sample against out-of-sample comparison for single-neuron selectivity, a shape-agnostic quadratic criterion for number-neuron selection set against the conventional linear-correlation ranking, a cross-format test asking whether a number neuron keeps its tuning when the number appears as a digit or as a spelled-out word, and a second attribution method for the lesion analysis. The authors also note against their own framing that the steering literature never claimed emergence with scale -- one systematic cross-scale study reports contrastive activation addition getting weaker with size -- so the trend they debunk is a natural default of an uncalibrated recipe rather than an established position.",
+  "methods": [
+    "activation steering",
+    "linear probing",
+    "contrastive activation addition",
+    "difference-in-means direction",
+    "gradient times activation attribution",
+    "ablation",
+    "selectivity control",
+    "bootstrap confidence intervals",
+    "held-out operating-point selection",
+    "residual-norm normalization",
+    "quantization control"
+  ],
+  "models": [
+    "Qwen3-0.6B",
+    "Qwen3-1.7B",
+    "Qwen3-4B",
+    "Qwen3-8B",
+    "Qwen3-14B",
+    "Qwen3-32B",
+    "Qwen2.5-72B",
+    "Llama-3.2-1B",
+    "Llama-3.2-3B",
+    "Llama-3.1-8B",
+    "Llama-3.1-70B",
+    "Phi-3.5-mini",
+    "phi-4",
+    "Ministral-8B",
+    "Mistral-Small-24B",
+    "Gemma-2-9B",
+    "Gemma-2-27B"
+  ],
+  "one_liner": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+  "paper_id": "arxiv:2608.08159",
+  "problem": "A growing literature reports human-like neural signatures in language models: concept-selective neurons, linear representations of space and time, log-compressed number lines, steerable emotion and concept directions. Most of these claims rest on linear probing and activation steering applied to a single model or a narrow size range, and both methods are highly sensitive to analytical choices -- how units are selected, how intervention strength is defined, which layer is used, whether specificity and null controls are run. A reported parallel may therefore reflect the model, the measurement procedure, or both, and the same concern has already deflated claimed emergent capabilities elsewhere. The question is not whether these phenomena are real in the abstract but which claims survive stronger controls and alternative measurement choices.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-interpretability": "This is the most directly useful methodology paper the archive has acquired for how to read a steering or probing claim, and it earns that by dismantling a plausible result rather than by arguing in the abstract. Three things belong in the archive's working practice. First, a fixed raw steering coefficient is not a fixed intervention: the fraction of the residual it displaces varies non-monotonically across models, so any cross-model comparison in raw units is comparing different-sized perturbations. That alone would be a useful caution; the paper goes further and shows the compound nature of the problem, decomposing an apparent scaling trend factorially and finding that units, readout metric and operating point each independently suffice to produce or remove it. When several uncalibrated choices point the same way, correcting one is enough -- which is why an audit has to vary them independently rather than fix a better recipe. Second, the operating point is a result, not a setup. Every model selects a layer near 0.8 of depth and never the two-thirds the literature commonly hand-picks, and the normalised dose-response is an inverted U, so a single fixed strength lands on different sides of a model-specific peak. Any archived steering number reported at a fixed layer and coefficient should be read as one point on a curve whose shape was not measured. Third, and most transferable beyond steering: the number-neuron result is a clean case of a criterion determining its own finding. Ranking neurons by linear correlation with magnitude cannot rank an interior-peaked tuning curve highly, so a literature using that criterion could only ever report monotonic units -- and a shape-agnostic criterion finds bell-shaped neurons in every model. That is the same shape as the archive's other selection-rule reversals, and it generalises to any claim of the form 'we looked for X and found only Y'. The paper's conclusions about what survives are worth recording as a taxonomy: geographic decoding robust in all 17 checkpoints, number magnitude robustly encoded with selection-dependent shape, language localisation attribution-dependent with the cross-lingual asymmetry reversing under a second method, and steering significant at every scale with no detectable trend. Note their discipline on that last point -- they refuse to call it scale-invariance, because the checkpoints are independently trained runs and the interval still admits a moderate slope. Their closing diagnosis is the line to keep: the constraint on this field is not a shortage of phenomena but a shortage of comparable measurements and adequate controls."
+  },
+  "results": "In raw activation units at a fixed layer and coefficient, concept steerability appears to grow monotonically across the Qwen3 ladder, resembling an emergent capability. It is an artifact of a compound of choices rather than any single confound: none of the four cells in the factor decomposition shows a significant scaling trend (raw with fixed operating point, slope +0.22 with 95% interval [-0.02, +0.62]; normalised with held-out selection, +0.31 with interval [-2.87, +4.05]), so correcting units, metric or operating point alone is enough to remove it. Under the full protocol, steering remains significant everywhere -- held-out pass rates of 0.71, 1.00, 0.79, 0.79 and 0.75 from 0.6B to 14B with every interval above chance, and significantly positive effects at all five models of 24B and above (Gemma-2-27B +22.9, Qwen2.5-72B +7.1, Mistral-24B +5.5, Qwen3-32B +4.9, Llama-70B +4.5) -- so steering neither emerges nor collapses with scale. The authors are precise about what the null result licenses: the slope across the Qwen3 ladder is +0.31 per doubling with interval [-0.11, +0.73], which they read as the absence of a detectable trend across this particular sequence of independently trained checkpoints rather than as evidence of scale-invariance, noting that a homogeneous size axis is itself an assumption and the test is underpowered against the moderate slopes the interval still admits. Two further measurement findings fall out. The normalised dose-response is an inverted U rather than monotone growth, so any single fixed strength is on one side or the other of a peak that differs by model. And every model selects a layer near 0.8 of depth, never the hand-picked two-thirds the literature commonly uses. Held-out evaluation matters independently: in-sample single-neuron concept selectivity of about d-prime 6 roughly halves out of sample to about 2, with several concepts falling below the pseudo-concept null. The other three paradigms give a mixed taxonomy. Geographic structure is the one robust column, cross-validated latitude and longitude decodable in every one of the 17 checkpoints up to 72B. Number magnitude is strongly encoded everywhere, with the best-tuned neuron reaching held-out correlation 0.68 to 0.98 in all 17 models -- but whether the units look bell-shaped or monotonic is entirely a selection effect, because ranking by linear correlation cannot rank an interior-peaked tuning curve highly and therefore returns only monotonic units by construction. A shape-agnostic quadratic criterion finds bell-shaped neurons in every model, common in the top 30 for three families, mixed in one and rare-to-absent in another, and a cross-format test shows those units are partly format-invariant in three families (0.59 to 0.70 against random-neuron baselines of 0.30 to 0.51) which indicates magnitude tuning beyond token identity. Language localisation is the least robust: Chinese-selective ablation hurts Chinese significantly more than English in all 17 models, but English selectivity is statistically indistinguishable from zero in 12 of 17, and the direction of the cross-lingual asymmetry reverses under a different attribution method. Quantisation is not a confound (+4.9 against +4.3 at 32B, overlapping intervals).",
+  "schema_version": 1,
+  "tags": [
+    "activation-steering",
+    "audit",
+    "measurement-confound",
+    "cross-family",
+    "scaling",
+    "controls",
+    "ai-neuroscience"
+  ]
+}

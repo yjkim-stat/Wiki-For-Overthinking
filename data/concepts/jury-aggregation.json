@@ -12,6 +12,12 @@
       "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation"
     },
     {
+      "id": "arxiv:2608.06578",
+      "kind": "paper",
+      "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+      "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure"
+    },
+    {
       "id": "arxiv:2608.09857",
       "kind": "paper",
       "note": "Puts an ensemble of LLM judges between a robot-autonomy planner and its execution layer as gating middleware that accepts, rejects or escalates each plan to human review, and reports that ensemble size barely moves accuracy while the errors concentrate at the escalate boundary rather than between accept and reject.",
@@ -26,7 +32,7 @@
   ],
   "first_seen": "2026-08-13T01:53:45Z",
   "kind": "method",
-  "last_seen": "2026-08-20T13:19:30Z",
+  "last_seen": "2026-08-20T13:36:57Z",
   "name": "jury aggregation",
   "related": [
     "llm-as-a-judge",
@@ -65,6 +71,35 @@
     "llama-3-8b-instruct",
     "llama-3-70b-instruct",
     "aya-expanse-8b",
+    "steering-vector",
+    "detection-versus-control",
+    "selectivity-control",
+    "linear-probe",
+    "position-bias",
+    "monitorability",
+    "chain-of-thought-faithfulness",
+    "benchmark-design",
+    "construct-validity",
+    "self-preference-bias",
+    "leave-one-out-consensus",
+    "activation-steering",
+    "difference-in-means-direction",
+    "permutation-test",
+    "nested-cross-validation",
+    "benjamini-hochberg-correction",
+    "fisher-s-exact-test",
+    "cohen-s-kappa",
+    "held-out-validation",
+    "author-constructed-paired-steering-benchmark-300-items-three-categories-plus-40",
+    "ifeval",
+    "steer-bench",
+    "gpt-5",
+    "claude-opus-4-7",
+    "gemini",
+    "llama-3-3-70b-instruct",
+    "llama-3-2-1b-instruct",
+    "qwen",
+    "deepseek",
     "self-consistency",
     "verification-layer",
     "prompt-injection",
@@ -114,6 +149,7 @@
   "slug": "jury-aggregation",
   "topics": [
     "reasoning-training",
+    "reasoning-interpretability",
     "test-time-scaling"
   ]
 }

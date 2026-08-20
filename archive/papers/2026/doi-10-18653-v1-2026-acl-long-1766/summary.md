@@ -46,7 +46,7 @@ Across 7B/14B/32B models, TH2T reduces inference cost by over 70% on easy tasks 
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), metacognition, prospective versus retrospective control, looping
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [reasoning redundancy](../../../../wiki/concepts/reasoning-redundancy.md), [metacognition](../../../../wiki/concepts/metacognition.md), prospective versus retrospective control, looping
 - **Methods**: TH2T, two-stage fine-tuning, prefix injection, difficulty estimation
 - **Datasets**: _none recorded_
 
