@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "ridge regression",
+    "L2-regularized linear regression"
+  ],
+  "definition": "L2-regularised linear regression, used in both sources purely as the fitting procedure behind a probe rather than as anything under investigation. The cultural-awareness paper lists it among the apparatus of its four-instrument design, beside linear probes, the logit lens, activation patching, principal component analysis and linear discriminant analysis; the tiled-SVD paper lists it beside singular value decomposition, the logit lens, activation steering, sparse autoencoders and ablation. Neither reports a result about ridge regression itself, compares it against another estimator, or states what the regularisation strength was or how it was chosen. In this archive it is a choice of linear fit that is recorded but never argued for.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -13,11 +16,17 @@
       "kind": "paper",
       "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
       "title": "Finding Usable Weight Mechanisms with Tiled SVD"
+    },
+    {
+      "id": "arxiv:2608.07208",
+      "kind": "paper",
+      "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+      "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes"
     }
   ],
   "first_seen": "2026-08-13T00:17:14Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:41:01Z",
+  "last_seen": "2026-08-20T12:24:18Z",
   "name": "ridge regression",
   "related": [
     "linear-probe",
@@ -67,9 +76,36 @@
     "sparse-autoencoder",
     "ablation",
     "wikitext-2",
-    "gemma-2-2b"
+    "gemma-2-2b",
+    "linear-representation-hypothesis",
+    "concept-vector",
+    "activation-monitoring",
+    "token-pooling",
+    "linear-separability",
+    "verbalized-versus-internal-knowledge",
+    "recursive-feature-machine",
+    "average-gradient-outer-product",
+    "concept-vectors",
+    "logistic-regression",
+    "stacked-generalisation",
+    "nested-cross-validation",
+    "tf-idf",
+    "topic-modelling",
+    "dictionary-methods",
+    "esg-2k-expert-annotated-dataset-schimanski-et-al-2024",
+    "qwen-3-8b-instruct",
+    "qwen-3-14b-instruct",
+    "qwen-3-embedding-8b",
+    "envroberta",
+    "socroberta",
+    "govroberta",
+    "envdistilroberta",
+    "socdistilroberta",
+    "govdistilroberta"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "logistic-regression"
+  ],
   "schema_version": 1,
   "slug": "ridge-regression",
   "topics": [

@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Scores each reasoning step of a translation by how much appending it raises a frozen reference model's teacher-forced likelihood of the gold translation, and adds that as a dense per-step reward on top of sequence-level quality — after first establishing that explicit reasoning helps long and hard inputs while drifting on terminology and style.",
+        "title": "PAMT: Process-Aligned Reinforcement Learning for Multi-Domain Machine Translation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:24:13Z",
+  "created_at": "2026-08-13T12:45:28Z",
+  "instructions": "Write the wiki definition for 'reasoning drift'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning drift",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reasoning drift",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The name both sources give to a long chain of thought moving away from what it should be tracking as it lengthens, and neither defines it operationally or measures it directly. PAMT addresses it by giving each reasoning step a potential -- the teacher-forced log-likelihood of the reference translation under a frozen reference policy, conditioned on the prompt plus the first k steps -- so a step whose potential falls is one that has drifted, with the per-step gain taken as the difference of consecutive potentials. ThinkRetrieve pairs it with error compounding as the failure that in-trace retrieval of complete solved exemplars at every step is meant to arrest, and offers as evidence that in-trace exemplars lower the predictive entropy of the generated answer relative to sequential scaling. The term is used loosely in both: it names the failure a mechanism is aimed at rather than a quantity either paper reports.",
+    "kind": "concept",
+    "related": [
+      "semantic drift"
+    ]
+  },
+  "task_id": "concept__reasoning-drift",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

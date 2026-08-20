@@ -3,13 +3,19 @@
     "principal component analysis",
     "Principal Component Analysis"
   ],
-  "definition": "",
+  "definition": "Linear dimensionality reduction, used across these four sources in two distinct roles and never as the object of study. As a baseline it is what sparse dictionary learning is measured against and beaten by: on automated interpretability across residual-stream layers of Pythia-70M, PCA scores about 0.07 to 0.13 against roughly 0.30 falling to 0.15 for sparse coding, and on indirect object identification patching dictionary features reaches a given KL divergence from the counterfactual target with fewer patched features than PCA or non-negative PCA, at smaller edit magnitude. As machinery it is a workspace rather than a claim: the per-instance steering paper ranks layers with a small network over a 25-dimensional PCA of an unsteered prompt embedding, the reasoning-trajectory paper estimates an ideal path as the step-wise mean of correct chains in a 128-dimensional PCA space before applying a rank-32 update, and the cultural-awareness paper lists it beside ridge regression and linear discriminant analysis as probing apparatus. The sources agree on the negative that organises both roles: the top variance directions of a layer are not taken to be the model's features.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
       "kind": "paper",
       "note": "Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.",
       "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs"
+    },
+    {
+      "id": "arxiv:2608.07208",
+      "kind": "paper",
+      "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+      "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes"
     },
     {
       "id": "arxiv:2608.08829",
@@ -32,7 +38,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:49:24Z",
+  "last_seen": "2026-08-20T12:24:18Z",
   "name": "PCA",
   "related": [
     "linear-probe",
@@ -69,6 +75,31 @@
     "yi-1-5-34b-chat",
     "olmo-3-1-32b-instruct",
     "tiny-aya-global",
+    "linear-representation-hypothesis",
+    "concept-vector",
+    "activation-monitoring",
+    "token-pooling",
+    "linear-separability",
+    "verbalized-versus-internal-knowledge",
+    "recursive-feature-machine",
+    "average-gradient-outer-product",
+    "concept-vectors",
+    "logistic-regression",
+    "stacked-generalisation",
+    "nested-cross-validation",
+    "tf-idf",
+    "topic-modelling",
+    "dictionary-methods",
+    "esg-2k-expert-annotated-dataset-schimanski-et-al-2024",
+    "qwen-3-8b-instruct",
+    "qwen-3-14b-instruct",
+    "qwen-3-embedding-8b",
+    "envroberta",
+    "socroberta",
+    "govroberta",
+    "envdistilroberta",
+    "socdistilroberta",
+    "govdistilroberta",
     "steering-vector",
     "layer-selection",
     "per-instance-intervention",
@@ -80,7 +111,6 @@
     "sub-additivity",
     "activation-steering",
     "contrastive-activation-addition",
-    "logistic-regression",
     "listwise-ranking",
     "beam-search",
     "adaptive-gating",
@@ -116,7 +146,6 @@
     "error-targeted-intervention",
     "trajectory-based-steering",
     "reasoning-length-control",
-    "linear-representation-hypothesis",
     "t-sne",
     "low-rank-steering-update",
     "centered-kernel-alignment",
@@ -129,8 +158,7 @@
     "deepseek-r1-distill-llama-8b"
   ],
   "related_authored": [
-    "t-sne",
-    "linear-discriminant-analysis"
+    "singular-value-decomposition"
   ],
   "schema_version": 1,
   "slug": "pca",

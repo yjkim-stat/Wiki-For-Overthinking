@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 3-billion-parameter Llama model used in this archive as a cross-family check rather than as a headline system. In the task-learnability paper the main models are Qwen3-1.7B and Qwen3-4B and Llama-3.2-3B is the check that the result is not Qwen-specific: the reproducibility of learnability profiles across independently sampled probe sets, at Cohen's kappa 0.776 over six profiles and 0.879 under the binary learnable grouping, holds on it with the same pattern. The archive's reading of that paper also records that its stated scope of 'up to 8B parameters' is not the range actually exercised, of which this model is the smallest. It is separately one of five models, spanning Llama-3.2-1B to QwQ-32B, whose reasoning trajectories are projected into two dimensions by Landscape of Thoughts.
 
 - **Kind**: model
+- **Also called**: Llama-3.2-3B-Instruct
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A multimodal benchmark used in this archive as one evaluation set among several in two test-time-scaling audits, neither of which describes how it was built. In the vision-language decoding-format audit it is one of four benchmarks on which a format-matched control matches the perturbation-based selector it was meant to beat (50.1 against 50.3), and it is also where the two diagnostics decouple: blanking the perturbation inputs collapses the selection score from 50.2 to 23.3, confirming the signal genuinely depends on the image, while its mean stability gap is only +0.071. In the test-time-augmentation study Claude 4.5 Haiku has a 66.1 percent chain-of-thought baseline on it, and paraphrase-based input diversity adds +2.01 against +1.01 for self-consistency at matched compute. Across both, it behaves as a mid-difficulty multimodal set where the headline effects are small enough that the control matters more than the method.",
   "evidence": [
     {
       "id": "arxiv:2608.01207",

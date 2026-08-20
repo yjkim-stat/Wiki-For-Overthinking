@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates 21 LLM judges across three benchmarks and three protocols over ~541,000 judgments, and shows the field's standard validation metric — exact-match agreement — overstates chance-corrected discrimination by 34-41 points universally, while high test-retest reliability can coexist with severe position bias.",
+        "title": "Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-Judge Models Across Agreement, Consistency, and Bias",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:24:12Z",
+  "created_at": "2026-08-14T07:58:09Z",
+  "instructions": "Write the wiki definition for 'Llama-3.3-70B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama-3.3-70B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Llama-3.3-70B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama 3.3 70B"
+    ],
+    "definition": "A 70-billion-parameter Llama model that appears in this archive twice, in both cases as one member of a panel rather than as the object of study. It is one of six models, spanning GPT-2 to Llama-3.1-405B-Instruct, across which dense low-rank trained lenses are attached at every layer and at residual, attention and MLP hookpoints alike. It is separately one of ten judges in the large-scale LLM-as-a-judge reliability evaluation, whose findings -- kappa deflation universal across every judge and provider, and judge rankings shifting by up to fifteen positions between benchmarks -- are reported over the panel rather than per model. Neither source reports a result attributed specifically to it.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__llama-3-3-70b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability"
+  ]
+}

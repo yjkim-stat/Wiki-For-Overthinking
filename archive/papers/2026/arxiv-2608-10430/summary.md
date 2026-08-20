@@ -45,7 +45,7 @@ The paper's own error analysis is the important limit: the detector reads intern
 ## Entities
 
 - **Concepts**: specification grounding, [hallucination](../../../../wiki/concepts/hallucination.md), semantic entropy, [predictive entropy](../../../../wiki/concepts/predictive-entropy.md), calibration, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [linear separability](../../../../wiki/concepts/linear-separability.md), [residual stream](../../../../wiki/concepts/residual-stream.md), agentic self-correction, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md)
-- **Methods**: [LoRA](../../../../wiki/methods/lora.md), [linear probe](../../../../wiki/methods/linear-probe.md), [activation patching](../../../../wiki/methods/activation-patching.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [semantic entropy](../../../../wiki/methods/semantic-entropy.md), ReAct, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
+- **Methods**: [LoRA](../../../../wiki/methods/lora.md), [linear probe](../../../../wiki/methods/linear-probe.md), [activation patching](../../../../wiki/methods/activation-patching.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [semantic entropy](../../../../wiki/methods/semantic-entropy.md), [ReAct](../../../../wiki/methods/react.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
 - **Datasets**: ToolAlpaca
 
 Tags: `hallucination`, `agents`, `tool-calling`, `uncertainty`, `interpretability`

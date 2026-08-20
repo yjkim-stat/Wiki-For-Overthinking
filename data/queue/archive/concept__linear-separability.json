@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Extends Concept Activation Vector bias analysis to neural L2 speaking graders, and finds concept recoverability and concept influence come apart, with SAEs improving the first while attenuating the second.",
+        "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:24:12Z",
+  "created_at": "2026-08-14T01:37:43Z",
+  "instructions": "Write the wiki definition for 'linear separability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "linear separability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "linear separability",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The precondition that makes a concept readable by a linear probe or a concept vector: that the activations carrying the concept can be split from those that do not by a hyperplane. Both sources here treat it as a property of the representation as presented to the probe rather than a fixed fact about the model, and both engineer it rather than merely measuring it -- the L2 speaking assessment paper notes that Concept Activation Vectors assume linear separability, which is less likely in complex neural embeddings, and responds by learning CAVs in a sparse autoencoder latent space and mapping them back to activation space; the hallucination-detection paper trains a LoRA adapter that restructures a low-dimensional grounding signal into a shift-stable linear geometry, verified by transfer and by cross-trajectory patching. On what improving it buys, the two sources point opposite ways: the SAE route improves linear recoverability while attenuating activation-space sensitivity, especially in low-dimensional layers, whereas the adapter's restructuring is what makes the detector able to act. Read together they say separability and causal influence are distinct axes, and that a method can raise one while lowering the other.",
+    "kind": "concept",
+    "related": [
+      "linear representation hypothesis",
+      "superposition"
+    ]
+  },
+  "task_id": "concept__linear-separability",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

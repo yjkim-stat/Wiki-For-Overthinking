@@ -1,0 +1,253 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that chain-of-thought explanations systematically misrepresent the real reason for a model's answer, by biasing inputs in ways the model never mentions and watching it rationalize the biased answer.",
+        "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures how much a model's answer actually depends on its stated chain of thought by intervening on the trace — adding mistakes, paraphrasing, truncating — and finds the dependence varies by task and decreases as models get larger.",
+        "title": "Measuring Faithfulness in Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+        "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+        "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An Italian proverb benchmark on which models complete proverbs successfully but fail multiple-choice selection when no correct option is present, with CoT analysis showing they name the right ending while failing to notice its absence.",
+        "title": "Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
+        "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+        "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
+        "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Locates the sentences in a reasoning trace that commit a model to agreeing with an incorrect user suggestion, using counterfactual rollouts and linear probes.",
+        "title": "Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
+        "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Improves factuality by reweighting reasoning segments according to state-transition probabilities along the thinking process, targeting a gap where correct facts appear in reasoning but not in the answer.",
+        "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates code reasoning by implementation invariance and intermediate-state accuracy, finding models get final outputs right while reasoning incorrectly about execution.",
+        "title": "CoRE: A Fine-Grained Code Reasoning Benchmark Beyond Output Prediction",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
+        "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.",
+        "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
+        "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
+        "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'chain of thought faithfulness'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "chain of thought faithfulness",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "chain of thought faithfulness",
+    "source_count": 20
+  },
+  "task_id": "concept__chain-of-thought-faithfulness",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -128,21 +128,21 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 36 | _pending_ |
-| LLM-as-a-judge | 29 | _pending_ |
+| LLM-as-a-judge | 30 | _pending_ |
 | supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 22 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | self-consistency | 19 | _pending_ |
 | test-time scaling | 18 | _pending_ |
-| activation patching | 16 | _pending_ |
+| activation patching | 17 | _pending_ |
 | chain-of-thought prompting | 15 | _pending_ |
 | pass@k | 15 | _pending_ |
+| activation steering | 14 | _pending_ |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| activation steering | 13 | _pending_ |
 | causal intervention | 11 | _pending_ |
+| sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | process reward model | 9 | _pending_ |
-| sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 | DAPO | 8 | A GRPO variant that drops the KL penalty and adds clip-higher, dynamic sampling, token-level policy-gradient loss and overlong reward shaping. It appears in this archive in thre... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
@@ -166,7 +166,7 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | MMLU-Pro | 7 | A harder, more reasoning-oriented revision of MMLU, used in the archive as a multiple-choice knowledge-and-reasoning benchmark outside mathematics. Both sources use it as a brea... |
 | Omni-MATH | 5 | A competition-level mathematics benchmark, reported by both sources only as one of the held-out evaluation sets in reinforcement learning experiments on verifiable mathematics.... |
 | BBH | 4 | A multi-task reasoning benchmark that the sources use as the legible, non-frontier end of an evaluation suite rather than as a hard test. One finds dataset difficulty inversely... |
-| SciQ | 3 | _pending_ |
+| SciQ | 3 | A science question-answering set that appears in three archived papers as a supporting evaluation set, with none of them describing its construction or reporting a headline attr... |
 | AlpacaEval | 2 | An instruction-following benchmark scored by LLM judges, used in the archived sources in two unrelated ways. As a judge benchmark it is part of the preference-evaluation family... |
 | BeaverTails | 2 | A safety dataset of prompts paired with responses annotated for harmfulness, used by both sources as the substrate for a harmful-content task rather than as an object of study.... |
 | HarmBench | 2 | A benchmark of harmful behaviour prompts used for red-teaming, appearing in both sources as the adversarial half of a safety evaluation. One includes it among the nine moderatio... |

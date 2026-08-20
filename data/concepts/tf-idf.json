@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
       "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models"
+    },
+    {
+      "id": "arxiv:2608.07208",
+      "kind": "paper",
+      "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+      "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes"
     }
   ],
   "first_seen": "2026-08-12T23:01:57Z",
   "kind": "method",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-20T12:24:18Z",
   "name": "TF-IDF",
   "related": [
     "monitorability",
@@ -36,12 +42,41 @@
     "qwen3-14b",
     "gpt-oss-20b",
     "gpt-oss-120b",
-    "gpt-5-mini"
+    "gpt-5-mini",
+    "linear-representation-hypothesis",
+    "concept-vector",
+    "activation-monitoring",
+    "residual-stream",
+    "token-pooling",
+    "linear-separability",
+    "ridge-regression",
+    "pca",
+    "verbalized-versus-internal-knowledge",
+    "recursive-feature-machine",
+    "average-gradient-outer-product",
+    "concept-vectors",
+    "stacked-generalisation",
+    "nested-cross-validation",
+    "topic-modelling",
+    "dictionary-methods",
+    "esg-2k-expert-annotated-dataset-schimanski-et-al-2024",
+    "llama-3-1-8b-instruct",
+    "qwen-3-8b-instruct",
+    "qwen-3-14b-instruct",
+    "gemma-4-31b-it",
+    "qwen-3-embedding-8b",
+    "envroberta",
+    "socroberta",
+    "govroberta",
+    "envdistilroberta",
+    "socdistilroberta",
+    "govdistilroberta"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "tf-idf",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-interpretability"
   ]
 }

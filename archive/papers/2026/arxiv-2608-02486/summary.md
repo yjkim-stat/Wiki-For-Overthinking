@@ -45,7 +45,7 @@ The paper's limitations section is unusually thorough and names the right things
 
 ## Entities
 
-- **Concepts**: linear probe, logit lens, activation patching, [causal intervention](../../../../wiki/concepts/causal-intervention.md), [residual stream](../../../../wiki/concepts/residual-stream.md), unembedding, cultural bias, [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), [scaling laws](../../../../wiki/concepts/scaling-laws.md), probing
+- **Concepts**: linear probe, logit lens, activation patching, causal intervention, [residual stream](../../../../wiki/concepts/residual-stream.md), unembedding, cultural bias, [representation versus readout](../../../../wiki/concepts/representation-versus-readout.md), [scaling laws](../../../../wiki/concepts/scaling-laws.md), probing
 - **Methods**: [linear probe](../../../../wiki/methods/linear-probe.md), [logit lens](../../../../wiki/methods/logit-lens.md), [activation patching](../../../../wiki/methods/activation-patching.md), [ridge regression](../../../../wiki/methods/ridge-regression.md), [principal component analysis](../../../../wiki/methods/pca.md), linear discriminant analysis, bilingual ensembling
 - **Datasets**: Thompson Motif-Index of Folk-Literature, folkmotif, Belebele
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A GPT-2-family model used in this archive as an interpretability test-bed rather than as a system anyone deploys. Its load-bearing appearance is in the activation-patching best-practices paper, which makes it the setting for factual-recall localization on a purpose-built PairedFacts set of 145 in-distribution prompt pairs, and finds that the clear MLP peak around layer 16 under Gaussian noising is not salient at all under symmetric token replacement, with the noising peak 2x to 5x higher across window sizes regardless of which metric scores it. It is therefore the model on which a widely cited localization result was shown to depend on the corruption method rather than on the model. It also appears among the six models, from GPT-2 to Llama-3.1-405B-Instruct, over which dense trained lenses were attached at every layer and hookpoint.",
   "evidence": [
     {
       "id": "arxiv:2608.10260",

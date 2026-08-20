@@ -1,0 +1,214 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Builds prefix trees of semantically equivalent reasoning statements and measures how RLVR changes a model's preference between branches, finding the entropy collapse is not stylistic — the collapse is stronger for semantically distinct continuations than for syntactic variants of the same statement.",
+        "title": "BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that GRPO's per-completion uniformity is frequency-skewed once credit is aggregated by solution structure — a recurring correct form accumulates positive coefficient mass proportional to how often it is sampled — and rebalances it by a rarity exponent over a partition built from deterministic cue signatures rather than a judge model.",
+        "title": "When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, separates three structurally different regimes that a single scalar budget conflates, specifies what a reproducible inference protocol must declare, and releases 1.9 million traces — with the empirical section showing a selection score that makes accuracy fall from 75.56% to 65.83% as the candidate bank grows.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
+        "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
+        "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses elliptical bonuses over a language model's own hidden-state representations as a diversity signal, validates it in a clean inference-time selection setting, then transfers the same signal into RL post-training — where it eliminates the diversity collapse that degrades pass@k at large k.",
+        "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that Shannon entropy is the wrong criterion for picking which tokens to train on in RLVR, and selects tokens instead by the Jensen-Shannon divergence of their logit distribution from the group average, updating only the top 10% of these 'unique' tokens.",
+        "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
+        "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
+        "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
+        "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A systematic empirical study of entropy in RLVR that finds entropy correlates with response diversity but only weakly and inconsistently with accuracy, identifies clipping thresholds, off-policy updates and data diversity as its drivers, and argues positive-advantage tokens are what collapses it.",
+        "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that greedy decoding is not deterministic across hardware: changing GPU type, GPU count or evaluation batch size shifts a reasoning model's AIME'24 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16, because floating-point addition is non-associative.",
+        "title": "Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives two aggregation algorithms whose failure probability provably decays to zero as inference compute grows, assuming only that the model can sometimes be right and can compare two solutions better than chance.",
+        "title": "Provable Scaling Laws for the Test-Time Compute of Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that base models win pass@K on mathematics by producing wrong chains that land on right answers, and that scoring the chain too — CoT-Pass@K — reverses the verdict in RLVR's favour at every K.",
+        "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'pass@k'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "pass@k",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "pass@k",
+    "source_count": 15
+  },
+  "task_id": "concept__pass-k",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A rule-based deductive logic set, used in this archive by two papers with very different purposes and one shared caution about how its numbers are produced. The 1.58-bit quantization paper uses it as the scientific-logic arm of its evaluation and turns it into evidence about calibration rather than about logic: adding 256 ProofWriter training examples to the calibration mix moves the average from 39.50 to 82.21, against 84.92 for the full-precision model, so what the quantized model can still do depends on what it was calibrated on. ReLIT reports 98.60 on it as a theorem-finding set, far above the 82.40 of the best reasoning LLM in the same table -- but the archive's reading of that paper records that ReLIT was trained on 5,000 ProofWriter examples while every LLM number in the table is few-shot from GLoRE, so the comparison is not like for like. ReLIT's adaptive halting also uses the fewest recursion steps on it, 3.6 against 5.2 on RuleTaker and 7.8 on NaN-NLI, which that paper reads as the task being the least demanding of the four.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md)

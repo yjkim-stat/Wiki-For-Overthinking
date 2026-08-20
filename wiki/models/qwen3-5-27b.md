@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 27-billion-parameter Qwen model that appears in this archive as a comparison point in two papers, and whose most informative appearance is a near-null result. In the claim-level reliability work it is one of four models on competition mathematics, and the one already above 90 on three of its benchmarks: it gains at most 2.60 with a largest token saving of 14.5 percent, and the archive's reading records that the paper's headline framing rests on a different, weaker model while this one gains almost nothing -- so the method's benefit is conditional on the base consensus being unreliable. It is separately listed among the models LatentGuard compares itself against. Neither source describes the model itself.
 
 - **Kind**: model
+- **Also called**: Qwen3.5-27B
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

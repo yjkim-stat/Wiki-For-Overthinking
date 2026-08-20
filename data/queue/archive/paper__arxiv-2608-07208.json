@@ -1,0 +1,139 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-07208.pdf"
+  },
+  "completed_at": "2026-08-20T12:18:57Z",
+  "created_at": "2026-08-13T11:13:12Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-interpretability: Reasoning Interpretability — What the computation behind reasoning looks like from the inside: circuits and the attention heads that carry them, features recovered by sparse dictionary learning, and the causal interventions used to establish that a component or a written state matters. The question the archive answers is which claims about a model's internal reasoning the available intervention methods can actually support, and at what granularity.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.07208",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Existing measures of how much a text is about a concept read the surface of the text: dictionary word shares, topic proportions, embedding similarities. They score the words a text uses, not the judgment a reader forms about it. Recent work has shown that a gap exists in what Large Language Models (LLMs) know internally versus what they express in their response. This paper asks whether that internal knowledge, read by monitoring the activations of frozen, out-of-the-box LLMs, can stand in for task-specific fine-tuning when measuring concept content, and which extraction method reads it best. We extract such measures via the Recursive Feature Machine (RFM) algorithm and via linear probing, and compare these against an embedding baseline, surface baselines, and the same model's own answer to the question. We demonstrate the approach on financial text, a domain studied extensively and served by established annotated resources, using a human-annotated Environmental, Social and Governance (ESG) dataset. The best linear probe comes within 0.6 percentage points of a fine-tuned domain classifier's accuracy without any task-specific fine-tuning, and outscores the same model's own answer to the question in eleven of twelve comparisons, so the activations carry concept content the response does not report. The simple probe consistently beats the RFM concept vectors, which in turn provide what classification alone does not: a continuous score intended to reflect how strongly a concept is present in a text, whose validation awaits graded labels.",
+    "authors": [
+      "Luc Hazenoot",
+      "Zhaochun Ren",
+      "Amirhossein Zohrehvand"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG",
+      "econ.GN"
+    ],
+    "matched_keywords": [
+      "linear probe",
+      "linear probing"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.07208v1",
+    "published": "2026-08-07",
+    "scores": {
+      "reasoning-interpretability": 0.5714
+    },
+    "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes",
+    "url": "https://arxiv.org/abs/2608.07208",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "linear representation hypothesis",
+      "linear probing",
+      "concept vector",
+      "activation monitoring",
+      "residual stream",
+      "token pooling",
+      "linear separability",
+      "ridge regression",
+      "PCA",
+      "verbalized versus internal knowledge"
+    ],
+    "contributions": [
+      "A linear probe on the frozen activations of an out-of-the-box LLM measures ESG concept content within 0.6, 1.0 and 2.1 accuracy points of classifiers fine-tuned for the task, with no gradient updates to the language model and about five minutes of GPU time per pillar.",
+      "Two comparisons that rule out cheaper explanations for that margin: the probe outscores the same model's own yes-or-no answer in eleven of twelve model-pillar combinations by 0.043 AUC, and outscores the RFM concept vectors in eleven of twelve when both see identical training and test splits.",
+      "A negative result against the authors' own stated expectation: the RFM concept-vector method of Beaglehole et al. does not transfer as the strongest activation-based extractor in this domain, and on the Social pillar falls below a plain embedding baseline.",
+      "Evidence that the prompt wrapper, not the extractor, is the least controlled part of the pipeline, moving accuracy across a 9.4-point range with everything else held fixed."
+    ],
+    "datasets": [
+      "ESG 2k expert-annotated dataset (Schimanski et al. 2024)"
+    ],
+    "limitations": "Stated: the wrapper text is the least controlled step and moves accuracy across a 9.4-point range with model, dataset and method held fixed, and the best wrapper differs by model; only six wrappers were searched, so how much better either method could do is unknown, and this weighs more on RFM than on the probe because a concept vector must carry the concept on its own and a weak wrapper costs it twice. The continuous RFM score -- the concept vectors' main claim to a job the probe cannot do -- is reported as a distribution rather than validated, because current ESG datasets including this one carry only binary labels, so whether the score tracks degree remains untested. ESG is a niche financial subdomain and smaller models likely saw little of it, which the authors read in their own results from Environmental scoring above Governance throughout. The Gemma-4-31b probe is missing from every table because the kernel ran out of memory; the authors report that on adequate hardware it lands at or just below the best Qwen configuration, so the gap is coverage rather than a conclusion. Not stated but worth noticing: the RFM accuracy and F1 in the main tables come from a threshold swept on the split being reported rather than frozen on validation, making them the best attainable on that split -- the authors disclose this and quantify the cost (0.011 accuracy and 0.025 F1 on average, worst case 0.038 and 0.136), but the headline RFM numbers are still optimistic in a way the probe's cross-validated numbers are not. The stacked probe also buys less than its complexity implies: on Environmental the best single layer is within one AUC point of the full stack, and that layer sits mid-network rather than at the end.",
+    "method": "Frozen decoder-only models are run over each labelled sentence wrapped in a fixed statement that names the target concept, and the per-layer activations are pooled to one vector per layer by last-token, mean or max pooling. Two supervised extractors are compared on those activations. Linear probing uses a stacked design: a RidgeClassifier with strong L2 regularisation per layer (31 layers for Llama-3.1-8B, 35 for Qwen-3-8B, 39 for Qwen-3-14B, the earliest layer excluded), then a logistic-regression meta-learner over the per-layer decision scores, trained under nested cross-validation -- an outer 5-fold stratified loop for scoring, an inner 5-fold loop producing out-of-fold scores as meta-features, with standardisation fitted inside each fold. The Recursive Feature Machine (RFM) extractor instead fits a non-linear predictor, computes the Average Gradient Outer Product (AGOP) matrix, and takes its top 5 eigenvectors by eigendecomposition as concept vectors; each is sign-oriented against the training labels, a new sentence is scored by per-layer cosine similarity averaged over layers and then over the five vectors, min-max scaled to [-1,1], and thresholded. Baselines are an embedding model (Qwen-3-embedding-8b features into logistic regression), surface measures (a concept-word dictionary, a 25-topic model, TF-IDF with logistic regression), the fine-tuned classifiers published with the dataset, and -- the comparison the premise rests on -- the same model's own yes/no answer to the same question, scored by the probability it assigns 'Yes' against 'No' so it yields a directly comparable AUC.",
+    "methods": [
+      "linear probing",
+      "Recursive Feature Machine",
+      "Average Gradient Outer Product",
+      "concept vectors",
+      "ridge regression",
+      "logistic regression",
+      "stacked generalisation",
+      "nested cross-validation",
+      "token pooling",
+      "TF-IDF",
+      "topic modelling",
+      "dictionary methods"
+    ],
+    "models": [
+      "Llama-3.1-8B-Instruct",
+      "Qwen-3-8B-Instruct",
+      "Qwen-3-14B-Instruct",
+      "Gemma-4-31b-it",
+      "Qwen-3-embedding-8b",
+      "EnvRoBERTa",
+      "SocRoBERTa",
+      "GovRoBERTa",
+      "EnvDistilRoBERTa",
+      "SocDistilRoBERTa",
+      "GovDistilRoBERTa"
+    ],
+    "one_liner": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+    "problem": "Measures of how much a text is about a concept read the text's surface -- dictionary word shares, topic proportions, embedding similarity -- so they score the words a text uses rather than the judgment a reader forms about it, and they fail wherever a concept resists enumeration. LLMs are known to encode more internally than they express in their responses, and the linear representation hypothesis says concepts are accessible as directions in activation space, but applied work still builds measures on model outputs or embeddings. What was missing was a controlled head-to-head on an applied benchmark: which extractor reads the activations best, and how close a frozen model gets to a classifier fine-tuned for the task.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-interpretability": "A rare like-for-like comparison of two extraction methods on the same activations, which is the kind of evidence the archive needs in order to say what a probing result actually supports. Three things it settles. First, it makes the 'the model knows more than it says' claim measurable rather than rhetorical by putting the probe against the strongest fair baseline -- asking the same model the same question and scoring its own Yes/No probability -- and the probe wins eleven of twelve by 0.043 AUC. That is the comparison most probing work in the archive omits, and it should be the default demand. Second, it shows that method sophistication is not the axis that matters: RFM concept vectors, which come out of a Science paper on universal steering and monitoring, lose consistently to plain ridge probes even on identical splits, and on one pillar fall below a plain embedding baseline. Third, and most useful as a caution, it draws the line where the internal-representation story stops working: dictionary counts and topic models are far behind (0.128 and 0.373 F1 against 0.757), but a tuned TF-IDF classifier reaches 0.894 AUC and beats every RFM configuration, so 'reads judgment rather than surface' holds only against measures that count concept words, not against any classifier free to exploit lexical cues. The paper states this against its own interest. Two further findings bear on how the archive should read probe evidence generally: the prompt wrapper alone moves accuracy across 9.4 points, meaning a probing number is a property of a pipeline rather than of a model, and the stacked-over-layers architecture is within one AUC point of a single well-chosen mid-network layer on the easy pillar -- consistent with the archive's other evidence that the reportable content sits in intermediate layers. The domain is financial text rather than reasoning traces, so nothing here bears directly on chains of thought; what transfers is the evidentiary standard."
+    },
+    "results": "Linear probing on frozen activations comes within 0.6, 1.0 and 2.1 accuracy points of the best fine-tuned classifier on the Environmental, Social and Governance pillars: 0.951 (Qwen-3-8B, last token) against EnvRoBERTa's 0.957; 0.924 (Qwen-3-14B, max pooling) against SocRoBERTa's 0.934; 0.876 (Qwen-3-8B, max pooling) against GovDistilRoBERTa's 0.897. The fine-tuned models still lead on every pillar. Against the model's own answer to the same question, the probe wins eleven of twelve model-pillar combinations by 0.043 AUC on average, the exception being a tie (0.975 vs 0.978, Llama-3.1-8B on Environmental) -- this is the paper's direct evidence that activations carry concept content the response does not report. RFM concept vectors clear that same bar in only seven of twelve. The head-to-head between extractors goes to the probe: best RFM is 0.946 / 0.886 / 0.866 across the pillars, and when the probe is retrained on exactly RFM's split (same 1,000 train, 500 test sentences) it still leads in eleven of twelve combinations by 2.9 accuracy points on average, so the ordering is the extraction method rather than the evaluation protocol. This reverses the authors' stated expectation that RFM would transfer as the strongest activation method. Within RFM, the first concept vector beats the mean of the top five on accuracy in eleven of twelve combinations, which the authors call counterintuitive and explain only tentatively; larger models do better, with Gemma-4-31b matching or beating every other model on accuracy on every pillar. Surface baselines sit far below: a concept-word dictionary reaches 0.128 F1 on Governance against the best probe's 0.757, and a 25-topic model 0.373. TF-IDF with logistic regression is a much harder baseline at 0.894 AUC on Governance -- above every RFM configuration -- though still 2.0 accuracy points behind the best probe there and 6.9 and 6.0 behind on Environmental and Social. The authors draw the boundary themselves: the surface-versus-judgment distinction holds against measures that count concept words, not against a classifier free to learn whatever lexical cues the labels carry. Cost on a single H100: under four minutes to extract activations and fit concept vectors per model-pillar, about five for the full nested-cross-validation probe. All results are software-only on a released annotated corpus; no human evaluation was rerun.",
+    "tags": [
+      "linear-probing",
+      "concept-vectors",
+      "activation-monitoring",
+      "rfm",
+      "esg",
+      "frozen-model",
+      "finance-nlp"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-07208",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability"
+  ]
+}

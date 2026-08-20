@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Finds that ternary post-training quantization of a reasoning model collapses because the calibration set is web text, and repairs it by calibrating on chain-of-thought traces the target model generates for itself.",
+        "title": "Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+        "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework",
+        "topics": [
+          "reasoning-training",
+          "reasoning-evaluation",
+          "reasoning-faithfulness"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:24:13Z",
+  "created_at": "2026-08-13T12:45:28Z",
+  "instructions": "Write the wiki definition for 'ProofWriter'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "ProofWriter",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "ProofWriter",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A rule-based deductive logic set, used in this archive by two papers with very different purposes and one shared caution about how its numbers are produced. The 1.58-bit quantization paper uses it as the scientific-logic arm of its evaluation and turns it into evidence about calibration rather than about logic: adding 256 ProofWriter training examples to the calibration mix moves the average from 39.50 to 82.21, against 84.92 for the full-precision model, so what the quantized model can still do depends on what it was calibrated on. ReLIT reports 98.60 on it as a theorem-finding set, far above the 82.40 of the best reasoning LLM in the same table -- but the archive's reading of that paper records that ReLIT was trained on 5,000 ProofWriter examples while every LLM number in the table is few-shot from GLoRE, so the comparison is not like for like. ReLIT's adaptive halting also uses the fewest recursion steps on it, 3.6 against 5.2 on RuleTaker and 7.8 on NaN-NLI, which that paper reads as the task being the least demanding of the four.",
+    "kind": "dataset",
+    "related": []
+  },
+  "task_id": "concept__proofwriter",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training"
+  ]
+}

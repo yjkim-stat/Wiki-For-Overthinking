@@ -45,7 +45,7 @@ The paper has no limitations section but states several bounds in place. Fixed-t
 
 ## Entities
 
-- **Concepts**: answer-evidence gap, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), KV cache compression, [auditability](../../../../wiki/concepts/auditability.md), perturbation faithfulness, answer-chain consistency, LLM-as-a-judge, [causal intervention](../../../../wiki/concepts/causal-intervention.md)
+- **Concepts**: answer-evidence gap, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [post-hoc rationalization](../../../../wiki/concepts/post-hoc-rationalization.md), KV cache compression, [auditability](../../../../wiki/concepts/auditability.md), perturbation faithfulness, answer-chain consistency, LLM-as-a-judge, causal intervention
 - **Methods**: fixed-trace replay, SnapKV, StreamingLLM, KIVI, AdaKV, HeadKV, LagKV, PyramidKV, TOVA
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), MedCalc-Bench, RULER
 

@@ -1,0 +1,172 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Holds one completed reasoning run fixed and varies only what a monitor is allowed to inspect — response, self-summary, full trace, internals — and finds the summary's value nearly vanishes once the monitor already has the prompt, so monitorability is a property of the display and the reader jointly rather than of the text.",
+        "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+        "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tags every sentence of a reasoning trace by its function and studies the sequence rather than the content, finding that failing SAT traces collapse into repetitive verification and commit early, that failing UNSAT traces run the wrong procedure entirely, and that a prompt naming the missing procedure recovers 84.6% of them.",
+        "title": "The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.",
+        "title": "LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+        "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first benchmark comparing CoT monitorability under explicit versus implicit influence, finding detection falls 41-46 points when the prompt never instructs the model to hide anything.",
+        "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether latent CoT destroys monitorability, and finds monitorability depends more on the task and on access to internals than on whether reasoning is explicit or latent.",
+        "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A trustworthiness benchmark for reasoning models over truthfulness, safety and efficiency, using training paradigm as an analytical axis, and finding reasoning models more fragile than plain LLMs to reasoning-induced risks.",
+        "title": "Red Teaming Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects synthetic reasoning into a model's trace, shows the injection changes the answer, then shows the model refuses to admit it and fabricates an unrelated explanation instead.",
+        "title": "Reasoning Traces Shape Outputs but Models Won&apos;t Say So",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Automates the hijacking of a reasoning model's own safety reasoning by using a weaker, less-aligned model to simulate execution reasoning and refining attacks from patterns leaked in refusals.",
+        "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Benchmarks whether reasoning models follow instructions inside their reasoning traces, finding under 25% compliance at best and worse as difficulty rises.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that faithfulness alone is insufficient for CoT monitoring and adds verbosity — whether the trace lists every factor needed to solve the task — combining the two into a monitorability score, then shows models can look faithful while omitting key factors.",
+        "title": "Measuring Chain-of-Thought Monitorability Through Faithfulness and Verbosity",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures each CoT step's causal contribution by truncating the trace and forcing an answer, finds reasoning crosses a sharp single-step 'commitment boundary' after which the answer probability stops moving, and trains activation probes to detect that boundary and exit early.",
+        "title": "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'monitorability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "monitorability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "monitorability",
+    "source_count": 14
+  },
+  "task_id": "concept__monitorability",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

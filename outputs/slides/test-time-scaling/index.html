@@ -258,9 +258,9 @@ th { background: var(--surface); }
 <li><strong>GRPO</strong></li>
 <li><strong>LLM-as-a-judge</strong></li>
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
+<li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
-<li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 </ul>
 </section>
 <section class="slide">
@@ -280,20 +280,20 @@ th { background: var(--surface); }
 <li><strong>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</strong> — The paper&#x27;s own scope limits are stated in the method rather than a section. CLR only reweights already-parsed candidates, so it cannot recover a correct ans...</li>
 <li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
 <li><strong>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</strong> — The paper is unusually direct about scope: it states that gains of 1-2 pp may not justify a 2-6x cost increase, and that TTA is most valuable when baseline a...</li>
+<li><strong>Persistent Semantic Entities in Tool-Augmented LLM Systems</strong> — Stated: the panel mixes inference backends (local, vendor APIs, OpenRouter), so rates are per-condition characterisations rather than vendor leaderboards, an...</li>
 <li><strong>Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning</strong> — The reported gains are concentrated on small open-weight models, and the headline example is a 1.5B model; whether refinement still beats resampling when the...</li>
 <li><strong>Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings</strong> — The 41-46 point drop is reported for two of four settings, so the effect is not uniform across task formats and the other two are not characterized in the ab...</li>
-<li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>The Calibration Floor: Format Repair Can Masquerade as Self-Correction at Small-to-Mid Scale</strong> — The frontier arm is stated to be lower-powered. Two large-effect cells retain an unexplained residual after grammar-constrained decoding. The calibration-flo...</li>
 <li><strong>ODRA: Synthesizing Cognitive Behavioral Therapy Sessions with Structured Chain-Of-Thought and Dynamic Patient Resistance</strong> — No numeric margins are given for the automated evaluations; the headline evidence is a preference count over 13 metrics. Expert preference is not reported wi...</li>
 <li><strong>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</strong> — &#x27;Largely preserving accuracy&#x27; is not quantified in the abstract, so the accuracy cost of the 37-65% token reduction is unstated. Models and benchmarks are no...</li>
 <li><strong>Interpretable Adaptive Sampling for LLM Test-Time Scaling</strong> — The paper is candid about most of this in the text. The accuracy differences are within overlapping marginal confidence intervals, and the authors note that...</li>
 <li><strong>Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility</strong> — The paper is a formalization and a resource rather than a claim about which method is best, and it says so throughout — the empirical numbers are described a...</li>
 <li><strong>Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates</strong> — The paper states them: the method inherits whatever ambiguity its vision-language safety encoder has, and it updates the conditioning from the safety signal...</li>
-<li><strong>The Tell-Tale Trace: Detecting Reasoning Failures in LLMs Using Chain-of-Thought Dynamics</strong> — The limitations section is unusually thorough and should be read as part of the result. The interpretation is behavioural: the trace carries information abou...</li>
 </ul>
 </section>
 <section class="slide">

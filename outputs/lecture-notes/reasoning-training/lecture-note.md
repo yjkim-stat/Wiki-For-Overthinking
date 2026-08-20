@@ -143,24 +143,24 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | Method | Sources | Summary |
 | --- | ---: | --- |
 | GRPO | 36 | _pending_ |
-| LLM-as-a-judge | 29 | _pending_ |
+| LLM-as-a-judge | 30 | _pending_ |
 | supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 22 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | self-consistency | 19 | _pending_ |
 | test-time scaling | 18 | _pending_ |
-| activation patching | 16 | _pending_ |
+| activation patching | 17 | _pending_ |
 | chain-of-thought prompting | 15 | _pending_ |
 | pass@k | 15 | _pending_ |
+| activation steering | 14 | _pending_ |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
-| activation steering | 13 | _pending_ |
 | majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
 | causal intervention | 11 | _pending_ |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
+| sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | process reward model | 9 | _pending_ |
-| sparse autoencoder | 9 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 
 ## Benchmarks and datasets

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An encoder-only pretrained language model that appears in this archive as the fine-tuned baseline newer methods are measured against, and which they do not always beat. In ReLIT's comparison a fine-tuned RoBERTa scores 90.02 on NaN-NLI, the strongest entry in that table, against 55.20 for ReLIT itself and 71.55 for the strongest listed reasoning model -- so on that natural-language-inference set a task-specific encoder remains ahead of both recursive latent reasoning and large reasoning LLMs. The intent-classification study uses an end-to-end fine-tuned RoBERTa as one of its training-based baselines, against training-free classifiers computed from activations already produced during prefill. Neither source studies the model itself; both use it to mark what task-specific supervised training already achieves.
 
 - **Kind**: model
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md)

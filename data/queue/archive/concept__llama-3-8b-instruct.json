@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
+        "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+        "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T12:24:12Z",
+  "created_at": "2026-08-14T07:58:09Z",
+  "instructions": "Write the wiki definition for 'Llama-3-8B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama-3-8B-Instruct",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Llama-3-8B-Instruct",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama-3-8B-Instruct",
+      "Llama-3-8B-it"
+    ],
+    "definition": "An 8-billion-parameter instruction-tuned Llama model, used in this archive as an evaluation subject in two unrelated settings. TQLite includes it among nineteen models benchmarked under one MQM prompt as translation-quality judges. The per-instance activation steering paper makes it the primary of its two models over six binary persona traits, and it is where that paper's central claim is strongest: the label-free deployable recipe recovers 93 percent of the exhaustive steerable lift, exceeds the gold-aware global oracle on five of six tasks despite having no labels, and never drives a trait-model cell below its unsteered baseline where the fixed global rules do so on four cells. The contrast with the same paper's second model, where the recipe recovers only 65 percent, is the cross-model dissociation its mechanistic account is built to explain.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__llama-3-8b-instruct",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The name both sources give to a long chain of thought moving away from what it should be tracking as it lengthens, and neither defines it operationally or measures it directly. PAMT addresses it by giving each reasoning step a potential -- the teacher-forced log-likelihood of the reference translation under a frozen reference policy, conditioned on the prompt plus the first k steps -- so a step whose potential falls is one that has drifted, with the per-step gain taken as the difference of consecutive potentials. ThinkRetrieve pairs it with error compounding as the failure that in-trace retrieval of complete solved exemplars at every step is meant to arrest, and offers as evidence that in-trace exemplars lower the predictive entropy of the generated answer relative to sequential scaling. The term is used loosely in both: it names the failure a mechanism is aimed at rather than a quantity either paper reports.
 
 - **Kind**: concept
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

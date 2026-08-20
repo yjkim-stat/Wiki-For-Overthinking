@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Llama-3.2-1B"
+    "Llama-3.2-1B",
+    "Llama 3.2 1B"
   ],
   "definition": "A 1B model from the Llama-3.2 family, appearing in both sources as a small-scale subject. One uses it as the weakest rung of a visualization study, where its reasoning accuracy on AQuA is 15.8% and its trajectories converge slowly with low consistency and high uncertainty. The other builds a step-level sparse autoencoder on it and finds its features markedly sparser and less shared across steps than the comparable Qwen model (15.65% activation ratio, Jaccard 0.3052), with 40.4% of features attributed to reasoning rather than calculation or resolution — read there as the model attending more to the explicit chain of thought.",
   "evidence": [
@@ -9,6 +10,12 @@
       "kind": "paper",
       "note": "Compares two training-free intent classifiers built from summary statistics of prefill-time activations against trained heads on the same features, and finds the trade-off is not accuracy but where each fails — trained heads win fine-grained distinctions, statistical ones give better uncertainty on mixed prompts and survive adversarial rephrasing that collapses the trained heads to zero.",
       "title": "Training-Free versus Training-Based Intent Classification in LLMs: Accuracy, Robustness, and Failure Modes"
+    },
+    {
+      "id": "arxiv:2608.06638",
+      "kind": "paper",
+      "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
+      "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering"
     },
     {
       "id": "local:1b977d02353e100b",
@@ -25,7 +32,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "model",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T12:24:18Z",
   "name": "Llama-3.2-1B",
   "related": [
     "intent-classification",
@@ -59,6 +66,30 @@
     "gpt-5",
     "gpt-5-nano",
     "gpt-4o",
+    "logit-lens",
+    "tuned-lens",
+    "activation-patching",
+    "activation-steering",
+    "difference-in-means-direction",
+    "residual-stream",
+    "steering-specificity",
+    "linear-separability",
+    "selectivity-control",
+    "sparse-autoencoder",
+    "difference-in-means-steering",
+    "activation-addition",
+    "bidirectional-two-orientation-steering-protocol",
+    "vocabulary-mass-analysis",
+    "norm-relative-steering",
+    "control-task-selectivity-probing",
+    "krumhansl-schmuckler-key-estimation",
+    "remi-tokenization",
+    "amt-tokenization",
+    "syntheory",
+    "midicaps",
+    "text2midi",
+    "midi-llm",
+    "flan-t5",
     "reasoning-trajectory",
     "intermediate-state",
     "answer-space-distance-features",
@@ -84,7 +115,6 @@
     "llama-3-1-8b",
     "llama-3-1-70b",
     "qwq-32b",
-    "sparse-autoencoder",
     "step-level-representation",
     "context-conditioned-encoding",
     "incremental-versus-background-information",
@@ -99,7 +129,6 @@
     "neuron-to-graph-n2g",
     "probe-guided-decoding",
     "self-consistency",
-    "activation-patching",
     "gsm8k-aug",
     "numinamath-cot",
     "opencodeinstruct",
