@@ -6,7 +6,8 @@
         "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
         "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,7 +15,17 @@
         "note": "A routing-layer admission policy for RL post-training that treats admitting a rollout session as a commitment of KV-cache capacity, allocates protected capacity per workload class by footprint and observed residency time, and leaves the workload mixture itself under the trainer's control.",
         "title": "Scheduling Mixed RL Rollouts Beyond Prefix Locality",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+        "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
@@ -36,11 +47,12 @@
   },
   "payload": {
     "name": "long-horizon agency",
-    "source_count": 2
+    "source_count": 3
   },
   "task_id": "concept__long-horizon-agency",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

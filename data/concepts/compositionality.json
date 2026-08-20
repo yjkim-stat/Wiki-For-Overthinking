@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "arxiv:2608.11716",
+      "kind": "paper",
+      "note": "Constructs explicit two-layer hard-attention Transformer decoders that execute depth-first search and Dijkstra's algorithm step by step under chain of thought, then reuses those traversals as a substrate to compute two branching-complexity measures of a tree in a linear number of steps, without layer normalisation or positional encodings.",
+      "title": "Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity"
+    },
+    {
       "id": "local:6252abed1b134f57",
       "kind": "paper",
       "note": "Shows that transformers can learn implicit multi-step reasoning over stored knowledge, but only through grokking — extended training far past overfitting — and that whether the resulting circuit generalizes out of distribution depends on the reasoning type, succeeding for comparison and failing for composition.",
@@ -11,9 +17,24 @@
   ],
   "first_seen": "2026-08-08T06:13:28Z",
   "kind": "concept",
-  "last_seen": "2026-08-10T22:47:38Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "compositionality",
   "related": [
+    "chain-of-thought-expressivity",
+    "circuit-complexity",
+    "bounded-depth-transformers",
+    "hard-attention",
+    "strahler-number",
+    "tree-width",
+    "representation-transfer",
+    "vc-dimension",
+    "chain-of-thought-prompting",
+    "depth-first-search",
+    "breadth-first-search",
+    "dijkstra-s-algorithm",
+    "hard-attention-transformer-decoder",
+    "bilinear-maps",
+    "tree-to-dyck-path-bijection",
     "grokking",
     "implicit-reasoning",
     "parametric-memory",
@@ -25,16 +46,17 @@
     "memorization",
     "causal-analysis",
     "retrieval-augmented-generation",
-    "chain-of-thought-prompting",
     "synthetic-knowledge-base-composition",
     "synthetic-knowledge-base-comparison",
     "gpt-4-turbo",
     "gemini-1-5-pro"
   ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "compositionality",
   "topics": [
-    "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling",
+    "reasoning-faithfulness"
   ]
 }

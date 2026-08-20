@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "A routing-layer admission policy for RL post-training that treats admitting a rollout session as a commitment of KV-cache capacity, allocates protected capacity per workload class by footprint and observed residency time, and leaves the workload mixture itself under the trainer's control.",
       "title": "Scheduling Mixed RL Rollouts Beyond Prefix Locality"
+    },
+    {
+      "id": "arxiv:2608.11772",
+      "kind": "paper",
+      "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+      "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction"
     }
   ],
   "first_seen": "2026-08-20T14:26:24Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:37:32Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "long-horizon agency",
   "related": [
     "credit-assignment",
@@ -69,12 +75,33 @@
     "swe-verified",
     "swe-mtlg",
     "step3-7",
-    "qwen3-6-35b-a3b"
+    "qwen3-6-35b-a3b",
+    "self-correction",
+    "failure-diagnosis",
+    "recovery-policy",
+    "adaptive-compute-allocation",
+    "tool-orchestration",
+    "intervention-matching",
+    "selective-prediction",
+    "darc",
+    "in-context-learning",
+    "miprov2",
+    "gepa",
+    "ace",
+    "on-policy-self-distillation",
+    "retrieval-augmented-generation",
+    "alfworld",
+    "appworld",
+    "xbrl-finance-finer-tags-formula-extraction",
+    "deepseek-v4-flash",
+    "qwen3-5-27b",
+    "qwen3-8b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "long-horizon-agency",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

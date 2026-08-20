@@ -45,7 +45,7 @@ The paper states no limitations section. Reader-visible limits: training is on o
 
 ## Entities
 
-- **Concepts**: [tool learning](../../../../wiki/concepts/tool-learning.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), reward granularity, [process reward](../../../../wiki/concepts/process-reward.md), cross-lingual transfer, [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), model selection, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md)
+- **Concepts**: [tool learning](../../../../wiki/concepts/tool-learning.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), reward granularity, [process reward](../../../../wiki/concepts/process-reward.md), [cross-lingual transfer](../../../../wiki/concepts/cross-lingual-transfer.md), [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), model selection, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md)
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), argument-factorized reward, hierarchical step reward, token-level reward weighting
 - **Datasets**: Berkeley Function Calling Leaderboard (multilingual extension), MGSM
 

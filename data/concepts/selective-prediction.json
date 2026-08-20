@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
       "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA"
+    },
+    {
+      "id": "arxiv:2608.11772",
+      "kind": "paper",
+      "note": "Profiles the dominant failure mode of an agent task family on development data, then freezes a policy that permits only the recovery interventions matched to that failure -- so a failure decides which repair is admissible and how much evidence to spend, rather than triggering more context indiscriminately.",
+      "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction"
     }
   ],
   "first_seen": "2026-08-12T23:01:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "selective prediction",
   "related": [
     "monitorability",
@@ -91,7 +97,27 @@
     "fleming-vl-8b",
     "medmo-8b",
     "med-r1-3b",
-    "medvlm-r1-2b"
+    "medvlm-r1-2b",
+    "failure-diagnosis",
+    "recovery-policy",
+    "adaptive-compute-allocation",
+    "compute-allocation",
+    "tool-orchestration",
+    "intervention-matching",
+    "long-horizon-agency",
+    "darc",
+    "in-context-learning",
+    "miprov2",
+    "gepa",
+    "ace",
+    "on-policy-self-distillation",
+    "retrieval-augmented-generation",
+    "alfworld",
+    "appworld",
+    "xbrl-finance-finer-tags-formula-extraction",
+    "deepseek-v4-flash",
+    "qwen3-5-27b",
+    "qwen3-6-27b"
   ],
   "related_authored": [
     "abstention"
@@ -100,6 +126,7 @@
   "slug": "selective-prediction",
   "topics": [
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

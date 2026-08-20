@@ -279,22 +279,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs</strong> — The authors state three: the rationale variant depends on a stronger teacher and can propagate its biases and errors; the evaluation is mathematical reasonin...</li>
+<li><strong>Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity</strong> — The authors state: the constructions are not unique and alternatives satisfying the same requirements may exist -- demonstrated within the paper, since bilin...</li>
+<li><strong>Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction</strong> — The authors frame theirs as future work: the diagnosis is static and per-task-family, so instance-level routing for mixed-mode failures is not supported; pol...</li>
+<li><strong>Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling</strong> — The paper has no limitations section. Reader-visible limits: three student-teacher pairs, all in mathematics, all with 1.5B-to-1.7B students, so nothing esta...</li>
 <li><strong>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</strong> — The paper&#x27;s own scope limits are stated in the method rather than a section. CLR only reweights already-parsed candidates, so it cannot recover a correct ans...</li>
 <li><strong>SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward</strong> — The paper states no limitations section. What a reader should notice: the coefficient sweep is monotone over its three tested values with the chosen setting...</li>
-<li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
-<li><strong>When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs</strong> — The authors&#x27; own list is unusually complete. The Llama model&#x27;s single-sample accuracy is 0.273 against a 0.25 chance baseline, so its backfire is less surpri...</li>
-<li><strong>Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology</strong> — Stated: the demonstration is not exhaustive and other configurations remain untested; the comparison with frontier models is described as exploratory and res...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</strong> — No limitations section in the material read. What a reader should weigh first is the retrieval encoder: the related-work section cites a result that structur...</li>
+<li><strong>When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs</strong> — The authors&#x27; own list is unusually complete. The Llama model&#x27;s single-sample accuracy is 0.273 against a 0.25 chance baseline, so its backfire is less surpri...</li>
+<li><strong>Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology</strong> — Stated: the demonstration is not exhaustive and other configurations remain untested; the comparison with frontier models is described as exploratory and res...</li>
 <li><strong>FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation</strong> — Stated, and the authors are explicit that their benchmark is a diagnostic rather than a certificate. The method does not assess semantic drift in full genera...</li>
 <li><strong>XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving</strong> — Stated where it matters. The latency analysis explicitly covers only the reasoning interface and excludes perception preprocessing, trajectory postprocessing...</li>
 <li><strong>Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute</strong> — The paper is unusually direct about scope: it states that gains of 1-2 pp may not justify a 2-6x cost increase, and that TTA is most valuable when baseline a...</li>
-<li><strong>Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection</strong> — Stated and unusually mechanism-specific. Consensus cannot help when all candidates are identical, and it fails outright when the same error appears in most c...</li>
-<li><strong>Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search</strong> — The authors state four: simulation-only validation with a possibly optimistic Gaussian measurement-noise assumption; a single technology calibration point; n...</li>
-<li><strong>Consilience for Verifier-Free Test-Time Scaling</strong> — Stated in part. The authors report the gap between their frozen defaults and per-set tuning and do not hide that tuning helps, and they report the wall-clock...</li>
 </ul>
 </section>
 <section class="slide">
@@ -327,13 +327,13 @@ th { background: var(--surface); }
 <h2>References (cont.)</h2>
 <ul>
 <li>Tamera Lanham, Anna Chen, Ansh Radhakrishnan et al.. <em>Measuring Faithfulness in Chain-of-Thought Reasoning</em>. cs.AI. 2023</li>
+<li>Debanjan Dutta, Anish Chakrabarty, Swagatam Das. <em>Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity</em>. cs.LG. 2026</li>
+<li>Pan Wang, Yihao Hu, Hang Wang et al.. <em>Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction</em>. cs.CL. 2026</li>
+<li>Xinmu Ge, Zizhuo Zhang, Yu Huang et al.. <em>Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling</em>. cs.LG. 2026</li>
 <li>Sen Xu, Wei Wang, Shixi Liu et al.. <em>Claim-Level Reliability Assessment for Efficient Test-Time Reasoning</em>. cs.AI. 2026</li>
 <li>Zile Zhou, Huining Yuan, Weichen Zhang et al.. <em>SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward</em>. cs.CV. 2026</li>
 <li>Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh et al.. <em>FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation</em>. cs.CL. 2026</li>
 <li>Foundation Model Team, XPeng Inc. <em>XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving</em>. cs.AI. 2026</li>
-<li>Youssef A. Elhagrasy, Ian Hill, André Ivanov. <em>Adaptive Sequential Test Planning for Multi-Mechanism Reliability Qualification via Bayesian Monte Carlo Tree Search</em>. cs.AI. 2026</li>
-<li>Lecheng Kong, Like Hui, Haitao Mao et al.. <em>Consilience for Verifier-Free Test-Time Scaling</em>. cs.CL. 2026</li>
-<li>Rahma Simin Ali, Jawad Hossain. <em>MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models</em>. cs.AI. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

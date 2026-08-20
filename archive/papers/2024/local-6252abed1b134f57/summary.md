@@ -44,7 +44,7 @@ No standalone limitations section is present in the material read. Points a read
 
 ## Entities
 
-- **Concepts**: grokking, [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), parametric memory, generalizing circuit, memorizing circuit, systematicity, compositionality, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), circuit analysis, [memorization](../../../../wiki/concepts/memorization.md)
+- **Concepts**: grokking, [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), parametric memory, generalizing circuit, memorizing circuit, systematicity, [compositionality](../../../../wiki/concepts/compositionality.md), [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), circuit analysis, [memorization](../../../../wiki/concepts/memorization.md)
 - **Methods**: grokking, [circuit analysis](../../../../wiki/methods/circuit-analysis.md), [causal analysis](../../../../wiki/methods/causal-analysis.md), [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
 - **Datasets**: synthetic knowledge base (composition), synthetic knowledge base (comparison)
 

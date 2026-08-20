@@ -116,6 +116,12 @@
       "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
     },
     {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.788",
       "kind": "paper",
       "note": "Verifies correctness without training by comparing a reasoning trace's start-to-end hidden-state delta against two class centroids built from labelled experience.",
@@ -232,7 +238,7 @@
   ],
   "first_seen": "2026-08-09T03:21:53Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T14:34:16Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "AIME 2025",
   "related": [
     "answer-evidence-gap",
@@ -547,6 +553,18 @@
     "numinamath",
     "qwen3-5-2b",
     "e5-large",
+    "off-policy-distillation",
+    "capability-boundary",
+    "sampling-efficiency",
+    "catastrophic-forgetting",
+    "perplexity",
+    "minillm",
+    "exopd",
+    "direct-opd",
+    "qwen3-4b-base-grpo",
+    "skywork-or1-math-7b",
+    "qwen-math-1-5b",
+    "qwen-math-7b",
     "verification",
     "calibration",
     "residual-stream",
@@ -723,7 +741,6 @@
     "var-aime24",
     "var-aime25",
     "eurus-2-7b-prime",
-    "skywork-or1-math-7b",
     "simplerl-zoo-7b",
     "light-r1-7b-ds",
     "oat-zero-7b",

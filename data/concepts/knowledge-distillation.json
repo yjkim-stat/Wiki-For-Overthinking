@@ -77,6 +77,12 @@
       "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators"
     },
     {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
       "id": "arxiv:2608.11967",
       "kind": "paper",
       "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
@@ -91,7 +97,7 @@
   ],
   "first_seen": "2026-08-12T23:15:52Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:30:08Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "knowledge distillation",
   "related": [
     "self-improvement",
@@ -388,6 +394,21 @@
     "qwen2-5-coder-7b-instruct",
     "qwen3-14b",
     "llama",
+    "off-policy-distillation",
+    "capability-boundary",
+    "sampling-efficiency",
+    "catastrophic-forgetting",
+    "perplexity",
+    "gkd",
+    "minillm",
+    "exopd",
+    "direct-opd",
+    "eopd",
+    "aime-2026",
+    "qwen3-4b-base-grpo",
+    "skywork-or1-math-7b",
+    "qwen-math-1-5b",
+    "qwen-math-7b",
     "reflection",
     "outcome-reward",
     "process-reward",

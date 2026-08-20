@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Removes external supervision from on-policy self-distillation by building a pseudo-solution from the model's own majority vote and using it as privileged teacher context rather than as a scalar reward, then distilling only on the completions that disagree with it.",
       "title": "On-Policy Self-Distillation without Any Supervision"
+    },
+    {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-20T14:16:11Z",
   "kind": "method",
-  "last_seen": "2026-08-20T14:16:11Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "reverse KL divergence",
   "related": [
     "self-consistency",
@@ -38,12 +44,35 @@
     "qwen3-4b",
     "qwen3-8b",
     "qwen3-4b-instruct-2507",
-    "qwen3-30b-a3b-instruct-2507"
+    "qwen3-30b-a3b-instruct-2507",
+    "off-policy-distillation",
+    "pass-k",
+    "capability-boundary",
+    "sampling-efficiency",
+    "test-time-scaling",
+    "catastrophic-forgetting",
+    "perplexity",
+    "gkd",
+    "minillm",
+    "exopd",
+    "direct-opd",
+    "eopd",
+    "dapo-math-17k",
+    "aime-2026",
+    "qwen3-1-7b-base",
+    "qwen3-4b-base-grpo",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "skywork-or1-math-7b",
+    "justrl-deepseek-1-5b",
+    "qwen-math-1-5b",
+    "qwen-math-7b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "reverse-kl-divergence",
   "topics": [
-    "reasoning-evaluation"
+    "reasoning-evaluation",
+    "test-time-scaling"
   ]
 }

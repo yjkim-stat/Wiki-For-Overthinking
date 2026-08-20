@@ -19,6 +19,12 @@
       "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use"
     },
     {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.2201",
       "kind": "paper",
       "note": "Merges a reasoning model into a domain-specialized one after finding that reasoning ability resides in low-gradient-sensitivity parameter regions rather than high-magnitude ones.",
@@ -33,7 +39,7 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:41:51Z",
+  "last_seen": "2026-08-20T14:45:48Z",
   "name": "catastrophic forgetting",
   "related": [
     "reward-shaping",
@@ -73,6 +79,34 @@
     "mgsm",
     "qwen2-5-7b-instruct",
     "qwen2-5-32b-instruct",
+    "on-policy-distillation",
+    "off-policy-distillation",
+    "pass-k",
+    "capability-boundary",
+    "sampling-efficiency",
+    "test-time-scaling",
+    "forward-kl-divergence",
+    "reverse-kl-divergence",
+    "perplexity",
+    "gkd",
+    "minillm",
+    "exopd",
+    "direct-opd",
+    "eopd",
+    "knowledge-distillation",
+    "dapo-math-17k",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "aime-2026",
+    "qwen3-1-7b-base",
+    "qwen3-4b-base-grpo",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "skywork-or1-math-7b",
+    "justrl-deepseek-1-5b",
+    "qwen-math-1-5b",
+    "qwen-math-7b",
     "model-merging",
     "localization",
     "modularity",
@@ -94,6 +128,7 @@
   "slug": "catastrophic-forgetting",
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }
