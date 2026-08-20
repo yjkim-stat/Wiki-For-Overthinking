@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 4B general-purpose model used as a training backbone in two archived studies. In the coding-agent work it is the stronger of two backbones, reaching 58.6 average on standard code benchmarks after diff-level credit assignment against 53.7 for the strongest baseline, and 22.1 on competition benchmarks -- where the gains land on introductory and interview tiers while the hardest tiers stay near zero for every method. In the financial reasoning benchmark it is among the evaluated systems. Neither source describes the model. Its use here is as evidence that the credit-assignment result holds at two scales rather than one.
 
 - **Kind**: model
+- **Also called**: Qwen3.5-4B
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

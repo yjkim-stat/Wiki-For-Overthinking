@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "An automated jailbreak in which an attacker model iteratively rewrites a prompt against a target model using the target's responses as feedback, producing semantically coherent attacks rather than optimised token suffixes. Both sources use it as one of a battery of attacks not seen during defence construction. The safety-alignment work reports it falling from 38.75 to 1.25 percent attack success under a defence trained on mechanistic analyses of successful jailbreaks -- alongside similar drops for a human-written set and a tree-search variant -- which together establish transfer across semantic attack families; the harder case in that paper is its own agentic attack, which still reaches 18.00 percent while requiring nearly twice as many turns. The steering-vector work uses it among the attacks establishing separability of a refusal-breaking direction. Neither source describes the method beyond its iterative attacker-target loop.",
   "evidence": [
     {
       "id": "arxiv:2608.08383",
@@ -80,7 +80,10 @@
     "qwen3-235b-a22b-thinking",
     "llama-guard"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gcg",
+    "tap"
+  ],
   "schema_version": 1,
   "slug": "pair",
   "topics": [

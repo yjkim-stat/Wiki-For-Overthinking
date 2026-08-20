@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A biomedical question-answering set built from research abstracts, used in both sources as a medical benchmark among several. In the consensus-rubric work it is one of six medical benchmarks and one of the places where three-state criterion scoring gains most (6.80 points), though the final system does not lead on it -- a reminder that the method's headline is a macro-average over benchmarks that individually disagree. In the hidden-state norm work it is one of the evaluation sets for a training-free reasoning-effort proxy. Neither source describes its construction.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-interpretability](../topics/reasoning-interpretability.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

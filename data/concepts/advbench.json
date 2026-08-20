@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A set of harmful behaviour requests used as the target list for jailbreak attacks and, correspondingly, as one of the safety benchmarks a defence is scored on. Both sources here use it as one of several, and its role in this archive is as the easiest of them: the dual-adversarial defence work reports attack success falling from 65.77 to 1.92 on it -- to 0.00 on three of eight models -- while the same defences leave 9.00 to 44.75 on the harder HarmBench, so a near-zero score here is not evidence of a solved problem. The attack source uses it alongside StrongREJECT to show automated hijacking of safety reasoning. Neither describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.09542",
@@ -72,7 +72,10 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "harmbench",
+    "strongreject"
+  ],
   "schema_version": 1,
   "slug": "advbench",
   "topics": [

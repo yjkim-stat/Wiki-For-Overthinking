@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "reverse KL"
+  ],
+  "definition": "Distilling by minimising the divergence from the student to the teacher, which is mode-seeking: the student is penalised for placing mass where the teacher does not, and is free to ignore parts of the teacher's support. It is the standard objective in on-policy self-distillation, and both sources here document its cost. The unsupervised source measures a failure mode rather than a deficit: under pseudo-labels, reverse KL does not converge at all, collapsing by progressive loss of termination -- generations growing from 2.7 thousand characters at step 25 to the token ceiling from step 125, with parsable answers falling from 99 to 33 percent -- while forward KL averages 57.10. The test-time-scaling source supplies the structural reading: reverse-KL on-policy distillation raises average correctness at every sampling budget while its large-budget pass rate falls below the untrained base, and a perplexity analysis shows probability mass moving toward paths the base already supported. Mode-seeking is exactly what that describes. Variants that route forward-KL guidance to high-entropy positions while keeping reverse KL elsewhere reproduce the same pattern, so the effect belongs to on-policy training on self-generated trajectories rather than to the divergence alone.",
   "evidence": [
     {
       "id": "arxiv:2608.06296",
@@ -68,7 +70,9 @@
     "qwen-math-1-5b",
     "qwen-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "forward-kl-divergence"
+  ],
   "schema_version": 1,
   "slug": "reverse-kl-divergence",
   "topics": [

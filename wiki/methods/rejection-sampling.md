@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Generating many candidates and keeping only those passing a filter, used across these sources to manufacture supervised training data rather than to select at inference. Two of them use it to build a cold start: sampling multi-turn trajectories from a larger model and keeping about 3,000 of 7,000 that pass an evaluation, or generating reasoning traces conditioned on the ground-truth answer and admitting only those whose chain deduces that answer. The third uses it within a search agent's reflection pipeline. The caveat the archive should attach is visible in the second case: filtering traces for reaching the known answer selects for post-hoc rationalisations that happen to land correctly, so the resulting corpus is not a sample of the model's reasoning and any claim that training on it reduces fabrication has to contend with the alternative that the traces were selected for agreeing with the label.
 
 - **Kind**: method
+- **Also called**: best-of-n filtering
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 3
 

@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T14:50:13Z",
+  "created_at": "2026-08-20T14:41:53Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-Math-7B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen2.5-Math-7B-Instruct",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen2.5-Math-7B-Instruct",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Qwen2.5-Math-7B-Instruct"
+    ],
+    "definition": "A mathematics-specialised 7B instruction-tuned model, and in this archive the case where a strong domain-specific backbone changes what a method is worth. In the self-correction work it is the backbone with the largest out-of-domain gains of the seven tested -- 10.9 points on a competition set and 8.8 on an undergraduate one -- while its in-domain gains are among the smallest, which is the pattern of a model already near its in-domain ceiling. In the Bangla supervision study it is one of the strong backbones for which chain-of-thought rationales buy nothing in domain while buying 20 to 28 points out of domain, with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning. The two agree on the shape: for a specialised backbone the value of extra supervision is entirely in transfer.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__qwen2-5-math-7b-instruct",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

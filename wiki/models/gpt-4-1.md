@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A frontier model appearing in this archive as a judge rather than as a subject. It is the official evaluator for one open-ended medical benchmark, which means a result on that benchmark is a result about agreement with this model under that benchmark's rubric; and it is one of the strong systems evaluated on traceable long-document visual question answering, where the finding is about evidence grounding rather than about the model. Neither source describes the model. The reason to keep the entry is the dependency it marks: several reported gains in the archive are mediated by this specific judge at a pinned snapshot, and the archive holds separate evidence that judges disagree substantially on the class that determines the score.
 
 - **Kind**: model
+- **Also called**: GPT-4.1, gpt-4.1-2025-04-14
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

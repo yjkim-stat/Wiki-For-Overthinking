@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Addresses wasted rollouts in critic-free RL on prompts where every sampled rollout is already correct and the advantage estimate is therefore zero.",
+        "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
+        "topics": [
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T14:48:33Z",
+  "created_at": "2026-08-20T14:26:27Z",
+  "instructions": "Write the wiki definition for 'group-relative advantage'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "group-relative advantage",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "group-relative advantage",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "group-relative normalization"
+    ],
+    "definition": "Centring and scaling each rollout's reward by the mean and standard deviation of its own group, which removes the need for a learned critic and is what makes critic-free RL practical. All three sources treat its consequences rather than its definition, and between them they give the geometry. What the optimiser sees is the relative spacing of rewards within the group, not their values: a linear rescaling of the reward is cancelled by the normalisation and a nonlinear bounded one is not, so an unbounded reward lets a single outlier inflate the group standard deviation and flatten the advantages of every near-optimal sibling. Under binary rewards it is equivalent to optimising a specific transform of pass probability whose weight function is one over the square root of p(1-p), diverging at both ends, so gradient budget concentrates on prompts already solved -- measured directly at 36.4 percent of one benchmark's token-level budget on prompts above 0.9 pass rate. And a group whose members all score alike has zero advantage for every member and contributes nothing, which is 63 to 68 percent of groups in one study. The archive's reading is that group normalisation is not a neutral convenience: it fixes what the reward can express and where the gradient goes.",
+    "kind": "concept",
+    "related": [
+      "advantage estimation"
+    ]
+  },
+  "task_id": "concept__group-relative-advantage",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

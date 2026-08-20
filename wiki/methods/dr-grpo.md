@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+One of a family of published modifications to GRPO -- alongside DAPO, GSPO, CISPO and SAPO -- that address reward sparsity and length bias through changes to the optimisation procedure: reward normalisation, sample filtering, soft advantage computation. The three sources here all use it as a comparator rather than describing it, and the useful thing they establish is where that family of fixes stops. One shows these variants address symptoms of a weighting imbalance without replacing the underlying objective geometry, and derives that geometry instead. Another compares standard GRPO given a bounded reciprocal reward mapping against these variants each given the naive unbounded reward, and finds the reward-level fix ahead -- arguing that when the underlying reward is continuous and unbounded, modifying the optimiser does not repair the signal it is fed. The third uses it among the routing baselines for subjective tasks. The archive's reading is that optimisation-level and reward-level remedies are not substitutes, and that a paper reporting one should be asked whether it tried the other.
 
 - **Kind**: method
 - **Also called**: Dr.GRPO

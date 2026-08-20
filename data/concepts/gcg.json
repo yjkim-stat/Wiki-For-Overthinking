@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "greedy coordinate gradient"
+  ],
+  "definition": "A gradient-optimised jailbreak that appends a nonsensical token suffix found by coordinate search, which makes it structurally unlike semantic jailbreaks and therefore the sharpest available test of whether a defence generalises beyond the syntax it was trained on. Both sources use it that way. The safety-alignment work reports it separating baselines that otherwise look similar: one defence leaves attack success at 29.50 percent against the base model's 29.75, that is no effect at all, while others reach 3.75 and 1.25 -- and the authors read the difference as behavioural cloning of refusal patterns failing to transfer to out-of-distribution syntax. The steering-vector work uses it among the attacks establishing that the refusal-breaking component of a steering direction is separable from its intended effect. What the archive should carry is that a defence evaluated only on human-written or model-generated semantic jailbreaks has not been tested against the case where the prompt carries no readable intent at all.",
   "evidence": [
     {
       "id": "arxiv:2608.08383",
@@ -80,7 +82,9 @@
     "qwen3-235b-a22b-thinking",
     "llama-guard"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "pair"
+  ],
   "schema_version": 1,
   "slug": "gcg",
   "topics": [

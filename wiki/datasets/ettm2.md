@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The second 15-minute electricity-transformer-temperature series, the lowest-error member of the four in absolute terms (0.234 MSE for the leading method in one source). Used in both sources as part of the standard eight-benchmark long-term forecasting suite; neither describes it. In this archive it carries no independent weight beyond completing the family over which a forecasting result must be consistent.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

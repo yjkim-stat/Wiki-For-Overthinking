@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A radiology visual question answering set of 315 clinician-annotated images and about 3,500 question-answer pairs, one of the three standard medical VQA benchmarks. Its small size relative to the others is worth noting when reading margins on it. In the calibration work it is where the best system reaches 0.767 accuracy with 0.202 expected calibration error and the lowest hallucination rate of any system compared, and where the stage ablation is starkest: reinforcement learning alone scores 0.864 on closed-ended questions against the full pipeline's 0.658, a 20-point gap in the opposite direction from the paper's headline. The robustness source uses it among the sets where multimodal verifiable-reward gains are tested for survival under paraphrase and template change.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)

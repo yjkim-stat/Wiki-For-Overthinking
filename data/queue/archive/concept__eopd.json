@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T14:50:11Z",
+  "created_at": "2026-08-20T14:45:51Z",
+  "instructions": "Write the wiki definition for 'EOPD'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "EOPD",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "EOPD",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "entropy-routed on-policy distillation"
+    ],
+    "definition": "A variant of on-policy distillation that applies forward-KL guidance at positions where the teacher's distribution is high-entropy while retaining reverse-KL learning elsewhere, on the reasoning that the mode-seeking objective is worst exactly where the teacher is uncertain across several continuations. Both sources here use it as a comparator. In the skill-card study it is one of two privileged baselines, beaten by 3.04 points at 1.7B. In the test-time-scaling study it is one of four published improvements put through the same budget sweep, and it reproduces the standard pattern -- higher average correctness at every budget and higher small-budget pass rates, with large-budget pass rates at or below the untrained base model. The archive's reading is that routing the divergence by entropy improves the objective without changing what the paradigm does to the reachable set.",
+    "kind": "method",
+    "related": [
+      "on-policy distillation"
+    ]
+  },
+  "task_id": "concept__eopd",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

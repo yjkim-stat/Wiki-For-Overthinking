@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T14:48:34Z",
+  "created_at": "2026-08-20T14:45:51Z",
+  "instructions": "Write the wiki definition for 'perplexity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "perplexity",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "perplexity",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The exponentiated average negative log-likelihood a model assigns to a sequence, used in both sources as a probe of whose distribution a text belongs to rather than as a quality measure. The distillation study computes the perplexity of trajectories from a base, distilled and teacher model under both the base and teacher distributions, and reads the cross-tabulation: the distilled model's trajectories are more likely under the teacher than the base model's are, but also more likely under the base distribution than either the base's own or the teacher's -- so probability mass moved toward paths the base already supported rather than toward the teacher's unfamiliar ones. The compression study uses it as a validation rather than a result: pruning the highest-salience reasoning steps spikes the final answer's perplexity, pruning the lowest raises it marginally, and random pruning falls between, which is what licenses treating the salience ranking as meaningful. Both uses share a structure worth noting -- perplexity is informative when computed under more than one distribution, or on more than one ablation, and says little as a single number.",
+    "kind": "method",
+    "related": [
+      "salience"
+    ]
+  },
+  "task_id": "concept__perplexity",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

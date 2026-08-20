@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "JustRL-DeepSeek-1.5B"
+  ],
+  "definition": "A 1.5B reinforcement-learning-trained mathematics model used in this archive as a teacher, and specifically as the weak-teacher case. In the test-time-scaling study it is the teacher whose advantage over the student exists only at small sampling budgets, which makes it the control showing that on-policy distillation's failure to expand the capability boundary does not depend on the teacher being uniformly stronger -- the same pattern appears whether the teacher leads everywhere or only at small K. It also appears in the token-agreement work. Neither source describes its training beyond the name.",
   "evidence": [
     {
       "id": "arxiv:2608.09836",
@@ -70,7 +72,9 @@
     "qwen-math-1-5b",
     "qwen-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "skywork-or1-math-7b"
+  ],
   "schema_version": 1,
   "slug": "justrl-deepseek-1-5b",
   "topics": [

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Acting over many turns where the reward arrives only at the end, and where what makes it hard is different at each level of the stack. The three sources here occupy three of those levels. At the training-signal level, a single coding action packs several unrelated changes into one code version, so an outcome reward cannot say which change earned it -- and the fix, matching sub-parts of actions across rollouts, is worth 7.5 points while removing the trajectory-level advantage costs 20.9, so localised credit is a modifier on the terminal check rather than a replacement. At the serving level, agentic rollouts have the opposite profile from single-turn ones -- median input 37,757 tokens against 156, median output 148 against 47,583 -- and retain their key-value cache across tool-interleaved turns, which makes admitting a session a commitment of capacity rather than a placement decision. At the recovery level, a failure late in a long episode carries no diagnostic information unless something supplies it, which is why a matched recovery interface is worth 49 points where a generic playbook is worth 12. The reading is that long-horizon is not one problem: credit, capacity and diagnosis each break separately at length.
 
 - **Kind**: concept
+- **Also called**: long-horizon agents
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 3
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether the certainty a model expresses matches how often it is right. The two sources approach it from opposite ends and together mark the trap. One trains for it, adding a reward term proportional to answer-token confidence when the answer is correct and to minus that confidence when it is wrong, and reports expected calibration error falling to 0.115 on one benchmark against 0.181 for the best baseline -- but the reward optimises the same answer-token probability the metric is computed from, so the improvement is partly a check that optimisation succeeded rather than independent evidence. The other measures it and finds the failure is not a matter of degree: binning by plurality agreement, the highest-agreement bin is correct 52.5 percent of the time for one model and 28.6 for another -- lower than that model's own lowest-agreement bin, so its accuracy is not even monotone in confidence. The consequences follow immediately: any method that gates, routes or stops on the model's own confidence is reading a signal that on hard problems carries almost none of the information it needs, which is why two verifier-free gates in that study capture 0.8 percent and minus 1.6 of the available headroom.
 
 - **Kind**: concept
+- **Also called**: calibration
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

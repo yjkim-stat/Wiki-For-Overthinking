@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (196)
+## Concepts (193)
 
 - [abstention](concepts/abstention.md) — 5 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 25 source(s)
@@ -83,7 +83,6 @@
 - [grounding](concepts/grounding.md) — 5 source(s)
 - [group-relative advantage](concepts/group-relative-advantage.md) — 3 source(s)
 - [hallucination](concepts/hallucination.md) — 10 source(s)
-- [hard attention](concepts/hard-attention.md) — 2 source(s)
 - [hidden-state geometry](concepts/hidden-state-geometry.md) — 2 source(s)
 - [hindsight](concepts/hindsight.md) — 2 source(s)
 - [identifiability](concepts/identifiability.md) — 2 source(s)
@@ -132,7 +131,6 @@
 - [pattern recognition versus reasoning](concepts/pattern-recognition-versus-reasoning.md) — 2 source(s)
 - [perception bottleneck](concepts/perception-bottleneck.md) — 3 source(s)
 - [performance ceiling](concepts/performance-ceiling.md) — 2 source(s)
-- [perplexity](concepts/perplexity.md) — 2 source(s)
 - [persistent semantic entity](concepts/persistent-semantic-entity.md) — 2 source(s)
 - [policy entropy](concepts/policy-entropy.md) — 8 source(s)
 - [polysemanticity](concepts/polysemanticity.md) — 2 source(s)
@@ -176,7 +174,6 @@
 - [selection signal](concepts/selection-signal.md) — 5 source(s)
 - [selective prediction](concepts/selective-prediction.md) — 4 source(s)
 - [self-correction](concepts/self-correction.md) — 17 source(s)
-- [self-distillation](concepts/self-distillation.md) — 3 source(s)
 - [self-repair](concepts/self-repair.md) — 3 source(s)
 - [self-training](concepts/self-training.md) — 3 source(s)
 - [self-verification](concepts/self-verification.md) — 4 source(s)
@@ -209,7 +206,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (156)
+## Methods (159)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -271,6 +268,7 @@
 - [greedy decoding](methods/greedy-decoding.md) — 3 source(s)
 - [GRPO](methods/grpo.md) — 62 source(s)
 - [GSPO](methods/gspo.md) — 3 source(s)
+- [hard attention](methods/hard-attention.md) — 2 source(s)
 - [hard negative mining](methods/hard-negative-mining.md) — 2 source(s)
 - [human evaluation](methods/human-evaluation.md) — 4 source(s)
 - [importance sampling](methods/importance-sampling.md) — 3 source(s)
@@ -313,6 +311,7 @@
 - [paired bootstrap confidence intervals](methods/paired-bootstrap-confidence-intervals.md) — 2 source(s)
 - [PCA](methods/pca.md) — 6 source(s)
 - [permutation test](methods/permutation-test.md) — 5 source(s)
+- [perplexity](methods/perplexity.md) — 2 source(s)
 - [persona conditioning](methods/persona-conditioning.md) — 3 source(s)
 - [policy gradient](methods/policy-gradient.md) — 4 source(s)
 - [policy gradient masking](methods/policy-gradient-masking.md) — 2 source(s)
@@ -341,6 +340,7 @@
 - [selectivity control](methods/selectivity-control.md) — 9 source(s)
 - [self-certainty](methods/self-certainty.md) — 4 source(s)
 - [self-consistency](methods/self-consistency.md) — 28 source(s)
+- [self-distillation](methods/self-distillation.md) — 3 source(s)
 - [self-reflection](methods/self-reflection.md) — 6 source(s)
 - [semantic entropy](methods/semantic-entropy.md) — 2 source(s)
 - [soft thinking](methods/soft-thinking.md) — 2 source(s)

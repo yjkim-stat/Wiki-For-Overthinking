@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reusing the stored attention state of a shared prompt prefix across requests so that a continuation does not re-prefill what it has in common with its predecessor. Both sources treat it as the resource that decides how much reasoning fits in a budget rather than as an implementation detail. The beam-search source exploits it deliberately, branching from high-scoring prefixes so that new exploration reuses cached state and the compute freed by pruning weak traces is immediately re-spent. The serving source measures what happens when placement optimises reuse without controlling how many sessions compete for the cache: admitting new sessions expands the resident working set, evicts reusable continuations, turns later turns into cold prefill and lengthens the queue, a positive feedback loop that drives the hit rate from 92.4 percent to 4.5 at a concurrency ceiling that admission-controlled policies tolerate. It also notes that periodic weight synchronisation in RL training resets the caches every iteration, which is why an end-to-end hit rate (96.2 percent) sits below the rollout-only one (97.8).
 
 - **Kind**: method
+- **Also called**: KV cache reuse
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

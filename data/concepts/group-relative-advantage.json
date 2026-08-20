@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "group-relative normalization"
+  ],
+  "definition": "Centring and scaling each rollout's reward by the mean and standard deviation of its own group, which removes the need for a learned critic and is what makes critic-free RL practical. All three sources treat its consequences rather than its definition, and between them they give the geometry. What the optimiser sees is the relative spacing of rewards within the group, not their values: a linear rescaling of the reward is cancelled by the normalisation and a nonlinear bounded one is not, so an unbounded reward lets a single outlier inflate the group standard deviation and flatten the advantages of every near-optimal sibling. Under binary rewards it is equivalent to optimising a specific transform of pass probability whose weight function is one over the square root of p(1-p), diverging at both ends, so gradient budget concentrates on prompts already solved -- measured directly at 36.4 percent of one benchmark's token-level budget on prompts above 0.9 pass rate. And a group whose members all score alike has zero advantage for every member and contributes nothing, which is 63 to 68 percent of groups in one study. The archive's reading is that group normalisation is not a neutral convenience: it fixes what the reward can express and where the gradient goes.",
   "evidence": [
     {
       "id": "arxiv:2608.07147",
@@ -89,7 +91,9 @@
     "zero-variance-group",
     "critic-free-reinforcement-learning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "advantage-estimation"
+  ],
   "schema_version": 1,
   "slug": "group-relative-advantage",
   "topics": [

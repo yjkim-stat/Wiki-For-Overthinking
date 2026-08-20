@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Skywork-OR1-Math-7B"
+  ],
+  "definition": "A 7B reinforcement-learning-trained mathematics model, used in this archive as the strong-teacher case in a distillation study -- the setting where the teacher leads the student across benchmarks and budgets, as against a weaker teacher that leads only at small sampling budgets. That contrast is what lets the study conclude its finding does not depend on teacher strength: the student's capability boundary fails to extend past its base model either way. It also appears among the reinforcement-learning-finetuned models that lose most of their reported accuracy when a benchmark's constants are replaced by sampled variables and consistency across instantiations is required. Neither source describes its training.",
   "evidence": [
     {
       "id": "arxiv:2608.11829",
@@ -86,7 +88,9 @@
     "seed-think-v1-6",
     "openai-o4-mini-high"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "justrl-deepseek-1-5b"
+  ],
   "schema_version": 1,
   "slug": "skywork-or1-math-7b",
   "topics": [

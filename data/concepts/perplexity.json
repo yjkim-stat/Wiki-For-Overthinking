@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The exponentiated average negative log-likelihood a model assigns to a sequence, used in both sources as a probe of whose distribution a text belongs to rather than as a quality measure. The distillation study computes the perplexity of trajectories from a base, distilled and teacher model under both the base and teacher distributions, and reads the cross-tabulation: the distilled model's trajectories are more likely under the teacher than the base model's are, but also more likely under the base distribution than either the base's own or the teacher's -- so probability mass moved toward paths the base already supported rather than toward the teacher's unfamiliar ones. The compression study uses it as a validation rather than a result: pruning the highest-salience reasoning steps spikes the final answer's perplexity, pruning the lowest raises it marginally, and random pruning falls between, which is what licenses treating the salience ranking as meaningful. Both uses share a structure worth noting -- perplexity is informative when computed under more than one distribution, or on more than one ablation, and says little as a single number.",
   "evidence": [
     {
       "id": "arxiv:2608.11829",
@@ -16,7 +16,7 @@
     }
   ],
   "first_seen": "2026-08-09T06:51:53Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T14:45:48Z",
   "name": "perplexity",
   "related": [
@@ -71,7 +71,9 @@
     "math500",
     "math"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "salience"
+  ],
   "schema_version": 1,
   "slug": "perplexity",
   "topics": [

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A frontier instruction-tuned model appearing in this archive in two evaluator roles rather than as a subject. In the legal statute work it is one of four models compared on prediction with explanation, where it attains an expert alignment rating of 3.51 of 4 against GPT-4's 3.91, and where its automatic explanation metrics are the lowest of the four -- one of the cases the archive holds where automatic and expert orderings disagree. In the persistent-entity work it is among 24 models measured for whether injected contamination decays across session boundaries, a study whose finding is that decay depends on the kind of contamination rather than on model scale or deployment. It appears elsewhere as one of three independent rubric generators whose unanimous agreement defines a consensus criterion. Neither source describes the model itself.
 
 - **Kind**: model
-- **Also called**: Claude Sonnet 4
+- **Also called**: Claude Sonnet 4, Claude Sonnet 4.5, claude-sonnet-4-5
 - **Topics**: [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

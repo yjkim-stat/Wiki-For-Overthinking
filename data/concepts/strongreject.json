@@ -2,7 +2,7 @@
   "aliases": [
     "StrongReject"
   ],
-  "definition": "",
+  "definition": "A jailbreak benchmark whose scoring is designed to reject responses that comply in form without supplying actionable content, which makes it stricter than a benchmark scoring refusal alone. Both sources use it among several safety sets. In the dual-adversarial defence work it shows the widest spread across models of the four benchmarks used -- attack-success reductions from 7.03 to 61.98 points -- which reflects that the base models start at very different points on it (7.03 percent for one, 84.03 for another), so an absolute reduction on this benchmark is uninterpretable without the base rate. The attack source uses it to demonstrate automated hijacking of safety reasoning. Neither describes its construction.",
   "evidence": [
     {
       "id": "arxiv:2608.09542",
@@ -74,7 +74,10 @@
     "gpt-o4-mini",
     "gemini-2-5-flash"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "harmbench",
+    "advbench"
+  ],
   "schema_version": 1,
   "slug": "strongreject",
   "topics": [

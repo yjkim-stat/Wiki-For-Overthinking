@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a capability trained in one language appears in another. Both sources train in one language and evaluate in others, and both find the transfer real but unevenly distributed. The distillation source concentrates its privileged supervision on tokens where the teacher's distribution shifts most when an English reference is added or removed, on the argument that the objective otherwise spreads supervision over tokens irrelevant to transfer. The tool-use source trains on Spanish and evaluates on three unseen European languages, where supervised fine-tuning and reinforcement learning reach near-identical averages (57.88 against 57.72) while distributing the gain differently across the three -- and where the supervised model's task gain is paid for by an 8.6-point regression in English mathematics that the reinforcement-learning model does not incur. That last point is the one worth carrying: transfer measured only in the target languages misses that the training may have damaged the source language, and an average over languages hides a loss concentrated in one.
 
 - **Kind**: concept
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)

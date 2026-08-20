@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "entropy-routed on-policy distillation"
+  ],
+  "definition": "A variant of on-policy distillation that applies forward-KL guidance at positions where the teacher's distribution is high-entropy while retaining reverse-KL learning elsewhere, on the reasoning that the mode-seeking objective is worst exactly where the teacher is uncertain across several continuations. Both sources here use it as a comparator. In the skill-card study it is one of two privileged baselines, beaten by 3.04 points at 1.7B. In the test-time-scaling study it is one of four published improvements put through the same budget sweep, and it reproduces the standard pattern -- higher average correctness at every budget and higher small-budget pass rates, with large-budget pass rates at or below the untrained base model. The archive's reading is that routing the divergence by entropy improves the objective without changing what the paradigm does to the reachable set.",
   "evidence": [
     {
       "id": "arxiv:2608.09826",
@@ -69,7 +71,9 @@
     "qwen-math-1-5b",
     "qwen-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "on-policy-distillation"
+  ],
   "schema_version": 1,
   "slug": "eopd",
   "topics": [

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A time-series foundation model, used in both sources as one of the pretrained forecasters an ensemble or a scaling method is compared against or built from. Its role in this archive is to support the premise both papers rest on: no single foundation model dominates across datasets, which is what makes per-instance routing or ensembling worth doing at all. In the ensemble work it is one of four candidates whose optimal mixing weights vary by series; in the test-time-scaling work it is one of the deep-learning baselines a fixed-step refinement method is measured against. Neither describes its architecture or pretraining.
 
 - **Kind**: model
+- **Also called**: TimeFM
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

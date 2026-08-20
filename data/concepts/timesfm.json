@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "TimeFM"
+  ],
+  "definition": "A time-series foundation model, used in both sources as one of the pretrained forecasters an ensemble or a scaling method is compared against or built from. Its role in this archive is to support the premise both papers rest on: no single foundation model dominates across datasets, which is what makes per-instance routing or ensembling worth doing at all. In the ensemble work it is one of four candidates whose optimal mixing weights vary by series; in the test-time-scaling work it is one of the deep-learning baselines a fixed-step refinement method is measured against. Neither describes its architecture or pretraining.",
   "evidence": [
     {
       "id": "arxiv:2608.08675",
@@ -88,7 +90,10 @@
     "deepseek-v3-2",
     "grok-4"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chronos",
+    "moirai"
+  ],
   "schema_version": 1,
   "slug": "timesfm",
   "topics": [

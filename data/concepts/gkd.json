@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "generalized knowledge distillation"
+  ],
+  "definition": "Distilling on the student's own samples rather than on a teacher corpus, which removes the train-inference mismatch of classical sequence-level distillation and composes naturally with reinforcement learning. Both sources position their work relative to it and both qualify it. One notes that GKD-style methods typically use an external larger teacher, creating a capacity gap and extra training cost, and replaces that with the same weights under a privileged context -- keeping the on-policy structure while removing the second model at inference, though still paying an extra teacher-scoring forward pass during training. The other tests what the paradigm delivers, measuring across sampling budgets from 1 to 1024 and finding that on-policy distillation raises average correctness at every budget while its pass@K advantage reverses at large budgets, whereas off-policy distillation raises both everywhere. The archive's reading is that removing the distribution mismatch is not free: training on self-generated trajectories is what makes the supervision relevant and also what confines the result to the student's existing support.",
   "evidence": [
     {
       "id": "arxiv:2608.09826",
@@ -69,7 +71,9 @@
     "qwen-math-1-5b",
     "qwen-math-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "on-policy-distillation"
+  ],
   "schema_version": 1,
   "slug": "gkd",
   "topics": [

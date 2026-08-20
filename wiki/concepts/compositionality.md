@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Whether a capability established for parts survives being combined, and both sources here find it is the harder case. The empirical source distinguishes two reasoning types learned by the same mechanism under extended training past overfitting: the circuit generalises out of distribution for comparison and fails for composition, so it is composition specifically that the learned structure does not carry. The theoretical source meets the same question about its own constructions rather than about a model's: two representations of one object, linked by a bijection its own construction realises, need separate chain-of-thought constructions with different token growth and head counts, and the authors leave open whether realisability is closed under bijective change of representation and hence under composition -- sketching that a VC bound showing linear aggregation over composed base classes would suffice. The reading the archive should carry is that composing two things that each work is a claim requiring its own evidence, at the level of a learned circuit and at the level of a proof alike.
 
 - **Kind**: concept
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [causal analysis](../methods/causal-analysis.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit analysis](../methods/circuit-analysis.md), [circuit complexity](circuit-complexity.md), [Gemini-1.5-Pro](../models/gemini-1-5-pro.md), [hard attention](hard-attention.md), [implicit reasoning](implicit-reasoning.md), [memorization](memorization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [VC dimension](vc-dimension.md)
+**Related**: [causal analysis](../methods/causal-analysis.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [circuit analysis](../methods/circuit-analysis.md), [circuit complexity](circuit-complexity.md), [Gemini-1.5-Pro](../models/gemini-1-5-pro.md), [hard attention](../methods/hard-attention.md), [identifiability](identifiability.md), [implicit reasoning](implicit-reasoning.md), [memorization](memorization.md), [out-of-distribution generalization](out-of-distribution-generalization.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [VC dimension](vc-dimension.md)
 
 ## Appears in
 

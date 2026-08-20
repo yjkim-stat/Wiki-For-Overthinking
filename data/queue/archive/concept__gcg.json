@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+        "title": "Safety Cost of Steering Vectors Is Separable and Reducible",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-20T14:50:12Z",
+  "created_at": "2026-08-20T14:30:11Z",
+  "instructions": "Write the wiki definition for 'GCG'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GCG",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GCG",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "greedy coordinate gradient"
+    ],
+    "definition": "A gradient-optimised jailbreak that appends a nonsensical token suffix found by coordinate search, which makes it structurally unlike semantic jailbreaks and therefore the sharpest available test of whether a defence generalises beyond the syntax it was trained on. Both sources use it that way. The safety-alignment work reports it separating baselines that otherwise look similar: one defence leaves attack success at 29.50 percent against the base model's 29.75, that is no effect at all, while others reach 3.75 and 1.25 -- and the authors read the difference as behavioural cloning of refusal patterns failing to transfer to out-of-distribution syntax. The steering-vector work uses it among the attacks establishing that the refusal-breaking component of a steering direction is separable from its intended effect. What the archive should carry is that a defence evaluated only on human-written or model-generated semantic jailbreaks has not been tested against the case where the prompt carries no readable intent at all.",
+    "kind": "method",
+    "related": [
+      "PAIR"
+    ]
+  },
+  "task_id": "concept__gcg",
+  "task_version": 1,
+  "topics": [
+    "reasoning-interpretability",
+    "reasoning-training"
+  ]
+}

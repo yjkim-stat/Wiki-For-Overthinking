@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+One of four electricity-transformer-temperature series that together form the most-used long-term forecasting benchmark family, distinguished by hourly sampling and its particular transformer. Both sources use it as the headline dataset. It is where the coarse-to-fine work reports 0.376 MSE against 0.381 for the strongest baseline -- a margin of 0.005 with no interval, which is the scale most claims on this benchmark operate at -- and where its ablations are run, showing the lightweight shape forecaster is worth 0.026 while every other component is within 0.006. It is also the dataset for that work's backbone sweep, where a 124M model is within 0.003 of a 7B one. The ensemble work reports the same benchmark under a different candidate pool. Neither describes the series; in this archive it functions as the place where forecasting margins are small enough that the absence of variance reporting is the main obstacle to reading them.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

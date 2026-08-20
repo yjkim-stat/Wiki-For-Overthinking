@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A 15-minute-resolution electricity-transformer-temperature series, one of the four in the standard family and one of the two minute-level ones. Both sources use it as part of the eight-benchmark suite; neither describes it. Its role in this archive is the same as its siblings' -- a dataset where methods are separated by thousandths of mean squared error (0.324 against 0.328 for the best baseline in one source) and where the finer sampling makes the series longer for a fixed span, which is what makes token-count growth an issue for approaches that feed raw values to a language model.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

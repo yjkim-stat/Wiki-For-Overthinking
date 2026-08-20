@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A road-occupancy forecasting benchmark, one of the standard eight and the largest of them in the number of series, which makes it the most sensitive to how a method handles many correlated channels. Both sources use it in that suite. It is where the coarse-to-fine work reports its clearest margin over the deep-learning baselines (0.367 MSE against 0.391 for a strong patch-based model and 0.434 for a linear one) while remaining within 0.015 of the best language-model baseline, and where its ablations show the lightweight shape forecaster worth 0.027 -- the largest of any component on any of its four ablated datasets. Neither source describes the data.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

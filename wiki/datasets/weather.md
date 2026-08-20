@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A multivariate meteorological forecasting benchmark, one of the standard eight, distinguished by having many channels on very different scales. Both sources use it in that suite. It is one of the four datasets on which the coarse-to-fine work runs its full ablation grid, and one of the places where its margins are smallest -- 0.217 MSE against 0.218 for the strongest baseline -- which makes it a useful illustration of how little separates methods on this family without variance reporting. The ensemble work reports it among the eight benchmarks over which per-series optimal weights differ. Neither source describes the data.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "unique hard attention"
+  ],
+  "definition": "An idealisation of attention in which a head selects a single position rather than mixing over a softmax distribution. Both sources use it and one explains why: softmax hides a logistic activation, and sigmoidal activations are known to make VC dimension behave badly for feed-forward networks, so analysing hard attention is what makes a tight capacity bound obtainable at all. That source is explicit that the consequence is a result characterising a neighbouring architecture rather than the deployed one. The constructive source builds depth-first search and Dijkstra as unique hard-attention decoders of at most two layers and two heads, and computes tree branching measures by reusing them -- reaching NC1 without layer normalisation or positional encodings, which it argues shows such augmentations are not architecturally necessary. What the archive should carry is the shared caveat: results about hard attention bound what a closely related architecture can represent, not what a softmax transformer trained by gradient descent will do.",
   "evidence": [
     {
       "id": "arxiv:2608.11716",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-09T03:21:53Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-20T14:45:48Z",
   "name": "hard attention",
   "related": [
@@ -44,7 +46,9 @@
     "vc-dimension-analysis",
     "pac-learning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-expressivity"
+  ],
   "schema_version": 1,
   "slug": "hard-attention",
   "topics": [

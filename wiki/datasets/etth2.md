@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The second of the two hourly electricity-transformer-temperature series, used alongside ETTh1 in both sources as part of the standard long-term forecasting suite. It is generally the easier of the hourly pair in absolute error -- 0.321 MSE against ETTh1's 0.376 for the same method -- and behaves the same way with respect to margins, with the best and second-best methods separated by 0.005. Neither source describes its construction. Its value in this archive is only as one of the eight datasets over which a forecasting claim must hold before it is worth anything, since single-dataset wins on this family are within the range a seed could produce.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)

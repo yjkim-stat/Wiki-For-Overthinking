@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "exponential tilt",
+    "escort distribution"
+  ],
+  "definition": "Reweighting a distribution by the exponential of a quantity divided by a temperature, which arises in both sources as the solution to maximising an expected value minus a temperature-scaled divergence from a reference. In group-relative RL it appears as the softmax over rewards within a rollout group: the weights are exactly the tilt maximising expected reward minus tau times the KL to the uniform group distribution, which places the method beside RAML, softmax policy gradient and MPO, and makes tau a dial from centred reward-weighted policy gradient at large values to a best-of-group update as it goes to zero. In distillation it appears as the target rather than the weighting: an annealed tilted risk whose effective target is the teacher's probability times the student's raised to tau, which discounts tokens the teacher prefers but the student finds very improbable, and whose stationary solution is a sharpened escort distribution rather than the teacher -- so tau must be annealed to zero to recover teacher cross-entropy and the forward-KL gradient. Both sources note the same practical consequence: the tilt is what makes the method stable early, and leaving it on is what makes it wrong at convergence.",
   "evidence": [
     {
       "id": "arxiv:2608.09271",
@@ -75,7 +78,9 @@
     "qwen3-1-7b-base",
     "qwen3-4b-base"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "forward-kl-divergence"
+  ],
   "schema_version": 1,
   "slug": "exponential-tilting",
   "topics": [

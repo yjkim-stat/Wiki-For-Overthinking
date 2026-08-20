@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "How readily a model reaches a solution it is capable of reaching, as distinct from whether it can reach it at all -- and the distinction the archive's post-training entries most often turn on. Operationally it is measured by average correctness over sampled responses, or by comparing a trained model's single-sample accuracy against its base model's accuracy at a large budget, treating the base as the upper bound. Both sources find the same separation under different training signals. Under verifiable-reward RL, six algorithms show only minor variation in the resulting gap and all remain far from the base-model bound, so what they differ in is not what they add. Under on-policy distillation from a stronger teacher, average correctness rises at every budget from 1 to 1024 while the large-budget pass rate falls below the untrained base, with a problem-level accounting finding more problems forgotten than learned and the retained set carrying the gain. The consequence for reading results is direct: a pass@1 improvement is consistent with a narrowed reachable set, and only a large-budget comparison distinguishes the two.",
   "evidence": [
     {
       "id": "arxiv:2608.11829",
@@ -79,7 +79,10 @@
     "qwen2-5-vl-7b",
     "deepseek-r1-distill-qwen-14b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "pass-k",
+    "capability-boundary"
+  ],
   "schema_version": 1,
   "slug": "sampling-efficiency",
   "topics": [

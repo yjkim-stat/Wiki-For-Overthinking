@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "best-of-n filtering"
+  ],
+  "definition": "Generating many candidates and keeping only those passing a filter, used across these sources to manufacture supervised training data rather than to select at inference. Two of them use it to build a cold start: sampling multi-turn trajectories from a larger model and keeping about 3,000 of 7,000 that pass an evaluation, or generating reasoning traces conditioned on the ground-truth answer and admitting only those whose chain deduces that answer. The third uses it within a search agent's reflection pipeline. The caveat the archive should attach is visible in the second case: filtering traces for reaching the known answer selects for post-hoc rationalisations that happen to land correctly, so the resulting corpus is not a sample of the model's reasoning and any claim that training on it reduces fabrication has to contend with the alternative that the traces were selected for agreeing with the label.",
   "evidence": [
     {
       "id": "arxiv:2608.07147",
@@ -108,7 +110,9 @@
     "qwen2-5-7b",
     "qwen3-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "supervised-fine-tuning"
+  ],
   "schema_version": 1,
   "slug": "rejection-sampling",
   "topics": [

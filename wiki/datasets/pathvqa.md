@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A pathology visual question answering set of roughly 5,000 images and 33,000 question-answer pairs, used in both sources as the hardest of the three standard medical VQA benchmarks. Its difficulty is what makes it informative here: the best calibration-aware system reaches 0.689 accuracy on it against 0.873 on a radiology-and-knowledge set, and its expected calibration error is the worst of the three for every model compared (0.290 for the best, 0.587 for the worst). It is also where that paper's stage ablation is most extreme, with reinforcement learning alone scoring 0.955 on closed-ended questions against 0.863 for the full pipeline while scoring 0.166 against 0.421 on open-ended ones -- a 0.79 spread between question types on the same benchmark. The robustness source uses it among the sets where multimodal verifiable-reward gains are tested under paraphrase and template change.
 
 - **Kind**: dataset
 - **Topics**: [reasoning-training](../topics/reasoning-training.md)
