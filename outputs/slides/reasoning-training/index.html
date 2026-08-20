@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Reasoning Training</h1>
 <p class="subtitle">How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.</p>
-<p>2026-08-14 · 152 archived source(s)</p>
+<p>2026-08-20 · 152 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -260,7 +260,7 @@ th { background: var(--surface); }
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
-<li><strong>linear probe</strong></li>
+<li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 </ul>
 </section>
 <section class="slide">

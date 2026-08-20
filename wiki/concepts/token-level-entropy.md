@@ -13,6 +13,8 @@ The Shannon entropy of the model's next-token distribution at one generation ste
 
 ## What we have settled
 
+- **Established** — A generation-time signal read against an absolute threshold does not transfer between models or tasks; the same signal read relative to its own running distribution or to a group baseline does — and for the stopping decision the absolute version is provably able to be arbitrarily far from optimal.
+  - Six sources test this and none dissents. Hidden-state norm: replacing the adaptive interquartile detector with a fixed threshold collapses AIME24 from 70.00 to 23.33 for recursion and 66.67 to 16.67 for steering, and the paper states the reason plainly — a high norm on GSM8K is a low norm on GPQA. Predictive entropy: CUSUM's two regime densities are re-estimated per model from 100 calibration trajectories, so nothing about the cut-point is portable. Entropy trajectory: EDIS's window size, rebound threshold and spike weighting must be recalibrated per model family because entropy dynamics depend on vocabulary size and training distribution. Token selection: replacing an absolute entropy threshold with the Jensen-Shannon divergence of a token's logit distribution from the group average changes the selected set outright, with the chosen tokens splitting roughly evenly between the high- and low-entropy populations (ratio 1.03 on GSM8K, 0.99 on MATH). Policy updates: under GRPO the governing quantity is not a token's entropy but the deviation of a per-token discriminator from its policy-weighted expectation, which is the same absolute-versus-relative substitution one level down. And the negative result is a theorem rather than a measurement: for a fixed cost coefficient and any constant K there is a finite-horizon stopping problem where the optimal policy's value exceeds K times that of the best fixed-threshold policy, even when the probability that the prefix is already correct is known exactly — because the quantity that decides is the value of continuing, not the value of stopping. The practical reading is that the open problem in this cluster is not which signal to measure but what to measure it against.
 - **Established** — A small set of reflective transition tokens does disproportionate work in a reasoning trace, and the asymmetry holds on three quantities measured independently of one another — mutual information with the answer, the change in the answer's own log-probability, and what removing them costs.
   - Three papers, three different instruments, one ordering. Mutual information between a step's representation and the correct answer spikes at only 0.51-4.80% of steps depending on model, with gaps of 28-87 steps between peaks, and those peaks decode to discourse markers of reflection and transition; suppressing up to 17 such tokens drops accuracy from about 85% to 68% on GSM8K, 78% to 48% on MATH500 and 33% to 18% on AIME24, while suppressing the same number of randomly chosen non-thinking tokens leaves accuracy essentially flat -- the matched random control this archive demands elsewhere, and it passes. Reading the trajectory as an optimization, the same tokens move the objective by orders of magnitude more than an average one: log-scale changes in the answer's negative log-probability of 279.50 for 'Hold on' and 16.33 for 'Alternatively' against 0.96 averaged over all tokens and 0.76 for 'Therefore'. And the third comes from the other direction: injecting a bare doubt cue into a failed trajectory recovers about 15% of incorrect rollouts without naming what went wrong, while self-distillation on 800 of a model's own correct traces generated under an instruction not to express uncertainty cuts AIME24 pass@1 from 80.0 to 43.3. The accounts differ -- information peaks, saddle-point escape, epistemic verbalization -- and none is established over the others.
 
@@ -104,3 +106,56 @@ study one phenomenon from opposite ends. Untested.
 This is the entropy of the *distribution* at a position, not a property of the
 sampled token. "'wait' is a high-entropy token" is shorthand for a statement
 about average entropy at positions where that token appears.
+
+### Entropy has now been raced against another endogenous signal, and lost
+
+Every comparison above is between token-selection criteria. The archive now
+holds one comparison against a signal from a different layer of the model
+altogether, and it is not close.
+
+The Tell-Tale Norm work identifies reasoning features with per-layer sparse
+autoencoders and correlates candidate signals against their activation.
+Layer-wise L2 norm of the hidden state scores Spearman **86.47, 85.15, 87.62
+and 84.11** across four models; final output entropy scores **63.52 down to
+52.10**; three other intrinsic statistics correlate *negatively*, from −19.94
+to −72.15. Both signals are free at inference and neither needs a label.
+
+The reading that fits the rest of this note is structural rather than about
+quality. Entropy is computed from the output distribution — the last thing the
+model produces before a token is drawn, after everything has been projected
+onto the vocabulary. The norm is read before that projection. On this evidence
+the vocabulary projection is where the information is lost, which is a
+different objection from the one ICT raises (that a scalar cannot distinguish
+distributions of the same entropy but different shape) and compatible with it.
+
+Two caveats keep this from being a verdict. The SAE reasoning features are
+*defined* as whatever differs between thinking and non-thinking responses on
+one dataset, so what is being correlated against is that contrast rather than
+reasoning as such. And the two signals have never been compared on the task
+this note cares about — which tokens to update, or where to stop — only on
+agreement with the SAE contrast.
+
+### The axis nobody in this cluster names: absolute against relative
+
+`finding:e2e90a383e6902f1` collects the pattern. Setting it beside the table
+above makes something visible that reads as six unrelated caveats otherwise:
+**every criterion in this literature that was reported to work is relative, and
+every one reported to fail is absolute.**
+
+- The 80/20 threshold is recomputed **per batch**, not fixed — the paper is
+  explicit, and its `rho = 0.2` selects a quantile rather than a value.
+- ICT's whole move is replacing an absolute entropy cut with divergence from
+  the **group** average.
+- The covariance criterion is a deviation from a policy-weighted expectation,
+  which is the same substitution one level down.
+- On the inference side, the norm work's adaptive interquartile detector is
+  load-bearing to the point of absurdity: a fixed threshold takes AIME24 from
+  **70.00 to 23.33**.
+
+Which puts the note's own observation about 0.672 in a harsher light. The 80/20
+paper uses that number as a *per-batch quantile*; DEER reuses it as a **fixed
+constant** across eleven models from 1.5B to 671B. Those are not the same
+object, and the coincidence this note flagged as possibly meaningful may be an
+artefact of one paper freezing another's quantile into a literal. Testing that
+costs one ablation: recompute DEER's transition threshold per trajectory and
+see whether the exit points move.

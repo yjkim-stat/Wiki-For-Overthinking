@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Reasoning Evaluation</h1>
 <p class="subtitle">Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.</p>
-<p>2026-08-14 · 56 archived source(s)</p>
+<p>2026-08-20 · 56 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -259,7 +259,7 @@ th { background: var(--surface); }
 <li><strong>supervised fine-tuning</strong> — Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of...</li>
 <li><strong>chain of thought</strong> — Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account...</li>
 <li><strong>RLVR</strong> — Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model,...</li>
-<li><strong>linear probe</strong></li>
+<li><strong>linear probe</strong> — A linear classifier or regressor fitted to a model&#x27;s internal activations to test whether some property is linearly decodable from them —...</li>
 </ul>
 </section>
 <section class="slide">

@@ -394,4 +394,7 @@ which RaML offers as why GRPO-style group sampling beats single-trajectory PPO â
 the group *is* the support set. That is a meta-learning reading of a design
 choice this archive has only ever discussed as variance reduction.
 
-<!-- analysis-sources: 9 -->
+_The section above draws on RaML, which is evidence for other entities and not
+for this one; the count below is this note's own sources, as the check reads it._
+
+<!-- analysis-sources: 8 -->

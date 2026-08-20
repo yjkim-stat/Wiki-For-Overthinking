@@ -11,6 +11,11 @@ Generating more reasoning than a problem needs, and the archive's largest cluste
 
 **Related**: [activation steering](../methods/activation-steering.md), [adaptive compute allocation](adaptive-compute-allocation.md), [advantage estimation](advantage-estimation.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AlpacaEval](../datasets/alpacaeval.md), [AMC23](../datasets/amc23.md), [answer stabilization](answer-stabilization.md), [attention analysis](../methods/attention-analysis.md), [backtracking](backtracking.md), [BBH](../datasets/bbh.md), [budget forcing](../methods/budget-forcing.md), [calibration](../methods/calibration.md), [chain of thought](../methods/chain-of-thought.md), [chain-of-thought compression](../methods/chain-of-thought-compression.md), [chain of thought distillation](../methods/chain-of-thought-distillation.md), [chain of thought faithfulness](chain-of-thought-faithfulness.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [commitment boundary](commitment-boundary.md), [compounding error](compounding-error.md), [credit assignment](credit-assignment.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [DEER](../methods/deer.md), [DPO](../methods/dpo.md), [Dynasor](../methods/dynasor.md), [early exit](../methods/early-exit.md), [entropy trajectory](entropy-trajectory.md), [exploration-exploitation trade-off](exploration-exploitation-trade-off.md), [foresight](foresight.md), [Gemini-2.5-Flash](../models/gemini-2-5-flash.md), [Gemini-3.1-Pro](../models/gemini-3-1-pro.md), [Gemma-3-4B](../models/gemma-3-4b.md), [Gemma-4-26B-A4B-it](../models/gemma-4-26b-a4b-it.md), [generative rewriting](../methods/generative-rewriting.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-20b](../models/gpt-oss-20b.md), [grounding](grounding.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [HumanEval+](../datasets/humaneval.md), [IFEval](../datasets/ifeval.md), [KV cache compression](../methods/kv-cache-compression.md), [length control](../methods/length-control.md), [length penalty](../methods/length-penalty.md), [linear probe](../methods/linear-probe.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-70B](../models/llama-3-1-70b.md), [Llama-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Llama-3-8B](../models/llama-3-8b.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [LoRA](../methods/lora.md), [majority voting](../methods/majority-voting.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [meta-reasoning](../methods/meta-reasoning.md), [MMLU](../datasets/mmlu.md), [MMLU-Pro](../datasets/mmlu-pro.md), [monitorability](monitorability.md), [Monte Carlo tree search](../methods/monte-carlo-tree-search.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [optimal stopping](optimal-stopping.md), [outcome reward](outcome-reward.md), [paired bootstrap confidence intervals](../methods/paired-bootstrap-confidence-intervals.md), [Pareto frontier](pareto-frontier.md), [perception bottleneck](perception-bottleneck.md), [Phi-4-reasoning](../models/phi-4-reasoning.md), [predictive entropy](predictive-entropy.md), [preference optimization](../methods/preference-optimization.md), [process reward](process-reward.md), [process reward model](../methods/process-reward-model.md), [process supervision](process-supervision.md), [prompt difficulty](prompt-difficulty.md), [Qwen2.5](../models/qwen2-5.md), [Qwen2.5-7B](../models/qwen2-5-7b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [reasoning boundary](reasoning-boundary.md), [reasoning distillation](../methods/reasoning-distillation.md), [reasoning redundancy](reasoning-redundancy.md), [reasoning skeleton](reasoning-skeleton.md), [reasoning trajectory](reasoning-trajectory.md), [reinforcement learning](../methods/reinforcement-learning.md), [reinforcement learning post-training](../methods/reinforcement-learning-post-training.md), [restructuring level](restructuring-level.md), [reward hacking](reward-hacking.md), [reward shaping](reward-shaping.md), [RLVR](../methods/rlvr.md), [routing](routing.md), [safety alignment](safety-alignment.md), [self-certainty](../methods/self-certainty.md), [self-consistency](../methods/self-consistency.md), [self-correction](self-correction.md), [semantic entropy](../methods/semantic-entropy.md), [sparse autoencoder](../methods/sparse-autoencoder.md), [steering vector](../methods/steering-vector.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [test-time compute](test-time-compute.md), [test-time scaling](../methods/test-time-scaling.md), [token efficiency](token-efficiency.md), [token-level entropy](token-level-entropy.md), [token selection](token-selection.md), [TokenSkip](../methods/tokenskip.md), [truthfulness](truthfulness.md), [TruthfulQA](../datasets/truthfulqa.md), [verification](verification.md), [vLLM](../methods/vllm.md), [ZebraLogic](../datasets/zebralogic.md)
 
+## What we have settled
+
+- **Established** — Control over how long a reasoning model thinks is concentrated in a single special token rather than distributed over the trace, and four sources reach that token from four unrelated directions.
+  - Nothing here set out to study the delimiter; each source arrives at it while answering a different question. Mechanism: the pre-allocated reasoning-strength vector steers length by shifting the logits of the end-of-thinking token specifically, with far larger effect there than on the end-of-sequence token or on random tokens. Representation: in deep layers the </think> position progressively aggregates the preceding chain, and during final-answer generation the model attends predominantly to it and only weakly to the intermediate steps. Training: a sequence-level efficiency reward implicitly penalizes long but correct trajectories, and confining that reward to one mode-selection token removes the coupling — after which adjusting that single token's generation probability at inference moves one trained model continuously along the efficiency-performance frontier. Failure mode: on QwQ-32B nearly every competing early-exit baseline fails, and the reason is sporadic invalidation of the end-of-thinking delimiter. The four are independent in method (activation steering, attention analysis, reward placement, baseline failure) and agree on the locus. This matters because the same literature's generation-time signals — token entropy, hidden-state norm, predictive entropy — all read diffuse quantities, while the compression work finds redundancy itself to be diffuse; a distributed signal aimed at a distributed phenomenon is the harder problem, and the delimiter is where the model has already concentrated the decision.
+
 ## Appears in
 
 - [Reinforcement Learning with Evolving Rubrics as Rewards for Audio Reasoning](../../archive/papers/2026/arxiv-2608-02831/summary.md) — Supervises audio reasoning with per-question rubrics generated from the raw waveform, and keeps the signal alive as the policy improves by regenerating the rubrics from the model's own rollouts each step and pruning any criterion that every rollout satisfies or none does.
@@ -46,4 +51,59 @@ Generating more reasoning than a problem needs, and the archive's largest cluste
 
 ## Notes
 
-_Anything below the marker above is yours. It is never overwritten._
+### Detecting overthinking and acting on it are separate problems, and this
+### cluster keeps solving only the first
+
+Twenty-eight sources, and almost all of the measurement effort goes into
+locating the waste: the change point in predictive entropy, the commitment
+boundary found by truncation, answer stability under probing, attention from
+the reasoning-termination token, marginal utility against the gold answer,
+trajectory instability. That work has converged — the archive's definition
+above can now name where the waste is and roughly how much of it there is.
+
+The acting half has one general instrument and it is blunt: **stop generating.**
+Every training-free method here is a stopping rule with a different trigger.
+That is why `finding:e2e90a383e6902f1` bites so hard on this cluster
+specifically — a stopping rule *is* a threshold, and the one negative result
+with a proof behind it says a fixed threshold on the probability that the
+prefix is already correct can be arbitrarily far from optimal even when that
+probability is known exactly, because the quantity that decides is the value of
+continuing.
+
+`finding:127d883d8ba8c2a5` is the same warning arriving from the
+interpretability side: how well a signal detects a property licenses no claim
+about what intervening on it does — not the size of the effect and not its
+sign. Every entry in this cluster that validates a signal by detection quality
+and then deploys it as a trigger has taken that step without checking it.
+
+### The one place the archive has an actuator rather than a detector
+
+`finding:f327dfdb007545e8` is worth reading as an answer to "what would acting
+on this look like". Four sources arrive at a single special token from four
+directions — the steering vector shifts *its* logits and not the
+end-of-sequence token's; deep layers aggregate the chain at *its* position;
+confining an efficiency reward to *one* mode-selection token removes the
+sequence-level coupling that made length training damage reasoning, after which
+one trained model slides along the efficiency-performance frontier by adjusting
+that token's probability alone; and the model whose delimiter is unreliable is
+the model where every competing early-exit baseline fails.
+
+That last one is a *control* result and the only one here that is: a continuous
+knob, at inference, on a trained model. Everything else in this note is a
+binary halt.
+
+The structural argument for preferring the delimiter is in this note's own
+definition. Redundancy is diffuse — the skeleton is repeated and rephrased
+throughout rather than pooled at nameable points — so a diffuse signal is being
+asked to find a diffuse quantity. The delimiter is the opposite kind of object:
+a bottleneck the model built itself, where the trajectory's information is
+already collected and the stopping decision already leaves. Aiming there is
+aiming at where the decision narrows rather than at where the symptom spreads.
+
+**What is untested**: whether the mode-selection token of the reward work and
+the end-of-thinking token of the steering work are the same control point or
+two, and whether adjusting the delimiter's probability at inference does
+anything at all on a model that was not trained with that reward. Both are one
+experiment.
+
+<!-- analysis-sources: 28 -->

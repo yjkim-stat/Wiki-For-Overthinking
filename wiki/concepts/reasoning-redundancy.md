@@ -106,4 +106,37 @@ continuing rather than the value of stopping. Every threshold-based method in
 this archive is on the wrong side of that result, and none has been measured
 against a continuation-value policy on the same traces.
 
+### The tension this note has not stated
+
+Two results in the archive point opposite ways about the same class of token,
+and nothing here has said so.
+
+`finding:752ed6cea6e824bd` establishes that a small set of reflective
+transition tokens does disproportionate work, on three quantities measured
+independently: mutual information with the answer spikes at steps that decode
+to *So*, *Hmm*, *Wait* and *Therefore* and are 0.51-4.8% of a trajectory;
+suppressing seventeen of them costs 17 to 30 accuracy points where suppressing
+the same number of randomly chosen tokens costs almost nothing; and in RaML's
+optimization view a single `Hold on` moves the objective by 279.50 against a
+mean of 0.96.
+
+The comparison study says pruning that targets reflective statements does no
+better than pruning that ignores them.
+
+These are not contradictory, and the note should not pretend they resolve.
+*Some particular reflective tokens are load-bearing* and *reflective sentences
+are a good marker of what to remove* are different claims, and every source
+above measures only one of them. What is missing is the experiment that
+separates them: rank reflective steps by a causal criterion — MI, or the
+answer's own log-probability — and prune only the bottom of that ranking, with
+a reflection-agnostic control at matched token count. If the load-bearing
+tokens are a thin subset of a large reflective class, both results hold at once
+and the practical rule follows immediately. Nobody has run it.
+
+Note also that the two literatures do not use the same unit. The suppression
+experiments act on *tokens*, the pruning methods on *steps* or *sentences*, and
+this note has already recorded that granularity, not the criterion, is the real
+variable at this scale. That alone could account for the whole disagreement,
+which is another reason not to file it as settled.
+
 <!-- analysis-sources: 15 -->

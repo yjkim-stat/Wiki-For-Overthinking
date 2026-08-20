@@ -1,0 +1,28 @@
+{
+  "concepts": [
+    "end-of-thinking token",
+    "mode-selection token",
+    "activation steering",
+    "overthinking",
+    "length control"
+  ],
+  "established_at": "2026-08-20T11:48:17Z",
+  "id": "finding:f327dfdb007545e8",
+  "kind": "fact",
+  "papers": [
+    "local:77b3413236375923",
+    "local:39eae4c377c77302",
+    "doi:10.18653/v1/2026.findings-acl.165",
+    "local:a1d9fa1eb8899dfc"
+  ],
+  "rationale": "Nothing here set out to study the delimiter; each source arrives at it while answering a different question. Mechanism: the pre-allocated reasoning-strength vector steers length by shifting the logits of the end-of-thinking token specifically, with far larger effect there than on the end-of-sequence token or on random tokens. Representation: in deep layers the </think> position progressively aggregates the preceding chain, and during final-answer generation the model attends predominantly to it and only weakly to the intermediate steps. Training: a sequence-level efficiency reward implicitly penalizes long but correct trajectories, and confining that reward to one mode-selection token removes the coupling — after which adjusting that single token's generation probability at inference moves one trained model continuously along the efficiency-performance frontier. Failure mode: on QwQ-32B nearly every competing early-exit baseline fails, and the reason is sporadic invalidation of the end-of-thinking delimiter. The four are independent in method (activation steering, attention analysis, reward placement, baseline failure) and agree on the locus. This matters because the same literature's generation-time signals — token entropy, hidden-state norm, predictive entropy — all read diffuse quantities, while the compression work finds redundancy itself to be diffuse; a distributed signal aimed at a distributed phenomenon is the harder problem, and the delimiter is where the model has already concentrated the decision.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "Control over how long a reasoning model thinks is concentrated in a single special token rather than distributed over the trace, and four sources reach that token from four unrelated directions.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "reasoning-interpretability",
+    "test-time-scaling"
+  ]
+}

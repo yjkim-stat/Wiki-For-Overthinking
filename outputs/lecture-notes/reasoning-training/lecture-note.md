@@ -2,7 +2,7 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-08-14 from 152 archived source(s).
+> Generated on 2026-08-20 from 152 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
@@ -147,7 +147,7 @@ Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't
 | supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
-| linear probe | 22 | _pending_ |
+| linear probe | 22 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | self-consistency | 19 | Sampling several reasoning paths and taking the most common answer, the archive's default aggregation baseline — and now with its failure mode proved rather than observed. Its s... |
 | test-time scaling | 18 | Improving a fixed model by spending more computation at inference. The sources treat it as having two directions. Spending more: budget forcing extends thinking by appending a t... |
 | activation patching | 16 | Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at te... |
