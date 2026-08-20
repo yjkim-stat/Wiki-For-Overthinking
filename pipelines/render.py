@@ -306,6 +306,88 @@ def stale_definitions(cfg: Config) -> list[dict]:
     return sorted(stale, key=lambda row: row["written_for"] - row["sources_now"])
 
 
+def queue_stale_definitions(cfg: Config) -> dict[str, int]:
+    """Ask again for a definition whose evidence has outgrown it.
+
+    `stale_definitions` reports; this is the step that does something about it,
+    and the distinction it has to preserve is the one `CLAUDE.md` states: **a
+    counter must not discard written work on arithmetic alone.**
+
+    So nothing is rewritten and nothing is cleared. The concept keeps its
+    definition, and a task is filed carrying that definition back to a reader
+    with the question "what has changed" rather than "what is this". A refresh
+    nobody answers leaves the archive exactly as it was, which is the property
+    that makes it safe to file one automatically at all.
+
+    Two bounds, because staleness is a standing condition rather than an event
+    and an unbounded response to it would refill the queue every render:
+
+    **A ratio, not any growth at all.** A definition written against three
+    sources standing at nine is describing a third of its evidence; one written
+    against forty standing at forty-six is not. Re-asking on every new mention
+    would spend a reader's night on definitions that are still true.
+
+    **A cap per render**, so a long-neglected archive drains over several
+    passes, worst first, instead of producing a backlog nobody can face.
+    """
+    settings = cfg.settings.get("wiki", {}) or {}
+    ratio = float(settings.get("refresh_definition_at", 0) or 0)
+    counts = {"stale": 0, "eligible": 0, "queued": 0}
+    if ratio <= 0:
+        # Off by default is deliberate. A deployment that has never seen this
+        # feature should not have its queue grow because it upgraded.
+        return counts
+
+    cap = int(settings.get("max_refresh_tasks", 5) or 0)
+    store = RecordStore(cfg.layout)
+    queue, summarizer = _queue_and_summarizer(cfg)
+
+    rows = stale_definitions(cfg)
+    counts["stale"] = len(rows)
+    for row in rows:  # already sorted: most outgrown first
+        # `written_for` of zero would make any ratio pass; a definition is
+        # written against at least one source or it is not written.
+        written_for = max(1, int(row["written_for"]))
+        if row["sources_now"] < written_for * ratio:
+            continue
+        counts["eligible"] += 1
+        if counts["queued"] >= cap:
+            continue
+
+        concept = store.load_concept(row["slug"])
+        if concept is None or not concept.definition.strip():
+            continue
+        sources = [
+            {
+                "kind": item.get("kind", ""),
+                "title": item.get("title", ""),
+                "note": item.get("note", ""),
+                "topics": concept.topics,
+            }
+            for item in concept.evidence
+        ]
+        summarizer.define_concept(
+            concept.name, sources, cfg.language, previous=concept.definition
+        )
+        counts["queued"] += 1
+
+    if counts["queued"]:
+        _LOG.info(
+            "asked again for %d definition(s) their evidence has outgrown "
+            "(%d eligible of %d stale)",
+            counts["queued"],
+            counts["eligible"],
+            counts["stale"],
+        )
+    elif counts["eligible"]:
+        _LOG.info(
+            "%d definition(s) eligible for a refresh; none filed (cap %d)",
+            counts["eligible"],
+            cap,
+        )
+    return counts
+
+
 def stale_analysis(cfg: Config) -> list[dict]:
     """Hand-written sections that declared a source count and have been outgrown.
 
@@ -436,6 +518,10 @@ def run(
             result["definitions_queued"] = definitions["queued"]
             result["definitions_refreshed"] = definitions["refreshed"]
             result["definitions_undefined"] = definitions["undefined"]
+            # After the missing ones. An entity with no definition at all is a
+            # worse gap than one whose definition is behind its evidence, and
+            # they share the queue's cap.
+            result["definitions_reasked"] = queue_stale_definitions(cfg)["queued"]
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)

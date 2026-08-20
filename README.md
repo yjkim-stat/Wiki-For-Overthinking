@@ -340,6 +340,17 @@ Anything here is never touched.
 That preserved section is where a group's own reading goes — the objection
 someone raised in seminar, the trick that only works on your data.
 
+### Definitions go out of date, and are asked for again
+
+A definition is written once, against the sources that existed then. When the
+evidence outgrows it the note reads as complete while describing a subset of
+itself — worse than a missing definition, because nothing about it looks wrong.
+
+`render` reports these under `stale`. Set `wiki.refresh_definition_at: 2.0` and
+it also asks for them again once the evidence has doubled, a few per pass, worst
+first. The existing definition is handed back to be revised rather than
+discarded, and a refresh nobody answers changes nothing.
+
 ## Configuration
 
 | File | Purpose |

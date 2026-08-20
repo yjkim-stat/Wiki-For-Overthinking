@@ -218,8 +218,23 @@ date.** A definition written against three sources and now standing at nine
 reads as complete while describing a third of its evidence — that is worse than
 a missing one, because nothing about it looks wrong. Nothing is rewritten
 automatically: re-deriving a definition means reading its sources, and a counter
-must not discard written work on arithmetic alone. To re-queue one, clear
-`definition` in `data/concepts/<slug>.json` and render again.
+must not discard written work on arithmetic alone.
+
+**Ask for it again rather than clearing it.** Set `wiki.refresh_definition_at`
+in `config/settings.yaml` — `2.0` means "when the evidence has doubled" — and
+render files a revision task for the worst offenders, `wiki.max_refresh_tasks`
+at a time. The task carries the existing definition back to you with the
+question *what has changed*, and the record keeps that definition throughout: a
+refresh nobody answers leaves the archive exactly as it was.
+
+Answer it like any other task. Keep what still holds and change what a later
+source contradicts — returning it unchanged is a real answer, and it records
+that somebody checked.
+
+Clearing `definition` in `data/concepts/<slug>.json` still works and is now the
+worse route: it throws the previous ruling away along with the staleness, and
+most of that ruling is usually still right. Use it when a definition is wrong
+rather than merely behind.
 
 Your own analysis after `<!-- auto:end -->` can opt into the same check by
 ending with a declared source count:
