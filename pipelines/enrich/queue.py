@@ -46,6 +46,9 @@ _REQUIRED_FIELDS = {
     # could not, and leaving a question open is a real answer rather than a
     # failure to produce one. `_check_synthesis` holds that alternative.
     "synthesis": [],
+    # A lookup carries an answer or says it is unknown, and `_check_lookup`
+    # holds that alternative for the same reason a synthesis's does.
+    "lookup": [],
 }
 
 _LIST_FIELDS = {
@@ -63,6 +66,7 @@ _LIST_FIELDS = {
     ],
     "concept": ["aliases", "related"],
     "synthesis": ["concepts", "papers", "references", "topics"],
+    "lookup": ["references"],
 }
 
 _KINDS = tuple(_REQUIRED_FIELDS)
@@ -70,6 +74,72 @@ _KINDS = tuple(_REQUIRED_FIELDS)
 #: What a reading may say it was based on. ``document`` is a claim the task can
 #: check; ``abstract`` is one it cannot, and does not need to.
 READING_BASIS = ("document", "abstract")
+
+
+def _check_lookup(result: dict, payload: dict | None, store) -> list[str]:
+    """A lookup answer carries a reference, or says it is unknown.
+
+    That rule is the entire mechanism. A recorded reference has a URL, a
+    retrieval date and the passage relied on; requiring one is the only way this
+    pipeline can tell "I looked this up" from "I remember this", and on a
+    question whose whole value is that somebody checked, there is nothing else
+    to check.
+
+    ``unknown`` is always available and is the one answer needing no reference.
+    A search that failed is worth recording — the next session sees what was
+    tried instead of starting from nothing — so refusing it would push a reader
+    towards inventing an answer, which is the failure this is guarding.
+
+    The subject comes from the task's payload rather than the answer, because
+    what was asked is a fact about the task. It is the fifth such context this
+    validator takes; they should eventually be one ``task`` argument.
+    """
+    unknown = bool(result.get("unknown"))
+    answer = str(result.get("answer", "") or "").strip()
+    rationale = str(result.get("rationale", "") or "").strip()
+    references = [str(r).strip() for r in (result.get("references") or []) if str(r).strip()]
+    errors: list[str] = []
+
+    if unknown:
+        if answer:
+            errors.append(
+                "`unknown` is set but `answer` is not empty: say what you found "
+                "or say you did not find it, not both"
+            )
+        if not rationale:
+            errors.append(
+                "an unknown answer still needs a `rationale` — what was tried, "
+                "so the next attempt starts from somewhere rather than nothing"
+            )
+        return errors
+
+    if not answer:
+        errors.append(
+            "missing or empty required field: answer — set `unknown` if it could "
+            "not be established"
+        )
+    if not references:
+        errors.append(
+            "a lookup answer must cite at least one recorded reference. Record "
+            "the page with `pipelines.enrich.references add` first; without one "
+            "this cannot be told from a remembered answer"
+        )
+    elif store is not None:
+        for ref_id in references:
+            if store.load_reference(ref_id) is None:
+                errors.append(f"`references` names an unrecorded reference: {ref_id}")
+
+    subject = str((payload or {}).get("subject", "") or "")
+    if subject == "document" and answer and not answer.lower().startswith(
+        ("http://", "https://")
+    ):
+        errors.append(f"a document lookup answers with an http(s) URL (got '{answer}')")
+    if subject == "identity" and answer and answer.strip().lower() not in ("yes", "no"):
+        errors.append(
+            f"an identity lookup answers 'yes' or 'no' (got '{answer}'); set "
+            "`unknown` if it is undecided"
+        )
+    return errors
 
 
 def _check_synthesis(result: dict, cfg, store) -> list[str]:
@@ -165,6 +235,7 @@ def validate_result(
     attachments: dict[str, Any] | None = None,
     cfg: Any = None,
     store: Any = None,
+    payload: dict[str, Any] | None = None,
 ) -> list[str]:
     """Check a submitted result against the contract. Returns error strings.
 
@@ -255,6 +326,9 @@ def validate_result(
 
     if kind == "synthesis":
         errors.extend(_check_synthesis(result, cfg, store))
+
+    if kind == "lookup":
+        errors.extend(_check_lookup(result, payload, store))
 
     if kind == "concept":
         declared = result.get("kind")
@@ -444,6 +518,7 @@ class Queue:
             task.get("attachments"),
             cfg=self.cfg,
             store=RecordStore(self.layout) if self.cfg is not None else None,
+            payload=task.get("payload"),
         )
         if errors:
             raise ValueError(

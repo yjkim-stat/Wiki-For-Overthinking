@@ -81,3 +81,4 @@ reference for everything built before the practice existed.
 | 0058 | [A stale definition is asked for again](0058-a-stale-definition-is-asked-for-again.md) | feature | Reporting staleness never fixed it, and the manual route discarded the ruling along with the rot |
 | 0059 | [An identifier learned late is still registered](0059-an-identifier-learned-late-is-still-registered.md) | fix | A hand-filed paper's arXiv id arrived after collection and was never indexed, so the collector forked instead of folding |
 | 0060 | [A question larger than one reading](0060-a-question-larger-than-one-reading.md) | feature | Cross-cutting work had no place in the queue; a settled answer is a finding, and an open one is still an answer |
+| 0061 | [A look outside that has to cite what it saw](0061-a-look-outside-that-has-to-cite-what-it-saw.md) | feature | Requiring a reference is the only mechanical difference between looking something up and remembering it |

@@ -279,6 +279,30 @@ wrong about what it attaches to.
 of `wiki/findings.md`: why the group used to think otherwise is most of what a
 newcomer needs in order to trust what it thinks now.
 
+**A question the archive cannot answer about itself goes in the queue too.**
+Not judgement — confirmation. How a name is spelled where it was published,
+whether two names are one thing, where a PDF lives, whether there is published
+code:
+
+```bash
+python3 -m pipelines.enrich.lookup add --subject spelling --about "C-LAP"
+python3 -m pipelines.enrich.lookup add --subject document --paper arxiv:2401.12345
+```
+
+**Every answer must cite a recorded reference** — record the page first with
+`references add`. That requirement is the only mechanical difference between
+looking something up and remembering it, and on a question whose whole value is
+that somebody checked, there is nothing else to check.
+
+**`unknown` is always available and needs no reference**, but still needs a
+`rationale` saying what you tried. A search that failed is worth recording: the
+next session sees what was tried instead of starting from nothing.
+
+A confirmed identity or spelling **does not write an alias**. It asks for the
+entity's definition again so the alias goes in through the validator that owns
+aliases — a wrong merge does not mislabel an entity, it fuses two, and the fused
+note looks perfectly healthy afterwards.
+
 **A question that spans more readings than one goes in the queue.** "Read these
 twelve and tell me whether X" is the work that moves an archive forward, and it
 used to happen inside a session, validated by nothing, surviving only in a
@@ -456,6 +480,7 @@ python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before re
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
 python3 -m pipelines.enrich.synthesis list        # questions spanning more readings than one
+python3 -m pipelines.enrich.lookup list           # narrow questions needing a look outside
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change

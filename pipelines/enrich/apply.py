@@ -241,11 +241,106 @@ def _apply_synthesis(cfg: Config, store: RecordStore, task: dict) -> bool:
     return True
 
 
+def _apply_lookup(cfg: Config, store: RecordStore, task: dict) -> bool:
+    """Act on a confirmed fact from outside, or record that it stayed unknown.
+
+    What each subject may do differs sharply, and the differences are the point.
+
+    **A document answer writes a URL** and nothing else. It is checkable, it is
+    inert until `pipelines.backfill` acts on it, and it fills a blank rather than
+    replacing anything: a paper that already names a PDF is left alone, because
+    the reader was answering "where is it", not "which is better".
+
+    **A confirmed identity or spelling writes nothing at all.** It files a
+    definition revision for the entity instead. An alias is a merge mechanism,
+    and a wrong merge does not mislabel an entity — it fuses two, and the fused
+    note looks perfectly healthy afterwards. So the alias goes in through the
+    validator that owns aliases, with a reader looking at it, which is the same
+    rule `CLAUDE.md` states about never hand-editing `data/`.
+
+    **An artifact answer needs no application.** Its result *is* the reference,
+    and the validator already refused the answer unless that reference exists.
+
+    **An unknown answer is a success.** The task is archived carrying what was
+    tried, which is the difference between "nobody has looked" and "somebody
+    looked and it is not there".
+    """
+    result = task.get("result") or {}
+    payload = task.get("payload") or {}
+    subject = str(payload.get("subject", "") or "")
+    answer = str(result.get("answer", "") or "").strip()
+
+    if bool(result.get("unknown")) or not answer:
+        _LOG.info(
+            "lookup %s (%s) stayed unknown: %s",
+            payload.get("about", ""),
+            subject,
+            str(result.get("rationale", "") or "")[:160],
+        )
+        return True
+
+    if subject == "document":
+        paper = store.load_paper(str(payload.get("paper", "") or ""))
+        if paper is None:
+            _LOG.warning("document lookup names no paper in the archive; recorded only")
+            return True
+        if paper.pdf_url:
+            _LOG.info("%s already names a document; leaving it alone", paper.id)
+            return True
+        paper.pdf_url = answer
+        store.save_paper(paper)
+        _LOG.info("%s now names a document; backfill can fetch it", paper.id)
+        return True
+
+    if subject in ("identity", "spelling"):
+        slug = str(payload.get("concept", "") or "")
+        concept = store.load_concept(slug) if slug else None
+        if concept is None or not concept.definition.strip():
+            # Nothing to revise. The answer stays in the archived task, which is
+            # where somebody defining the entity later will find it.
+            _LOG.info("lookup on '%s' recorded; no defined entity to revise", slug)
+            return True
+        _, summarizer = _queue_and_summarizer_for(cfg)
+        sources = [
+            {
+                "kind": item.get("kind", ""),
+                "title": item.get("title", ""),
+                "note": item.get("note", ""),
+                "topics": concept.topics,
+            }
+            for item in concept.evidence
+        ]
+        summarizer.define_concept(
+            concept.name, sources, cfg.language, previous=concept.definition
+        )
+        _LOG.info(
+            "lookup settled '%s'; asked for the definition again so the alias "
+            "goes through its validator",
+            concept.name,
+        )
+        return True
+
+    return True
+
+
+def _queue_and_summarizer_for(cfg: Config):
+    """The queue and its summarizer, without importing `render`.
+
+    `render` imports this module, so reaching back for its helper would be a
+    cycle. Two lines is cheaper than a shared home for one caller.
+    """
+    from ..common.llm import get_summarizer
+
+    queue = Queue(cfg.layout, cfg=cfg)
+    return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
+
+
 _APPLIERS = {
     "paper": _apply_paper,
     "video": _apply_video,
     "concept": _apply_concept,
     "synthesis": _apply_synthesis,
+    "lookup": _apply_lookup,
 }
 
 
@@ -253,7 +348,10 @@ def completed(cfg: Config) -> dict[str, int]:
     """Fold every finished task into the records, then archive the task file."""
     store = RecordStore(cfg.layout)
     queue = Queue(cfg.layout)
-    applied = {"paper": 0, "video": 0, "concept": 0, "synthesis": 0, "skipped": 0}
+    applied = {
+        "paper": 0, "video": 0, "concept": 0,
+        "synthesis": 0, "lookup": 0, "skipped": 0,
+    }
 
     for task in list(queue.iter_done()):
         applier = _APPLIERS.get(task.get("kind", ""))
