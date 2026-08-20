@@ -10,10 +10,20 @@ A token-level chain-of-thought compression method listed under 'CoT Compression'
 
 **Related**: [AdaptThink](adaptthink.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [SuperGPQA](../datasets/supergpqa.md), [VeriThinker](verithinker.md)
 
+## What we have settled
+
+- **Established** — TokenSkip has an official public code release at github.com/hemingkx/TokenSkip, published alongside its EMNLP 2025 paper.
+  - Checked the repository directly; it is the paper authors' own implementation of the token-level chain-of-thought compression method.
+
 ## Appears in
 
 - [Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models](../../archive/papers/2025/local-6c80b6fd388d671e/summary.md) — A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.
 - [Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression](../../archive/papers/2025/local-da3fbe3617acc5f8/summary.md) — TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.
+
+## Checked against
+
+- [https://github.com/hemingkx/TokenSkip](https://github.com/hemingkx/TokenSkip) — github.com · code · retrieved 2026-08-21
+  - _a simple yet effective approach that enables LLMs to selectively skip redundant tokens during Chain-of-Thought generation and learn shortcuts between critical reasoning tokens, thereby allowing for controllable CoT compression with adjustable ratios._
 
 <!-- auto:end -->
 

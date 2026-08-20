@@ -10,10 +10,20 @@ A chain-level chain-of-thought compression method, categorized under 'CoT Compre
 
 **Related**: [AdaptThink](adaptthink.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [Manifold Steering](manifold-steering.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [SuperGPQA](../datasets/supergpqa.md), [TokenSkip](tokenskip.md), [VeriThinker](verithinker.md)
 
+## What we have settled
+
+- **Established** — LC-R1 has an official public code release at github.com/zxiangx/LC-R1.
+  - Checked the repository directly; it is the paper authors' own implementation of the GRPO-based length-compression method for large reasoning models.
+
 ## Appears in
 
 - [Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models](../../archive/papers/2025/local-6c80b6fd388d671e/summary.md) — A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.
 - [Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression](../../archive/papers/2025/local-da3fbe3617acc5f8/summary.md) — TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.
+
+## Checked against
+
+- [https://github.com/zxiangx/LC-R1](https://github.com/zxiangx/LC-R1) — github.com · code · retrieved 2026-08-21
+  - _This repository contains the official implementation for the paper 'Optimizing Length Compression in Large Reasoning Models' -- a novel post-training method to compress the lengthy reasoning process of Large Reasoning Models (LRMs)._
 
 <!-- auto:end -->
 

@@ -10,11 +10,21 @@ An auxiliary-verification-training method for reducing overthinking, listed in t
 
 **Related**: [accuracy-efficiency tradeoff of reasoning length](../concepts/accuracy-efficiency-tradeoff-of-reasoning-length.md), [AdaptThink](adaptthink.md), [AIME 2025](../datasets/aime-2025.md), [AUC_OAA](../concepts/auc-oaa.md), [difficulty-based routing between reasoning modes](../concepts/difficulty-based-routing-between-reasoning-modes.md), [early exit](early-exit.md), [F1^otb combined metric](../concepts/f1-otb-combined-metric.md), [HMMT 2025](../datasets/hmmt-2025.md), [hybrid thinking/non-thinking models](../concepts/hybrid-thinking-non-thinking-models.md), [L1 length-controlled reinforcement learning](l1-length-controlled-reinforcement-learning.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [Model Merging](model-merging.md), [overthinking](../concepts/overthinking.md), [Overthinking-Adjusted Accuracy (OAA)](../concepts/overthinking-adjusted-accuracy-oaa.md), [OverthinkingBench](../datasets/overthinkingbench.md), [PLAN-AND-BUDGET](plan-and-budget.md), [SuperGPQA](../datasets/supergpqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [thinking-token budget](../concepts/thinking-token-budget.md), [TokenSkip](tokenskip.md), [trained difficulty-based router / oracle router](../concepts/trained-difficulty-based-router-oracle-router.md), [underthinking](../concepts/underthinking.md), [UnderthinkingBench](../datasets/underthinkingbench.md)
 
+## What we have settled
+
+- **Established** — VeriThinker has an official public code release at github.com/czg1225/VeriThinker, published alongside its NeurIPS 2025 paper.
+  - Checked the repository directly; it is the paper authors' own implementation of the auxiliary-verification-training method for reducing overthinking.
+
 ## Appears in
 
 - [OptimalThinkingBench: Evaluating Over and Underthinking in LLMs](../../archive/papers/2025/local-49199e3b0f694ee1/summary.md) — Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.
 - [Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models](../../archive/papers/2025/local-6c80b6fd388d671e/summary.md) — A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.
 - [OptimalThinkingBench: Evaluating Over and Underthinking in LLMs](../../archive/papers/2026/title-441c8494292f11c7/summary.md) — Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.
+
+## Checked against
+
+- [https://github.com/czg1225/VeriThinker](https://github.com/czg1225/VeriThinker) — github.com · code · retrieved 2026-08-21
+  - _We introduce VeriThinker, a novel approach for CoT compression. Unlike conventional methods that fine-tune LRMs directly on the original reasoning task using synthetic concise CoT data, we innovatively fine-tune the model solely through an auxiliary verification task._
 
 <!-- auto:end -->
 

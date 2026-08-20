@@ -1,12 +1,12 @@
 {
-  "abstract": "",
+  "abstract": "Abstract Increasing test-time computation is a straightforward approach to enhancing the quality of responses in Large Language Models (LLMs). While Best-of-N sampling and Self-Consistency with majority voting are simple and effective, they require a fixed number of sampling responses for each query, regardless of its complexity. This could result in wasted computation for simpler questions and insufficient exploration for more challenging ones. In this work, we argue that model confidence of responses can be used for improving the efficiency of test-time scaling. Unfortunately, LLMs are known to be overconfident and provide unreliable confidence estimation. To address this limitation, we introduce Self-Calibration by distilling Self-Consistency-derived confidence into the model itself. This enables reliable confidence estimation at test time with one forward pass. We then design Calibrated Test-Time Scaling (CaTS), adapting common repeated sampling methods, such as self-consistency and Best-of-N to handle queries of various difficulty. We also show that CaTS-SC is provably better than vanilla self-consistency. Experiments on three LLMs across nine datasets demonstrate the effectiveness of our approach. Specifically, applying confidence-based Early Stopping (CaTS-ES) to Best-of-N improves MathQA accuracy from 73.7 to 83.6 with a sample budget of 16 responses, demonstrating the effectiveness of the confidence-based sampling strategy at inference time.",
   "arxiv_id": "",
   "authors": [],
   "categories": [],
   "doi": "",
   "first_seen": "2026-08-20T11:49:28Z",
   "id": "title:03232c54fde9b57f",
-  "last_seen": "2026-08-20T11:49:28Z",
+  "last_seen": "2026-08-20T23:02:25Z",
   "local_path": "",
   "matched_keywords": [
     "test time scaling"

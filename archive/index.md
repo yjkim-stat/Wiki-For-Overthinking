@@ -7,6 +7,7 @@
 
 ## Recent digests
 
+- [2026-08-21](daily/2026-08-21.md)
 - [2026-08-20](daily/2026-08-20.md)
 
 ## Topics
