@@ -21,6 +21,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:30:09Z",
   "created_at": "2026-08-20T13:25:49Z",
   "instructions": "Write the wiki definition for 'component ablation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "component ablation",
@@ -39,6 +40,16 @@
   "payload": {
     "name": "component ablation",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "cumulative ablation"
+    ],
+    "definition": "Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy delta alone would not. The unlearning work adds its components cumulatively on top of a crude lexical baseline and reports a trade at the final step rather than stopping at the best headline: the last component slightly worsens forgetting while raising generation fluency and retained utility. The reflection work goes further and tracks each individual reward component across training steps rather than only its endpoint, which turns a quantitative claim into a categorical one -- with one advantage term removed, the rewards it governs do not merely improve less, they fail to optimise at all, and with the other removed a different reward collapses during training. That is much stronger evidence that a decomposition is doing decomposition work than a drop in average accuracy, because it shows which objective stopped moving rather than only that the total fell. Both sources also demonstrate the design's main weakness: a cumulative ablation fixes an ordering, so it measures each component conditional on the ones already present and cannot separate a component's own effect from its interaction with them -- which is what a full factorial does instead.",
+    "kind": "method",
+    "related": [
+      "factorial ablation"
+    ]
   },
   "task_id": "concept__component-ablation",
   "task_version": 1,

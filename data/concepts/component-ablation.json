@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "cumulative ablation"
+  ],
+  "definition": "Removing or adding one part of a system at a time to attribute its contribution, and in both sources here the interesting result is what the ablation reveals that an accuracy delta alone would not. The unlearning work adds its components cumulatively on top of a crude lexical baseline and reports a trade at the final step rather than stopping at the best headline: the last component slightly worsens forgetting while raising generation fluency and retained utility. The reflection work goes further and tracks each individual reward component across training steps rather than only its endpoint, which turns a quantitative claim into a categorical one -- with one advantage term removed, the rewards it governs do not merely improve less, they fail to optimise at all, and with the other removed a different reward collapses during training. That is much stronger evidence that a decomposition is doing decomposition work than a drop in average accuracy, because it shows which objective stopped moving rather than only that the total fell. Both sources also demonstrate the design's main weakness: a cumulative ablation fixes an ordering, so it measures each component conditional on the ones already present and cannot separate a component's own effect from its interaction with them -- which is what a full factorial does instead.",
   "evidence": [
     {
       "id": "arxiv:2608.11691",
@@ -76,7 +78,9 @@
     "qwen2-5-7b",
     "qwen3-32b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "factorial-ablation"
+  ],
   "schema_version": 1,
   "slug": "component-ablation",
   "topics": [

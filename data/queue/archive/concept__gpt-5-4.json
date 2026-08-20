@@ -21,9 +21,10 @@
       }
     ]
   },
+  "completed_at": "2026-08-20T13:30:09Z",
   "created_at": "2026-08-20T13:25:49Z",
-  "instructions": "Write the wiki definition for 'Claude Opus 4.6'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "Claude Opus 4.6",
+  "instructions": "Write the wiki definition for 'GPT-5.4'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GPT-5.4",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -37,10 +38,18 @@
     ]
   },
   "payload": {
-    "name": "Claude Opus 4.6",
+    "name": "GPT-5.4",
     "source_count": 2
   },
-  "task_id": "concept__claude-opus-4-6",
+  "result": {
+    "aliases": [
+      "GPT-5.4"
+    ],
+    "definition": "A GPT-5 variant appearing twice in this archive as an evaluated system. In the financial-advice work it ranks fourth of six on the LLM-judge rubric at 8.949 and fourth on the judge-independent causal audit, where its estimated gross-profit lift is positive but the noisiest of any policy evaluated (0.0082, p = 0.015, with the widest confidence interval in the table) and its downside rate is 0.327 -- roughly a third of its recommendations landing on actions associated with negative estimated effect. It is separately one of 21 judges in the large-scale reliability evaluation of LLM-as-a-judge systems. Neither source describes the model; in this archive it is chiefly a data point in the observation that rubric quality and outcome-grounded value order systems differently.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__gpt-5-4",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A Claude model appearing twice in this archive as an evaluated system rather than a subject. In the financial-advice work it is the strongest commercial baseline on both instruments: second on the LLM-judge rubric at 9.365 behind a fine-tuned open-weight model, and the only commercial system whose estimated gross-profit lift under a judge-independent causal audit is both positive and comfortably distinguishable from zero (0.0104, p < 0.001) -- a distinction that matters because a sibling model scores well on the rubric while its estimated lift is negative. It is separately one of 21 judges in the large-scale LLM-as-a-judge reliability evaluation, whose findings about kappa deflation and position bias are reported over the panel rather than per model. Neither source describes the model itself; its usefulness here is that it is the commercial system that holds up under both a rubric and an outcome-grounded audit.
 
 - **Kind**: model
+- **Also called**: Claude Opus 4.6
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 

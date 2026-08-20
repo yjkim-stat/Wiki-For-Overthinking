@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen2.5-3B"
+  ],
+  "definition": "A 3-billion-parameter Qwen model used in both sources as the small end of a two-scale agentic RL comparison, and in both cases the scale at which the reported effects are largest. In the long-horizon reflection work it is the model on which the full ablation is run, reaching 46.15 average F1 across seven QA benchmarks from a raw baseline of 30.33 -- a 15.82-point improvement of which the reinforcement-learning stage supplies 11.39 against supervised fine-tuning's 4.43, and where removing the reflection action costs 15.31 points and removing backtracking 13.06. It is also where that paper's mathematics transfer is measured (56.0 on MATH, 82.4 on GSM8K), a gain of only 1.2 and 1.8 points over the strongest baseline against 12.6 points on the retrieval tasks. It appears again in recursive self-distillation for agentic RL. Neither source describes the model; both use it because it is small enough to run a full ablation on and large enough for the mechanisms under test to work.",
   "evidence": [
     {
       "id": "arxiv:2608.05987",

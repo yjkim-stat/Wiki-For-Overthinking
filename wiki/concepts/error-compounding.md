@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A mistake early in a long trajectory contaminating everything that follows, so the failure is not local to the step that produced it. Both sources treat it as the failure their mechanism exists to arrest and both are explicit that their own design is a new site for it. The in-trace retrieval work pairs it with reasoning drift as the pathology that injecting complete solved exemplars at each step boundary is meant to interrupt, offering as evidence that in-trace exemplars lower the predictive entropy of the generated answer relative to sequential scaling. The long-horizon reflection work builds an explicitly reversible trajectory tree so that an unreliable suffix can be discarded rather than reasoned from, and its ablation shows diagnosis and recovery are separately necessary -- removing the ability to notice an unreliable state costs 15.31 average F1 and removing the ability to roll back costs 13.06. That paper then states the cost honestly in its limitations: because recovery depends on the controller's checkpoint judgement, an error in an early diagnosis propagates through every later search and answer decision, so a mechanism for arresting compounding introduces a new thing that can compound. The archive's reading is that compounding is what makes long-horizon evaluation different in kind rather than degree, since a per-step accuracy that looks acceptable does not bound trajectory-level success.
 
 - **Kind**: concept
+- **Also called**: error accumulation, error propagation
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 

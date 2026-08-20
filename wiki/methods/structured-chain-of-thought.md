@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Constraining a chain of thought to a fixed sequence of typed segments rather than leaving it free-form, so that each segment can be separately supervised, rewarded or checked. The spatial-reasoning work makes the case most concretely: perception, including depth estimation and grounding, becomes a stage the model must explicitly produce before any inference, and each segment then receives its own process reward and its own advantage term. Its ablation shows why the structure alone is not the contribution -- with the perception advantage removed the model still emits the perception segment and the grounding and depth rewards simply never improve over training, so the structure is present and inert. The therapy-dialogue work uses the same idea to encode domain procedure, grounding the segment sequence in clinical guidelines and adding a separate orchestrator to keep simulated patients from collapsing into sycophantic compliance. Between them the sources make one point the archive should carry: imposing structure creates addressable slots, and a slot supervised only through the final answer is not filled with anything useful -- which is the same result the latent-reasoning entries reach from the other direction.
 
 - **Kind**: method
-- **Also called**: structured chain-of-thought
+- **Also called**: structured CoT, structured chain-of-thought
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [activation steering](activation-steering.md), [advantage estimation](../concepts/advantage-estimation.md), [chain of thought](chain-of-thought.md), [credit assignment](../concepts/credit-assignment.md), [GPT-4o](../models/gpt-4o.md), [GRPO](grpo.md), [LLM-as-a-judge](llm-as-a-judge.md), [outcome reward](../concepts/outcome-reward.md), [process reward](../concepts/process-reward.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [reward shaping](../concepts/reward-shaping.md), [supervised fine-tuning](supervised-fine-tuning.md), [sycophancy](../concepts/sycophancy.md), [synthetic data generation](synthetic-data-generation.md), [visual grounding](../concepts/visual-grounding.md)
+**Related**: [activation steering](activation-steering.md), [advantage estimation](../concepts/advantage-estimation.md), [chain of thought](chain-of-thought.md), [chain-of-thought prompting](chain-of-thought-prompting.md), [credit assignment](../concepts/credit-assignment.md), [GPT-4o](../models/gpt-4o.md), [GRPO](grpo.md), [LLM-as-a-judge](llm-as-a-judge.md), [outcome reward](../concepts/outcome-reward.md), [process reward](../concepts/process-reward.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [reward shaping](../concepts/reward-shaping.md), [supervised fine-tuning](supervised-fine-tuning.md), [sycophancy](../concepts/sycophancy.md), [synthetic data generation](synthetic-data-generation.md), [visual grounding](../concepts/visual-grounding.md)
 
 ## Appears in
 

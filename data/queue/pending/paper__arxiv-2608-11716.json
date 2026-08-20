@@ -1,0 +1,65 @@
+{
+  "attachments": {},
+  "created_at": "2026-08-20T13:30:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n- test-time-scaling: Test-Time Scaling — What a model gains by thinking longer at inference: sampling and verification, search over reasoning steps, self-correction, and the length of the chain itself as a compute knob. The question the archive answers is how accuracy trades against tokens spent, and where that curve flattens.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.11716",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chain of Thought (CoT) lifts the expressive ceiling of bounded-depth Transformers, with characterizations tying the number of CoT steps to circuit complexity classes. What remains largely missing are concrete instantiations with explicit, depth-bounded constructions, and the traversal procedures such characterizations presuppose. We close this gap for branching complexity. We give CoT realizations of depth-first search (DFS) and of Dijkstra algorithm, the latter subsuming breadth-first search, by unique hard-attention decoders of at most two layers, and use them as a shared computational substrate: reusing the DFS decoder yields the Strahler number of an $n$-vertex tree in $2n-1$ steps with four layers, and reusing the Dijkstra decoder yields its width in $n-1$ steps with three. Since computing the Strahler number of a binary tree given as a term is \\textsf{NC\\textsuperscript{1}}-complete, and our constructions handle arbitrary $n$-ary trees without layer normalization or positional encodings, this is a non-trivial witness for the linear-step regime of the CoT hierarchy. Exploiting the classical bijection between ordered trees and Dyck paths, itself realized by our DFS construction, which emits the path as it traverses, we give independent constructions for both measures on the path representation.",
+    "authors": [
+      "Debanjan Dutta",
+      "Anish Chakrabarty",
+      "Swagatam Das"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "chain of thought"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.11716v1",
+    "published": "2026-08-12",
+    "scores": {
+      "reasoning-training": 0.5,
+      "test-time-scaling": 0.5
+    },
+    "title": "Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity",
+    "url": "https://arxiv.org/abs/2608.11716",
+    "venue": ""
+  },
+  "task_id": "paper__arxiv-2608-11716",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

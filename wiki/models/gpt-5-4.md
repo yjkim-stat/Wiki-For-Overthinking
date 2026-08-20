@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A GPT-5 variant appearing twice in this archive as an evaluated system. In the financial-advice work it ranks fourth of six on the LLM-judge rubric at 8.949 and fourth on the judge-independent causal audit, where its estimated gross-profit lift is positive but the noisiest of any policy evaluated (0.0082, p = 0.015, with the widest confidence interval in the table) and its downside rate is 0.327 -- roughly a third of its recommendations landing on actions associated with negative estimated effect. It is separately one of 21 judges in the large-scale reliability evaluation of LLM-as-a-judge systems. Neither source describes the model; in this archive it is chiefly a data point in the observation that rubric quality and outcome-grounded value order systems differently.
 
 - **Kind**: model
+- **Also called**: GPT-5.4
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-training](../topics/reasoning-training.md)
 - **Sources**: 2
 
