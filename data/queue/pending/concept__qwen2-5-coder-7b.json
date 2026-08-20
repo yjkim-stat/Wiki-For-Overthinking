@@ -1,0 +1,52 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.",
+        "title": "Persistent Semantic Entities in Tool-Augmented LLM Systems",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Edits the internal representation of a written scratchpad state while holding the printed text fixed, and asks whether the next step follows the transition rule applied to the edited value — turning 'does the model use its scratchpad?' into a causal test with a single correct answer.",
+        "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-training"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-20T12:33:52Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-coder-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen2.5-coder-7B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen2.5-coder-7B",
+    "source_count": 2
+  },
+  "task_id": "concept__qwen2-5-coder-7b",
+  "task_version": 1,
+  "topics": [
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
+  ]
+}

@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Formalises implicit agent state that survives session boundaries as Persistent Semantic Entities defined by name binding, event triggering and propagation, and measures across 24 models that whether injected contamination decays depends on what kind of contamination it is rather than on model scale or deployment.",
       "title": "Persistent Semantic Entities in Tool-Augmented LLM Systems"
+    },
+    {
+      "id": "arxiv:2608.08726",
+      "kind": "paper",
+      "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+      "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
     }
   ],
   "first_seen": "2026-08-20T12:24:18Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:24:18Z",
+  "last_seen": "2026-08-20T12:33:50Z",
   "name": "factorial ablation",
   "related": [
     "persistent-semantic-entity",
@@ -62,12 +68,38 @@
     "glm-4-plus",
     "kimi-k2-1t",
     "cogito-2-1-671b",
-    "minimax-text-01"
+    "minimax-text-01",
+    "privileged-information",
+    "on-policy-distillation",
+    "hindsight",
+    "credit-assignment",
+    "distributional-fixed-point",
+    "causal-policy-interface",
+    "outcome-verification",
+    "teacher-student-gap",
+    "pass-k",
+    "self-distillation",
+    "on-policy-self-distillation",
+    "knowledge-distillation",
+    "forward-kl-divergence",
+    "generalized-jensen-shannon-divergence",
+    "grpo",
+    "supervised-fine-tuning",
+    "verifier-based-reward",
+    "paired-bootstrap",
+    "adaptive-sampling",
+    "kl-regularization",
+    "aime-2024",
+    "aime-2025",
+    "hmmt-2025",
+    "qwen3-1-7b",
+    "qwen3-4b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "factorial-ablation",
   "topics": [
-    "test-time-scaling"
+    "test-time-scaling",
+    "reasoning-evaluation"
   ]
 }

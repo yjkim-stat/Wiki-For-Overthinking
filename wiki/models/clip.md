@@ -9,7 +9,7 @@ A vision-language encoder trained to align image and text embeddings, used by bo
 - **Topics**: [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 2
 
-**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [adversarial robustness](../concepts/adversarial-robustness.md), [causal intervention](../methods/causal-intervention.md), [cosine similarity](../methods/cosine-similarity.md), [flow matching](../methods/flow-matching.md), [foresight](../concepts/foresight.md), [GPT-4o-mini](gpt-4o-mini.md), [jailbreak](../concepts/jailbreak.md), [latent reasoning](../concepts/latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [LoRA](../methods/lora.md), [safety alignment](../concepts/safety-alignment.md), [t-SNE](../methods/t-sne.md), [test-time scaling](../methods/test-time-scaling.md)
+**Related**: [adaptive compute allocation](../concepts/adaptive-compute-allocation.md), [adversarial robustness](../concepts/adversarial-robustness.md), [causal intervention](../concepts/causal-intervention.md), [cosine similarity](../methods/cosine-similarity.md), [flow matching](../methods/flow-matching.md), [foresight](../concepts/foresight.md), [GPT-4o-mini](gpt-4o-mini.md), [jailbreak](../concepts/jailbreak.md), [latent reasoning](../concepts/latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [LoRA](../methods/lora.md), [safety alignment](../concepts/safety-alignment.md), [t-SNE](../methods/t-sne.md), [test-time scaling](../methods/test-time-scaling.md)
 
 ## Appears in
 

@@ -35,11 +35,17 @@
       "kind": "paper",
       "note": "Concentrates privileged self-distillation on reasoning pivots identified by the teacher's distributional shift when an English reference solution is added or removed, for multilingual reasoning transfer.",
       "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer"
+    },
+    {
+      "id": "arxiv:2608.08726",
+      "kind": "paper",
+      "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+      "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "method",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T12:33:50Z",
   "name": "on-policy self-distillation",
   "related": [
     "credit-assignment",
@@ -115,7 +121,24 @@
     "surface-realization",
     "rp-opsd",
     "reference-anchoring",
-    "counterfactual-view-comparison"
+    "counterfactual-view-comparison",
+    "on-policy-distillation",
+    "hindsight",
+    "distributional-fixed-point",
+    "causal-policy-interface",
+    "outcome-verification",
+    "pass-k",
+    "self-distillation",
+    "forward-kl-divergence",
+    "generalized-jensen-shannon-divergence",
+    "supervised-fine-tuning",
+    "verifier-based-reward",
+    "paired-bootstrap",
+    "factorial-ablation",
+    "adaptive-sampling",
+    "kl-regularization",
+    "hmmt-2025",
+    "qwen3-4b"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -9,7 +9,7 @@ A non-parametric test that builds its null distribution by relabelling the obser
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](activation-patching.md), [benchmark contamination](../concepts/benchmark-contamination.md), [causal intervention](causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [low-rank weight ablation](low-rank-weight-ablation.md), [membership inference](membership-inference.md), [Pythia-410M](../models/pythia-410m.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [the Pile](../datasets/the-pile.md), [weight-space ablation](weight-space-ablation.md)
+**Related**: [activation patching](activation-patching.md), [benchmark contamination](../concepts/benchmark-contamination.md), [causal intervention](../concepts/causal-intervention.md), [causal tracing](causal-tracing.md), [circuit analysis](circuit-analysis.md), [detection versus control](../concepts/detection-versus-control.md), [low-rank weight ablation](low-rank-weight-ablation.md), [membership inference](membership-inference.md), [Pythia-410M](../models/pythia-410m.md), [residual stream](../concepts/residual-stream.md), [self-repair](../concepts/self-repair.md), [superposition](../concepts/superposition.md), [the Pile](../datasets/the-pile.md), [weight-space ablation](weight-space-ablation.md)
 
 ## Appears in
 

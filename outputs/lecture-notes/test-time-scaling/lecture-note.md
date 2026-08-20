@@ -129,34 +129,34 @@ The failure mode in which a policy's output distribution becomes progressively m
 
 Seen in: BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?; Don't Peek at the Answer: Outcome-Masked Group Relative Policy Optimization for Label-Free RLVR; When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO; SeLaR: Selective Latent Reasoning in Large Language Models.
 
-### exploration-exploitation trade-off
+### process supervision
 
-The tension this archive's entropy literature is organized around: a policy that concentrates probability mass gains reward on patterns it already has and stops discovering new ones. Twelve sources make it measurable rather than rhetorical, and they disagree about what to measure. The entropy family reads collapse as premature exploitation, supported by plain GRPO reaching the highest training reward at the lowest entropy, and takes pass@k at large k rather than accuracy as the metric that separates the two — which is also what supports the claim that RL sharpens sampling inside the base model's reachable set. Several sources then argue entropy is the wrong handle, replacing it with distributional deviation from the group average, with a diversity bonus over hidden-state representations that removes the pass@k degradation entropy methods leave behind, or with a per-token discriminator's deviation from a policy-weighted baseline. Two entries move the trade-off out of training entirely and pose it as a stopping problem — how many samples to draw before quitting — with classical optimal-stopping theory supplying the rule. A theoretical entry states the cost most sharply: exploration bought with an entropy bonus is paid for permanently in the location of the optimum unless the coefficient is annealed away.
+Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.
 
-Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representation-Based Exploration for Language Models: From Test-Time to Post-Training; Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning; The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models.
+Seen in: CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning; Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering; AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning; DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 36 | _pending_ |
-| LLM-as-a-judge | 30 | _pending_ |
-| supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| GRPO | 39 | _pending_ |
+| LLM-as-a-judge | 32 | _pending_ |
+| supervised fine-tuning | 32 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | self-consistency | 19 | _pending_ |
 | test-time scaling | 18 | _pending_ |
-| activation patching | 17 | _pending_ |
-| chain-of-thought prompting | 15 | _pending_ |
-| pass@k | 15 | _pending_ |
-| activation steering | 14 | _pending_ |
+| activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
+| chain-of-thought prompting | 16 | _pending_ |
+| pass@k | 16 | _pending_ |
+| activation steering | 14 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | best-of-n | 14 | Generating N candidates and keeping the one a verifier scores highest, the archive's standard selection baseline — and one with a known failure direction. With an imperfect veri... |
 | majority voting | 12 | Returning the most frequent answer among sampled trajectories, counting every trajectory equally. The sources treat it as the aggregation floor and report it is hard to beat out... |
-| causal intervention | 11 | _pending_ |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
+| LoRA | 9 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | process reward model | 9 | _pending_ |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
 
@@ -165,9 +165,9 @@ Seen in: SeLaR: Selective Latent Reasoning in Large Language Models; Representat
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
 | MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| AIME 2024 | 41 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| AIME 2024 | 42 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | GSM8K | 35 | _pending_ |
-| AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
+| AIME 2025 | 30 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | OlympiadBench | 13 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |

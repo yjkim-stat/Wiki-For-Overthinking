@@ -3,14 +3,98 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Builds a parallel entity grid of 27 folk-narrative motifs across 10 cultures and instruments 18 models with probing, logit lens, activation patching and generation, finding that the residual stream separates cultures cleanly in every model while the readout collapses onto Greco-Roman defaults — so the failure is at the decoder, not the encoder.",
+        "title": "Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen — leaving CoT-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00).",
+        "title": "Evading Chain-of-Thought Monitoring Through Model Poisoning",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proves that activation patching and weight-space ablation measure two different quantities — a carrier's donor-receiver contrast versus its absolute level at the receiver — which neither bounds, gives an exact if-and-only-if criterion for when ablating a subset collapses a conditional onto one branch, and then withdraws its own clean empirical separation when it fails out of sample.",
+        "title": "A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
+        "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
+        "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An open library giving vision-language models the mechanistic-interpretability tooling that text-only models already have: activation patching, attention analysis and meta-functions behind one interface.",
         "title": "Spectra: A Mechanistic Interpretability Library for Vision-Language Models",
         "topics": [
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -21,8 +105,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -33,8 +117,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -45,8 +129,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -57,8 +141,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -69,8 +153,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -81,8 +165,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -93,8 +177,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -105,8 +189,8 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -117,15 +201,15 @@
           "reasoning-interpretability",
           "reasoning-faithfulness",
           "reasoning-training",
-          "reasoning-evaluation",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:09Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'activation patching'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T12:29:13Z",
+  "created_at": "2026-08-20T12:24:20Z",
+  "instructions": "Write the wiki definition for 'activation patching'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "activation patching",
   "kind": "concept",
   "language": "en",
@@ -134,31 +218,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "activation patching",
-    "source_count": 10
+    "source_count": 17
   },
   "result": {
     "aliases": [
-      "patching",
-      "causal intervention",
+      "causal tracing",
       "interchange intervention"
     ],
-    "definition": "Replacing an activation with one from a different run to test whether that component causally carries a behaviour, and the archive's workhorse causal-interpretability tool at ten sources. Its results are known to depend on choices usually left implicit: how the counterfactual prompt is corrupted, which metric scores the patching effect, and whether layers are patched singly or in sliding windows — one archived source varies these systematically and finds the conclusions move with them. Two extensions address structural limits: relaxing the combinatorial search over component subsets into a continuous problem, so components that matter only jointly become visible, and holding the sampling seed fixed while ablating a single input token, so the counterfactual isolates one variable. Applied to reasoning it has produced both a sparse sequential circuit for propositional logic and an unordered bag of heuristic neurons for arithmetic, which is the archive's clearest evidence that what patching finds depends on the granularity it is run at.",
+    "definition": "A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached activation into that second run; the patching effect is the gap between corrupted and patched performance, iterated over components to give a localization map. Almost every other choice is free, and the methodology paper in this set shows each one changes the answer -- corrupting by Gaussian noise produces a clear MLP peak around layer 16 in GPT-2 XL that symmetric token replacement does not show at all, with the noise peak 2x to 5x higher regardless of metric; scoring by probability structurally misses negative components, overlooking a Negative Name Mover head because the corrupted run already bounds any negative effect at -0.03 against a detection threshold of -0.027, where logit difference does not; and sliding-window patching returns 1.40x, 1.75x and 1.59x the peak of summed single-layer effects at window sizes 3, 5 and 10. The sources apply it at four granularities that are not the same experiment -- swapping a whole residual stream between prompts at each layer, greedy search over every attention head and MLP output, a low-rank subspace of a written scratchpad state read through the KV cache, and decoded sparse-dictionary features -- and two of them patch between different trajectories rather than between a clean and a corrupted version of one input. Two sources establish a limit the technique's usual framing conceals: patching is not ablation, since it measures a carrier's donor-receiver contrast rather than its absolute level at the receiver, so a site can be patch-sufficient at median recovery 1.043 with an 0.85 flip rate while ablating the weights feeding it still leaves the receiver correct on 57 percent of inputs. What the careful sources share is not a corruption method but a null: a self-patch control that is zero by construction, a neutral-prompt control for nonspecific disruption, or same-rank random and orthogonal-complement patches that reach about 0.02 agreement where the real patch reaches 0.80 to 0.91.",
     "kind": "method",
     "related": [
-      "causal tracing",
-      "causal mediation analysis",
-      "localization",
-      "attention head",
-      "counterfactual intervention",
-      "modularity",
-      "sparse autoencoder"
+      "weight-space ablation",
+      "detection versus control"
     ]
   },
   "task_id": "concept__activation-patching",

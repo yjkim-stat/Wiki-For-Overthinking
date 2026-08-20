@@ -207,8 +207,32 @@
       },
       {
         "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
         "title": "Safety Cost of Steering Vectors Is Separable and Reducible",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
@@ -380,7 +404,7 @@
   },
   "payload": {
     "name": "LLM-as-a-judge",
-    "source_count": 30
+    "source_count": 32
   },
   "task_id": "concept__llm-as-a-judge",
   "task_version": 1,

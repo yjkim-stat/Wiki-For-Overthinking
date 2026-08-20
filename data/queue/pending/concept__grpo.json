@@ -195,6 +195,42 @@
       },
       {
         "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
         "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
         "topics": [
@@ -452,7 +488,7 @@
   },
   "payload": {
     "name": "GRPO",
-    "source_count": 36
+    "source_count": 39
   },
   "task_id": "concept__grpo",
   "task_version": 1,

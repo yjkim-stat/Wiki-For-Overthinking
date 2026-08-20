@@ -1,0 +1,23 @@
+# gpt-5.6-luna
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: model
+- **Also called**: GPT-5.6-Luna
+- **Topics**: [reasoning-training](../topics/reasoning-training.md)
+- **Sources**: 2
+
+**Related**: [advantage estimation](../concepts/advantage-estimation.md), [AIME](../datasets/aime.md), [backtracking](../concepts/backtracking.md), [benchmark design](../concepts/benchmark-design.md), [chain-of-thought prompting](../methods/chain-of-thought-prompting.md), [DAPO](../methods/dapo.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DAPO-Qwen-32B](dapo-qwen-32b.md), [DeepSeek-R1](deepseek-r1.md), [dense retrieval](../methods/dense-retrieval.md), [entropy collapse](../concepts/entropy-collapse.md), [exploration](../concepts/exploration.md), [gpt-oss-120b](gpt-oss-120b.md), [GRPO](../methods/grpo.md), [knowledge distillation](../methods/knowledge-distillation.md), [latent reasoning](../concepts/latent-reasoning.md), [LLM-as-a-judge](../methods/llm-as-a-judge.md), [long chain-of-thought distillation](../methods/long-chain-of-thought-distillation.md), [pass@k](../methods/pass-k.md), [policy entropy](../concepts/policy-entropy.md), [privileged information](../concepts/privileged-information.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-8B-Base](qwen3-8b-base.md), [reasoning boundary](../concepts/reasoning-boundary.md), [reranking](../methods/reranking.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [reward shaping](../concepts/reward-shaping.md), [RLVR](../methods/rlvr.md), [supervised fine-tuning](../methods/supervised-fine-tuning.md), [trajectory diversity](../concepts/trajectory-diversity.md)
+
+## Appears in
+
+- [BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?](../../archive/papers/2026/arxiv-2608-02867/summary.md) — Builds prefix trees of semantically equivalent reasoning statements and measures how RLVR changes a model's preference between branches, finding the entropy collapse is not stylistic — the collapse is stronger for semantically distinct continuations than for syntactic variants of the same statement.
+- [SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests](../../archive/papers/2026/arxiv-2608-08640/summary.md) — Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

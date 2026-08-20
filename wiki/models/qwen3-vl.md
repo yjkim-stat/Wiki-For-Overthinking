@@ -9,7 +9,7 @@ A Qwen vision-language model, and the subject of the archive's sharpest modality
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-interpretability](../topics/reasoning-interpretability.md)
 - **Sources**: 2
 
-**Related**: [activation patching](../methods/activation-patching.md), [attention pattern](../concepts/attention-pattern.md), [construct validity](../concepts/construct-validity.md), [GPT-5](gpt-5.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [meta-evaluation](../concepts/meta-evaluation.md), [multimodal reasoning](../concepts/multimodal-reasoning.md), [perception bottleneck](../concepts/perception-bottleneck.md), [reproducibility](../concepts/reproducibility.md)
+**Related**: [activation patching](../methods/activation-patching.md), [attention pattern](../concepts/attention-pattern.md), [construct validity](../concepts/construct-validity.md), [GPT-5](gpt-5.md), [mechanistic interpretability](../concepts/mechanistic-interpretability.md), [meta-evaluation](../concepts/meta-evaluation.md), [multimodal reasoning](../concepts/multimodal-reasoning.md), [perception bottleneck](../concepts/perception-bottleneck.md), [Qwen2.5-VL](qwen2-5-vl.md), [reproducibility](../concepts/reproducibility.md)
 
 ## Appears in
 

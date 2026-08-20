@@ -63,6 +63,66 @@
       },
       {
         "kind": "paper",
+        "note": "Applies linear probing, the logit and tuned lenses, activation patching and difference-in-means steering to two public text-to-MIDI models, and shows that the architecture of the conditioning pathway determines which steering strategy stays stable.",
+        "title": "MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
+        "title": "Finding Usable Weight Mechanisms with Tiled SVD",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+        "title": "Safety Cost of Steering Vectors Is Separable and Reducible",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+        "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A survey reorganizing mechanistic interpretability from observation into a Locate-Steer-Improve intervention pipeline, categorized by the interpretable object being acted on.",
         "title": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models",
         "topics": [
@@ -111,8 +171,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T12:45:26Z",
-  "created_at": "2026-08-13T12:18:18Z",
+  "completed_at": "2026-08-20T12:29:13Z",
+  "created_at": "2026-08-20T12:24:20Z",
   "instructions": "Write the wiki definition for 'activation steering'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "activation steering",
   "kind": "concept",
@@ -129,23 +189,18 @@
   },
   "payload": {
     "name": "activation steering",
-    "source_count": 9
+    "source_count": 14
   },
   "result": {
     "aliases": [
-      "steering",
-      "contrastive activation addition",
       "activation addition",
-      "CAA"
+      "contrastive activation addition",
+      "steering vectors"
     ],
-    "definition": "Adding a direction to a model's residual stream at inference to shift its behaviour, without touching weights. The nine sources here agree it works and disagree about what licenses it. The construction is usually a difference of means between contrastive prompt pairs, and one source shows the resulting direction transfers to an untrained task, moving a monetary indifference threshold after being trained only on short- versus long-horizon answer continuations. The central negative result is that a direction's quality as a detector says nothing about its effect as an intervention: one source finds directions that are highly discriminative for a concept and aligned with its positive examples yet reliably steer the model the opposite way, and characterizes them geometrically as spoofing the concept's absence. Two extensions follow from that. One builds multi-layer vectors from SAE features chosen by co-activation and decoder alignment, intervening at several points rather than one. Another places steering inside a Locate-Steer-Improve pipeline organized by which interpretable object is being acted on. The remaining sources use steering as an instrument rather than a subject -- confirming that a model's eventual reasoning length is decided before the first reasoning token and is steerable, and that the hidden-state norm bounds SAE reasoning-feature activation -- and one supplies the cost: the models that follow their own traces most faithfully are the ones that follow a tampered trace into an unsafe action.",
+    "definition": "Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between activations on a small contrastive set, and the method is adopted because it is cheap -- one vector, computed once, applied at generation time. These sources agree on the mechanics and collectively falsify the assumption that licenses the standard recipe: the direction that best discriminates a concept is not reliably the one that steers it and can steer the opposite way, with one vector reaching AUC 0.97 while its steer factor correlates with the concept score at Spearman -1, so several papers here explicitly decline to select the intervention by classification accuracy. Three costs recur and are quantified rather than warned about. It damages refusal -- worst-case attack success rises more than 63 percent on one model -- though the damaging part is a separate direction that constrained optimisation can ablate, after which no attack across 108 configurations exceeds 4.2 points above the unsteered baseline; it over-steers into fluency collapse in a dose-graded and extremely concentrated way, with 97 percent of 942 severe events falling in a single trait-model cell at a median perplexity inflation of 810 points; and its gains are small and conditional, averaging +0.46 to +2.35 for reasoning-length steering and running +7.60 on six-step problems but -3.23 at eight steps for trajectory steering. Consequently where to inject is now treated as part of the method rather than as configuration: the best layers are a property of the individual input rather than of the task, all-layer injection is stable in a cross-attention-conditioned model while accumulating disruptively in a decoder-only one, and the archive's most reliable uses are gated on a predictor rather than applied unconditionally. The evidential minimum every careful source here meets is a magnitude-matched random direction: the identified vectors move the target metrics by 9 and 7 points where norm-matched random ones move either by at most 1.1.",
     "kind": "method",
     "related": [
-      "steering vector",
-      "difference-of-means probe",
-      "detection versus control",
-      "refusal direction",
-      "sparse autoencoder"
+      "supervised fine-tuning"
     ]
   },
   "task_id": "concept__activation-steering",

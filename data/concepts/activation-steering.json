@@ -6,9 +6,10 @@
     "representation engineering",
     "Activation Steering",
     "contrastive activation addition",
-    "CAA"
+    "CAA",
+    "steering vectors"
   ],
-  "definition": "",
+  "definition": "Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between activations on a small contrastive set, and the method is adopted because it is cheap -- one vector, computed once, applied at generation time. These sources agree on the mechanics and collectively falsify the assumption that licenses the standard recipe: the direction that best discriminates a concept is not reliably the one that steers it and can steer the opposite way, with one vector reaching AUC 0.97 while its steer factor correlates with the concept score at Spearman -1, so several papers here explicitly decline to select the intervention by classification accuracy. Three costs recur and are quantified rather than warned about. It damages refusal -- worst-case attack success rises more than 63 percent on one model -- though the damaging part is a separate direction that constrained optimisation can ablate, after which no attack across 108 configurations exceeds 4.2 points above the unsteered baseline; it over-steers into fluency collapse in a dose-graded and extremely concentrated way, with 97 percent of 942 severe events falling in a single trait-model cell at a median perplexity inflation of 810 points; and its gains are small and conditional, averaging +0.46 to +2.35 for reasoning-length steering and running +7.60 on six-step problems but -3.23 at eight steps for trajectory steering. Consequently where to inject is now treated as part of the method rather than as configuration: the best layers are a property of the individual input rather than of the task, all-layer injection is stable in a cross-attention-conditioned model while accumulating disruptively in a decoder-only one, and the archive's most reliable uses are gated on a predictor rather than applied unconditionally. The evidential minimum every careful source here meets is a magnitude-matched random direction: the identified vectors move the target metrics by 9 and 7 points where norm-matched random ones move either by at most 1.1.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -316,11 +317,7 @@
     "test-time-scaling"
   ],
   "related_authored": [
-    "steering-vector",
-    "difference-of-means-probe",
-    "detection-versus-control",
-    "refusal-direction",
-    "sparse-autoencoder"
+    "supervised-fine-tuning"
   ],
   "schema_version": 1,
   "slug": "activation-steering",

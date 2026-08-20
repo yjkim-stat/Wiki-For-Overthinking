@@ -39,6 +39,18 @@
       },
       {
         "kind": "paper",
+        "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+        "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-interpretability",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
         "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
         "topics": [
@@ -200,7 +212,7 @@
   },
   "payload": {
     "name": "pass@k",
-    "source_count": 15
+    "source_count": 16
   },
   "task_id": "concept__pass-k",
   "task_version": 1,

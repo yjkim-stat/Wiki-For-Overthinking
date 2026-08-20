@@ -91,6 +91,17 @@
       },
       {
         "kind": "paper",
+        "note": "Uses chain-of-thought about required capabilities as training-time supervision for a skill retriever -- distilled from a teacher in stage one and refined by retrieval-rewarded GRPO in stage two -- so that at inference the model encodes the bare query with no generation at all.",
+        "title": "SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Switches to soft-embedding latent reasoning only at low-confidence steps, keeping discrete decoding elsewhere, and pushes the soft embeddings away from the top token to stop them collapsing.",
         "title": "SeLaR: Selective Latent Reasoning in Large Language Models",
         "topics": [
@@ -141,7 +152,7 @@
   },
   "payload": {
     "name": "latent reasoning",
-    "source_count": 11
+    "source_count": 12
   },
   "task_id": "concept__latent-reasoning",
   "task_version": 1,

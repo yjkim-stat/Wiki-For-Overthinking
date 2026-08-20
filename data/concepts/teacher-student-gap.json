@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
       "title": "EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents"
+    },
+    {
+      "id": "arxiv:2608.08726",
+      "kind": "paper",
+      "note": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+      "title": "PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation"
     }
   ],
   "first_seen": "2026-08-12T22:31:15Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-20T12:33:50Z",
   "name": "teacher-student gap",
   "related": [
     "credit-assignment",
@@ -41,12 +47,33 @@
     "qwen2-5-7b-instruct",
     "qwen2-5-3b-instruct",
     "qwen3-1-7b",
-    "e5-base-v2"
+    "e5-base-v2",
+    "on-policy-distillation",
+    "hindsight",
+    "distributional-fixed-point",
+    "causal-policy-interface",
+    "outcome-verification",
+    "pass-k",
+    "self-distillation",
+    "knowledge-distillation",
+    "forward-kl-divergence",
+    "generalized-jensen-shannon-divergence",
+    "supervised-fine-tuning",
+    "verifier-based-reward",
+    "paired-bootstrap",
+    "factorial-ablation",
+    "adaptive-sampling",
+    "kl-regularization",
+    "aime-2024",
+    "aime-2025",
+    "hmmt-2025",
+    "qwen3-4b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "teacher-student-gap",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

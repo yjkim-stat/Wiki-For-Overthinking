@@ -97,6 +97,12 @@ The additive hidden-state channel each transformer layer reads from and writes t
 
 Seen in: Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; A Theory of Conditional Collapse under Low-Rank Weight-Space Ablations: I. The Single-Block Theory and Synthetic Validation; Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering.
 
+### causal intervention
+
+The family of operations that establish a component or a written reasoning state actually matters rather than merely correlating with a behaviour, by changing it and reading what follows; one source states the defining move plainly, that establishing influence requires an intervention rather than an observation, which is what turns a claim into a measurable quantity. Across these sources it covers at least five operations that are not interchangeable: swapping the residual stream of one prompt into another at each layer and measuring the change in gold log-probability, editing in weight space the parameters that generate every forward pass, adding a signed multiple of a direction during generation, deleting a layer-specific direction at chosen token positions, and injecting or force-decoding a trace the experimenter chose. Two of the sources turn the non-interchangeability from a caution into a result: patching measures a carrier's donor-receiver contrast while ablation measures its absolute level at the receiver, neither bounds the other, and on one site patching gives a median recovery of 1.043 with an 0.85 flip rate while ablating the weights feeding that same site leaves the receiver format correct on 57 percent of inputs -- patch-sufficient and far from ablation-necessary on the same component of the same network. What the sources treat as making an intervention readable is its null rather than its effect size: a magnitude-matched random vector that moves either metric by at most 1.1 points where the identified direction moves them by 9 and 7, and a random direction of the same size that shifts a backdoor by at most 2 points where deleting the identified one drops attack success by 89 points or more. The sharpest single use here is not a magnitude at all but an asymmetry -- a benign-looking trace lifted from a triggered run fails to reproduce an attack without its trigger (0.000-0.038) while the trigger with an empty reasoning block still succeeds (0.513-1.000), which establishes that the visible reasoning is not on the causal path to the answer.
+
+Seen in: Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression; Cultural Awareness is Represented but Not Decoded: Tracing Mythological Knowledge across 18 Open-Source LLMs; Evading Chain-of-Thought Monitoring Through Model Poisoning; Inverted Detection and Control in Steering Vectors.
+
 ### reasoning trajectory
 
 The path a model's internal state takes while producing a chain of thought, treated by eight sources as an object with structure rather than a sequence of snapshots. Reading it beats reading any single point: detectors combining layerwise motion with restricted location information, or comparing a start-to-end activation delta against class centroids, outperform single-layer probing, and one source argues static activations invite a probe to latch onto lexical surface patterns that cross-layer displacement removes. The trajectory also has identifiable landmarks — mutual-information peaks that decode to reflective tokens, sentences that commit the model to a position, a sharp commitment boundary after which the answer no longer changes, and the mid-trajectory point where a correct early judgement gets overridden. What the sources disagree on is how much location to keep alongside motion: displacement alone discards the state an update began from, and restoring it risks reintroducing the shortcuts displacement was meant to remove.
@@ -115,45 +121,39 @@ Evaluating the evaluation — asking whether a benchmark, metric or judge measur
 
 Seen in: Mitigating Scoring Bias in LLM-as-a-Judge via Random Number Generation; Make Mechanistic Interpretability Auditable: A Call to Develop Guidelines via Continuous Collaborative Reviewing; SMART: Evaluating LLMs&apos; Mathematical Reasoning via a Human Cognitive Process-Inspired Benchmark; VisAidMath: Benchmarking Visual-Aided Mathematical Reasoning.
 
-### effective depth
-
-The idea that autoregressive generation raises a fixed-depth model's usable computational depth, because each emitted token re-enters the input and buys another pass — so depth grows with steps generated rather than with layers. The archive now holds this as a proved mechanism rather than an analogy. Bounded-depth transformers cannot directly solve arithmetic or linear equations, while constant-size autoregressive ones can with a chain of thought; the classes reachable are characterized exactly by the number of steps; and the same argument explains counting failures as a depth limit, repaired by decomposing a large count into independently solvable parts whose mechanism is then traced. Two sources qualify it. The discretization is load-bearing: the argmax at each step acts as an error-correcting reset discarding sub-decisional noise, so removing it makes perturbations compound. And depth can be relocated rather than gained — internalizing a chain into hidden states costs layers growing logarithmically with the chain absorbed.
-
-Seen in: Reasoning Errors Have a Region and a Direction in the Residual-Stream Trajectory of LLMs; Truth as a Trajectory: What Internal Representations Reveal About Large Language Model Reasoning; Mechanistic Interpretability of Large-Scale Counting in LLMs through a System-2 Strategy; The Expressive Power of Transformers with Chain of Thought.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 36 | _pending_ |
-| LLM-as-a-judge | 30 | _pending_ |
-| supervised fine-tuning | 29 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
+| GRPO | 39 | _pending_ |
+| LLM-as-a-judge | 32 | _pending_ |
+| supervised fine-tuning | 32 | Training on input-output pairs, and in these sources specifically on reasoning traces. What 27 sources collectively show is how little of it is needed and how much depends on wh... |
 | linear probe | 24 | A linear classifier or regressor fitted to a model's internal activations to test whether some property is linearly decodable from them — used across these 22 sources both as a... |
 | chain of thought | 23 | Emitting intermediate tokens before an answer, and the object almost everything in this archive is about — now with a theoretical account of why it works. Twenty sources use it... |
 | RLVR | 23 | Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a... |
 | self-consistency | 19 | _pending_ |
 | test-time scaling | 18 | _pending_ |
-| activation patching | 17 | _pending_ |
-| chain-of-thought prompting | 15 | _pending_ |
-| pass@k | 15 | _pending_ |
-| activation steering | 14 | _pending_ |
-| causal intervention | 11 | _pending_ |
+| activation patching | 17 | A three-pass causal test: run a clean prompt with a known answer and cache the activations of chosen components, run a corrupted or contrasting prompt, then restore one cached a... |
+| chain-of-thought prompting | 16 | _pending_ |
+| pass@k | 16 | _pending_ |
+| activation steering | 14 | Adding a signed multiple of a fixed direction to the residual stream at inference so behaviour changes without retraining; the direction is usually a mean difference between act... |
 | PPO | 11 | The clipped-surrogate policy-gradient algorithm the RLVR methods here descend from. It is rarely run directly in these sources; what carries over is its clipping mechanism, whic... |
 | calibration | 10 | Whether a model's stated confidence matches its actual accuracy, and a property the archive has learned to split in two. The distinction comes from a diffusion language model me... |
 | sparse autoencoder | 10 | An autoencoder trained to reconstruct a model's internal activations through a wider hidden layer under a sparsity penalty, so its rows form an overcomplete dictionary and any a... |
+| LoRA | 9 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | process reward model | 9 | _pending_ |
 | circuit analysis | 8 | Identifying a subset of model components — attention heads, neurons — and the information flow between them that accounts for a behaviour. The archived sources use it at three s... |
-| LoRA | 8 | Fine-tuning by learning low-rank updates to frozen weights instead of all parameters. Neither source studies it; both use it as the cheap adaptation that makes their comparison... |
 | Monte Carlo tree search | 8 | Search over reasoning states guided by simulated rollouts, one of the structured alternatives to linear chain-of-thought. In this archive it appears as a comparison rather than... |
+| knowledge distillation | 7 | Training a smaller model on a larger one's outputs, and in both sources a method whose result is governed by what is distilled rather than by how much. One distils the aggregate... |
 
 ## Benchmarks and datasets
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
 | MATH500 | 43 | A 500-problem subset of MATH, used across 39 sources as the mid-difficulty mathematics reference — large enough that a few items do not move the number, and easy enough that str... |
-| AIME 2024 | 41 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
+| AIME 2024 | 42 | The 2024 American Invitational Mathematics Examination, and the archive's single most-used benchmark at 39 sources — which is itself the thing to know about it. Its 30 problems... |
 | GSM8K | 35 | _pending_ |
-| AIME 2025 | 29 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
+| AIME 2025 | 30 | The 2025 American Invitational Mathematics Examination, used across 26 sources as AIME 2024's companion and, increasingly, as a contamination control — it postdates the training... |
 | AMC23 | 16 | The 2023 American Mathematics Competitions problems, used in the archive as the rung below AIME — harder than MATH500, easier than AIME, and small. It appears mostly in entropy... |
 | GPQA-Diamond | 14 | A set of graduate-level multiple-choice questions in biology, chemistry and physics, used across these sources as the hard non-mathematical benchmark and as the place where math... |
 | OlympiadBench | 13 | An olympiad-level mathematics benchmark and, at eleven sources, the most-cited evaluation set in this archive after the AIME pair. It functions as the stable member of the stand... |

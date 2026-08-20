@@ -16,11 +16,59 @@
         "topics": [
           "reasoning-interpretability"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends a single-block interaction theorem to ablated subsets spanning many layers, isolates the cross-layer remainder as an exact double integral rather than bounding it, supplies the one missing closed-form ingredient (a local attention Jacobian bound, verified without a violation on a real 1.5B model), and tests the whole picture on an emergent circuit nobody designed for it — reporting the mixed outcome as mixed.",
+        "title": "Cross-Layer Interaction under Weight-Space Ablation: A Closed-Form Attention Jacobian Bound and a Test on a Real Pretrained Model",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a difference-of-means direction on short- versus long-horizon answer continuations and steers along it, shifting binary temporal choices, moving the monetary indifference threshold on an untrained task by a factor of 56 at a ten-year delay, and changing a planning benchmark — with matched-norm random controls and an unusually candid account of what the direction may actually encode.",
+        "title": "Intertemporal Preference Steering in Qwen3 via Contrastive Activation Addition",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
+        "title": "Finding Usable Weight Mechanisms with Tiled SVD",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that which layers a steering vector should be injected at is a property of the individual input rather than of the task, that a greedy per-input rule reaches the exhaustive optimum for structural reasons, and that a label-free predictor trained to imitate that rule recovers most of the oracle at deployment.",
+        "title": "Deployable Per-Instance Multi-Layer Activation Steering for Large Language Models",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Detects the class of hallucination where a model confidently fabricates a parameter the user never gave, by running a LoRA adapter alongside the frozen model that restructures the residual stream and then names the offending parameter in words the agent can act on.",
+        "title": "Actionable Hallucination Detection: Translating Latent Uncertainty into Agentic Critique",
+        "topics": [
+          "reasoning-interpretability"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-13T03:23:27Z",
-  "created_at": "2026-08-13T02:55:54Z",
+  "completed_at": "2026-08-20T12:27:39Z",
+  "created_at": "2026-08-20T12:24:20Z",
   "instructions": "Write the wiki definition for 'detection versus control'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "detection versus control",
   "kind": "concept",
@@ -37,13 +85,11 @@
   },
   "payload": {
     "name": "detection versus control",
-    "source_count": 2
+    "source_count": 8
   },
   "result": {
-    "aliases": [
-      "detection does not imply control"
-    ],
-    "definition": "The distinction between establishing that something can be read off a model's internals and establishing what happens when you act on it — in both sources a gap that is not merely quantitative but can reverse. One finds directions with near-perfect discriminability for a concept, aligned with its positive examples, that reliably steer the model the opposite way, consistently across inputs; correcting the sign improves a standard steering pipeline in 27 of 30 experiments. The other proves the parallel statement one level up, between two interventions rather than between reading and acting: patching a component moves the readout by its donor-receiver contrast while ablating it moves the readout by its absolute level at the receiver, neither bounds the other, and matched pairs exist on which every single-component patch flips the decision and no single-component ablation does. Taken together the sources say that a measurement licenses a claim only about the operation that produced it.",
+    "aliases": [],
+    "definition": "The principle these sources arrive at by repeatedly falsifying its opposite: how well a direction or component discriminates a concept licenses no claim about what intervening on it does -- not the magnitude, and not even the sign. The assumption it denies is the one the foundational steering methods rest on, which selects the most discriminative attention heads and steers along their mean-difference direction. Three independent measurements break it at different granularities: a direction can reach AUC 0.97 while its steer factor correlates with the concept score at Spearman -1, and such inverted vectors are systematic rather than incidental (three mined per model-concept pair across 15 pairs, with a training-free sign test improving a standard pipeline in 27 of 30 experiments); across component types, detection and intervention rankings correlate at Spearman -0.43, MLP outputs showing the weakest detected toxic signal while producing the largest reduction when modified and MLP inputs the reverse; and the gap is depth-conditioned rather than constant, with steer-versus-lens agreement running from about -0.03 to 0.07 in the earliest layers to about 0.91 at the final one. The sources do not disagree with each other, but they place the gap at different levels, and one pair pushes it further than the name suggests: activation patching and weight-space ablation are themselves two different quantities -- a carrier's donor-receiver contrast against its absolute level at the receiver, neither bounding the other, with a realized gap of 0.224 to 0.852 on all five instances of an emergent circuit -- so control is not a single thing either. Two sources respond in practice by refusing to select on discriminability at all: one declines to pick its intervention by classification accuracy even though the family it steers with is the weakest of its four classifiers, and the other ranks layers by their predicted steering effect rather than by how well they separate the concept.",
     "kind": "concept",
     "related": [
       "representation versus readout"

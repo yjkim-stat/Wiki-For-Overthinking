@@ -1,0 +1,65 @@
+{
+  "concepts": [
+    "privileged information",
+    "on-policy distillation",
+    "hindsight",
+    "credit assignment",
+    "distributional fixed point",
+    "causal policy interface",
+    "outcome verification",
+    "teacher-student gap",
+    "pass@k",
+    "self-distillation"
+  ],
+  "contributions": [
+    "PAST: treating the completed student trajectory and its verified outcome as additional privileged information for the OPSD teacher, routed by outcome so that correct trajectories preserve the student's next-token distribution and failed ones adapt the teacher toward verified success under student-proximity regularization, while the student's distillation prefixes and prefix-only interface are left unchanged.",
+    "A projection result identifying exactly what a trajectory-conditioned teacher can transfer: forward-KL distillation targets the teacher's conditional arithmetic mean given the prefix, which cleanly separates trajectory-specific variation that remains privileged from the mean policy shift a prefix-only student can absorb, and which is unaffected by restricting the student's policy class.",
+    "A 2x2 factorial attribution showing the gain is not decomposable -- trajectory access alone contributes 0.555 macro points and teacher adaptation alone 0.092, against 5.617 for the combination -- with each single-factor condition degrading at least one task.",
+    "Trajectory removal and cross-problem shuffling as controls that separate matched hindsight from merely having an extra input, with shuffling hurting more than removal on both teacher success and next-token divergence.",
+    "An adaptive teacher-sampling controller that reduces routine draws once teacher success stabilises while retaining extra draws for failed groups lacking a successful continuation, cutting samples 17.6% at slightly better quality."
+  ],
+  "datasets": [
+    "AIME 2024",
+    "AIME 2025",
+    "HMMT 2025"
+  ],
+  "generated_at": "2026-08-20T12:33:43Z",
+  "generated_by": "queue",
+  "limitations": "The paper states no limitations section. What a reader should notice: the headline rests on one 1.7B model, three seeds and 100 updates, evaluated on three 30-problem competition sets, so despite Avg@12 and a stratified paired bootstrap the confidence interval spans 2.6 to 8.3 points -- the effect is clearly positive but its size is not well determined. The scale check is a single seed and regresses on one of three tasks, so 'task-dependent gains' is the accurate reading and generality beyond 1.7B is not established. Most ablations are one seed, including the objective, regularization and sampling studies. The comparison holds the student-update count fixed, which is the right control for the claim being made but is not compute parity: PAST additionally trains a teacher and draws teacher samples, and the authors report those costs in a separate table rather than equalising them, so nothing here shows PAST beats a baseline given the same total budget. The theory is stated for the unclipped population objective under support and integrability conditions while the implementation uses pointwise clipping and a shared-parameter policy, so the fixed-point and improvement-direction results characterise the target the implementation aims at rather than the update it performs. Finally, verified success is the only outcome signal, so everything here is confined to domains with a reliable verifier.",
+  "method": "Each cycle, the frozen current student samples complete rollouts, which are verified. A privileged teacher is then trained with the completed response and task-side privilege as input, routed by outcome rather than taking the outcome as an input: on correct trajectories the objective preserves the student's next-token distribution, and on failed trajectories it adapts the teacher toward verified success under a student-proximity regularizer, with the two branch losses combined by explicit masks so the observed correct-to-failed ratio does not set the branch weights implicitly. The adapted teacher is then frozen and one ordinary OPSD student update is performed by forward KL on exactly the student's original prefixes, with the same vocabulary, threshold, mask, temperature and reduction as the vanilla baseline -- teacher-generated continuations from the failed branch are never student training paths, so the student's interface is unchanged and remains causal at inference. The theory characterises what such a teacher can transfer. Proposition 1 decomposes the expected KL from the trajectory-conditioned teacher to any prefix-only policy into two terms: the distance from the teacher to its own conditional arithmetic mean given the prefix, which no prefix-only policy can reproduce and which stays privileged, plus the distance from that mean to the student. Forward-KL distillation therefore targets the conditional mean, and Corollary 2 shows that restricting the student to any policy class changes how well it can represent that target but not which target is selected. A further result gives the frozen student as an ideal distributional fixed point of the unclipped population objective on correct trajectories, and a margin condition under which a small teacher change survives the projection as a local improvement in verifier success.",
+  "methods": [
+    "on-policy self-distillation",
+    "knowledge distillation",
+    "forward KL divergence",
+    "generalized Jensen-Shannon divergence",
+    "GRPO",
+    "supervised fine-tuning",
+    "privileged information",
+    "verifier-based reward",
+    "paired bootstrap",
+    "factorial ablation",
+    "adaptive sampling",
+    "KL regularization"
+  ],
+  "models": [
+    "Qwen3-1.7B",
+    "Qwen3-4B"
+  ],
+  "one_liner": "Gives the teacher in on-policy self-distillation access to each completed student rollout and its verified outcome, adapting it to preserve behaviour on successes and redirect failures toward verified success, while the student keeps a prefix-only interface it can actually deploy.",
+  "paper_id": "arxiv:2608.08726",
+  "problem": "On-policy self-distillation supervises a reasoning model on prefixes sampled from its own rollouts using a privileged teacher. But each rollout also reveals how the student's response unfolded and whether it succeeded -- student-specific hindsight that standard OPSD discards when forming the teacher. Using it is not straightforward, because a teacher conditioned on the future cannot simply be imitated by a student that must act from its current prefix, and it is not obvious what part of such a teacher is transferable at all.",
+  "read_from": "document",
+  "relevance": {
+    "reasoning-evaluation": "The paper's subject is training, but its methodology is the reason it earns a place under evaluation: it is an unusually disciplined example of attributing a gain rather than reporting one. The 2x2 factorial does what most ablations do not, which is to show that neither named ingredient reproduces the effect on its own -- 0.555 and 0.092 macro points against 5.617 together -- so the contribution is genuinely the interaction, and any summary that credited 'trajectory access' or 'a trained teacher' separately would be wrong. The perturbation pair is the better lesson. Removing the trajectory tests whether the teacher uses it; shuffling trajectories across problems keeps the input present but breaks its correspondence, and shuffling hurts more than removal (teacher success -0.089 against -0.064, JSD +0.110 against +0.067). That distinguishes 'the model exploits matched information' from 'the model benefits from having more tokens in context', which is exactly the confound that makes many privileged-information and retrieval results hard to read. The archive should treat that shuffled control as a standard demand. On the reporting side there are three things worth carrying: the confidence interval is given and is wide ([2.592, 8.333] for a 5.617-point claim) on 30-problem competition sets, the scale extension is reported with its regression on one task intact rather than averaged away, and the extra teacher-sampling and verifier cost is accounted separately rather than hidden inside a claim of parity -- so the comparison is explicitly on equal student updates, not equal compute. Finally the theory is directly useful as a way of stating what an evaluation of such a system can and cannot see: forward-KL distillation provably targets the teacher's conditional mean given the prefix, so the portion of a privileged teacher's advantage that comes from knowing the future is formally unavailable to the deployed student, and measuring the teacher's success is measuring something the student cannot inherit."
+  },
+  "results": "Training Qwen3-1.7B in thinking mode for 100 student updates over three seeds and evaluating Avg@12 at temperature 1.0 on AIME 2024, AIME 2025 and HMMT 2025, PAST reaches a macro average of 48.426 against 42.809 for Vanilla OPSD -- 5.617 points, with a paired bootstrap 95% confidence interval of [2.592, 8.333] stratified by problem and seed. It leads every task and every baseline in the set (base 38.611, SFT 39.877, GRPO 40.494, SD-Zero 43.981, H2SD 45.432). The 2x2 factorial is the most informative result and shows the effect is strongly super-additive rather than decomposable: giving the teacher the trajectory without adapting it adds 0.555 macro points, adapting the teacher without the completed response adds 0.092, and each of those single-factor conditions lowers at least one of the three tasks, while the combination adds 5.617 and improves all three. Two perturbations confirm the teacher uses matched hindsight rather than merely an extra input: removing the trajectory lowers teacher continuation success by 0.064 and raises next-token JSD by 0.067, while shuffling trajectories across problems -- keeping the field but breaking its correspondence -- is worse on both counts (0.089 and 0.110). Branch-level diagnostics behave as the design predicts, with correct-branch KL falling from 0.186 to 0.077 as failed-branch success rises from 0.410 to 0.484 over teacher cycles. Both outcome branches are needed: joint training reaches 48.426 against 45.864 for failed-only and 44.908 for correct-only, a 2.562-point margin over the stronger single branch. The method is not fragile to the distribution objective -- generalized JSD reaches 47.623 against 47.562 for full-vocabulary KL at slightly lower compatibility KL, while sampled-token KL trades quality for throughput -- and an adaptive teacher-sampling controller cuts samples 17.6% (1,032 to 850) while scoring slightly higher (47.284 against 46.728). The scale extension is reported honestly and is weaker: on Qwen3-4B, one seed, the macro average rises from 47.685 to 48.519 with gains on AIME25 and HMMT25 but a lower AIME24 score. All results are software-only on competition mathematics; teacher sampling cost, verifier calls, runtime and peak memory are reported separately rather than folded into the comparison.",
+  "schema_version": 1,
+  "tags": [
+    "distillation",
+    "on-policy",
+    "privileged-teacher",
+    "math-reasoning",
+    "verifier",
+    "factorial-ablation"
+  ]
+}

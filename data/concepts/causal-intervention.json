@@ -4,7 +4,7 @@
     "intervention",
     "do-operation"
   ],
-  "definition": "",
+  "definition": "The family of operations that establish a component or a written reasoning state actually matters rather than merely correlating with a behaviour, by changing it and reading what follows; one source states the defining move plainly, that establishing influence requires an intervention rather than an observation, which is what turns a claim into a measurable quantity. Across these sources it covers at least five operations that are not interchangeable: swapping the residual stream of one prompt into another at each layer and measuring the change in gold log-probability, editing in weight space the parameters that generate every forward pass, adding a signed multiple of a direction during generation, deleting a layer-specific direction at chosen token positions, and injecting or force-decoding a trace the experimenter chose. Two of the sources turn the non-interchangeability from a caution into a result: patching measures a carrier's donor-receiver contrast while ablation measures its absolute level at the receiver, neither bounds the other, and on one site patching gives a median recovery of 1.043 with an 0.85 flip rate while ablating the weights feeding that same site leaves the receiver format correct on 57 percent of inputs -- patch-sufficient and far from ablation-necessary on the same component of the same network. What the sources treat as making an intervention readable is its null rather than its effect size: a magnitude-matched random vector that moves either metric by at most 1.1 points where the identified direction moves them by 9 and 7, and a random direction of the same size that shifts a backdoor by at most 2 points where deleting the identified one drops attack success by 89 points or more. The sharpest single use here is not a magnitude at all but an asymmetry -- a benign-looking trace lifted from a triggered run fails to reproduce an attack without its trigger (0.000-0.038) while the trigger with an empty reasoning block still succeeds (0.513-1.000), which establishes that the visible reasoning is not on the causal path to the answer.",
   "evidence": [
     {
       "id": "arxiv:2608.01631",
@@ -74,7 +74,7 @@
     }
   ],
   "first_seen": "2026-08-08T12:29:58Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-20T12:14:17Z",
   "name": "causal intervention",
   "related": [
@@ -274,8 +274,7 @@
     "pythia-1b"
   ],
   "related_authored": [
-    "causal-tracing",
-    "activation-patching"
+    "out-of-distribution-intervention"
   ],
   "schema_version": 1,
   "slug": "causal-intervention",
