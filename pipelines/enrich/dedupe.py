@@ -29,6 +29,75 @@ def paper_keys(paper: Paper) -> list[str]:
     return keys
 
 
+def reconcile_identifiers(cfg) -> dict[str, int]:
+    """Register identifiers a record gained after it was first registered.
+
+    Deduplication resolves an incoming paper against keys recorded at
+    *collection* time. A hand-filed PDF has none worth having then: the record
+    is created before anything opens the document — deliberately, because a
+    Python parser guessing at a title poisons the archive quietly — so the only
+    key available is a fingerprint of the filename.
+
+    The arXiv id arrives later, at `queue complete`, and nothing re-registered
+    the keys. So the record sat in the archive with `arxiv_id: 2503.20314` and
+    no `arxiv:2503.20314` key, and the day the arXiv collector returned that
+    paper it forked instead of folding: two records for one paper, two archive
+    pages, and every entity counting it twice. Measured on one deployment,
+    **17 of 22 hand-filed papers carrying an arXiv id were in that state.**
+
+    Self-healing rather than event-driven, for the reason `shelve_documents` is:
+    a fix that only ran at apply time would prevent the next duplicate and close
+    none of the ones already waiting to happen, because those readings were
+    applied long ago. Re-deriving from the records every pass costs a handful of
+    indexed lookups and needs nothing remembered.
+
+    **A key already held by another record is reported, never repointed.** That
+    is a duplicate that already exists, and choosing which of the two survives
+    is a merge — a decision with a human in it, and the one thing this
+    repository is most careful never to make quietly.
+    """
+    store = RecordStore(cfg.layout)
+    counts = {"registered": 0, "papers": 0, "conflicts": 0}
+    examples: list[str] = []
+
+    with SeenStore(cfg.layout.seen_db) as seen:
+        for paper in store.iter_papers():
+            added = 0
+            for key in paper_keys(paper):
+                holder = seen.canonical_for([key])
+                if holder is None:
+                    # `mark` would repoint an existing key, so it is only ever
+                    # reached for one nothing holds.
+                    seen.mark(
+                        key, kind="paper", canonical=paper.id, source=paper.source
+                    )
+                    added += 1
+                elif holder != paper.id:
+                    counts["conflicts"] += 1
+                    if len(examples) < 10:
+                        examples.append(f"{key}: {holder} and {paper.id}")
+            if added:
+                counts["registered"] += added
+                counts["papers"] += 1
+
+    if counts["registered"]:
+        _LOG.info(
+            "registered %d identifier(s) for %d record(s) that gained them after "
+            "collection",
+            counts["registered"],
+            counts["papers"],
+        )
+    if counts["conflicts"]:
+        _LOG.warning(
+            "%d identifier(s) are claimed by two records — duplicates that "
+            "already exist; merging them is a decision for a person",
+            counts["conflicts"],
+        )
+        for example in examples:
+            _LOG.warning("  duplicate  %s", example)
+    return counts
+
+
 def merge_papers(existing: Paper, incoming: Paper) -> Paper:
     """Fold ``incoming`` into ``existing``, preferring richer values.
 

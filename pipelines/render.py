@@ -25,6 +25,7 @@ from .common.llm import get_summarizer
 from .common.store import RecordStore, read_json
 from .enrich import apply as apply_mod
 from .enrich import concepts as concepts_mod
+from .enrich import dedupe
 from .enrich.queue import Queue
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
@@ -498,6 +499,9 @@ def run(
 
     if only in (None, "archive"):
         result["applied"] = apply_mod.completed(cfg)
+        # After applying, because a reading is where a hand-filed paper learns
+        # its arXiv id, and before anything else looks at the records.
+        result["identifiers"] = dedupe.reconcile_identifiers(cfg)
         # After applying, so a reading finished this run files its document too.
         result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)

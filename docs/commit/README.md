@@ -79,3 +79,4 @@ reference for everything built before the practice existed.
 | 0056 | [A read-only window onto the archive](0056-a-read-only-window-onto-the-archive.md) | feature | Colleagues on the same host can ask what it knows; it answers only from what it has read, and writes nothing |
 | 0057 | [A change is asked for through a person](0057-a-change-is-asked-for-through-a-person.md) | feature | The write lane: no auto-approved category, a hostile drop folder, and a decision that keeps its reason |
 | 0058 | [A stale definition is asked for again](0058-a-stale-definition-is-asked-for-again.md) | feature | Reporting staleness never fixed it, and the manual route discarded the ruling along with the rot |
+| 0059 | [An identifier learned late is still registered](0059-an-identifier-learned-late-is-still-registered.md) | fix | A hand-filed paper's arXiv id arrived after collection and was never indexed, so the collector forked instead of folding |
