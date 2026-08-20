@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Replays one fixed reasoning trace through eleven KV cache compression methods and finds that the ones preserving final-answer accuracy are largely the ones destroying the reasoning that supports it — on AIME the accuracy ranking of compressors correlates with their chain-validity ranking at Spearman -0.95.",
       "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
+    },
+    {
+      "id": "arxiv:2608.08623",
+      "kind": "paper",
+      "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+      "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning"
     }
   ],
   "first_seen": "2026-08-12T22:46:42Z",
   "kind": "dataset",
-  "last_seen": "2026-08-13T01:02:17Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "MedCalc-Bench",
   "related": [
     "answer-evidence-gap",
@@ -39,12 +45,37 @@
     "ruler",
     "qwen3-8b",
     "deepseek-r1-distill-llama-8b",
-    "qwen3-30b-a3b"
+    "qwen3-30b-a3b",
+    "reward-shaping",
+    "outcome-reward",
+    "process-reward",
+    "reward-sparsity",
+    "tolerance-threshold",
+    "safety-constraint",
+    "credit-assignment",
+    "formula-hallucination",
+    "catastrophic-forgetting",
+    "component-ablation",
+    "grpo",
+    "rlvr",
+    "supervised-fine-tuning",
+    "external-verifier",
+    "ppo",
+    "reinforce",
+    "rloo",
+    "kl-divergence-monitoring",
+    "qwen2-5-1-5b-instruct",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-14b-instruct",
+    "o1-mini",
+    "gpt-4o",
+    "huatuogpt-o1"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "medcalc-bench",
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "reasoning-evaluation"
   ]
 }

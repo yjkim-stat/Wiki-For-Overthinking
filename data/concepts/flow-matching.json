@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "A GRPO variant for flow-based generative models that replaces SDE training rollouts with an ODE step plus a Langevin correction, aligning training samples with the deterministic sampler used at test time.",
       "title": "LC-GRPO: Bridging Train-Inference Gap for Flow-Based GRPO with Langevin Correction"
+    },
+    {
+      "id": "arxiv:2608.10976",
+      "kind": "paper",
+      "note": "Replaces a verbose natural-language rationale with two to six executable action tokens drawn from a fixed vocabulary, supervised automatically by pairing logged trajectories with scene context, so that driving-oriented reasoning fits inside a real-time control budget that verbose chain-of-thought exceeds by three to four times.",
+      "title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving"
     }
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "method",
-  "last_seen": "2026-08-13T03:25:15Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "flow matching",
   "related": [
     "latent-reasoning",
@@ -60,7 +66,23 @@
     "euler-maruyama-discretization",
     "sd3-5-medium",
     "flux-1-dev",
-    "hunyuanvideo"
+    "hunyuanvideo",
+    "structured-chain-of-thought",
+    "executable-reasoning",
+    "adaptive-compute-allocation",
+    "real-time-budget",
+    "vision-language-action-model",
+    "trajectory-prediction",
+    "compression",
+    "action-grounding",
+    "supervised-fine-tuning",
+    "chain-of-thought-prompting",
+    "policy-optimization",
+    "token-routing",
+    "multimodal-self-attention",
+    "component-ablation",
+    "xpeng-driving-logs-proprietary",
+    "xcot-vla"
   ],
   "related_authored": [
     "exploration"
@@ -69,6 +91,7 @@
   "slug": "flow-matching",
   "topics": [
     "reasoning-faithfulness",
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

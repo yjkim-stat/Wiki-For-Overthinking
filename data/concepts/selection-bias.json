@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
       "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs"
+    },
+    {
+      "id": "arxiv:2608.11368",
+      "kind": "paper",
+      "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+      "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
     }
   ],
   "first_seen": "2026-08-20T13:36:57Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:36:57Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "selection bias",
   "related": [
     "detection-versus-control",
@@ -53,12 +59,33 @@
     "ministral-8b",
     "mistral-small-24b",
     "gemma-2-9b",
-    "gemma-2-27b"
+    "gemma-2-27b",
+    "advantage-estimation",
+    "credit-assignment",
+    "adaptive-compute-allocation",
+    "estimator-bias",
+    "zero-advantage-group",
+    "matched-budget-comparison",
+    "pre-registration",
+    "effective-sample-size",
+    "grpo",
+    "u-statistic",
+    "horvitz-thompson-estimation",
+    "inverse-probability-weighting",
+    "convex-optimization",
+    "leave-one-out-estimation",
+    "component-ablation",
+    "math500",
+    "aime-2024",
+    "amc23",
+    "olympiadbench",
+    "livecodebench"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "selection-bias",
   "topics": [
-    "reasoning-interpretability"
+    "reasoning-interpretability",
+    "reasoning-training"
   ]
 }

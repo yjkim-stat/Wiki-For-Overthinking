@@ -28,11 +28,17 @@
       "kind": "paper",
       "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
       "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents"
+    },
+    {
+      "id": "arxiv:2608.11368",
+      "kind": "paper",
+      "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+      "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
     }
   ],
   "first_seen": "2026-08-12T22:14:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "matched-budget comparison",
   "related": [
     "test-time-scaling",
@@ -120,7 +126,27 @@
     "aime-2025",
     "qwen3-5-9b",
     "lfm2-5-vl-1-6b",
-    "vision-wormhole"
+    "vision-wormhole",
+    "advantage-estimation",
+    "credit-assignment",
+    "estimator-bias",
+    "zero-advantage-group",
+    "selection-bias",
+    "pre-registration",
+    "effective-sample-size",
+    "grpo",
+    "u-statistic",
+    "horvitz-thompson-estimation",
+    "inverse-probability-weighting",
+    "convex-optimization",
+    "leave-one-out-estimation",
+    "component-ablation",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "livecodebench",
+    "qwen3-1-7b",
+    "qwen3-4b"
   ],
   "related_authored": [
     "baseline-validity"

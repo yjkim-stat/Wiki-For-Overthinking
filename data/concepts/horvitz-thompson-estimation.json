@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.11368",
+      "kind": "paper",
+      "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+      "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
+    }
+  ],
+  "first_seen": "2026-08-20T13:47:26Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T13:47:26Z",
+  "name": "Horvitz-Thompson estimation",
+  "related": [
+    "advantage-estimation",
+    "credit-assignment",
+    "adaptive-compute-allocation",
+    "estimator-bias",
+    "zero-advantage-group",
+    "matched-budget-comparison",
+    "selection-bias",
+    "pre-registration",
+    "effective-sample-size",
+    "grpo",
+    "u-statistic",
+    "inverse-probability-weighting",
+    "convex-optimization",
+    "leave-one-out-estimation",
+    "component-ablation",
+    "math500",
+    "aime-2024",
+    "amc23",
+    "olympiadbench",
+    "livecodebench",
+    "qwen3-1-7b",
+    "qwen3-4b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "horvitz-thompson-estimation",
+  "topics": [
+    "reasoning-training"
+  ]
+}

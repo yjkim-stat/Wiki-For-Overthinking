@@ -1,0 +1,131 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-11368.pdf"
+  },
+  "completed_at": "2026-08-20T13:44:56Z",
+  "created_at": "2026-08-20T13:25:49Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.11368",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) spends most of its compute generating groups of long reasoning trajectories. Recent allocators reduce this cost by assigning budgets to prompts, rollouts, or tokens according to a pointwise notion of difficulty or utility. We identify a statistical mismatch: the unclipped leave-one-out group-relative score gradient is not a sum of independent point contributions, but a second-order U-statistic over pairs of rollouts. Completing one rollout therefore reveals contrast with every other completed rollout, and adaptive endpoint selection changes which pair terms are observable. We introduce PAIR (Pairwise-Aware Inclusion Reweighting), which treats short rollout prefixes as vertices and pair-gradient terms as edges of a contrast graph. A prefix-only predictor estimates correctness and remaining token cost; a convex design chooses positive continuation probabilities under an expected suffix-token budget; and each edge induced by completed vertices is inverse-weighted by its logged joint inclusion probability. Under conditionally independent on-policy rollouts and an unclipped, unstandardized objective, the resulting estimator is design-unbiased for the complete candidate-pair gradient. Across compute-matched RLVR runs on Qwen3-1.7B/4B, PAIR improves average accuracy by +1.2 and +1.4 over the strongest pointwise allocator while using 51% and 52% fewer generated tokens than full-group GRPO. A frozen-population estimator audit confirms that unweighted adaptive selection is biased, whereas pair-inclusion correction recovers the complete-pair target at matched suffix cost.",
+    "authors": [
+      "Pixel Nomand",
+      "Elena Voss",
+      "Marcus Hale",
+      "Sofia Reyes"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "verifiable reward",
+      "RLVR",
+      "GRPO"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.11368v1",
+    "published": "2026-08-11",
+    "scores": {
+      "reasoning-training": 0.625
+    },
+    "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR",
+    "url": "https://arxiv.org/abs/2608.11368",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "advantage estimation",
+      "credit assignment",
+      "adaptive compute allocation",
+      "estimator bias",
+      "zero-advantage group",
+      "matched-budget comparison",
+      "selection bias",
+      "pre-registration",
+      "effective sample size"
+    ],
+    "contributions": [
+      "The identification that the group-relative score gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout terms, which makes every pointwise budget allocator statistically mismatched to the object it is trying to estimate cheaply.",
+      "A contrast-graph formulation with rollout prefixes as vertices and pair-gradient terms as edges, so that the value of finishing a rollout depends on which contrasts it completes rather than on its own predicted difficulty.",
+      "A convex design over continuation probabilities under an expected suffix-token budget with a positivity floor, paired with inverse joint-inclusion weighting that recovers the complete-pair gradient in expectation under adaptive selection.",
+      "A frozen-population estimator audit separating estimation quality from optimisation, replaying every sampling design 50,000 times against a stored exact gradient -- which exposes that the lowest-MSE design is the biased one, because it is estimating a different quantity.",
+      "Evidence that joint inclusion rather than marginal per-rollout propensity is what the correction requires, with marginal-only weights recovering under half the accuracy gap.",
+      "Pre-registered failure gates that a method fails if it raises gradient MSE at equal tokens, overruns the budget by more than five percent, or gains accuracy only by consuming more verified tokens."
+    ],
+    "datasets": [
+      "MATH500",
+      "AIME 2024",
+      "AMC23",
+      "OlympiadBench",
+      "LiveCodeBench"
+    ],
+    "limitations": "Stated precisely. The exact guarantee concerns an on-policy, sequence-level, unclipped, unstandardised leave-one-out score gradient, whereas standard practice divides by a random within-group standard deviation and performs several clipped policy-optimisation epochs -- so the deployed variant is an approximation to the target the theory covers, and the authors say so directly. Prefix predictors may drift as the policy changes, and severe miscalibration can assign low continuation probabilities to valuable endpoints, producing high-variance inverse weights despite the positivity floor. The convex objective is a valid upper bound only under stated conditions. Deterministic outcome pruning is deliberately excluded because it violates the positivity the correction depends on, which means the method cannot be combined with the aggressive filtering some allocators use. Not stated but worth noticing: the benchmark comparison reports single numbers per cell with no seed variance, and the margins over the strongest pointwise allocator are 1.2 and 1.4 points, which is small relative to the spread among the pointwise allocators themselves; the frozen-population audit is the statistically rigorous half and the training comparison is not held to the same standard. All results are on one model family at two sizes.",
+    "method": "Short rollout prefixes are treated as vertices and the pair-gradient terms they induce as edges of a contrast graph, which makes the allocation question a design over edges rather than over samples. A prefix-only predictor estimates both correctness and remaining token cost from a truncated rollout. A convex program then chooses positive continuation probabilities for each prefix under an expected suffix-token budget, with a floor on those probabilities so no endpoint is excluded outright -- the paper deliberately does not cover deterministic outcome pruning, because that violates positivity and makes unbiased correction impossible. Each observed edge is reweighted by the inverse of its joint inclusion probability, in the Horvitz-Thompson sense, so the estimator recovers the complete-pair gradient in expectation despite the selection being adaptive. Two further terms enter the design: a covariance term for edges sharing a vertex, and a suffix-cost regulariser. The evaluation separates optimisation quality from estimation quality with a frozen-policy audit: each checkpoint fully generates a candidate group and stores the exact complete-pair gradient on a fixed parameter block, and every sampling design is then replayed against that frozen population over 50,000 randomised draws with logged inclusion probabilities, reporting bias norm, trace MSE, cosine error, effective sample size, completed vertices, observed edges, suffix tokens and wall-clock. The training comparison is compute-matched, with all methods sharing policy initialisation, verifier, maximum response length, optimizer and total generation-token accounting. Failure gates are pre-registered: a method fails if it raises gradient MSE at equal tokens, exceeds the budget by more than five percent on average, or gains accuracy only by receiving more verified tokens.",
+    "methods": [
+      "GRPO",
+      "U-statistic",
+      "Horvitz-Thompson estimation",
+      "inverse probability weighting",
+      "convex optimization",
+      "adaptive compute allocation",
+      "leave-one-out estimation",
+      "pre-registration",
+      "component ablation",
+      "effective sample size"
+    ],
+    "models": [
+      "Qwen3-1.7B",
+      "Qwen3-4B"
+    ],
+    "one_liner": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+    "problem": "Critic-free group-relative reinforcement learning avoids a learned value network but is dominated in cost by rollout generation -- thousands of autoregressive tokens per response and several responses per prompt. A fast-moving literature therefore allocates that budget adaptively, by tracking whether a prompt is currently learnable, predicting its difficulty before generation, or varying group size from predicted variance or hit probability. Every one of those allocators is pointwise: it scores a prompt or a rollout on its own. The paper identifies a statistical mismatch behind that framing. The unclipped leave-one-out group-relative score gradient is not a sum of independent point contributions but a second-order U-statistic over pairs of rollouts, so completing one rollout reveals contrast with every other completed rollout, and adaptively choosing which rollouts to finish changes which pair terms are observable at all.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-training": "The conceptual point is the contribution and it reframes a whole line of work in the archive. Every adaptive-rollout method here scores a prompt or a rollout on its own -- by current learnability, predicted difficulty, predicted variance, hit probability -- and this paper observes that the quantity all of them are trying to estimate cheaply is a U-statistic over pairs, so a rollout's value depends on which contrasts it completes rather than on any property it has alone. Their own gloss is the memorable form: a medium-difficulty rollout is not automatically useful if every other completed rollout predicts the same outcome, while an endpoint near an extreme can be valuable when it completes a complementary contrast. That connects directly to the archive's material on zero-advantage groups, where the failure is precisely that a group agrees and the pair terms all vanish, and it suggests the right question is not which prompts are learnable but which contrasts are unobserved. The methodological result worth carrying beyond this method is the frozen-population audit and what it reveals. Replaying every sampling design 50,000 times against a stored exact gradient shows that the lowest-MSE design is the biased one -- unweighted adaptive selection reaches MSE 0.050 against the corrected estimator's 0.145, at more than ten times the bias -- because it is estimating a different quantity and its error is small with respect to that different target. Any allocator evaluated on how closely it tracks its own selected sample will look excellent, and only replay against the complete-population gradient distinguishes precision from having quietly changed the estimand. The archive should ask for that audit wherever a training method claims to approximate a gradient more cheaply. The pre-registered failure gates are also worth adopting verbatim: fail if gradient MSE rises at equal tokens, if the budget overruns by more than five percent, or if accuracy is gained only by consuming more verified tokens -- the last being the compute-matching cheat that makes most efficiency claims unreadable. Two cautions on citing this: the exact guarantee holds for an unclipped, unstandardised leave-one-out gradient while standard practice divides by a within-group standard deviation and runs clipped epochs, which the authors state makes their deployed variant an approximation; and the training table reports single numbers with margins of 1.2 to 1.4 points over the best pointwise allocator, without seeds."
+    },
+    "results": "Under matched generation-token accounting, the method reaches a five-benchmark average of 49.2 percent at 1.7B against 45.0 for full-group GRPO and 48.0 for the strongest pointwise allocator, using 0.49 of GRPO's rollout tokens and 28.1 wall-clock hours against 48.2; at 4B the figures are 57.1 against 52.4 and 55.7, at 0.48 tokens and 41.6 hours against 72.5. So pointwise allocators already beat full-group GRPO substantially under a shared budget, and the pair-aware design closes a further 1.2 to 1.4 points on top of the best of them. It reaches a pre-registered accuracy threshold 16.7 hours earlier at 1.7B and 23.6 hours earlier at 4B. The frozen-population audit is the more interesting result and contains a finding worth isolating: unweighted adaptive selection attains by far the lowest gradient MSE of any design tested, 0.050 against 0.145 for the corrected estimator -- but with bias 2.27e-2 against 1.90e-3, because it is not estimating the same quantity. It optimises a different estimand and its low error is measured against that different target. The two genuinely unbiased baselines, uniform and pointwise vertex selection, sit at MSE 0.154 and 0.174, so the corrected pair-aware design improves on both unbiased alternatives at matched suffix cost while remaining near-unbiased. The mechanism ablation localises the effect: dropping the pair-inclusion correction costs 2.1 accuracy points and raises gradient MSE from 0.145 to 0.218, and using marginal per-rollout propensities instead of joint inclusion recovers only part of that gap (47.6 percent, MSE 0.195), which is the paper's evidence that joint inclusion rather than per-rollout probability is what the correction requires. Replacing the graph design with uniform or pointwise allocation gives MSE 0.168 and 0.161 with lower accuracy. Two ablations move in instructive directions: removing the suffix-cost regulariser costs little accuracy but raises token use from 0.49 to 0.58, and self-normalised weights achieve the lowest MSE of any variant at 0.139 while costing accuracy, which the authors attribute to the known bias of a ratio estimator.",
+    "tags": [
+      "rlvr",
+      "grpo",
+      "rollout-allocation",
+      "estimator-design",
+      "u-statistic",
+      "compute-matched"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-11368",
+  "task_version": 1,
+  "topics": [
+    "reasoning-training"
+  ]
+}

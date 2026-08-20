@@ -1,0 +1,138 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-08623.pdf"
+  },
+  "completed_at": "2026-08-20T13:46:07Z",
+  "created_at": "2026-08-20T13:07:32Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- reasoning-evaluation: Reasoning Evaluation — Benchmarks for reasoning and the methodology behind them: what each one actually tests, how contamination and memorization inflate a score, and where a reported gain fails to reproduce. The question the archive answers is which numbers a claim about reasoning can be built on.\n- reasoning-training: Reasoning Training — How a language model acquires long-form reasoning: reinforcement learning against verifiable rewards, process versus outcome supervision, distillation of reasoning traces, and self-training. The question the archive answers is which training signal produces reasoning that generalizes, and what each one costs.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.08623",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "In Reinforcement Learning with Verifiable Rewards (RLVR) frameworks for mathematical reasoning tasks, floating-point results are typically evaluated using a tolerance-based reward. However, this strategy suffers from challenges such as difficulty in threshold calibration, unstable training dynamics, and limited accuracy, especially in clinical scenarios. To address these limitations, we propose a knowledge-guided hybrid reward framework (\\textsc{MedCalc-R1}). Specifically, we introduce a knowledge verification reward mechanism that enforces explicit generation of computational formulas, which are further validated by an external verifier to enhance interpretability and reasoning reliability. Furthermore, we design a hybrid soft-hard reward scheme combining a hard constraint based on clinical safety thresholds with a soft, precision-sensitive reward that progressively guides learning within the acceptable range. Experimental results demonstrate that our method significantly outperforms existing baselines in both reasoning accuracy and generalization capability, validating the effectiveness and applicability in safety-critical domains.",
+    "authors": [
+      "Haotian Wang",
+      "Lian Yan",
+      "Xingzhi Yao",
+      "Fanshu Meng",
+      "Ye He",
+      "Jingchi Jiang",
+      "Yi Guan"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "mathematical reasoning",
+      "verifiable reward",
+      "RLVR"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.08623v1",
+    "published": "2026-08-09",
+    "scores": {
+      "reasoning-evaluation": 0.5,
+      "reasoning-training": 0.4
+    },
+    "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+    "url": "https://arxiv.org/abs/2608.08623",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "reward shaping",
+      "outcome reward",
+      "process reward",
+      "reward sparsity",
+      "tolerance threshold",
+      "safety constraint",
+      "credit assignment",
+      "formula hallucination",
+      "catastrophic forgetting",
+      "component ablation"
+    ],
+    "contributions": [
+      "A diagnosis of the tolerance threshold as a single parameter forced to serve two purposes -- keeping the reward dense enough to learn from, and keeping it discriminative enough to be meaningful -- with the two failure modes demonstrated by a sweep across four orders of magnitude and read off the KL trajectory as stagnation against oscillation.",
+      "A hybrid soft-hard reward that separates those roles: a hard constraint on a domain safety interval supplying direction, and a continuous precision-sensitive term supplying dense gradient within it, worth 11.63 points over the best static threshold.",
+      "A knowledge verification reward requiring the computational formula to be stated explicitly and checked by an external verifier, which raises formula recall accuracy alongside task accuracy rather than only the latter.",
+      "An ablation showing the two mechanisms are complementary rather than additive (4.49 and 5.06 points separately, 11.74 together) and that their contributions split cleanly by task type, with equation tasks depending on formula verification and rule-based tasks on the hybrid reward.",
+      "Reporting of the subtasks where the framework does not help, with an attribution -- hierarchical constraints and discrete rule enumeration that the reward mechanisms do not reach."
+    ],
+    "datasets": [
+      "MedCalc-Bench"
+    ],
+    "limitations": "Stated. Evaluation is confined to a single benchmark because it is the only dataset containing both calculation traces and the safety intervals the hard constraint requires, so generalisability is untested by construction rather than by omission. The framework is text-only while real clinical assessment synthesises imaging and vital signs. And the knowledge verification module depends on an external verifier, here a separate 14B model, which is a component whose own accuracy bounds the reward it supplies. Not stated but worth noticing: that verifier's error rate is never measured, so a formula reward computed by a model is subject to the same validity questions the archive raises about any model-supplied reward, and no human check of the verified formulas is reported. Formula recall is itself scored by a proprietary judge. The reward coefficients are fixed at 1.0 to avoid task-specific tuning, which is honest but means no sensitivity analysis over them exists, and the hard-constraint magnitudes and soft temperature are set by hand. Main-table numbers are single runs without seeds or intervals, and several of the strongest results -- dosage at 90.00, diagnosis at 73.33 -- sit on subtasks with 40 and 60 test instances.",
+    "method": "Two reward mechanisms are combined under GRPO. The hybrid soft-hard scheme separates the threshold's two jobs: a hard constraint anchored on a clinical safety threshold ensures predictions land in a feasible region at all, and a continuous precision-sensitive soft reward then guides learning within that region, giving dense feedback where a binary tolerance gives none -- a coarse-to-fine arrangement in which the hard term supplies direction and the soft term supplies gradient. The knowledge verification reward requires the model to generate its computational formula explicitly rather than only its numeric answer, and that formula is checked by an external verifier, which is intended both to make the reasoning inspectable and to prevent formula hallucination and catastrophic forgetting of domain knowledge. Training is two-stage, supervised fine-tuning followed by GRPO at a rollout size of 5, with reward weighting coefficients all set to 1.0 deliberately to avoid task-specific tuning, and the formula verifier instantiated as a separate 14B model. Evaluation covers a clinical calculation benchmark spanning equation-based subtasks (laboratory, physical, date, dosage) and rule-based ones (risk, severity, diagnosis), chosen because it is the only available dataset containing both calculation traces and safety intervals. Controlled analyses sweep the tolerance threshold across four orders of magnitude against the hybrid scheme, and compare four policy-optimisation algorithms on the same setup.",
+    "methods": [
+      "GRPO",
+      "RLVR",
+      "reward shaping",
+      "supervised fine-tuning",
+      "external verifier",
+      "LLM-as-a-judge",
+      "PPO",
+      "REINFORCE++",
+      "RLOO",
+      "KL divergence monitoring",
+      "component ablation"
+    ],
+    "models": [
+      "Qwen2.5-1.5B-Instruct",
+      "Qwen2.5-3B-Instruct",
+      "Qwen2.5-14B-Instruct",
+      "o1-mini",
+      "GPT-4o",
+      "HuatuoGPT-o1"
+    ],
+    "one_liner": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+    "problem": "Reinforcement learning with verifiable rewards scores floating-point results against a tolerance band, and that single threshold has to do two incompatible jobs. Set it strictly and the reward becomes sparse: the policy receives almost no gradient signal, stays tethered to its supervised initialisation and stagnates. Set it leniently and near-misses and genuine successes score alike, injecting stochastic noise that produces high-variance oscillations and destabilises the update. Neither setting is calibratable in general, and in a clinical calculation setting the cost of the two errors is not symmetric -- a value outside a safety interval is a different kind of wrong from one merely imprecise.",
+    "read_from": "document",
+    "relevance": {
+      "reasoning-evaluation": "The threshold sweep is the part that generalises beyond clinical calculation, and it is a measurement of something the archive usually treats as a setup detail. Scoring a continuous answer against a tolerance band means one parameter simultaneously decides how often the reward fires and what counts as correct, and this paper shows the two requirements pull in opposite directions across four orders of magnitude: the strictest setting leaves the policy at its initialisation, visible as the lowest KL trajectory, while the most lenient produces high-variance oscillation, and every static setting lands between 23.25 and 25.00 percent against 37.90 for the split design. Any archived result that scores numerical answers by tolerance has that parameter buried in it, and the sweep here suggests the reported number can move by more than ten points on the threshold alone. The same logic applies to evaluation and not only to training: a tolerance chosen for reporting is a choice about what counts as a correct answer, and it is rarely justified. The second transferable observation is the task-type split in the ablation. Equation-based subtasks lose 6.60 points without the formula-verification reward while rule-based ones lose 0.79, and rule-based subtasks lose 4.73 without the hybrid reward while equation ones lose 5.25 -- so the two mechanisms are not interchangeable improvements but address different failure modes, and an aggregate ablation number would have shown two components each worth about five points and concealed that they are doing unrelated work. The caution for citing this is that the formula reward is computed by a separate model whose own accuracy is never measured, and formula recall is scored by a proprietary judge, so the interpretability claim rests on model judgement that the paper does not validate.",
+      "reasoning-training": "A concrete instance of a pattern the archive's reward-design material keeps arriving at: when one signal is asked to supply both direction and gradient, it can do neither well, and the fix is to split it. Here the hard constraint on a domain safety interval decides whether an answer is admissible at all, and a continuous precision term shapes behaviour inside that region -- which is structurally the same arrangement as the outcome-anchor-plus-process-refinement finding this archive already holds, and as the length reward that only works when gated on correctness. The clinical framing makes the asymmetry explicit in a way most settings do not: a value outside the safety interval is a categorically different error from one merely imprecise, so a single distance-based reward that treats them as points on one scale is mis-specified rather than merely coarse. The ablation's superadditivity is worth noting too -- removing both mechanisms costs 11.74 points against 4.49 and 5.06 separately -- which places this alongside the archive's other cases where a component ablation understates a combination's contribution because the parts cover each other's failures. Two things to hold lightly: the knowledge-verification reward is supplied by a 14B model whose error rate is unmeasured, so this is a model-scored process reward wearing the language of external verification, and the whole result rests on one benchmark, which the authors state is the only one carrying the safety intervals their method needs."
+    },
+    "results": "The hybrid reward beats every static tolerance setting by a wide margin on floating-point tasks: 37.90 percent against 23.25 to 25.00 across thresholds spanning four orders of magnitude, an 11.63-point improvement over the best static baseline, and the sweep shows the two failure modes the design predicts -- the strictest threshold produces the lowest KL trajectory, indicating the policy never leaves its initialisation, while the most lenient produces high-variance oscillation. The authors read their method's higher KL divergence as effective exploration rather than instability, which is an interpretation rather than a measurement but is at least consistent with the accuracy result. On the full benchmark the 3B model reaches 51.34 percent average against 40.65 for the same backbone fine-tuned on medical numerical reasoning, and the 1.5B model reaches 42.36 against 33.68. The gains concentrate where the safety framing bites: on dosage calculation the 1.5B and 3B models reach 90.00 and 87.50, well above a proprietary reasoning baseline, and on diagnosis the 1.5B model reaches 73.33. The ablation shows the two mechanisms are complementary rather than additive -- removing the knowledge reward costs 4.49 points, removing the hybrid reward costs 5.06, and removing both costs 11.74, which is more than their sum. It also shows a clean task-specific split: equation-based tasks are highly sensitive to the knowledge reward (down 6.60 without it against 0.79 for rule-based tasks), consistent with explicit formula verification suppressing formula hallucination, while rule-based tasks depend predominantly on the hybrid reward (down 4.73 against 5.25 for equation tasks). Formula recall accuracy rises from 53.91 to 57.92 alongside the accuracy gain, so the explicit formulas are more often right and not merely more often present. The paper also reports where it does not work: severity classification remains weak, which the authors attribute to hierarchical constraints and discrete rule enumeration that the reward mechanisms do not reach, and small models remain unstable on date calculations.",
+    "tags": [
+      "rlvr",
+      "grpo",
+      "reward-design",
+      "medical",
+      "numerical-reasoning",
+      "safety-threshold"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-08623",
+  "task_version": 1,
+  "topics": [
+    "reasoning-evaluation",
+    "reasoning-training"
+  ]
+}

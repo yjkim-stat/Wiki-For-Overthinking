@@ -86,6 +86,12 @@
       "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
     },
     {
+      "id": "arxiv:2608.11368",
+      "kind": "paper",
+      "note": "Points out that the group-relative policy gradient is a second-order U-statistic over pairs of rollouts rather than a sum of independent per-rollout contributions, and reallocates rollout compute accordingly -- treating prefixes as vertices and pair-gradient terms as edges, then correcting the resulting selection bias by inverse joint-inclusion weighting.",
+      "title": "PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR"
+    },
+    {
       "id": "local:043e84b0b0ae0a39",
       "kind": "paper",
       "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
@@ -274,7 +280,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T12:49:58Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "MATH500",
   "related": [
     "post-training-quantization",
@@ -517,6 +523,17 @@
     "deepseek-r1-distill-qwen-1-5b",
     "qwen3-5-2b",
     "e5-large",
+    "adaptive-compute-allocation",
+    "estimator-bias",
+    "matched-budget-comparison",
+    "selection-bias",
+    "pre-registration",
+    "u-statistic",
+    "horvitz-thompson-estimation",
+    "inverse-probability-weighting",
+    "convex-optimization",
+    "leave-one-out-estimation",
+    "component-ablation",
     "superposition-in-latent-reasoning",
     "forced-superposition",
     "learned-superposition",
@@ -547,7 +564,6 @@
     "probe-in-the-middle",
     "semantic-entropy",
     "early-exit",
-    "adaptive-compute-allocation",
     "gang-scheduling",
     "reasoning-programs",
     "dynasor",

@@ -7,6 +7,12 @@
   "definition": "Loss of previously held capability when a model is trained further, which both sources treat as a routine consequence of reasoning post-training rather than an edge case. One measures it: prolonged RLVR degrades foundational skills including perception and faithfulness, and KL regularization does not prevent it because the penalty is computed on the current task. The other locates it in parameter space, reporting that reasoning ability sits in regions of low gradient sensitivity — not in high-magnitude parameters as usually assumed — which would explain why merging and pruning damage reasoning disproportionately. That faithfulness is among the capabilities lost would mean some of the archive's faithfulness findings are a consequence of reasoning training rather than a property of models.",
   "evidence": [
     {
+      "id": "arxiv:2608.08623",
+      "kind": "paper",
+      "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+      "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.acl-long.2201",
       "kind": "paper",
       "note": "Merges a reasoning model into a domain-specialized one after finding that reasoning ability resides in low-gradient-sensitivity parameter regions rather than high-magnitude ones.",
@@ -21,9 +27,34 @@
   ],
   "first_seen": "2026-08-08T12:29:58Z",
   "kind": "concept",
-  "last_seen": "2026-08-13T12:09:06Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "catastrophic forgetting",
   "related": [
+    "reward-shaping",
+    "outcome-reward",
+    "process-reward",
+    "reward-sparsity",
+    "tolerance-threshold",
+    "safety-constraint",
+    "credit-assignment",
+    "formula-hallucination",
+    "component-ablation",
+    "grpo",
+    "rlvr",
+    "supervised-fine-tuning",
+    "external-verifier",
+    "llm-as-a-judge",
+    "ppo",
+    "reinforce",
+    "rloo",
+    "kl-divergence-monitoring",
+    "medcalc-bench",
+    "qwen2-5-1-5b-instruct",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-14b-instruct",
+    "o1-mini",
+    "gpt-4o",
+    "huatuogpt-o1",
     "model-merging",
     "localization",
     "modularity",
@@ -36,7 +67,6 @@
     "training-dynamics",
     "objective-reweighting",
     "recap",
-    "rlvr",
     "dynamic-objective-reweighting",
     "qwen2-5-vl-3b",
     "qwen2-5-vl-7b"
@@ -45,6 +75,7 @@
   "schema_version": 1,
   "slug": "catastrophic-forgetting",
   "topics": [
+    "reasoning-evaluation",
     "reasoning-training"
   ]
 }

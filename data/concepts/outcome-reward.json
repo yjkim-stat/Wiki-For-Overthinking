@@ -49,6 +49,12 @@
       "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
     },
     {
+      "id": "arxiv:2608.08623",
+      "kind": "paper",
+      "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+      "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning"
+    },
+    {
       "id": "arxiv:2608.08889",
       "kind": "paper",
       "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
@@ -87,7 +93,7 @@
   ],
   "first_seen": "2026-08-08T05:59:48Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "outcome reward",
   "related": [
     "credit-assignment",
@@ -260,6 +266,19 @@
     "mathverse",
     "qwen3-vl-2b",
     "qwen3-vl-4b",
+    "tolerance-threshold",
+    "safety-constraint",
+    "formula-hallucination",
+    "catastrophic-forgetting",
+    "external-verifier",
+    "reinforce",
+    "rloo",
+    "kl-divergence-monitoring",
+    "medcalc-bench",
+    "qwen2-5-1-5b-instruct",
+    "qwen2-5-14b-instruct",
+    "o1-mini",
+    "huatuogpt-o1",
     "reasoning-collapse",
     "subjective-evaluation",
     "persona-conditioning",

@@ -55,6 +55,12 @@
       "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning"
     },
     {
+      "id": "arxiv:2608.08623",
+      "kind": "paper",
+      "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+      "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning"
+    },
+    {
       "id": "arxiv:2608.11967",
       "kind": "paper",
       "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
@@ -69,7 +75,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:43:02Z",
+  "last_seen": "2026-08-20T13:47:26Z",
   "name": "process reward",
   "related": [
     "credit-assignment",
@@ -247,6 +253,20 @@
     "mathverse",
     "qwen3-vl-2b",
     "qwen3-vl-4b",
+    "tolerance-threshold",
+    "safety-constraint",
+    "formula-hallucination",
+    "catastrophic-forgetting",
+    "external-verifier",
+    "reinforce",
+    "rloo",
+    "kl-divergence-monitoring",
+    "medcalc-bench",
+    "qwen2-5-1-5b-instruct",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-14b-instruct",
+    "o1-mini",
+    "huatuogpt-o1",
     "reflection",
     "teacher-student-gap",
     "privileged-information",
