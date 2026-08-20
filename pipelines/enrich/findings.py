@@ -104,6 +104,28 @@ def validate(cfg: Config, result: Any, store: RecordStore) -> list[str]:
     return errors
 
 
+def evidence_now(store: RecordStore, concepts: list[str]) -> int:
+    """Distinct sources behind the entities a finding names.
+
+    The union rather than the sum: two entities that share a paper have been
+    established by one reading, not two, and counting it twice would make a
+    finding look better supported the more entities it happens to mention.
+
+    Zero when it names no entity the wiki has harvested — there is nothing to
+    measure against, which is different from having measured nothing.
+    """
+    from .concepts import slug_for
+
+    sources: set[tuple[str, str]] = set()
+    for name in concepts:
+        concept = store.load_concept(slug_for(name))
+        if concept is None:
+            continue
+        for item in concept.evidence:
+            sources.add((str(item.get("kind", "")), str(item.get("id", ""))))
+    return len(sources)
+
+
 def record(cfg: Config, result: dict, store: RecordStore | None = None) -> Finding:
     """Validate and store a finding, retiring whatever it supersedes."""
     store = store or RecordStore(cfg.layout)
@@ -126,6 +148,7 @@ def record(cfg: Config, result: dict, store: RecordStore | None = None) -> Findi
         supersedes=str(result.get("supersedes", "")).strip(),
         established_at=utcnow(),
     )
+    finding.established_against = evidence_now(store, finding.concepts)
 
     existing = store.load_finding(finding.id)
     if existing is not None:
@@ -134,6 +157,9 @@ def record(cfg: Config, result: dict, store: RecordStore | None = None) -> Findi
         # would double-count in every view.
         finding.established_at = existing.established_at
         finding.superseded_by = existing.superseded_by
+        # Recording the same statement again *is* a revision — somebody looked
+        # at it against what the archive now holds — so the count moves with it.
+        # Keeping the original would report the revision as stale on arrival.
 
     store.save_finding(finding)
     if finding.supersedes:

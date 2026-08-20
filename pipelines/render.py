@@ -26,6 +26,7 @@ from .common.store import RecordStore, read_json
 from .enrich import apply as apply_mod
 from .enrich import concepts as concepts_mod
 from .enrich import dedupe
+from .enrich import findings as findings_mod
 from .enrich.queue import Queue
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
@@ -433,16 +434,57 @@ def stale_analysis(cfg: Config) -> list[dict]:
     return stale
 
 
+def stale_findings(cfg: Config) -> list[dict]:
+    """Settled positions whose subject has accumulated evidence since.
+
+    A finding is the group's own judgement, reached across whatever the archive
+    held that day. It then sits at the top of every note it bears on, in the
+    place reserved for what outranks the sources — and it goes on sitting there
+    at thirty sources reading exactly as it did at three. `wiki.py` puts it
+    above the evidence deliberately, which is right and is also what makes this
+    the most expensive thing in the archive to have quietly outgrown.
+
+    **Reported and never touched, and unlike a definition it cannot be
+    re-asked.** A definition is derived from its sources, so a task can hand it
+    back with "what has changed". A finding is a position somebody took; the
+    only thing that can revisit it is the group, and a queue task inviting a
+    reader to revise the group's mind would produce something that is not a
+    finding at all. So this reports, and `findings add --supersedes` is how a
+    changed position is recorded — by a person, keeping the old one.
+
+    A finding recorded before `established_against` existed reports nothing:
+    0 means unknown rather than none.
+    """
+    store = RecordStore(cfg.layout)
+    stale: list[dict] = []
+    for finding in store.iter_findings():
+        if not finding.live or not finding.established_against:
+            continue
+        now = findings_mod.evidence_now(store, finding.concepts)
+        if now > finding.established_against:
+            stale.append(
+                {
+                    "id": finding.id,
+                    "statement": finding.statement,
+                    "established_against": finding.established_against,
+                    "sources_now": now,
+                }
+            )
+    return sorted(stale, key=lambda row: row["established_against"] - row["sources_now"])
+
+
 def report_staleness(cfg: Config) -> dict[str, int]:
     """Count what has been outgrown, and say so. Never rewrites anything.
 
     Reporting only, deliberately. Re-deriving a definition means reading its
-    sources; a counter must not discard written work on arithmetic alone. To
-    re-queue one, clear ``definition`` in ``data/concepts/<slug>.json`` and
-    render again.
+    sources; a counter must not discard written work on arithmetic alone. A
+    definition can at least be asked for again — see `queue_stale_definitions` —
+    and a finding cannot: it is a position somebody took, and only the group can
+    revisit it, with `findings add --supersedes`.
     """
     definitions = stale_definitions(cfg)
     analysis = stale_analysis(cfg)
+    settled = stale_findings(cfg)
 
     for row in definitions[:10]:
         _LOG.warning(
@@ -461,7 +503,21 @@ def report_staleness(cfg: Config) -> dict[str, int]:
             row["sources_now"],
         )
 
-    return {"definitions": len(definitions), "analysis": len(analysis)}
+    for row in settled[:10]:
+        _LOG.warning(
+            "finding '%s' was settled against %d source(s); there are now %d",
+            row["statement"][:80],
+            row["established_against"],
+            row["sources_now"],
+        )
+    if len(settled) > 10:
+        _LOG.warning("... and %d more finding(s) their subject has outgrown", len(settled) - 10)
+
+    return {
+        "definitions": len(definitions),
+        "analysis": len(analysis),
+        "findings": len(settled),
+    }
 
 
 def rebuild_outputs(cfg: Config, topic_slugs: list[str] | None = None) -> dict[str, int]:

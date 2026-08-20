@@ -230,6 +230,7 @@ Render also reports what has gone **stale**, under `stale` in its result:
 
 ```
 definition for 'X' was written against 3 source(s); there are now 9
+finding 'The group prefers ...' was settled against 3 source(s); there are now 30
 ```
 
 **An empty queue means nothing is unwritten. It does not mean nothing is out of
@@ -254,6 +255,19 @@ Clearing `definition` in `data/concepts/<slug>.json` still works and is now the
 worse route: it throws the previous ruling away along with the staleness, and
 most of that ruling is usually still right. Use it when a definition is wrong
 rather than merely behind.
+
+**A settled finding goes out of date too, and cannot be asked for again.** It
+sits at the top of every note it bears on, above the sources, because a position
+the group reached outranks what any one paper said — and it goes on sitting
+there at thirty sources reading exactly as it did at three. That placement is
+right, and it is what makes an outgrown finding the most expensive thing here to
+have stopped noticing.
+
+Nothing re-queues one, and nothing can: a definition is derived from its sources
+so a task can hand it back, but a finding is a position somebody took. Only the
+group revisits it, and the way to record that is a new finding with `supersedes`
+set to the old id — the old statement stays, marked, because why the group used
+to think otherwise is most of what a newcomer needs.
 
 Your own analysis after `<!-- auto:end -->` can opt into the same check by
 ending with a declared source count:

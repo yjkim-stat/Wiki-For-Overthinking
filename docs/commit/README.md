@@ -85,3 +85,4 @@ reference for everything built before the practice existed.
 | 0070 | [One leverage, beside the scores it sums](0070-one-leverage-beside-the-scores-it-sums.md) | refactor | Two callers wanted the same number; two copies would be free to disagree |
 | 0071 | [Which end of the backlog to drain](0071-which-end-of-the-backlog-to-drain.md) | feature | Filename order is alphabetical order, so a partial drain was reading the archive by arXiv number |
 | 0072 | [Two names for one entity](0072-two-names-for-one-entity.md) | feature | A term spelled two ways splits into two records, and neither is wrong about anything — so the report suggests and writes nothing |
+| 0062 | [A position its subject has outgrown](0062-a-position-its-subject-has-outgrown.md) | feature | A finding sits above the sources, and goes on reading the same at thirty as it did at three |
