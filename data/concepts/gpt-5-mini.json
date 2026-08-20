@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "GPT-5-mini"
+    "GPT-5-mini",
+    "GPT-5 Mini"
   ],
   "definition": "A small GPT-5 variant appearing twice in this archive as a panel member. In the observability-ladder work it is among the models whose completed reasoning runs are held fixed while what a monitor may inspect is varied, producing that paper's finding that a self-summary's value nearly vanishes once the monitor already has the prompt. In the reasoning-trace extraction work it appears in the cross-model compatibility map, where the GPT-5 generation's traces are replayable by the newer series but not the reverse. Neither source reports a result attributed to it individually or describes the model.",
   "evidence": [
@@ -15,11 +16,17 @@
       "kind": "paper",
       "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
       "title": "Stealing Reasoning Traces from Proprietary LLM APIs"
+    },
+    {
+      "id": "arxiv:2608.10996",
+      "kind": "paper",
+      "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+      "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering"
     }
   ],
   "first_seen": "2026-08-13T01:02:17Z",
   "kind": "model",
-  "last_seen": "2026-08-20T12:55:26Z",
+  "last_seen": "2026-08-20T14:37:32Z",
   "name": "GPT-5-mini",
   "related": [
     "monitorability",
@@ -76,12 +83,43 @@
     "gemini-3-pro",
     "gemini-3-5-flash",
     "kimi-k3",
-    "inkling"
+    "inkling",
+    "rubric-based-reward",
+    "verifiable-reward",
+    "zero-advantage-group",
+    "reward-hacking",
+    "annotation-agreement",
+    "position-bias",
+    "consensus",
+    "human-evaluation",
+    "conrub-med",
+    "grpo",
+    "dpo",
+    "consensus-rubric-construction",
+    "three-state-criterion-scoring",
+    "pairwise-preference-judging",
+    "dapo-soft-overlength-penalty",
+    "healthbench-hard",
+    "medxpertqa-text",
+    "diagnosisarena-mcq",
+    "medmcqa",
+    "pubmedqa",
+    "mmlu-medical",
+    "writingbench",
+    "ifeval",
+    "rar-medicine",
+    "qwen3-4b-instruct-2507",
+    "qwen3-32b",
+    "gemini-2-5-pro",
+    "gpt-4-1",
+    "medgemma-1-5-4b-it",
+    "huatuogpt-o1-7b"
   ],
   "related_authored": [],
   "schema_version": 1,
   "slug": "gpt-5-mini",
   "topics": [
-    "reasoning-faithfulness"
+    "reasoning-faithfulness",
+    "reasoning-training"
   ]
 }

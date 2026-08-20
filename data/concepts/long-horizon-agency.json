@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
       "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training"
+    },
+    {
+      "id": "arxiv:2608.11152",
+      "kind": "paper",
+      "note": "A routing-layer admission policy for RL post-training that treats admitting a rollout session as a commitment of KV-cache capacity, allocates protected capacity per workload class by footprint and observed residency time, and leaves the workload mixture itself under the trainer's control.",
+      "title": "Scheduling Mixed RL Rollouts Beyond Prefix Locality"
     }
   ],
   "first_seen": "2026-08-20T14:26:24Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:26:24Z",
+  "last_seen": "2026-08-20T14:37:32Z",
   "name": "long-horizon agency",
   "related": [
     "credit-assignment",
@@ -44,7 +50,26 @@
     "gpt-5-5",
     "kimi-k2-6",
     "glm-5-2",
-    "skywork-or1"
+    "skywork-or1",
+    "rollout-scheduling",
+    "kv-cache",
+    "prefix-caching",
+    "admission-control",
+    "workload-heterogeneity",
+    "compute-allocation",
+    "asynchronous-training",
+    "misa-t",
+    "misa",
+    "session-admission",
+    "prefix-aware-routing",
+    "vllm-router",
+    "cpu-kv-offloading",
+    "grpo-style-rollout-serving",
+    "swe-pro",
+    "swe-verified",
+    "swe-mtlg",
+    "step3-7",
+    "qwen3-6-35b-a3b"
   ],
   "related_authored": [],
   "schema_version": 1,

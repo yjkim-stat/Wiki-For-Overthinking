@@ -40,11 +40,17 @@
       "kind": "paper",
       "note": "Adds a correctness-conditioned confidence term to the GRPO reward for medical visual question answering -- rewarding answer-token confidence when the answer is right and penalising it when wrong -- on top of an SFT cold start built from answer-conditioned reasoning traces filtered by a verifier.",
       "title": "CARE: Confidence-Aware Reasoning for Reliable Medical VQA"
+    },
+    {
+      "id": "arxiv:2608.10996",
+      "kind": "paper",
+      "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+      "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering"
     }
   ],
   "first_seen": "2026-08-13T04:27:36Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:34:17Z",
+  "last_seen": "2026-08-20T14:37:32Z",
   "name": "verifiable reward",
   "related": [
     "monte-carlo-tree-search",
@@ -198,7 +204,35 @@
     "fleming-vl-8b",
     "medmo-8b",
     "med-r1-3b",
-    "medvlm-r1-2b"
+    "medvlm-r1-2b",
+    "rubric-based-reward",
+    "annotation-agreement",
+    "position-bias",
+    "consensus",
+    "human-evaluation",
+    "conrub-med",
+    "dpo",
+    "consensus-rubric-construction",
+    "three-state-criterion-scoring",
+    "pairwise-preference-judging",
+    "dapo-soft-overlength-penalty",
+    "healthbench-hard",
+    "medxpertqa-text",
+    "diagnosisarena-mcq",
+    "medmcqa",
+    "pubmedqa",
+    "mmlu-medical",
+    "writingbench",
+    "gpqa-diamond",
+    "ifeval",
+    "rar-medicine",
+    "qwen3-4b-instruct-2507",
+    "qwen3-32b",
+    "gpt-5-mini",
+    "claude-sonnet-4-5",
+    "gpt-4-1",
+    "medgemma-1-5-4b-it",
+    "huatuogpt-o1-7b"
   ],
   "related_authored": [
     "reward-hacking"

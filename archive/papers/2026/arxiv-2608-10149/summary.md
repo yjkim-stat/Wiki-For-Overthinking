@@ -47,7 +47,7 @@ The paper has no limitations section. Reader-visible limits: everything is univa
 
 - **Concepts**: ensemble learning, [advantage estimation](../../../../wiki/concepts/advantage-estimation.md), [reward shaping](../../../../wiki/concepts/reward-shaping.md), [zero-advantage group](../../../../wiki/concepts/zero-advantage-group.md), retrieval-augmented generation, chain-of-thought prompting, [out-of-distribution generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), [rationalization](../../../../wiki/concepts/post-hoc-rationalization.md)
 - **Methods**: REATS, [GRPO](../../../../wiki/methods/grpo.md), [DAPO](../../../../wiki/methods/dapo.md), [Dr.GRPO](../../../../wiki/methods/dr-grpo.md), [GSPO](../../../../wiki/methods/gspo.md), SAPO, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [retrieval-augmented generation](../../../../wiki/methods/retrieval-augmented-generation.md), Dirichlet sampling, quadratic programming
-- **Datasets**: ETTh1, ETTh2, ETTm1, ETTm2, Exchange, Weather, Electricity, Traffic
+- **Datasets**: [ETTh1](../../../../wiki/datasets/etth1.md), [ETTh2](../../../../wiki/datasets/etth2.md), [ETTm1](../../../../wiki/datasets/ettm1.md), [ETTm2](../../../../wiki/datasets/ettm2.md), Exchange, [Weather](../../../../wiki/datasets/weather.md), Electricity, [Traffic](../../../../wiki/datasets/traffic.md)
 
 Tags: `grpo`, `reward-mapping`, `ensemble`, `time-series`, `chain-of-thought`
 
