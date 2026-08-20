@@ -279,6 +279,28 @@ wrong about what it attaches to.
 of `wiki/findings.md`: why the group used to think otherwise is most of what a
 newcomer needs in order to trust what it thinks now.
 
+**A question that spans more readings than one goes in the queue.** "Read these
+twelve and tell me whether X" is the work that moves an archive forward, and it
+used to happen inside a session, validated by nothing, surviving only in a
+commit message:
+
+```bash
+python3 -m pipelines.enrich.synthesis add \
+  --question "Do these agree on what an instrumental variable requires?" \
+  --concept instrumental-variable --paper arxiv:2401.12345
+```
+
+It is answered like any other task. **A settled answer becomes a finding** and
+is checked by the findings validator on submission — so cite papers the archive
+holds, not ones you remember. **Leaving it open is a real answer**: put in
+`unresolved` what is missing and what would settle it, and the question is
+archived with its reason where the next session finds it. A sentence hedged
+until nobody could disagree with it is worse than an open question, because
+nothing later can tell the two apart.
+
+Leave one for the next night the same way. It is content-addressed on the
+question, so asking twice files one task.
+
 **This is the one record you author.** Everything else in `data/` arrived from a
 collector, and the rule against inventing sources still holds — a finding is not
 a source, it is the group's own position, and it is stored apart from the
@@ -433,6 +455,7 @@ python3 -m pipelines.enrich.queue next            # the oldest pending task
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
+python3 -m pipelines.enrich.synthesis list        # questions spanning more readings than one
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change

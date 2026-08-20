@@ -17,6 +17,7 @@ from ..common.config import Config
 from ..common.log import get
 from ..common.schema import PaperSummary, VideoSummary, utcnow
 from ..common.store import RecordStore
+from . import findings as findings_mod
 from .concepts import slug_for
 from .queue import Queue
 
@@ -199,14 +200,60 @@ def _authored_links(slug: str, names: object) -> list[str]:
     return links
 
 
-_APPLIERS = {"paper": _apply_paper, "video": _apply_video, "concept": _apply_concept}
+def _apply_synthesis(cfg: Config, store: RecordStore, task: dict) -> bool:
+    """Fold a settled question into the findings, or record that it was not.
+
+    The answer to "read these twelve and tell me whether X" is the group's own
+    position, which is what a finding is — so it goes through `findings.record`
+    rather than a second path to the same directory. That matters more here than
+    it looks: the queue already checked the answer against the archive, and
+    routing it around the recorder afterwards would leave two ways in, one of
+    which nobody is maintaining.
+
+    **A question the evidence did not settle writes nothing**, and that is a
+    success. The task is archived carrying its `unresolved` reason, so what was
+    asked and why it could not be answered survives where the next session will
+    find it — which is more than a deleted task would leave, and more honest
+    than a finding hedged into meaninglessness.
+    """
+    result = task.get("result") or {}
+    statement = str(result.get("statement", "") or "").strip()
+    if not statement:
+        _LOG.info(
+            "synthesis %s left unresolved: %s",
+            task.get("item_id"),
+            str(result.get("unresolved", "") or "")[:160],
+        )
+        return True
+
+    payload = {
+        "kind": str(result.get("kind") or "fact"),
+        "statement": statement,
+        "rationale": str(result.get("rationale", "") or ""),
+        "concepts": list(result.get("concepts") or []),
+        "papers": list(result.get("papers") or []),
+        "references": list(result.get("references") or []),
+        "topics": list(result.get("topics") or task.get("topics") or []),
+        "supersedes": str(result.get("supersedes", "") or ""),
+    }
+    finding = findings_mod.record(cfg, payload, store)
+    _LOG.info("synthesis %s settled as %s", task.get("item_id"), finding.id)
+    return True
+
+
+_APPLIERS = {
+    "paper": _apply_paper,
+    "video": _apply_video,
+    "concept": _apply_concept,
+    "synthesis": _apply_synthesis,
+}
 
 
 def completed(cfg: Config) -> dict[str, int]:
     """Fold every finished task into the records, then archive the task file."""
     store = RecordStore(cfg.layout)
     queue = Queue(cfg.layout)
-    applied = {"paper": 0, "video": 0, "concept": 0, "skipped": 0}
+    applied = {"paper": 0, "video": 0, "concept": 0, "synthesis": 0, "skipped": 0}
 
     for task in list(queue.iter_done()):
         applier = _APPLIERS.get(task.get("kind", ""))

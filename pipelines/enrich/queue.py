@@ -31,7 +31,7 @@ from ..common.log import get
 from ..common import paths as P
 from ..common.paths import Layout, fs_id
 from ..common.schema import utcnow
-from ..common.store import read_json, write_json
+from ..common.store import RecordStore, read_json, write_json
 
 _LOG = get(__name__)
 
@@ -41,6 +41,11 @@ _REQUIRED_FIELDS = {
     "paper": ["one_liner", "problem", "contributions", "method"],
     "video": ["one_liner", "abstract", "key_points"],
     "concept": ["definition"],
+    # A synthesis has no unconditionally required field. Either it settles
+    # something — and then it is a finding, checked as one — or it says why it
+    # could not, and leaving a question open is a real answer rather than a
+    # failure to produce one. `_check_synthesis` holds that alternative.
+    "synthesis": [],
 }
 
 _LIST_FIELDS = {
@@ -57,6 +62,7 @@ _LIST_FIELDS = {
         "tags",
     ],
     "concept": ["aliases", "related"],
+    "synthesis": ["concepts", "papers", "references", "topics"],
 }
 
 _KINDS = tuple(_REQUIRED_FIELDS)
@@ -64,6 +70,54 @@ _KINDS = tuple(_REQUIRED_FIELDS)
 #: What a reading may say it was based on. ``document`` is a claim the task can
 #: check; ``abstract`` is one it cannot, and does not need to.
 READING_BASIS = ("document", "abstract")
+
+
+def _check_synthesis(result: dict, cfg, store) -> list[str]:
+    """A synthesis either settles something or says why it could not.
+
+    The answer to "read these twelve and tell me whether X" is a finding, so it
+    is checked as one — by the same validator, against the same archive. A
+    statement naming a paper nobody collected or a topic nobody tracks is the
+    thing `enrich/findings.py` exists to refuse, and a second, laxer path to the
+    same records would make that refusal decorative.
+
+    **Not settling it is a real answer.** A question that the evidence does not
+    resolve is worth recording as unresolved, and a validator that demanded a
+    statement would be asking the reader to invent one. So an empty statement is
+    accepted when `unresolved` says why, and refused when it does not — silence
+    is the one answer that carries no information at all.
+
+    Without ``cfg`` and ``store`` only the shape is checked. The same graceful
+    degradation `topics` and `attachments` already have, and the same limit: a
+    validator that cannot see the archive cannot tell a real paper id from a
+    plausible one.
+    """
+    statement = str(result.get("statement", "") or "").strip()
+    unresolved = str(result.get("unresolved", "") or "").strip()
+
+    if not statement:
+        if not unresolved:
+            return [
+                "a synthesis must either carry a `statement` or say in "
+                "`unresolved` why the evidence did not settle it — leaving both "
+                "empty records nothing at all"
+            ]
+        return []
+
+    if unresolved:
+        return [
+            "a synthesis carries a `statement` or an `unresolved`, not both: "
+            "one says the question was settled and the other says it was not"
+        ]
+
+    if cfg is None or store is None:
+        return []
+
+    # Checked as the finding it is about to become, by the validator that owns
+    # that contract rather than a copy of it here.
+    from . import findings as findings_mod
+
+    return findings_mod.validate(cfg, {**result, "statement": statement}, store)
 
 
 def _check_reading_basis(
@@ -109,6 +163,8 @@ def validate_result(
     result: Any,
     topics: list[str] | None = None,
     attachments: dict[str, Any] | None = None,
+    cfg: Any = None,
+    store: Any = None,
 ) -> list[str]:
     """Check a submitted result against the contract. Returns error strings.
 
@@ -128,6 +184,11 @@ def validate_result(
     document — nothing to open, so nothing is required, but claiming to have
     read one is rejected. A block with ``pdf_path`` means the reader was handed
     a document and has to say whether they used it.
+   
+    ``cfg`` and ``store`` are the third context of the same kind, and the reason
+    is unchanged: a synthesis answer becomes a finding, and whether it names a
+    paper the archive holds is a fact about the archive rather than about the
+    answer.
     """
     errors: list[str] = []
     if not isinstance(result, dict):
@@ -192,6 +253,9 @@ def validate_result(
                 if not isinstance(year, int) or isinstance(year, bool):
                     errors.append("field `bibliography.year` must be an integer")
 
+    if kind == "synthesis":
+        errors.extend(_check_synthesis(result, cfg, store))
+
     if kind == "concept":
         declared = result.get("kind")
         if declared and declared not in ("concept", "method", "dataset"):
@@ -221,9 +285,16 @@ def validate_result(
 class Queue:
     """File-backed queue of pending and completed summarization tasks."""
 
-    def __init__(self, layout: Layout, max_pending: int | None = None) -> None:
+    def __init__(
+        self, layout: Layout, max_pending: int | None = None, cfg: Any = None
+    ) -> None:
         self.layout = layout
         self.max_pending = max_pending
+        # Only a synthesis needs it, and only to check its answer against the
+        # archive the way `findings add` does. A queue built without one still
+        # validates every shape; it simply cannot tell a real paper id from a
+        # plausible one, which is the same limit every other context here has.
+        self.cfg = cfg
         # What this instance actually wrote. A caller cannot learn it from the
         # return value of `enqueue` alone: a summarizer backend sits between the
         # two and reports only whether it deferred, which is true of every item
@@ -371,6 +442,8 @@ class Queue:
             result,
             task.get("topics") or None,
             task.get("attachments"),
+            cfg=self.cfg,
+            store=RecordStore(self.layout) if self.cfg is not None else None,
         )
         if errors:
             raise ValueError(
