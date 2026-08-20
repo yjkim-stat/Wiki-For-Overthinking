@@ -78,3 +78,4 @@ reference for everything built before the practice existed.
 | 0055 | [One rule for what counts as a mention](0055-one-rule-for-what-counts-as-a-mention.md) | refactor | Search and scoring must not disagree about what a mention is, and a second copy is how they would |
 | 0056 | [A read-only window onto the archive](0056-a-read-only-window-onto-the-archive.md) | feature | Colleagues on the same host can ask what it knows; it answers only from what it has read, and writes nothing |
 | 0057 | [A change is asked for through a person](0057-a-change-is-asked-for-through-a-person.md) | feature | The write lane: no auto-approved category, a hostile drop folder, and a decision that keeps its reason |
+| 0070 | [One leverage, beside the scores it sums](0070-one-leverage-beside-the-scores-it-sums.md) | refactor | Two callers wanted the same number; two copies would be free to disagree |
