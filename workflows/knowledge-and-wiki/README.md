@@ -40,10 +40,17 @@ it while debugging: `--dry-run`, `--topic <slug>`, `--source local`, `--days 30`
 
 ```bash
 python3 -m pipelines.enrich.queue stats
-python3 -m pipelines.enrich.queue list
+python3 -m pipelines.enrich.queue list [--by id|sources|recency|topic] [--kind paper]
 python3 -m pipelines.enrich.queue show <task_id>
 python3 -m pipelines.enrich.queue complete <task_id> --file /tmp/result.json
 ```
+
+`list` and `next` default to filename order, which is alphabetical. If the
+queue will not be emptied tonight, choose the end you are draining — `--by
+sources` first, and `--by topic` when the drain should spread across subjects
+instead of following one to the bottom. The rule each ordering uses, and why
+the two `sources` numbers are not the same unit, is in
+[`CLAUDE.md`](../../CLAUDE.md#the-daily-routine).
 
 The task carries the instructions, the schema and the source material. Three
 rules decide whether the result is worth having:

@@ -12,7 +12,8 @@ Command line:
 
     python -m pipelines.enrich.queue stats
     python -m pipelines.enrich.queue list --kind paper
-    python -m pipelines.enrich.queue next
+    python -m pipelines.enrich.queue list --by sources --limit 20
+    python -m pipelines.enrich.queue next --by recency
     python -m pipelines.enrich.queue show <task_id>
     python -m pipelines.enrich.queue complete <task_id> --file result.json
     cat result.json | python -m pipelines.enrich.queue complete <task_id> --stdin
@@ -31,7 +32,9 @@ from ..common.log import get
 from ..common import paths as P
 from ..common.paths import Layout, fs_id
 from ..common.schema import utcnow
-from ..common.store import read_json, write_json
+from ..common.store import RecordStore, read_json, write_json
+from .concepts import slug_for
+from .score import leverage
 
 _LOG = get(__name__)
 
@@ -64,6 +67,37 @@ _KINDS = tuple(_REQUIRED_FIELDS)
 #: What a reading may say it was based on. ``document`` is a claim the task can
 #: check; ``abstract`` is one it cannot, and does not need to.
 READING_BASIS = ("document", "abstract")
+
+#: How a caller may ask for the backlog to be ordered.
+#:
+#: ``id`` is the default and is the order the queue has always had: the task
+#: files, sorted by name. It is kept as the default because a session that has
+#: been draining the queue in that order should not silently start draining a
+#: different set of items when it pulls a new version of the code.
+#:
+#: The other three exist because the default is arbitrary. A task id begins with
+#: its kind and continues with a filesystem-safe form of the item id, so
+#: filename order is alphabetical order — and a session that drains the top
+#: twenty every night is therefore reading the archive alphabetically, which is
+#: not a priority anybody chose.
+ORDERINGS = ("id", "sources", "recency", "topic")
+
+
+def _newest_first(timestamp: str) -> int:
+    """An ISO timestamp as a number that sorts descending among ascending keys.
+
+    Padded to a fixed width before it is converted, so a value recorded at a
+    coarser resolution — a bare date, say — still compares against a full one
+    rather than looking enormously older. A task with no timestamp at all ranks
+    0, which puts it after every real one, all of which are negative.
+
+    The same trick as ``backfill._newest_first`` and deliberately a separate
+    four lines: that one reads a publication date and this one a queue
+    timestamp, and folding them together would tie the queue's ordering to a
+    collector's date format.
+    """
+    digits = "".join(c for c in timestamp if c.isdigit())[:14]
+    return -int(digits.ljust(14, "0")) if digits else 0
 
 
 def _check_reading_basis(
@@ -230,6 +264,9 @@ class Queue:
         # whether or not a task was filed for it.
         self.filed = 0
         self.refreshed = 0
+        # Opened lazily: listing the queue by filename must not depend on the
+        # archive being readable, and most callers never ask for an ordering.
+        self._records: RecordStore | None = None
 
     # -- paths --------------------------------------------------------------
     @staticmethod
@@ -336,13 +373,110 @@ class Queue:
     def count_pending(self) -> int:
         return sum(1 for _ in self.layout.queue_pending.glob("*.json"))
 
-    def pending_ids(self, kind: str | None = None) -> list[str]:
+    def pending_ids(self, kind: str | None = None, order: str = "id") -> list[str]:
+        """Pending task ids, in the order asked for.
+
+        ``id`` is filename order and costs one directory listing. Every other
+        ordering has to open each waiting task, because what a task is worth is
+        a fact about the record behind it rather than about its name.
+
+        Ordering never touches a task. Nothing here writes, and nothing here
+        changes what a task says — a queue that reordered itself by editing the
+        files would put the whole backlog in every diff, and `render` already
+        owns the one legitimate reason to rewrite a pending task.
+        """
         ids = []
         for path in sorted(self.layout.queue_pending.glob("*.json")):
             if kind and not path.name.startswith(f"{kind}__"):
                 continue
             ids.append(path.stem)
-        return ids
+        if order == "id":
+            return ids
+        return sorted(ids, key=lambda task_id: self._order_key(task_id, order))
+
+    # -- ordering -----------------------------------------------------------
+    def _store(self) -> RecordStore:
+        """The archive, opened once per queue and only if an ordering needs it."""
+        if self._records is None:
+            self._records = RecordStore(self.layout)
+        return self._records
+
+    def sources_for(self, task: dict) -> float:
+        """How much already rests on this task being answered.
+
+        Two different numbers, because the two kinds of task have two different
+        answers available, and neither is a guess:
+
+        **A concept task** is asked for a definition of an entity the archive
+        has already promoted, so the entity's own evidence count is exact — this
+        term has been seen in *n* readings, and the definition that is missing is
+        missing from all of them.
+
+        **A paper or a video** has no such count and cannot have one. Entities
+        take their evidence from summaries; an unread item has no summary; so no
+        entity cites it and every candidate would score zero. What the archive
+        does know is what scoring decided when the item arrived, which is
+        ``score.leverage`` — the same substitution `backfill` makes, from the
+        same function, so the two commands cannot rank the same paper
+        differently.
+
+        **The two numbers are not the same unit**, and this is the honest
+        statement of what `--by sources` does rather than a defect hidden behind
+        a shared name. An evidence count is a small integer; a summed score is a
+        fraction per topic. In practice concept tasks therefore sort above
+        reading tasks, which is defensible on its own terms — a definition is
+        read by everything that cites the term, a reading by whoever wanted that
+        paper — but it is not a computed comparison and must not be read as one.
+        `--kind` narrows the list to one unit when an exact ordering is wanted.
+
+        A record that has gone missing scores 0 rather than raising: an ordering
+        is a convenience, and a queue that refused to list itself because one
+        record was deleted would be worse than a task in the wrong place.
+        """
+        kind = task.get("kind")
+        item_id = task.get("item_id") or ""
+        store = self._store()
+
+        if kind == "concept":
+            concept = store.load_concept(slug_for(item_id))
+            if concept is not None:
+                return float(concept.mention_count)
+            # The record is gone but the task still states what it was built
+            # from, and that is a better answer than nothing.
+            return float((task.get("payload") or {}).get("source_count") or 0)
+
+        record = None
+        if kind == "paper":
+            record = store.load_paper(item_id)
+        elif kind == "video":
+            record = store.load_video(item_id)
+        return leverage(record) if record is not None else 0.0
+
+    def _order_key(self, task_id: str, order: str):
+        """Total and deterministic, whichever ordering is asked for.
+
+        Every key ends in the task id. A caller that drains the top N needs the
+        same N back on the next call, and two tasks of equal weight must not
+        swap places between two listings of the same queue.
+        """
+        task = read_json(self.pending_path(task_id)) or {}
+
+        if order == "recency":
+            return (_newest_first(task.get("created_at") or ""), task_id)
+
+        weight = -self.sources_for(task)
+        if order == "topic":
+            # Grouped by the alphabetically first topic the task carries, since
+            # a task belonging to two topics can still only appear in the list
+            # once. A task with no topic at all — a concept whose sources named
+            # none, a hand-filed PDF nobody has placed yet — sorts after every
+            # group rather than ahead of them all, which is where an empty
+            # string would have put it.
+            topics = sorted(t for t in (task.get("topics") or []) if t)
+            group = (0, topics[0]) if topics else (1, "")
+            return (group, weight, task_id)
+
+        return (weight, task_id)
 
     def load(self, task_id: str) -> dict | None:
         for path in (
@@ -472,13 +606,27 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("stats", help="counts of pending, done and archived tasks")
 
+    order_help = (
+        "which end of the backlog to drain first: id (filename order, the "
+        "default), sources (most already resting on it), recency (newest "
+        "first), topic (grouped by topic slug, then by sources)"
+    )
+
     p_list = sub.add_parser("list", help="list pending task ids")
     p_list.add_argument("--kind", choices=list(_KINDS))
     p_list.add_argument("--limit", type=int, default=0, help="0 means no limit")
     p_list.add_argument("--json", action="store_true", help="emit full task objects")
+    p_list.add_argument(
+        "--by", choices=list(ORDERINGS), default="id", dest="order", help=order_help
+    )
 
-    p_next = sub.add_parser("next", help="print the oldest pending task")
+    p_next = sub.add_parser(
+        "next", help="print the first pending task, in the chosen order"
+    )
     p_next.add_argument("--kind", choices=list(_KINDS))
+    p_next.add_argument(
+        "--by", choices=list(ORDERINGS), default="id", dest="order", help=order_help
+    )
 
     p_show = sub.add_parser("show", help="print one task by id")
     p_show.add_argument("task_id")
@@ -503,7 +651,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "list":
-        ids = queue.pending_ids(args.kind)
+        ids = queue.pending_ids(args.kind, args.order)
         if args.limit:
             ids = ids[: args.limit]
         if args.json:
@@ -516,7 +664,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "next":
-        ids = queue.pending_ids(args.kind)
+        ids = queue.pending_ids(args.kind, args.order)
         if not ids:
             print("{}")
             return 0
