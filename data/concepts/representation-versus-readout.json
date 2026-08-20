@@ -1,9 +1,10 @@
 {
   "aliases": [
     "encoding versus decoding",
-    "detection versus control"
+    "detection versus control",
+    "represented but not decoded"
   ],
-  "definition": "The distinction between what a model's internal state contains and what its output does with it — the archive's name for a gap both sources measure directly rather than infer. One finds cultural identity linearly readable from the residual stream at 0.79 while generation emits it at 0.09, with the decoding-suppressed cell the largest in all 18 models tested and activation patching locating the failure in the last quarter of layers. The other pushes the distinction further than encoding: a direction can detect a concept nearly perfectly and, when steered along, produce the opposite behaviour, so readout can invert rather than merely drop what representation holds. Together they establish that detection, decoding and control are three separate questions and an experiment answering one answers neither of the others.",
+  "definition": "The gap between what a model's internal states contain and what its outputs express, and across 6 sources one of the archive's most reproducible findings. Its canonical form is a probe recovering a property well above what the model itself says -- one cross-model study finds cultural knowledge represented in the residual stream while the outputs do not decode it, and a theory-of-mind study finds probes at 77 to 82 percent against the same models' own chain-of-thought outputs at 62 to 70. The consequence the archive draws is diagnostic rather than optimistic: a failure to express is a readout failure, which more data cannot fix and a decoding or steering intervention might, whereas a failure to represent needs different training -- and the two predict opposite remedies, which is why the distinction is worth naming. Two adjacent results bound it. Readout can be sufficient without being necessary: a direction whose removal from either module fails to change generation is decodable and not load-bearing. And a decoder built to make a latent computation inspectable can be anchored far more by the source text than by the latent states it is supposed to inspect, so an interpretable readout is not evidence that the readout reflects the computation.",
   "evidence": [
     {
       "id": "arxiv:2608.02486",
@@ -186,7 +187,8 @@
     "alphafold3"
   ],
   "related_authored": [
-    "unembedding",
+    "detection-versus-control",
+    "linear-probe",
     "logit-lens"
   ],
   "schema_version": 1,

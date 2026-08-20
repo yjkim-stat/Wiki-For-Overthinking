@@ -3,7 +3,7 @@
     "Linear Representation Hypothesis",
     "linear representation hypothesis"
   ],
-  "definition": "The hypothesis that texts exhibiting a concept are linearly separable in a model's representation space from those that do not, which is what licenses reading a concept off a direction and, by extension, steering along it. The two sources use it at the two ends of its consequences. One relies on it constructively, finding that activations taken before each explicit step marker occupy linearly separable step-indexed regions. The other attacks the inference usually drawn from it: separability establishes that a direction detects the concept and says nothing about what translating along it does, since directions with near-perfect discriminability can steer the model the opposite way. The hypothesis survives; the step from it to control does not.",
+  "definition": "The claim that concepts are accessible as directions in activation space, so that separability implies a usable axis. Across 6 sources it is the assumption underneath probing and steering alike, and the archive's material is largely about where it fails to license what it is used for. Its steering form is the strong one -- if texts exhibiting a concept are linearly separable from those that do not, translating toward the positive half-space should promote the concept -- and that is exactly what the inverted-vector result falsifies, since directions with high separability can move the concept backwards. Its probing form survives better: a great deal is linearly decodable, often earlier in the network than the model's own output states it. The corpus's operative distinction is therefore that linear accessibility is well supported for reading and not for writing, and one source notes that applied work continues to build measures on outputs or embeddings even where the internal direction is available.",
   "evidence": [
     {
       "id": "arxiv:2608.02957",
@@ -190,7 +190,9 @@
     "deepseek-r1-distill-llama-8b"
   ],
   "related_authored": [
-    "superposition"
+    "steering-vector",
+    "detection-versus-control",
+    "linear-probe"
   ],
   "schema_version": 1,
   "slug": "linear-representation-hypothesis",

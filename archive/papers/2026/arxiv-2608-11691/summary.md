@@ -46,7 +46,7 @@ The paper has no limitations section. The most consequential caveat is one the a
 
 ## Entities
 
-- **Concepts**: [machine unlearning](../../../../wiki/concepts/machine-unlearning.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), reasoning-trace leakage, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), privacy, [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [degenerate generation](../../../../wiki/concepts/degenerate-generation.md), LLM-as-a-judge
+- **Concepts**: [machine unlearning](../../../../wiki/concepts/machine-unlearning.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), reasoning-trace leakage, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), privacy, latent reasoning, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [degenerate generation](../../../../wiki/concepts/degenerate-generation.md), LLM-as-a-judge
 - **Methods**: machine unlearning, latent injection, entropy-based detection, exponential moving average thresholding, gradient ascent unlearning, negative preference optimization, KL minimization, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), [component ablation](../../../../wiki/methods/component-ablation.md)
 - **Datasets**: MLLMU-Bench-style forget/retain/celebrity splits
 

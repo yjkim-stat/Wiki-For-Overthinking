@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "A 4B-parameter base checkpoint from the Qwen3 family, used by both sources as a starting point for reinforcement learning with verifiable rewards on mathematics. In one it is the second of two base models for the entropy-flow experiments, trained on DAPO-17K; in the other it appears in an appendix extension checking that the entropy-discriminator clipping methods hold across model families rather than only on the Qwen2.5-Instruct models of the main study. Neither source describes the model itself.",
+  "aliases": [
+    "Qwen3-4B-Base"
+  ],
+  "definition": "The 4B Qwen3 base checkpoint, used across 6 sources as the mid rung in reinforcement-learning ladders and as a generalisation check for methods developed on mathematics-specialised backbones. Two archived results are anchored to it. It is where an entropy-flow method's full comparison table sits, and where the archive's most useful decomposition of that literature appears: moving from approximate to strict on-policy training is worth 5.3 points on it while the entropy mechanism layered on top adds 1.8, so most of the reported gain belongs to a separate change. And it is where one distillation study's largest margin lands (+12.01) alongside the observation that its group-relative baseline scores below zero-shot on one benchmark, so part of that margin is a baseline the training damaged.",
   "evidence": [
     {
       "id": "arxiv:2608.02139",
@@ -162,7 +164,10 @@
     "verl",
     "olympiadbench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b",
+    "qwen3-1-7b-base"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b-base",
   "topics": [

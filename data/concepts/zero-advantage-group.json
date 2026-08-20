@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "A prompt on which every sampled rollout receives the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Both sources treat it as the quantity an allocation method should be judged on. The parameter-space exploration work builds its whole evaluation around it, arguing that token entropy cannot distinguish exploitation from learning wrong trajectories and that pass@k measures inference-time behaviour after training, and replacing both with a paired count of how often a method produces a correct rollout on a prompt where the baseline produced none. The pair-aware allocation work explains why it happens structurally: the group-relative gradient is a U-statistic over pairs of rollouts, so a prompt where every rollout agrees has all its pair terms vanish, and the useful question is which contrasts are unobserved rather than which prompts are hard. Between them the sources give both the diagnostic and its mechanism.",
+  "aliases": [
+    "zero-variance group",
+    "degenerate group"
+  ],
+  "definition": "A prompt whose sampled rollouts all receive the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Across 7 sources it is measured rather than assumed: 63 to 68 percent of training groups in one study, with the composition rotating from all-wrong toward all-correct as model scale grows; and in another the exact-tie rate rises from 2.80 percent in epoch 1 to 7.73 in epoch 3 with the share at maximum reward rising from 64.6 to 85.2, so the reward saturates as the policy improves. Three families of remedy appear: reshaping the reward so a continuous signal does not collapse the group's relative spacing, reshaping the weighting so budget stops concentrating on solved prompts, and injecting a second signal active only where the scalar advantage is exactly zero -- privileged-context distillation, or a pairwise judge. The strongest evidence for the third is a restriction rather than an argument: distilling into zero-variance groups alone recovers 84.7 percent of the full gain. One source uses the phenomenon as a metric instead of a target, counting rescued and lost groups against a reference run because entropy and pass@k cannot distinguish exploration from degeneration. None of the remedies reduces how often groups collapse; they make an already-sampled group informative.",
   "evidence": [
     {
       "id": "arxiv:2608.07147",
@@ -230,7 +233,9 @@
     "qwen3-4b"
   ],
   "related_authored": [
-    "advantage-estimation"
+    "group-relative-advantage",
+    "prompt-difficulty",
+    "exploration"
   ],
   "schema_version": 1,
   "slug": "zero-advantage-group",

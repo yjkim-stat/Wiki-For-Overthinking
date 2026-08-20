@@ -5,7 +5,7 @@
     "process reward",
     "step supervision"
   ],
-  "definition": "Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.",
+  "definition": "Supervising or verifying intermediate steps rather than only the final answer, across 14 sources both a method family and an assumption the archive questions. The assumption is that a written scratchpad exposes the intermediate variables that matter for later behaviour -- and the faithfulness literature says written reasoning can be incomplete, post-hoc, or driven by features it never mentions, so a step label may be scoring a description rather than a computation. The cost objection is the other standing one: step-level verification isolates errors precisely and is computationally exhaustive, usually requiring either annotation or a separately trained verifier. The archived methods respond by finding a cheaper source of step signal -- reusing labels that existing datasets already contain, deriving them from a frozen reference policy's likelihood of a gold answer, distilling them from a teacher that can see the whole trajectory, or computing them from the divergence between two context views of the same model. All of these buy density at the cost of measuring agreement with something rather than correctness, which is the trade the archive's process-reward entry records in detail.",
   "evidence": [
     {
       "id": "arxiv:2608.02833",
@@ -94,7 +94,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:25:47Z",
+  "last_seen": "2026-08-20T23:06:51Z",
   "name": "process supervision",
   "related": [
     "visual-grounding",
@@ -365,7 +365,10 @@
     "edit-distance",
     "context-free-grammar-membership-testing"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-reward",
+    "chain-of-thought-faithfulness"
+  ],
   "schema_version": 1,
   "slug": "process-supervision",
   "topics": [

@@ -9,7 +9,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -20,7 +21,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -31,7 +33,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -42,7 +45,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -53,7 +57,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -64,7 +69,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -75,7 +81,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -86,7 +93,20 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains separate Top-K sparse autoencoders on a reasoning model's activations in thinking and non-thinking modes, and finds that suppressing the most active reasoning features destroys mathematical formatting as reliably as it destroys reasoning -- with the model responding by generating 454 percent more tokens of lower-diversity, more metacognitively marked text rather than stopping.",
+        "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -97,7 +117,44 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces a verbose natural-language rationale with two to six executable action tokens drawn from a fixed vocabulary, supervised automatically by pairing logged trajectories with scene context, so that driving-oriented reasoning fits inside a real-time control budget that verbose chain-of-thought exceeds by three to four times.",
+        "title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+        "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -108,7 +165,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -119,7 +177,8 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -130,13 +189,14 @@
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:43:05Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T23:08:04Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'latent reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "latent reasoning",
   "kind": "concept",
@@ -153,22 +213,27 @@
   },
   "payload": {
     "name": "latent reasoning",
-    "source_count": 12
+    "source_count": 16
   },
   "result": {
     "aliases": [
-      "latent chain of thought",
-      "implicit reasoning"
+      "continuous chain-of-thought",
+      "latent thoughts"
     ],
-    "definition": "Reasoning carried in continuous hidden states rather than in emitted tokens -- by replacing a written chain with latent slots, by recursing a block over its own state, or by inserting optimizable latents at inference. The sources divide by what they are buying with it. Efficiency: a safety guard's 268 reasoning tokens compressed to 1.60 latent states at 8.9-fold lower latency, a small trainable recurrent block bolted between a frozen 1.1B model's body and its output head so refinement replaces generation, and selective switching to soft embeddings only at low-confidence steps. Capability, argued theoretically: an exact characterisation of how much computational power a chain of thought buys as a function of its length, and a proof that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, via a curriculum deleting thinking tokens in geometric chunks so only logarithmically many stages are needed. Credit assignment is the recurring practical obstacle and two sources attack it in different places -- pricing a latent thought by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, and inserting the latents at an intermediate layer rather than at the output so that reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token. The sources agree on one negative that cuts against the framing: latent capacity without supervision on what should occupy it is worse than not having it, since reasoning latents without rationale supervision underperform having no reasoning latents at all. They do not agree that going latent costs monitorability -- one source finds that depends more on the task and on access to internals than on whether the reasoning is explicit or latent, while another shows a latent guard's on-demand audit artifact is anchored far more by the source text than by the latent states it claims to describe.",
+    "definition": "Keeping intermediate computation in continuous hidden states instead of emitting tokens, which removes the token cost of a chain of thought and, by construction, removes the readable trace with it. Across 16 sources the corpus reports both sides of that trade and one uncomfortable null. The gains are real where the ablation is controlled: one source's continued-training control -- same checkpoint, same epochs, no latent replacement -- costs 0.65 to 1.63 mean F1 at three scales, so the effect is the latent mechanism rather than extra training, and another cuts 268.56 rationale tokens to 1.60 with an 8.9-fold speedup. Effort scales monotonically in one system (21, 27, 29.5 percent at low, medium and high) though its own minimum-effort comparison is statistically unresolved. The null is the sharpest result: on off-the-shelf models, continuous-state decoding is functionally indistinguishable from discrete decoding -- layer-wise entropy profiles coincide, KL between the two states reaches about 1e-4 in middle layers, cosine similarity 0.996 to 0.998 -- so a latent method that is not trained for it may be doing nothing latent at all. Two design findings recur: latent budgets are usually fixed per question when what a question needs varies, and reasoning latents without rationale supervision are worse than no reasoning latents at all. The inspectability cost is named directly by the one source applying it where decisions must remain auditable.",
     "kind": "concept",
-    "related": []
+    "related": [
+      "chain-of-thought prompting",
+      "monitorability",
+      "test-time scaling"
+    ]
   },
   "task_id": "concept__latent-reasoning",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

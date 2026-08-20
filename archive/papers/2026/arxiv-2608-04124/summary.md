@@ -45,7 +45,7 @@ The paper has no limitations section. What a reader should weigh: the latent bud
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [visual grounding](../../../../wiki/concepts/visual-grounding.md), [process supervision](../../../../wiki/concepts/process-supervision.md), knowledge distillation, [attention pattern](../../../../wiki/concepts/attention-pattern.md), [monitorability](../../../../wiki/concepts/monitorability.md), test-time scaling, [verifiable reward](../../../../wiki/concepts/verifiable-reward.md)
+- **Concepts**: latent reasoning, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), [visual grounding](../../../../wiki/concepts/visual-grounding.md), [process supervision](../../../../wiki/concepts/process-supervision.md), knowledge distillation, [attention pattern](../../../../wiki/concepts/attention-pattern.md), [monitorability](../../../../wiki/concepts/monitorability.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [verifiable reward](../../../../wiki/concepts/verifiable-reward.md)
 - **Methods**: DyLaR, [Coconut](../../../../wiki/methods/coconut.md), CODI, [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), rationale distillation, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
 - **Datasets**: [Video-MME](../../../../wiki/datasets/video-mme.md), LVBench, MVBench, MMVU, LongVideoBench, LongVideo-Reason, [TempCompass](../../../../wiki/datasets/tempcompass.md), Video-Holmes, Video-TT, Video-R1-CoT, NExT-QA, PerceptionTest
 

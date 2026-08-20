@@ -45,7 +45,7 @@ The paper is candid about most of this in the text. The accuracy differences are
 
 ## Entities
 
-- **Concepts**: test-time scaling, [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), self-consistency, best-of-N, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), interpretability, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), [selection signal](../../../../wiki/concepts/selection-signal.md), [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), self-consistency, best-of-N, [prompt difficulty](../../../../wiki/concepts/prompt-difficulty.md), interpretability, [uncertainty quantification](../../../../wiki/concepts/uncertainty-quantification.md), [selection signal](../../../../wiki/concepts/selection-signal.md), matched-budget comparison
 - **Methods**: fuzzy control, [best-of-N](../../../../wiki/methods/best-of-n.md), [Borda count](../../../../wiki/methods/borda-count.md), [self-certainty](../../../../wiki/methods/self-certainty.md), compute-optimal allocation, [majority voting](../../../../wiki/methods/majority-voting.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [SciQ](../../../../wiki/datasets/sciq.md)
 

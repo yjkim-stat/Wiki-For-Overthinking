@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "How an evaluation set is constructed, and what that construction lets a score mean. Only three sources here address it as a subject, and they converge on making ground truth mechanical rather than authored. The earliest builds a corpus deliberately to diagnose multi-step failure on a distribution that model size alone did not solve, and pairs it with a verifier that ranks sampled solutions. The industrial-safety benchmark derives its scene-centric answers by program execution over an executable scene graph of objects, relations and rules, so the answer is deterministic and replayable rather than written by a model, and it decontaminates by sample, source-document, normalised-question and image-path identity while grouping splits by source document. The skill-retrieval benchmark takes the opposite risk knowingly and controls for it: its queries are filtered and reviewed by models rather than people, and it responds with an independent two-judge quality audit of 300 stratified samples reporting inter-judge agreement and a leakage rate, plus a sensitivity analysis crediting functionally valid but unannotated alternative answers, which moves every retriever by a comparable margin and leaves the ordering intact. Read together the three make one point that none states outright: the useful question about a benchmark is not how large it is but what its ground truth is a function of, and whether the authors measured the distortion introduced by whatever they could not make mechanical.",
+  "definition": "How an evaluation is constructed, and across 6 sources a subject the archive treats as consequential rather than clerical. Three design decisions recur with measured consequences. Generating answers by construction rather than by labelling removes a model from the loop entirely -- one benchmark builds items from executable computation trees over real tables so answers are correct by construction, and exposes four independently controllable difficulty axes, which is what lets it show unit and scale perturbations collapsing a frontier model from 98.4 to 3.0 percent. Deciding what counts as the same problem is a judgement that then defines the result: a symbolic variabilisation is hand-built by experts, so the feasible domains encode a view about identity, and a loose metric granting partial credit narrows the reported drops by an order of magnitude while separating memorisation from inconsistency. And model-mediated construction is pervasive and worth stating -- one benchmark's candidates are filtered, reviewed and audited by models throughout, so what it calls a natural request means what those models judged to be one, with human involvement confined to adjudicating disagreements. The archive's oldest source in this set is the one that introduced a benchmark and its verifier together, which remains the pattern the corpus rewards.",
   "evidence": [
     {
       "id": "arxiv:2110.14168",
@@ -205,6 +205,7 @@
     "qwen3-5-4b"
   ],
   "related_authored": [
+    "construct-validity",
     "benchmark-contamination"
   ],
   "schema_version": 1,

@@ -3,7 +3,7 @@
     "learning dynamics",
     "optimization dynamics"
   ],
-  "definition": "How a model's behaviour changes over the course of training, as distinct from what it ends up being able to do. One source makes it one of three organizing dimensions for mechanistic findings about reasoning models, alongside reasoning mechanisms and unintended behaviours. The other uses dynamics operationally rather than descriptively, reweighting training objectives online from short-horizon signals of convergence and instability so that focus shifts away from saturated objectives toward underperforming or volatile ones. The second shows why the first matters: if the mixture should adapt to observed dynamics, then dynamics are a control input and not only an object of study.",
+  "definition": "How quantities move over the course of training rather than where they end, and across 6 sources the view that repeatedly separates effects a final-checkpoint table conflates. The archive's instances: entropy consumption and performance gain are both front-loaded, with 73 and 76 percent in the first 200 of 2,400 steps; pass@1 and large-k coverage move in opposite directions across the same steps, and in one distillation study the large-k degradation appears by around step 80 and fluctuates while the small-k gain accrues stably; the exact-tie rate rises across epochs as the reward saturates; and per-task reward trajectories across 20 epochs sort into six profiles including forgetting and stubbornly-unlearned, which a final-accuracy number cannot show. One theoretical source in the corpus proves a training-dynamics result rather than measuring one, on how a transformer comes to learn a chain-of-thought procedure with length generalisation. The operative point for reading the archive is that a method compared at a fixed step count and a method compared at its best checkpoint are answering different questions, and that a degradation appearing before convergence is evidence about the objective rather than about overtraining.",
   "evidence": [
     {
       "id": "arxiv:2608.09217",
@@ -144,7 +144,11 @@
     "lego-state-tracking",
     "lego"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "entropy-collapse",
+    "reasoning-boundary",
+    "prompt-difficulty"
+  ],
   "schema_version": 1,
   "slug": "training-dynamics",
   "topics": [

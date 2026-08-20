@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A 1B model from the Llama-3.2 family, appearing in both sources as a small-scale subject. One uses it as the weakest rung of a visualization study, where its reasoning accuracy on AQuA is 15.8% and its trajectories converge slowly with low consistency and high uncertainty. The other builds a step-level sparse autoencoder on it and finds its features markedly sparser and less shared across steps than the comparable Qwen model (15.65% activation ratio, Jaccard 0.3052), with 40.4% of features attributed to reasoning rather than calculation or resolution — read there as the model attending more to the explicit chain of thought.
+A 1B Llama, used across 6 sources as the smallest general-purpose checkpoint in cross-scale audits -- the low end that tests whether a phenomenon requires capability or appears everywhere. Its appearances are in steering audits across model families, reasoning-trajectory visualisation, step-level sparse-autoencoder work, intent classification and theory-of-mind evaluation. The archive's related caution applies to results anchored here: at this scale several reasoning benchmarks sit near chance, so a null is often uninformative about the phenomenon and informative only about the model.
 
 - **Kind**: model
 - **Also called**: Llama 3.2 1B, Llama-3.2-1B

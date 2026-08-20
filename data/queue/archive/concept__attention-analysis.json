@@ -3,11 +3,35 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Refutes the standard account of vision-language hallucination -- that the model attends too little to the image -- by showing real and hallucinated objects draw equally strong attention, then uses a logit lens over the attended regions to separate two causally distinct hallucination types and treat each differently.",
+        "title": "Same Attention, Different Truths: Put Logit-Lens over Visual Attention to Detect and Mitigate LVLM Object Hallucination",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a frozen vision-language model's forward pass as a structured computational trace -- a graph over image patches, query tokens and generated tokens with attention as edges, processed by interleaved relational, spatial and sequential modules -- and shows that structuring the same internals prior detectors already read lifts hallucination detection from a 69-75 AUC plateau to 90.",
+        "title": "UniProbe: A Learnable Token-Level Hallucination Detector for Large VLMs using Multi-Structural Internal Representations",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An inference-time safeguard that reads a reasoning model's attention to find key points in its reasoning path and injects safety reflections there, then scales sampling to pick a safe path.",
         "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "test-time-scaling"
         ]
       },
       {
@@ -15,8 +39,10 @@
         "note": "A benchmark where each task needs one commonsense step and one math step, on which model accuracy drops nearly 30% relative to solving the steps in isolation while humans show no such gap.",
         "title": "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "test-time-scaling"
         ]
       },
       {
@@ -24,15 +50,39 @@
         "note": "Detects reasoning hallucinations by measuring how strongly cross-step attention routing aligns with hidden-state semantic proximity, finding that higher alignment means higher hallucination risk.",
         "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models",
         "topics": [
+          "reasoning-interpretability",
           "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that the </think> token aggregates the reasoning chain in deep layers and that attention paid to it from that position ranks which steps matter, then uses that ranking to drive a four-operator compression search — cutting 58% of tokens with accuracy holding.",
+        "title": "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the first optimization guarantee that gradient descent trains constant-depth transformers to solve NC1-complete problems with chain of thought, and shows the algebraic structure of the task decides how far the learned reasoning extrapolates.",
+        "title": "Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-training",
+          "reasoning-evaluation",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:37:30Z",
-  "created_at": "2026-08-08T12:29:58Z",
-  "instructions": "Write the wiki definition for 'attention analysis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:09:44Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'attention analysis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "attention analysis",
   "kind": "concept",
   "language": "en",
@@ -41,34 +91,33 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "attention analysis",
-    "source_count": 3
+    "source_count": 7
   },
   "result": {
     "aliases": [
-      "attention inspection",
-      "attention-based analysis"
+      "attention pattern analysis"
     ],
-    "definition": "Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes the term loose: to time an inference-time intervention by locating key points in a reasoning path, to diagnose a compositional performance drop alongside neuron patterns and membership inference, and to detect hallucination by measuring how well cross-step attention routing aligns with hidden-state semantic proximity. The third yields the least intuitive claim in the group — higher alignment predicts higher hallucination risk, read as a self-confirmation loop that suppresses self-auditing.",
+    "definition": "Reading attention weights as evidence about what a model is using, across 7 sources both a productive signal and a repeatedly qualified one. Its productive uses here are comparative rather than absolute: attention paid to the end-of-thinking token from that position ranks which reasoning steps matter, validated by ablation showing that pruning the highest-ranked steps spikes the answer's perplexity while pruning the lowest raises it marginally and random pruning falls between; and cross-phase routing focus separates reasoning hallucinations. Its recurring qualification is that attention says where a model looked, not what it found -- one hallucination study finds attention alone does not separate real from hallucinated objects and only what the attended region decodes to does, and another notes that a circuit analysis operating mostly at the level of attention patterns would be better strengthened by embedding-level analysis. The archive's standing note applies: high attention correlated with a downstream quantity is a correlation between one position and one measurement, not evidence that information is routed through that position causally.",
     "kind": "method",
     "related": [
-      "attention pattern",
-      "attention head",
-      "localization",
-      "mechanistic interpretability",
-      "routing collapse"
+      "logit lens",
+      "circuit analysis",
+      "salience"
     ]
   },
   "task_id": "concept__attention-analysis",
   "task_version": 1,
   "topics": [
     "reasoning-evaluation",
-    "reasoning-training"
+    "reasoning-interpretability",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

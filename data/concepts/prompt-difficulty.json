@@ -5,7 +5,7 @@
     "query difficulty",
     "task difficulty"
   ],
-  "definition": "How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.",
+  "definition": "How hard a problem is for a given policy, and across 15 sources the variable that both training and inference allocation turn on. Its central property is that it is policy-relative and moving: a prompt is easy when every rollout succeeds and hard when none does, and both cases produce zero group-relative advantage, so the useful band is the middle -- one method shifts 82.7 percent of its gradient budget into the 0.2-0.9 pass-rate band against a baseline's 58.9. It also moves during training, which is why one source tracks per-task reward trajectories across 20 epochs and classifies tasks into six profiles including forgetting and stubbornly-unlearned rather than treating difficulty as a static label. At inference the same variable governs allocation, with several methods conditioning the thinking budget on it, and one finding the saving concentrated on the easy tail -- 53 to 81 percent token reduction for the top decile and percentile. Two cautions the archive attaches. Difficulty defined by a baseline's own pass rate selects for that baseline's failures, so part of any tiered improvement is regression toward the mean. And benchmark difficulty is only an approximation of what a particular policy can answer, which is why the better sources report tiers by measured pass rate rather than by benchmark label.",
   "evidence": [
     {
       "id": "arxiv:2408.03314",
@@ -296,7 +296,11 @@
     "gpt-oss-20b",
     "drpo-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "difficulty-stratification",
+    "zero-advantage-group",
+    "adaptive-compute-allocation"
+  ],
   "schema_version": 1,
   "slug": "prompt-difficulty",
   "topics": [

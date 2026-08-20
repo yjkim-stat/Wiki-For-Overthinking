@@ -2,9 +2,10 @@
   "aliases": [
     "refusal",
     "withholding",
-    "saying no"
+    "saying no",
+    "refusal to answer"
   ],
-  "definition": "Declining to answer when no answer is warranted, treated by the sources as a capability separate from answering correctly. In the referring-expression work it is the required output when the described object is absent, and models fail it by emitting hallucinated bounding boxes because training contained no negative samples. In the proverb benchmark it is the harder condition by construction: models complete proverbs successfully but cannot detect that no option is correct, even while naming the right ending in their reasoning. Both sources find abstention degrades independently of task accuracy, so a model can know the answer and still fail to withhold one.",
+  "definition": "Declining to answer rather than guessing, and across 5 sources a mechanism the archive can only evaluate as one half of a pair. The measured findings come mainly from one system: abstention quality against a 64-sample oracle reaches 78.4 to 83.2 percent precision and 65.7 to 72.8 percent recall at refusal rates of 6.2 to 17.3 percent, and refusals track difficulty monotonically -- 2.1 percent on two-step problems against 14.8 on problems needing five or more -- which argues against a uniform refusal strategy. Its ablation is the useful part: abstention alone raises selective accuracy to 90.2 while leaving the hallucination proxy essentially unchanged at 20.0, because refusing on unanswerable prompts does nothing about errors on answerable ones, so refusing and reasoning better are not substitutes. Two cautions. The oracle defining what is beyond a model's reach is itself 64 samples from that model, so both the training signal and the evaluation share a budget-dependent definition and an abstention that would have been wrong at 256 samples counts as correct. And in one source two ablations that remove the central mechanisms score better on abstention, so the mechanism trades calibrated refusal for answerable accuracy rather than improving both. Where the archive studies failure modes directly, abstention is the rare outcome: the dominant failure is silent repair rather than refusal or reversal.",
   "evidence": [
     {
       "id": "arxiv:2608.03292",
@@ -124,7 +125,11 @@
     "claude-opus-4-7",
     "seed-prover"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "selective-prediction",
+    "hallucination",
+    "confidence-calibration"
+  ],
   "schema_version": 1,
   "slug": "abstention",
   "topics": [

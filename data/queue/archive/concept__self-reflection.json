@@ -7,7 +7,48 @@
         "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
         "topics": [
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Inserts optimizable latent states at an intermediate Transformer layer rather than at the output, so self-attention makes every continuation token's log-probability differentiable with respect to every latent and reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token.",
+        "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates hallucination into a reasoning failure and a knowledge failure, treats the first with a structured reflect-before-answering format and the second with a reward for abstaining when no sampled chain succeeds, and shows the two mechanisms are not interchangeable -- reflection alone never abstains, abstention alone never lowers the hallucination proxy.",
+        "title": "REIN: Bridging the Gap between Reasoning and Reliability via Reflection and Abstention Alignment",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Injects a retrieved solved problem, with its full worked solution, into the middle of a reasoning model's own thinking trace at each step boundary, using the model's current intermediate answer as the retrieval query.",
+        "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
+        "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       },
       {
@@ -16,14 +57,15 @@
         "title": "What If We Allocate Test-Time Compute Adaptively?",
         "topics": [
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-faithfulness"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T05:30:45Z",
-  "created_at": "2026-08-08T05:29:50Z",
-  "instructions": "Write the wiki definition for 'self-reflection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:11:38Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'self-reflection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "self-reflection",
   "kind": "concept",
   "language": "en",
@@ -32,32 +74,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "self-reflection",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "self-critique"
+      "reflection"
     ],
-    "definition": "A model reviewing and critiquing its own reasoning before committing. The sources place it differently. One reports it emerging from reinforcement learning on verifiable outcomes without being demonstrated, alongside verification and dynamic strategy adaptation. The other treats it as one selectable tool among several in an adaptive inference agent, and finds it outperforms plain chain-of-thought specifically at low iteration counts — explicit self-critique is most valuable when only a few attempts are available, with the gap narrowing as iterations increase. The archive's faithfulness work complicates both readings: spontaneous self-corrections have measured precision of 24.4%, and much of the language that looks like self-critique falls after the answer is already fixed.",
-    "kind": "concept",
+    "definition": "Prompting or training a model to review its own output before committing, and across 6 sources a mechanism whose reported benefits the archive holds alongside two deflating measurements. The deflations: the precision of emergent self-corrections is measured at 24.4 percent, and reinforcement learning largely preserves the base model's existing entropy structure rather than installing a new reflective one -- so the 'emergent self-reflection' framing is not supported by the archive's own material. A qualitative case shows the limit concretely, with reflection failing to catch a wrong intermediate estimate that a retrieved near-miss problem exposes immediately. Where it works it is trained rather than prompted and paired with something else: one safety method reduces harmful completions from 13.8 to 4.1 percent, nearly threefold over mainstream approaches, while gaining helpfulness and surviving an adaptive attack without targeted adversarial training. The design caution the corpus states is that rewarding reflection directly invites reward hacking, since an agent can produce reflective text that scores well without changing what it does -- and one reflection-depth sweep is monotone in opposite directions on the two axes it affects, which its authors use to justify keeping reflection shallow.",
+    "kind": "method",
     "related": [
       "self-correction",
-      "verification",
-      "epistemic verbalization",
-      "proactive correction",
-      "best-of-n"
+      "reward hacking",
+      "safety alignment"
     ]
   },
   "task_id": "concept__self-reflection",
   "task_version": 1,
   "topics": [
+    "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling"
   ]

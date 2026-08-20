@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-How much a measured result depends on the exact wording of the prompt rather than on the capability being measured, and in both sources a finding about evaluation rather than a nuisance to be tuned away. One shows the field's standard translation-evaluation prompt is specialized to the model it was written for: all other models, including that model's own successor, perform significantly worse under it, and enforcing a structured output format degrades quality across every model tested, worst in the smallest. The other measures robustness over raw accuracy on theory-of-mind tasks. The shared implication for this archive is that a prompt carried from the paper that introduced it is part of the apparatus, not a neutral interface, and a model comparison run under one authored elsewhere may be measuring the fit between prompt and model.
+How much a result changes when the wording changes rather than the task, and across 6 sources one of the archive's standing threats to comparability. Its measured forms: verifiable-reward gains degrade under paraphrase and template change, traced to a binary verifier that cannot separate a wrong answer from a merely reformatted one, and a multi-template control is the fair comparison because it also sees variety without the invariance constraint; a standard evaluation prompt turns out to be specialised to the model it was authored against, with every other model including that model's own newer sibling performing significantly worse under it. The corpus's methodological demand follows: a spread across variations is only interpretable against a baseline spread, and one source names its own omission of that -- a persona experiment measures spread across personas but reports no baseline spread for ordinary prompt variation, so it cannot separate persona-specific worldview from generic sensitivity.
 
 - **Kind**: concept
-- **Also called**: prompt brittleness
+- **Also called**: prompt brittleness, template sensitivity
 - **Topics**: [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 6
 

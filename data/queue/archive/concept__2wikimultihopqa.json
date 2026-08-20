@@ -6,7 +6,9 @@
         "note": "Gives each retrieval step of a search agent a dense reward built from two ground-truth-conditioned signals — how much the step raised the model's likelihood of the correct answer, and how necessary the step looks in hindsight — and fuses them asymmetrically so that a step which helps locally but is redundant globally is discounted.",
         "title": "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -14,13 +16,45 @@
         "note": "Re-scores a search agent's own sampled tokens under a teacher that has been shown the instance's supporting evidence, and uses the detached teacher-student gap to nudge the GRPO advantage up or down on search and answer tokens only, without adding a distillation loss or changing anything at inference.",
         "title": "EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+        "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes trained lenses cheap enough to attach densely across a whole model — every layer, and residual, attention and MLP alike — and then uses that coverage to show that where a behaviour is most visible is not where intervening on it works best.",
+        "title": "Interpreting Language Model Hidden States at Scale",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-12T22:44:29Z",
-  "created_at": "2026-08-12T22:31:17Z",
+  "completed_at": "2026-08-20T23:11:38Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for '2WikiMultiHopQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "2WikiMultiHopQA",
   "kind": "concept",
@@ -30,27 +64,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "2WikiMultiHopQA",
-    "source_count": 2
+    "source_count": 5
   },
   "result": {
     "aliases": [
-      "2Wiki",
-      "2WikiMQA"
+      "2Wiki"
     ],
-    "definition": "A multi-hop question-answering set built so that answering requires composing facts across two Wikipedia articles, used in both sources as an in-domain companion to HotpotQA for search agents. It carries the largest relative movement of any benchmark in one of them — 51.9 F1 against 24.4 for retrieval-augmented prompting, a gap of 27.5 points, falling to 46.2 when the forward step reward is removed. In the other it is close between methods at the 7B scale (48.6 against 48.9 for the best baseline) and won outright at 3B, so the sources agree it responds strongly to step-level credit and disagree on which form of it wins.",
+    "definition": "A multi-hop question-answering set requiring evidence from two Wikipedia articles, used across 5 sources as one of the standard in-domain benchmarks for search-augmented agents alongside HotpotQA and the out-of-domain sets. Its role in this archive is as part of the suite over which credit-assignment methods for retrieval are averaged, where the corpus's recurring caution applies -- macro averages across these sets hide per-benchmark losses, and at least one source's method wins one benchmark of seven while losing another by 17.9 exact match without discussing it. None of the sources describes its construction.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "HotpotQA",
+      "Bamboogle"
+    ]
   },
   "task_id": "concept__2wikimultihopqa",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
+    "reasoning-interpretability",
     "reasoning-training"
   ]
 }

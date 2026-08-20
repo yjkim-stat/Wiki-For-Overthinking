@@ -14,6 +14,50 @@
       },
       {
         "kind": "paper",
+        "note": "Compares linear probes against RFM-derived concept vectors for reading how much a sentence concerns a concept out of a frozen LLM's activations, on a human-annotated ESG benchmark, and finds the simpler probe consistently stronger.",
+        "title": "Measuring Concept Content in Text from LLM Activations: ESG Evidence from Concept Vectors and Linear Probes",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Audits four neuroscience-inspired claims about language models across 17 checkpoints from five families and 0.6B to 72B, and shows that an apparent emergence of concept steerability with scale is produced entirely by uncalibrated measurement -- raw intervention units, the readout metric, and a fixed operating point -- with correcting any one of the three removing the trend.",
+        "title": "When Is a Steerable Concept Representation Real? Measurement Confounds in a Cross-Family Audit of Neuroscience Parallels in LLMs",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds a Parkinson's screen from control data alone using a contrastive activation direction derived from synthetically degraded healthy speech and a nearest-neighbour anomaly score in face-encoder space, and gives a measurable precondition -- positive cosine between the synthetic and real disease directions -- that predicts in advance which modality the steering primitive will work on.",
+        "title": "Label-Free Parkinson's Disease Screening from Face and Voice through Mechanistic Interpretability",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.",
+        "title": "Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Activations taken just before each explicit \"Step k:\" marker occupy linearly separable, step-indexed regions of representation space, and how a chain moves between those regions late in the trace predicts whether the final answer will be correct, which is used to gate interventions and to steer reasoning length.",
         "title": "LLM Reasoning as Trajectories: Step-Specific Representation Geometry and Correctness Signals",
         "topics": [
@@ -25,8 +69,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T01:53:44Z",
-  "created_at": "2026-08-13T01:37:10Z",
+  "completed_at": "2026-08-20T23:08:04Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'linear representation hypothesis'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "linear representation hypothesis",
   "kind": "concept",
@@ -43,16 +87,16 @@
   },
   "payload": {
     "name": "linear representation hypothesis",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
-    "aliases": [
-      "linear representation hypothesis"
-    ],
-    "definition": "The hypothesis that texts exhibiting a concept are linearly separable in a model's representation space from those that do not, which is what licenses reading a concept off a direction and, by extension, steering along it. The two sources use it at the two ends of its consequences. One relies on it constructively, finding that activations taken before each explicit step marker occupy linearly separable step-indexed regions. The other attacks the inference usually drawn from it: separability establishes that a direction detects the concept and says nothing about what translating along it does, since directions with near-perfect discriminability can steer the model the opposite way. The hypothesis survives; the step from it to control does not.",
+    "aliases": [],
+    "definition": "The claim that concepts are accessible as directions in activation space, so that separability implies a usable axis. Across 6 sources it is the assumption underneath probing and steering alike, and the archive's material is largely about where it fails to license what it is used for. Its steering form is the strong one -- if texts exhibiting a concept are linearly separable from those that do not, translating toward the positive half-space should promote the concept -- and that is exactly what the inverted-vector result falsifies, since directions with high separability can move the concept backwards. Its probing form survives better: a great deal is linearly decodable, often earlier in the network than the model's own output states it. The corpus's operative distinction is therefore that linear accessibility is well supported for reading and not for writing, and one source notes that applied work continues to build measures on outputs or embeddings even where the internal direction is available.",
     "kind": "concept",
     "related": [
-      "superposition"
+      "steering vector",
+      "detection versus control",
+      "linear probe"
     ]
   },
   "task_id": "concept__linear-representation-hypothesis",

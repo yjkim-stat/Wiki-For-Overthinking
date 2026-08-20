@@ -45,7 +45,7 @@ No effect sizes, benchmark names or model scales in the abstract, so the improve
 
 ## Entities
 
-- **Concepts**: [process supervision](../../../../wiki/concepts/process-supervision.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), privileged information, divergence, temporal weighting, signal sparsity
+- **Concepts**: [process supervision](../../../../wiki/concepts/process-supervision.md), [credit assignment](../../../../wiki/concepts/credit-assignment.md), [privileged information](../../../../wiki/concepts/privileged-information.md), divergence, temporal weighting, signal sparsity
 - **Methods**: DASH, [on-policy self-distillation](../../../../wiki/methods/on-policy-self-distillation.md), [RLVR](../../../../wiki/methods/rlvr.md), KL divergence weighting, backward aggregation
 - **Datasets**: _none recorded_
 

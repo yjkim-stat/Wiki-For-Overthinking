@@ -7,6 +7,7 @@
         "title": "CircuitSteer: Geometrically Aligned Multi-Layer Steering via Sparse Autoencoder Circuits",
         "topics": [
           "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-training"
@@ -18,6 +19,55 @@
         "title": "Bias Analysis of L2 Speaking Assessment Systems Using Concept Activation Vectors",
         "topics": [
           "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extracts interpretable units directly from a transformer's weight matrices by column-tiled SVD, so a unit's identity is the weight rule itself rather than an atom of a separately trained dictionary, and judges them with a pre-registered suite whose central move is refusing a metric that a trivial baseline would win.",
+        "title": "Finding Usable Weight Mechanisms with Tiled SVD",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposes three speaker settings -- the default Assistant, an assigned roleplay persona, and a narrated story character -- into sparse-autoencoder features at turn boundaries and pronoun tokens, and finds that roleplay personas retain an Assistant-associated feature core while differentiating from it across depth, where story characters never acquire that core at all.",
+        "title": "\"Many Are My Names\": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fits a post-hoc sparse autoencoder to the frozen dense tensors that two vision-language agents exchange, finds a 128-fold payload reduction at near-identical reconstruction and roughly unchanged single-run accuracy, and then spends most of the paper enumerating the alternative explanations its own design cannot rule out.",
+        "title": "Post-Hoc Sparse Coding of Latent Communication Between Vision-Language Model Agents",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Takes the set of active sparse-autoencoder latents as the unit of analysis and finds that adding a semantically compatible adjective to a noun deactivates 20 to 60 percent of the latents the noun alone had active, which contradicts the bag-of-features reading those sets are usually given.",
+        "title": "Beyond a Bag of Features: Set-Level Instability in Sparse Autoencoders",
+        "topics": [
+          "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-training"
@@ -29,6 +79,7 @@
         "title": "Mechanistic Interpretability Should Prioritize Feature Consistency in Sparse Autoencoders",
         "topics": [
           "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-training"
@@ -40,6 +91,7 @@
         "title": "Step-Level Sparse Autoencoder for Reasoning Process Interpretation",
         "topics": [
           "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-training"
@@ -51,6 +103,7 @@
         "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
         "topics": [
           "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-faithfulness",
           "test-time-scaling",
           "reasoning-training"
@@ -58,9 +111,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T06:32:57Z",
-  "created_at": "2026-08-09T06:27:51Z",
-  "instructions": "Write the wiki definition for 'monosemanticity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:08:04Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'monosemanticity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "monosemanticity",
   "kind": "concept",
   "language": "en",
@@ -69,21 +122,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "monosemanticity",
-    "source_count": 5
+    "source_count": 9
   },
   "result": {
-    "definition": "The property of a direction in activation space responding to exactly one human-recognizable thing, as opposed to a polysemantic neuron firing across unrelated contexts. It is the target the archived sources optimize toward and the axis on which they claim success, but none measures it directly — the proxies are having a language model describe a feature and then predict its activations elsewhere, checking that a step's sparse code does not leak inherited context, and co-activation together with decoder-direction alignment used to select features for steering. Since several proxies are themselves judged by language models, a monosemanticity claim here should be read as 'a consistent description was found' rather than as an established property of the direction. Two entries complicate it from opposite sides: one shows run-to-run feature consistency is not guaranteed and argues it belongs alongside reconstruction and sparsity as a standard evaluation axis, and one finds sparse autoencoders can improve how recoverable a concept is while attenuating how much influence it actually exerts — so interpretability and causal relevance come apart."
+    "aliases": [
+      "polysemanticity"
+    ],
+    "definition": "Whether a unit responds to one interpretable thing or to several unrelated ones -- the property a feature decomposition is trying to recover and the property individual neurons lack. Across 9 sources it functions as the motivating premise for dictionary learning: reverse engineering requires units analysable in isolation, neurons activate across semantically unrelated contexts, and for the residual stream there is no reason to expect features to align with the neuron basis at all. The archive's evidence about how well it is achieved is mixed and quantitative: automated interpretability scores for sparse coding run about 0.30 at the first layer and decline to 0.15 by the fifth, against 0.14 for an independent-components baseline and 0.06 to 0.08 for random directions -- so the improvement over chance is real and shrinks with depth. The standing caution is that a monosemantic-looking feature is a property of a particular dictionary rather than of the model, since feature splitting and absorption move the boundaries between features as the dictionary changes.",
+    "kind": "concept",
+    "related": [
+      "superposition",
+      "sparse autoencoder",
+      "identifiability"
+    ]
   },
   "task_id": "concept__monosemanticity",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-interpretability",
     "reasoning-training",

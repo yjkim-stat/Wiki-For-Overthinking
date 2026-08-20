@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "monosemantic features"
+    "monosemantic features",
+    "polysemanticity"
   ],
-  "definition": "The property of a direction in activation space responding to exactly one human-recognizable thing, as opposed to a polysemantic neuron firing across unrelated contexts. It is the target the archived sources optimize toward and the axis on which they claim success, but none measures it directly — the proxies are having a language model describe a feature and then predict its activations elsewhere, checking that a step's sparse code does not leak inherited context, and co-activation together with decoder-direction alignment used to select features for steering. Since several proxies are themselves judged by language models, a monosemanticity claim here should be read as 'a consistent description was found' rather than as an established property of the direction. Two entries complicate it from opposite sides: one shows run-to-run feature consistency is not guaranteed and argues it belongs alongside reconstruction and sparsity as a standard evaluation axis, and one finds sparse autoencoders can improve how recoverable a concept is while attenuating how much influence it actually exerts — so interpretability and causal relevance come apart.",
+  "definition": "Whether a unit responds to one interpretable thing or to several unrelated ones -- the property a feature decomposition is trying to recover and the property individual neurons lack. Across 9 sources it functions as the motivating premise for dictionary learning: reverse engineering requires units analysable in isolation, neurons activate across semantically unrelated contexts, and for the residual stream there is no reason to expect features to align with the neuron basis at all. The archive's evidence about how well it is achieved is mixed and quantitative: automated interpretability scores for sparse coding run about 0.30 at the first layer and decline to 0.15 by the fifth, against 0.14 for an independent-components baseline and 0.06 to 0.08 for random directions -- so the improvement over chance is real and shrinks with depth. The standing caution is that a monosemantic-looking feature is a property of a particular dictionary rather than of the model, since feature splitting and absorption move the boundaries between features as the dictionary changes.",
   "evidence": [
     {
       "id": "arxiv:2608.05732",
@@ -194,7 +195,11 @@
     "pythia-70m",
     "pythia-410m"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "superposition",
+    "sparse-autoencoder",
+    "identifiability"
+  ],
   "schema_version": 1,
   "slug": "monosemanticity",
   "topics": [

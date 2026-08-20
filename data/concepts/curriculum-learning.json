@@ -4,7 +4,7 @@
     "staged training",
     "progressive training"
   ],
-  "definition": "Ordering training so that a target is approached in stages, which both sources find is not an optimization convenience but a requirement. One proves curriculum is necessary rather than merely helpful for training latent reasoners: removing it collapses the model to at or below the no-CoT baseline on two of three benchmarks. The other designs the schedule to match the target's structure, deleting thinking tokens in geometric chunks aligned to the parity tree's levels rather than one at a time, which cuts the number of training stages from linear in chain length to logarithmic. The shared lesson is that the schedule should follow the shape of the computation being internalized, not the length of the text.",
+  "definition": "Ordering training material from easy to hard, or staging what is supervised, and across 6 sources a component whose removal is often the largest ablation in the paper. The sharpest instance is latent reasoning: removing the curriculum collapses one method to 14.4 percent on a grade-school set, 52.4 on one logic set and 76.1 on another -- at or below the no-chain-of-thought baseline in two of three cases -- so the method is not merely helped by staging but fragile without it. A staged curriculum graded by nesting depth is worth 8.78 points in one grounded chart-reasoning system, and removing a staged curriculum costs a further 0.51 to 1.05 mean F1 on top of the latent mechanism itself in another. The archive's related evidence on staging is consistent: initialising a step-level objective before a self-correction objective beats joint training and beats plain reinforcement learning by 2 to 4 points, so the ordering rather than the objectives carries part of the effect. The caution is the usual one for multi-stage pipelines -- attribution is hard, and one source's stage-wise ablation shows most of its headline compression arriving with the final stage rather than with the criteria the paper is about.",
   "evidence": [
     {
       "id": "arxiv:2608.02820",
@@ -44,8 +44,8 @@
     }
   ],
   "first_seen": "2026-08-08T05:29:50Z",
-  "kind": "concept",
-  "last_seen": "2026-08-13T12:22:18Z",
+  "kind": "method",
+  "last_seen": "2026-08-20T23:06:51Z",
   "name": "curriculum learning",
   "related": [
     "chain-of-thought-faithfulness",
@@ -180,7 +180,10 @@
     "implicit-chain-of-thought",
     "gradient-descent-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "supervised-fine-tuning",
+    "latent-reasoning"
+  ],
   "schema_version": 1,
   "slug": "curriculum-learning",
   "topics": [

@@ -5,9 +5,10 @@
     "coverage@k",
     "Pass@K",
     "pass-k",
-    "pass@K"
+    "pass@K",
+    "coverage"
   ],
-  "definition": "The probability that at least one of k independently sampled attempts is correct, estimated over a benchmark. In this archive it is less an evaluation metric than the axis on which one argument is fought: whether reinforcement learning with verifiable rewards adds reasoning capability or only concentrates what the base model already had. Measured at large k, RLVR-trained models lose to their own base models, which reads as sharpening the sampling distribution toward paths the base could already reach -- and one source reverses that verdict without disputing the measurement, showing that base models win at large k by producing wrong chains that land on right answers, so that scoring the chain as well as the answer puts RLVR ahead at every k. What pass@k measures therefore depends entirely on what counts as a success, and answer-only scoring credits luck. Its second role is as the place diversity collapse becomes visible: entropy collapse under RL degrades pass@k specifically at large k while leaving single-sample accuracy intact, which is why several sources here read the gap between small-k and large-k rather than either alone, and why a diversity bonus is evaluated by whether it removes that gap. Two cautions attach because it is a sampling estimate. The sample count and the decoding configuration are part of the claim rather than of the setup, as one source makes explicit by specifying what a reproducible inference protocol must declare; and the ground under it is less stable than assumed, since greedy decoding is not deterministic across hardware and changing GPU type, GPU count or evaluation batch size moves a reasoning model's AIME 2024 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16.",
+  "definition": "The probability that at least one of k sampled responses is correct, used across 21 sources as the archive's measure of what a model can reach as opposed to what it reliably produces. Reading it correctly is most of what the corpus has to say. Small k measures sampling efficiency and large k probes the boundary, and the two can move in opposite directions within one training run -- pass@1 rising across steps while coverage at pass@256 falls, and in one distillation study the curve crossing between k=1 and k=1024 in every setting measured. A rising curve is also compatible with within-question stability collapsing, so reporting only coverage hides that the same model now answers inconsistently. Two corrections to naive use are established. Scoring the chain as well as the answer reverses the verdict about reinforcement learning at every k, because base models win plain pass@k partly by producing wrong chains that land on right answers. And for candidate banks produced by adaptive search or dependent procedures the usual estimator is a descriptive summary of what was returned rather than an unbiased probability -- one source states this and notes most papers reporting the metric do not. The archive's practical demand is that a method report pass@k across a range rather than at one budget, since the property worth having is competitiveness with the base model uniformly across k rather than a win at either end.",
   "evidence": [
     {
       "id": "arxiv:2608.02867",
@@ -138,7 +139,7 @@
   ],
   "first_seen": "2026-08-08T02:45:49Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T14:45:48Z",
+  "last_seen": "2026-08-20T23:06:51Z",
   "name": "pass@k",
   "related": [
     "reasoning-boundary",
@@ -507,7 +508,9 @@
     "skywork-or1"
   ],
   "related_authored": [
-    "best-of-n"
+    "reasoning-boundary",
+    "sampling-efficiency",
+    "self-consistency"
   ],
   "schema_version": 1,
   "slug": "pass-k",

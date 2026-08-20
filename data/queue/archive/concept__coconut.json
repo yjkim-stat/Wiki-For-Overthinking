@@ -3,12 +3,61 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.",
+        "title": "LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+        "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Bolts a small trainable recurrent block between a frozen 1.1B language model's body and its output head, so reasoning happens as repeated refinement of two latent vectors rather than as generated tokens.",
+        "title": "Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-interpretability",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Tests the claim that continuous chain-of-thought lets a model hold several candidate solutions at once, and finds it holds only for models trained from scratch: off-the-shelf models collapse a superposed input to a single token within a few layers, and fine-tuned latent reasoners solve the task in one forward pass and copy the answer through the latent slots.",
         "title": "The Illusion of Superposition? A Principled Analysis of Latent Thinking in Language Models",
         "topics": [
-          "reasoning-interpretability",
           "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
+          "reasoning-interpretability",
           "test-time-scaling"
         ]
       },
@@ -17,16 +66,17 @@
         "note": "Explains why latent chain-of-thought excels at exploration but fails at computation by identifying decisional certainty as the governing variable, formalizing it as the Symbolic Index, and proving that curriculum learning is not merely helpful but necessary for training latent reasoners.",
         "title": "Capabilities and Fundamental Limits of Latent Chain-of-Thought",
         "topics": [
-          "reasoning-interpretability",
           "reasoning-faithfulness",
+          "reasoning-evaluation",
           "reasoning-training",
+          "reasoning-interpretability",
           "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-12T22:31:06Z",
-  "created_at": "2026-08-12T22:14:37Z",
+  "completed_at": "2026-08-20T23:09:45Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'Coconut'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Coconut",
   "kind": "concept",
@@ -36,26 +86,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Coconut",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "Coconut curriculum"
+      "Chain of Continuous Thought"
     ],
-    "definition": "The curriculum that trains latent chain-of-thought by progressively replacing prefix reasoning tokens with continuous latent states, and in these sources the standard instantiation of latent CoT rather than one method among several. Both find its behaviour is governed by the curriculum rather than by the latent representation: one recasts the per-stage objective by Lagrangian duality as a Conditional Information Bottleneck and shows that removing the curriculum drops GSM8K from 34.1% to 14.4% and ProntoQA from 99.8% to 52.4%, at or below the no-CoT baseline. The other finds that in the fine-tuned regime the latent tokens it produces can be deleted outright with accuracy changing by at most 1.0 point on ProsQA across GPT-2 and three SmolLM2 sizes, with entity probing showing the final target entity already dominating the representation. Taken together the sources describe a method whose latent slots carry an answer that has already been reached rather than a computation in progress.",
+    "definition": "Feeding a model's last hidden state back as the next input embedding so that reasoning proceeds in continuous space rather than through emitted tokens, and across 6 sources the reference implementation of latent reasoning -- along with the archive's clearest evidence about what such methods do and do not achieve. Its measured trade is domain-dependent: on grade-school arithmetic explicit chain of thought reaches 42.9 percent at 25.0 tokens against its 34.1 at 8.2, while on a structured logic task it reaches 97.0 percent at 14.2 tokens against explicit chain of thought's 77.5 at 49.4 -- so it wins where search over a constrained space is the bottleneck and loses where the reasoning is arithmetic. Two negative results matter more. It is fragile to train: removing the curriculum collapses it to at or below the no-reasoning baseline on two of three tasks. And in the fine-tuned regime its latent tokens can be inert -- deleting every one of them changes accuracy by at most 1.0 point across four models, with entity probing showing the final answer dominating the belief distribution from step 0 with no progression, against a discrete baseline where the target takes over only at the last step.",
     "kind": "method",
-    "related": []
+    "related": [
+      "latent reasoning",
+      "curriculum learning"
+    ]
   },
   "task_id": "concept__coconut",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-interpretability",
     "reasoning-training",

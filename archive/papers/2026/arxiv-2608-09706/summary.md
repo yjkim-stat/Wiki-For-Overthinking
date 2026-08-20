@@ -46,7 +46,7 @@ Stated and unusually mechanism-specific. Consensus cannot help when all candidat
 
 ## Entities
 
-- **Concepts**: test-time scaling, self-consistency, [selection signal](../../../../wiki/concepts/selection-signal.md), verifier-free verification, [pool oracle](../../../../wiki/concepts/pool-oracle.md), [matched-budget comparison](../../../../wiki/concepts/matched-budget-comparison.md), [generation-verification gap](../../../../wiki/concepts/generation-verification-gap.md), [consensus](../../../../wiki/concepts/consensus.md)
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), self-consistency, [selection signal](../../../../wiki/concepts/selection-signal.md), verifier-free verification, [pool oracle](../../../../wiki/concepts/pool-oracle.md), matched-budget comparison, [generation-verification gap](../../../../wiki/concepts/generation-verification-gap.md), [consensus](../../../../wiki/concepts/consensus.md)
 - **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [majority voting](../../../../wiki/methods/majority-voting.md), consensus selection, [best-of-n](../../../../wiki/methods/best-of-n.md), [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), evolutionary search, significance testing, subset resampling
 - **Datasets**: CADPrompt
 

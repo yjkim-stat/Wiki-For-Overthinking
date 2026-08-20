@@ -3,8 +3,48 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Assigns credit in coding-agent RL by splitting each code diff into sub-diffs, matching semantically similar sub-diffs across rollouts to form advantage groups, and projecting the resulting diff-level advantage back onto the tokens that produced it.",
+        "title": "DiDPO: Diff-in-Diff Policy Optimization for Coding Agent Training",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces GRPO's z-score group normalisation with a temperature-scaled softmax over rewards, which keeps the induced prompt-difficulty weighting bounded as pass probability approaches one and turns the temperature into a dial between REINFORCE and maximum-likelihood weighting.",
+        "title": "SoftmaxGRPO: Learning to Reason using Softmax Advantage Group Estimation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
         "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Fine-tunes a 1.7B model to read structured summaries of a time series and allocate ensemble weights across candidate forecasters, trained by SFT on rule-generated chains of thought and then by GRPO with a bounded reciprocal reward that keeps a continuous error gap from collapsing the group advantage.",
+        "title": "REATS: LLM Reasoning-based Ensemble Learning for Adaptive Time Series Forecasting",
+        "topics": [
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains open-ended medical question answering by scoring each response against rubric criteria that three frontier models independently agreed on, grading each criterion as correct, missing or wrong rather than yes/no, and recovering a gradient in groups where every response ties by judging the responses pairwise in both orders.",
+        "title": "ConRub-Med: Reinforcement Learning with Consensus Rubrics for Open-Ended Medical Question Answering",
         "topics": [
           "reasoning-training"
         ]
@@ -19,8 +59,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T14:19:26Z",
-  "created_at": "2026-08-20T14:08:51Z",
+  "completed_at": "2026-08-20T23:11:38Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'zero-advantage group'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "zero-advantage group",
   "kind": "concept",
@@ -37,14 +77,19 @@
   },
   "payload": {
     "name": "zero-advantage group",
-    "source_count": 2
+    "source_count": 7
   },
   "result": {
-    "aliases": [],
-    "definition": "A prompt on which every sampled rollout receives the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Both sources treat it as the quantity an allocation method should be judged on. The parameter-space exploration work builds its whole evaluation around it, arguing that token entropy cannot distinguish exploitation from learning wrong trajectories and that pass@k measures inference-time behaviour after training, and replacing both with a paired count of how often a method produces a correct rollout on a prompt where the baseline produced none. The pair-aware allocation work explains why it happens structurally: the group-relative gradient is a U-statistic over pairs of rollouts, so a prompt where every rollout agrees has all its pair terms vanish, and the useful question is which contrasts are unobserved rather than which prompts are hard. Between them the sources give both the diagnostic and its mechanism.",
+    "aliases": [
+      "zero-variance group",
+      "degenerate group"
+    ],
+    "definition": "A prompt whose sampled rollouts all receive the same reward, so the group-relative advantage is exactly zero and the rollouts contribute no gradient -- the characteristic waste of critic-free reinforcement learning, since the compute was spent and the learning signal is nil. Across 7 sources it is measured rather than assumed: 63 to 68 percent of training groups in one study, with the composition rotating from all-wrong toward all-correct as model scale grows; and in another the exact-tie rate rises from 2.80 percent in epoch 1 to 7.73 in epoch 3 with the share at maximum reward rising from 64.6 to 85.2, so the reward saturates as the policy improves. Three families of remedy appear: reshaping the reward so a continuous signal does not collapse the group's relative spacing, reshaping the weighting so budget stops concentrating on solved prompts, and injecting a second signal active only where the scalar advantage is exactly zero -- privileged-context distillation, or a pairwise judge. The strongest evidence for the third is a restriction rather than an argument: distilling into zero-variance groups alone recovers 84.7 percent of the full gain. One source uses the phenomenon as a metric instead of a target, counting rescued and lost groups against a reference run because entropy and pass@k cannot distinguish exploration from degeneration. None of the remedies reduces how often groups collapse; they make an already-sampled group informative.",
     "kind": "concept",
     "related": [
-      "advantage estimation"
+      "group-relative advantage",
+      "prompt difficulty",
+      "exploration"
     ]
   },
   "task_id": "concept__zero-advantage-group",

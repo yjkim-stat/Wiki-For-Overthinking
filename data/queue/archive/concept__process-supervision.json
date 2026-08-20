@@ -3,13 +3,35 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Reformulates chart question answering as a chain in which every reasoning step carries a predicted image region, trains that pairing through a curriculum graded by nesting depth, and finds explicit intermediate grounding worth 8.78 points over letting the model attend implicitly.",
+        "title": "CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Splits a video model's latent computation into perception latents that always ground the question in visual evidence and reasoning latents allocated only when the question needs inference, and shows that reasoning latents without rationale supervision are worse than no reasoning latents at all.",
+        "title": "Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Turns token-level teacher-student log-probability gaps into turn-level credit for agentic RL by recursively updating a Bayesian belief in log-odds space, identifying pivotal turns without a critic.",
         "title": "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -18,9 +40,9 @@
         "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -29,9 +51,42 @@
         "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a multimodal agent to orchestrate twelve video-analysis tools for anomaly detection with GRPO under a dual reward that combines exact-match rule checks with an LLM judge scoring logicality, relevance and completeness, and releases the benchmark it is evaluated on.",
+        "title": "VTO: Visual Tool Orchestration for Video Anomaly Detection",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives a search agent an explicitly reversible trajectory tree with reflect and backtrack as first-class actions, and trains the reflection policy with a dense local signal distilled from a teacher that can see the whole trajectory alongside the sparse terminal reward the local decision is ultimately judged by.",
+        "title": "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reallocates half of a test-time sampling budget from generating more solutions to asking the same model to refute a handful of decision-critical claims extracted from each trace, then weights the consensus vote by how many claims survive.",
+        "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -40,9 +95,9 @@
         "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -51,9 +106,9 @@
         "title": "Do Models Read What They Write? Causal Registers in Scratchpad Reasoning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -62,9 +117,9 @@
         "title": "Free Process Rewards without Process Labels",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -73,9 +128,9 @@
         "title": "Optimizing Test-Time Compute via Meta Reinforcement Fine-Tuning",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -84,9 +139,9 @@
         "title": "EDIS: Diagnosing LLM Reasoning via Entropy Dynamics",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       },
       {
@@ -95,16 +150,16 @@
         "title": "Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective",
         "topics": [
           "reasoning-training",
-          "reasoning-evaluation",
+          "test-time-scaling",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T03:33:54Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'process supervision'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:11:37Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'process supervision'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "process supervision",
   "kind": "concept",
   "language": "en",
@@ -113,31 +168,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "process supervision",
-    "source_count": 9
+    "source_count": 14
   },
   "result": {
     "aliases": [
-      "process reward",
-      "step-level supervision",
-      "step supervision"
+      "step-level supervision"
     ],
-    "definition": "Supervising the steps rather than only the outcome, and a line the archive has watched become cheaper. The original obstacle was labels: step-level annotation is expensive, and the archive's sources have now routed around it four ways. It falls out of an outcome reward for free — parameterizing that reward as a policy-to-reference log-likelihood ratio makes the per-step Q value the partial sum, so a process reward model comes from response-level labels alone. It can be borrowed from a privileged teacher, with the token-level teacher-student divergence as the dense signal, then aggregated to turns or concentrated on pivots. It can be read from the model's own trajectory, via entropy instability or state-transition probabilities. And it can be executed, where symbolic templates or an interpreter supply step-level ground truth at no annotation cost. What remains contested is how much it adds: one archived theoretical account argues that if pretraining already separates correct from incorrect chains, an outcome-only gradient inherits that separation, which would explain why process supervision sometimes buys little.",
+    "definition": "Supervising or verifying intermediate steps rather than only the final answer, across 14 sources both a method family and an assumption the archive questions. The assumption is that a written scratchpad exposes the intermediate variables that matter for later behaviour -- and the faithfulness literature says written reasoning can be incomplete, post-hoc, or driven by features it never mentions, so a step label may be scoring a description rather than a computation. The cost objection is the other standing one: step-level verification isolates errors precisely and is computationally exhaustive, usually requiring either annotation or a separately trained verifier. The archived methods respond by finding a cheaper source of step signal -- reusing labels that existing datasets already contain, deriving them from a frozen reference policy's likelihood of a gold answer, distilling them from a teacher that can see the whole trajectory, or computing them from the divergence between two context views of the same model. All of these buy density at the cost of measuring agreement with something rather than correctness, which is the trade the archive's process-reward entry records in detail.",
     "kind": "concept",
     "related": [
-      "process evaluation",
-      "outcome reward",
-      "credit assignment",
-      "privileged information",
-      "on-policy self-distillation",
-      "token selection",
-      "verification"
+      "process reward",
+      "chain-of-thought faithfulness"
     ]
   },
   "task_id": "concept__process-supervision",

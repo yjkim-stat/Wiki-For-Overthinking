@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "self-critique"
+    "self-critique",
+    "reflection"
   ],
-  "definition": "A model reviewing and critiquing its own reasoning before committing. The sources place it differently. One reports it emerging from reinforcement learning on verifiable outcomes without being demonstrated, alongside verification and dynamic strategy adaptation. The other treats it as one selectable tool among several in an adaptive inference agent, and finds it outperforms plain chain-of-thought specifically at low iteration counts — explicit self-critique is most valuable when only a few attempts are available, with the gap narrowing as iterations increase. The archive's faithfulness work complicates both readings: spontaneous self-corrections have measured precision of 24.4%, and much of the language that looks like self-critique falls after the answer is already fixed.",
+  "definition": "Prompting or training a model to review its own output before committing, and across 6 sources a mechanism whose reported benefits the archive holds alongside two deflating measurements. The deflations: the precision of emergent self-corrections is measured at 24.4 percent, and reinforcement learning largely preserves the base model's existing entropy structure rather than installing a new reflective one -- so the 'emergent self-reflection' framing is not supported by the archive's own material. A qualitative case shows the limit concretely, with reflection failing to catch a wrong intermediate estimate that a retrieved near-miss problem exposes immediately. Where it works it is trained rather than prompted and paired with something else: one safety method reduces harmful completions from 13.8 to 4.1 percent, nearly threefold over mainstream approaches, while gaining helpfulness and surviving an adaptive attack without targeted adversarial training. The design caution the corpus states is that rewarding reflection directly invites reward hacking, since an agent can produce reflective text that scores well without changing what it does -- and one reflection-depth sweep is monotone in opposite directions on the two axes it affects, which its authors use to justify keeping reflection shallow.",
   "evidence": [
     {
       "id": "arxiv:2501.12948",
@@ -140,7 +141,11 @@
     "amo-bench",
     "qwen2-5-math-prm-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-correction",
+    "reward-hacking",
+    "safety-alignment"
+  ],
   "schema_version": 1,
   "slug": "self-reflection",
   "topics": [

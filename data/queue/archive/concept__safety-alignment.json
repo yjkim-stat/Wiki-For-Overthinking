@@ -3,10 +3,57 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Triggers a safety intervention in image diffusion from the intermediate clean-image estimate rather than from the prompt, and spends optimization only from the first timestep where a violation actually appears — so extra test-time compute is incurred on unsafe inputs and benign latency stays flat as the budget grows.",
+        "title": "Test-Time Scaling for Safe Text-Guided Image Generation via Intermediate Clean Estimates",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tampers with a model's own reasoning trace in two directions — toward an equivalent safe option and toward an unsafe one — and finds the models that follow their traces most faithfully are the ones that follow them into harm, with the two behaviours carried by two distinct, anti-correlated residual-stream directions that can be steered apart.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compresses a safety guard's textual rationales into continuous latent states by a staged curriculum, cutting 268 reasoning tokens to 1.60 and latency 8.9-fold, and adds an on-demand decoder that reconstructs a human-readable audit artifact — whose own ablation shows the artifact is anchored far more by the source text than by the latent states it is supposed to inspect.",
+        "title": "LatentGuard: Efficient and Inspectable Latent Reasoning for LLM Safeguards",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Argues reasoning models' safety failures come from the reasoning structure itself, and achieves safety alignment by altering that structure with 1K supervised examples and no RL.",
         "title": "Reasoning Structure Matters for Safety Alignment of Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -14,7 +61,10 @@
         "note": "Names Self-Jailbreak, where a model correctly flags a query as harmful and then overrides that judgement during later reasoning steps, and intervenes step-wise rather than over whole trajectories.",
         "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -22,14 +72,17 @@
         "note": "Adds a Self-Reflection token that lets reasoning models recover from harmful output mid-generation, cutting harmful completion rate from 13.8% to 4.1%.",
         "title": "Self-Reflection Improves Safety of Large Reasoning Models",
         "topics": [
-          "reasoning-training"
+          "test-time-scaling",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T12:40:51Z",
-  "created_at": "2026-08-08T12:37:41Z",
-  "instructions": "Write the wiki definition for 'safety alignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:11:38Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'safety alignment'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "safety alignment",
   "kind": "concept",
   "language": "en",
@@ -38,34 +91,31 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "safety alignment",
-    "source_count": 3
+    "source_count": 7
   },
   "result": {
-    "aliases": [
-      "safety tuning",
-      "harmlessness alignment"
-    ],
-    "definition": "Training a model to refuse or avoid harmful behaviour, which all three sources argue must address the reasoning process rather than the output. Two locate the failure mid-trajectory: one finds models recognize harmful intent and then override that judgement in later steps — named Self-Jailbreak — and intervenes step-wise; the other claims the reasoning structure itself is the cause and alters it with 1K supervised examples. The third shifts from prevention to recovery, adding a token that lets a model reflect and recover mid-generation, reporting harmful completion falling from 13.8% to 4.1%. All three are measured against attacks the authors chose, and the archive holds an attack reaching approaching 100% against reasoning-based defences.",
+    "aliases": [],
+    "definition": "Training a model to refuse or redirect harmful requests, and across 7 sources a problem the archive's reasoning-model material reframes as being about structure rather than about refusal behaviour. Two sources make the same argument from different directions: one attributes reasoning models' safety failures to the reasoning structure itself and achieves alignment by altering that structure with 1,000 supervised examples and no reinforcement learning; another supervises the mechanism of a successful attack -- unmask the intent, explain how the syntax concealed it, derive the defence -- and finds that pairing the same jailbreaks with the teacher's refusal alone moves average attack success by 4 points against the analysis's 60. The corpus's recurring measurements: pattern-keyed alignment fails to transfer to unseen syntax, with one defence leaving gradient-optimised suffix attacks at the base model's rate; the utility cost is family-dependent and attributed to reasoning-style mismatch with the teacher rather than to safety training as such; and the whole evaluation is judge-mediated, with one paper's own audit finding two judges disagreeing on 42 percent of the class that determines the score. One archived method reduces harmful completions from 13.8 to 4.1 percent while gaining helpfulness, which is the archive's evidence that the safety tax is not inevitable.",
     "kind": "concept",
     "related": [
       "jailbreak",
-      "self-jailbreak",
-      "alignment tax",
-      "inference-time intervention",
-      "post-training",
+      "self-reflection",
       "reasoning structure"
     ]
   },
   "task_id": "concept__safety-alignment",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-evaluation",
+    "reasoning-faithfulness",
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }

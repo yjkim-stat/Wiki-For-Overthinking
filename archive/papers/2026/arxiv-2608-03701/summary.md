@@ -45,7 +45,7 @@ No limitations section appears in the main text. What a reader should weigh: the
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), world model, [foresight](../../../../wiki/concepts/foresight.md), task specification, representation learning, [causal intervention](../../../../wiki/concepts/causal-intervention.md), self-supervised learning, robotic manipulation, flow matching
+- **Concepts**: latent reasoning, world model, [foresight](../../../../wiki/concepts/foresight.md), task specification, representation learning, [causal intervention](../../../../wiki/concepts/causal-intervention.md), self-supervised learning, robotic manipulation, flow matching
 - **Methods**: LiLa-WAM, Visual Transition Token, [flow matching](../../../../wiki/methods/flow-matching.md), diffusion transformer, Q-Former, [cosine similarity](../../../../wiki/methods/cosine-similarity.md), [t-SNE](../../../../wiki/methods/t-sne.md)
 - **Datasets**: RoboTwin 2.0, LIBERO
 

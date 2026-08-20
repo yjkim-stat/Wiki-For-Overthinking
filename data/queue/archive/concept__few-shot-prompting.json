@@ -8,7 +8,8 @@
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -18,14 +19,59 @@
         "topics": [
           "reasoning-training",
           "reasoning-faithfulness",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+        "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Compares chain-of-thought against answer-only supervision under a protocol where the two conditions differ in nothing but the training target, and finds the rationales buy nothing in-domain for strong backbones while buying 20 to 28 points out of domain -- with a human study attributing the measurable effect to language adherence and inspectability rather than to better reasoning.",
+        "title": "MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reasoning in Small Language Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Builds an expert-annotated Indian Supreme Court dataset in which each applicable statute is paired with the specific text span a legal expert says establishes it, and uses it to show that predicting the right statute and giving the right reason are separable abilities.",
+        "title": "PROSLEX: A Novel Dataset for Expert-Annotated Legal Statute Prediction for Indian Judiciary",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T04:14:28Z",
-  "created_at": "2026-08-08T04:13:00Z",
-  "instructions": "Write the wiki definition for 'few-shot prompting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:09:46Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'few-shot prompting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "few-shot prompting",
   "kind": "concept",
   "language": "en",
@@ -34,31 +80,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "few-shot prompting",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "in-context learning",
-      "few-shot inference"
+      "in-context examples"
     ],
-    "definition": "Supplying worked examples in the prompt so the model imitates their form. In the cited sources it appears as infrastructure rather than as a subject, and in both cases as something with a cost. One notes that inducing rationale generation through few-shot inference alone sacrifices accuracy relative to finetuning, which is the gap its bootstrapping loop exists to close. The other turns the format into an attack surface: reordering the multiple-choice options across few-shot examples so the answer is always '(A)' biases the model's prediction, and the resulting explanation does not mention the pattern. The arrangement of the examples, not only their content, is doing work.",
+    "definition": "Supplying worked examples in the prompt, and across 6 sources a baseline whose standing depends on what kind of model is being prompted. Two sources report the same reversal from opposite directions. For reasoning-specialised models, zero-shot free-form generation now beats few-shot, and the paper reports its honest exception -- a general model without reasoning tuning collapses to 67.3 percent zero-shot free-form, below its few-shot results, with only zero-shot chain of thought beating them -- so the claim is about reasoning-specialised models rather than about few-shot prompting universally. And for a model already instruction-tuned in a target language, few-shot prompting at 48.80 percent slightly exceeds its own rationale fine-tuning at 45.36, mirroring the finding that the weakest general backbone gains most from added supervision. The archive's operative reading is that few-shot examples substitute for training the model does not have, and stop paying once it does.",
     "kind": "method",
     "related": [
       "chain-of-thought prompting",
-      "chain of thought",
-      "post-hoc rationalization"
+      "in-context learning"
     ]
   },
   "task_id": "concept__few-shot-prompting",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-training",
     "test-time-scaling"

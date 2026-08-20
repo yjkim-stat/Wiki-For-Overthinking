@@ -111,6 +111,54 @@
       },
       {
         "kind": "paper",
+        "note": "Builds a dense process reward without a learned verifier or an online judge, by aligning generated reasoning steps to the process-labelled reference steps that existing datasets already contain using numerical, symbolic and lexical matching rules, gated so a partial reference match cannot override a wrong final answer.",
+        "title": "StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+        "title": "Improving Generalization Robustness of Multimodal RLVR",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Confirms that prolonged RLVR makes models forget foundational skills, and counters it with experience replay whose objective weights adapt online to convergence and instability signals.",
         "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
         "topics": [
@@ -279,8 +327,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-13T11:04:14Z",
-  "created_at": "2026-08-13T10:57:34Z",
+  "completed_at": "2026-08-20T23:08:03Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'RLVR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "RLVR",
   "kind": "concept",
@@ -297,21 +345,18 @@
   },
   "payload": {
     "name": "RLVR",
-    "source_count": 23
+    "source_count": 27
   },
   "result": {
     "aliases": [
-      "reinforcement learning with verifiable rewards",
-      "RL with verifiable rewards"
+      "reinforcement learning with verifiable rewards"
     ],
-    "definition": "Training against an automatically checkable outcome signal — a correct final answer, a passing test — rather than a learned reward model, which removes reward-model gaming as a failure mode and restricts the method to domains where correctness can be checked. The archive's anchor source uses it to elicit long chain-of-thought without any supervised reasoning traces, and the term has since widened to wherever a checker exists: an agentic red-teaming planner, audio reasoning under model-generated rubrics, and multi-turn agentic credit assignment all appear here under the same name. What 23 sources agree on is the failure mode rather than the benefit — RLVR narrows. It collapses policy entropy along a curve fitted to within about 1% RMSE, and the collapse is semantic rather than stylistic; it loses pass@k at large k relative to the base model, on six algorithms alike; it makes models forget foundational skills under prolonged training; and it conceals benchmark contamination, with PPO-style importance sampling and clipping identified as the cause. Two sources push back on the pass@k verdict specifically: scoring the chain and not only the answer (CoT-Pass@K) reverses it at every K, because base models win by producing wrong chains that land on right answers.",
+    "definition": "Reinforcement learning against an automatic correctness check -- a test suite, an exact-match verifier, a deterministic evaluator -- and across 27 sources the dominant post-training method here and the one the archive has argued about most. The central dispute is whether it expands what a model can reach or only sharpens what it already could, and the corpus's contribution is that both are true of different sets: branch-preference entropy of a trained policy is below its distilled counterpart on 95.5 to 100 percent of sampled branches across four model families, with the collapse stronger for semantically distinct continuations than for syntactic variants, while backtracking probability at dead ends and recovery from injected distractors both rise sharply. The synthesis one source offers is that it buys sample efficiency by learning what is invalid and pays for it by pruning what is valid but different. Two scope conditions recur. It works where the pretraining corpus is dense in step-by-step derivations and a checker is clean; outside that -- subjective judgement, open-ended generation -- the same objective produces degeneration, with completion length collapsing because guessing earns the same reward more cheaply. And gains are brittle to how a question is worded: paraphrase and template change degrade them, traced to a binary verifier that cannot separate a wrong answer from a misformatted one. Its label-free variants replace the gold answer with the majority answer among rollouts, which inherits the failure modes of consensus. One further consequence the archive records: a brief run of it suppresses the signals benchmark-contamination detectors rely on.",
     "kind": "method",
     "related": [
       "GRPO",
-      "policy entropy",
       "reasoning boundary",
-      "pass@k",
-      "reward hacking"
+      "verifiable reward"
     ]
   },
   "task_id": "concept__rlvr",

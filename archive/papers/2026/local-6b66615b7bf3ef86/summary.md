@@ -45,8 +45,8 @@ The paper has no limitations section. What a reader should weigh: all experiment
 
 ## Entities
 
-- **Concepts**: latent chain-of-thought, Symbolic Index, decisional certainty, exploration-execution trade-off, [information bottleneck](../../../../wiki/concepts/information-bottleneck.md), conditional information bottleneck, [curriculum learning](../../../../wiki/concepts/curriculum-learning.md), discretization reset, sub-decisional perturbation, [compounding error](../../../../wiki/concepts/compounding-error.md), logit decision margin, distributional mismatch, [effective depth](../../../../wiki/concepts/effective-depth.md)
-- **Methods**: [COCONUT](../../../../wiki/methods/coconut.md), curriculum learning, [chain-of-thought](../../../../wiki/methods/chain-of-thought.md), [self-consistency](../../../../wiki/methods/self-consistency.md), imitation learning, noise injection analysis
+- **Concepts**: latent chain-of-thought, Symbolic Index, decisional certainty, exploration-execution trade-off, [information bottleneck](../../../../wiki/concepts/information-bottleneck.md), conditional information bottleneck, curriculum learning, discretization reset, sub-decisional perturbation, [compounding error](../../../../wiki/concepts/compounding-error.md), logit decision margin, distributional mismatch, [effective depth](../../../../wiki/concepts/effective-depth.md)
+- **Methods**: [COCONUT](../../../../wiki/methods/coconut.md), [curriculum learning](../../../../wiki/methods/curriculum-learning.md), [chain-of-thought](../../../../wiki/methods/chain-of-thought.md), [self-consistency](../../../../wiki/methods/self-consistency.md), imitation learning, noise injection analysis
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [ProsQA](../../../../wiki/datasets/prosqa.md), [ProntoQA](../../../../wiki/datasets/prontoqa.md)
 
 Tags: `latent reasoning`, `continuous chain of thought`, `theory`, `information bottleneck`, `curriculum learning`, `exploration`, `coconut`

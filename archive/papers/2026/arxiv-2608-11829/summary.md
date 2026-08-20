@@ -45,7 +45,7 @@ The paper has no limitations section. Reader-visible limits: three student-teach
 
 ## Entities
 
-- **Concepts**: on-policy distillation, off-policy distillation, [pass@k](../../../../wiki/concepts/pass-k.md), capability boundary, [sampling efficiency](../../../../wiki/concepts/sampling-efficiency.md), test-time scaling, [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), forward KL divergence, reverse KL divergence, perplexity
+- **Concepts**: on-policy distillation, off-policy distillation, pass@k, capability boundary, [sampling efficiency](../../../../wiki/concepts/sampling-efficiency.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [catastrophic forgetting](../../../../wiki/concepts/catastrophic-forgetting.md), forward KL divergence, reverse KL divergence, perplexity
 - **Methods**: [on-policy distillation](../../../../wiki/methods/on-policy-distillation.md), off-policy distillation, [GKD](../../../../wiki/methods/gkd.md), MiniLLM, ExOPD, Direct-OPD, [EOPD](../../../../wiki/methods/eopd.md), [GRPO](../../../../wiki/methods/grpo.md), [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md)
 - **Datasets**: [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md)
 

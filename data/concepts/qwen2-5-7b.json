@@ -2,9 +2,10 @@
   "aliases": [
     "Qwen2.5-7B",
     "Qwen2.5-7B-Base",
-    "Qwen-2.5-7B"
+    "Qwen-2.5-7B",
+    "Qwen2.5-Math-7B"
   ],
-  "definition": "A 7B Qwen2.5 base checkpoint, and the archive's default subject for RLVR training experiments — small enough to train repeatedly, strong enough for the results to matter. It appears across the entropy work that established the reward-entropy exponential exchange, in token-selection studies, in adaptive compute allocation, and as one of the base models whose pass@k overtakes its own RLVR-trained descendant as k grows. Being a base rather than instruction-tuned checkpoint is why it recurs: the zero-RL setting, applying RL directly to a pretrained model, is what several archived sources use to isolate what RLVR contributes, and this is the model they use it on.",
+  "definition": "The 7B Qwen2.5 base model and its mathematics-specialised sibling, and across 13 sources the archive's most-used starting point for from-scratch reinforcement-learning studies -- entropy mechanism and entropy-collapse work, representation-based exploration, label-free training, token-selection methods and adaptive test-time allocation all report on it. Its concentration in the entropy literature is the reason to keep the entry: several of the archive's quantitative claims about how policy entropy falls, and about which clipping or covariance remedy recovers it, are measurements on this one checkpoint. Two results place it. It is one of the models where symbolic variabilisation exposes the largest reliance on memorised patterns -- 36.9 to 2.0 percent on one set, a 94.5 percent drop -- and where the loose partial-credit metric still shows a 38.5 percent loss, separating memorisation from mere inconsistency. And it is the base for the archive's clearest advantage-asymmetry measurement, where a regression critic gives failed rollouts 2.63 times the magnitude of successful ones.",
   "evidence": [
     {
       "id": "arxiv:2608.03119",
@@ -332,7 +333,10 @@
     "coefficient-annealing",
     "eurus-2-rl-code"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-7b",
   "topics": [

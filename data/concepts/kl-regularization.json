@@ -1,9 +1,10 @@
 {
   "aliases": [
     "KL penalty",
-    "KL divergence regularization"
+    "KL divergence regularization",
+    "reference KL"
   ],
-  "definition": "Penalizing divergence from a reference policy during training, and in both sources a partial measure whose limits are the point rather than a solution. One tests it as the only defence it tries against a poisoning attack and reports attack success falling from 94.0% to 79.3% — described precisely as a meaningful cost to the attacker and far from a defence, with the wider question left open. The other addresses the neighbouring problem of RLVR eroding foundational skills and reaches for experience replay with online-adaptive weights rather than a divergence penalty. Read together they mark the same boundary from two sides: anchoring to the base distribution slows an unwanted change without preventing it, and neither source treats it as sufficient on its own.",
+  "definition": "Penalising divergence from a reference policy during reinforcement learning, present in nearly every archived training recipe at coefficients typically around 0.001. Across 6 sources it appears mostly as machinery rather than as a subject, and the informative uses are diagnostic. Its trajectory is read as evidence: one source reports KL from the frozen model rising steadily as an argument against representational collapse while noting this does not rule out subtler coupling, and another finds the strictest reward tolerance producing the lowest KL trajectory -- meaning the policy never left its initialisation, which is how a sparse reward fails silently. One source names it as part of the trust-region approximation that sits outside its own theorems, so results proven for an unclipped unregularised objective do not transfer to the deployed method. And it is the standard remedy proposed for general-capability forgetting during reasoning training, though the archive's evidence on that is that the damage is often localised to one language or one benchmark rather than diffuse, which a single divergence penalty is poorly shaped to address.",
   "evidence": [
     {
       "id": "arxiv:2608.02820",
@@ -184,6 +185,8 @@
     "qwen2-5-vl-7b"
   ],
   "related_authored": [
+    "ppo",
+    "grpo",
     "catastrophic-forgetting"
   ],
   "schema_version": 1,

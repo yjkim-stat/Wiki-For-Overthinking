@@ -3,7 +3,7 @@
     "safety tuning",
     "harmlessness alignment"
   ],
-  "definition": "Training a model to refuse or avoid harmful behaviour, which all three sources argue must address the reasoning process rather than the output. Two locate the failure mid-trajectory: one finds models recognize harmful intent and then override that judgement in later steps — named Self-Jailbreak — and intervenes step-wise; the other claims the reasoning structure itself is the cause and alters it with 1K supervised examples. The third shifts from prevention to recovery, adding a token that lets a model reflect and recover mid-generation, reporting harmful completion falling from 13.8% to 4.1%. All three are measured against attacks the authors chose, and the archive holds an attack reaching approaching 100% against reasoning-based defences.",
+  "definition": "Training a model to refuse or redirect harmful requests, and across 7 sources a problem the archive's reasoning-model material reframes as being about structure rather than about refusal behaviour. Two sources make the same argument from different directions: one attributes reasoning models' safety failures to the reasoning structure itself and achieves alignment by altering that structure with 1,000 supervised examples and no reinforcement learning; another supervises the mechanism of a successful attack -- unmask the intent, explain how the syntax concealed it, derive the defence -- and finds that pairing the same jailbreaks with the teacher's refusal alone moves average attack success by 4 points against the analysis's 60. The corpus's recurring measurements: pattern-keyed alignment fails to transfer to unseen syntax, with one defence leaving gradient-optimised suffix attacks at the base model's rate; the utility cost is family-dependent and attributed to reasoning-style mismatch with the teacher rather than to safety training as such; and the whole evaluation is judge-mediated, with one paper's own audit finding two judges disagreeing on 42 percent of the class that determines the score. One archived method reduces harmful completions from 13.8 to 4.1 percent while gaining helpfulness, which is the archive's evidence that the safety tax is not inevitable.",
   "evidence": [
     {
       "id": "arxiv:2608.03284",
@@ -184,7 +184,11 @@
     "self-reflection-token",
     "adversarial-evaluation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "jailbreak",
+    "self-reflection",
+    "reasoning-structure"
+  ],
   "schema_version": 1,
   "slug": "safety-alignment",
   "topics": [

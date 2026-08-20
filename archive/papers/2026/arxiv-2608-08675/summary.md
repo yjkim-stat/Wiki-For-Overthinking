@@ -44,7 +44,7 @@ The authors state that the refinement schedule is fixed and that performance may
 
 ## Entities
 
-- **Concepts**: test-time scaling, iterative refinement, coarse-to-fine, [compute allocation](../../../../wiki/concepts/compute-allocation.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), reward model selection, frozen backbone
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), iterative refinement, coarse-to-fine, [compute allocation](../../../../wiki/concepts/compute-allocation.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), reward model selection, frozen backbone
 - **Methods**: SCALER, TimeReasoner, LVICL, AutoTimes, TimeLLM, FPT, [LoRA](../../../../wiki/methods/lora.md), prompt tuning, reward-model candidate selection
 - **Datasets**: [ETTh1](../../../../wiki/datasets/etth1.md), [ETTh2](../../../../wiki/datasets/etth2.md), [ETTm1](../../../../wiki/datasets/ettm1.md), [ETTm2](../../../../wiki/datasets/ettm2.md), Electricity (ECL), [Traffic](../../../../wiki/datasets/traffic.md), [Weather](../../../../wiki/datasets/weather.md), ILI, M3, M4
 

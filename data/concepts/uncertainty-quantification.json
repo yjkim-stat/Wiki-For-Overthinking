@@ -4,7 +4,7 @@
     "uncertainty estimation",
     "confidence estimation"
   ],
-  "definition": "Attaching a defensible measure of confidence to a model's output, which the two sources approach with opposite priorities. One demands statistical guarantees, applying conformal prediction to the joint reasoning-answer structure rather than to the answer alone on the grounds that existing methods ignore the logical connection between trace and answer, and then attributes coverage back to specific training examples and reasoning steps using Shapley values. The other shows a confidence signal can be worthless as a probability and excellent as a ranking: a diffusion language model reaches 31.2% expected calibration error on mathematical reasoning while achieving 0.826 AUROC against 0.611 for comparable single-pass autoregressive baselines. The pair separates two properties commonly conflated — calibrated magnitude and correct ordering — which matters because threshold-gated methods need the first and selection methods need only the second.",
+  "definition": "Estimating how much a model's answer should be trusted, and across 6 sources a family whose members disagree about what to compute it from. The corpus's options are token-probability statistics, entropy over sampled answers, internal-state geometry, and explicit verbalised confidence -- and its findings are mostly about their failure to interchange. Statistics computed coordinate-wise from hidden states give calibration error of 0.1216 and 0.0858 in two prompt orderings against 0.2451 and 0.1764 for a trained last-token head, and both are competitive using only the first 12 of 28 layers. Verbalised confidence and answer frequency both fail in multimodal settings for the same reason -- neither tests whether an answer depends on the image, so a grounded answer and a confident language-prior guess look identical. And the archive's sharpest result bounds all of them on hard problems: in the highest-agreement bin the plurality is correct about half the time for one model and less often than its own lowest bin for another, so no verifier-free statistic derived from the model's own samples carries the information a gate needs. One source turns a latent estimate into an actionable critique by naming the offending parameter rather than emitting a scalar, which is the direction the corpus suggests when the number itself is untrustworthy.",
   "evidence": [
     {
       "id": "arxiv:2608.02415",
@@ -161,7 +161,11 @@
     "diffusion-language-modelling",
     "llada-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "confidence-calibration",
+    "selective-prediction",
+    "abstention"
+  ],
   "schema_version": 1,
   "slug": "uncertainty-quantification",
   "topics": [

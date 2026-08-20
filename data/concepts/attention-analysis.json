@@ -1,9 +1,10 @@
 {
   "aliases": [
     "attention inspection",
-    "attention-based analysis"
+    "attention-based analysis",
+    "attention pattern analysis"
   ],
-  "definition": "Inspecting where and how strongly attention is directed in order to explain or intervene in a model's behaviour. The sources use it for three different jobs, which is what makes the term loose: to time an inference-time intervention by locating key points in a reasoning path, to diagnose a compositional performance drop alongside neuron patterns and membership inference, and to detect hallucination by measuring how well cross-step attention routing aligns with hidden-state semantic proximity. The third yields the least intuitive claim in the group — higher alignment predicts higher hallucination risk, read as a self-confirmation loop that suppresses self-auditing.",
+  "definition": "Reading attention weights as evidence about what a model is using, across 7 sources both a productive signal and a repeatedly qualified one. Its productive uses here are comparative rather than absolute: attention paid to the end-of-thinking token from that position ranks which reasoning steps matter, validated by ablation showing that pruning the highest-ranked steps spikes the answer's perplexity while pruning the lowest raises it marginally and random pruning falls between; and cross-phase routing focus separates reasoning hallucinations. Its recurring qualification is that attention says where a model looked, not what it found -- one hallucination study finds attention alone does not separate real from hallucinated objects and only what the attended region decodes to does, and another notes that a circuit analysis operating mostly at the level of attention patterns would be better strengthened by embedding-level analysis. The archive's standing note applies: high attention correlated with a downstream quantity is a correlation between one position and one measurement, not evidence that information is routed through that position causally.",
   "evidence": [
     {
       "id": "arxiv:2608.07302",
@@ -161,7 +162,11 @@
     "lego-state-tracking",
     "lego"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "logit-lens",
+    "circuit-analysis",
+    "salience"
+  ],
   "schema_version": 1,
   "slug": "attention-analysis",
   "topics": [

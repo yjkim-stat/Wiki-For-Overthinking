@@ -46,7 +46,7 @@ The paper has no limitations section. What a reader should notice is substantial
 
 ## Entities
 
-- **Concepts**: sparse dictionary learning, chain-of-thought prompting, [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [degenerate generation](../../../../wiki/concepts/degenerate-generation.md), selectivity control, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [metacognition](../../../../wiki/concepts/metacognition.md), feature suppression, [reasoning collapse](../../../../wiki/concepts/reasoning-collapse.md)
+- **Concepts**: sparse dictionary learning, chain-of-thought prompting, latent reasoning, [degenerate generation](../../../../wiki/concepts/degenerate-generation.md), selectivity control, [detection versus control](../../../../wiki/concepts/detection-versus-control.md), [metacognition](../../../../wiki/concepts/metacognition.md), feature suppression, [reasoning collapse](../../../../wiki/concepts/reasoning-collapse.md)
 - **Methods**: [sparse autoencoder](../../../../wiki/methods/sparse-autoencoder.md), Top-K sparse autoencoder, activation suppression, [ablation](../../../../wiki/methods/ablation.md), Total Activation Volume ranking, density-normalized metrics, residual stream hooking
 - **Datasets**: [AMC23](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 

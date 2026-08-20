@@ -44,8 +44,8 @@ The paper's own scope limits are stated in the method rather than a section. CLR
 
 ## Entities
 
-- **Concepts**: claim-level falsification, signal dilution, test-time scaling, reliability weighting, verifier-free verification, answer aggregation, [consensus](../../../../wiki/concepts/consensus.md), rescue rate, budget parity
-- **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [majority voting](../../../../wiki/methods/majority-voting.md), [best-of-n](../../../../wiki/methods/best-of-n.md), process supervision, pass@k
+- **Concepts**: claim-level falsification, signal dilution, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), reliability weighting, verifier-free verification, answer aggregation, [consensus](../../../../wiki/concepts/consensus.md), rescue rate, budget parity
+- **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), [majority voting](../../../../wiki/methods/majority-voting.md), [best-of-n](../../../../wiki/methods/best-of-n.md), [process supervision](../../../../wiki/methods/process-supervision.md), [pass@k](../../../../wiki/methods/pass-k.md)
 - **Datasets**: [HMMT](../../../../wiki/datasets/hmmt.md), [CMIMC](../../../../wiki/datasets/cmimc.md), Apex-shortlist
 
 Tags: `test-time-scaling`, `verification`, `self-consistency`, `falsification`, `token-efficiency`

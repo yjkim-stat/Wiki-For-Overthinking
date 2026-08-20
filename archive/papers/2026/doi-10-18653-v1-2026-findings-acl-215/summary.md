@@ -45,7 +45,7 @@ No quantitative results, benchmark names or models in the abstract. Failure attr
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [perception bottleneck](../../../../wiki/concepts/perception-bottleneck.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), meta-reasoning, failure attribution, [test-time compute](../../../../wiki/concepts/test-time-compute.md), self-correction, [routing](../../../../wiki/concepts/routing.md)
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [perception bottleneck](../../../../wiki/concepts/perception-bottleneck.md), [adaptive compute allocation](../../../../wiki/concepts/adaptive-compute-allocation.md), meta-reasoning, failure attribution, [test-time compute](../../../../wiki/concepts/test-time-compute.md), [self-correction](../../../../wiki/concepts/self-correction.md), [routing](../../../../wiki/concepts/routing.md)
 - **Methods**: GPRO, multi-objective reinforcement learning, teacher-based failure attribution, step-level routing
 - **Datasets**: _none recorded_
 

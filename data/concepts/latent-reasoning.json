@@ -3,9 +3,11 @@
     "latent-space reasoning",
     "implicit chain of thought",
     "latent chain of thought",
-    "implicit reasoning"
+    "implicit reasoning",
+    "continuous chain-of-thought",
+    "latent thoughts"
   ],
-  "definition": "Reasoning carried in continuous hidden states rather than in emitted tokens -- by replacing a written chain with latent slots, by recursing a block over its own state, or by inserting optimizable latents at inference. The sources divide by what they are buying with it. Efficiency: a safety guard's 268 reasoning tokens compressed to 1.60 latent states at 8.9-fold lower latency, a small trainable recurrent block bolted between a frozen 1.1B model's body and its output head so refinement replaces generation, and selective switching to soft embeddings only at low-confidence steps. Capability, argued theoretically: an exact characterisation of how much computational power a chain of thought buys as a function of its length, and a proof that reasoning can be moved from emitted tokens into hidden states without losing sample efficiency, via a curriculum deleting thinking tokens in geometric chunks so only logarithmically many stages are needed. Credit assignment is the recurring practical obstacle and two sources attack it in different places -- pricing a latent thought by freezing the context after it and averaging the rewards of several answers sampled from that fixed context, and inserting the latents at an intermediate layer rather than at the output so that reward-weighted gradients reach them from the whole continuation instead of only through their own decoded token. The sources agree on one negative that cuts against the framing: latent capacity without supervision on what should occupy it is worse than not having it, since reasoning latents without rationale supervision underperform having no reasoning latents at all. They do not agree that going latent costs monitorability -- one source finds that depends more on the task and on access to internals than on whether the reasoning is explicit or latent, while another shows a latent guard's on-demand audit artifact is anchored far more by the source text than by the latent states it claims to describe.",
+  "definition": "Keeping intermediate computation in continuous hidden states instead of emitting tokens, which removes the token cost of a chain of thought and, by construction, removes the readable trace with it. Across 16 sources the corpus reports both sides of that trade and one uncomfortable null. The gains are real where the ablation is controlled: one source's continued-training control -- same checkpoint, same epochs, no latent replacement -- costs 0.65 to 1.63 mean F1 at three scales, so the effect is the latent mechanism rather than extra training, and another cuts 268.56 rationale tokens to 1.60 with an 8.9-fold speedup. Effort scales monotonically in one system (21, 27, 29.5 percent at low, medium and high) though its own minimum-effort comparison is statistically unresolved. The null is the sharpest result: on off-the-shelf models, continuous-state decoding is functionally indistinguishable from discrete decoding -- layer-wise entropy profiles coincide, KL between the two states reaches about 1e-4 in middle layers, cosine similarity 0.996 to 0.998 -- so a latent method that is not trained for it may be doing nothing latent at all. Two design findings recur: latent budgets are usually fixed per question when what a question needs varies, and reasoning latents without rationale supervision are worse than no reasoning latents at all. The inspectability cost is named directly by the one source applying it where decisions must remain auditable.",
   "evidence": [
     {
       "id": "arxiv:2608.01593",
@@ -106,7 +108,7 @@
   ],
   "first_seen": "2026-08-08T12:18:14Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T13:47:26Z",
+  "last_seen": "2026-08-20T23:06:51Z",
   "name": "latent reasoning",
   "related": [
     "credit-assignment",
@@ -410,7 +412,11 @@
     "log-icot",
     "gradient-descent-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-prompting",
+    "monitorability",
+    "test-time-scaling"
+  ],
   "schema_version": 1,
   "slug": "latent-reasoning",
   "topics": [

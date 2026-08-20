@@ -9,7 +9,7 @@ A benchmark of abstract visual grid puzzles used here for two different purposes
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [construct validity](../concepts/construct-validity.md), [curriculum learning](../concepts/curriculum-learning.md), [DAPO-Math-17K](dapo-math-17k.md), [data efficiency](../concepts/data-efficiency.md), [GRPO](../methods/grpo.md), [linear probe](../methods/linear-probe.md), [Llama-3.2-3B](../models/llama-3-2-3b.md), [MATH500](math500.md), [meta-evaluation](../concepts/meta-evaluation.md), [Minerva](minerva.md), [OlympiadBench](olympiadbench.md), [perception bottleneck](../concepts/perception-bottleneck.md), [prompt difficulty](../concepts/prompt-difficulty.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-4B](../models/qwen3-4b.md), [training dynamics](../concepts/training-dynamics.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [construct validity](../concepts/construct-validity.md), [curriculum learning](../methods/curriculum-learning.md), [DAPO-Math-17K](dapo-math-17k.md), [data efficiency](../concepts/data-efficiency.md), [GRPO](../methods/grpo.md), [linear probe](../methods/linear-probe.md), [Llama-3.2-3B](../models/llama-3-2-3b.md), [MATH500](math500.md), [meta-evaluation](../concepts/meta-evaluation.md), [Minerva](minerva.md), [OlympiadBench](olympiadbench.md), [perception bottleneck](../concepts/perception-bottleneck.md), [prompt difficulty](../concepts/prompt-difficulty.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-4B](../models/qwen3-4b.md), [training dynamics](../concepts/training-dynamics.md)
 
 ## Appears in
 

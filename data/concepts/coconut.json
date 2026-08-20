@@ -1,9 +1,10 @@
 {
   "aliases": [
     "COCONUT",
-    "Coconut curriculum"
+    "Coconut curriculum",
+    "Chain of Continuous Thought"
   ],
-  "definition": "The curriculum that trains latent chain-of-thought by progressively replacing prefix reasoning tokens with continuous latent states, and in these sources the standard instantiation of latent CoT rather than one method among several. Both find its behaviour is governed by the curriculum rather than by the latent representation: one recasts the per-stage objective by Lagrangian duality as a Conditional Information Bottleneck and shows that removing the curriculum drops GSM8K from 34.1% to 14.4% and ProntoQA from 99.8% to 52.4%, at or below the no-CoT baseline. The other finds that in the fine-tuned regime the latent tokens it produces can be deleted outright with accuracy changing by at most 1.0 point on ProsQA across GPT-2 and three SmolLM2 sizes, with entity probing showing the final target entity already dominating the representation. Taken together the sources describe a method whose latent slots carry an answer that has already been reached rather than a computation in progress.",
+  "definition": "Feeding a model's last hidden state back as the next input embedding so that reasoning proceeds in continuous space rather than through emitted tokens, and across 6 sources the reference implementation of latent reasoning -- along with the archive's clearest evidence about what such methods do and do not achieve. Its measured trade is domain-dependent: on grade-school arithmetic explicit chain of thought reaches 42.9 percent at 25.0 tokens against its 34.1 at 8.2, while on a structured logic task it reaches 97.0 percent at 14.2 tokens against explicit chain of thought's 77.5 at 49.4 -- so it wins where search over a constrained space is the bottleneck and loses where the reasoning is arithmetic. Two negative results matter more. It is fragile to train: removing the curriculum collapses it to at or below the no-reasoning baseline on two of three tasks. And in the fine-tuned regime its latent tokens can be inert -- deleting every one of them changes accuracy by at most 1.0 point across four models, with entity probing showing the final answer dominating the belief distribution from step 0 with no progression, against a discrete baseline where the target takes over only at the last step.",
   "evidence": [
     {
       "id": "arxiv:2608.03838",
@@ -198,7 +199,10 @@
     "imitation-learning",
     "noise-injection-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "latent-reasoning",
+    "curriculum-learning"
+  ],
   "schema_version": 1,
   "slug": "coconut",
   "topics": [

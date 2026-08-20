@@ -1,9 +1,10 @@
 {
   "aliases": [
     "bootstrap CI",
-    "paired bootstrap"
+    "paired bootstrap",
+    "bootstrap intervals"
   ],
-  "definition": "Resampling a result many times to put an interval on it, used in both sources as the discipline that keeps a headline honest about how well determined it is. In the Parkinson's screening work the intervals are what make the fused AUROC of 0.802 readable at all -- the interval [0.70, 0.89] on 20 positive cases overlaps both single modalities, and a within-test split-half check is judged to agree precisely because it falls inside that interval, so the bootstrap serves as the yardstick for whether a subgroup difference is a difference. In the test-time-scaling reproducibility work it is part of what a reproducible inference protocol is required to declare. Neither source treats the bootstrap as a subject; what they establish jointly is a norm, that a reported number without an interval on this kind of small evaluation is not interpretable, and that pairing or stratifying the resample -- by problem, by seed, by orientation -- is what makes the interval answer the question actually asked.",
+  "definition": "Resampling to put an interval on an estimate, and in this archive the practice that separates the sources whose numbers can be read from those whose cannot -- most archived papers report no variance at all. The corpus's instances show what the interval buys. Problem-level resampling at 1000 iterations with a fixed seed underwrites a pre-registered backfire rate of 56.6 percent with interval [49.5, 63.6]. Hierarchical resampling that jointly resamples seeds and problems gives [+3.92, +5.78] on a 4.85-point gain, which is what licenses calling it real; a paired bootstrap stratified by problem and seed gives [2.592, 8.333] on a 5.617-point gain. And the reverse case is equally instructive: a reproduction finds a published 2.5-point advantage with a bootstrap interval of [0.0, +6.3] that vanishes entirely when the evaluation set is enlarged. One source uses question-cluster bootstrapping on a two-annotator expert study to give [6.6, 19.1] on a 12.5-point relevance gain. The archive's operative rule is that resampling must match the dependence structure -- resampling problems alone when seeds also vary understates the interval, and neither is meaningful for banks produced by adaptive search.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -172,7 +173,8 @@
     "meta-llama-3-8b-instruct-lite"
   ],
   "related_authored": [
-    "permutation-test"
+    "matched-budget-comparison",
+    "construct-validity"
   ],
   "schema_version": 1,
   "slug": "bootstrap-confidence-intervals",

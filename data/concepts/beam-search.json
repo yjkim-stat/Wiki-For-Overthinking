@@ -2,7 +2,7 @@
   "aliases": [
     "beam decoding"
   ],
-  "definition": "Keeping a fixed number of highest-scoring partial continuations at each step rather than committing to one. In the archive it appears only as a baseline that other test-time methods are measured against, never as the proposed method. One source reports its verifier-free refine-then-vote framework beating beam search along with greedy decoding, majority voting, best-of-N and lookahead decoding; the other includes a search strategy as one of the per-problem choices an allocation agent makes, which treats beam search as one option among several rather than a default.",
+  "definition": "Keeping a fixed number of partial candidates and extending the best of them, and across 5 sources the search baseline in test-time-scaling comparisons -- generally beaten by methods that reduce completed candidates rather than search over unfinished ones. Its distinctive property in the archive's taxonomy is that it operates on partial states, which is a different statistical object from sampling completed candidates and reducing them, and one source's argument is that reporting these under one scalar budget makes results incomparable. Where it is adapted rather than used as a baseline, the adaptation is about what the freed capacity does: a thought-level variant treats pruning as zero-sum, immediately re-spending the capacity released by dropping a weak trace on branching from a high-scoring prefix, which is what makes prefix caching load-bearing for it.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -141,7 +141,11 @@
     "qwen2-5-7b",
     "qwen2-5-math-prm-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "best-of-n",
+    "adaptive-compute-allocation",
+    "tree-of-thoughts"
+  ],
   "schema_version": 1,
   "slug": "beam-search",
   "topics": [

@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Qwen2.5-14B"
+    "Qwen2.5-14B",
+    "Qwen2.5-14B-Instruct"
   ],
-  "definition": "A mid-scale instruction-tuned checkpoint, present in both sources as the larger member of a comparison rather than as a subject. One uses it among five backbones for test-time latent optimization, where it carries the highest clean chain-of-thought baseline of the set and the gains are correspondingly smaller. The other uses it in an analysis of entropy dynamics under reinforcement fine-tuning. Its role in the archive is as the point where a method's headroom starts to close — several results collected here separate clearly at 3B and much less at this size.",
+  "definition": "A 14B instruction-tuned Qwen2.5 model, used across 6 sources as the larger arm in comparisons whose smaller arm is the 7B instruct model -- the pair that lets a method's scale dependence be checked within one family and generation. Two archived results attach to it. In a self-correction study it is among the newer, stronger backbones where the method's gains shrink, attributed to those models already self-correcting before training. And in a multilingual tool-use study it is the size at which the supervised baseline is ahead of reinforcement learning (74.47 against 71.08) while at 7B the ordering reverses, which is that source's evidence that the ordering is not monotone in size. It also appears as a steering-vector subject and as a training backbone for medical and entropy-dynamics work.",
   "evidence": [
     {
       "id": "arxiv:2608.02585",
@@ -175,7 +176,10 @@
     "qwen3-4b-base",
     "internlm3-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct",
+    "qwen3-14b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-14b-instruct",
   "topics": [

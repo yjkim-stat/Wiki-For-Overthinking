@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A multi-hop question-answering set built so that answering requires composing facts across two Wikipedia articles, used in both sources as an in-domain companion to HotpotQA for search agents. It carries the largest relative movement of any benchmark in one of them — 51.9 F1 against 24.4 for retrieval-augmented prompting, a gap of 27.5 points, falling to 46.2 when the forward step reward is removed. In the other it is close between methods at the 7B scale (48.6 against 48.9 for the best baseline) and won outright at 3B, so the sources agree it responds strongly to step-level credit and disagree on which form of it wins.
+A multi-hop question-answering set requiring evidence from two Wikipedia articles, used across 5 sources as one of the standard in-domain benchmarks for search-augmented agents alongside HotpotQA and the out-of-domain sets. Its role in this archive is as part of the suite over which credit-assignment methods for retrieval are averaged, where the corpus's recurring caution applies -- macro averages across these sets hide per-benchmark losses, and at least one source's method wins one benchmark of seven while losing another by 17.9 exact match without discussing it. None of the sources describes its construction.
 
 - **Kind**: dataset
 - **Also called**: 2Wiki, 2WikiMQA

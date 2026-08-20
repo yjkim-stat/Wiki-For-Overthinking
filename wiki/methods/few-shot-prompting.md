@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-Supplying worked examples in the prompt so the model imitates their form. In the cited sources it appears as infrastructure rather than as a subject, and in both cases as something with a cost. One notes that inducing rationale generation through few-shot inference alone sacrifices accuracy relative to finetuning, which is the gap its bootstrapping loop exists to close. The other turns the format into an attack surface: reordering the multiple-choice options across few-shot examples so the answer is always '(A)' biases the model's prediction, and the resulting explanation does not mention the pattern. The arrangement of the examples, not only their content, is doing work.
+Supplying worked examples in the prompt, and across 6 sources a baseline whose standing depends on what kind of model is being prompted. Two sources report the same reversal from opposite directions. For reasoning-specialised models, zero-shot free-form generation now beats few-shot, and the paper reports its honest exception -- a general model without reasoning tuning collapses to 67.3 percent zero-shot free-form, below its few-shot results, with only zero-shot chain of thought beating them -- so the claim is about reasoning-specialised models rather than about few-shot prompting universally. And for a model already instruction-tuned in a target language, few-shot prompting at 48.80 percent slightly exceeds its own rationale fine-tuning at 45.36, mirroring the finding that the weakest general backbone gains most from added supervision. The archive's operative reading is that few-shot examples substitute for training the model does not have, and stop paying once it does.
 
 - **Kind**: method
-- **Also called**: few-shot inference, in-context learning
+- **Also called**: few-shot inference, in-context examples, in-context learning
 - **Topics**: [reasoning-evaluation](../topics/reasoning-evaluation.md), [reasoning-faithfulness](../topics/reasoning-faithfulness.md), [reasoning-training](../topics/reasoning-training.md), [test-time-scaling](../topics/test-time-scaling.md)
 - **Sources**: 6
 

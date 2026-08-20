@@ -3,7 +3,7 @@
     "compute allocation",
     "budget allocation"
   ],
-  "definition": "Treating inference compute as a resource to place rather than a quantity to increase -- the question of where an extra unit goes, not how many to spend. Both sources arrive at it by finding that uniform spending is the waste: one shows parallel sampling gives most of its budget to trajectories that will be wrong and reallocates capacity from pruned traces onto high-scoring prefixes under a fixed hardware cap, while the other shows compute bought at evaluation time can substitute for compute bought at generation time. The framing is what makes hardware constraints part of the problem statement rather than an implementation detail: concurrency and KV-cache footprint bound the population of live trajectories, so allocation is zero-sum.",
+  "definition": "Deciding where computation goes rather than how much there is, and across 6 sources a framing that unifies otherwise unrelated systems work. The archive's instances span four levels. Within a search: a zero-sum beam search over reasoning steps prunes weak traces and immediately re-spends the freed capacity by branching from high-scoring prefixes under a hardware budget. Within a forecast: fixed-step refinement anchored to a cheaply predicted shape, where the ablation prices every alternative use of the same compute in normalised time. Within a plan: an anytime search whose budget curve is smooth on a feasible instance and flat on an infeasible one. Within a serving system: admitting a rollout session is a commitment of cache capacity, not a placement decision, and allocating protected capacity per workload class by footprint and residency is what keeps a mixed pipeline from collapsing. And within an evaluation: scaling the compute spent judging rather than generating. The common finding is that the allocation is usually more consequential than the total, and that a system reporting throughput without reporting what the reallocation did to the intended distribution has answered half the question.",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -166,10 +166,9 @@
     "outcome-evaluation"
   ],
   "related_authored": [
-    "test-time-compute",
     "adaptive-compute-allocation",
-    "kv-cache",
-    "beam-search"
+    "test-time-scaling",
+    "kv-cache"
   ],
   "schema_version": 1,
   "slug": "compute-allocation",

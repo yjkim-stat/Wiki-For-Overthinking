@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "DS-Qwen-14B"
+    "DS-Qwen-14B",
+    "DeepSeek-R1-Distill-Qwen-14B"
   ],
-  "definition": "The 14B Qwen-based member of the R1 distillation series, used across these sources as the mid-scale reasoning subject. Its mutual-information peaks are sparse (3.59% of steps) yet its step-to-step causal attribution scores are among the densest measured, which is a useful pairing: few steps carry a spike of information about the answer, while many steps still influence the steps that follow them. It is also the model on which the token-budget sweeps for early exit are run.",
+  "definition": "A 14B Qwen model distilled from a large reasoning model, used across 6 sources as the mid-size distilled checkpoint -- the size at which trace-level mechanisms studied on 7B models are checked for persistence. Its appearances are mostly interpretability: mutual-information peaks at thinking tokens, local causal attribution of chain-of-thought steps, and reasoning-strength planning, where steering a strength direction gives its largest single gain here among five sizes (+5.83 on one competition set). It is also one of the four base models in the pass@k study that opened the reasoning-boundary debate, and in a safety-alignment study it is the model that gains most on competition mathematics from a defence (+20.00) -- an unexpected direction that source reports rather than explains. None of the sources describes its distillation.",
   "evidence": [
     {
       "id": "arxiv:2608.09542",
@@ -186,7 +187,10 @@
     "qwen3-32b",
     "deepseek-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1-distill-qwen-7b",
+    "qwen3-14b"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-qwen-14b",
   "topics": [

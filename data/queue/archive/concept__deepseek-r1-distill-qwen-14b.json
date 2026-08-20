@@ -3,12 +3,26 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Builds safety-alignment training data by first having an agent jailbreak a strong teacher and only then asking that teacher to explain why the successful attack worked, so the student is supervised on the mechanism of the attack rather than on the refusal.",
+        "title": "Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Tracks mutual information between each reasoning step's representation and the correct answer, finds it spikes at sparse 'MI peaks' that decode to reflective tokens like 'Wait' and 'Hmm', and shows suppressing exactly those tokens degrades reasoning while suppressing equally many others does not.",
         "title": "Demystifying Reasoning Dynamics with Mutual Information: Thinking Tokens are Information Peaks in LLM Reasoning",
         "topics": [
+          "reasoning-training",
           "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-training"
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       },
       {
@@ -16,16 +30,54 @@
         "note": "Fits a structural causal model over the units of a single chain-of-thought trace using leave-one-out interventions and linear regression, producing a pairwise influence matrix between every pair of steps at a cost linear in the number of units.",
         "title": "Local Causal Attribution of Chain-of-Thought Reasoning",
         "topics": [
+          "reasoning-training",
           "reasoning-faithfulness",
           "test-time-scaling",
-          "reasoning-training"
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that a reasoning model decides how long to think before emitting a single reasoning token — the eventual token count is linearly decodable from the question's activations at Spearman 0.84 — and that this plan is carried by one shared direction vector whose magnitude encodes strength and which acts by shifting the logits of the end-of-thinking token.",
+        "title": "On Reasoning Strength Planning in Large Reasoning Models",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures RLVR-trained models against their base models with pass@k at large k and finds the base wins, concluding RLVR sharpens sampling toward paths the base already had rather than adding new ones.",
+        "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reads a reasoning trajectory as a multi-step pseudo-gradient descent on the model's own parameters, which makes each token an optimization step, the trajectory an inner loop, and the training regime a meta-learning problem in which the question is the task.",
+        "title": "Deciphering Trajectory-Aided LLM Reasoning: An Optimization Perspective",
+        "topics": [
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-08T04:51:40Z",
-  "created_at": "2026-08-08T04:51:03Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-14B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:12:24Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-14B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-14B",
   "kind": "concept",
   "language": "en",
@@ -34,32 +86,32 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-14B",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "DS-Qwen-14B"
+      "DeepSeek-R1-Distill-Qwen-14B"
     ],
-    "definition": "The 14B Qwen-based member of the R1 distillation series, used across these sources as the mid-scale reasoning subject. Its mutual-information peaks are sparse (3.59% of steps) yet its step-to-step causal attribution scores are among the densest measured, which is a useful pairing: few steps carry a spike of information about the answer, while many steps still influence the steps that follow them. It is also the model on which the token-budget sweeps for early exit are run. Note that this entry is filed as a dataset because the archived summaries listed evaluated models in the dataset field; it is a model, not a corpus.",
-    "kind": "dataset",
+    "definition": "A 14B Qwen model distilled from a large reasoning model, used across 6 sources as the mid-size distilled checkpoint -- the size at which trace-level mechanisms studied on 7B models are checked for persistence. Its appearances are mostly interpretability: mutual-information peaks at thinking tokens, local causal attribution of chain-of-thought steps, and reasoning-strength planning, where steering a strength direction gives its largest single gain here among five sizes (+5.83 on one competition set). It is also one of the four base models in the pass@k study that opened the reasoning-boundary debate, and in a safety-alignment study it is the model that gains most on competition mathematics from a defence (+20.00) -- an unexpected direction that source reports rather than explains. None of the sources describes its distillation.",
+    "kind": "model",
     "related": [
       "DeepSeek-R1-Distill-Qwen-7B",
-      "DeepSeek-R1-Distill-Llama-8B",
-      "Qwen3-14B",
-      "early exit"
+      "Qwen3-14B"
     ]
   },
   "task_id": "concept__deepseek-r1-distill-qwen-14b",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

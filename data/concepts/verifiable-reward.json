@@ -1,9 +1,10 @@
 {
   "aliases": [
     "verifiable rewards",
-    "rule-based reward"
+    "rule-based reward",
+    "verifiable reward signal"
   ],
-  "definition": "A reward computed by a programmatic check rather than by a model's judgement, and in both sources the ingredient that makes a search or a policy update trustworthy without a judge in the loop. One verifies every numerical claim in a generated report by writing and executing a query against the source table and comparing within a one-percent tolerance, and checks chart fidelity by executing the chart code and re-reading the rendered values — stating explicitly that this avoids a reward-hacking loop with the separate evaluator used for benchmarking. The other gates its reinforcement reward on response-format validity and exact answer correctness. Read together they mark the boundary of the idea: the dimensions a programmatic check can reach come close to expert performance in the first source, while the one it can only approximate — whether an insight is non-trivial — stays 27 points below and is the most frequent remaining error.",
+  "definition": "A reward computed by a program rather than by a model or a person -- exact match, test execution, a deterministic evaluator -- and across 7 sources the property that makes the archive's dominant training method possible and bounds where it applies. What the corpus adds beyond the definition is where the boundary of verifiability falls in practice. One source measures it directly: the parts a verifiable reward can check reach 88.7 against a human expert's 89.5 on chart-text alignment and 88.6 against 94.8 on structural completeness, so the checkable components come close to human agreement while the unchecked ones are what the gap consists of. Two failure modes recur. A binary verifier conflates format with content, so the policy cannot learn whether it is being punished for being wrong or for being formatted differently -- fixed in one source by a trinary reward. And a single numeric tolerance has to be both strict enough to mean something and loose enough to give gradient, which one source shows is impossible, with the strictest threshold producing the lowest KL trajectory (the policy never leaves its initialisation) and the loosest producing high-variance oscillation.",
   "evidence": [
     {
       "id": "arxiv:2608.04071",
@@ -235,6 +236,8 @@
     "huatuogpt-o1-7b"
   ],
   "related_authored": [
+    "rlvr",
+    "outcome-reward",
     "reward-hacking"
   ],
   "schema_version": 1,

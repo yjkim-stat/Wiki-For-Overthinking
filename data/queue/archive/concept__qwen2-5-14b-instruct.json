@@ -8,6 +8,56 @@
         "topics": [
           "reasoning-faithfulness",
           "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the part of a steering vector which breaks a model's refusal behaviour is a separate direction from the part that produces the intended behavioural effect, and learns that direction by constrained optimization so it can be ablated without losing the steering.",
+        "title": "Safety Cost of Steering Vectors Is Separable and Reducible",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces the single tolerance threshold that RLVR uses to score floating-point answers with a hybrid reward pairing a hard clinical-safety constraint against a continuous precision-sensitive term, and adds a reward for stating the computational formula explicitly so an external verifier can check it.",
+        "title": "MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains self-correction as a step-level preference problem -- preferring a detect-and-repair continuation over the continuation that would follow if the error went unaddressed -- after first initialising with ordinary step-level preference optimisation, and finds that correcting more often and detecting more errors both anti-correlate with accuracy.",
+        "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names and measures a multilingual tool-calling failure in which the model picks the right API but writes argument values in the wrong language, then compares supervised fine-tuning against PPO and GRPO under matched budgets and finds that a well-selected supervised checkpoint matches or beats reinforcement learning on the task while costing more elsewhere.",
+        "title": "When the API Speaks the Wrong Language: Revisiting Post-Training for Multilingual Tool Use",
+        "topics": [
+          "reasoning-faithfulness",
+          "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-training"
         ]
       },
@@ -18,13 +68,15 @@
         "topics": [
           "reasoning-faithfulness",
           "test-time-scaling",
+          "reasoning-interpretability",
+          "reasoning-evaluation",
           "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T00:45:48Z",
-  "created_at": "2026-08-13T00:32:01Z",
+  "completed_at": "2026-08-20T23:12:24Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'Qwen2.5-14B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-14B-Instruct",
   "kind": "concept",
@@ -41,20 +93,25 @@
   },
   "payload": {
     "name": "Qwen2.5-14B-Instruct",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "Qwen2.5-14B"
+      "Qwen2.5-14B-Instruct"
     ],
-    "definition": "A mid-scale instruction-tuned checkpoint, present in both sources as the larger member of a comparison rather than as a subject. One uses it among five backbones for test-time latent optimization, where it carries the highest clean chain-of-thought baseline of the set and the gains are correspondingly smaller. The other uses it in an analysis of entropy dynamics under reinforcement fine-tuning. Its role in the archive is as the point where a method's headroom starts to close — several results collected here separate clearly at 3B and much less at this size.",
+    "definition": "A 14B instruction-tuned Qwen2.5 model, used across 6 sources as the larger arm in comparisons whose smaller arm is the 7B instruct model -- the pair that lets a method's scale dependence be checked within one family and generation. Two archived results attach to it. In a self-correction study it is among the newer, stronger backbones where the method's gains shrink, attributed to those models already self-correcting before training. And in a multilingual tool-use study it is the size at which the supervised baseline is ahead of reinforcement learning (74.47 against 71.08) while at 7B the ordering reverses, which is that source's evidence that the ordering is not monotone in size. It also appears as a steering-vector subject and as a training backbone for medical and entropy-dynamics work.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Qwen2.5-7B-Instruct",
+      "Qwen3-14B"
+    ]
   },
   "task_id": "concept__qwen2-5-14b-instruct",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

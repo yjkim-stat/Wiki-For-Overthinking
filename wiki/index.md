@@ -10,7 +10,7 @@
 - [Reasoning Training](topics/reasoning-training.md) — `reasoning-training`
 - [Test-Time Scaling](topics/test-time-scaling.md) — `test-time-scaling`
 
-## Concepts (192)
+## Concepts (191)
 
 - [abstention](concepts/abstention.md) — 5 source(s)
 - [adaptive compute allocation](concepts/adaptive-compute-allocation.md) — 25 source(s)
@@ -51,7 +51,6 @@
 - [coverage](concepts/coverage.md) — 3 source(s)
 - [credit assignment](concepts/credit-assignment.md) — 31 source(s)
 - [cross-lingual transfer](concepts/cross-lingual-transfer.md) — 2 source(s)
-- [curriculum learning](concepts/curriculum-learning.md) — 6 source(s)
 - [data efficiency](concepts/data-efficiency.md) — 4 source(s)
 - [degenerate generation](concepts/degenerate-generation.md) — 5 source(s)
 - [detection versus control](concepts/detection-versus-control.md) — 21 source(s)
@@ -205,7 +204,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 4 source(s)
 - [zero-advantage group](concepts/zero-advantage-group.md) — 7 source(s)
 
-## Methods (160)
+## Methods (161)
 
 - [ablation](methods/ablation.md) — 10 source(s)
 - [activation patching](methods/activation-patching.md) — 19 source(s)
@@ -238,6 +237,7 @@
 - [cosine similarity](methods/cosine-similarity.md) — 2 source(s)
 - [counterfactual intervention](methods/counterfactual-intervention.md) — 3 source(s)
 - [cross-validation](methods/cross-validation.md) — 3 source(s)
+- [curriculum learning](methods/curriculum-learning.md) — 6 source(s)
 - [DAPO](methods/dapo.md) — 10 source(s)
 - [decontamination](methods/decontamination.md) — 4 source(s)
 - [DEER](methods/deer.md) — 2 source(s)

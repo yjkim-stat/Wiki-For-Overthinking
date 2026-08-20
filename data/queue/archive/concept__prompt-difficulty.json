@@ -7,6 +7,43 @@
         "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+        "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Allocates test-time samples per prompt with a fuzzy controller over human-readable difficulty and confidence signals, and — under a selector-matched protocol that isolates the budget policy from the answer selector — reports the result honestly as an accuracy-compute tradeoff rather than an accuracy gain.",
+        "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Separates how well a policy currently does on a task from how positively that task responds to further training, shows the second is reproducible across independent runs and predicts downstream value at matched current pass rate, and estimates it from a short probe run before RL begins.",
+        "title": "Beyond Solvability: Task Learnability as a Static Prior for LLM RL Post-Training",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -18,6 +55,7 @@
         "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -29,6 +67,7 @@
         "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -40,6 +79,7 @@
         "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -51,6 +91,7 @@
         "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -62,6 +103,7 @@
         "title": "Representation-Based Exploration for Language Models: From Test-Time to Post-Training",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -73,6 +115,7 @@
         "title": "Optimal Bayesian Stopping for Efficient Inference of Consistent LLM Answers",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -84,6 +127,7 @@
         "title": "The Overthinker's DIET: Cutting Token Calories with DIfficulty-AwarE Training",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -95,6 +139,7 @@
         "title": "On Reasoning Strength Planning in Large Reasoning Models",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -106,6 +151,7 @@
         "title": "What If We Allocate Test-Time Compute Adaptively?",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -117,6 +163,19 @@
         "title": "RADAR: Reasoning-Ability and Difficulty-Aware Routing for Reasoning LLMs",
         "topics": [
           "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-training",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts when-to-stop-reasoning as optimal stopping rather than classification, and proves that a fixed threshold on the probability of being correct can be arbitrarily far from optimal even when that probability is known exactly, because the decision needs the value of continuing and not the value of stopping.",
+        "title": "OS-Pruner: Pruning Chains-of-Thought of Reasoning Models via Optimal Stopping",
+        "topics": [
+          "test-time-scaling",
+          "reasoning-evaluation",
           "reasoning-training",
           "reasoning-faithfulness",
           "reasoning-interpretability"
@@ -124,9 +183,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-09T03:32:10Z",
-  "created_at": "2026-08-09T03:28:55Z",
-  "instructions": "Write the wiki definition for 'prompt difficulty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:11:37Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'prompt difficulty'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "prompt difficulty",
   "kind": "concept",
   "language": "en",
@@ -135,36 +194,32 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "prompt difficulty",
-    "source_count": 11
+    "source_count": 15
   },
   "result": {
     "aliases": [
       "problem difficulty",
-      "query difficulty",
       "task difficulty"
     ],
-    "definition": "How hard a specific problem is for a specific model, and the signal every adaptive-allocation method needs and estimates differently. Eleven sources supply it from: the model's own self-certainty; difficulty cues injected into an output prefix during fine-tuning; per-query token budgets derived from the model's own thinking responses; the solved-rate of sampled rollouts, where a uniformly-correct group wastes the batch; an item response theory model fitted over an evaluation matrix, which yields interpretable per-item difficulty; a Bayesian posterior over answer agreement; and activations taken before any reasoning token is emitted, from which the eventual token count is linearly decodable. That last result is the important one for this concept: the model has already estimated difficulty before it starts, so difficulty is available at no cost and the question is only whether a method reads it. Whether these seven estimators agree on which problems are hard is unmeasured.",
+    "definition": "How hard a problem is for a given policy, and across 15 sources the variable that both training and inference allocation turn on. Its central property is that it is policy-relative and moving: a prompt is easy when every rollout succeeds and hard when none does, and both cases produce zero group-relative advantage, so the useful band is the middle -- one method shifts 82.7 percent of its gradient budget into the 0.2-0.9 pass-rate band against a baseline's 58.9. It also moves during training, which is why one source tracks per-task reward trajectories across 20 epochs and classifies tasks into six profiles including forgetting and stubbornly-unlearned rather than treating difficulty as a static label. At inference the same variable governs allocation, with several methods conditioning the thinking budget on it, and one finding the saving concentrated on the easy tail -- 53 to 81 percent token reduction for the top decile and percentile. Two cautions the archive attaches. Difficulty defined by a baseline's own pass rate selects for that baseline's failures, so part of any tiered improvement is regression toward the mean. And benchmark difficulty is only an approximation of what a particular policy can answer, which is why the better sources report tiers by measured pass rate rather than by benchmark label.",
     "kind": "concept",
     "related": [
-      "adaptive compute allocation",
-      "self-certainty",
-      "advantage estimation",
-      "calibration",
-      "reasoning strength planning",
-      "test-time compute",
-      "curriculum learning"
+      "difficulty stratification",
+      "zero-advantage group",
+      "adaptive compute allocation"
     ]
   },
   "task_id": "concept__prompt-difficulty",
   "task_version": 1,
   "topics": [
+    "reasoning-evaluation",
     "reasoning-faithfulness",
     "reasoning-interpretability",
     "reasoning-training",

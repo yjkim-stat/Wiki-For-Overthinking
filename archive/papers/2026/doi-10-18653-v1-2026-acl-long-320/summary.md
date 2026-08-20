@@ -45,7 +45,7 @@ No quantitative results, benchmarks or models in the abstract. The entropy gate 
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), soft embedding, confidence gating
+- **Concepts**: latent reasoning, [implicit reasoning](../../../../wiki/concepts/implicit-reasoning.md), [token-level entropy](../../../../wiki/concepts/token-level-entropy.md), [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), [exploration-exploitation trade-off](../../../../wiki/concepts/exploration-exploitation-trade-off.md), soft embedding, confidence gating
 - **Methods**: SeLaR, [latent chain-of-thought](../../../../wiki/methods/latent-chain-of-thought.md), entropy gating, contrastive regularization, [chain of thought](../../../../wiki/methods/chain-of-thought.md)
 - **Datasets**: _none recorded_
 

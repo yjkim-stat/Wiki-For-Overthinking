@@ -8,7 +8,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -18,7 +19,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -28,7 +30,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -38,7 +41,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -48,7 +52,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -58,7 +63,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -68,7 +74,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -78,7 +85,52 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures not how far six frontier models move under steering pressure but what kind of response they give when they decline, finds several response modes belonging to a single model, and then traces the largest within-model split to a linearly decodable and causally steerable direction in an open-weight model's residual stream.",
+        "title": "Divergent Response Modes in Frontier Language Models Under Steering Pressure",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the encrypted reasoning blocks major providers return to clients are interchangeable across sessions, users and models within a provider, and measures four consequences of that interchangeability -- distillation, third-party secret extraction, hazardous-content exposure and monitor-invisible prompt injection -- before responsible disclosure closed it.",
+        "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that a fact successfully unlearned from a multimodal model's final answer can still be reproduced in its reasoning trace, far more in natively RL-trained models than in their base versions, and uses the token-level entropy signature RL leaves behind as a training-free control signal for redirecting the trace at decoding time.",
+        "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection",
+        "topics": [
+          "reasoning-faithfulness",
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -88,7 +140,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -98,7 +151,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -108,7 +162,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -118,7 +173,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -128,7 +184,8 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -138,13 +195,14 @@
         "topics": [
           "reasoning-faithfulness",
           "reasoning-training",
-          "test-time-scaling"
+          "test-time-scaling",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:42:20Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T23:08:03Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'monitorability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "monitorability",
   "kind": "concept",
@@ -161,15 +219,16 @@
   },
   "payload": {
     "name": "monitorability",
-    "source_count": 14
+    "source_count": 18
   },
   "result": {
     "aliases": [
       "CoT monitorability"
     ],
-    "definition": "Whether reading what a model externalises lets a monitor tell what it is actually doing -- and, as these sources use the term, a property of the display and the reader jointly rather than of the trace alone. The clearest statement of that is an ablation which holds one completed reasoning run fixed and varies only what the monitor may inspect, finding that a self-summary's value nearly vanishes once the monitor already has the prompt. The sources agree monitorability is fragile and disagree about what breaks it. It can be attacked directly: supervised fine-tuning can install a triggered backdoor whose visible reasoning stays clean, correct and topically benign while the final answer is attacker-chosen, leaving trace-only monitors at chance (AUC 0.44-0.55) and recovering detection only when the monitor is shown the answer alongside the trace (0.76-1.00). It degrades with no attacker at all -- detection falls 41 to 46 points when the prompt never instructs the model to hide anything, so benchmarks built on explicit instructions to conceal overstate what monitoring achieves. And a trace can be entirely truthful and still uninformative, which is why one source argues faithfulness alone is insufficient and pairs it with verbosity, whether the trace lists every factor needed to solve the task, showing models that look faithful while omitting key factors. Two sources push back on the assumption that latent reasoning necessarily destroys it: monitorability depends more on the task and on access to internals than on whether the reasoning is explicit or latent, and a guard compressed from 268 reasoning tokens to 1.60 latent states can still produce a human-readable audit artifact on demand -- though that paper's own ablation finds the artifact anchored far more by the source text than by the latent states it is supposed to describe, which is precisely the failure a monitor exists to catch.",
+    "definition": "How much an observer can learn about what a model is doing by reading what it emits, and across 18 sources the safety-adjacent property the archive treats as a relation between task, access and monitor rather than a property of a model. The measured findings: reasoning models are consistently more monitorable than their instruction-tuned counterparts on both axes across all four model pairs tested, with the highest at 78.3 percent average and the largest gaps on the cue where concealment would matter most; difficulty is inversely related to it, with the hardest science benchmark lowest; and scores are similar across all four trace-transition types, which is that source's argument that marking non-switch cases faithful by default throws away most of the available signal. Three limits are stated by the sources themselves. It is almost always evaluated where the prompt directly incentivises concealment, which is not the deployment case. Detection depends on the monitor, so a number bounds that monitor rather than monitorability in general. And where the trace is latent there is no trace to read, so monitoring must fall back on probing or verbalising the latent states, and how much is retained that way is unknown. The archive's own position, from its findings, is that monitoring works as a consistency check between a trace and the answer it accompanies rather than as anomaly detection within the trace.",
     "kind": "concept",
     "related": [
+      "chain-of-thought faithfulness",
       "detection versus control"
     ]
   },
@@ -177,6 +236,7 @@
   "task_version": 1,
   "topics": [
     "reasoning-faithfulness",
+    "reasoning-interpretability",
     "reasoning-training",
     "test-time-scaling"
   ]

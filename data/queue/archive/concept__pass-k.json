@@ -9,8 +9,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -21,8 +21,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -33,8 +33,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -45,8 +45,68 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+        "title": "Improving Generalization Robustness of Multimodal RLVR",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Explores in weight space rather than token space during RLVR by sampling policies from a variational posterior at rollout time, and introduces a training-time exploration metric -- how often a method produces a correct rollout on a prompt where GRPO produced none -- because entropy and pass@k cannot tell exploration from degeneration.",
+        "title": "Parameter Exploration for RLVR via Variational Learning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies degenerate agreement -- students reaching near-perfect token agreement with a teacher by looping while the response as a whole is broken -- and replaces the agreement objective with two directional mismatch corrections, one bounding runaway excess tokens and one injecting teacher-preferred mass at positions the student almost never samples.",
+        "title": "Mismatch Matters: On-Policy Distillation Beyond Token Agreement",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Combines in-context learning through evolving recurrent memory with iterative reasoning in a continuous latent workspace that is never decoded into language, reaching 29.5% pass@2 on public ARC-AGI-1 at $0.0007 per task from 150M parameters, and then probes with controlled tasks what the resulting demonstration-bound operators can and cannot do.",
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Evaluates on-policy distillation across sampling budgets from 1 to 1024 and finds it consistently improves accuracy at small budgets while losing to the untrained base model at large ones, so what it transfers is sampling efficiency rather than capability -- and off-policy distillation, tested the same way, does expand the boundary.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling",
+          "reasoning-evaluation",
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -57,8 +117,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -69,8 +129,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -81,8 +141,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -93,8 +153,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -105,8 +165,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -117,8 +177,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -129,8 +189,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -141,8 +201,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -153,8 +213,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -165,8 +225,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -177,8 +237,8 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       },
       {
@@ -189,14 +249,14 @@
           "reasoning-training",
           "test-time-scaling",
           "reasoning-evaluation",
-          "reasoning-interpretability",
-          "reasoning-faithfulness"
+          "reasoning-faithfulness",
+          "reasoning-interpretability"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:42:19Z",
-  "created_at": "2026-08-20T12:24:20Z",
+  "completed_at": "2026-08-20T23:08:03Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'pass@k'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "pass@k",
   "kind": "concept",
@@ -213,17 +273,19 @@
   },
   "payload": {
     "name": "pass@k",
-    "source_count": 16
+    "source_count": 21
   },
   "result": {
     "aliases": [
       "pass@K",
-      "pass@k"
+      "coverage"
     ],
-    "definition": "The probability that at least one of k independently sampled attempts is correct, estimated over a benchmark. In this archive it is less an evaluation metric than the axis on which one argument is fought: whether reinforcement learning with verifiable rewards adds reasoning capability or only concentrates what the base model already had. Measured at large k, RLVR-trained models lose to their own base models, which reads as sharpening the sampling distribution toward paths the base could already reach -- and one source reverses that verdict without disputing the measurement, showing that base models win at large k by producing wrong chains that land on right answers, so that scoring the chain as well as the answer puts RLVR ahead at every k. What pass@k measures therefore depends entirely on what counts as a success, and answer-only scoring credits luck. Its second role is as the place diversity collapse becomes visible: entropy collapse under RL degrades pass@k specifically at large k while leaving single-sample accuracy intact, which is why several sources here read the gap between small-k and large-k rather than either alone, and why a diversity bonus is evaluated by whether it removes that gap. Two cautions attach because it is a sampling estimate. The sample count and the decoding configuration are part of the claim rather than of the setup, as one source makes explicit by specifying what a reproducible inference protocol must declare; and the ground under it is less stable than assumed, since greedy decoding is not deterministic across hardware and changing GPU type, GPU count or evaluation batch size moves a reasoning model's AIME 2024 accuracy by up to 9 percentage points and its response length by 9,000 tokens under BF16.",
+    "definition": "The probability that at least one of k sampled responses is correct, used across 21 sources as the archive's measure of what a model can reach as opposed to what it reliably produces. Reading it correctly is most of what the corpus has to say. Small k measures sampling efficiency and large k probes the boundary, and the two can move in opposite directions within one training run -- pass@1 rising across steps while coverage at pass@256 falls, and in one distillation study the curve crossing between k=1 and k=1024 in every setting measured. A rising curve is also compatible with within-question stability collapsing, so reporting only coverage hides that the same model now answers inconsistently. Two corrections to naive use are established. Scoring the chain as well as the answer reverses the verdict about reinforcement learning at every k, because base models win plain pass@k partly by producing wrong chains that land on right answers. And for candidate banks produced by adaptive search or dependent procedures the usual estimator is a descriptive summary of what was returned rather than an unbiased probability -- one source states this and notes most papers reporting the metric do not. The archive's practical demand is that a method report pass@k across a range rather than at one budget, since the property worth having is competitiveness with the base model uniformly across k rather than a win at either end.",
     "kind": "concept",
     "related": [
-      "best-of-n"
+      "reasoning boundary",
+      "sampling efficiency",
+      "self-consistency"
     ]
   },
   "task_id": "concept__pass-k",

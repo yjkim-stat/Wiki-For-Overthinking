@@ -3,11 +3,47 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Inserts a stage before RL in which the model extracts textual lessons from its own successful and failed rollouts, filters them by measured marginal utility on a held-out probe set, and distills the surviving pool into its own weights — so that GRPO starts from a policy that fails all-eight-samples less often.",
+        "title": "Self-Improving Large Language Models via Progressive Experience Evolution",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Treats a policy's per-problem failure probability as a random variable over the problem distribution and shows that REINFORCE, pass@K training and MaxRL each optimize a single moment of it, then proposes minimizing the first T moments jointly — which is exactly minimizing the expected truncated number of rollouts needed to reach a first success.",
+        "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Replaces PPO's scalar mean-squared-error critic head with a categorical predictor over a discretized value support trained by cross-entropy against Gaussian-smoothed targets, decodes it back to a scalar for an unchanged GAE update, and shows the resulting critic is better calibrated and produces near-symmetric advantages where the MSE critic penalizes failures two-to-three times harder than it rewards successes.",
+        "title": "Start Classifying: Categorical Critics for LLM Reinforcement Learning",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Gives the teacher branch of an on-policy self-distillation setup an abstract skill card -- a principle, when it applies, and the mistakes to avoid -- instead of the reference solution, so the privileged signal carries no answer and the gain lands on exactly the rollout groups where group-relative reward is algebraically silent.",
+        "title": "Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillation",
+        "topics": [
+          "reasoning-evaluation",
+          "reasoning-training"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Reduces the question of whether an update raises or lowers entropy to the sign of one scalar per token, shows that under GRPO what matters is that scalar's deviation from a policy-weighted baseline rather than its own value, and proves the deviation averages to zero over a batch.",
         "title": "On the Entropy Dynamics in Reinforcement Fine-Tuning of Large Language Models",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       },
       {
@@ -15,15 +51,15 @@
         "note": "Recasts entropy collapse as an imbalance of 'entropy flow' — tokens whose update lowers entropy persistently outweigh those that raise it — and rebalances the two sets with a closed-form coefficient computed from each batch, without reference policies or entropy bonuses.",
         "title": "Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization",
         "topics": [
-          "reasoning-training",
-          "reasoning-evaluation"
+          "reasoning-evaluation",
+          "reasoning-training"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-09T06:20:25Z",
-  "created_at": "2026-08-09T06:17:45Z",
-  "instructions": "Write the wiki definition for 'Qwen3-4B-Base'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-20T23:12:25Z",
+  "created_at": "2026-08-20T23:06:54Z",
+  "instructions": "Write the wiki definition for 'Qwen3-4B-Base'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-4B-Base",
   "kind": "concept",
   "language": "en",
@@ -32,25 +68,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
-      "string - names of neighbouring entities worth linking"
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Qwen3-4B-Base",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
-    "aliases": [],
-    "definition": "A 4B-parameter base checkpoint from the Qwen3 family, used by both sources as a starting point for reinforcement learning with verifiable rewards on mathematics. In one it is the second of two base models for the entropy-flow experiments, trained on DAPO-17K; in the other it appears in an appendix extension checking that the entropy-discriminator clipping methods hold across model families rather than only on the Qwen2.5-Instruct models of the main study. Neither source describes the model itself.",
+    "aliases": [
+      "Qwen3-4B-Base"
+    ],
+    "definition": "The 4B Qwen3 base checkpoint, used across 6 sources as the mid rung in reinforcement-learning ladders and as a generalisation check for methods developed on mathematics-specialised backbones. Two archived results are anchored to it. It is where an entropy-flow method's full comparison table sits, and where the archive's most useful decomposition of that literature appears: moving from approximate to strict on-policy training is worth 5.3 points on it while the entropy mechanism layered on top adds 1.8, so most of the reported gain belongs to a separate change. And it is where one distillation study's largest margin lands (+12.01) alongside the observation that its group-relative baseline scores below zero-shot on one benchmark, so part of that margin is a baseline the training damaged.",
     "kind": "model",
     "related": [
-      "Qwen2.5-Math-7B",
-      "Qwen2.5-7B-Instruct",
-      "Qwen2.5-14B-Instruct",
-      "DAPO-Math-17K",
-      "GRPO"
+      "Qwen3-4B",
+      "Qwen3-1.7B-Base"
     ]
   },
   "task_id": "concept__qwen3-4b-base",

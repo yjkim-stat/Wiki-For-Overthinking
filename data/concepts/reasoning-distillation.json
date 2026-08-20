@@ -2,9 +2,10 @@
   "aliases": [
     "chain of thought distillation",
     "trace distillation",
-    "CoT distillation"
+    "CoT distillation",
+    "long-CoT distillation"
   ],
-  "definition": "Transferring reasoning behaviour from a stronger model into a smaller one by training on its traces or its preferences. The sources use it for three targets and one of them revises how it should be done. The original demonstration distils long chain-of-thought from an RL-trained reasoning model into smaller checkpoints. One distils verification rather than problem-solving, producing a 4B guardrail that beats 7B and 8B specialists and GPT-4o at judging groundedness. One argues the transferred structure must match the student's capacity rather than the teacher's, pruning by mathematical skill before distilling, and cuts GSM8K tokens from 917 to 328 while raising accuracy from 91.7% to 94.1%.",
+  "definition": "Training a smaller model on long reasoning traces from a larger one, and across 7 sources both a widely used capability transfer and the comparison that complicates the archive's reinforcement-learning results. Two findings. It does transfer capability where on-policy methods do not: evaluated identically across sampling budgets, off-policy distillation is higher on both coverage and average correctness at every budget while on-policy distillation's advantage reverses at large budgets. And it is the right control for several claims: one exploration study's controlled comparison is verifiable-reward training against long-chain distillation from the same base rather than against the base model, so 'reduces exploration' there means relative to a distilled policy trained on the same data. The corpus's caution is about attribution -- one source's strongest supervised arm learns from a 14B distilled reasoning model while its reinforcement arm has no teacher at all, so a headline supervised-versus-reinforcement comparison confounds the trace source with the training method. Several archived efficiency methods distil pruned or compressed traces rather than raw ones, and one head-to-head finds step-level importance criteria agreeing on what to keep while disagreeing on what to cut, because redundancy is diffuse rather than located in an identifiable class of step.",
   "evidence": [
     {
       "id": "arxiv:2501.12948",
@@ -180,7 +181,11 @@
     "qwen3-32b",
     "deepseek-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "knowledge-distillation",
+    "reasoning-boundary",
+    "supervised-fine-tuning"
+  ],
   "schema_version": 1,
   "slug": "reasoning-distillation",
   "topics": [

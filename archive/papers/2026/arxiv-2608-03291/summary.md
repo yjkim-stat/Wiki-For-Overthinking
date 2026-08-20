@@ -46,7 +46,7 @@ The limitations section is unusually thorough and should be read as part of the 
 
 ## Entities
 
-- **Concepts**: reasoning dynamics, premature verification collapse, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), early warning, transition entropy, capability frontier, self-correction, [backtracking](../../../../wiki/concepts/backtracking.md), [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [overthinking](../../../../wiki/concepts/overthinking.md)
+- **Concepts**: reasoning dynamics, premature verification collapse, [chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [monitorability](../../../../wiki/concepts/monitorability.md), early warning, transition entropy, capability frontier, [self-correction](../../../../wiki/concepts/self-correction.md), [backtracking](../../../../wiki/concepts/backtracking.md), [reasoning boundary](../../../../wiki/concepts/reasoning-boundary.md), [overthinking](../../../../wiki/concepts/overthinking.md)
 - **Methods**: role tagging, transition matrix analysis, prefix-based detection, proof-search prompting, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md), [paired bootstrap confidence intervals](../../../../wiki/methods/paired-bootstrap-confidence-intervals.md)
 - **Datasets**: SATBench
 

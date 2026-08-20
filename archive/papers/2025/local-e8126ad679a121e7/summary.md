@@ -45,7 +45,7 @@ There is no limitations section, and the framing's load-bearing step is narrower
 ## Entities
 
 - **Concepts**: meta-learning, pseudo-gradient update, inner loop optimization, support set, [reasoning trajectory](../../../../wiki/concepts/reasoning-trajectory.md), loss landscape, saddle point escape, reflection token, [effective depth](../../../../wiki/concepts/effective-depth.md), reasoning efficiency, task generalization
-- **Methods**: MAML, Learn to Optimize, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), [budget forcing](../../../../wiki/methods/budget-forcing.md), pass@k, [reasoning distillation](../../../../wiki/methods/reasoning-distillation.md), [veRL](../../../../wiki/methods/verl.md)
+- **Methods**: MAML, Learn to Optimize, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), [GRPO](../../../../wiki/methods/grpo.md), [PPO](../../../../wiki/methods/ppo.md), [budget forcing](../../../../wiki/methods/budget-forcing.md), [pass@k](../../../../wiki/methods/pass-k.md), [reasoning distillation](../../../../wiki/methods/reasoning-distillation.md), [veRL](../../../../wiki/methods/verl.md)
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [MATH500](../../../../wiki/datasets/math500.md), LiveMathBench, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), Open Reasoner Zero
 
 Tags: `meta-learning`, `optimization`, `reasoning-trajectory`, `sft-vs-rl`, `reasoning-efficiency`

@@ -6,7 +6,17 @@
         "note": "Benchmarks 20-plus models as MQM translation-quality judges, finds reasoning models best and a jury of different ones better than any member, then distils that jury's agreement-filtered annotations into a 12B student that beats every open reasoning-model judge tested.",
         "title": "TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that few-shot chain-of-thought prompting with dataset examples now performs worse than simply asking a reasoning-specialized model the question — 74.2% against 86.1% on GSM8K for one model — so the field's standard baseline systematically understates modern models and overstates anything benchmarked against it.",
+        "title": "Soft Guidance Starts to Outperform CoT Prompting as LLMs Improve",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
         ]
       },
       {
@@ -14,13 +24,41 @@
         "note": "Tests reasoning models on Theory of Mind tasks and argues their gains are increased robustness to prompt and task perturbation rather than a new ToM-specific ability.",
         "title": "Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning",
         "topics": [
-          "reasoning-training"
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Traces the brittleness of multimodal RLVR gains under paraphrase and template change to two properties of the standard objective -- a binary verifier that cannot distinguish a wrong answer from a misformatted one, and a training distribution covering a thin slice of the prompts a deployed model meets -- and fixes both with a trinary reward and an invariance penalty across semantically equivalent prompts.",
+        "title": "Improving Generalization Robustness of Multimodal RLVR",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows on four internal Netflix verification tasks that explicit reasoning usually degrades subjective judgement, that applying RLVR to fix it makes the policy abandon deliberation for short heuristic guessing, and that a length bonus gated on answer correctness is what stops the collapse.",
+        "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Asks whether a fixed inference budget buys more accuracy spent on varying the input than on varying the reasoning path, and finds paraphrase aggregation beats self-consistency on five of six benchmarks at matched compute.",
+        "title": "Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute",
+        "topics": [
+          "reasoning-training",
+          "test-time-scaling"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-13T02:08:48Z",
-  "created_at": "2026-08-13T01:53:47Z",
+  "completed_at": "2026-08-20T23:11:37Z",
+  "created_at": "2026-08-20T23:06:54Z",
   "instructions": "Write the wiki definition for 'prompt sensitivity'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "prompt sensitivity",
   "kind": "concept",
@@ -37,21 +75,23 @@
   },
   "payload": {
     "name": "prompt sensitivity",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "prompt brittleness"
+      "template sensitivity"
     ],
-    "definition": "How much a measured result depends on the exact wording of the prompt rather than on the capability being measured, and in both sources a finding about evaluation rather than a nuisance to be tuned away. One shows the field's standard translation-evaluation prompt is specialized to the model it was written for: all other models, including that model's own successor, perform significantly worse under it, and enforcing a structured output format degrades quality across every model tested, worst in the smallest. The other measures robustness over raw accuracy on theory-of-mind tasks. The shared implication for this archive is that a prompt carried from the paper that introduced it is part of the apparatus, not a neutral interface, and a model comparison run under one authored elsewhere may be measuring the fit between prompt and model.",
+    "definition": "How much a result changes when the wording changes rather than the task, and across 6 sources one of the archive's standing threats to comparability. Its measured forms: verifiable-reward gains degrade under paraphrase and template change, traced to a binary verifier that cannot separate a wrong answer from a merely reformatted one, and a multi-template control is the fair comparison because it also sees variety without the invariance constraint; a standard evaluation prompt turns out to be specialised to the model it was authored against, with every other model including that model's own newer sibling performing significantly worse under it. The corpus's methodological demand follows: a spread across variations is only interpretable against a baseline spread, and one source names its own omission of that -- a persona experiment measures spread across personas but reports no baseline spread for ordinary prompt variation, so it cannot separate persona-specific worldview from generic sensitivity.",
     "kind": "concept",
     "related": [
-      "construct validity"
+      "construct validity",
+      "out-of-distribution generalization"
     ]
   },
   "task_id": "concept__prompt-sensitivity",
   "task_version": 1,
   "topics": [
-    "reasoning-training"
+    "reasoning-training",
+    "test-time-scaling"
   ]
 }
