@@ -1,0 +1,102 @@
+{
+  "attachments": {
+    "evidence": [
+      {
+        "id": "overthinking",
+        "kind": "concept",
+        "note": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no accuracy gain, actively lowers accuracy, or degrades safety- or fairness-relevant behavior (e.g. more stereotype-aligned answers under sustained self-doubt, worse AI-risk judgments) as reasoning length grows. It is measured and explained several ways across the …",
+        "sources": 51,
+        "title": "Overthinking"
+      },
+      {
+        "id": "f1-otb-combined-metric",
+        "kind": "concept",
+        "note": "OptimalThinkingBench's headline metric: the harmonic mean of AUC_OAA (the overthinking-penalized accuracy score) and UnderthinkingBench accuracy, so a model must score well on both sub-benchmarks to score high overall. No evaluated model optimally balances both: o3 scores best overall (71.1%), GPT-OSS-120B best among open-weight models (68.3%).",
+        "sources": 1,
+        "title": "F1^otb combined metric"
+      },
+      {
+        "id": "auc-oaa",
+        "kind": "concept",
+        "note": "A metric from OptimalThinkingBench for scoring overthinking: Overthinking-Adjusted Accuracy (OAA_t) counts a response correct only if it also stays under a thinking-token threshold t, and AUC_OAA is the area under the OAA_t curve as t sweeps up to 1000 tokens. A model that reaches the right answer but keeps generating unnecessary tokens scores lower on AUC_OAA than one that stops promptly, even a…",
+        "sources": 1,
+        "title": "AUC_OAA"
+      },
+      {
+        "id": "local:49199e3b0f694ee1",
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "read": true,
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+      },
+      {
+        "id": "local:c1f4e56014fb43fb",
+        "kind": "paper",
+        "note": "Introduces LLMThinkBench, a dynamically-generated 14-task basic-math benchmark and a harmonic-mean Overthinking Score, then evaluates 53 LLMs to show that strong performance on complex math benchmarks does not transfer to basic arithmetic and that reasoning-tuned models often spend far more tokens for equal or worse accuracy.",
+        "read": true,
+        "title": "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models"
+      },
+      {
+        "id": "local:32a56cfa1105c39e",
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "read": true,
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling"
+      },
+      {
+        "id": "arxiv:2607.21433",
+        "kind": "paper",
+        "note": "Two studies on DeepSeek-R1-Distill-Qwen-7B: a budget-forcing sweep showing GSM8K and MATH-500 accuracy saturates at 256 thinking tokens while AIME splits bimodally into generations that terminate and generations that loop until the 10,000-token ceiling, and a linear-probe study showing that hidden-state activations at token 150 predict which of the two an AIME generation will become at AUC 0.608.",
+        "read": true,
+        "title": "Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models"
+      },
+      {
+        "id": "title:279ee92c27a8bb8d",
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "read": true,
+        "title": "How Far Are We from Optimal Reasoning Efficiency?"
+      },
+      {
+        "id": "title:bcd9cf99a0e84a2d",
+        "kind": "paper",
+        "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
+        "read": true,
+        "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens"
+      }
+    ]
+  },
+  "created_at": "2026-08-21T16:25:47Z",
+  "instructions": "오버씽킹 지표들은 서로 순위가 일치하는가? OptimalThinkingBench(33개 모델, F1^otb = 조화평균(AUC_OAA, UnderthinkingBench 정확도))와 LLMThinkBench(53개 모델, Overthinking Score = 조화평균(정확도, 정규화 토큰효율))는 모델 집합이 겹치는데 서로의 지표를 보고하지 않는다. 겹치는 모델들에서 두 순위가 일치하는지 확인하고, 불일치가 있다면 그것이 (a) 벤치마크 난이도 구성의 차이인지 -- OverthinkingBench는 8/8 모델 합의로 '쉬움'을 정의하고 LLMThinkBench는 결정적 기초 산술 14과제를 쓴다 -- (b) 집계 함수의 차이인지, (c) 토큰 정규화 방식의 차이인지(AUC_OAA는 t_max=1000에서 절단, E_t는 min-max 정규화) 판정할 것. 여기에 flip ratio(When More Thinking Hurts), B*(Token Budget Saturation), REG(How Far Are We)를 같은 모델에 적용할 수 있는지도 함께 볼 것. 답이 '순위가 대체로 일치한다'면 지표 난립은 표기 문제이고, '일치하지 않는다'면 이 문헌의 모든 모델 간 비교 주장은 지표에 상대적이다.\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
+  "item_id": "q:e968206b0a0cb6fd",
+  "kind": "synthesis",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - entity names this bears on"
+    ],
+    "kind": "string - one of: decision (the group chose) | fact (it established)",
+    "papers": [
+      "string - canonical ids of archived papers it rests on"
+    ],
+    "rationale": "string - what settled it, and against which evidence",
+    "references": [
+      "string - ids of recorded external references, if any"
+    ],
+    "statement": "string - one sentence somebody could disagree with, settling the question. Leave empty if the evidence does not settle it",
+    "supersedes": "string - id of a finding this replaces, if any",
+    "topics": [
+      "string - tracked topic slugs"
+    ],
+    "unresolved": "string - required *instead of* `statement` when the evidence does not settle the question: what is missing, and what would settle it"
+  },
+  "payload": {
+    "evidence_count": 9,
+    "question": "오버씽킹 지표들은 서로 순위가 일치하는가? OptimalThinkingBench(33개 모델, F1^otb = 조화평균(AUC_OAA, UnderthinkingBench 정확도))와 LLMThinkBench(53개 모델, Overthinking Score = 조화평균(정확도, 정규화 토큰효율))는 모델 집합이 겹치는데 서로의 지표를 보고하지 않는다. 겹치는 모델들에서 두 순위가 일치하는지 확인하고, 불일치가 있다면 그것이 (a) 벤치마크 난이도 구성의 차이인지 -- OverthinkingBench는 8/8 모델 합의로 '쉬움'을 정의하고 LLMThinkBench는 결정적 기초 산술 14과제를 쓴다 -- (b) 집계 함수의 차이인지, (c) 토큰 정규화 방식의 차이인지(AUC_OAA는 t_max=1000에서 절단, E_t는 min-max 정규화) 판정할 것. 여기에 flip ratio(When More Thinking Hurts), B*(Token Budget Saturation), REG(How Far Are We)를 같은 모델에 적용할 수 있는지도 함께 볼 것. 답이 '순위가 대체로 일치한다'면 지표 난립은 표기 문제이고, '일치하지 않는다'면 이 문헌의 모든 모델 간 비교 주장은 지표에 상대적이다."
+  },
+  "task_id": "synthesis__q-e968206b0a0cb6fd",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
