@@ -8,7 +8,7 @@ Neither source describes SciQ directly; it appears only as a named evaluation be
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [GSM8K](gsm8k.md), [MATH](math.md), [MATH500](math500.md), [retrieval-augmented reasoning](../concepts/retrieval-augmented-reasoning.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [AIME 2025](aime-2025.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [GSM8K](gsm8k.md), [MATH](math.md), [MATH500](math500.md), [retrieval-augmented reasoning](../concepts/retrieval-augmented-reasoning.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

@@ -3,12 +3,6 @@
   "definition": "Qwen3-8B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the archive's most frequently used 8B backbone: TabRank fine-tunes it into a listwise table reranker distilled from DeepSeek-R1 rationales, raising Accuracy@10 over the base Qwen3-8B from 0.6200 to 0.8091 on HybridQA and 0.3816 to 0.5835 on TabFact, while ReCo runs it as one of three compression testbeds, holding 69.6% six-benchmark accuracy against 72.3% for full-cache CoT with generation cut from 6,788 to 3,652 tokens and a 2.18x latency speedup. The token-pricing paper calibrates its accuracy-versus-budget curve on it under s1-style budget forcing and finds the saturation rate varying by roughly an order of magnitude across tasks (b = 2.66e-3 on GSM8K against 9.25e-5 on AIME 2024); Sonata and Risky Business use it as one backbone among several. No archived paper describes the model's own architecture or training.",
   "evidence": [
     {
-      "id": "arxiv:2607.25182",
-      "kind": "paper",
-      "note": "TabRank distills DeepSeek-R1 reranking rationales into a Qwen3-8B listwise table reranker by placing the teacher's reasoning trace in the student's input prompt and computing loss only over the final ranking, rather than training the student to reproduce the trace.",
-      "title": "TabRank: Chain-of-Thought Distillation for Table Re-Rankers"
-    },
-    {
       "id": "arxiv:2608.03745",
       "kind": "paper",
       "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
@@ -35,24 +29,9 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "Qwen3-8B",
   "related": [
-    "chain-of-thought-distillation",
-    "conditional-reasoning-distillation",
-    "listwise-reranking",
-    "table-retrieval",
-    "out-of-distribution-generalization",
-    "structural-output-failure",
-    "tabrank",
-    "cotcond-conditional-reasoning-distillation",
-    "cotgen-standard-chain-of-thought-distillation",
-    "naive-sft",
-    "deepseek-r1-teacher-distillation",
-    "reciprocal-rank-fusion-over-bm25-splade-v3-and-all-mpnet-base-v2",
-    "lora-llama-factory",
-    "nq-tables-training-9-574-queries-6-728-retained-after-filtering",
-    "multi-table-qa-benchmark-subsets-hybridqa-6-106-queries-17-229-tables-sqa-148-32",
     "chain-of-thought-faithfulness",
     "chain-of-thought-monitorability",
     "faithfulness-safety-tension",

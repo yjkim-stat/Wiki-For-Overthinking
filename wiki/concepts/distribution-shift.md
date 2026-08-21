@@ -6,14 +6,13 @@ Neither source defines distribution shift; both take it as the reason a decision
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
-**Related**: [BBH](../datasets/bbh.md), [Chain-of-Draft](../methods/chain-of-draft.md), [Early Exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [MATH](../datasets/math.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [test-time adaptation](test-time-adaptation.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
+**Related**: [BBH](../datasets/bbh.md), [Chain-of-Draft](../methods/chain-of-draft.md), [MATH](../datasets/math.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## Appears in
 
 - [Anytime Safe PAC Efficient Reasoning](../../archive/papers/2026/title-b525ac9b26640523/summary.md) — Routes queries between a thinking and a non-thinking model with a threshold that is adjusted online by a betting supermartingale, so the accumulated statistical evidence certifies at any stopping time that the accuracy given up stays under a user-specified tolerance.
-- [TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices](../../archive/papers/2024/title-bf8bc6d3bbf1c242/summary.md) — Makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only early-exit heads in a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it.
 
 <!-- auto:end -->
 

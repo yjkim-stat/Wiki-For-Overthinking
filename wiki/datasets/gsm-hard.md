@@ -8,7 +8,7 @@ GSM-Hard appears in the archive as the hard end of the grade-school arithmetic f
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [Latent reasoning](../concepts/latent-reasoning.md), [MATH](math.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [RLOO](../methods/rloo.md), [SVAMP](svamp.md), [Test-time scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [Latent reasoning](../concepts/latent-reasoning.md), [MATH](math.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [RLOO](../methods/rloo.md), [SVAMP](svamp.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

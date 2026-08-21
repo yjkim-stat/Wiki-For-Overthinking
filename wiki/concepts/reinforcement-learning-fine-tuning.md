@@ -13,8 +13,8 @@ Further training an already-pretrained reasoning model with reinforcement learni
 
 ## Appears in
 
-- [Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models](../../archive/papers/2026/title-0af2f5eb8565eb12/summary.md) — Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.
-- [Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models](../../archive/papers/2026/title-db18eb78dcdd333c/summary.md) — Shows that large reasoning models' final answers are produced by two competing mechanisms, chain-of-thought reasoning and memory retrieval, and introduces FARL, a fine-tuning method that suppresses the retrieval shortcut to encourage genuine reasoning.
+- Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models — Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.
+- Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models — Shows that large reasoning models' final answers are produced by two competing mechanisms, chain-of-thought reasoning and memory retrieval, and introduces FARL, a fine-tuning method that suppresses the retrieval shortcut to encourage genuine reasoning.
 
 <!-- auto:end -->
 

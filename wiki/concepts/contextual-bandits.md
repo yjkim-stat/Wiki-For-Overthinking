@@ -6,14 +6,13 @@ An online-learning framework for repeatedly choosing an action (e.g. which model
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
-**Related**: [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md)
+**Related**: [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-Time Scaling](test-time-scaling.md)
 
 ## Appears in
 
 - [UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling](../../archive/papers/2026/title-3b024853a8e7324c/summary.md) — An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.
-- [Test-Time Scaling of Diffusion Models via Noise Trajectory Search](../../archive/papers/2025/title-8213c516e0a35710/summary.md) — Optimizes the sequence of injected noise vectors during diffusion model denoising, using an epsilon-greedy search cast as sequential contextual bandits, to improve image generation quality at fixed or extra test-time compute.
 
 <!-- auto:end -->
 

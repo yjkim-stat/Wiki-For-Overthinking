@@ -6,12 +6,6 @@
   "definition": "Both archived sources use 'mechanistic interpretability' loosely, as a label for reading and intervening on a model's internal representations rather than for circuit-level reverse engineering, and neither defines it. Manifold Steering works in that register: it finds a single activation-space direction correlated with overthinking, traces the plateau-then-harm behaviour of naive steering to that direction lying on a low-dimensional manifold, and projects the steering vector onto the manifold before applying it at inference, cutting output tokens by up to 71% on DeepSeek-R1 distilled models while maintaining or improving accuracy on mathematical benchmarks (the benchmarks are not named in the material the archive holds). The sparse-autoencoder paper attaches the term to the feature-dictionary line of work instead, and argues via compressed sensing that an SAE's linear-nonlinear encoder provably cannot recover the true sparse code even on solvable instances, so substituting a stronger sparse-inference procedure over the same learned dictionary recovers codes better for small extra compute -- the archive records no number for that gain, nor the interpretability metric claimed to improve. Between the two, the term covers both the analysis of internal representations and the interventions that analysis licenses.",
   "evidence": [
     {
-      "id": "title:67cc50b85e8eb705",
-      "kind": "paper",
-      "note": "Proves via compressed sensing that a sparse autoencoder's linear-nonlinear encoder cannot perform accurate sparse inference even in solvable cases, and shows empirically that replacing the encoder with a stronger sparse-inference procedure recovers codes better at small extra compute.",
-      "title": "Compute Optimal Inference and Provable Amortisation Gap in Sparse Autoencoders"
-    },
-    {
       "id": "title:b4ba27743c499d8d",
       "kind": "paper",
       "note": "Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.",
@@ -20,18 +14,9 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:00:11Z",
-  "name": "Mechanistic Interpretability",
+  "last_seen": "2026-08-21T10:36:59Z",
+  "name": "mechanistic interpretability",
   "related": [
-    "amortisation-gap",
-    "sparse-coding",
-    "compute-accuracy-tradeoff-in-inference",
-    "sparse-autoencoder",
-    "sparse-autoencoders",
-    "compressed-sensing",
-    "sparse-inference",
-    "amortised-inference",
-    "decoupled-encoder-decoder-inference",
     "overthinking",
     "activation-steering",
     "low-dimensional-manifold",

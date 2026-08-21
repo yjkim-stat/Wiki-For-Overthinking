@@ -1,4 +1,4 @@
-# Compute-optimal allocation
+# compute-optimal allocation
 
 <!-- auto:begin -->
 
@@ -7,13 +7,12 @@ The two archived sources use this phrase for two unrelated problems, and the ent
 - **Kind**: concept
 - **Also called**: Compute-optimal allocation, compute-optimal allocation
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
-**Related**: [Compute-optimal inference](compute-optimal-inference.md), [Compute-Optimal Scaling](compute-optimal-scaling.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [Compute-optimal inference](compute-optimal-inference.md), [compute-optimal scaling](compute-optimal-scaling.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 
-- [Compute-Optimal Quantization-Aware Training](../../archive/papers/2026/title-19ebd4d7f589cbd8/summary.md) — An empirical scaling study of how to split a fixed pretraining compute budget between a full-precision phase and a quantization-aware training phase, yielding a loss scaling law that predicts the optimal QAT fraction.
 - [Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning](../../archive/papers/2025/title-f59c52e242c7e540/summary.md) — Analyzes verifier-search and proposal-revision as the two primary mechanisms of test-time compute scaling and shows that allocating compute adaptively per prompt difficulty is more efficient than fixed strategies, and can be more effective than scaling model parameters.
 
 <!-- auto:end -->

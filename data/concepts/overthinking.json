@@ -24,12 +24,6 @@
       "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation"
     },
     {
-      "id": "arxiv:2608.03034",
-      "kind": "paper",
-      "note": "PACE runs a reasoning LLM's thinking for the next robot action concurrently with the current action's physical execution, and sizes each step's thinking-token budget to fit the execution window, evaluated in the Robotouille kitchen-planning simulator with Qwen3-8B-AWQ.",
-      "title": "PACE: Adaptive Budget Allocation for Time-Efficient Embodied Planning"
-    },
-    {
       "id": "arxiv:2608.04771",
       "kind": "paper",
       "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
@@ -320,7 +314,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "Overthinking",
   "related": [
     "redundant-self-verification",
@@ -391,19 +385,6 @@
     "in-domain-test-sets-laws-news-science-subtitles-literary-it-koran-medical",
     "ood-test-sets-conversation-ecommerce-social-culture-commonsense",
     "flores-59-unseen-languages",
-    "reasoning-token-budget",
-    "thinking-time-hiding-rate",
-    "execution-window",
-    "difficulty-scaled-effort-allocation",
-    "diminishing-returns-of-reasoning-budget",
-    "pareto-frontier-of-success-rate-vs-completion-time",
-    "interleaved-think-act-ita-pipelining",
-    "dynamic-budget-allocator-dba-with-difficulty-coefficient",
-    "hybrid-soft-prompt-hard-truncation-budget-control",
-    "react-and-react-think-baselines-fixed-hard-budget-baseline",
-    "wilson-score-intervals-mcnemar-s-test-wilcoxon-signed-rank-test",
-    "pareto-frontier-analysis",
-    "robotouille-synchronous-dataset-100-instances-10-task-types-10-63-optimal-steps",
     "compression-tolerance-of-a-reasoning-state",
     "length-inflation-under-cache-compression",
     "process-reward-model",

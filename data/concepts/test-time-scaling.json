@@ -9,12 +9,6 @@
   "definition": "Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher accuracy. This is the umbrella term the largest number of the archive's collected papers use, spanning genuine reasoning-length work (speculative decoding for reasoning models, budget-aware tree search) and many off-topic applications the topic's keyword filter also caught (GUI agents, diffusion-model image generation, protein design) where 'test-time scaling' means something unrelated to LLM reasoning length. Note: the archive's wiki tracks this same underlying idea under at least three overlapping entries (test-time scaling, test-time compute, test-time compute scaling) that were never merged -- this is the largest and most heavily overloaded of the three, and readers should treat individual sources under it on a paper-by-paper basis rather than assuming uniform relevance.",
   "evidence": [
     {
-      "id": "arxiv:2605.17626",
-      "kind": "paper",
-      "note": "Interleaves compiler and type-checker calls into decoding at structural boundaries of the generated program, rolling back to the last valid prefix when a check fails, and evaluates it on C-to-Rust and JavaScript-to-TypeScript translation under matched token budgets.",
-      "title": "Verifier-Guided Code Translation via Meta-Step Decoding"
-    },
-    {
       "id": "arxiv:2607.19691",
       "kind": "paper",
       "note": "SLPO adds outcome-reward RL to autoregressive latent (continuous-vector) reasoners by scoring latent transitions with a Gaussian surrogate density built from MC-dropout forwards, and by training a stopping head that turns a fixed latent thinking budget into a learned per-instance horizon.",
@@ -45,12 +39,6 @@
       "title": "Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs"
     },
     {
-      "id": "title:32a023f6f6757a4d",
-      "kind": "paper",
-      "note": "A GUI agent that samples and judges multiple candidate actions at test time and uses RL-trained click rewards to ground actions on interface elements more precisely.",
-      "title": "GTA1: GUI Test-time Scaling Agent"
-    },
-    {
       "id": "title:3b024853a8e7324c",
       "kind": "paper",
       "note": "An online bandit controller that jointly decides which model to route a query to and how much test-time compute to spend, to optimize the quality-cost tradeoff.",
@@ -61,12 +49,6 @@
       "kind": "paper",
       "note": "An ensemble of parallel agents using different tool-use strategies that iteratively refine and share answers, with a confidence-based rule to stop early and cut inference cost.",
       "title": "TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture"
-    },
-    {
-      "id": "title:5d210749910cf061",
-      "kind": "paper",
-      "note": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
-      "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling"
     },
     {
       "id": "title:5d66fe9a10241ce8",
@@ -99,12 +81,6 @@
       "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding"
     },
     {
-      "id": "title:9fd5690d024b72bf",
-      "kind": "paper",
-      "note": "Couples a vision-language model with a video-diffusion world model that synthesizes egocentric views along a VLM-proposed camera trajectory, using the resulting multi-view evidence to improve 3D spatial reasoning at inference time.",
-      "title": "MindJourney: Test-Time Scaling with World Models for Spatial Reasoning"
-    },
-    {
       "id": "title:ab80eef8a7c42e7c",
       "kind": "paper",
       "note": "JETTS is a benchmark evaluating how well LLM-as-judge models perform as evaluators guiding test-time-scaling methods -- response reranking, step-level beam search, and critique-based refinement -- across math, code and instruction-following.",
@@ -129,18 +105,6 @@
       "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling"
     },
     {
-      "id": "title:bf9d583811300bbd",
-      "kind": "paper",
-      "note": "Proposes a test-time scaling framework for visual auto-regressive image generation that searches over coarse-to-fine generation paths, improving GenEval score on Infinity2B from 0.69 to 0.75.",
-      "title": "TTS-VAR: A Test-Time Scaling Framework for Visual Auto-Regressive Generation"
-    },
-    {
-      "id": "title:e149fd58642147ea",
-      "kind": "paper",
-      "note": "A training-free framework that uses MCTS-guided test-time search to turn optimization problems into solver-ready code instead of solving them directly.",
-      "title": "SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search"
-    },
-    {
       "id": "title:f508a5b012a33fd1",
       "kind": "paper",
       "note": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
@@ -155,23 +119,9 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:02:20Z",
-  "name": "Test-time scaling",
+  "last_seen": "2026-08-21T10:36:59Z",
+  "name": "Test-Time Scaling",
   "related": [
-    "deterministic-verifier",
-    "verifier-guided-decoding",
-    "meta-step",
-    "error-propagation-in-autoregressive-context",
-    "valid-prefix-constraint",
-    "cost-matched-evaluation",
-    "decoding-time-verification-dtv",
-    "state-machine-decoding-controller",
-    "structure-aware-rollback",
-    "self-refinement-baseline",
-    "post-hoc-verification-baseline",
-    "sampling-based-test-time-scaling-baseline",
-    "c-to-rust-translation-benchmark",
-    "javascript-to-typescript-translation-benchmark",
     "latent-reasoning",
     "thinking-budget",
     "adaptive-stopping",
@@ -268,10 +218,6 @@
     "tree-search-decoding",
     "mathematical-reasoning-benchmarks",
     "a-physics-reasoning-benchmark",
-    "gui-grounding",
-    "sample-and-evaluate-action-selection",
-    "rl-for-click-grounding",
-    "gta1",
     "model-routing",
     "quality-cost-tradeoff",
     "contextual-bandits",
@@ -284,12 +230,6 @@
     "confidence-based-early-stopping",
     "tumix",
     "tool-use-mixture",
-    "knowledge-distillation",
-    "in-context-learning",
-    "induction-heads",
-    "bigram-model-sandbox",
-    "distilled-pretraining",
-    "bigram-model-analysis",
     "overthinking",
     "output-variance-under-extended-thinking",
     "parallel-thinking",
@@ -321,12 +261,6 @@
     "sampling-consistency-in-internal-states",
     "self-truncation-best-of-n-st-bon",
     "best-of-n-bon-sampling",
-    "world-model",
-    "egocentric-camera-trajectory",
-    "multi-view-reasoning",
-    "spatialnavigator",
-    "video-diffusion-world-model",
-    "sat-spatial-reasoning-benchmark",
     "llm-as-judge",
     "outcome-reward-model",
     "best-of-n-reranking",
@@ -352,19 +286,6 @@
     "verifier-guided-cot-truncation",
     "asynchronous-online-trimming-system",
     "gpqa",
-    "path-search",
-    "diversity-search",
-    "resampling-based-selection",
-    "tts-var",
-    "clustering-based-diversity-search",
-    "resampling-based-potential-selection",
-    "infinity2b-var-model",
-    "geneval-benchmark",
-    "monte-carlo-tree-search-for-llm-search",
-    "solver-guided-code-generation",
-    "monte-carlo-tree-search-mcts",
-    "solverllm",
-    "six-standard-optimization-benchmark-datasets-not-individually-named-in-the-abstr",
     "dynamic-early-exit",
     "reasoning-transition-point",
     "trial-answer",

@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Overthinking</h1>
 <p class="subtitle">When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.</p>
-<p>2026-08-21 · 282 archived source(s)</p>
+<p>2026-08-21 · 192 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -116,11 +116,11 @@ th { background: var(--surface); }
 <h2>Where the field stands</h2>
 <ul>
 <li><strong>undated</strong> — 1 paper(s)</li>
-<li><strong>2026</strong> — 199 paper(s)</li>
-<li><strong>2025</strong> — 76 paper(s)</li>
-<li><strong>2024</strong> — 6 paper(s)</li>
+<li><strong>2026</strong> — 140 paper(s)</li>
+<li><strong>2025</strong> — 50 paper(s)</li>
+<li><strong>2024</strong> — 1 paper(s)</li>
 </ul>
-<p>60 arrived in the last 30 days.</p>
+<p>46 arrived in the last 30 days.</p>
 </section>
 <section class="slide">
 <h2>Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs</h2>
@@ -246,33 +246,33 @@ th { background: var(--surface); }
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>Overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no...</li>
-<li><strong>Test-time scaling</strong> — Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher a...</li>
 <li><strong>Test-Time Compute Scaling</strong> — Letting a language model use more inference-time computation — a longer chain of thought, more reasoning tokens, more parallel samples, t...</li>
+<li><strong>Test-Time Scaling</strong> — Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher a...</li>
 <li><strong>accuracy-efficiency tradeoff</strong> — Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quanti...</li>
 <li><strong>Chain-of-Thought Compression</strong> — In these eight sources &#x27;chain-of-thought compression&#x27; is an umbrella for making a reasoning trace shorter while keeping the answer, and i...</li>
-<li><strong>adaptive reasoning</strong> — In these sources &#x27;adaptive reasoning&#x27; names the property that a model&#x27;s reasoning effort should follow the actual difficulty of the insta...</li>
+<li><strong>underthinking</strong> — The complement failure mode to overthinking: a model reasons too little on a problem that genuinely requires deliberate, multi-step reaso...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Methods</h2>
 <ul>
 <li><strong>GRPO</strong> — The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions p...</li>
-<li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
 <li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
+<li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
 <li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
-<li><strong>RLVR</strong> — Reinforcement learning in which the reward is a programmatic check of the final answer rather than a learned preference model, and the do...</li>
+<li><strong>Budget Forcing</strong> — Controlling a reasoning model&#x27;s chain-of-thought length by inserting a keyword at inference time -- most commonly &#x27;Wait&#x27; to force it to k...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
 <li><strong>MATH500</strong> — A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive&#x27;s default mid-difficulty maths benchmark: it...</li>
-<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
 <li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
 <li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used throughout the archive as an &#x27;easy&#x27; reasoning testbed, in contrast to harder benchmarks l...</li>
-<li><strong>GPQA-Diamond</strong> — The 198-question &#x27;Diamond&#x27; subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the arc...</li>
+<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
 <li><strong>AMC23</strong> — The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluat...</li>
+<li><strong>GPQA-Diamond</strong> — The 198-question &#x27;Diamond&#x27; subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the arc...</li>
 </ul>
 </section>
 <section class="slide">
@@ -280,21 +280,21 @@ th { background: var(--surface); }
 <ul>
 <li><strong>Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation</strong> — Stated: three seeds of one 1.5B model on one mathematical training distribution; the mode caps are task-specific and must be matched to the target task&#x27;s len...</li>
 <li><strong>EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models</strong> — Stated: for frontier proprietary models the ground-truth CoTs and their tokenizers are unavailable, so all fidelity numbers there are proxy estimates from re...</li>
-<li><strong>From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG</strong> — This is a position paper with measurements, not a system: the telemetry-informed controller it argues for is described and not built, so no result here shows...</li>
 <li><strong>Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models</strong> — Stated: the three benchmarks are tool-free, so the tool-call-diversity component and environment-level adversarial filtering cannot be validated at all and a...</li>
 <li><strong>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</strong> — Stated: a new provider or unobserved architecture requires collecting a fresh calibration sample of configuration-outcome pairs; evaluation is confined to do...</li>
 <li><strong>SMTrap: Cost-Effective DoS Attacks Against Large Reasoning Models via SMT Conflict Guidance</strong> — The paper&#x27;s own scope statement: the mitigation targets only the failure mode of unrestricted natural-language search on structured CSP-style tasks, not all...</li>
+<li><strong>Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck</strong> — Conclusions rest on two generator model families (Qwen3.5 and OLMo3) and a single unified LLM judge (Qwen3.5-397B-A17B), not the benchmarks&#x27; native judges, t...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
-<li><strong>Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck</strong> — Conclusions rest on two generator model families (Qwen3.5 and OLMo3) and a single unified LLM judge (Qwen3.5-397B-A17B), not the benchmarks&#x27; native judges, t...</li>
 <li><strong>Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth</strong> — Stated by the authors: Sudoku boards come from one construction&#x27;s symmetry orbit, so the headline is extrapolation on that generator (the reachability platea...</li>
 <li><strong>ParaTempo: Efficient Parallel Reasoning via Temporal Confidence</strong> — Accuracy is not actually preserved in the strong sense the objective (min cost s.t. A(pi) &gt;= A(pi_fixed)) states: ParaTempo is below SC@16 on 6 of 8 model-be...</li>
 <li><strong>The Price of Thinking: Reasoning Effort as a Model-Specific API Contract</strong> — The headline contrast is weaker than &#x27;high effort does not buy accuracy&#x27; implies, because the omitted cell&#x27;s documented default is also high effort with adap...</li>
 <li><strong>Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning</strong> — Stated in Section 6: evaluation is centered on tasks with extractable final answers (boxed numbers, multiple-choice, or executable code); open-ended generati...</li>
 <li><strong>Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis</strong> — Discussion section (6) and Future Work (7) state several limits: (1) Upfront cost of estimation -- computing dispersion as a gating signal requires generatin...</li>
+<li><strong>BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs</strong> — Stated: the work claims association between observable behaviours and biased outputs, not CoT faithfulness, and the scheme may not transfer to models that re...</li>
 </ul>
 </section>
 <section class="slide">
@@ -313,7 +313,6 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
-<li>Stef Cuyckens, Mihaela Jivanescu, Jun Yin et al.. <em>ARES: Adaptive Reasoning-Effort Steering for PPA- and Cost-Aware RTL Optimization with LLM Agents</em>. cs.AR. 2026</li>
 <li>Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. <em>Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models</em>. cs.AI. 2026</li>
 <li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
 <li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
@@ -321,12 +320,12 @@ th { background: var(--surface); }
 <li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
 <li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
 <li><em>Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL</em>. NeurIPS 2025. 2025</li>
+<li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
-<li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
 <li>Peisong Wang, Zhiwei Ma, Bowen Liu et al.. <em><span class="math">R^3</span>-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets</em>. cs.CL</li>
 <li>Zishan Ahmad, Vishal Vaddina. <em>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</em>. cs.AI. 2026</li>
 <li>Ahmet Bugra Gundogan, Yigit Turkmen, Melih Bastopcu. <em>Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services</em>. cs.GT. 2026</li>
@@ -334,6 +333,7 @@ th { background: var(--surface); }
 <li><em>Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models</em>. ICLR 2026. 2026</li>
 <li><em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 <li><em>Let LRMs Break Free from Overthinking via Self-Braking Tuning</em>. NeurIPS 2025. 2025</li>
+<li><em>Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

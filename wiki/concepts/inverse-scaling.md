@@ -8,7 +8,7 @@ A finding, or a task designed to produce one, where a model performs worse as it
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Overthinking](overthinking.md), [Scaling Laws](scaling-laws.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [Overthinking](overthinking.md), [scaling laws](scaling-laws.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

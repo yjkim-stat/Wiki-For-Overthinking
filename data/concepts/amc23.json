@@ -98,12 +98,6 @@
       "title": "Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty"
     },
     {
-      "id": "title:9b034ca49bd46f6f",
-      "kind": "paper",
-      "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
-      "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning"
-    },
-    {
       "id": "title:b37859867120f044",
       "kind": "paper",
       "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
@@ -136,7 +130,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "AMC23",
   "related": [
     "segment-level-attribution",
@@ -385,20 +379,6 @@
     "tlmre",
     "adaptthink",
     "laser",
-    "quantized-rollout",
-    "policy-ratio-clipping",
-    "rlvr",
-    "quantization-noise",
-    "training-time-compute-bottleneck",
-    "qurl",
-    "adaptive-clipping-range-acr",
-    "invariant-scaling",
-    "int8-quantization",
-    "fp8-quantization",
-    "dapo",
-    "grpo-style-clipped-policy-optimization",
-    "omni-math",
-    "still",
     "minimal-sufficient-cot",
     "reasoning-sufficiency",
     "continuous-adaptive-reasoning",

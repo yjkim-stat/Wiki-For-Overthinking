@@ -3,12 +3,6 @@
   "definition": "Uncertainty quantification here means estimating how confident a model is in order to decide when to stop computing. QUTE is an early-exit-assisted ensemble that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels; the statistical-early-stopping source instead monitors uncertainty-keyword arrivals inside a reasoning trace with two statistical stopping rules, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
   "evidence": [
     {
-      "id": "title:53c7cfefc569f403",
-      "kind": "paper",
-      "note": "QUTE is an early-exit-assisted ensemble architecture that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels.",
-      "title": "QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring"
-    },
-    {
       "id": "title:594984624acaa60d",
       "kind": "paper",
       "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
@@ -17,18 +11,9 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:49:10Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "Uncertainty Quantification",
   "related": [
-    "early-exit",
-    "ensemble-diversity",
-    "knowledge-distillation",
-    "on-device-model-monitoring",
-    "accuracy-drop-detection",
-    "tinyml",
-    "qute",
-    "early-exit-ensembles",
-    "deep-ensembles-baseline-family",
     "early-stopping",
     "overthinking",
     "ill-posed-query",

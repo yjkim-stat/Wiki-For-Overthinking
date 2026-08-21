@@ -6,13 +6,12 @@ HotpotQA is the archive's multi-hop question-answering leg, and it is where reas
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 3
+- **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [GRPO](../methods/grpo.md), [Length Penalty](../concepts/length-penalty.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [MMLU](mmlu.md), [Natural Questions](natural-questions.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [GRPO](../methods/grpo.md), [Length Penalty](../concepts/length-penalty.md), [MMLU](mmlu.md), [Natural Questions](natural-questions.md), [Overthinking](../concepts/overthinking.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
 
 ## Appears in
 
-- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/2026/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
 - [Atom of Thoughts for Markov LLM Test-Time Scaling](../../archive/papers/2025/title-0393ca4ca3f4fb8c/summary.md) — Atom of Thoughts reframes multi-step LLM reasoning as a Markov process of decomposing a question into independent atomic subquestions and contracting them into an answer-equivalent simplified question, removing the need to carry accumulated historical context and serving as a plug-in for existing test-time scaling methods.
 - [Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization](../../archive/papers/2026/title-0bf980e6919c2982/summary.md) — CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.
 

@@ -6,12 +6,6 @@
   "definition": "Scaling laws here cover two different senses: the first source's proposed constant-then-cooldown learning-rate schedule is meant to let scaling-law experiments reuse a single training run across many training durations, an experimental-methodology use; the second, on the Inverse Scaling Prize, instead reports 11 tasks on which accuracy gets worse, not better, as parameter count and training compute increase -- the sources disagree in valence rather than definition, one treating scaling as an experimental variable to control for and the other cataloguing where its usual benefit fails.",
   "evidence": [
     {
-      "id": "title:5eb9089f909af3c1",
-      "kind": "paper",
-      "note": "Replaces the cosine learning-rate schedule with a constant learning rate followed by a cooldown, so that scaling-law experiments can reuse a single training run across many training durations.",
-      "title": "Scaling Laws and Compute-Optimal Training Beyond Fixed Training Durations"
-    },
-    {
       "id": "title:cb7f41c5af287a91",
       "kind": "paper",
       "note": "Reports 11 tasks, found via the Inverse Scaling Prize contest, on which language model accuracy declines as model parameter count and training compute increase, and analyzes why.",
@@ -20,14 +14,9 @@
   ],
   "first_seen": "2026-08-20T12:24:12Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:00:11Z",
-  "name": "Scaling Laws",
+  "last_seen": "2026-08-21T10:36:59Z",
+  "name": "scaling laws",
   "related": [
-    "compute-optimal-training",
-    "learning-rate-schedule",
-    "stochastic-weight-averaging",
-    "constant-learning-rate-with-cooldown",
-    "cosine-learning-rate-schedule",
     "inverse-scaling",
     "u-shaped-scaling",
     "inverse-scaling-prize-task-suite-11-datasets"

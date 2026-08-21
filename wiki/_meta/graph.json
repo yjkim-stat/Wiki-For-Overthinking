@@ -3,12 +3,6 @@
     {
       "authored": true,
       "source": "concept:accuracy-efficiency-pareto-frontier",
-      "target": "concept:accuracy-efficiency-tradeoff",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "concept:accuracy-efficiency-pareto-frontier",
       "target": "concept:accuracy-efficiency-tradeoff-of-reasoning-length",
       "type": "links"
     },
@@ -16,24 +10,6 @@
       "authored": true,
       "source": "concept:accuracy-efficiency-pareto-frontier",
       "target": "concept:accuracy-length-tradeoff",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "concept:accuracy-efficiency-pareto-frontier",
-      "target": "concept:accuracy-token-pareto-frontier",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:accuracy-efficiency-pareto-frontier",
-      "target": "concept:reward-hacking",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:accuracy-efficiency-pareto-frontier",
-      "target": "concept:test-time-compute-scaling",
       "type": "links"
     },
     {
@@ -64,6 +40,12 @@
       "authored": false,
       "source": "concept:accuracy-efficiency-score-aes",
       "target": "dataset:aime",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:accuracy-efficiency-tradeoff",
+      "target": "concept:accuracy-efficiency-pareto-frontier",
       "type": "links"
     },
     {
@@ -500,6 +482,12 @@
     },
     {
       "authored": true,
+      "source": "concept:accuracy-token-pareto-frontier",
+      "target": "concept:accuracy-efficiency-pareto-frontier",
+      "type": "links"
+    },
+    {
+      "authored": true,
       "source": "concept:adaptive-reasoning",
       "target": "concept:adaptive-test-time-compute",
       "type": "links"
@@ -525,7 +513,7 @@
     {
       "authored": false,
       "source": "concept:adaptive-reasoning",
-      "target": "concept:visual-grounding",
+      "target": "concept:token-level-entropy",
       "type": "links"
     },
     {
@@ -568,6 +556,12 @@
       "authored": false,
       "source": "concept:adaptive-reasoning",
       "target": "method:ada-r1",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:adaptive-reasoning",
+      "target": "method:ares",
       "type": "links"
     },
     {
@@ -616,6 +610,12 @@
       "authored": false,
       "source": "concept:adaptive-reasoning",
       "target": "method:plan-and-budget",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:adaptive-reasoning",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
@@ -1017,6 +1017,12 @@
     {
       "authored": false,
       "source": "concept:chain-of-thought-faithfulness",
+      "target": "method:qwen3-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:chain-of-thought-faithfulness",
       "target": "method:qwq-32b",
       "type": "links"
     },
@@ -1029,6 +1035,12 @@
     {
       "authored": false,
       "source": "concept:chain-of-thought-monitorability",
+      "target": "method:qwen3-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:chain-of-thought-monitorability",
       "target": "method:qwq-32b",
       "type": "links"
     },
@@ -1036,12 +1048,6 @@
       "authored": true,
       "source": "concept:chain-of-thought-prompting",
       "target": "concept:latent-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "concept:compute-optimal-allocation",
-      "target": "concept:compute-optimal-scaling",
       "type": "links"
     },
     {
@@ -1093,15 +1099,15 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "concept:adaptive-test-time-compute",
+      "authored": true,
+      "source": "concept:compute-optimal-scaling",
+      "target": "concept:compute-optimal-allocation",
       "type": "links"
     },
     {
       "authored": false,
       "source": "concept:confidence-calibration",
-      "target": "concept:early-exit-neural-networks",
+      "target": "concept:adaptive-test-time-compute",
       "type": "links"
     },
     {
@@ -1132,12 +1138,6 @@
       "authored": false,
       "source": "concept:confidence-calibration",
       "target": "dataset:humaneval",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "dataset:imagenet-1k",
       "type": "links"
     },
     {
@@ -1201,12 +1201,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "method:confidence-thresholding",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "concept:confidence-calibration",
       "target": "method:conformal-prediction",
@@ -1245,6 +1239,12 @@
     {
       "authored": false,
       "source": "concept:difficulty-aware-compute-allocation",
+      "target": "concept:token-level-entropy",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:difficulty-aware-compute-allocation",
       "target": "dataset:mathverse",
       "type": "links"
     },
@@ -1270,6 +1270,18 @@
       "authored": false,
       "source": "concept:difficulty-aware-compute-allocation",
       "target": "dataset:wemath",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:difficulty-aware-compute-allocation",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:difficulty-aware-compute-allocation",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
@@ -1341,13 +1353,19 @@
     {
       "authored": false,
       "source": "concept:early-exit-neural-networks",
+      "target": "concept:confidence-calibration",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:early-exit-neural-networks",
       "target": "dataset:imagenet-1k",
       "type": "links"
     },
     {
       "authored": true,
       "source": "concept:early-exit-neural-networks",
-      "target": "method:early-exit-ensembles",
+      "target": "method:layer-wise-early-exit",
       "type": "links"
     },
     {
@@ -1587,6 +1605,12 @@
     {
       "authored": false,
       "source": "concept:latent-reasoning",
+      "target": "concept:test-time-scaling",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:latent-reasoning",
       "target": "concept:thinking-budget",
       "type": "links"
     },
@@ -1701,6 +1725,12 @@
     {
       "authored": false,
       "source": "concept:length-penalty",
+      "target": "dataset:natural-questions",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:length-penalty",
       "target": "method:dpo-shortest",
       "type": "links"
     },
@@ -1767,6 +1797,12 @@
     {
       "authored": false,
       "source": "concept:length-reward",
+      "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:length-reward",
       "target": "method:seg-zero-baseline",
       "type": "links"
     },
@@ -1780,36 +1816,6 @@
       "authored": true,
       "source": "concept:mathematical-reasoning-benchmarks",
       "target": "dataset:gpqa-diamond",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:strategyqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:out-of-distribution-generalization",
-      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -2743,6 +2749,12 @@
       "type": "links"
     },
     {
+      "authored": false,
+      "source": "concept:pass-1",
+      "target": "dataset:livecodebench-v6",
+      "type": "links"
+    },
+    {
       "authored": true,
       "source": "concept:pass-1",
       "target": "method:best-of-n-sampling",
@@ -2764,6 +2776,12 @@
       "authored": true,
       "source": "concept:process-reward-model-prm",
       "target": "method:monte-carlo-tree-search",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:process-reward-model-prm",
+      "target": "method:process-reward-model",
       "type": "links"
     },
     {
@@ -2851,9 +2869,21 @@
       "type": "links"
     },
     {
+      "authored": false,
+      "source": "concept:reasoning-trace-length",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
       "authored": true,
       "source": "concept:reasoning-trace-length",
       "target": "method:budget-forcing",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:reasoning-trace-length",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
@@ -3075,6 +3105,12 @@
     {
       "authored": false,
       "source": "concept:reward-hacking",
+      "target": "concept:accuracy-efficiency-pareto-frontier",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:reward-hacking",
       "target": "method:linear-probe",
       "type": "links"
     },
@@ -3177,6 +3213,12 @@
     {
       "authored": false,
       "source": "concept:supervised-fine-tuning",
+      "target": "dataset:natural-questions",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:supervised-fine-tuning",
       "target": "dataset:strategyqa",
       "type": "links"
     },
@@ -3184,12 +3226,6 @@
       "authored": false,
       "source": "concept:supervised-fine-tuning",
       "target": "method:ada-grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:supervised-fine-tuning",
-      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -3226,6 +3262,12 @@
       "authored": false,
       "source": "concept:test-time-adaptation",
       "target": "concept:distribution-shift",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:test-time-adaptation",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -3278,14 +3320,8 @@
     },
     {
       "authored": false,
-      "source": "concept:test-time-compute-allocation",
-      "target": "dataset:livecodebench",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-compute-allocation",
-      "target": "method:ares",
+      "source": "concept:test-time-compute-scaling",
+      "target": "concept:accuracy-efficiency-pareto-frontier",
       "type": "links"
     },
     {
@@ -3771,12 +3807,6 @@
     {
       "authored": false,
       "source": "concept:test-time-scaling",
-      "target": "concept:latent-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-scaling",
       "target": "concept:mathematical-reasoning-benchmarks",
       "type": "links"
     },
@@ -3976,12 +4006,6 @@
       "authored": false,
       "source": "concept:test-time-scaling",
       "target": "method:grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-scaling",
-      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -4203,67 +4227,19 @@
     {
       "authored": false,
       "source": "concept:token-level-entropy",
-      "target": "concept:adaptive-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "concept:difficulty-aware-compute-allocation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
       "target": "concept:reasoning-trace-length",
       "type": "links"
     },
     {
       "authored": false,
       "source": "concept:token-level-entropy",
-      "target": "dataset:mathverse",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "dataset:mathvision",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "dataset:mathvista",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "dataset:mmmu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "dataset:mmstar",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "dataset:wemath",
+      "target": "method:ares",
       "type": "links"
     },
     {
       "authored": false,
       "source": "concept:token-level-entropy",
       "target": "method:qwen2-5-vl",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:token-level-entropy",
-      "target": "method:rlvr",
       "type": "links"
     },
     {
@@ -4300,12 +4276,6 @@
       "authored": false,
       "source": "concept:uncertainty-quantification",
       "target": "method:conformal-prediction",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:uncertainty-quantification",
-      "target": "method:early-exit-ensembles",
       "type": "links"
     },
     {
@@ -4460,6 +4430,12 @@
     },
     {
       "authored": false,
+      "source": "concept:visual-grounding",
+      "target": "concept:adaptive-reasoning",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "dataset:ai2d",
       "target": "dataset:gqa",
       "type": "links"
@@ -4486,6 +4462,18 @@
       "authored": false,
       "source": "dataset:aime",
       "target": "dataset:still",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime",
+      "target": "method:chain-of-thought-distillation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime",
+      "target": "method:kv-cache-eviction",
       "type": "links"
     },
     {
@@ -4725,19 +4713,7 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "dataset:bbh",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -4767,12 +4743,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "dataset:hellaswag",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "dataset:hmmt-2025",
       "type": "links"
     },
@@ -4786,12 +4756,6 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "dataset:livecodebench",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "dataset:livecodebench-v6",
       "type": "links"
     },
     {
@@ -4863,12 +4827,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "dataset:strategyqa",
       "type": "links"
     },
@@ -4912,12 +4870,6 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "method:budget-forcing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "method:c4",
       "type": "links"
     },
     {
@@ -5020,12 +4972,6 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "method:grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -5439,12 +5385,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
       "target": "dataset:bbh",
       "type": "links"
     },
@@ -5452,12 +5392,6 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -5476,12 +5410,6 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "dataset:gsm8k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "dataset:hellaswag",
       "type": "links"
     },
     {
@@ -5662,12 +5590,6 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "method:budget-forcing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "method:c4",
       "type": "links"
     },
     {
@@ -5961,6 +5883,12 @@
     {
       "authored": false,
       "source": "dataset:aime-2026",
+      "target": "method:on-policy-distillation-opd",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2026",
       "target": "method:self-consistency",
       "type": "links"
     },
@@ -5986,12 +5914,6 @@
       "authored": false,
       "source": "dataset:amc",
       "target": "concept:self-distillation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc",
-      "target": "concept:supervised-fine-tuning",
       "type": "links"
     },
     {
@@ -6034,6 +5956,12 @@
       "authored": false,
       "source": "dataset:amc",
       "target": "dataset:still",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:amc",
+      "target": "method:chain-of-thought-distillation",
       "type": "links"
     },
     {
@@ -6315,19 +6243,7 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
       "target": "dataset:s1k-1-1",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
-      "target": "dataset:still",
       "type": "links"
     },
     {
@@ -6394,12 +6310,6 @@
       "authored": false,
       "source": "dataset:amc23",
       "target": "method:conformal-prediction",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
-      "target": "method:dapo",
       "type": "links"
     },
     {
@@ -6537,12 +6447,6 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "method:rlvr",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
       "target": "method:seal",
       "type": "links"
     },
@@ -6568,6 +6472,12 @@
       "authored": false,
       "source": "dataset:amc23",
       "target": "method:trimr",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:arc-challenge",
+      "target": "concept:out-of-distribution-generalization",
       "type": "links"
     },
     {
@@ -6603,12 +6513,6 @@
     {
       "authored": false,
       "source": "dataset:arc-challenge",
-      "target": "dataset:mmlu-pro",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:arc-challenge",
       "target": "dataset:strategyqa",
       "type": "links"
     },
@@ -6616,6 +6520,12 @@
       "authored": false,
       "source": "dataset:arc-challenge",
       "target": "dataset:svamp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:arc-challenge",
+      "target": "method:chain-of-thought-distillation",
       "type": "links"
     },
     {
@@ -6746,6 +6656,18 @@
     },
     {
       "authored": false,
+      "source": "dataset:bbh-big-bench-hard",
+      "target": "dataset:hotpotqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:commonsenseqa",
+      "target": "concept:out-of-distribution-generalization",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "dataset:commonsenseqa",
       "target": "dataset:s1k-1-1",
       "type": "links"
@@ -6754,6 +6676,12 @@
       "authored": true,
       "source": "dataset:commonsenseqa",
       "target": "dataset:strategyqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:commonsenseqa",
+      "target": "method:chain-of-thought-distillation",
       "type": "links"
     },
     {
@@ -6771,49 +6699,13 @@
     {
       "authored": false,
       "source": "dataset:dapo-math-17k",
-      "target": "dataset:livecodebench-v6",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:dapo-math-17k",
-      "target": "dataset:supergpqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:dapo-math-17k",
-      "target": "method:adaptthink",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "dataset:dapo-math-17k",
-      "target": "method:dapo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:dapo-math-17k",
       "target": "method:gfpo",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:dapo-math-17k",
-      "target": "method:lc-r1",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:dapo-math-17k",
       "target": "method:qwen2-5-instruct",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:dapo-math-17k",
-      "target": "method:s-grpo",
       "type": "links"
     },
     {
@@ -6826,18 +6718,6 @@
       "authored": false,
       "source": "dataset:deepscaler",
       "target": "concept:sequential-revision",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepscaler",
-      "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gaia",
-      "target": "dataset:hle",
       "type": "links"
     },
     {
@@ -6976,12 +6856,6 @@
       "authored": false,
       "source": "dataset:gpqa",
       "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
-      "target": "dataset:gaia",
       "type": "links"
     },
     {
@@ -7309,12 +7183,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:bbh-big-bench-hard",
@@ -7342,12 +7210,6 @@
       "authored": true,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:gsm8k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "dataset:hellaswag",
       "type": "links"
     },
     {
@@ -7396,12 +7258,6 @@
       "authored": false,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:mmlu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "dataset:mmlu-pro",
       "type": "links"
     },
     {
@@ -7456,12 +7312,6 @@
       "authored": false,
       "source": "dataset:gpqa-diamond",
       "target": "method:budget-forcing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "method:c4",
       "type": "links"
     },
     {
@@ -7576,6 +7426,18 @@
       "authored": false,
       "source": "dataset:gpqa-diamond",
       "target": "method:vllm",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:gqa",
+      "target": "dataset:imagenet-1k",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:gqa",
+      "target": "dataset:pope",
       "type": "links"
     },
     {
@@ -7977,12 +7839,6 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
       "target": "dataset:s1k-1-1",
       "type": "links"
     },
@@ -7990,12 +7846,6 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "dataset:sciq",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
-      "target": "dataset:still",
       "type": "links"
     },
     {
@@ -8193,13 +8043,13 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "method:knowledge-distillation",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "method:kv-cache-compression",
+      "target": "method:kv-cache-eviction",
       "type": "links"
     },
     {
@@ -8355,12 +8205,6 @@
     {
       "authored": false,
       "source": "dataset:hellaswag",
-      "target": "dataset:mmlu-pro",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:hellaswag",
       "target": "dataset:svamp",
       "type": "links"
     },
@@ -8380,6 +8224,12 @@
       "authored": false,
       "source": "dataset:hmmt-2025",
       "target": "concept:reasoning-effort",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:hmmt-2025",
+      "target": "dataset:livecodebench-v6",
       "type": "links"
     },
     {
@@ -8521,9 +8371,9 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:hotpotqa",
-      "target": "dataset:bbh-big-bench-hard",
+      "target": "dataset:natural-questions",
       "type": "links"
     },
     {
@@ -8623,9 +8473,9 @@
       "type": "links"
     },
     {
-      "authored": true,
+      "authored": false,
       "source": "dataset:imagenet-1k",
-      "target": "dataset:gqa",
+      "target": "concept:confidence-calibration",
       "type": "links"
     },
     {
@@ -8650,6 +8500,12 @@
       "authored": false,
       "source": "dataset:livecodebench",
       "target": "concept:test-time-compute",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:livecodebench",
+      "target": "concept:test-time-compute-allocation",
       "type": "links"
     },
     {
@@ -8715,6 +8571,12 @@
     {
       "authored": false,
       "source": "dataset:livecodebench",
+      "target": "method:kv-cache-eviction",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:livecodebench",
       "target": "method:manifold-steering",
       "type": "links"
     },
@@ -8763,12 +8625,6 @@
     {
       "authored": false,
       "source": "dataset:livecodebench-v6",
-      "target": "concept:pass-1",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:livecodebench-v6",
       "target": "concept:underthinking",
       "type": "links"
     },
@@ -8776,12 +8632,6 @@
       "authored": false,
       "source": "dataset:livecodebench-v6",
       "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:livecodebench-v6",
-      "target": "dataset:hmmt-2025",
       "type": "links"
     },
     {
@@ -8824,6 +8674,12 @@
       "authored": false,
       "source": "dataset:math",
       "target": "concept:distribution-shift",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math",
+      "target": "concept:out-of-distribution-generalization",
       "type": "links"
     },
     {
@@ -8979,6 +8835,12 @@
     {
       "authored": false,
       "source": "dataset:math",
+      "target": "method:chain-of-thought-distillation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math",
       "target": "method:conformal-prediction",
       "type": "links"
     },
@@ -9004,12 +8866,6 @@
       "authored": false,
       "source": "dataset:math",
       "target": "method:dr-grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math",
-      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -9231,12 +9087,6 @@
     {
       "authored": false,
       "source": "dataset:math500",
-      "target": "concept:supervised-fine-tuning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math500",
       "target": "concept:test-time-compute-allocation",
       "type": "links"
     },
@@ -9445,12 +9295,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:math500",
-      "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "dataset:math500",
       "target": "dataset:openthoughts",
@@ -9466,12 +9310,6 @@
       "authored": false,
       "source": "dataset:math500",
       "target": "dataset:sciq",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math500",
-      "target": "dataset:still",
       "type": "links"
     },
     {
@@ -9897,6 +9735,12 @@
     {
       "authored": false,
       "source": "dataset:mathverse",
+      "target": "concept:token-level-entropy",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathverse",
       "target": "dataset:ai2d",
       "type": "links"
     },
@@ -9926,8 +9770,26 @@
     },
     {
       "authored": false,
+      "source": "dataset:mathverse",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathverse",
+      "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "dataset:mathvision",
       "target": "concept:reasoning-trace-length",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathvision",
+      "target": "concept:token-level-entropy",
       "type": "links"
     },
     {
@@ -9956,8 +9818,26 @@
     },
     {
       "authored": false,
+      "source": "dataset:mathvision",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathvision",
+      "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "dataset:mathvista",
       "target": "concept:reasoning-trace-length",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathvista",
+      "target": "concept:token-level-entropy",
       "type": "links"
     },
     {
@@ -10000,6 +9880,18 @@
       "authored": false,
       "source": "dataset:mathvista",
       "target": "dataset:wemath",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathvista",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mathvista",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
@@ -10281,18 +10173,6 @@
     {
       "authored": false,
       "source": "dataset:minerva",
-      "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:minerva",
-      "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:minerva",
       "target": "method:ada-r1",
       "type": "links"
     },
@@ -10300,12 +10180,6 @@
       "authored": false,
       "source": "dataset:minerva",
       "target": "method:autothink",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:minerva",
-      "target": "method:dapo",
       "type": "links"
     },
     {
@@ -10366,12 +10240,6 @@
       "authored": false,
       "source": "dataset:minerva",
       "target": "method:phi-4-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:minerva",
-      "target": "method:rlvr",
       "type": "links"
     },
     {
@@ -10605,6 +10473,12 @@
     {
       "authored": false,
       "source": "dataset:mmlu",
+      "target": "method:qwen3-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmlu",
       "target": "method:qwq-32b",
       "type": "links"
     },
@@ -10725,6 +10599,12 @@
     {
       "authored": false,
       "source": "dataset:mmlu-pro",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmlu-pro",
       "target": "method:chain-of-draft",
       "type": "links"
     },
@@ -10803,6 +10683,12 @@
     {
       "authored": false,
       "source": "dataset:mmmu",
+      "target": "concept:token-level-entropy",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmmu",
       "target": "dataset:mathverse",
       "type": "links"
     },
@@ -10833,6 +10719,18 @@
     {
       "authored": false,
       "source": "dataset:mmmu",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmmu",
+      "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmmu",
       "target": "method:rlvr",
       "type": "links"
     },
@@ -10845,13 +10743,13 @@
     {
       "authored": false,
       "source": "dataset:mmstar",
-      "target": "dataset:ai2d",
+      "target": "concept:token-level-entropy",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:mmstar",
-      "target": "dataset:gqa",
+      "target": "dataset:ai2d",
       "type": "links"
     },
     {
@@ -10862,20 +10760,20 @@
     },
     {
       "authored": false,
-      "source": "dataset:natural-questions",
-      "target": "concept:length-penalty",
+      "source": "dataset:mmstar",
+      "target": "method:ares",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "dataset:natural-questions",
-      "target": "concept:supervised-fine-tuning",
+      "source": "dataset:mmstar",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
       "authored": true,
       "source": "dataset:natural-questions",
-      "target": "dataset:hotpotqa",
+      "target": "method:retrieval-augmented-generation",
       "type": "links"
     },
     {
@@ -11023,12 +10921,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:olympiadbench",
-      "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "dataset:olympiadbench",
       "target": "dataset:gpqa",
@@ -11109,12 +11001,6 @@
     {
       "authored": false,
       "source": "dataset:olympiadbench",
-      "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
       "target": "dataset:strategyqa",
       "type": "links"
     },
@@ -11146,12 +11032,6 @@
       "authored": false,
       "source": "dataset:olympiadbench",
       "target": "method:chain-of-draft",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
-      "target": "method:dapo",
       "type": "links"
     },
     {
@@ -11235,12 +11115,6 @@
     {
       "authored": false,
       "source": "dataset:olympiadbench",
-      "target": "method:rlvr",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
       "target": "method:seal",
       "type": "links"
     },
@@ -11289,12 +11163,6 @@
     {
       "authored": false,
       "source": "dataset:omni-math",
-      "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:omni-math",
       "target": "dataset:livecodebench",
       "type": "links"
     },
@@ -11308,12 +11176,6 @@
       "authored": false,
       "source": "dataset:omni-math",
       "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:omni-math",
-      "target": "method:dapo",
       "type": "links"
     },
     {
@@ -11413,12 +11275,6 @@
       "type": "links"
     },
     {
-      "authored": true,
-      "source": "dataset:pope",
-      "target": "dataset:gqa",
-      "type": "links"
-    },
-    {
       "authored": false,
       "source": "dataset:reasonseg",
       "target": "dataset:refcoco",
@@ -11450,14 +11306,20 @@
     },
     {
       "authored": false,
-      "source": "dataset:sst-2",
-      "target": "concept:risk-control",
+      "source": "dataset:strategyqa",
+      "target": "concept:out-of-distribution-generalization",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:strategyqa",
       "target": "dataset:s1k-1-1",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:strategyqa",
+      "target": "method:chain-of-thought-distillation",
       "type": "links"
     },
     {
@@ -11476,6 +11338,12 @@
       "authored": false,
       "source": "dataset:supergpqa",
       "target": "dataset:bbh-big-bench-hard",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:supergpqa",
+      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -11649,6 +11517,12 @@
     {
       "authored": false,
       "source": "dataset:wemath",
+      "target": "concept:token-level-entropy",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:wemath",
       "target": "dataset:mmstar",
       "type": "links"
     },
@@ -11656,6 +11530,18 @@
       "authored": false,
       "source": "dataset:wemath",
       "target": "dataset:pope",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:wemath",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:wemath",
+      "target": "method:qwen2-5-vl",
       "type": "links"
     },
     {
@@ -11889,6 +11775,12 @@
     {
       "authored": false,
       "source": "method:adaptthink",
+      "target": "dataset:dapo-math-17k",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:adaptthink",
       "target": "dataset:overthinkingbench",
       "type": "links"
     },
@@ -11953,81 +11845,9 @@
       "type": "links"
     },
     {
-      "authored": true,
-      "source": "method:ares",
-      "target": "concept:adaptive-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "concept:difficulty-aware-compute-allocation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "concept:reasoning-trace-length",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "concept:token-level-entropy",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mathverse",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mathvision",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mathvista",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mmlu-pro",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mmmu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:mmstar",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "dataset:wemath",
-      "type": "links"
-    },
-    {
       "authored": false,
       "source": "method:ares",
       "target": "method:qwen2-5-vl",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:ares",
-      "target": "method:rlvr",
       "type": "links"
     },
     {
@@ -12225,12 +12045,6 @@
     {
       "authored": false,
       "source": "method:c4",
-      "target": "dataset:mmlu-pro",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:c4",
       "target": "dataset:svamp",
       "type": "links"
     },
@@ -12274,48 +12088,6 @@
       "authored": true,
       "source": "method:chain-of-thought-distillation",
       "target": "concept:out-of-distribution-generalization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:aime",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:amc",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "dataset:strategyqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:chain-of-thought-distillation",
-      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -12543,6 +12315,12 @@
     {
       "authored": false,
       "source": "method:confidence-thresholding",
+      "target": "concept:confidence-calibration",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:confidence-thresholding",
       "target": "concept:early-exit-neural-networks",
       "type": "links"
     },
@@ -12565,9 +12343,9 @@
       "type": "links"
     },
     {
-      "authored": true,
+      "authored": false,
       "source": "method:confidence-thresholding",
-      "target": "method:conformal-prediction",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -12583,6 +12361,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:conformal-prediction",
+      "target": "method:confidence-thresholding",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:conformal-prediction",
       "target": "method:rejection-sampling",
@@ -12595,15 +12379,9 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:dapo",
-      "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:dapo",
-      "target": "dataset:still",
+      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -13063,33 +12841,9 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "concept:distribution-shift",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "method:early-exit",
       "target": "concept:early-exit-neural-networks",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "concept:risk-control",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "concept:test-time-adaptation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "concept:uncertainty-quantification",
       "type": "links"
     },
     {
@@ -13165,12 +12919,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "method:confidence-thresholding",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "method:early-exit",
       "target": "method:deer",
@@ -13186,18 +12934,6 @@
       "authored": true,
       "source": "method:early-exit",
       "target": "method:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "method:early-exit",
-      "target": "method:early-exit-ensembles",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -13273,9 +13009,33 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:early-exit-ensembles",
+      "target": "concept:early-exit-neural-networks",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:early-exit-ensembles",
       "target": "concept:test-time-adaptation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:early-exit-ensembles",
+      "target": "concept:uncertainty-quantification",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:early-exit-ensembles",
+      "target": "method:early-exit",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:early-exit-ensembles",
+      "target": "method:knowledge-distillation",
       "type": "links"
     },
     {
@@ -13813,21 +13573,9 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:knowledge-distillation",
-      "target": "concept:uncertainty-quantification",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "method:knowledge-distillation",
       "target": "method:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:knowledge-distillation",
-      "target": "method:early-exit-ensembles",
       "type": "links"
     },
     {
@@ -13875,42 +13623,12 @@
     {
       "authored": true,
       "source": "method:kv-cache-compression",
-      "target": "method:r-kv",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:kv-cache-eviction",
-      "target": "concept:accuracy-efficiency-pareto-frontier",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:kv-cache-eviction",
-      "target": "dataset:aime",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:kv-cache-eviction",
-      "target": "dataset:gsm8k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:kv-cache-eviction",
-      "target": "dataset:livecodebench",
+      "target": "method:kv-cache-eviction",
       "type": "links"
     },
     {
       "authored": true,
-      "source": "method:kv-cache-eviction",
-      "target": "method:kv-cache-compression",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "method:kv-cache-eviction",
+      "source": "method:kv-cache-compression",
       "target": "method:r-kv",
       "type": "links"
     },
@@ -14089,12 +13807,6 @@
       "type": "links"
     },
     {
-      "authored": true,
-      "source": "method:layer-wise-early-exit",
-      "target": "concept:early-exit-neural-networks",
-      "type": "links"
-    },
-    {
       "authored": false,
       "source": "method:layer-wise-early-exit",
       "target": "dataset:gqa",
@@ -14122,6 +13834,12 @@
       "authored": false,
       "source": "method:lc-r1",
       "target": "dataset:bbh-big-bench-hard",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:lc-r1",
+      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -14551,24 +14269,6 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:on-policy-distillation-opd",
-      "target": "dataset:aime-2026",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:on-policy-distillation-opd",
-      "target": "dataset:dapo-math-17k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:on-policy-distillation-opd",
-      "target": "dataset:livecodebench-v6",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "method:plan-and-budget",
       "target": "method:budget-forcing",
@@ -14578,12 +14278,6 @@
       "authored": false,
       "source": "method:plan-and-budget",
       "target": "method:drp",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:preference-optimization",
-      "target": "concept:process-supervision",
       "type": "links"
     },
     {
@@ -14608,12 +14302,6 @@
       "authored": false,
       "source": "method:process-reward-model",
       "target": "concept:compute-optimal-inference",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "method:process-reward-model",
-      "target": "concept:process-reward-model-prm",
       "type": "links"
     },
     {
@@ -14703,67 +14391,13 @@
     {
       "authored": false,
       "source": "method:qwen2-5-vl",
-      "target": "concept:adaptive-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "concept:difficulty-aware-compute-allocation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "concept:length-reward",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
       "target": "concept:reasoning-segmentation",
       "type": "links"
     },
     {
       "authored": false,
       "source": "method:qwen2-5-vl",
-      "target": "concept:reasoning-trace-length",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
       "target": "concept:task-decomposition",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "dataset:mathverse",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "dataset:mathvision",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "dataset:mathvista",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "dataset:mmmu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "dataset:mmstar",
       "type": "links"
     },
     {
@@ -14787,18 +14421,6 @@
     {
       "authored": false,
       "source": "method:qwen2-5-vl",
-      "target": "dataset:wemath",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
-      "target": "method:rlvr",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen2-5-vl",
       "target": "method:seg-zero-baseline",
       "type": "links"
     },
@@ -14811,18 +14433,6 @@
     {
       "authored": false,
       "source": "method:qwen3-8b",
-      "target": "concept:chain-of-thought-faithfulness",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen3-8b",
-      "target": "concept:chain-of-thought-monitorability",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen3-8b",
       "target": "concept:compute-optimal-inference",
       "type": "links"
     },
@@ -14830,12 +14440,6 @@
       "authored": false,
       "source": "method:qwen3-8b",
       "target": "dataset:hmmt-2025",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen3-8b",
-      "target": "dataset:mmlu",
       "type": "links"
     },
     {
@@ -14878,12 +14482,6 @@
       "authored": false,
       "source": "method:qwen3-8b",
       "target": "method:process-reward-model",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:qwen3-8b",
-      "target": "method:qwq-32b",
       "type": "links"
     },
     {
@@ -14936,6 +14534,12 @@
     },
     {
       "authored": false,
+      "source": "method:qwq-32b",
+      "target": "method:qwen3-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "method:r-kv",
       "target": "dataset:aime",
       "type": "links"
@@ -14966,20 +14570,14 @@
     },
     {
       "authored": true,
-      "source": "method:rejection-sampling",
-      "target": "concept:test-time-compute-scaling",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:retrieval-augmented-generation",
-      "target": "dataset:hotpotqa",
+      "source": "method:r-kv",
+      "target": "method:kv-cache-eviction",
       "type": "links"
     },
     {
       "authored": true,
-      "source": "method:retrieval-augmented-generation",
-      "target": "dataset:natural-questions",
+      "source": "method:rejection-sampling",
+      "target": "concept:test-time-compute-scaling",
       "type": "links"
     },
     {
@@ -15129,13 +14727,13 @@
     {
       "authored": false,
       "source": "method:rlvr",
-      "target": "dataset:aime",
+      "target": "concept:token-level-entropy",
       "type": "links"
     },
     {
       "authored": false,
       "source": "method:rlvr",
-      "target": "dataset:deepscaler",
+      "target": "dataset:aime",
       "type": "links"
     },
     {
@@ -15207,6 +14805,12 @@
     {
       "authored": false,
       "source": "method:rlvr",
+      "target": "method:ares",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:rlvr",
       "target": "method:autothink",
       "type": "links"
     },
@@ -15243,7 +14847,19 @@
     {
       "authored": false,
       "source": "method:rlvr",
+      "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:rlvr",
       "target": "method:seg-zero-baseline",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:s-grpo",
+      "target": "dataset:dapo-math-17k",
       "type": "links"
     },
     {
@@ -15604,12 +15220,6 @@
       "authored": false,
       "source": "method:spirit",
       "target": "method:verithinker",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:t5-large",
-      "target": "concept:risk-control",
       "type": "links"
     },
     {
@@ -16280,30 +15890,6 @@
     },
     {
       "authored": false,
-      "source": "model:llama-3-2-1b",
-      "target": "dataset:hotpotqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "model:llama-3-2-1b",
-      "target": "dataset:natural-questions",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "model:llama-3-2-1b",
-      "target": "method:retrieval-augmented-generation",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "model:llama-3-2-1b",
-      "target": "model:qwen2-5-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
       "source": "model:llama-3-8b",
       "target": "dataset:sst-2",
       "type": "links"
@@ -16321,27 +15907,9 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "model:qwen2-5-7b",
-      "target": "dataset:hotpotqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "model:qwen2-5-7b",
-      "target": "dataset:natural-questions",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "model:qwen2-5-7b",
       "target": "method:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "model:qwen2-5-7b",
-      "target": "method:retrieval-augmented-generation",
       "type": "links"
     },
     {
@@ -17531,14 +17099,14 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-21T04:37:41Z",
+  "generated_at": "2026-08-21T10:36:59Z",
   "nodes": [
     {
       "id": "concept:accuracy-efficiency-pareto-frontier",
       "kind": "concept",
       "label": "Accuracy-Efficiency Pareto Frontier",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:accuracy-efficiency-score-aes",
@@ -17580,7 +17148,7 @@
       "kind": "concept",
       "label": "adaptive reasoning",
       "settled": false,
-      "sources": 7
+      "sources": 6
     },
     {
       "id": "concept:adaptive-reasoning-length",
@@ -17648,9 +17216,9 @@
     {
       "id": "concept:compute-optimal-allocation",
       "kind": "concept",
-      "label": "Compute-optimal allocation",
+      "label": "compute-optimal allocation",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:compute-optimal-inference",
@@ -17662,23 +17230,23 @@
     {
       "id": "concept:compute-optimal-scaling",
       "kind": "concept",
-      "label": "Compute-Optimal Scaling",
+      "label": "compute-optimal scaling",
       "settled": false,
-      "sources": 4
+      "sources": 1
     },
     {
       "id": "concept:confidence-calibration",
       "kind": "concept",
       "label": "Confidence Calibration",
       "settled": false,
-      "sources": 4
+      "sources": 3
     },
     {
       "id": "concept:contextual-bandits",
       "kind": "concept",
       "label": "contextual bandits",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:difficulty-aware-compute-allocation",
@@ -17699,7 +17267,7 @@
       "kind": "concept",
       "label": "Distribution Shift",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:early-exit-neural-networks",
@@ -17713,7 +17281,7 @@
       "kind": "concept",
       "label": "early stopping",
       "settled": false,
-      "sources": 5
+      "sources": 2
     },
     {
       "id": "concept:efficient-reasoning",
@@ -17741,7 +17309,7 @@
       "kind": "concept",
       "label": "Group-Relative Advantage",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "concept:hidden-state-probing",
@@ -17790,28 +17358,28 @@
       "kind": "concept",
       "label": "mathematical reasoning benchmarks",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:mechanistic-interpretability",
       "kind": "concept",
-      "label": "Mechanistic Interpretability",
+      "label": "mechanistic interpretability",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:out-of-distribution-generalization",
       "kind": "concept",
       "label": "Out-of-Distribution Generalization",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:overthinking",
       "kind": "concept",
       "label": "Overthinking",
       "settled": false,
-      "sources": 52
+      "sources": 51
     },
     {
       "id": "concept:overthinking-adjusted-accuracy-oaa",
@@ -17839,14 +17407,14 @@
       "kind": "concept",
       "label": "process reward model (PRM)",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:process-supervision",
       "kind": "concept",
       "label": "Process Supervision",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:reasoning-collapse",
@@ -17937,14 +17505,14 @@
       "kind": "concept",
       "label": "Risk Control",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:scaling-laws",
       "kind": "concept",
-      "label": "Scaling Laws",
+      "label": "scaling laws",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:self-certainty",
@@ -17979,7 +17547,7 @@
       "kind": "concept",
       "label": "supervised fine-tuning",
       "settled": false,
-      "sources": 6
+      "sources": 4
     },
     {
       "id": "concept:task-decomposition",
@@ -18005,23 +17573,23 @@
     {
       "id": "concept:test-time-compute-allocation",
       "kind": "concept",
-      "label": "Test-Time Compute Allocation",
+      "label": "test-time compute allocation",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:test-time-compute-scaling",
       "kind": "concept",
       "label": "Test-Time Compute Scaling",
       "settled": false,
-      "sources": 22
+      "sources": 21
     },
     {
       "id": "concept:test-time-scaling",
       "kind": "concept",
-      "label": "Test-time scaling",
+      "label": "Test-Time Scaling",
       "settled": false,
-      "sources": 24
+      "sources": 18
     },
     {
       "id": "concept:thinking-budget",
@@ -18049,7 +17617,7 @@
       "kind": "concept",
       "label": "Token-Level Entropy",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:trained-difficulty-based-router-oracle-router",
@@ -18070,7 +17638,7 @@
       "kind": "concept",
       "label": "Uncertainty Quantification",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "concept:underthinking",
@@ -18112,14 +17680,14 @@
       "kind": "dataset",
       "label": "AIME 2024",
       "settled": false,
-      "sources": 45
+      "sources": 39
     },
     {
       "id": "dataset:aime-2025",
       "kind": "dataset",
       "label": "AIME 2025",
       "settled": false,
-      "sources": 45
+      "sources": 41
     },
     {
       "id": "dataset:aime-2026",
@@ -18133,21 +17701,21 @@
       "kind": "dataset",
       "label": "AMC",
       "settled": false,
-      "sources": 6
+      "sources": 5
     },
     {
       "id": "dataset:amc23",
       "kind": "dataset",
       "label": "AMC23",
       "settled": false,
-      "sources": 21
+      "sources": 20
     },
     {
       "id": "dataset:arc-challenge",
       "kind": "dataset",
       "label": "ARC-Challenge",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:bbh",
@@ -18182,42 +17750,42 @@
       "kind": "dataset",
       "label": "DAPO-Math-17K",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:deepscaler",
       "kind": "dataset",
       "label": "DeepScaleR",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:gaia",
       "kind": "dataset",
       "label": "GAIA",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:gpqa",
       "kind": "dataset",
       "label": "GPQA",
       "settled": false,
-      "sources": 14
+      "sources": 13
     },
     {
       "id": "dataset:gpqa-diamond",
       "kind": "dataset",
       "label": "GPQA-Diamond",
       "settled": false,
-      "sources": 22
+      "sources": 20
     },
     {
       "id": "dataset:gqa",
       "kind": "dataset",
       "label": "GQA",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:gsm-hard",
@@ -18231,21 +17799,21 @@
       "kind": "dataset",
       "label": "GSM8K",
       "settled": false,
-      "sources": 43
+      "sources": 40
     },
     {
       "id": "dataset:hellaswag",
       "kind": "dataset",
       "label": "HellaSwag",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:hle",
       "kind": "dataset",
       "label": "HLE",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:hmmt-2025",
@@ -18266,7 +17834,7 @@
       "kind": "dataset",
       "label": "HotpotQA",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:humaneval",
@@ -18285,9 +17853,9 @@
     {
       "id": "dataset:libero-long",
       "kind": "dataset",
-      "label": "LIBERO-LONG",
+      "label": "LIBERO-Long",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:livecodebench",
@@ -18299,23 +17867,23 @@
     {
       "id": "dataset:livecodebench-v6",
       "kind": "dataset",
-      "label": "LiveCodeBench v6",
+      "label": "LiveCodeBench-v6",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "dataset:math",
       "kind": "dataset",
       "label": "MATH",
       "settled": false,
-      "sources": 16
+      "sources": 15
     },
     {
       "id": "dataset:math500",
       "kind": "dataset",
       "label": "MATH500",
       "settled": false,
-      "sources": 49
+      "sources": 46
     },
     {
       "id": "dataset:mathqa",
@@ -18357,7 +17925,7 @@
       "kind": "dataset",
       "label": "Minerva",
       "settled": false,
-      "sources": 9
+      "sources": 8
     },
     {
       "id": "dataset:mmlu",
@@ -18371,7 +17939,7 @@
       "kind": "dataset",
       "label": "MMLU-Pro",
       "settled": false,
-      "sources": 8
+      "sources": 7
     },
     {
       "id": "dataset:mmlu-stem",
@@ -18392,28 +17960,28 @@
       "kind": "dataset",
       "label": "MMStar",
       "settled": false,
-      "sources": 4
+      "sources": 3
     },
     {
       "id": "dataset:natural-questions",
       "kind": "dataset",
       "label": "Natural Questions",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:olympiadbench",
       "kind": "dataset",
       "label": "OlympiadBench",
       "settled": false,
-      "sources": 14
+      "sources": 13
     },
     {
       "id": "dataset:omni-math",
       "kind": "dataset",
       "label": "Omni-MATH",
       "settled": false,
-      "sources": 5
+      "sources": 4
     },
     {
       "id": "dataset:openthoughts",
@@ -18434,7 +18002,7 @@
       "kind": "dataset",
       "label": "POPE",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:reasonseg",
@@ -18476,14 +18044,14 @@
       "kind": "dataset",
       "label": "SST-2",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:still",
       "kind": "dataset",
       "label": "Still",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "dataset:strategyqa",
@@ -18572,9 +18140,9 @@
     {
       "id": "method:ares",
       "kind": "method",
-      "label": "Ares",
+      "label": "ARES",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "method:autothink",
@@ -18616,7 +18184,7 @@
       "kind": "method",
       "label": "C4",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "method:chain-of-draft",
@@ -18630,7 +18198,7 @@
       "kind": "method",
       "label": "Chain-of-Thought Distillation",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:coconut",
@@ -18672,7 +18240,7 @@
       "kind": "method",
       "label": "Conformal Prediction",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:counterfactual-intervention",
@@ -18686,7 +18254,7 @@
       "kind": "method",
       "label": "DAPO",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:deepseek-r1-distill-llama-8b",
@@ -18756,7 +18324,7 @@
       "kind": "method",
       "label": "Early Exit",
       "settled": false,
-      "sources": 13
+      "sources": 7
     },
     {
       "id": "method:early-exit-ensembles",
@@ -18798,7 +18366,7 @@
       "kind": "method",
       "label": "knowledge distillation",
       "settled": false,
-      "sources": 5
+      "sources": 1
     },
     {
       "id": "method:kv-cache-compression",
@@ -18810,9 +18378,9 @@
     {
       "id": "method:kv-cache-eviction",
       "kind": "method",
-      "label": "KV-Cache Eviction",
+      "label": "KV cache eviction",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:l1-length-controlled-reinforcement-learning",
@@ -18875,7 +18443,7 @@
       "kind": "method",
       "label": "Model Merging",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:monte-carlo-tree-search",
@@ -18910,7 +18478,7 @@
       "kind": "method",
       "label": "on-policy distillation (OPD)",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "method:phi-4-reasoning",
@@ -18931,14 +18499,14 @@
       "kind": "method",
       "label": "Preference Optimization",
       "settled": false,
-      "sources": 4
+      "sources": 3
     },
     {
       "id": "method:process-reward-model",
       "kind": "method",
       "label": "process reward model",
       "settled": false,
-      "sources": 8
+      "sources": 7
     },
     {
       "id": "method:qwen2-5-instruct",
@@ -18952,14 +18520,14 @@
       "kind": "method",
       "label": "Qwen2.5-VL",
       "settled": false,
-      "sources": 3
+      "sources": 2
     },
     {
       "id": "method:qwen3-8b",
       "kind": "method",
       "label": "Qwen3-8B",
       "settled": false,
-      "sources": 5
+      "sources": 4
     },
     {
       "id": "method:qwq-32b",
@@ -18994,7 +18562,7 @@
       "kind": "method",
       "label": "retrieval-augmented generation",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "method:rloo",
@@ -19008,7 +18576,7 @@
       "kind": "method",
       "label": "RLVR",
       "settled": false,
-      "sources": 6
+      "sources": 5
     },
     {
       "id": "method:s-grpo",
@@ -19085,7 +18653,7 @@
       "kind": "method",
       "label": "T5-Large",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "method:thinkless",
@@ -19134,7 +18702,7 @@
       "kind": "method",
       "label": "vLLM",
       "settled": false,
-      "sources": 5
+      "sources": 4
     },
     {
       "id": "model:claude-opus-4-8",
@@ -19169,7 +18737,7 @@
       "kind": "model",
       "label": "Llama-3.2-1B",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "model:llama-3-8b",
@@ -19183,7 +18751,7 @@
       "kind": "model",
       "label": "Qwen2.5 7B",
       "settled": false,
-      "sources": 2
+      "sources": 1
     },
     {
       "id": "topic:overthinking",

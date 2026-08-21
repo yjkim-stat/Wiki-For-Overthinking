@@ -1,4 +1,4 @@
-# Compute-Optimal Scaling
+# compute-optimal scaling
 
 <!-- auto:begin -->
 
@@ -7,15 +7,12 @@ Three of the four sources use this in the pretraining or training sense — allo
 - **Kind**: concept
 - **Also called**: Compute-Optimal Scaling, Compute-optimal scaling, compute-optimal recipe, compute-optimal scaling
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 4
+- **Sources**: 1
 
-**Related**: [Compute-optimal allocation](compute-optimal-allocation.md), [Compute-optimal inference](compute-optimal-inference.md)
+**Related**: [compute-optimal allocation](compute-optimal-allocation.md), [Compute-optimal inference](compute-optimal-inference.md)
 
 ## Appears in
 
-- [Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe](../../archive/papers/2024/title-8f5c26cc033aae9f/summary.md) — Derives a compute-optimal recipe for contrastively converting pretrained decoder-only language models into text embedding models, jointly choosing model size, data quantity and fine-tuning method for a given training budget.
-- [Resolving Discrepancies in Compute-Optimal Scaling of Language Models](../../archive/papers/2024/title-d494aac6d49ec910/summary.md) — Reproduces the Kaplan et al. compute-optimal scaling law and shows that three methodological differences — last-layer compute accounting, warmup duration, and scale-dependent optimizer tuning — account for its disagreement with the Chinchilla law.
-- [Compute-Optimal Scaling for Value-Based Deep RL](../../archive/papers/2025/title-d5d62f18a483fc4a/summary.md) — An empirical study of how to split a fixed training-compute budget between model capacity and update-to-data ratio in online value-based deep RL, identifying a TD-overfitting effect that makes the best batch size depend on model size.
 - [AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks](../../archive/papers/2025/title-f3f44348f8094543/summary.md) — Proposes an LLM-agent framework, AgentTTS, that searches for the compute-optimal choice of model and inference budget per subtask in multi-stage complex tasks.
 
 <!-- auto:end -->

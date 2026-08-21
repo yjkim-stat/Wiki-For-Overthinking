@@ -73,3 +73,4 @@ See `docs/LOCAL-DELTAS.md` for what this deployment changes in the template.
 | 0039 | [A URL the identifier already implies](0039-a-url-the-identifier-already-implies.md) | fix | A bibliographic index carries no document, but the arXiv id it resolved to says where one is |
 | 0040 | [The cloud routine is turned off](0040-the-cloud-routine-is-turned-off.md) | docs · operational · breaking | Collection is automated, reading is not; the steady state is a growing backlog, and that is deliberate |
 | 0041 | [ACL is reached through DBLP, or not at all](0041-acl-is-reached-through-dblp-or-not-at-all.md) | config · editorial | The one venue with no programme page and no OpenReview, so its abstracts come from the Anthology or nowhere |
+| 0042 | [The noise was inside the top tier](0042-the-noise-was-inside-the-top-tier.md) | chore · editorial · breaking | 72 of the 90 discarded readings were ICLR/ICML/NeurIPS papers; venue was never the axis |

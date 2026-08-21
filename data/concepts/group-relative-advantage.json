@@ -17,17 +17,11 @@
       "kind": "paper",
       "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
       "title": "Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning"
-    },
-    {
-      "id": "title:ec9090a2d1f7fb05",
-      "kind": "paper",
-      "note": "Proposes DisCO, a discriminative constrained-optimization alternative to GRPO for RL-training of large reasoning models, that removes question-level difficulty bias and entropy instability, giving average gains of 7% over GRPO and 6% over DAPO on math reasoning benchmarks with a 1.5B model.",
-      "title": "DisCO: Reinforcing Large Reasoning Models with Discriminative Constrained Optimization"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "Group-Relative Advantage",
   "related": [
     "overthinking",
@@ -64,16 +58,7 @@
     "aime-2025",
     "gpqa",
     "omni-math",
-    "livecodebench",
-    "difficulty-bias",
-    "discriminative-learning",
-    "entropy-instability-in-rl",
-    "kl-constrained-optimization",
-    "disco",
-    "grpo-baseline",
-    "dapo-baseline",
-    "discriminative-constrained-optimization",
-    "six-benchmark-tasks-for-mathematical-reasoning-unspecified-names"
+    "livecodebench"
   ],
   "related_authored": [
     "grpo",

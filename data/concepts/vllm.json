@@ -25,17 +25,11 @@
       "kind": "paper",
       "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
       "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
-    },
-    {
-      "id": "title:70a0c3f7ce6097f6",
-      "kind": "paper",
-      "note": "Introduces the Gated Memory Unit, a mechanism for sharing memory readout states across layers, and uses it to build SambaY, a decoder-hybrid-decoder architecture whose 3.8B instance (Phi4-mini-Flash-Reasoning) matches or beats Phi4-mini-Reasoning on math and science benchmarks while decoding up to 10x faster on 32K-token generations.",
-      "title": "Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-08-21T10:36:59Z",
   "name": "vLLM",
   "related": [
     "reasoning-defect-detection",
@@ -122,21 +116,7 @@
     "olympiadbench",
     "minerva",
     "gpqa",
-    "mmlu-pro",
-    "state-space-models",
-    "hybrid-attention-ssm-architecture",
-    "cross-layer-memory-sharing",
-    "decoding-throughput",
-    "linear-pre-filling-complexity",
-    "long-generation",
-    "irreducible-loss-scaling",
-    "gated-memory-unit-gmu",
-    "sambay",
-    "samba",
-    "yoco",
-    "mamba-state-space-models",
-    "differential-attention",
-    "phi4-mini-flash-reasoning"
+    "mmlu-pro"
   ],
   "related_authored": [],
   "schema_version": 1,

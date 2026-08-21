@@ -7,13 +7,12 @@ An open-domain question-answering dataset of real search queries, used in this a
 - **Kind**: dataset
 - **Also called**: NQ
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [GRPO](../methods/grpo.md), [HotpotQA](hotpotqa.md), [Length Penalty](../concepts/length-penalty.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [GRPO](../methods/grpo.md), [HotpotQA](hotpotqa.md), [Length Penalty](../concepts/length-penalty.md), [Overthinking](../concepts/overthinking.md), [retrieval-augmented generation](../methods/retrieval-augmented-generation.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
 
 ## Appears in
 
-- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/2026/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
 - [Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization](../../archive/papers/2026/title-0bf980e6919c2982/summary.md) — CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.
 
 <!-- auto:end -->

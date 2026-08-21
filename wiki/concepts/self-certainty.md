@@ -9,7 +9,7 @@ Neither source explains self-certainty's own definition; it appears as a named s
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [BBH](../datasets/bbh.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Overthinking](overthinking.md), [reasoning effort](reasoning-effort.md), [Self-Consistency](../methods/self-consistency.md), [SuperGPQA](../datasets/supergpqa.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [BBH](../datasets/bbh.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Overthinking](overthinking.md), [reasoning effort](reasoning-effort.md), [Self-Consistency](../methods/self-consistency.md), [SuperGPQA](../datasets/supergpqa.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-Time Scaling](test-time-scaling.md)
 
 ## Appears in
 
