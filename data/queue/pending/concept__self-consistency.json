@@ -1,0 +1,103 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces BiasTrace, a six-label annotation scheme for reasoning behaviours in bias-sensitive traces, and finds that overthinking (repeated second-guessing or revisiting the same options more than three times) is the strongest behavioural predictor of stereotype-aligned answers on BBQ, then uses the scheme to filter samples at inference time.",
+        "title": "BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free controller for parallel reasoning that probes each branch every 500 tokens for a tentative answer distribution, averages recent probes into a 'temporal confidence' score, and uses that one signal to prune, retire, fork and globally stop branches.",
+        "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
+        "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A theoretical paper deriving sample-complexity bounds for self-consistency versus best-of-n, and an expressiveness result showing self-correction lets a Transformer simulate online learning over multiple tasks at test time.",
+        "title": "Sample Complexity and Representation Ability of Test-time Scaling Paradigms",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Retrieval-of-Thought stores prior reasoning as a graph of composable thought steps and, at inference, retrieves and traverses it to assemble a problem-specific template that shortens the model's generated reasoning without retraining.",
+        "title": "Retrieval-of-Thought: Efficient Reasoning via Reusing Thoughts",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study showing that test-time-compute methods effective for LLM reasoning mostly fail to transfer to vision-language models unless prediction diversity is present, and proposes an entropy-based selection method that works better in multi-model ensembles.",
+        "title": "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
+        "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+        "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyses the scaling behaviour of self-consistency sampling as mode estimation, derives power-law error decay in the number of samples, and introduces Blend-ASC, a hyperparameter-free scheme that reallocates a fixed sample budget across questions.",
+        "title": "Optimal Self-Consistency for Efficient Reasoning with Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-21T02:03:43Z",
+  "instructions": "Revise the wiki definition for 'self-consistency'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "self-consistency",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "self-consistency",
+    "previous_definition": "Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.",
+    "source_count": 9
+  },
+  "task_id": "concept__self-consistency",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

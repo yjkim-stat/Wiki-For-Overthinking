@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-The 2023 sitting of the American Mathematics Competitions, used as a hard competition-math evaluation benchmark alongside AIME in CoBa's compute-balanced routing, the on-policy-distillation sampling-efficiency study, Funnel of Thoughts' rollout pruning, and ATTS's conformal-prediction test-time scaling.
+The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluation suite that runs GSM8K and MATH-500 at the easy end and AIME 2024/2025 at the hard end; papers that report an out-of-domain column usually add GPQA-Diamond, Minerva Math or OlympiadBench beside it. Reasoning models in the 1.5B-8B range score roughly 73-92% on it in the archived results, so it is neither saturated like GSM8K nor near-floor like AIME, and it is where token-reduction methods most often hold or gain accuracy: BLADE's probe-based exit costs 1.2 points on Qwen3-8B (88.7 to 87.5), ReBalance's steering vector gains 5-10 points at 26.8-30.2% fewer tokens, and ARLCP reaches 73.28% on a 1.5B distill. Its 40-problem size makes small margins noisy, and at least one archived reading warns on that basis that sub-point differences on AMC23 and AIME24 support non-degradation rather than improvement. It is also one of the few sets where template or guidance injection visibly backfires — Retrieval-of-Thought with template injection drops Qwen3-1.7B from 80% to 57.5% on it.
 
 - **Kind**: dataset
-- **Also called**: AMC 2023, AMC2023
+- **Also called**: AMC 2023, AMC'23, AMC2023, AMC23
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 21
 

@@ -3,6 +3,14 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+        "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
         "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models",
         "topics": [
@@ -16,12 +24,92 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "BEXA adds early-exit branches to the actor network of an off-policy actor-critic agent and picks the exit per state by solving a constrained linear program during training, then amortizes that solution for cheap runtime inference.",
+        "title": "Mind the Budget: Accelerating Deep Reinforcement Learning using Constrained Early Exit Neural Networks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free early-exit scheme for autoregressive decoding that restricts exit checks to a calibrated window of layers and evaluates them against a reduced-vocabulary proxy LM head, giving up to 1.4x speedup on Llama-2 7B.",
+        "title": "WAVE: Window-Aware Vocabulary-Efficient Early-Exit for Training-Free LLM Acceleration",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QUTE is an early-exit-assisted ensemble architecture that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels.",
+        "title": "QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "RAEE decides which transformer layer to exit at by retrieving the exit behaviour of similar training examples from a pre-built database, instead of training internal classifiers or using heuristics.",
+        "title": "RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "S-GRPO trains a reasoning model to stop its chain of thought early by sampling one reasoning path, forcing answers at several truncation points along it, and paying correct answers a reward that decays with how late the exit was.",
+        "title": "S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An early-exit neural architecture for single-channel speech separation and enhancement, paired with a probabilistic model of the clean signal and its error variance that turns a target signal-to-noise ratio into an exit condition.",
+        "title": "Knowing When to Quit: Probabilistic Early Exits for Speech Separation Networks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only early-exit heads in a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it.",
+        "title": "TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "UAT replaces the static confidence threshold in early-exit deep networks with a multi-armed bandit that adapts the threshold online and unsupervised, reporting 1.70-2.10x speedup at under 2% performance drop.",
+        "title": "Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AVA-VLA replaces explicit chain-of-thought in a vision-language-action policy with a sequence of latent reasoning variables trained by RL denoising, and adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success rate.",
+        "title": "Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training framework that adds early-exit inference to Visual AutoRegressive image generation by supervising the model with frequency-aware losses, so a single model can trade decoding cost against image fidelity at runtime.",
+        "title": "FreqExit: Enabling Early-Exit Inference for Visual Autoregressive Models via Frequency-Aware Guidance",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:26:50Z",
-  "created_at": "2026-08-20T12:24:12Z",
-  "instructions": "Write the wiki definition for 'early exit'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T02:00:46Z",
+  "created_at": "2026-08-21T01:54:34Z",
+  "instructions": "Revise the wiki definition for 'early exit'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Stopping a reasoning model's generation before it reaches a natural end, once an internal or external signal indicates the answer is already settled, to avoid spending tokens on unproductive continued reasoning. The 'Don't Overthink It' survey categorizes early exit (monitoring-based, generation-control-based, and RL-based variants) as one of its four families of overthinking mitigation; SpecExit implements it via a speculative-decoding-style draft model that predicts both the next tokens and an early-exit signal, cutting generation length up to 66% with a 2.5x speedup.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "early exit",
   "kind": "concept",
   "language": "en",
@@ -37,17 +125,27 @@
   },
   "payload": {
     "name": "early exit",
-    "source_count": 2
+    "previous_definition": "Stopping a reasoning model's generation before it reaches a natural end, once an internal or external signal indicates the answer is already settled, to avoid spending tokens on unproductive continued reasoning. The 'Don't Overthink It' survey categorizes early exit (monitoring-based, generation-control-based, and RL-based variants) as one of its four families of overthinking mitigation; SpecExit implements it via a speculative-decoding-style draft model that predicts both the next tokens and an early-exit signal, cutting generation length up to 66% with a 2.5x speedup.",
+    "source_count": 13
   },
   "result": {
     "aliases": [
-      "speculative exit"
+      "Early Exit",
+      "early-exit",
+      "speculative exit",
+      "early-exit inference"
     ],
-    "definition": "Stopping a reasoning model's generation before it reaches a natural end, once an internal or external signal indicates the answer is already settled, to avoid spending tokens on unproductive continued reasoning. The 'Don't Overthink It' survey categorizes early exit (monitoring-based, generation-control-based, and RL-based variants) as one of its four families of overthinking mitigation; SpecExit implements it via a speculative-decoding-style draft model that predicts both the next tokens and an early-exit signal, cutting generation length up to 66% with a 2.5x speedup.",
+    "definition": "Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archive tracks, that computation is a reasoning model's generation: the trace is cut when internal or external evidence says the answer is already settled, so no more tokens are spent on unproductive continued reasoning — the survey of efficient R1-style models files it as one of its four families of overthinking mitigation, with monitoring-based, generation-control-based and RL-based variants; SpecExit predicts the exit signal alongside the next tokens with a speculative-decoding draft model for up to 66% shorter generations at 2.5x speedup; S-GRPO trains the exit by forcing answers at several truncation points and decaying the reward with how late the exit was; and confidence-and-stability gates play the same role for a diffusion language model's answer span and for a vision-language-action policy's latent reasoning depth (5.0 to 2.3 steps, 312 ms to 145 ms at essentially unchanged LIBERO success). The archive's sources for this term now split across two senses that are not the same technique, and the second is the majority of them: exiting a *reasoning trace*, as above, versus exiting a *forward pass at an intermediate layer* — the ordinary early-exit-network literature, covering layer-exit decoding (a calibrated layer window with a reduced-vocabulary head, 1.4x on Llama-2 7B; retrieval of the exit behaviour of similar training examples), exit branches on an RL actor, TinyML uncertainty ensembles, on-device test-time adaptation, speech separation, and visual autoregressive image generation. That second group reaches the archive through the keyword rather than through the overthinking topic and should be read as neighbouring work, though one result transfers directly: replacing a static confidence threshold with an online unsupervised bandit gives 1.70-2.10x speedup at under 2% performance drop, and the exit rule is the open problem in both senses.",
     "kind": "method",
     "related": [
-      "overthinking",
-      "budget forcing"
+      "Overthinking",
+      "Dynamic Early Exit",
+      "Early-Exit Neural Networks",
+      "Confidence-Gated Early Exit",
+      "Test-Time Compute Scaling",
+      "Speculative Decoding",
+      "Adaptive Stopping",
+      "Prefix Sufficiency"
     ]
   },
   "task_id": "concept__early-exit",

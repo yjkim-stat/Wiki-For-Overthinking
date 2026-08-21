@@ -2,9 +2,10 @@
   "aliases": [
     "GPQA-Diamond",
     "GPQA-D",
-    "GPQA Diamond"
+    "GPQA Diamond",
+    "GPQA Diamond subset"
   ],
-  "definition": "A hard multiple-choice science-question benchmark used across the archive's 9 sources as a standard hard-reasoning evaluation set for test-time-compute and overthinking-mitigation methods, alongside AIME/AMC. It appears in beam search (Gambit), verifier-free selection (Consilience, Funnel of Thoughts), attention-based CoT pruning (TRAAC), sparse decoding (AsyncSpade), MoE expert-sampling, and state-machine reasoning-steering work -- always as an evaluation target rather than something the sources describe the construction of.",
+  "definition": "The 198-question 'Diamond' subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the archive tracks separately, and the standard non-mathematical hard column of a reasoning-efficiency evaluation here: it sits beside AIME and HMMT, and is most often the held-out set that tests whether a method developed on math transfers. No source in the archive describes how it was constructed; every one of them uses it as an evaluation target. At 198 items it is small enough that the archive's own readings flag its numbers as noisy — one quantization paper says its headline average is carried by MMLU-Pro rather than by GPQA for exactly that reason. Results on it both support and complicate the usual efficiency claims: token cuts do land (75.6% fewer tokens at +0.7 accuracy under decayed-reward early exit, 15.2-29.9% fewer at +4.1 to +6.6 Pass@1 under confidence steering, 41.0% fewer attention FLOPs at +1.3pp under rollout pruning), yet selection signals tuned on math flatten out here — every entropy-based chain-of-thought selector is level with random pruning on it — accuracy against token budget peaks and then declines (near 10K tokens for R1-32B and s1-32B, with the user-optimal extra reasoning budget measured at zero in one pricing study), and one KV-compression diagnostic held accuracy at 57.7 to 57.9 while the share of correct answers resting on unsupported reasoning chains rose from 42.3% to 90.2%.",
   "evidence": [
     {
       "id": "arxiv:2602.00425",
@@ -468,9 +469,15 @@
     "pile-validation"
   ],
   "related_authored": [
-    "gsm8k",
-    "aime",
-    "test-time-compute-scaling"
+    "gpqa",
+    "aime-2024",
+    "aime-2025",
+    "hmmt-2025",
+    "math-500",
+    "olympiadbench",
+    "supergpqa",
+    "test-time-compute-scaling",
+    "overthinking"
   ],
   "schema_version": 1,
   "slug": "gpqa-diamond",

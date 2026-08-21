@@ -2,9 +2,11 @@
   "aliases": [
     "speculative exit",
     "Early Exit",
-    "Early exit"
+    "Early exit",
+    "early-exit",
+    "early-exit inference"
   ],
-  "definition": "Stopping a reasoning model's generation before it reaches a natural end, once an internal or external signal indicates the answer is already settled, to avoid spending tokens on unproductive continued reasoning. The 'Don't Overthink It' survey categorizes early exit (monitoring-based, generation-control-based, and RL-based variants) as one of its four families of overthinking mitigation; SpecExit implements it via a speculative-decoding-style draft model that predicts both the next tokens and an early-exit signal, cutting generation length up to 66% with a 2.5x speedup.",
+  "definition": "Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archive tracks, that computation is a reasoning model's generation: the trace is cut when internal or external evidence says the answer is already settled, so no more tokens are spent on unproductive continued reasoning — the survey of efficient R1-style models files it as one of its four families of overthinking mitigation, with monitoring-based, generation-control-based and RL-based variants; SpecExit predicts the exit signal alongside the next tokens with a speculative-decoding draft model for up to 66% shorter generations at 2.5x speedup; S-GRPO trains the exit by forcing answers at several truncation points and decaying the reward with how late the exit was; and confidence-and-stability gates play the same role for a diffusion language model's answer span and for a vision-language-action policy's latent reasoning depth (5.0 to 2.3 steps, 312 ms to 145 ms at essentially unchanged LIBERO success). The archive's sources for this term now split across two senses that are not the same technique, and the second is the majority of them: exiting a *reasoning trace*, as above, versus exiting a *forward pass at an intermediate layer* — the ordinary early-exit-network literature, covering layer-exit decoding (a calibrated layer window with a reduced-vocabulary head, 1.4x on Llama-2 7B; retrieval of the exit behaviour of similar training examples), exit branches on an RL actor, TinyML uncertainty ensembles, on-device test-time adaptation, speech separation, and visual autoregressive image generation. That second group reaches the archive through the keyword rather than through the overthinking topic and should be read as neighbouring work, though one result transfers directly: replacing a static confidence threshold with an online unsupervised bandit gives 1.70-2.10x speedup at under 2% performance drop, and the exit rule is the open problem in both senses.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -312,7 +314,13 @@
   ],
   "related_authored": [
     "overthinking",
-    "budget-forcing"
+    "dynamic-early-exit",
+    "early-exit-neural-networks",
+    "confidence-gated-early-exit",
+    "test-time-compute-scaling",
+    "speculative-decoding",
+    "adaptive-stopping",
+    "prefix-sufficiency"
   ],
   "schema_version": 1,
   "slug": "early-exit",

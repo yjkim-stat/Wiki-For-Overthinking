@@ -3,6 +3,30 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Uses integrated-gradient token attribution, aggregated into per-segment strength and direction-consistency scores, to pick which segments of a long chain-of-thought an SFT run should compute loss on, masking the rest.",
+        "title": "Segment-Level Attribution for Selective Learning of Long Reasoning Traces",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A controlled re-evaluation of entropy-based chain-of-thought compression showing that low- and high-entropy selection never beats random pruning once a random baseline is included, and that the one apparent exception on math benchmarks is caused by numeric tokens rather than by entropy.",
+        "title": "Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A diagnostic study showing that KV cache compression for large reasoning models can preserve final-answer accuracy while the visible rationale supporting the answer becomes invalid or fragile, which the authors call the answer-evidence gap.",
+        "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
         "title": "Thought-Level Beam Search for Reasoning",
         "topics": [
@@ -19,8 +43,24 @@
       },
       {
         "kind": "paper",
+        "note": "Models an LLM reasoning service as a Stackelberg game in which the provider sets a per-token price and a default reasoning-token budget while the user may keep the default, customize it, or exit, and shows the provider's optimal default sits above the budget the user would choose.",
+        "title": "Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Funnel of Thoughts detects and discards the subset of parallel reasoning rollouts that are spiraling into unproductive self-correction (flagged by a rising density of hesitation words like 'Wait' and 'perhaps'), matching self-consistency's accuracy while cutting attention FLOPs by up to 56% and wall time by 37.6%.",
         "title": "Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free controller for parallel reasoning that probes each branch every 500 tokens for a tentative answer distribution, averages recent probes into a 'temporal confidence' score, and uses that one signal to prune, retire, fork and globally stop branches.",
+        "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence",
         "topics": [
           "overthinking"
         ]
@@ -59,8 +99,48 @@
       },
       {
         "kind": "paper",
+        "note": "S-GRPO trains a reasoning model to stop its chain of thought early by sampling one reasoning path, forcing answers at several truncation points along it, and paying correct answers a reward that decays with how late the exit was.",
+        "title": "S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Gated Memory Unit, a mechanism for sharing memory readout states across layers, and uses it to build SambaY, a decoder-hybrid-decoder architecture whose 3.8B instance (Phi4-mini-Flash-Reasoning) matches or beats Phi4-mini-Reasoning on math and science benchmarks while decoding up to 10x faster on 32K-token generations.",
+        "title": "Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
         "title": "Modeling Hierarchical Thinking in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReBalance is a training-free inference-time steering method that reads a reasoning model's token confidence to detect overthinking or underthinking and applies a hidden-state steering vector to shorten or extend the chain of thought accordingly.",
+        "title": "Efficient Reasoning with Balanced Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
+        "title": "SuCo: Sufficiency-guided Continuous Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
+        "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens",
         "topics": [
           "overthinking"
         ]
@@ -72,12 +152,36 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyses the scaling behaviour of self-consistency sampling as mode estimation, derives power-law error decay in the number of samples, and introduces Blend-ASC, a hyperparameter-free scheme that reallocates a fixed sample budget across questions.",
+        "title": "Optimal Self-Consistency for Efficient Reasoning with Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ParoQuant is a 4-bit weight-only post-training quantization method that applies a series of independent Givens (pairwise) rotations plus channel-wise scaling to weights before quantization, with a fused CUDA kernel, in order to keep accuracy on reasoning benchmarks where quantization error accumulates over long chains of thought.",
+        "title": "ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:29:15Z",
-  "created_at": "2026-08-20T12:28:12Z",
-  "instructions": "Write the wiki definition for 'GPQA-Diamond'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T02:01:40Z",
+  "created_at": "2026-08-21T01:54:34Z",
+  "instructions": "Revise the wiki definition for 'GPQA-Diamond'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A hard multiple-choice science-question benchmark used across the archive's 9 sources as a standard hard-reasoning evaluation set for test-time-compute and overthinking-mitigation methods, alongside AIME/AMC. It appears in beam search (Gambit), verifier-free selection (Consilience, Funnel of Thoughts), attention-based CoT pruning (TRAAC), sparse decoding (AsyncSpade), MoE expert-sampling, and state-machine reasoning-steering work -- always as an evaluation target rather than something the sources describe the construction of.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPQA-Diamond",
   "kind": "concept",
   "language": "en",
@@ -93,18 +197,28 @@
   },
   "payload": {
     "name": "GPQA-Diamond",
-    "source_count": 9
+    "previous_definition": "A hard multiple-choice science-question benchmark used across the archive's 9 sources as a standard hard-reasoning evaluation set for test-time-compute and overthinking-mitigation methods, alongside AIME/AMC. It appears in beam search (Gambit), verifier-free selection (Consilience, Funnel of Thoughts), attention-based CoT pruning (TRAAC), sparse decoding (AsyncSpade), MoE expert-sampling, and state-machine reasoning-steering work -- always as an evaluation target rather than something the sources describe the construction of.",
+    "source_count": 22
   },
   "result": {
     "aliases": [
-      "GPQA-D"
+      "GPQA-Diamond",
+      "GPQA Diamond",
+      "GPQA-D",
+      "GPQA Diamond subset"
     ],
-    "definition": "A hard multiple-choice science-question benchmark used across the archive's 9 sources as a standard hard-reasoning evaluation set for test-time-compute and overthinking-mitigation methods, alongside AIME/AMC. It appears in beam search (Gambit), verifier-free selection (Consilience, Funnel of Thoughts), attention-based CoT pruning (TRAAC), sparse decoding (AsyncSpade), MoE expert-sampling, and state-machine reasoning-steering work -- always as an evaluation target rather than something the sources describe the construction of.",
+    "definition": "The 198-question 'Diamond' subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the archive tracks separately, and the standard non-mathematical hard column of a reasoning-efficiency evaluation here: it sits beside AIME and HMMT, and is most often the held-out set that tests whether a method developed on math transfers. No source in the archive describes how it was constructed; every one of them uses it as an evaluation target. At 198 items it is small enough that the archive's own readings flag its numbers as noisy — one quantization paper says its headline average is carried by MMLU-Pro rather than by GPQA for exactly that reason. Results on it both support and complicate the usual efficiency claims: token cuts do land (75.6% fewer tokens at +0.7 accuracy under decayed-reward early exit, 15.2-29.9% fewer at +4.1 to +6.6 Pass@1 under confidence steering, 41.0% fewer attention FLOPs at +1.3pp under rollout pruning), yet selection signals tuned on math flatten out here — every entropy-based chain-of-thought selector is level with random pruning on it — accuracy against token budget peaks and then declines (near 10K tokens for R1-32B and s1-32B, with the user-optimal extra reasoning budget measured at zero in one pricing study), and one KV-compression diagnostic held accuracy at 57.7 to 57.9 while the share of correct answers resting on unsupported reasoning chains rose from 42.3% to 90.2%.",
     "kind": "dataset",
     "related": [
-      "GSM8K",
-      "AIME",
-      "test-time compute scaling"
+      "GPQA",
+      "AIME 2024",
+      "AIME 2025",
+      "HMMT 2025",
+      "MATH-500",
+      "OlympiadBench",
+      "SuperGPQA",
+      "Test-Time Compute Scaling",
+      "Overthinking"
     ]
   },
   "task_id": "concept__gpqa-diamond",

@@ -3,6 +3,62 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "QLPO is a GRPO variant that leaves the reward, advantage estimator and update untouched and instead over-generates K=16 rollouts per prompt and resamples the M=8 training group to favour short-correct and long-incorrect trajectories, which shortens outputs by 30-70% relative to GRPO at roughly unchanged accuracy.",
+        "title": "QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
+        "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
+        "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
+        "title": "ARM: Adaptive Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
+        "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
+        "title": "Statistical Early Stopping for Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
         "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
         "topics": [
@@ -19,17 +75,49 @@
       },
       {
         "kind": "paper",
+        "note": "AdaReasoner is an RL-trained, model-agnostic plugin that picks a per-task reasoning configuration - prompt instruction format, decoding temperature and number of reasoning steps - instead of using one fixed prompting setup for every task.",
+        "title": "AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "TrimR is a training-free, verifier-based system that trims redundant chain-of-thought reasoning in deployed large reasoning models to speed up test-time scaling with little accuracy loss.",
         "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+        "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
+        "title": "Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
+        "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning",
         "topics": [
           "overthinking"
         ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:26:50Z",
-  "created_at": "2026-08-20T12:24:12Z",
-  "instructions": "Write the wiki definition for 'GPQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T02:02:31Z",
+  "created_at": "2026-08-21T01:54:34Z",
+  "instructions": "Revise the wiki definition for 'GPQA'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NOT Think That Much for 2+3=?'), WebThinker, and TrimR's verifier-based thinking-trimming method. Note: distinct wiki entry from 'GPQA Diamond', the harder curated subset most other archived sources actually evaluate on -- not merged.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPQA",
   "kind": "concept",
   "language": "en",
@@ -45,14 +133,22 @@
   },
   "payload": {
     "name": "GPQA",
-    "source_count": 3
+    "previous_definition": "A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NOT Think That Much for 2+3=?'), WebThinker, and TrimR's verifier-based thinking-trimming method. Note: distinct wiki entry from 'GPQA Diamond', the harder curated subset most other archived sources actually evaluate on -- not merged.",
+    "source_count": 14
   },
   "result": {
     "aliases": [],
-    "definition": "A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NOT Think That Much for 2+3=?'), WebThinker, and TrimR's verifier-based thinking-trimming method. Note: distinct wiki entry from 'GPQA Diamond', the harder curated subset most other archived sources actually evaluate on -- not merged.",
+    "definition": "A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain check on whether a token-reduction or adaptive-reasoning method developed on math still holds — and, in the agentic sources, as a knowledge-intensive target for web-search deep research and for statistical stopping rules on ill-posed queries. This entry covers the sources that write the name unqualified; the harder curated subset has its own entry as GPQA Diamond and the two are deliberately not merged, so an unqualified mention filed here is not evidence about which split the paper actually ran. It is where efficiency claims most often thin out: length-aware rollout resampling compresses it 33-38%, about as much as it compresses GSM8K and MATH-500, and question-free fine-tuning improves it out of domain (65.7 against 60.6 for ordinary SFT), but a reward-coordinated KV-cache and early-stopping method that gains on all five of its math sets shows no gain at all on GPQA, the only non-math set in its suite (33.8% for both the compressed and the full-CoT run). Figures reported for it are otherwise mostly relative rather than absolute — excess-length reductions of 23.7% to 79.7% under group-filtered policy optimization, up to 70% runtime under verifier-based trimming — and the archive's earliest overthinking study already used it as one of four benchmarks without giving numbers for it.",
     "kind": "dataset",
     "related": [
-      "GPQA Diamond"
+      "GPQA Diamond",
+      "SuperGPQA",
+      "MMLU-Pro",
+      "MATH-500",
+      "AIME 2024",
+      "OlympiadBench",
+      "Overthinking",
+      "Test-Time Compute Scaling"
     ]
   },
   "task_id": "concept__gpqa",

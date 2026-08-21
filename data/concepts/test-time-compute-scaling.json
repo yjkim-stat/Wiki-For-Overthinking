@@ -3,7 +3,7 @@
     "Test-time compute scaling",
     "Test-Time Compute Scaling"
   ],
-  "definition": "Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples, or self-refinement passes -- in the hope of higher accuracy. The archive's 9 sources treat it as non-monotonic and mechanism-dependent rather than a reliable lever: on constructed tasks, letting large reasoning models reason longer makes accuracy or alignment-relevant behavior worse, not better ('inverse scaling'); verifier-search and proposal-revision are identified as its two primary underlying mechanisms, with verification/RL-guided scaling proven to beat imitation-based scaling as the token budget grows; and its payoff is domain- and difficulty-dependent -- e.g. small parameter-efficient models gain from self-refinement, tool-integrated verification lets small models match larger ones, and 'The Danger of Overthinking' shows spending it on agentic software tasks can directly lower task-resolution rates.",
+  "definition": "Letting a language model use more inference-time computation — a longer chain of thought, more reasoning tokens, more parallel samples, tree search, or self-refinement passes — in the hope of higher accuracy; the archive's sources treat it as non-monotonic and mechanism-dependent rather than as a reliable lever. Its two identified mechanisms are verifier-search and proposal-revision: allocating compute per prompt difficulty beats any fixed strategy and can beat scaling parameters, scaling by verification or RL beats scaling by imitation of successful traces with the gap growing as sqrt(token budget), and on the sampling side self-consistency error decays as a power law in the sample count, so the same budget reallocated across questions matches vanilla self-consistency with 4.8x fewer samples. Where the extra compute pays is sharply uneven, and the newer sources sharpen that rather than soften it: a budget-forcing sweep has GSM8K and MATH-500 accuracy saturating at 256 thinking tokens while AIME generations split bimodally into ones that terminate and ones that loop to the 10,000-token ceiling; measured against an empirical accuracy-versus-token-budget frontier, current efficiency methods leave a quantified gap (REO-RL reaches 62.9% at 5,966 tokens against vanilla RL's 64.4% at 11,283 — 1.5 points for 55.9% fewer tokens); and past a point the returns go negative, with constructed tasks where longer reasoning worsens accuracy and alignment-relevant behaviour, agentic software tasks where favouring internal reasoning over environment interaction lowers issue-resolution rates, basic-arithmetic benchmarks where reasoning-tuned models spend far more tokens for equal or worse accuracy, and no model among 33 evaluated balancing over- and underthinking. Two framing corrections arrive with the newer sources: spent tokens are not the same as effort — the fraction of tokens still being revised in the network's late layers tracks accuracy better than raw length (mean Pearson 0.683 against 0.605 for self-certainty) — and the budget is not the model's to choose alone, since priced as a service the provider's optimal default reasoning budget sits above what the user would pick, with the user's own optimum measured at zero extra reasoning on GPQA Diamond and HMMT 2025.",
   "evidence": [
     {
       "id": "arxiv:2607.21433",
@@ -463,7 +463,15 @@
   "related_authored": [
     "overthinking",
     "underthinking",
-    "inverse-scaling"
+    "inference-scaling-laws",
+    "self-consistency",
+    "difficulty-adaptive-test-time-compute",
+    "sequential-vs-parallel-test-time-scaling",
+    "thinking-budget",
+    "early-exit",
+    "aime-2024",
+    "gpqa-diamond",
+    "optimalthinkingbench"
   ],
   "schema_version": 1,
   "slug": "test-time-compute-scaling",
