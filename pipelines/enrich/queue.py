@@ -275,36 +275,39 @@ def _check_reading_basis(
 def validate_result(
     kind: str,
     result: Any,
-    topics: list[str] | None = None,
-    attachments: dict[str, Any] | None = None,
+    task: dict[str, Any] | None = None,
+    *,
     cfg: Any = None,
     store: Any = None,
-    payload: dict[str, Any] | None = None,
 ) -> list[str]:
     """Check a submitted result against the contract. Returns error strings.
 
-    ``topics`` is the task's own topic list. It is optional so the two-argument
-    signature keeps working, but without it the ``relevance`` keys cannot be
-    checked against anything — a paper's relevance decides which topic page it
-    renders under, and a key naming a slug the task does not have renders
-    nowhere at all.
+    ``task`` is the task the answer was written for, and everything the
+    validator needs to know about what was *asked* comes from it: the topics it
+    was filed against, whether a document was attached, what a lookup was about.
+    Each of those is a fact about the task rather than about the answer, so an
+    answer cannot be checked against itself — a paper's ``relevance`` naming a
+    slug the task does not have renders nowhere at all, and a reading claiming
+    ``read_from: "document"`` when none was attached is a claim only the task
+    can refute.
 
-    ``attachments`` is the task's own attachment block, and the same reasoning
-    applies to ``read_from``: whether a reading had to open a document is a fact
-    about the task, not about the answer, so a validator that cannot see the
-    task cannot tell a true claim from a false one.
+    It arrived as five separate parameters, one per note that needed one. This
+    is the tidy-up note 0061 named; they were always one thing.
 
-    The three states are distinct on purpose. ``None`` means no context was
-    given and only the value itself is checked. ``{}`` means the task carried no
-    document — nothing to open, so nothing is required, but claiming to have
-    read one is rejected. A block with ``pdf_path`` means the reader was handed
-    a document and has to say whether they used it.
-   
-    ``cfg`` and ``store`` are the third context of the same kind, and the reason
-    is unchanged: a synthesis answer becomes a finding, and whether it names a
-    paper the archive holds is a fact about the archive rather than about the
-    answer.
+    Omitting it checks the answer's shape and nothing else — the same graceful
+    degradation each of those parameters had, and the same limit: a validator
+    that cannot see the task cannot tell a true claim from a false one. Within a
+    task, an absent ``attachments`` key and an empty one still mean different
+    things, no context against a task that carried no document.
+
+    ``cfg`` and ``store`` are not from the task. They are the archive, and they
+    are what lets a synthesis answer be checked as the finding it becomes.
     """
+    task = task or {}
+    topics = task.get("topics") or None
+    attachments = task.get("attachments")
+    payload = task.get("payload")
+
     errors: list[str] = []
     if not isinstance(result, dict):
         return ["result must be a JSON object"]
@@ -663,11 +666,9 @@ class Queue:
         errors = validate_result(
             task["kind"],
             result,
-            task.get("topics") or None,
-            task.get("attachments"),
+            task,
             cfg=self.cfg,
             store=RecordStore(self.layout) if self.cfg is not None else None,
-            payload=task.get("payload"),
         )
         if errors:
             raise ValueError(

@@ -85,6 +85,11 @@ reference for everything built before the practice existed.
 | 0070 | [One leverage, beside the scores it sums](0070-one-leverage-beside-the-scores-it-sums.md) | refactor | Two callers wanted the same number; two copies would be free to disagree |
 | 0071 | [Which end of the backlog to drain](0071-which-end-of-the-backlog-to-drain.md) | feature | Filename order is alphabetical order, so a partial drain was reading the archive by arXiv number |
 | 0072 | [Two names for one entity](0072-two-names-for-one-entity.md) | feature | A term spelled two ways splits into two records, and neither is wrong about anything — so the report suggests and writes nothing |
+| 0062 | [A position its subject has outgrown](0062-a-position-its-subject-has-outgrown.md) | feature | A finding sits above the sources, and goes on reading the same at thirty as it did at three |
+| 0063 | [A night that collected nothing](0063-a-night-that-collected-nothing.md) | feature | The reading survived only in a commit message, which is outside the thing it is about |
+| 0064 | [A merge with a person in it](0064-a-merge-with-a-person-in-it.md) | feature | The reading was on one record and the document on the other, so no rule could pick a survivor |
+| 0065 | [The validator takes the task](0065-the-validator-takes-the-task.md) | refactor | Three notes had each added a parameter for the same reason; by the fifth the argument list was the idea |
+| 0066 | [What the archive was asked and could not answer](0066-what-the-archive-was-asked-and-could-not-answer.md) | feature | The only signal of what people looked for and did not find, discarded when the connection closed |
 | 0073 | [A model is not a dataset](0073-a-model-is-not-a-dataset.md) | feature · breaking | A checkpoint and a corpus answer different questions; a schema change has no seam to hide behind |
 | 0074 | [Local extensions in a package of their own](0074-local-extensions-in-a-package-of-their-own.md) | feature | A placeholder is a false entity, a record with no abstract cannot be scored, and one cap starved the wiki |
 | 0075 | [Three fixes that only made collection quieter](0075-three-fixes-that-only-made-collection-quieter.md) | fix | Under-collecting looks exactly like a quiet day, and a test inside a replaceable file cannot guard it |
@@ -101,3 +106,8 @@ reference for everything built before the practice existed.
 | 0086 | [The same collision, and the same bug](0086-the-same-collision-and-the-same-bug.md) | chore | Two sessions renumbered from one stale index again, and independently fixed one counter |
 | 0087 | [A map of what the archive knows](0087-a-map-of-what-the-archive-knows.md) | docs | The wiki is organised by entity and states no order; this is the order, and what the archive does not hold |
 | 0088 | [The cap bounds a run, not a decision](0088-the-cap-bounds-a-run-not-a-decision.md) | fix | A hand-filed PDF was archived, its document written, and no task filed — one WARNING among two dozen |
+| 0089 | [A third collision, and a lane we did not have](0089-a-third-collision-and-a-lane-we-did-not-have.md) | chore | Three collisions in eight days is not a session fetching too seldom; it is what the rule is for |
+| 0090 | [A marker can be wrong in two directions](0090-a-marker-can-be-wrong-in-two-directions.md) | fix | An over-declared source count went quiet until the evidence caught up, then read as stale for the wrong reason |
+| 0091 | [The fourth collision, and a lane that turned out to be two](0091-the-fourth-collision-and-a-lane-that-turned-out-to-be-two.md) | chore | Upstream's own sequence had a gap; a number belonging to neither side is worse than a gap |
+| 0092 | [A repository is a candidate, not a paper](0092-a-repository-is-a-candidate-not-a-paper.md) | feature | A collector can find a repository and cannot say what anybody relied on, so it files a candidate and a person cites it |
+| 0093 | [The archive moves to a repository of its own](0093-the-archive-moves-to-a-repository-of-its-own.md) | chore · breaking | Two repositories are being developed, not one being deployed; the two rhythms do not share a history |

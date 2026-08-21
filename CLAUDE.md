@@ -230,6 +230,7 @@ Render also reports what has gone **stale**, under `stale` in its result:
 
 ```
 definition for 'X' was written against 3 source(s); there are now 9
+finding 'The group prefers ...' was settled against 3 source(s); there are now 30
 ```
 
 **An empty queue means nothing is unwritten. It does not mean nothing is out of
@@ -254,6 +255,19 @@ Clearing `definition` in `data/concepts/<slug>.json` still works and is now the
 worse route: it throws the previous ruling away along with the staleness, and
 most of that ruling is usually still right. Use it when a definition is wrong
 rather than merely behind.
+
+**A settled finding goes out of date too, and cannot be asked for again.** It
+sits at the top of every note it bears on, above the sources, because a position
+the group reached outranks what any one paper said — and it goes on sitting
+there at thirty sources reading exactly as it did at three. That placement is
+right, and it is what makes an outgrown finding the most expensive thing here to
+have stopped noticing.
+
+Nothing re-queues one, and nothing can: a definition is derived from its sources
+so a task can hand it back, but a finding is a position somebody took. Only the
+group revisits it, and the way to record that is a new finding with `supersedes`
+set to the old id — the old statement stays, marked, because why the group used
+to think otherwise is most of what a newcomer needs.
 
 Your own analysis after `<!-- auto:end -->` can opt into the same check by
 ending with a declared source count:
@@ -375,6 +389,26 @@ papers and talks the archive has read, and that count is what promotes a concept
 to a note of its own. Two blog posts must not promote anything — if they could,
 nothing afterwards could say what the wiki grew from, and deleting the posts
 would not undo it.
+
+**3b. Write down what the night did.**
+
+```bash
+python3 -m pipelines.digest
+```
+
+`archive/daily/<date>.md` is written by `run_daily`, so a night that collected
+nothing leaves no trace inside the archive — the reading, the definitions, the
+questions settled survive only in a commit message, which is outside the thing
+it is about.
+
+This writes the session's half of that page. Everything in it is derived: it
+counts what the records now say, so it can report the tasks you answered and
+cannot know which note you wrote a paragraph in. **Say that part yourself, below
+`<!-- session:end -->`** — anything after that marker is kept for ever, exactly
+as in a wiki note, and re-running the command leaves it alone.
+
+Read the last section before you stop. *What was left for the next night* is the
+one part of the page that is an input rather than a record.
 
 **4. Commit.** Generated files are tracked on purpose: the container is
 ephemeral, so anything uncommitted is lost.
@@ -516,6 +550,9 @@ python3 -m pipelines.enrich.references list       # what it checked outside the 
 python3 -m pipelines.enrich.synthesis list        # questions spanning more readings than one
 python3 -m pipelines.enrich.lookup list           # narrow questions needing a look outside
 python3 -m pipelines.duplicates                   # concept slugs that may be one entity, read-only
+python3 -m pipelines.digest                       # write what tonight did into archive/daily/
+python3 -m pipelines.enrich.dedupe conflicts      # identifiers two records both claim
+python3 -m pipelines.enrich.dedupe merge <keep> <fold> --dry-run
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change

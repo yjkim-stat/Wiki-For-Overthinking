@@ -278,6 +278,15 @@ class Finding(_Record):
     supersedes: str = ""
     superseded_by: str = ""
     established_at: str = field(default_factory=utcnow)
+    # How much evidence existed on this subject when the finding was recorded:
+    # the distinct sources behind the entities it names. The direct analogue of
+    # a definition's `source_count`, and it exists for the same reason — a
+    # judgement reached across three papers reads with the same confidence at
+    # thirty, and nothing could say which it was.
+    #
+    # 0 means unknown, which is what a finding recorded before this field says.
+    # Not "none": a finding is not recorded against nothing.
+    established_against: int = 0
     schema_version: int = SCHEMA_VERSION
 
     @property

@@ -21,6 +21,7 @@ import json
 import threading
 import unittest
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -235,6 +236,93 @@ class ServeTests(unittest.TestCase):
         status, body = self._get("/ask?q=%2Fetc%2Fpasswd")
         self.assertIn(status, (200, 404))
         self.assertNotIn("root:", json.dumps(body))
+
+
+class UnansweredQuestionTests(unittest.TestCase):
+    """What the archive does not know is the most useful thing this port makes.
+
+    It is the only signal anywhere of what people came looking for and did not
+    find, and it would be lost the moment the caller closed the connection. It
+    goes into the same drop folder a colleague would use by hand, so it enters
+    the archive only if a person approves it — inventing a second way in would
+    be a second thing to secure.
+    """
+
+    def setUp(self):
+        self.sandbox = Sandbox()
+        self.addCleanup(self.sandbox.close)
+        self.cfg = self.sandbox.config()
+        self.cfg.layout.ensure()
+        self.server = serve.build(self.cfg, port=0)
+        self.port = self.server.server_address[1]
+        self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
+        self.thread.start()
+        self.addCleanup(self.thread.join, 5)
+        self.addCleanup(self.server.server_close)
+        self.addCleanup(self.server.shutdown)
+
+    def _ask(self, query: str) -> tuple[int, dict]:
+        url = f"http://127.0.0.1:{self.port}/ask?q={urllib.parse.quote(query)}"
+        try:
+            with urllib.request.urlopen(url, timeout=5) as response:
+                return response.status, json.loads(response.read())
+        except urllib.error.HTTPError as exc:
+            return exc.code, json.loads(exc.read())
+
+    def _waiting(self) -> list[Path]:
+        return sorted(self.cfg.layout.requests_pending.glob("question-*.md"))
+
+    def test_a_question_nobody_could_answer_is_left_for_review(self):
+        status, body = self._ask("xenotransplantation tolerance")
+        self.assertEqual(status, 404)
+        self.assertTrue(body["recorded"])
+        self.assertEqual(len(self._waiting()), 1)
+
+    def test_it_lands_as_a_reviewable_request(self):
+        self._ask("xenotransplantation tolerance")
+        text = self._waiting()[0].read_text(encoding="utf-8")
+        self.assertIn("kind: question", text)
+        self.assertIn("xenotransplantation tolerance", text)
+
+        from pipelines import requests as req
+
+        pending = req.load_all(self.cfg, "pending")
+        self.assertEqual(len(pending), 1)
+        self.assertTrue(pending[0].ok, pending[0].problems)
+        self.assertEqual(pending[0].kind, "question")
+
+    def test_asking_the_same_thing_again_is_one_file(self):
+        for _ in range(5):
+            self._ask("xenotransplantation tolerance")
+        self.assertEqual(len(self._waiting()), 1)
+
+    def test_a_question_the_archive_answers_is_not_recorded(self):
+        """Only what it could not answer is worth a person's attention."""
+        RecordStore(self.cfg.layout).save_concept(
+            Concept(slug="a-thing", name="A Thing", kind="concept",
+                    definition="It is a thing.")
+        )
+        status, body = self._ask("a thing")
+        self.assertEqual(status, 200)
+        self.assertNotIn("recorded", body)
+        self.assertEqual(self._waiting(), [])
+
+    def test_recording_stops_at_the_cap(self):
+        """An unauthenticated port that can write without a ceiling fills a disk."""
+        original = serve.MAX_QUESTIONS
+        serve.MAX_QUESTIONS = 3
+        self.addCleanup(setattr, serve, "MAX_QUESTIONS", original)
+
+        for index in range(6):
+            _, body = self._ask(f"a question about nothing number {index}")
+        self.assertEqual(len(self._waiting()), 3)
+        self.assertFalse(body["recorded"], "and it says it did not record")
+
+    def test_it_still_touches_no_record(self):
+        """The write is in the staging folder. `data/` is untouched, as before."""
+        before = _snapshot(self.cfg.layout.data)
+        self._ask("xenotransplantation tolerance")
+        self.assertEqual(_snapshot(self.cfg.layout.data), before)
 
 
 class BindingTests(unittest.TestCase):

@@ -47,12 +47,12 @@ class ValidationTests(unittest.TestCase):
     """The rules, at the boundary where a result is accepted or refused."""
 
     def test_a_task_that_attached_a_document_requires_an_answer(self):
-        errors = validate_result("paper", RESULT, [SLUG], WITH_DOCUMENT)
+        errors = validate_result("paper", RESULT, {"topics": [SLUG], "attachments": WITH_DOCUMENT})
         self.assertTrue(any("read_from" in e for e in errors), errors)
 
     def test_declaring_the_document_satisfies_it(self):
         result = dict(RESULT, read_from="document")
-        self.assertEqual(validate_result("paper", result, [SLUG], WITH_DOCUMENT), [])
+        self.assertEqual(validate_result("paper", result, {"topics": [SLUG], "attachments": WITH_DOCUMENT}), [])
 
     def test_admitting_the_abstract_satisfies_it_too(self):
         """The point is to know, not to force the document open.
@@ -62,44 +62,45 @@ class ValidationTests(unittest.TestCase):
         record nobody can find again.
         """
         result = dict(RESULT, read_from="abstract")
-        self.assertEqual(validate_result("paper", result, [SLUG], WITH_DOCUMENT), [])
+        self.assertEqual(validate_result("paper", result, {"topics": [SLUG], "attachments": WITH_DOCUMENT}), [])
 
     def test_a_reading_cannot_claim_a_document_it_was_never_given(self):
         result = dict(RESULT, read_from="document")
-        errors = validate_result("paper", result, [SLUG], NO_DOCUMENT)
+        errors = validate_result("paper", result, {"topics": [SLUG], "attachments": NO_DOCUMENT})
         self.assertTrue(any("never given" in e for e in errors), errors)
 
     def test_no_document_means_nothing_to_ask(self):
-        self.assertEqual(validate_result("paper", RESULT, [SLUG], NO_DOCUMENT), [])
+        self.assertEqual(validate_result("paper", RESULT, {"topics": [SLUG], "attachments": NO_DOCUMENT}), [])
 
     def test_an_unknown_value_is_refused(self):
         result = dict(RESULT, read_from="skimmed")
-        errors = validate_result("paper", result, [SLUG], WITH_DOCUMENT)
+        errors = validate_result("paper", result, {"topics": [SLUG], "attachments": WITH_DOCUMENT})
         self.assertTrue(any("must be one of" in e for e in errors), errors)
 
     def test_the_value_must_be_a_string(self):
         result = dict(RESULT, read_from=True)
-        errors = validate_result("paper", result, [SLUG], WITH_DOCUMENT)
+        errors = validate_result("paper", result, {"topics": [SLUG], "attachments": WITH_DOCUMENT})
         self.assertTrue(any("must be a string" in e for e in errors), errors)
 
     def test_without_the_task_only_the_value_is_checked(self):
-        """The three-argument signature keeps working, and keeps its limits.
+        """A task that says nothing about attachments asks nothing.
 
-        No attachments means no context, which is not the same as a task that
-        carried no document -- so nothing is required and nothing is refused
-        except a value that is wrong on its face.
+        An absent `attachments` key is no context, which is not the same as an
+        empty one: a task that carried no document refuses a claim to have read
+        one, and a task that does not say either way cannot. So nothing is
+        required and nothing is refused except a value wrong on its face.
         """
-        self.assertEqual(validate_result("paper", RESULT, [SLUG]), [])
+        self.assertEqual(validate_result("paper", RESULT, {"topics": [SLUG]}), [])
         self.assertEqual(
-            validate_result("paper", dict(RESULT, read_from="document"), [SLUG]), []
+            validate_result("paper", dict(RESULT, read_from="document"), {"topics": [SLUG]}), []
         )
         self.assertTrue(
-            validate_result("paper", dict(RESULT, read_from="skimmed"), [SLUG])
+            validate_result("paper", dict(RESULT, read_from="skimmed"), {"topics": [SLUG]})
         )
 
     def test_a_video_is_not_asked(self):
         video = {"one_liner": "x", "abstract": "y", "key_points": ["z"]}
-        self.assertEqual(validate_result("video", video, None, WITH_DOCUMENT), [])
+        self.assertEqual(validate_result("video", video, {"attachments": WITH_DOCUMENT}), [])
 
 
 class TaskTests(unittest.TestCase):

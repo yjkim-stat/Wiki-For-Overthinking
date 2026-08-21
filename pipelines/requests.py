@@ -57,7 +57,7 @@ _LOG = log.get(__name__)
 #: What a request can be asking for. A closed set so that "what do people keep
 #: asking us for" is answerable, and an unknown kind is reported rather than
 #: quietly filed under something else.
-KINDS = ("paper", "correction", "topic", "question", "other")
+KINDS = ("paper", "correction", "topic", "question", "merge", "other")
 
 #: Where a request can be. `pending` is the only one anybody but the reviewer
 #: writes to, and nothing leaves it without a person saying so.
