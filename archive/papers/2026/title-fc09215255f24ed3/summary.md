@@ -43,7 +43,7 @@ The paper states that the moments at which reasoning is triggered come from hand
 
 ## Entities
 
-- **Concepts**: [Adaptive reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Vision-Language-Action model, Dual-system architecture, Reasoning-action interleaving, Error detection and recovery, Visual grounding, Long-horizon task planning
+- **Concepts**: [Adaptive reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Vision-Language-Action model, Dual-system architecture, Reasoning-action interleaving, Error detection and recovery, [Visual grounding](../../../../wiki/concepts/visual-grounding.md), Long-horizon task planning
 - **Methods**: OneTwoVLA, pi0, dual-system VLA (Gemini 2.5 Pro planner + pi0 executor), vision-language / robot co-training
 - **Datasets**: Tomato-Egg (200 demonstrations), Hotpot (600 demonstrations), Cocktail (300 demonstrations), Generalizable planning tasks: Get Icy Cola, Empty Plate, Tool Use, Prepare Drinks (2,000 demonstrations, two platforms), Single-environment visual grounding set (4 objects, 40 trials per method), Open-world visual grounding set (180 items, 16 training environments, 8 unseen), Synthesised embodied reasoning-centric vision-language data
 

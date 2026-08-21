@@ -44,8 +44,8 @@ The speedup applies only to rollout inside training, not to inference-time decod
 ## Entities
 
 - **Concepts**: Quantized Rollout, Policy Ratio Clipping, Reinforcement Learning with Verifiable Rewards, Quantization Noise, Training-Time Compute Bottleneck
-- **Methods**: QuRL, Adaptive Clipping Range (ACR), invariant scaling, [RLVR](../../../../wiki/methods/rlvr.md), INT8 quantization, FP8 quantization, DAPO, GRPO-style clipped policy optimization
-- **Datasets**: [DeepScaleR](../../../../wiki/datasets/deepscaler.md), [DAPO](../../../../wiki/datasets/dapo.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [MATH 500](../../../../wiki/datasets/math-500.md), AMC 2023, [Minerva Math](../../../../wiki/datasets/minerva-math.md), Olympiad Bench, [Omni-Math](../../../../wiki/datasets/omni-math.md), [Still](../../../../wiki/datasets/still.md)
+- **Methods**: QuRL, Adaptive Clipping Range (ACR), invariant scaling, [RLVR](../../../../wiki/methods/rlvr.md), INT8 quantization, FP8 quantization, [DAPO](../../../../wiki/methods/dapo.md), GRPO-style clipped policy optimization
+- **Datasets**: [DeepScaleR](../../../../wiki/datasets/deepscaler.md), DAPO, [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [MATH 500](../../../../wiki/datasets/math-500.md), AMC 2023, [Minerva Math](../../../../wiki/datasets/minerva-math.md), Olympiad Bench, [Omni-Math](../../../../wiki/datasets/omni-math.md), [Still](../../../../wiki/datasets/still.md)
 
 Tags: `quantization`, `rlvr`, `training-efficiency`, `int8`, `fp8`, `rollout`, `false-positive-match`
 

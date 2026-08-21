@@ -45,7 +45,7 @@ The authors state experiments were confined to 1.5B and 7B models for compute re
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), [Length Reward](../../../../wiki/concepts/length-reward.md), [Group-Relative Advantage](../../../../wiki/concepts/group-relative-advantage.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), [Efficient Reasoning](../../../../wiki/concepts/efficient-reasoning.md), Reinforcement Learning from Verifiable Rewards
-- **Methods**: DRPO (Decoupled Reward Policy Optimization), [GRPO](../../../../wiki/methods/grpo.md), [RLOO](../../../../wiki/methods/rloo.md), length reward / length penalty, KL-regularised optimal distribution, importance weighting, [Accuracy Efficiency Score (AES)](../../../../wiki/methods/accuracy-efficiency-score-aes.md)
+- **Methods**: DRPO (Decoupled Reward Policy Optimization), [GRPO](../../../../wiki/methods/grpo.md), [RLOO](../../../../wiki/methods/rloo.md), length reward / length penalty, KL-regularised optimal distribution, importance weighting, Accuracy Efficiency Score (AES)
 - **Datasets**: DeepScaleR-Preview-Dataset, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME](../../../../wiki/datasets/aime.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `grpo`, `rl-post-training`, `length-penalty`, `reasoning-length`

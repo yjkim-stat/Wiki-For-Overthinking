@@ -45,7 +45,7 @@ The method and its guarantees assume answers can be aggregated by majority vote,
 ## Entities
 
 - **Concepts**: self-consistency, [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), sample efficiency, dynamic sample allocation, answer margin, power-law scaling, mode estimation, majority voting, compute budget allocation across questions
-- **Methods**: Blend-ASC, self-consistency (SC), Adaptive Self-Consistency (ASC), Early-Stopping Self-Consistency, PPR-1v1, empirical mode estimation, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
+- **Methods**: Blend-ASC, self-consistency (SC), Adaptive Self-Consistency (ASC), Early-Stopping Self-Consistency, PPR-1v1, empirical mode estimation, chain-of-thought prompting
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `self-consistency`, `test-time compute`, `sample efficiency`, `adaptive sampling`, `majority voting`, `scaling law`, `efficient reasoning`, `chain-of-thought`

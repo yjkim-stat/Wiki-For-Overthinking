@@ -42,7 +42,7 @@ Only summarized from the poster/abstract page; details on failure modes, model s
 
 ## Entities
 
-- **Concepts**: perception-reasoning separation, visual grounding, modular test-time compute allocation
+- **Concepts**: perception-reasoning separation, [visual grounding](../../../../wiki/concepts/visual-grounding.md), modular test-time compute allocation
 - **Methods**: SPARC, two-stage perception-reasoning pipeline, visual search / grounding
 - **Datasets**: V* VQA benchmark
 

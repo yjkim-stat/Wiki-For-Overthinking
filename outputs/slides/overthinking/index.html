@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Overthinking</h1>
 <p class="subtitle">When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.</p>
-<p>2026-08-21 · 278 archived source(s)</p>
+<p>2026-08-21 · 277 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -115,7 +115,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Where the field stands</h2>
 <ul>
-<li><strong>2026</strong> — 196 paper(s)</li>
+<li><strong>2026</strong> — 195 paper(s)</li>
 <li><strong>2025</strong> — 76 paper(s)</li>
 <li><strong>2024</strong> — 6 paper(s)</li>
 </ul>
@@ -249,7 +249,7 @@ th { background: var(--surface); }
 <li><strong>test-time compute scaling</strong> — Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples,...</li>
 <li><strong>Accuracy-Efficiency Tradeoff</strong> — Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quanti...</li>
 <li><strong>chain-of-thought compression</strong> — In these eight sources &#x27;chain-of-thought compression&#x27; is an umbrella for making a reasoning trace shorter while keeping the answer, and i...</li>
-<li><strong>underthinking</strong> — The complement failure mode to overthinking: a model reasons too little on a problem that genuinely requires deliberate, multi-step reaso...</li>
+<li><strong>adaptive reasoning</strong> — In these sources &#x27;adaptive reasoning&#x27; names the property that a model&#x27;s reasoning effort should follow the actual difficulty of the insta...</li>
 </ul>
 </section>
 <section class="slide">
@@ -267,8 +267,8 @@ th { background: var(--surface); }
 <h2>Benchmarks and datasets</h2>
 <ul>
 <li><strong>MATH-500</strong> — A 500-problem curated subset of the MATH benchmark, one of the archive&#x27;s most-used evaluation sets (16 sources) for reasoning-length and...</li>
-<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark (17 sources): c...</li>
 <li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive&#x27;s 15 s...</li>
+<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark (17 sources): c...</li>
 <li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used in the archive&#x27;s 9 sources as an &#x27;easier&#x27; reasoning testbed, in contrast to harder benchm...</li>
 <li><strong>GPQA-Diamond</strong> — A hard multiple-choice science-question benchmark used across the archive&#x27;s 9 sources as a standard hard-reasoning evaluation set for tes...</li>
 <li><strong>AMC23</strong> — The 2023 sitting of the American Mathematics Competitions, used as a hard competition-math evaluation benchmark alongside AIME in CoBa&#x27;s...</li>

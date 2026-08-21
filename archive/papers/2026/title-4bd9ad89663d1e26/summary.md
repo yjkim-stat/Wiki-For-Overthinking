@@ -46,7 +46,7 @@ No limitations section is stated. Several should be noticed from the numbers. Th
 ## Entities
 
 - **Concepts**: Token-efficient reasoning, Conditional mutual information, Token-wise advantage shaping, Reasoning verbosity, Low-utility exploration, Test-time compute cost, Pass@k per token efficiency, [Overthinking](../../../../wiki/concepts/overthinking.md)
-- **Methods**: IAPO, conditional mutual information advantage shaping, early-exit MI estimator, KV-cache preloading, chunk-wise forwarding, [GRPO](../../../../wiki/methods/grpo.md), [S-GRPO](../../../../wiki/methods/s-grpo.md), DAPO, [GFPO](../../../../wiki/methods/gfpo.md), GTPO, [Qwen2.5-Instruct](../../../../wiki/methods/qwen2-5-instruct.md)
+- **Methods**: IAPO, conditional mutual information advantage shaping, early-exit MI estimator, KV-cache preloading, chunk-wise forwarding, [GRPO](../../../../wiki/methods/grpo.md), [S-GRPO](../../../../wiki/methods/s-grpo.md), [DAPO](../../../../wiki/methods/dapo.md), [GFPO](../../../../wiki/methods/gfpo.md), GTPO, [Qwen2.5-Instruct](../../../../wiki/methods/qwen2-5-instruct.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md)
 
 Tags: `overthinking`, `token-efficient-reasoning`, `mutual-information`, `advantage-shaping`, `reinforcement-learning`, `chain-of-thought`, `reasoning-length`, `inference-cost`, `math-reasoning`

@@ -45,7 +45,7 @@ The Qwen3-8B headline pairs 24.8% token savings with a 1.6-point average accurac
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Prefix Sufficiency, [Dynamic Early Exit](../../../../wiki/concepts/dynamic-early-exit.md), [Hidden-State Probing](../../../../wiki/concepts/hidden-state-probing.md), Self-Doubt Cues, Reasoning Checkpoints, Accuracy-Efficiency Score (AES), Conformal Calibration, Layer Redundancy in Transformers, Premature Exit
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Prefix Sufficiency, [Dynamic Early Exit](../../../../wiki/concepts/dynamic-early-exit.md), [Hidden-State Probing](../../../../wiki/concepts/hidden-state-probing.md), Self-Doubt Cues, Reasoning Checkpoints, [Accuracy-Efficiency Score (AES)](../../../../wiki/concepts/accuracy-efficiency-score-aes.md), Conformal Calibration, Layer Redundancy in Transformers, Premature Exit
 - **Methods**: BLADE, Multi-Granular Reasoning Checkpoints (MGRC), Adaptive Probe-Layer Selection (APLS), hard Top-K layer gating with straight-through estimator, knowledge distillation from a dense cross-layer probe, conformal threshold calibration, LYNX-K1 / LYNX-K16 (baselines), Qwen3-8B, Qwen3-4B (backbones)
 - **Datasets**: GSM8K (test and train), [MATH-500](../../../../wiki/datasets/math-500.md), MATH train (numeric-answer subset), AMC 2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), DeepScaleR train
 

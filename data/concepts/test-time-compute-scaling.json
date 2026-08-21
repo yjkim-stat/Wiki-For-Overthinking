@@ -78,12 +78,6 @@
       "title": "Scaling Test-Time Compute Without Verification or RL is Suboptimal"
     },
     {
-      "id": "title:441c8494292f11c7",
-      "kind": "paper",
-      "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
-      "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
-    },
-    {
       "id": "title:474d6c4d88a30199",
       "kind": "paper",
       "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
@@ -146,7 +140,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:56:47Z",
+  "last_seen": "2026-08-21T01:12:15Z",
   "name": "test-time compute scaling",
   "related": [
     "token-budget-saturation",
@@ -325,9 +319,6 @@
     "verifier-guided-rl",
     "rejection-sampling-distillation-of-successful-traces",
     "test-time-search",
-    "math-levels-1-2-for-ovt-math",
-    "supergpqa",
-    "reasoning-gym",
     "reflection-in-reasoning-traces",
     "length-reward",
     "reflection-reward",

@@ -46,7 +46,7 @@ The compression is strongly difficulty-dependent and the range 19.1%-80.1% conce
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [dynamic early exit](../../../../wiki/concepts/dynamic-early-exit.md), reasoning transition point, trial answer, answer confidence, training-free inference intervention, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [chain-of-thought compression](../../../../wiki/concepts/chain-of-thought-compression.md), self-truncation
-- **Methods**: [DEER](../../../../wiki/methods/deer.md), DEER-PRo, branch-parallel decoding, answer inducer prompting, entropy-based transition detection, [chain-of-thought prompting](../../../../wiki/methods/chain-of-thought-prompting.md)
+- **Methods**: [DEER](../../../../wiki/methods/deer.md), DEER-PRo, branch-parallel decoding, answer inducer prompting, entropy-based transition detection, chain-of-thought prompting
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), AMC 2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [HumanEval](../../../../wiki/datasets/humaneval.md), BigCodeBench, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `early exit`, `overthinking`, `chain-of-thought`, `training-free`, `test-time scaling`, `confidence threshold`, `reasoning efficiency`, `adaptive compute`
