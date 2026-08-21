@@ -45,7 +45,7 @@ Stated limitations: (1) higher inference cost, since each rollout goes through r
 
 - **Concepts**: diversity saturation under fixed sample budget, per-trace hallucination as a systematic accuracy floor, breadth-depth test-time refinement, verifier-free self-critique and self-correction, compute-normalized gain
 - **Methods**: breadth-depth refinement framework, self-critique and self-correction (iterative), majority voting / plurality aggregation, compute-normalized gain metric (accuracy improvement per additional TFLOP)
-- **Datasets**: AIME24, AIME25, [AMC](../../../../wiki/datasets/amc.md), OlympiadBench, MATH500
+- **Datasets**: AIME24, AIME25, [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), MATH500
 
 Tags: `test-time-scaling`, `self-correction`, `self-critique`, `majority-voting`, `reasoning-refinement`, `mathematical-reasoning`, `compute-allocation`
 

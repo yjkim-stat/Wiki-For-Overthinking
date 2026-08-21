@@ -43,7 +43,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: test-time augmentation, test-time adaptation, consensus pseudolabeling
+- **Concepts**: test-time augmentation, [test-time adaptation](../../../../wiki/concepts/test-time-adaptation.md), consensus pseudolabeling
 - **Methods**: Test-Time Augmentation (TTAug), Test-Time Adaptation (TTAdapt)
 - **Datasets**: _none recorded_
 

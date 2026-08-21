@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "LIBERO-Long"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Adds an uncertainty-triggered switch to Vision-Language-Action robot control models that shifts from reflexive action execution to a deliberation phase scored by a pairwise action critic.",
       "title": "VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model"
+    },
+    {
+      "id": "title:e3df9e3ad63924a6",
+      "kind": "paper",
+      "note": "AVA-VLA replaces explicit chain-of-thought in a vision-language-action policy with a sequence of latent reasoning variables trained by RL denoising, and adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success rate.",
+      "title": "Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models"
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T12:24:12Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "LIBERO-LONG",
   "related": [
     "adaptive-test-time-compute-for-robot-control",
@@ -19,7 +27,20 @@
     "reflexive-vs-deliberative-action-selection",
     "vla-attc",
     "relative-action-critic",
-    "uncertainty-triggered-cognitive-switching"
+    "uncertainty-triggered-cognitive-switching",
+    "latent-reasoning",
+    "early-exit",
+    "confidence-based-stopping",
+    "reasoning-depth-vs-efficiency-tradeoff",
+    "vision-language-action-models",
+    "error-propagation-in-multi-step-reasoning",
+    "ava-vla",
+    "reinforcement-learning-denoising",
+    "confidence-gated-early-exit",
+    "explicit-chain-of-thought-vla-baseline",
+    "flower-baseline",
+    "libero",
+    "calvin-abc-d"
   ],
   "related_authored": [],
   "schema_version": 1,

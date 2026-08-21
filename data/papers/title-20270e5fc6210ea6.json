@@ -1,12 +1,12 @@
 {
-  "abstract": "",
+  "abstract": "Abstract Tree-search decoding is an effective form of test-time scaling for large language models (LLMs), but real-world deployment often imposes a fixed per-query token budget that varies across settings. Existing tree-search policies are largely budget-agnostic, treating the budget merely as a termination condition, thereby risking late-stage over-branching or premature termination. We propose Budget-Guided MCTS (BG-MCTS), a tree-search decoding algorithm that aligns its search policy with the remaining token budget: it starts with broad exploration, then prioritizes refinement and answer completion as the remaining budget decreases while reducing late-stage branching from shallow nodes. BG-MCTS consistently outperforms budget-agnostic tree-search baselines across inference budgets on mathematical reasoning benchmarks and an additional physics reasoning benchmark with open-weight LLMs.",
   "arxiv_id": "",
   "authors": [],
   "categories": [],
   "doi": "",
   "first_seen": "2026-08-20T11:49:28Z",
   "id": "title:20270e5fc6210ea6",
-  "last_seen": "2026-08-20T23:02:25Z",
+  "last_seen": "2026-08-20T23:39:26Z",
   "local_path": "",
   "matched_keywords": [
     "test time scaling"

@@ -43,6 +43,34 @@ keywords:
     - large reasoning model
     - adaptive compression
     - accuracy-efficiency tradeoff
+    # Added 2026-08-21 after auditing the arXiv sweep ledger: 2,028 announced
+    # papers whose titles were held but never collected contained at least
+    # nine on-topic ones that none of the phrases above matched. The gap was
+    # vocabulary, not subject -- the same question gets written as "reasoning
+    # effort", "shared budget" or "cost-bounded early stopping" as often as it
+    # gets written as "overthinking".
+    - reasoning effort
+    - thinking effort
+    - reasoning budget
+    - token budget
+    - reasoning token
+    - reasoning-token
+    - shared budget
+    - resource-rational
+    - compute-optimal
+    - cost-bounded
+    - early stopping
+    - early exit
+    - efficient reasoning
+    - reasoning efficiency
+    - parallel reasoning
+    - test-time depth
+    - token pricing
+    - concise reasoning
+    - adaptive reasoning
+    - adaptive thinking
+    - thinking model
+    - reasoning trace
   all: []
   # Any hit here rejects the item outright, whatever else it matched.
   # "test-time compute" / "test time scaling" are generic enough that they
@@ -67,6 +95,29 @@ keywords:
     - mobility data
     - video generation
     - speech recognition
+    # Added 2026-08-21 alongside the widened `any` list above. Terms like
+    # "early stopping" and "compute-optimal" are ordinary vocabulary in
+    # general machine learning, so widening `any` to catch the reasoning-effort
+    # literature also opens the door to training-loop and non-language work
+    # that shares the words and nothing else. These name domains where that
+    # is the likely reading.
+    #
+    # The cost is real and worth stating: a genuine study of reasoning length
+    # *within* one of these domains is now rejected outright. That is the
+    # accepted trade -- a rejected paper is visible in
+    # `data/index/rejected.jsonl` and can be filed by hand through `inbox/`,
+    # whereas an archive diluted with keyword collisions is not recoverable
+    # by inspection.
+    - federated learning
+    - image classification
+    - object detection
+    - semantic segmentation
+    - point cloud
+    - wireless
+    - protein
+    - molecular property
+    - autonomous driving
+    - medical imaging
 
 # Authors worth tracking. A match adds `score.author_bonus`.
 authors: []

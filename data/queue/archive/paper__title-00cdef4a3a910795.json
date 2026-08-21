@@ -1,0 +1,110 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:46:48Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:00cdef4a3a910795",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "adaptive reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Think Smarter not Harder: Adaptive Reasoning with Inference Aware Optimization",
+    "url": "https://icml.cc/virtual/2025/poster/46693",
+    "venue": "ICML 2025"
+  },
+  "result": {
+    "concepts": [
+      "Inference budget constraint",
+      "Query-adaptive reasoning length",
+      "Constrained policy optimization",
+      "Response groups and density caps",
+      "Reward margin between groups",
+      "Difficulty-aware compute allocation",
+      "Uni-modal reasoning behaviour",
+      "Performance-cost efficiency frontier"
+    ],
+    "contributions": [
+      "A constrained-RL formulation of adaptive inference cost as a density cap on the fraction of responses allowed to come from an expensive response group, rather than a length penalty in the reward.",
+      "IBPO (Inference Budget-Constrained Policy Optimization): solve the capped reward-margin problem in non-parametric space per mini-batch as an integer linear program, then project back via a stop-gradient KL step that reduces to a weighted SFT update.",
+      "An optimisation-level account showing (iterative) SFT, RFT and RAFT are the same update with trivial weighting problems, placing IBPO as a generalisation.",
+      "A reward margin between response groups, so budget flows to prompts where the expensive group actually outperforms the cheap one.",
+      "Adaptive Sequential Voting: an extended-response construction letting the model itself decide per query whether to vote, and empirical evidence it allocates by difficulty level (2% of level-1 versus 41% of level-5 problems at q_+ = 25%).",
+      "The measurement that sequential voting's gain over vanilla majority voting vanishes when plotted against tokens rather than response count."
+    ],
+    "datasets": [
+      "Hendrycks MATH (training split)",
+      "MATH500",
+      "step-DPO prompt set (about 10k RL prompts)"
+    ],
+    "limitations": "Stated: the work is tied to one RL algorithm (CGPO) and one application; extending the framework to other RL frameworks or tasks needs a new optimisation problem derived per task. The setting is deliberately controlled - no reward models, a single 8B model generating all sampled responses, and only 10k RL prompts. Solving an ILP per mini-batch forces small inner sample sizes and so higher variance, mitigated only by an accumulation trick. Points a reader should notice: the headline 5.74% at 4.32x is from the best checkpoint, and the paper reports one unsuccessful case where the last checkpoint of ASV-IuB-75% falls on the efficiency boundary rather than above it, because by the end of training that model emits almost exclusively voting responses and has stopped allocating adaptively - the budget cap is met on the training set but not transferred, which the authors attribute to distribution shift from the small training set. The budget being allocated is voting trials, not chain-of-thought length, so this adapts how many attempts a query gets rather than how long the model thinks in one attempt. Costs are reported in trials per response, not tokens, so a trial-count reduction is not directly a token reduction. The gain is non-monotone in the budget: q_+ = 25% costs 2.24x trials for +2.94 while q_+ = 50% costs 2.16x for +4.14, i.e. the tighter cap is both more expensive and less accurate. Only MATH500 is evaluated, from a MATH-derived training set.",
+    "method": "Responses are partitioned into disjoint groups; here two, G_o (regular-length SCoT responses) and G_+ (extended responses). The constraint is a density cap: the expected fraction of responses drawn from G_+ is at most q_+. This makes the feasible set a half-space of policies, and the objective becomes constrained RL - maximise reward subject to lying in it. Rather than Lagrangian alternation, the solve is done in the non-parametric policy space on a mini-batch: given n prompts by m sampled responses, find the acceptance weights that maximise empirical reward subject to the density cap and to a correctness-plus-KL feasible set inherited from CGPO. The reward is not raw correctness but a margin r_delta(x, y in G) = mean reward of group G on x minus mean reward of the other group, so a prompt where the extended group does better yields positive margin and attracts budget, while an easy prompt where both groups are correct yields near-zero margin and the budget is spent elsewhere. Because CGPO's acceptance is a pure strategy, the per-batch problem is an integer linear program, solved with SciPy. The resulting weights are then projected back onto the parametric policy by a stop-gradient KL step, which reduces to a weighted SFT update - putting IBPO in the same family as RFT and RAFT, which the paper shows are the same construction with trivial weight problems. The extended group is realised concretely as sequential voting: up to 8 trials in one response, stopping early once an answer occurs 3 times. Adaptive Sequential Voting (ASV) lets the model itself choose per query whether to emit a voting response or a single SCoT response, and IBPO optimises that choice. No reward models are used.",
+    "methods": [
+      "IBPO (Inference Budget-Constrained Policy Optimization)",
+      "CGPO (Constraint Generative Policy Optimization)",
+      "Integer linear programming (SciPy solver)",
+      "Weighted SFT projection with stop-gradient",
+      "Sequential Voting (SV)",
+      "Adaptive Sequential Voting (ASV)",
+      "Majority voting / self-consistency (baseline)",
+      "RFT",
+      "RAFT",
+      "step-DPO (dataset source)"
+    ],
+    "one_liner": "Formulates adaptive inference-budget allocation as constrained policy optimisation - cap the fraction of queries allowed an expensive response, maximise reward margin subject to that cap - and solves the per-batch cap with an integer linear program whose solution reweights an SFT update.",
+    "problem": "Long-reasoning-chain models are uni-modal: they spend the same tedious chain of thought on a trivial query as on a hard one, which raises inference cost without raising accuracy. Making the length query-adaptive by adding a negative-length term to the reward is awkward - balancing an intrinsic length reward against an extrinsic accuracy reward is hard to tune and invites reward hacking. The open question is how to let a model decide, per query, whether to spend the extra compute, under a budget the operator sets rather than a penalty coefficient the operator guesses.",
+    "relevance": {
+      "overthinking": "Central to the topic and one of the cleaner formulations of it. The problem it names - a long-reasoning model spending a tedious chain on 'what is 1 plus 1' - is overthinking exactly as the group defines it, and the paper's answer avoids the usual trap of tuning a length penalty against an accuracy reward. Instead the operator states a budget (at most q_+ of queries may take the expensive path) and the optimiser decides which queries those are, with the ILP-per-batch solution reducing to a weighted SFT update. Figure 6 is the evidence the topic wants: at a 25% cap the model gives extra compute to 41% of level-5 problems and 2% of level-1 ones, so difficulty-conditioned allocation is learned rather than prompted. Three qualifications matter for how the group cites it. The budget is voting trials, not chain-of-thought tokens, so this is compute allocation across attempts and not reasoning-length control within one; results are reported in trials per response, and the paper's own Figure 3 shows that a gain looking large per response can vanish when replotted per token - a caution the topic should adopt generally. The reported gains come from best checkpoints, and the paper's own failure case is instructive: at the loosest cap (75%) the final checkpoint collapses to voting on nearly everything, losing the adaptivity while still nominally satisfying the training-set constraint. That is the failure mode any budget-constrained method for this topic should be checked against."
+    },
+    "results": "Base model LLaMA 3.1 8B Instruct, trained on MATH plus the SDPO prompt set (about 10k RL prompts), evaluated on MATH500; cost is reported as average trials per response rather than tokens. Baseline LLaMA pass@1 is 51.26. ASV-IuB with q_+ = 25%: 54.2 pass@1, +2.94, 2.24x trials. q_+ = 50%: 55.4, +4.14, 2.16x. q_+ = 75%: 57.0, +5.74, 4.32x. The two headline numbers in the abstract (4.14% at 2.16x and 5.74% at 4.32x) are these. Non-adaptive comparators: SV-SFT 56.8 (+5.54) at 5.67x trials, ASV-SFT-1 55.6 (+4.43) at 5.74x - so IBPO reaches a higher pass@1 at 4.32x than voting-only SFT does at 5.67x. Self-correction literature baselines under similar multi-turn cost are far weaker (SFT-RISE +0.0 to -0.3 at 5x, Self-Refine -3.3 to +0.4 at 3x, STaR +0.4 and -14.2 at 2x); SCoRe on Gemini 1.5 Flash reaches 64.4 (+4.4) at 2x. Budget constraints are satisfied almost exactly on the training set (Figure 5a) and approximately on the test set, with voting fraction ordered 75% > 50% > 25%. Difficulty allocation works as intended: at q_+ = 25%, only 2% of level-1 problems get a voting response versus 41% of level-5; at q_+ = 50%, 35% of level-1 versus 54% of level-5. A separate check (Figure 3) shows that sequential voting's apparent ~10% majority@k gain over vanilla majority voting disappears when the x-axis is average tokens rather than number of responses - the two curves coincide.",
+    "tags": [
+      "adaptive-reasoning",
+      "inference-budget",
+      "constrained-rl",
+      "test-time-compute",
+      "difficulty-aware-allocation",
+      "self-consistency",
+      "math500",
+      "compute-optimal"
+    ]
+  },
+  "task_id": "paper__title-00cdef4a3a910795",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

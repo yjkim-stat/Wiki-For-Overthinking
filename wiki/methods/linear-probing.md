@@ -8,7 +8,7 @@ Training a simple linear classifier or regressor on a model's internal activatio
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [activation steering](activation-steering.md), [overthinking](../concepts/overthinking.md)
+**Related**: [activation steering](activation-steering.md), [aha moment](../concepts/aha-moment.md), [overthinking](../concepts/overthinking.md), [reward hacking](../concepts/reward-hacking.md)
 
 ## Appears in
 

@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "ImageNet-1k"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "title:14e8a3607202d3e2",
+      "kind": "paper",
+      "note": "Argues that confidence calibration is the wrong objective for early-exit image classifiers and replaces it with Early-Exit Failure Prediction, a criterion that also accounts for whether later layers could fix the prediction.",
+      "title": "Rethinking Calibration for Early-Exit Neural Networks"
+    },
     {
       "id": "title:4eb373d18ecc04ff",
       "kind": "paper",
@@ -11,9 +19,25 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "dataset",
-  "last_seen": "2026-08-20T12:15:21Z",
+  "last_seen": "2026-08-21T00:49:10Z",
   "name": "ImageNet-1K",
   "related": [
+    "early-exit-neural-network",
+    "confidence-calibration",
+    "failure-prediction",
+    "adaptive-computation",
+    "cost-accuracy-tradeoff",
+    "confidence-thresholding",
+    "early-exit-failure-prediction-eefp",
+    "early-exit-neural-networks",
+    "temperature-scaling-baseline",
+    "msdnet",
+    "resnet-34",
+    "vit-tiny",
+    "vit-small",
+    "efficientnet-b2",
+    "cifar-100",
+    "tinyimagenet",
     "model-stitching",
     "accuracy-efficiency-tradeoff-curve",
     "representation-similarity-kl-divergence",

@@ -1,0 +1,59 @@
+{
+  "concepts": [
+    "Token-Level Entropy",
+    "Reasoning Trace Leakage",
+    "Machine Unlearning",
+    "Latent Decoding",
+    "Inference-Time Intervention",
+    "Multimodal Large Reasoning Model"
+  ],
+  "contributions": [
+    "Measures that natively RL-trained multimodal reasoning models leak unlearned private attributes in the reasoning trace substantially more than their non-reasoning base MLLMs, a failure mode answer-level unlearning does not address.",
+    "Characterizes a two-stage token-level entropy signature of memorized recall (a spike while candidate values compete, then collapse to near-zero across the memorized span, recovering at its boundary) that is present in RL-trained MLRMs and largely absent from base models.",
+    "Proposes LEMUR, a training-free decoding-time framework that combines an entropy-augmented sensitivity trigger, entropy-scaled injection of a visual and safe-answer anchor into a latent feedback embedding, and an adaptive entropy-based exit rule with cooldown.",
+    "Reports lower answer-level and trace-level leakage than training-based (GA_diff, KLMin, NPO, MMUnlearner, R2MU) and training-free (R-MUSE) baselines on three RL-trained 7B backbones while keeping retain-split utility and fluency near vanilla."
+  ],
+  "datasets": [
+    "MLLMU-Bench (reconstructed with <think>/<answer> traces distilled by a Qwen3.5-35B-A3B teacher)",
+    "a general visual-reasoning corpus used for the generalization check in the appendix"
+  ],
+  "generated_at": "2026-08-21T00:33:58Z",
+  "generated_by": "queue",
+  "limitations": "The paper states no limitations section. Points a reader should notice: (a) the two-stage entropy signature and every number rest on one benchmark of fictitious MLLMU-Bench subjects whose reasoning traces were synthesized by a teacher model, so the entropy pattern is measured on distilled traces rather than natively emergent ones; (b) the trigger still needs a per-subject forbidden token set, so what must be forgotten has to be enumerated in advance and the entropy cue only widens an already lexical detector; (c) the appendix qualitative analysis shows the unlearned model does not refuse but substitutes a confident wrong attribute drawn from its prior (a Wellington birthplace becomes Toronto, an Environmental Engineer becomes Software Developer) and narrates a fabricated justification, which is forgetting achieved by hallucination; (d) the transfer result shows the entropy signal, the paper's core claim, contributes little on a non-RL backbone, where the visual anchor does the work; (e) no inference latency, throughput or memory cost is reported for the latent-decoding phase, and the method introduces at least eight hyperparameters (rho, rho_lo, tau, gamma, gamma_max, beta, kappa, W_max, C) with no sensitivity study in the main text; (f) fluency is scored by an LLM judge; (g) all backbones are 7B.",
+  "method": "LEMUR leaves the weights untouched and intervenes in decoding, in three parts. (1) Entropy-augmented sensitivity switching: it tracks per-token entropy H_t = -sum p_t(v) log p_t(v) and the probability mass P_t on a per-subject forbidden token set. It enters 'sensitive mode' when P_t >= rho (the committed, low-entropy recital) OR when H_t >= tau and P_t >= rho_lo (the earlier high-entropy deliberation stage, where mass is spread over synonymous candidates and no single token clears rho). This mirrors the paper's central observation, a two-stage entropy signature: entropy spikes as candidate attribute values compete, then collapses to near zero across the memorized span and recovers only at its boundary. (2) In sensitive mode the model is no longer fed the sampled token. The step distribution is renormalized with the forbidden tokens removed, summarized as an expected input embedding, and interpolated with a composite anchor a = beta*e_vis + (1-beta)*e_safe, where e_vis averages the pretrained visual special-token embeddings and e_safe averages refusal templates such as 'I cannot identify this person from the image'. Injection strength gamma_t scales with H_t (capped at gamma_max), so steering is strong while the value is undecided and weak once fluent safe text is being emitted. (3) Dynamic phase duration: the phase exits when the forbidden mass has cleared and entropy has recovered above an adaptive threshold kappa*H_bar_t, where H_bar_t is an EMA of entropy over discrete-mode steps, with a hard cap W_max and a cooldown of C discrete steps before a new phase may open, to stop the intervention chaining into degenerate repetition.",
+  "methods": [
+    "LEMUR",
+    "entropy-augmented sensitivity switching (ESS)",
+    "entropy-aware visual anchor injection (VAI / EVAI)",
+    "dynamic entropy-controlled phase duration (DEPD)",
+    "R-MUSE",
+    "MMUnlearner",
+    "R2MU",
+    "NPO (negative preference optimization)",
+    "gradient ascent (GA_diff)",
+    "KL minimization (KLMin)",
+    "R1-Onevision-7B",
+    "Vision-R1-7B",
+    "OpenVLThinker-7B",
+    "Qwen2.5-VL"
+  ],
+  "one_liner": "A training-free, inference-time unlearning method for RL-trained multimodal reasoning models that detects memorized private attributes from a token-level entropy signature and replaces the committed tokens with image-grounded sanitized embeddings.",
+  "paper_id": "arxiv:2608.11691",
+  "problem": "Multimodal large reasoning models trained natively with RL emit an explicit <think> trace before answering. The authors observe that a private attribute can be removed from the final answer and still be recited inside that trace, and that this trace-level leakage is worse in RL-trained MLRMs than in their non-reasoning base MLLMs. Existing unlearning methods are answer-centric: fine-tuning approaches (GA, NPO, MMUnlearner) leave trace leakage largely intact, while interventions strong enough to perturb the trace degrade reasoning quality. Lexical forbidden-token masking also fails to catch synonyms or other attributes of the same subject.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Tangential. The paper is about privacy unlearning in multimodal reasoning models, not about how long a model should think: it never measures reasoning length, token budget, accuracy/efficiency tradeoff or test-time compute scaling, and the keyword match ('large reasoning model', 'reasoning trace') is generic vocabulary. The one point of genuine contact is mechanical rather than topical: it uses per-token entropy dynamics inside the CoT as a decoding-time control signal for when to intervene and when to stop intervening, including an adaptive exit threshold set from an EMA of the model's own baseline entropy. That is the same family of signal used by entropy-based CoT compression and early-exit work the group tracks, and its negative transfer result is the reusable part: the pronounced entropy structure it relies on appears in natively RL-trained models and is largely absent from a non-RL instruct model, which bounds where any entropy-triggered stopping rule can be expected to work."
+  },
+  "results": "All numbers are from a reconstructed MLLMU-Bench in which reasoning traces were distilled by a Qwen3.5-35B-A3B teacher; there is no hardware or deployment measurement. On R1-Onevision-7B at 5% forget, LEMUR reduces forget-split subject-level reasoning leakage (SRL) to 11.3% against 61.6% for the vanilla model and 29.8% for the best prior training-free baseline R-MUSE; forget classification accuracy 26.0% (vanilla 59.2, R-MUSE 35.2), fill-in-blank 1.0% (vanilla 16.0), generation target recall 15.1% (vanilla 32.2). Retain and celebrity splits stay at vanilla level (retain CLS 59.1 vs 58.2 vanilla; celebrity CLS 67.9 vs 68.0), whereas the gradient-based baselines lose several points there. Reasoning Retention Ability, judged by Gemini-2.5-Pro, is 6.9 on the forget split against 7.7 vanilla and 4.3-4.6 for GA/KLMin. The same pattern holds at 10% and 15% forget ratios and on Vision-R1-7B (10% forget: SRL 10.2 vs R-MUSE 26.3) and OpenVLThinker-7B (5% forget: SRL 11.9 vs R-MUSE 32.5). The ablation isolates where the gain comes from: lexical masking alone (Base) gives SRL 42.0; adding the entropy-augmented switch gives 28.7; adding the visual anchor gives 12.5; making injection entropy-adaptive gives 10.3. The dynamic phase-duration component slightly worsens forgetting (SRL 10.3 -> 11.3, CLS 25.0 -> 26.0) and is justified instead by utility recovery (retain CLS 57.5 -> 59.1, forget RRA 6.4 -> 6.9). Transfer to the non-RL Qwen2.5-VL is weaker: forget CLS 24.6 vs R-MUSE 25.4 and SRL 27.8 vs 30.9, and the paper states the entropy cue there acts as an extra gate rather than an informative detector because Qwen2.5-VL lacks the pronounced entropy surges.",
+  "schema_version": 1,
+  "tags": [
+    "multimodal",
+    "unlearning",
+    "privacy",
+    "token-entropy",
+    "reasoning-trace",
+    "training-free",
+    "decoding-time",
+    "vlm"
+  ]
+}

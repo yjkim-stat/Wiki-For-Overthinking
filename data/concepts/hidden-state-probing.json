@@ -1,0 +1,74 @@
+{
+  "aliases": [
+    "Hidden-state probing"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.28966",
+      "kind": "paper",
+      "note": "BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.",
+      "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning"
+    },
+    {
+      "id": "title:18b94d8204ec3367",
+      "kind": "paper",
+      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
+      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:49:09Z",
+  "name": "Hidden-State Probing",
+  "related": [
+    "overthinking",
+    "prefix-sufficiency",
+    "dynamic-early-exit",
+    "self-doubt-cues",
+    "reasoning-checkpoints",
+    "accuracy-efficiency-score-aes",
+    "conformal-calibration",
+    "layer-redundancy-in-transformers",
+    "premature-exit",
+    "blade",
+    "multi-granular-reasoning-checkpoints-mgrc",
+    "adaptive-probe-layer-selection-apls",
+    "hard-top-k-layer-gating-with-straight-through-estimator",
+    "knowledge-distillation-from-a-dense-cross-layer-probe",
+    "conformal-threshold-calibration",
+    "lynx-k1-lynx-k16-baselines",
+    "qwen3-8b-qwen3-4b-backbones",
+    "gsm8k-test-and-train",
+    "math-500",
+    "math-train-numeric-answer-subset",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "deepscaler-train",
+    "overthinking-on-easy-instances",
+    "difficulty-adaptive-test-time-compute",
+    "token-probability-entropy-as-a-difficulty-signal",
+    "u-shaped-entropy-over-difficulty",
+    "inference-strategy-selection",
+    "oracle-upper-bound-on-adaptive-routing",
+    "diffadapt",
+    "hidden-state-difficulty-probe",
+    "easy-normal-hard-inference-strategies",
+    "token-entropy-analysis",
+    "deer",
+    "thinkprune",
+    "vllm",
+    "gsm8k",
+    "olympiadbench",
+    "minerva",
+    "gpqa",
+    "mmlu-pro"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "hidden-state-probing",
+  "topics": [
+    "overthinking"
+  ]
+}

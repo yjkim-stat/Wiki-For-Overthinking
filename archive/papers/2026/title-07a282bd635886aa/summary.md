@@ -1,0 +1,55 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# PEAR: Phase Entropy Aware Reward for Efficient Reasoning
+
+- **Authors**: _unknown_
+- **Venue**: ICLR 2026
+- **Published**: 2026-01-01
+- **Source**: virtualsite
+- **Link**: <https://iclr.cc/virtual/2026/poster/10010398>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+PEAR adds a phase-dependent entropy term to the RL reward for reasoning models — penalising entropy during the thinking phase while permitting it in the final answer — and reports 37.8% to 59.4% token reduction across three models on four mathematical benchmarks without an explicit length target.
+
+## Problem
+
+Large reasoning models produce chain-of-thought traces that are longer than the problem requires, with redundant steps that raise inference cost. Controlling generated length without losing accuracy is open: length-reward and truncation methods impose an external target that the model must be told, and a target that is right for one problem is wrong for another, so a fixed budget either cuts short the hard instances or leaves the easy ones padded.
+
+## Contributions
+
+- An empirical analysis reporting a consistent positive correlation between model entropy and response length, differing by reasoning stage, across diverse large reasoning models.
+- PEAR, a reward that penalises excessive entropy in the thinking phase while allowing moderate entropy in the final-answer phase, giving length control without an explicit length target or truncation rule.
+- Reported token reductions of 37.8%, 59.4% and 55.2% for DeepSeek-R1-Distill-Qwen-1.5B, Qwen3-4B and Qwen3-8B at competitive accuracy against GRPO, Step Entropy and LCPO.
+- Out-of-distribution evidence: trained on GSM8K only, with gains reported on MATH500, AIME24 and AMC23.
+- Public code.
+
+## Method
+
+The paper first reports an empirical regularity: across several large reasoning models, token-level entropy and response length correlate positively, and entropy differs systematically by reasoning stage. The thinking phase runs at higher entropy, consistent with exploratory search and with longer responses; the final answer phase runs at lower entropy, consistent with committing to a solution. PEAR turns that regularity into a control signal. Instead of treating every token identically in the reward, the reward is made phase-dependent: excess entropy is penalised during the thinking phase, pushing that phase toward fewer, more determined steps, while moderate entropy is permitted during final-answer generation so the model retains enough flexibility to actually produce a correct solution. Training is reinforcement learning on top of GRPO-style optimisation. Because the pressure is applied to entropy rather than to a token count, no explicit length target and no truncation rule is needed — length falls out as a consequence of the reduced exploration in the thinking phase.
+
+## Results
+
+Three base reasoning models: DeepSeek-R1-Distill-Qwen-1.5B, Qwen3-4B, Qwen3-8B. Main table reports token reduction with average accuracy across the four benchmarks: 37.8% reduction at 64.62% average accuracy for DeepSeek-R1-Distill-Qwen-1.5B; 59.4% reduction at 80.54% for Qwen3-4B; 55.2% reduction at 83.11% for Qwen3-8B. Baselines are GRPO, Step Entropy (a two-stage strategy for compressed CoT at inference), and LCPO (Length-Controlled Policy Optimization, which optimises jointly for accuracy and a user-specified length constraint); PEAR is reported as achieving greater length compression at comparable accuracy. Training is on GSM8K only, and the reported gains hold across all four benchmarks, which is the out-of-distribution claim — MATH500, AIME24 and AMC23 are unseen during training. Two things to hold onto about these numbers. The compression is not monotone in scale: the 1.5B distilled model gives up the least length (37.8%) while the 4B gives up the most (59.4%), so the method's effect depends on the model rather than tracking size. And the OOD evidence rests on 30 AIME24 and 40 AMC23 problems, sample sizes at which a few items move the accuracy figure by percentage points.
+
+## Limitations
+
+The paper has no explicit limitations section; the caveats below are the reader's. Accuracy is described as competitive rather than preserved, so the compression is bought against some accuracy on at least some benchmarks and the per-benchmark breakdown, not the average, is what settles the tradeoff. All four benchmarks are mathematical, and training uses GSM8K alone, so the claim that phase-dependent entropy is a domain-agnostic signal is tested only within mathematics — nothing here covers code, proof, agentic or open-ended reasoning. AIME24 (30 problems) and AMC23 (40 problems) are too small to separate close methods. The method presumes the thinking phase and answer phase are identifiable in the output, which holds for models emitting explicit reasoning delimiters and is undefined for those that do not. The entropy-length correlation is the empirical premise of the whole design and is reported as an observation across models, not derived, so it is an open question whether it holds for reasoning models trained differently. Finally, the reward reduces exploration during thinking by construction, which is a plausible mechanism for harm on problems that genuinely need search — a regime the four benchmarks only partly probe.
+
+## Why it matters here
+
+- **overthinking**: Squarely on topic and one of the more directly usable methods for it. This is a length-control method for large reasoning models whose whole subject is the accuracy/efficiency tradeoff of reasoning length. Its distinctive contribution to the topic is the control signal: where most efficient-reasoning work applies an external length budget — a token target, a truncation point, a length penalty — PEAR applies pressure to entropy and lets length fall out. That matters for the group's framing of overthinking because it treats an over-long trace as a symptom of prolonged exploration rather than as a quantity to be capped, and so avoids the failure mode where a fixed budget truncates the hard problems that needed the tokens. The phase distinction is the other reusable idea: it identifies thinking and answering as regimes with different entropy signatures and argues that the right amount of exploration differs between them, which is a more specific claim than 'shorter is better' and a candidate lens for reading other length-control results in the archive. The reported 37.8%-59.4% token reductions at competitive accuracy give the topic concrete figures to compare against LCPO and Step Entropy, both of which the archive should expect to see again. Two things temper this. The evidence is mathematical reasoning only, trained on GSM8K, with two of the four benchmarks at 30 and 40 problems. And 'competitive accuracy' is the paper's own word for the tradeoff, so PEAR is evidence about how cheaply length can be cut, not evidence that it is free.
+
+## Entities
+
+- **Concepts**: phase-dependent entropy in reasoning traces, entropy as a proxy control knob for response length, thinking phase versus final-answer phase, reward shaping instead of explicit length targets, conciseness/accuracy tradeoff, exploration during reasoning
+- **Methods**: PEAR (Phase Entropy Aware Reward), phase-dependent entropy regularisation in the reward, GRPO (Group Relative Policy Optimization) as the RL backbone
+- **Datasets**: GSM8K (training and test; 1,319 test problems), MATH500 (500 problems), AIME24 (30 problems), AMC23 (40 problems)
+
+Tags: `efficient-reasoning`, `reasoning-length`, `entropy`, `reward-shaping`, `grpo`, `reinforcement-learning`, `chain-of-thought`, `test-time-compute`, `math-reasoning`
+
+---
+
+Record id: `title:07a282bd635886aa`

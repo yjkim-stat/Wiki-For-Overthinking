@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that the encrypted chain-of-thought blocks returned by Anthropic, OpenAI and Google APIs are interchangeable across sessions, users and models within a provider, and uses a weaker sibling model as a decryption oracle to recover hidden reasoning traces verbatim.",
+        "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:05:05Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'Chain-of-thought monitorability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Chain-of-thought monitorability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Chain-of-thought monitorability",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Whether a model's reasoning trace can be watched to catch misbehaviour before it acts - which the archive's sources split into two prerequisites, neither of them guaranteed. Risky Business treats monitorability as depending on faithfulness and in tension with safety: an agent must follow its trace closely enough for the trace to predict what it does, yet a model that follows its trace perfectly also executes tampered unsafe reasoning, which their Targeted Reasoning Replacement edit inserts across 77 HazMart scenarios. The trace-stealing paper attacks the other prerequisite, access: the encrypted chain-of-thought blocks returned by the Anthropic, OpenAI and Google APIs are interchangeable across sessions, users and models within one provider, and a weaker sibling model used as a decryption oracle recovers the hidden traces verbatim - so a trace withheld from the user is not thereby unreadable. The sources keep this distinct from faithfulness, which asks whether the trace reflects the computation rather than whether anyone can see it.",
+    "kind": "concept",
+    "related": [
+      "chain-of-thought-faithfulness",
+      "cot-obfuscation",
+      "chain-of-thought-monitoring"
+    ]
+  },
+  "task_id": "concept__chain-of-thought-monitorability",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

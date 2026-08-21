@@ -1,0 +1,40 @@
+{
+  "abstract": "Recurrent-depth reasoners aim to solve harder problems by iterating their update longer at test time, but additional iterations can improve, preserve, or degrade an answer. We show that a measurable property of the trained operator, its finite-time dynamical regime (estimated as settling, marginal, or drifting), indicates which of these occurs. We give a sufficient condition for depth-safety: once an operator's per-step displacement is small relative to the decoder margin, the decoded answer cannot change under further iterations. Empirically, on algorithmic tasks trained from $800$ unaugmented examples per difficulty tier, settling operators do not degrade with added depth, and on some tasks convert it into higher accuracy on harder unseen instances (Sudoku, $0.19$ to $0.34$ past the training horizon). A single terminal fixed-point objective moves the regime and the depth behavior together: removing it induces drift and removes the gains, and adding it to a generic recurrence yields depth-safe extrapolation on carry propagation. We give four operational criteria for useful test-time depth, use them to catalogue failure modes, and, as a consistency check, apply the same measurements to Huginn-3.5B, which falls in the non-settling family.",
+  "arxiv_id": "2608.18222",
+  "authors": [
+    "Ivan Viakhirev",
+    "Kirill Borodin",
+    "Amirah Almutairi",
+    "Serguei Barannikov",
+    "Maxim Abramov",
+    "Grach Mkrtchian"
+  ],
+  "categories": [
+    "cs.LG",
+    "cs.CL"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T23:36:15Z",
+  "id": "arxiv:2608.18222",
+  "last_seen": "2026-08-20T23:36:15Z",
+  "local_path": "data/pdfs/read/arxiv-2608-18222.pdf",
+  "matched_keywords": [
+    "test-time depth"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.18222v1",
+  "published": "2026-08-18",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "arxiv",
+  "source_id": "2608.18222v1",
+  "title": "Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-08-18",
+  "url": "https://arxiv.org/abs/2608.18222",
+  "venue": "",
+  "year": 2026
+}

@@ -46,7 +46,7 @@ The suggested frozen hyperparameters (alpha=3, window k=20%) capture only 72-78%
 
 - **Concepts**: temporal confidence asymmetry (low initial, high final confidence), premature convergence vs. exploratory branching in reasoning trajectories, reasoning-phase isolation (separating chain-of-thought from final-answer tokens), the long-tail trap of confidence maximization on hard problems
 - **Methods**: consilience score, self-certainty (baseline), DeepConf / DeepConf-20% (baseline), Pass@1, best-of-n selection, reasoning-phase isolation, mini-SWE-agent integration
-- **Datasets**: LiveCodeBench-v6, [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [SWE-bench Verified](../../../../wiki/datasets/swe-bench-verified.md)
+- **Datasets**: [LiveCodeBench-v6](../../../../wiki/datasets/livecodebench-v6.md), [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [SWE-bench Verified](../../../../wiki/datasets/swe-bench-verified.md)
 
 Tags: `test-time-scaling`, `verifier-free`, `confidence-calibration`, `reasoning-selection`, `premature-convergence`
 

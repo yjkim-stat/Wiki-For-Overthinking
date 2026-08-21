@@ -1,0 +1,69 @@
+{
+  "concepts": [
+    "Length Explosion",
+    "Accuracy-Length Tradeoff",
+    "Implicit Length Control",
+    "Group-Relative Policy Optimization",
+    "Rollout Group Composition",
+    "Length Penalty Reward Shaping",
+    "Sample Selection in RL Post-Training",
+    "Token-Level Loss Normalization",
+    "Short-Correct / Long-Incorrect Asymmetry"
+  ],
+  "contributions": [
+    "QLPO: length control implemented purely as group composition, leaving the reward function, advantage estimator and GRPO update unchanged, in about 200 lines on VeRL.",
+    "A quadrant scheme that preserves the pool's empirical correct/incorrect ratio while preferring short-correct and long-incorrect trajectories, with a single interpretable coefficient alpha where alpha=1 recovers GRPO.",
+    "A group-trajectory gradient decomposition separating group-level advantage allocation from trajectory-level token-wise realization, used to argue why a length penalty can invert a long-correct trajectory's advantage while a selector cannot.",
+    "An analysis of why shortest-only filtering (GFPO) can backfire: it perturbs the group's correctness composition and, under token-level loss normalization, can make the token-weighted average advantage negative and worsen length explosion.",
+    "A rollout-budget-matched control showing that giving GRPO the same 16 rollouts does not shorten outputs (it lengthens them and doubles training time), isolating selection as the cause.",
+    "Evaluation across 1.5B to 32B, dense and MoE, base and distilled reasoning models, with wall-clock overhead of at most 16.3% and sometimes negative."
+  ],
+  "datasets": [
+    "DAPO-MATH (training)",
+    "MATH-lighteval (training, 3B setting)",
+    "MATH-500",
+    "GSM8K",
+    "OlympiadBench",
+    "GPQA",
+    "AIME 2024",
+    "Geo3K (multimodal, preliminary)",
+    "Eurus-2-RL-Data (code, preliminary)"
+  ],
+  "generated_at": "2026-08-21T00:38:20Z",
+  "generated_by": "queue",
+  "limitations": "The paper has no limitations section. Limits a reader should notice: (a) the baseline for every headline number is a GRPO-trained model that GRPO itself made longer, so '30% to 70% shorter' measures partly against inflation the method's own training introduced - against the untrained base model the reductions are much smaller and in one cell (Qwen2.5-3B GSM8K, 300 versus 291 tokens) absent; (b) 'preserving reasoning performance' is not exact, with accuracy below GRPO in at least six model-benchmark cells, and the paper dismisses these as training stochasticity while reporting no seeds, no variance and no significance test anywhere; (c) pass@1 uses 3 samples for four of the five benchmarks and 16 for AIME24's 30 problems, which is thin for the accuracy claims; (d) GPT-4.1 is an auxiliary verifier on OlympiadBench, GPQA and AIME24, so part of the accuracy measurement depends on a proprietary judge; (e) alpha=1/3 and K=2M are fixed after an ablation on a single model (DeepScaleR-1.5B-Preview) and never re-tuned per model, so robustness of the hyperparameters is asserted rather than shown; (f) the multimodal and code results are called preliminary and are reported only as length reductions with no accuracy figures; (g) the group-trajectory gradient argument explicitly ignores the clipping-induced case distinction and is a decomposition rather than a proof that the correctness signal is preserved; (h) the mechanism can only pick among the K trajectories the current policy produces, so on a prompt whose pool is entirely correct or entirely incorrect the correctness-ratio constraint reduces to a within-class length sort; (i) no measurement is offered of whether the shortened chains lose specific reasoning behaviours, only aggregate accuracy and length.",
+  "method": "For each prompt, sample an over-generated candidate pool of K trajectories (K=16) instead of the usual M (M=8). Partition the pool by correctness into G+ and G-, and set the target counts in the final group as N+ = round(M * |G+| / K) and N- = M - N+, so the resampled group of size M approximately preserves the pool's empirical correct/incorrect ratio. Within each correctness class, sort by length and split into short and long halves. A length preference coefficient alpha in (0,1) sets the within-class retention ratio Correct-Long : Correct-Short = alpha : 1 and Incorrect-Short : Incorrect-Long = alpha : 1, so the two preferred quadrants are (Correct, Short) and (Incorrect, Long). Counts are taken with a ceiling on the preferred quadrants and by subtraction for the rest: N+_short = ceil(N+/(1+alpha)), N+_long = N+ - N+_short, N-_long = ceil(N-/(1+alpha)), N-_short = N- - N-_long. Trajectories are then drawn uniformly within each quadrant and the standard GRPO update runs on the resulting M responses. alpha=1 recovers GRPO exactly; alpha=0 removes long-correct responses entirely. The justification is a group-trajectory gradient decomposition: the GRPO gradient factors into group-level allocation, where the group-relative advantage A(y) sets the sign and magnitude of each trajectory's contribution, and trajectory-level realization, where token-wise gradients accumulate along the response. QLPO acts only as a selector over which trajectories enter the group, so the correctness signal carried by the advantage is left intact and only the realized token-level update is biased toward shorter successes and away from longer failures. Implemented in VeRL in about 200 lines.",
+  "methods": [
+    "QLPO (Quadrant-weighted sampling for Length-aware Policy Optimization)",
+    "GRPO",
+    "GFPO (Group Filtered Policy Optimization)",
+    "GRPO with explicit length penalty",
+    "rollout-budget-matched GRPO",
+    "group-trajectory gradient decomposition",
+    "token-level loss normalization",
+    "VeRL",
+    "L1",
+    "Laser",
+    "ThinkPrune",
+    "Thinkless"
+  ],
+  "one_liner": "QLPO is a GRPO variant that leaves the reward, advantage estimator and update untouched and instead over-generates K=16 rollouts per prompt and resamples the M=8 training group to favour short-correct and long-incorrect trajectories, which shortens outputs by 30-70% relative to GRPO at roughly unchanged accuracy.",
+  "paper_id": "arxiv:2607.21793",
+  "problem": "RL post-training with GRPO on a correctness-only reward causes length explosion: models lengthen their chains over training without a corresponding accuracy gain (Fig. 2 shows Qwen2.5-32B on DAPO-MATH growing from about 500 to about 1,800 average tokens over 240 steps while accuracy plateaus). The standard fixes add an explicit length penalty to the reward or a separate control module. Because the group-relative advantage is recomputed from the penalized reward, a length penalty can shrink, zero out or invert the advantage of a long-but-correct trajectory, so a badly chosen coefficient damages exactly the hard problems that need deep deduction, and the coefficient is difficult to tune. The alternative of filtering to the shortest responses (GFPO) does not preserve the group's correct/incorrect composition, and under token-level loss normalization the token-weighted average advantage of the selected group can go negative, so training drifts away from the short region and length explosion gets worse rather than better - which the authors observe for GFPO in Fig. 2.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Substantively on topic and a clean addition to the archive's length-control material. Its claim is mechanistic rather than behavioural: length can be controlled by choosing which rollouts enter the GRPO group, without touching the reward, so the correctness signal that the group-relative advantage carries is never perturbed. That is the concrete argument against length-penalty methods the topic collects - once a penalty enters the reward, advantages are recomputed from penalized values and a long-but-correct trajectory can end up with a weakly positive or negative advantage, which is precisely the failure that damages hard problems. The rollout-budget-matched control matters for the topic's evidence standards: GRPO given the same 16 rollouts gets longer, not shorter, so the gain is attributable to structured selection rather than to seeing more samples. Two findings are worth carrying forward on their own. The asymmetry is measurable and deliberate - incorrect trajectories shorten by 38% while correct ones shorten by 23% - which operationalizes 'stop spending tokens on paths that are going nowhere' without needing to detect that a path is going nowhere. And the compression holds across difficulty (30-35% on GSM8K and MATH-500, 33-38% on OlympiadBench, GPQA and AIME24), against the common pattern where a length method only compresses easy problems. Two cautions. The headline 30-70% is measured against a GRPO-trained model that GRPO's own length explosion had inflated, so it is partly a claim about not inflating rather than about shortening; against the untrained base the reductions are far smaller and occasionally nil. And 'preserving reasoning performance' has exceptions - accuracy falls below GRPO in several cells, dismissed as stochasticity with no seeds or variance reported anywhere in the paper."
+  },
+  "results": "Five models (DeepScaleR-1.5B-Preview, DeepSeek-R1-Distill-Qwen-7B, Qwen2.5-3B, Qwen2.5-32B, Qwen3-30B-A3B), trained on MATH-lighteval for the 3B and DAPO-MATH otherwise, 32 H20 GPUs, batch 128, Adam at 1e-7. Evaluation is pass@1 at temperature 0.8 with a 32k cap, 16 samples for AIME24 and 3 for the rest; GSM8K and MATH-500 use exact match, the other three use rule-based matching falling back to GPT-4.1 as verifier. All comparisons in Table 1 are against a GRPO-trained model, and GRPO itself lengthens outputs relative to the untrained base, so a large part of the headline reduction is undoing GRPO's own inflation. Representative cells: DeepScaleR-1.5B OlympiadBench base 46.6 acc / 9,265 tokens, GRPO 50.7 / 17,138, QLPO 50.0 / 6,621 (a 10,517-token absolute cut, the largest reported); Qwen2.5-3B GPQA GRPO 32.8 / 2,225 versus QLPO 31.7 / 721, a 67.6% relative cut, the largest reported; DeepSeek-R1-Distill-Qwen-7B AIME24 GRPO 57.1 / 12,237 versus QLPO 57.9 / 9,223; Qwen2.5-32B GPQA GRPO 54.0 / 1,455 versus QLPO 56.5 / 978. Accuracy is not uniformly preserved and several cells lose ground to GRPO: Qwen2.5-3B GSM8K 86.3 -> 84.8, Qwen2.5-32B GSM8K 96.0 -> 95.6 and MATH-500 87.6 -> 86.2, Qwen3-30B-A3B AIME24 83.3 -> 82.1 and OlympiadBench 90.8 -> 89.3; the paper attributes these to training stochasticity without reporting seeds or variance. On Qwen2.5-3B GSM8K, QLPO's 300 tokens is slightly above the untrained base model's 291. The rollout-budget-matched control (Table 2) is the paper's strongest evidence that selection rather than extra sampling drives the effect: GRPO at K=M=16 does not shorten outputs (DeepScaleR-1.5B average length 12,419 at K=M=8, 14,734 at K=M=16, 8,090 for QLPO at K=16/M=8, with average accuracy 58.4 / 58.2 / 58.4), and training time normalized to 8-rollout GRPO is 1.00 / 2.13 / 1.04. Relative to rollout-matched GRPO, QLPO cuts length 45.1% on DeepScaleR-1.5B and 53.7% on Qwen2.5-3B. Wall-clock overhead versus standard GRPO is at most +16.3% and in some cases 8.4% faster, because shorter responses reduce rollout and policy-update time as training proceeds. Ablation (Fig. 6): K=2M is the working point, K=1.5M gives limited gain, K=2.5M adds little; alpha=1/3 is used throughout, alpha=1 degenerates to GRPO, and alpha=0 is reported as overly aggressive because it discards informative long-horizon correct trajectories. Distribution analysis (Fig. 5): on GSM8K and DAPO-MATH the average length of incorrect trajectories falls 38% while correct trajectories fall 23%, so the shortening is asymmetric by design. Length reduction is 30-35% on GSM8K and MATH-500 and 33-38% on OlympiadBench, GPQA and AIME24, so the compression is not confined to easy problems. Preliminary transfer beyond text: Qwen2.5-3B-VL on Geo3K and Phi-3.5-mini-instruct on Eurus-2-RL-Data give about 42% and 25% shorter outputs, with no accuracy numbers given in the main text. Against efficiency-oriented checkpoints (Fig. 4: L1, Laser, ThinkPrune, Thinkless, GFPO), QLPO reaches the best AIME24 result at both 1.5B (40.8) and 7B (57.9) while remaining shorter than the GRPO policy, though several baselines produce shorter outputs than QLPO does.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "efficient-reasoning",
+    "length-control",
+    "grpo",
+    "rl-post-training",
+    "resampling",
+    "cot-compression",
+    "accuracy-length-tradeoff"
+  ]
+}

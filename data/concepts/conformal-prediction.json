@@ -1,7 +1,21 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Conformal Prediction"
+  ],
+  "definition": "In this archive conformal prediction is used not to produce prediction sets but as a wrapper that turns a learned score into a stopping threshold carrying a distribution-free, finite-sample guarantee. The mixed-integer optimization paper is the clearest case: a network estimates the solver's true optimality gap from its internal state, and conformal calibration converts that estimate into a termination threshold with a distribution-free probabilistic guarantee on the quality of the returned solution. ATTS applies the same machinery inside LLM inference, using it to coordinate multi-dimensional test-time scaling asynchronously and cut synchronization overhead between draft and target models. The statistical early-stopping paper is adjacent rather than conformal — it bounds the probability of halting too early on a well-posed query from uncertainty-keyword arrivals — so the archive's three sources share the guarantee's shape more than they share the technique.",
   "evidence": [
+    {
+      "id": "title:594984624acaa60d",
+      "kind": "paper",
+      "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
+      "title": "Statistical Early Stopping for Reasoning Models"
+    },
+    {
+      "id": "title:878a7bd3c031c8b1",
+      "kind": "paper",
+      "note": "Trains a neural network to estimate a mixed-integer solver's true optimality gap from its internal state, then uses conformal prediction to calibrate a termination threshold that carries a distribution-free probabilistic guarantee on the quality of the solution returned.",
+      "title": "Conformal Prediction for Early Stopping in Mixed Integer Optimization"
+    },
     {
       "id": "title:b601ad920fcc4d45",
       "kind": "paper",
@@ -10,10 +24,42 @@
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T13:53:52Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "conformal prediction",
   "related": [
+    "early-stopping",
+    "overthinking",
+    "ill-posed-query",
+    "uncertainty-quantification",
+    "finite-sample-guarantee",
+    "renewal-process",
+    "sequential-testing",
+    "false-positive-rate-control",
+    "abstention",
+    "test-time-compute",
+    "oracle-detection-power",
+    "maxwise-conformal-nonparametric-stopping",
+    "renewal-parametric-renewal-process-stopping",
+    "renewal-process-modelling",
+    "uncertainty-keyword-monitoring",
+    "confidence-prompting-baseline",
+    "length-based-stopping-baseline",
+    "logits-based-uncertainty-baseline",
+    "gsm8k",
+    "gsm-mc",
+    "umwp",
+    "mip",
+    "mmlu",
+    "gpqa",
+    "hle",
+    "distribution-free-coverage-guarantees",
+    "optimality-gap",
+    "learning-to-optimize",
+    "learned-optimality-gap-estimation-from-solver-state",
+    "branch-and-bound-early-termination",
+    "mixed-integer-programming",
+    "distributional-miplib-six-problem-families",
     "test-time-scaling",
     "asynchronous-decoding",
     "draft-target-model-speculation",
@@ -26,7 +72,10 @@
     "aime-2024",
     "aime-2025"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "confidence-thresholding",
+    "confidence-calibration"
+  ],
   "schema_version": 1,
   "slug": "conformal-prediction",
   "topics": [

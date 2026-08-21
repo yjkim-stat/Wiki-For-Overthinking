@@ -9,7 +9,7 @@ The fraction of problems a model solves correctly in at least one of K independe
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [best-of-N sampling](../methods/best-of-n-sampling.md), [overthinking](overthinking.md), [Pass@1](pass-1.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [best-of-N sampling](../methods/best-of-n-sampling.md), [on-policy distillation (OPD)](../methods/on-policy-distillation-opd.md), [overthinking](overthinking.md), [Pass@1](pass-1.md), [reasoning effort](reasoning-effort.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [test-time compute scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

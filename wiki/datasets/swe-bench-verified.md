@@ -8,7 +8,7 @@ A curated, human-verified subset of SWE-bench (real GitHub issue-resolution task
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [GPQA-Diamond](gpqa-diamond.md), [HMMT 2025](hmmt-2025.md), [overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [pass@K](../concepts/pass-k.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md)
+**Related**: [GPQA-Diamond](gpqa-diamond.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench-v6](livecodebench-v6.md), [overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [pass@K](../concepts/pass-k.md), [reasoning effort](../concepts/reasoning-effort.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md)
 
 ## Appears in
 

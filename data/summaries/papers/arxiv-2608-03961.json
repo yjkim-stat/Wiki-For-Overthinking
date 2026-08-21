@@ -1,0 +1,55 @@
+{
+  "concepts": [
+    "Test-time scaling",
+    "Per-query compute budget allocation",
+    "Prompt difficulty estimation",
+    "Model confidence / self-certainty",
+    "Answer selection as a separate bottleneck",
+    "Oracle accuracy and selection-miss rate",
+    "Interpretable control policy"
+  ],
+  "contributions": [
+    "A hierarchical Type-2 fuzzy controller that maps nine inspectable prompt- and model-side signals to a per-query sample budget, so the allocation can be audited per prompt without retraining or interpreting a learned policy.",
+    "A 'fair-alignment' evaluation protocol that fixes decoding parameters, disables the draft pass and holds the answer selector constant, isolating the budget policy from the selector - and a selector-matched fixed N = 8 control run against it.",
+    "Measured accuracy-compute tradeoffs of 1.4-14.5% sample reduction at -1.8 to +0.5 accuracy points, with larger savings on MATH than GSM8K.",
+    "A diagnostic audit reporting oracle accuracy and selection-miss rate separately, showing Qwen2.5-1.5B misses a correct candidate it already generated in about 24-25% of prompts while Phi-3-medium misses 3.3-3.7%."
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH",
+    "SciQ"
+  ],
+  "generated_at": "2026-08-21T00:37:05Z",
+  "generated_by": "queue",
+  "limitations": "Stated: the fuzzy controller is hand-designed and its rules and refinement weights are not tuned, so a signal that helps in one setting can be neutral or harmful in another; and answer selection is a separate bottleneck that better budgeting cannot fix, since a correct candidate that the selector passes over is still a wrong answer. A reader should add: the honest selector-matched comparison (Table 1) shows accuracy losses in three of four cells and savings of 1.4-3.9% on GSM8K, so the headline claim rests mostly on MATH; the large margins over Best-of-N in Table 6 come from baselines whose accuracy falls monotonically as N grows (Best-of-5 below Best-of-3 below Best-of-1 everywhere), which suggests those rows are limited by their selection procedure rather than by their budget, so 'improves over Best-of-N' should not be read as evidence about adaptive allocation. Reported adaptive accuracies for the same model-dataset pair differ across tables without explanation - Phi-3-mini GSM8K is 0.715 in Table 1 and 0.810 in Table 3, and MATH is 0.578, 0.570 and 0.5686 in Tables 1, 3 and 7. The 256-token output cap is short for MATH, so the setting measures short-form sampling rather than long-chain reasoning. The fair-alignment protocol disables the draft pass, which leaves it unclear how the draft-derived confidence signal gamma - one of the controller's two stage-one inputs - is obtained in the main tables, even though the ablation reports a 'neutral confidence' variant that changes the result. Only two small models (3.8B and 1.5B) are evaluated, and the ablation that improves accuracy by neutralizing a stage-one input is not reconciled with the design.",
+  "method": "Nine signals, all normalized to [0,1], feed a hierarchical fuzzy controller: a surface complexity score h from prompt word count clamped at 60 with bonuses for punctuation, digits, uppercase and sentence count; an NLP complexity score c_NLP as a fixed weighted sum of length, vocabulary richness, sentence count, math-symbol density, semantic ambiguity, linguistic complexity and reasoning depth; their blend c = 0.6*c_NLP + 0.4*h; prompt type; expected answer length; a draft-based confidence gamma = exp(mean log token probability); normalized entropy; a slow-moving history cache of past performance binned by complexity and prompt type; and the three ambiguity/complexity/depth terms individually. Stage one maps c and gamma through triangular (low/medium/high) and trapezoidal (very low/very high) membership functions onto compute labels. Stage two refines with the remaining signals as Type-2 intervals whose width widens when refinements disagree, and defuzzifies by a weighted average of interval centers using stage-one activation strengths, yielding a scale s and an uncertainty u. The budget is s' = clamp(s + 0.2u) then N(x) = max(1, round(1 + s'*(N_max - 1))), with a floor of min(6, N_max) when c > 0.6 and N_max >= 6. Candidates are ranked by self-certainty and aggregated over extracted answer strings by Borda count. The 'fair-alignment' protocol fixes temperature 1.0, top-p 0.95 and a 256-token output cap across all methods, disables the draft pass, and lets the controller change only the sample count.",
+  "methods": [
+    "Hierarchical Type-2 fuzzy controller",
+    "Triangular and trapezoidal membership functions with weighted-center defuzzification",
+    "Self-certainty ranking with Borda aggregation",
+    "Best-of-N sampling",
+    "Compute-optimal allocation (formula-based, after Snell et al.)",
+    "Majority/plurality voting",
+    "Phi-3-mini-4k-instruct",
+    "Phi-3-medium-4k-instruct",
+    "Qwen2.5-1.5B-Instruct"
+  ],
+  "one_liner": "Assigns a per-prompt sampling budget for best-of-N test-time scaling with a hand-written two-stage fuzzy controller over nine prompt- and model-side signals, trading 1.4-14.5% fewer samples for accuracy changes between -1.8 and +0.5 points against a selector-matched fixed N = 8 baseline.",
+  "paper_id": "arxiv:2608.03961",
+  "problem": "Repeated-sampling test-time scaling usually fixes the number of candidates per query, spending the same compute on easy and hard prompts, and a fixed budget offers no account of why a prompt received that many samples. Learned budget policies would allocate adaptively but add another opaque component to an already hard-to-inspect pipeline. The paper asks whether an inspectable controller can allocate samples per prompt while holding decoding and answer selection fixed, so that the effect of the budget policy is separable from the effect of the selector.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "On topic, in the parallel-sampling half of the tradeoff: the length being adapted here is the number of independent candidates per prompt, not the length of a single chain, but the question is the topic's own - decide before or during inference how much compute this particular problem needs, and stop when more will not help. Two things are worth carrying over. First, the honest selector-matched numbers are small: 1.4-14.5% sample reduction at -1.8 to +0.5 accuracy points, with the GSM8K savings under 4% because the controller keeps most prompts at the full budget, which is a useful calibration against papers reporting large savings from allocation alone. Second, the diagnostic audit separates two bottlenecks the topic often conflates. Qwen2.5-1.5B at N_max = 32 has a correct candidate in the pool for 88.7% of GSM8K prompts but answers 64.5% correctly, a 24% selection-miss rate, while Phi-3-medium misses 3.3-3.7% and gains only 0.2 points going from N_max 16 to 32. Where the selection miss is large, extra compute is not overthinking and not underthinking - it is compute the verifier cannot cash in - so measuring oracle accuracy alongside selected accuracy is the check that tells the two apart. The paper's own baselines illustrate the failure directly: Best-of-5 scores below Best-of-1 on every pair, more compute making things worse through aggregation rather than through reasoning. Caveats for the archive: the 256-token output cap means this is short-form sampling, not long-chain reasoning, and the controller's signals are hand-weighted with ablations showing that neutralizing confidence improves MATH accuracy."
+  },
+  "results": "Phi-3-mini-4k-instruct and Qwen2.5-1.5B-Instruct on GSM8K (1,319), a 1,319-item MATH subset and SciQ (1,000), N_max = 8. Selector-matched against fixed N = 8 with the same self-certainty+Borda selector (Table 1): Phi-3-mini MATH 0.578 vs 0.585 (-0.007) at 10.8% fewer samples and GSM8K 0.715 vs 0.717 (-0.002) at 1.4% fewer; Qwen2.5-1.5B MATH 0.297 vs 0.315 (-0.018) at 14.5% fewer and GSM8K 0.464 vs 0.459 (+0.005) at 3.9% fewer. So three of four cells lose accuracy, and the savings on the two GSM8K cells are under 4%; the Wilson intervals are marginal and overlap, and the paper states that paired tests would require per-prompt correctness logs it does not report. Budget histograms show MATH prompts frequently assigned below 8 while GSM8K concentrates at 8. Against non-selector-matched baselines (Table 6) Adaptive leads by wide margins, e.g. Phi-3-mini MATH 0.578 vs Best-of-1 0.451, compute-optimal 0.415 and self-certainty-only-at-8 0.431 - but in that table Best-of-3 (0.335) and Best-of-5 (0.261) are worse than Best-of-1 (0.451) on every model-dataset pair, so those baselines lose accuracy as compute increases. SciQ: Phi-3-mini 0.192 at 6.94 average samples against 0.154 for self-certainty-only at 8 and 0.153 for Best-of-1; Qwen2.5-1.5B 0.376 at 7.27 against 0.365 for Best-of-1. Fixed-budget controls with Phi-3-mini (Table 3): Adaptive 0.810 at 7.86 samples on GSM8K against 0.809 at 8, and 0.570 at 7.07 on MATH against 0.574 at 8; N = 1,2,3 are far worse (0.725/0.709/0.712 GSM8K), so the selector needs a reasonably sized candidate set. Component ablations are mixed and sometimes favour removal: neutralizing confidence raises MATH accuracy to 0.601 (at 8.00 samples) and removing the entropy signal to 0.585, both above the full controller's 0.570; removing the prompt-type signal raises GSM8K to 0.818. A diagnostic run outside the fair-alignment protocol, with the draft pass and adaptive decoding enabled at N_max 16/32 on GSM8K, saves 29.7%/27.9% of samples for Phi-3-medium (accuracy 0.946/0.948, oracle 0.980/0.986, selection miss 3.34%/3.71%) and 14.4%/14.8% for Qwen2.5-1.5B (accuracy 0.571/0.645 against oracle 0.820/0.887, selection miss ~24-25%), which locates the small model's bottleneck in selection rather than budget. Selector sensitivity (Table 7): majority voting is competitive with or better than self-certainty+Borda, and adaptive+majority reaches 0.5853 on MATH at 13.7% fewer samples, above fixed N = 8 with either selector.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "adaptive-sampling",
+    "compute-budget",
+    "fuzzy-control",
+    "best-of-n",
+    "self-certainty",
+    "interpretability"
+  ]
+}

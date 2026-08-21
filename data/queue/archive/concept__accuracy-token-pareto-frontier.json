@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "AdaThinkV trains a video multimodal LLM to decide per question whether to emit an explicit reasoning trace, by estimating from matched forced-mode rollouts whether reasoning's accuracy gain outweighs its extra tokens, and by expanding rollout groups that produce no learning signal.",
+        "title": "AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Distills a short natural-language 'skill' from an existing corpus of agent trajectories with a coding agent, injects it into a non-reasoning model's system prompt, and measures how much of the think/no-think gap it recovers at a fraction of the output tokens.",
+        "title": "Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:02:35Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'Accuracy-token Pareto frontier'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Accuracy-token Pareto frontier",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Accuracy-token Pareto frontier",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "accuracy-token frontier",
+      "token-accuracy Pareto frontier"
+    ],
+    "definition": "Used by both sources as the yardstick for whether emitting a reasoning trace is worth what it costs in output tokens, with the frontier serving as the comparison surface rather than as something either paper computes in closed form. AdaThinkV makes the tradeoff per question: it estimates from matched forced-thinking and forced-no-thinking rollouts whether reasoning's accuracy gain outweighs its extra tokens, and trains a video multimodal LLM to decide accordingly. 'Reason Wide, Not Deep' moves the same point differently -- distilling a short natural-language skill from agent trajectories into a non-reasoning model's system prompt and measuring how much of the think/no-think accuracy gap it recovers at a fraction of the output tokens. Note: the archive tracks this under several near-duplicate entries that were never merged -- 'Accuracy-Efficiency Pareto Frontier', 'Accuracy-Efficiency Tradeoff', 'Accuracy-Length Tradeoff' and 'accuracy-efficiency tradeoff of reasoning length' -- and they are substantially the same idea.",
+    "kind": "concept",
+    "related": [
+      "Accuracy-Efficiency Pareto Frontier",
+      "Accuracy-Efficiency Tradeoff",
+      "Accuracy-Length Tradeoff",
+      "Adaptive Thinking",
+      "Reasoning Premium"
+    ]
+  },
+  "task_id": "concept__accuracy-token-pareto-frontier",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

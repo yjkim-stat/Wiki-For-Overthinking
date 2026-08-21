@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:46:57Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:19ebd4d7f589cbd8",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Compute-Optimal Quantization-Aware Training",
+    "url": "https://iclr.cc/virtual/2026/poster/10009552",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Compute-optimal allocation",
+      "Scaling law fitting",
+      "Quantization-aware training",
+      "Tokens per parameter byte",
+      "Learning-rate cooldown"
+    ],
+    "contributions": [
+      "Shows that the loss-optimal ratio of QAT to full-precision training increases with total compute, contradicting previous findings.",
+      "Shows the optimal QAT fraction is predictable across model sizes (86.0M-2.2B) and quantization widths from the tokens-per-parameter-byte statistic.",
+      "Derives a loss scaling law predicting optimal QAT ratios and final performance across QAT/FP allocations and bit widths, and uses it to predict the optimal bit width under a memory constraint.",
+      "Proposes fusing learning-rate cooldown with QAT, removing redundant full-precision updates for compute savings."
+    ],
+    "datasets": [],
+    "limitations": "No limitations were available in the material consulted. The reader should note the scope: this is a pretraining-compute allocation study for weight quantization, with loss as the objective, so the scaling law is fitted within one training setup and its transfer to other architectures, data mixes or post-training regimes is not established here, and the largest model is 2.2B parameters. Results and numbers here come from the abstract rather than the experiments section, so the specific accuracy figures behind each claim are not recorded.",
+    "method": "Sweep training runs over compute budgets, QAT bit widths and model sizes from 86.0M to 2.2B parameters, varying the fraction of total compute spent in the QAT phase versus the full-precision phase, and fit the resulting losses. The paper finds the loss-optimal QAT-to-FP ratio increases with total compute — the opposite of what previous work found — and that the optimal fraction is predictable across model sizes and bit widths from the tokens-per-parameter-byte statistic. From the sweep it derives a loss scaling law predicting both the optimal QAT ratio and the final loss for a given allocation and bit width, then uses that law to predict which bit width is optimal under a given memory constraint and how quantized accuracy compares to full precision, verifying both experimentally. Separately it proposes fusing the learning-rate cooldown with QAT so the decay happens jointly with quantization-aware training, removing full-precision updates that would otherwise be discarded.",
+    "methods": [
+      "Quantization-aware training (QAT)",
+      "loss scaling law fitting",
+      "tokens-per-parameter-byte statistic",
+      "cooldown and QAT fusion"
+    ],
+    "one_liner": "An empirical scaling study of how to split a fixed pretraining compute budget between a full-precision phase and a quantization-aware training phase, yielding a loss scaling law that predicts the optimal QAT fraction.",
+    "problem": "Quantization-aware training is usually run as a second phase after full-precision pretraining, and that split is known to beat QAT alone, but how much of the total training compute should go to the QAT phase was unclear. Getting it wrong wastes budget or leaves accuracy on the table, and the answer was not known to vary systematically with compute, model size or bit width.",
+    "relevance": {
+      "overthinking": "Not relevant — this is a keyword false positive. The topic matched on 'compute-optimal', but here that phrase means the loss-optimal split of a fixed *pretraining* compute budget between full-precision and quantization-aware phases. The paper is about weight quantization and training-time FLOP allocation; it says nothing about reasoning traces, chain-of-thought length, test-time compute scaling, or when a model should stop generating. The only shared idea is the generic one of spending a budget where it buys the most loss reduction, which is not the accuracy/efficiency tradeoff of reasoning length that this topic tracks. Recommend it be treated as out of scope for the overthinking topic."
+    },
+    "results": "Model sizes 86.0M to 2.2B parameters. The paper reports that the loss-optimal QAT/FP ratio rises with total compute, that the optimal fraction is predicted across model sizes and bit widths by tokens-per-parameter-byte, and that scaling-law predictions about optimal bit width under a memory constraint and about QAT-versus-full-precision accuracy were confirmed experimentally. The cooldown-and-QAT fusion is described as achieving compute savings; the abstract gives no percentage, and no per-benchmark numbers were available in the material consulted (conference abstract and arXiv abstract only; the full paper's tables were not read).",
+    "tags": [
+      "quantization",
+      "qat",
+      "scaling-laws",
+      "pretraining-compute",
+      "off-topic",
+      "iclr-2026"
+    ]
+  },
+  "task_id": "paper__title-19ebd4d7f589cbd8",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

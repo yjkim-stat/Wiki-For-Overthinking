@@ -1,0 +1,52 @@
+{
+  "concepts": [
+    "Partial-sum trajectory",
+    "Sign predictability before full accumulation",
+    "Uncertainty band / calibrated decision threshold",
+    "Dynamic inference and early exit",
+    "Binarized neural networks",
+    "Accuracy-computation trade-off",
+    "Cascading error across approximated layers"
+  ],
+  "contributions": [
+    "A post-training mechanism that determines binary outputs from ordered partial sums before completing fully connected or convolutional accumulations, with no parameter retrained",
+    "Two threshold calibration procedures — empirical quantile and parametric Gaussian — with configurable threshold granularity (per-unit or layer-shared) and fixed or data-driven checkpoint schedules",
+    "An evaluation on binary-activation VGG11 and CIFAR-10 covering convolutional and fully connected layers, reporting both local (r_local) and full-network (r_arch) arithmetic savings",
+    "A measurement of how far the savings depend on descending-magnitude weight ordering: the same policies under natural ordering lose 22-36 pp of local reduction"
+  ],
+  "datasets": [
+    "CIFAR-10",
+    "MNIST (illustrative MLP trajectory figures)"
+  ],
+  "generated_at": "2026-08-21T00:34:35Z",
+  "generated_by": "queue",
+  "limitations": "The authors state: per-unit abs-desc ordering is not directly compatible with a single shared-input fetch, so the reported reductions are idealized arithmetic savings rather than achievable hardware latency; MAC-equivalents are counted without modeling memory traffic, synchronization, branching, or the energy/latency of the checkpoint tests. Evaluation is limited to one moderate-scale model (VGG11/CIFAR-10); extending to deeper binary ResNets or vision/language transformers is untested. Thresholding several layers cascades errors — each layer is calibrated independently against the dense reference and the model is not fine-tuned for thresholded inference, which the authors suggest accounts for part of the multi-layer loss. Only three seeds, so results indicate stability rather than statistical confidence. The Gaussian calibration's tail interpretation depends on the adequacy of the Gaussian fit and is not a formal error guarantee. A reader should also notice that the impressive local reduction on a single layer translates to only 2.76% of network arithmetic, and that the regime with large whole-network savings is the one with 6-15 pp accuracy loss.",
+  "method": "For each output unit the N input-weight terms are reordered by descending absolute weight magnitude (abs-desc), which is input-independent because with binary activations |a_i w_i| = |w_i|; this makes the sign-conditioned partial-sum populations separate earlier. An exact conservative bound exists (stop when |S_k| exceeds the sum of remaining |w|), but it fires late, so the paper instead calibrates an empirical uncertainty band. On a fixed calibration subset of the training data, partial sums S_k are collected together with the dense reference sign, split into positive- and negative-reference populations, and two cut points per step are computed either by empirical quantile (symmetric levels alpha, 1-alpha) or by fitting a Gaussian per population and taking a z-quantile. The lower/upper thresholds are the min/max of the two candidates, guaranteeing a valid band. At a set of checkpoint steps K the partial sum is compared against the band: above the high threshold emits +1, below the low threshold emits -1, inside continues. The first nonzero decision fixes the output and skips all remaining terms; if no checkpoint fires, a static fallback step k* (default N, i.e. full accumulation) decides. Checkpoint schedules are either data-independent (stride, fixed percentage such as percent_4 at {10,20,30,50}% of N) or data-driven (CDF or moment schedules read off the empirical distribution of reference stop steps). Thresholds are calibrated per output unit with layer-shared checkpoints. No parameter is retrained; batch-norm and bias are folded into the affine operator.",
+  "methods": [
+    "Threshold-based early stopping of accumulations",
+    "Descending-magnitude (abs-desc) accumulation ordering",
+    "Empirical quantile threshold calibration",
+    "Parametric Gaussian threshold calibration",
+    "Checkpoint schedules (stride, percent_4, CDF, moment/mean_std)",
+    "Binary-activation VGG11",
+    "Exact remaining-bound stopping rule"
+  ],
+  "one_liner": "A post-training mechanism that stops the accumulation inside a binary-activation layer once the running partial sum leaves a calibrated threshold band, predicting the final sign without evaluating the remaining terms.",
+  "paper_id": "arxiv:2608.06177",
+  "problem": "In binary neural networks the dot product becomes sign-controlled additions/subtractions, but every neuron still accumulates all N input terms even though only the sign of the result is kept. The running partial sum often drifts far enough from zero that the final sign is already determined, so the remaining contributions change the sum but not the output activation. Prior early-termination work (SnaPEA, CompRRAE, ConvReLU++) targets ReLU layers and only predicts negative/zero outputs, or uses a preset budget prefix (Incomplete Dot Products) rather than the per-output partial-sum trajectory; predicting either binary sign from the trajectory, post-training and with no retraining, was open.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Tangential — this is a keyword false positive. The paper matched on the phrase 'early stopping', but its subject is arithmetic inside a binary-activation convolutional layer: it stops accumulating a dot product once the sign of the partial sum is decided. There are no language models, no chains of thought, no test-time compute scaling and no reasoning length anywhere in the work. The only connection worth naming is a distant structural analogy — a calibrated confidence band that decides when further computation cannot change the answer, evaluated as an accuracy-versus-compute trade-off curve — which is the same shape as budget-aware stopping rules for reasoning traces, but the analogy carries no method, no measurement and no result across. It should not be treated as evidence about reasoning length."
+  },
+  "results": "Binary-activation VGG11 on CIFAR-10, three seeds, dense baseline 88.45 +/- 0.14% test accuracy. Savings are counted as MAC-equivalent input-weight contributions under an idealized execution model, not measured latency or energy. Single deepest convolution (features.7, N=4,608, ~3.2% of the dense budget): percent_4 skips 86.58 +/- 0.04% of that layer's terms for 88.08 +/- 0.15% accuracy (0.37 +/- 0.06 pp drop), which is only 2.76% of full-network arithmetic; mean_std_2 gives 83.38% local reduction for a 0.32 pp drop. Parametric Gaussian calibration is more conservative: 70-75% skipped for 0.02-0.12 pp. Three deepest convolutions jointly (F5+F6+F7): percent_4 reaches 87.09 +/- 0.09% accuracy for 24.95% of full-network arithmetic removed, a 1.36 +/- 0.22 pp drop. Thresholding all eight analyzable Conv and FC blocks at once cuts 83-86% of whole-network arithmetic but costs 6-15 pp: best is mean_std_2 at 82.36 +/- 0.47% (6.09 pp below dense) for 83.1% removed. Checkpoint overhead is small: on F5+F6+F7, percent_4 makes 2.35e4 threshold comparisons (0.03% of the dense term count) to skip 7.4e7 terms. The headline depends on abs-desc per-channel ordering: under natural ordering percent_4's local reduction falls from 86.6% to 64.7% and its drop grows from 0.43 to 4.56 pp, and on the F5+F6+F7 cascade percent_4 loses 24.8 pp of accuracy. Median realized sign-lock occurs at step 77 (1.7% of N) while the deterministic exact bound fires only at step 3,789 (82.2%), so the calibrated policy skips 86.6% versus about 18% under the exact rule.",
+  "schema_version": 1,
+  "tags": [
+    "binary neural networks",
+    "quantization",
+    "early termination",
+    "dynamic inference",
+    "efficient inference",
+    "cifar-10",
+    "hardware efficiency"
+  ]
+}

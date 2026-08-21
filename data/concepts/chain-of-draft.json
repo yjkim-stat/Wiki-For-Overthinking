@@ -1,0 +1,76 @@
+{
+  "aliases": [],
+  "definition": "Neither archived source says anything about what Chain-of-Draft is; it is mentioned in passing by two papers whose own contributions lie elsewhere -- A*-Thought, which runs A* search with a bidirectional importance score over the spans of a long trace to select a short high-information subset as fine-tuning data, and a router between thinking and non-thinking models whose threshold is adjusted online by a betting supermartingale. The only thing the archive establishes is the company it keeps: methods that shorten reasoning traces while trying to hold accuracy. A source that describes the method itself is still needed.",
+  "evidence": [
+    {
+      "id": "title:6ac5c2757444abad",
+      "kind": "paper",
+      "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
+      "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings"
+    },
+    {
+      "id": "title:b525ac9b26640523",
+      "kind": "paper",
+      "note": "Routes queries between a thinking and a non-thinking model with a threshold that is adjusted online by a betting supermartingale, so the accumulated statistical evidence certifies at any stopping time that the accuracy given up stays under a user-specified tolerance.",
+      "title": "Anytime Safe PAC Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:56:47Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "Chain-of-Draft",
+  "related": [
+    "chain-of-thought-compression",
+    "overthinking",
+    "token-budget",
+    "reasoning-span",
+    "bidirectional-importance-estimation",
+    "accuracy-per-computation-unit",
+    "search-over-reasoning-paths",
+    "information-density-of-a-reasoning-trace",
+    "a-thought",
+    "a-search",
+    "bidirectional-importance-score-bis",
+    "supervised-fine-tuning-on-compressed-traces",
+    "qwq-32b",
+    "deepseek-r1-distill-qwen-32b",
+    "s1-1-32b",
+    "gpt-2-as-scoring-model",
+    "break-the-chain",
+    "tokenskip",
+    "s1k-1-1",
+    "math-500",
+    "amc23",
+    "olympiadbench",
+    "gsm8k",
+    "selective-thinking",
+    "query-routing",
+    "anytime-valid-guarantee",
+    "partial-feedback",
+    "test-time-compute-scaling",
+    "distribution-shift",
+    "risk-control",
+    "b-pac-reasoning",
+    "test-supermartingale",
+    "betting-wealth-process",
+    "inverse-propensity-scoring",
+    "anytime-valid-inference",
+    "ville-s-inequality",
+    "query-routing-between-thinking-and-non-thinking-models",
+    "ips-hoeffding",
+    "math",
+    "mmlu-pro",
+    "big-bench-hard",
+    "magpie"
+  ],
+  "related_authored": [
+    "chain-of-thought-compression",
+    "overthinking",
+    "budget-forcing"
+  ],
+  "schema_version": 1,
+  "slug": "chain-of-draft",
+  "topics": [
+    "overthinking"
+  ]
+}

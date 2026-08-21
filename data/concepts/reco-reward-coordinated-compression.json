@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.04771",
+      "kind": "paper",
+      "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
+      "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "ReCo (Reward-Coordinated Compression)",
+  "related": [
+    "overthinking",
+    "compression-tolerance-of-a-reasoning-state",
+    "length-inflation-under-cache-compression",
+    "process-reward-model",
+    "kv-cache-compression",
+    "reflection-tokens",
+    "confidence-based-early-stopping",
+    "step-wise-inference-time-budget-allocation",
+    "reward-adaptive-kv-cache-retention-ratio",
+    "attention-guided-token-selection-within-a-reward-set-budget",
+    "reward-banded-reflection-token-logit-penalty",
+    "confidence-probe-early-stopping-on-answer-perplexity",
+    "pilot-30m-process-reward-estimator-distilled-from-skywork-o1-open-prm-7b",
+    "snapkv",
+    "r-kv",
+    "rpc",
+    "sat",
+    "dynasor",
+    "gsm8k",
+    "math-500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "gpqa",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reco-reward-coordinated-compression",
+  "topics": [
+    "overthinking"
+  ]
+}

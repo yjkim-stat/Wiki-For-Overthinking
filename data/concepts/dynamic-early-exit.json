@@ -1,0 +1,75 @@
+{
+  "aliases": [
+    "dynamic early exit"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.28966",
+      "kind": "paper",
+      "note": "BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.",
+      "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning"
+    },
+    {
+      "id": "title:f508a5b012a33fd1",
+      "kind": "paper",
+      "note": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
+      "title": "Dynamic Early Exit in Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "Dynamic Early Exit",
+  "related": [
+    "overthinking",
+    "prefix-sufficiency",
+    "hidden-state-probing",
+    "self-doubt-cues",
+    "reasoning-checkpoints",
+    "accuracy-efficiency-score-aes",
+    "conformal-calibration",
+    "layer-redundancy-in-transformers",
+    "premature-exit",
+    "blade",
+    "multi-granular-reasoning-checkpoints-mgrc",
+    "adaptive-probe-layer-selection-apls",
+    "hard-top-k-layer-gating-with-straight-through-estimator",
+    "knowledge-distillation-from-a-dense-cross-layer-probe",
+    "conformal-threshold-calibration",
+    "lynx-k1-lynx-k16-baselines",
+    "qwen3-8b-qwen3-4b-backbones",
+    "gsm8k-test-and-train",
+    "math-500",
+    "math-train-numeric-answer-subset",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "deepscaler-train",
+    "reasoning-transition-point",
+    "trial-answer",
+    "answer-confidence",
+    "training-free-inference-intervention",
+    "test-time-scaling",
+    "chain-of-thought-compression",
+    "self-truncation",
+    "deer",
+    "deer-pro",
+    "branch-parallel-decoding",
+    "answer-inducer-prompting",
+    "entropy-based-transition-detection",
+    "chain-of-thought-prompting",
+    "gsm8k",
+    "olympiadbench",
+    "gpqa-diamond",
+    "humaneval",
+    "bigcodebench",
+    "livecodebench"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "dynamic-early-exit",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,55 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Anytime Safe PAC Efficient Reasoning
+
+- **Authors**: _unknown_
+- **Venue**: ICML 2026
+- **Published**: 2026-01-01
+- **Source**: virtualsite
+- **Link**: <https://icml.cc/virtual/2026/poster/62243>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+Routes queries between a thinking and a non-thinking model with a threshold that is adjusted online by a betting supermartingale, so the accumulated statistical evidence certifies at any stopping time that the accuracy given up stays under a user-specified tolerance.
+
+## Problem
+
+Selective-thinking systems save compute by sending easy queries to a non-thinking model, but the threshold that decides 'easy' is normally set by a heuristic or calibrated offline on a held-out set. Online this fails twice over: the query stream is non-stationary, so a threshold calibrated yesterday is not safe today; and feedback is partial, because when a query is routed to the non-thinking model the loss that the thinking model would have incurred is never observed. Existing methods therefore give up an uncontrolled and unmeasurable amount of accuracy in exchange for their savings.
+
+## Contributions
+
+- Frames selective thinking as an anytime-valid safe-testing problem, so the routing threshold carries a statistical guarantee that holds at every step under non-stationary query streams rather than only at a fixed sample size.
+- Handles partial feedback — the non-thinking model's counterfactual loss being unobserved — with an inverse propensity scoring estimator corrected for a time-varying exploration rate.
+- Constructs test supermartingales per candidate threshold via a betting wealth process, adjusting the threshold to the most aggressive one whose accumulated evidence certifies safety.
+- Proves anytime-valid performance-loss control and an efficiency guarantee for B-PAC reasoning.
+- Reports up to 81.01% reduction in thinking-model invocations at epsilon = 0.08 with empirical loss under tolerance, against offline PAC and online O-Naive / IPS+Hoeffding baselines.
+
+## Method
+
+The non-thinking model produces an uncertainty score U_t in [0,1] for each incoming query; queries with U_t at or above the current threshold u^t go to the thinking model, the rest to the non-thinking model, with an exploration probability rho_t that occasionally invokes the thinking model anyway so that counterfactual losses are observable at all. To handle the resulting partial feedback, the risk of a candidate threshold u is estimated by inverse propensity scoring: Z_t(u) = (1 - rho_min) * (l_t / pi_t) * xi_t * 1{U_t < u}, where xi_t records whether the thinking model was actually invoked, pi_t is the propensity, and the (1 - rho_min) factor corrects for the exploration rate varying over time. Safety is then tested by betting rather than by a concentration bound: for each candidate threshold a wealth process K_t(u) = K_{t-1}(u) * (1 + lambda_t(u) * D_t(u)) accumulates, with payoff D_t(u) = epsilon - Z_t(u). Under the null that u is unsafe — that its risk exceeds the tolerance — this wealth is a supermartingale, so by Ville's inequality it exceeds 1/alpha only with probability at most alpha. Thresholds whose wealth crosses that level are certified safe and the routing threshold moves to the most aggressive certified one. Because the guarantee comes from a supermartingale rather than a fixed-sample bound, it holds at every time step simultaneously — anytime-valid — so the system can act on the evidence continuously instead of waiting for a calibration window. The user supplies only the loss tolerance epsilon and the confidence level 1 - alpha.
+
+## Results
+
+Qwen3-4B-Thinking-2507 as the thinking model and Qwen3-4B-Instruct-2507 as the non-thinking model, on MATH, MMLU-Pro, BIG-Bench Hard and Magpie. At epsilon = 0.08 on Magpie, 18.99% of queries are routed to the thinking model (a reduction in thinking-model usage of up to 81.01%, which is the abstract's headline number) for 41.37% token savings, with the empirical loss held below tolerance. On MMLU-Pro at epsilon = 0.08, 47.04% expert-call rate and 78.07% of baseline tokens. On MATH, 68.16% of baseline tokens against 95.63% for Chain-of-Draft. Compared against offline PAC reasoning and the online baselines O-Naive and IPS+Hoeffding, which it outperforms; the paper's theoretical claims are anytime-valid control of performance loss plus an efficiency result.
+
+## Limitations
+
+Stated: the method routes between exactly two models and extending it to a menu of more than two is unsolved; efficiency depends heavily on the quality of the non-thinking model's uncertainty score, which the method consumes but does not improve; and a conditional variant (guaranteeing safety per subgroup rather than marginally) is left as future work. Beyond those: the guarantee is on average loss against the thinking model's own answers, not against ground truth, so a query on which both models are wrong is scored as safely routed — the system certifies that routing costs little relative to always thinking, which is a weaker statement than certifying accuracy. The savings are also not uniformly the best available: on MMLU-Pro, B-PAC uses 77.24% of baseline tokens where the heuristic Chain-of-Draft uses 73.63%, so the theoretical safety is bought with some efficiency, and the 81.01% headline is the single most favourable configuration (Magpie, an instruction-following set where most queries plausibly need no reasoning at all) rather than a typical result — on MMLU-Pro fewer than half the queries can be routed away. Exploration is a standing cost: rho_min must stay positive for the estimator to remain unbiased, so some fraction of easy queries is always sent to the expensive model.
+
+## Why it matters here
+
+- **overthinking**: Most of the topic's methods decide how long to think from inside a single model; this one decides whether to think at all, at the level of the deployed system, and it is the first the group has seen that attaches a statistical guarantee to that decision. The contribution for the topic is not the 81.01% saving — comparable numbers appear throughout the efficient-reasoning literature — but the fact that the accuracy given up is bounded by a quantity the operator chooses (epsilon) and certified continuously rather than assumed from an offline calibration. That reframes the accuracy/efficiency tradeoff from a curve to be reported after the fact into a constraint set before the fact, which is what a deployment actually needs. The partial-feedback problem it identifies is worth carrying: any adaptive stopping rule that skips reasoning never learns what the skipped reasoning would have produced, so it cannot tell whether its own policy has drifted into underthinking — the IPS-plus-exploration construction is a general answer, applicable to length-adaptive methods and not just to binary routing. Two caveats for the group. The guarantee is relative to the thinking model's answers rather than to ground truth, so it controls regret against always-thinking, not correctness. And the savings vary sharply with the query mix (81% on Magpie, under 53% on MMLU-Pro), which is itself evidence for the topic's premise that how much overthinking exists is a property of the workload, not of the model.
+
+## Entities
+
+- **Concepts**: Selective Thinking, Query Routing, Anytime-Valid Guarantee, Partial Feedback, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Distribution Shift](../../../../wiki/concepts/distribution-shift.md), [Risk Control](../../../../wiki/concepts/risk-control.md)
+- **Methods**: B-PAC reasoning, test supermartingale, betting / wealth process, inverse propensity scoring, anytime-valid inference, Ville's inequality, query routing between thinking and non-thinking models, [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), IPS+Hoeffding
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [BIG-Bench Hard](../../../../wiki/datasets/big-bench-hard.md), Magpie
+
+Tags: `overthinking`, `selective-thinking`, `query-routing`, `test-time-compute`, `anytime-valid`, `supermartingale`, `risk-control`, `efficient-reasoning`, `distribution-shift`, `llm`
+
+---
+
+Record id: `title:b525ac9b26640523`

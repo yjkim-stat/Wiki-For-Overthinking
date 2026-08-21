@@ -1,0 +1,132 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-28166.pdf"
+  },
+  "completed_at": "2026-08-21T00:36:25Z",
+  "created_at": "2026-08-20T23:53:16Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.28166",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Diffusion language models expose a provisional prediction at every denoising step, and on many tasks the candidate answer inside it stabilizes before the step schedule is exhausted. This creates two acceleration opportunities, leaving a block early and stopping the sequence early, but the two require different criteria because block acceleration is local whereas sequence termination is global and freezes the graded answer. Existing methods usually optimize only one axis, and existing exit gates rely on fixed-region confidence or schedule-dependent rules rather than the candidate answer itself. We present $\\textbf{C}^4$, which coordinates the two axes by giving each decision its own gate. $\\textbf{C}$onfidence-Verified Early Exit (CVEE) decides when the sequence may stop, requiring confidence and sustained argmax stability over a candidate span re-extracted at every step. $\\textbf{C}$ommit-$\\textbf{C}$ore-Then-$\\textbf{C}$onfirm (CCTC) decides which token positions a step may commit by borrowing an autoregressive freezing order inside each block: it commits a boundary-anchored core and confirms deferred positions one step later, so the answer block can be accelerated without allowing local commits inside the answer span to determine sequence-level termination. On 12 zero-shot tasks with LLaDA and Dream, one frozen configuration removes 64--95% of decoding steps and delivers measured end-to-end speedups of 2.6 to 8.6 over full decoding. Code is available at https://github.com/ming053l/C4-dLLM.",
+    "authors": [
+      "Chia-Ming Lee",
+      "Shao-Kai Liu",
+      "Ming-Ching Chang",
+      "Xin Li",
+      "Yu-Lun Liu",
+      "Chih-Chung Hsu"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28166v2",
+    "published": "2026-07-30",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models",
+    "url": "https://arxiv.org/abs/2607.28166",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Early Exit",
+      "Answer Stabilization",
+      "Adaptive Sampling",
+      "Diffusion Language Models",
+      "Confidence Calibration",
+      "Decoding Budget Allocation"
+    ],
+    "contributions": [
+      "A measurement that answer stabilization is strongly task-dependent - the progress by which 90% of trajectories stop changing runs from 0.04 on short-answer tasks to 0.96 on long-reasoning ones - so no schedule-fraction or fixed-region confidence gate can serve both",
+      "CVEE, a schedule-independent termination gate that requires confidence and sustained argmax stability jointly over a candidate span re-extracted every step, with hyperparameters calibrated once and frozen across tasks and model families",
+      "CCTC, a block-local commitment rule that borrows an autoregressive freezing order while keeping prediction parallel, committing a boundary-anchored core with at most H holes and confirming deferred positions one step later at no extra forward pass",
+      "The argument and evidence that the two decisions must be gated separately so that local commitment inside the answer block does not contaminate the signal the exit gate tests, letting CCTC accelerate the final block as well",
+      "Evaluation on 12 zero-shot tasks and two backbones under one frozen configuration, removing 64-95% of steps at 2.6x-18.6x measured speedup with no significant accuracy change in any cell"
+    ],
+    "datasets": [
+      "MMLU",
+      "ARC-Challenge",
+      "HellaSwag",
+      "WinoGrande",
+      "PIQA",
+      "GSM8K",
+      "MATH",
+      "SVAMP",
+      "ASDiv",
+      "GSM-Hard",
+      "HumanEval",
+      "MBPP"
+    ],
+    "limitations": "Stated: CVEE needs an answer unit that the task's output format delimits so a parser can track and relocate it, which excludes open-ended prose - CCTC still applies there but the termination guarantee does not. Every number is greedy decoding at temperature 0; CCTC would carry over to sampling unchanged but CVEE's stability counter tracks a realized string, which fluctuates under sampling, so the gate would fire later or not at all (conservative, giving up speedup rather than accuracy), and the suggested fix of tracking the noise-free top-1 instead certifies a weaker property the authors do not evaluate. All commits are monotonic and never revisited; CVEE's joint gate protects only the final answer span, so an intermediate reasoning token committed under CCTC has no safety net, and adding a mask-and-reconstruct check would cost an extra forward pass. CVEE tracks one unit per example, so multi-function programs or multi-hop answers fall outside the design. Beyond the stated list: sample sizes are small (n=100 for the five long-reasoning tasks, n=200 for short-answer), and the equal-accuracy claim rests on non-significance in those small samples rather than on a demonstrated bound - three of the LLaDA long-reasoning cells move 2-3 points in each direction. WINO is missing from every Dream column. The comparison gives C4 one frozen configuration while several baselines use per-task-family settings, which the authors present as a fairness advantage but which also means the baselines were not re-tuned for these tasks. Timing is single-batch on one RTX 4090, so speedups are not batched-serving numbers.",
+    "method": "Two gates with matched scopes. CVEE (Confidence-Verified Early Exit) governs global stopping. A deterministic, task-format-fixed parser re-extracts and relocates the candidate answer a_t from the provisional prediction at every step; run_t counts consecutive steps with the same extracted value (pausing rather than resetting when no candidate exists), changes_t counts flips, and c_t is the mean per-token confidence over the span holding a_t. The gate fires at the first step where c_t >= tau_CVEE AND run_t >= max(p_min, ceil(gamma * changes_t)) - so each flip demands more subsequent stable steps. None of the three hyperparameters refers to the step budget or elapsed steps, so the gate is schedule-independent and its task dependence comes from the candidate trajectory rather than from a task classifier or router. CCTC (Commit-Core-Then-Confirm) governs which positions a step commits. Let E(t) be positions whose confidence clears tau_CCTC. Committing a position whose left context is still masked severs it from unresolved context and it is never re-decoded, so CCTC commits only the core S(t): the boundary-anchored prefix of E(t) tolerating at most H unresolved holes. Positions beyond the H-th hole are deferred, held masked one step with their predicted token recorded, and confirmed at the next step (inside the same forward pass, no extra model evaluation) only if the new prediction still matches once the core sits in their left context. The scheduled top-k quota still runs as branch (c) to guarantee progress; H -> infinity recovers the pure threshold rule. Once every position in a block is committed the block's remaining steps are skipped. CCTC is applied to every block including the final answer block, on the argument that a position there commits only as part of a confirmed boundary-anchored run and so does not turn CVEE's stability test into a record of sampler decisions.",
+    "methods": [
+      "C4",
+      "CVEE (Confidence-Verified Early Exit)",
+      "CCTC (Commit-Core-Then-Confirm)",
+      "semi-autoregressive block diffusion decoding",
+      "low-confidence remasking",
+      "Prophet",
+      "SchED",
+      "Fast-dLLM",
+      "SlowFast Sampling",
+      "KLASS",
+      "WINO",
+      "LLaDA-8B-Instruct",
+      "Dream-7B-Instruct"
+    ],
+    "one_liner": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+    "problem": "Diffusion language models denoise a masked sequence over T steps chosen at inference, and practical decoders run block by block, so the budget can be cut at two scopes: a block may be left before its steps are exhausted, and the sequence may terminate before all blocks finish. These are different decisions - leaving a block is local and revisable by later blocks, stopping is global and fills every remaining position including the graded answer in one step - yet existing methods optimize one and leave the other at its default. Adaptive samplers (Fast-dLLM, SlowFast, KLASS, WINO) never decide termination; termination gates (Prophet, SchED) fire on fixed-region confidence aggregates or schedule-dependent thresholds rather than on the candidate answer. The two also interact: the block carrying the answer is the block a sampler most wants to accelerate, so an aggressive local commit inside that span freezes the answer by the sampler rather than by the model, contaminating whatever an exit gate then tests.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Largely tangential: this matched on the phrase 'early exit', and the paper is about denoising-step budgets in diffusion language model decoding, not about the length of a reasoning trace. Nothing here shortens or lengthens what the model reasons; the answer text produced is meant to be the same one full decoding would produce, and the saving is in how many parallel denoising passes it takes to write it. The 'early exit' is exit from a fixed step schedule, which is a decoding-schedule question, not a stop-thinking-now question. One finding does transfer as an analogue rather than as evidence, and is worth recording as such: the authors measure when the extracted answer stops changing and find the 90%-stabilization progress ranges from 4% of the budget on short-answer tasks to 96% on multi-step reasoning ones, so a fixed budget over-serves the easy tasks by a factor of about twenty-five while barely sufficing for the hard ones - the same budget-versus-need mismatch the topic studies, observed in a different substrate. Their response is also structurally familiar: the gate keys on the answer's own stability rather than on elapsed progress or aggregate confidence, and they contrast this explicitly with routers that classify a query and allocate a reasoning budget up front. The failure mode they document for margin-based gates - Prophet commits before the answer exists on 87% of MATH and 99% of HumanEval trajectories, while looking confident - is a caution about confidence proxies that would apply to a length controller too. But the mechanism, the models and the metrics are all from a different literature, and the paper makes no claim about reasoning-length tradeoffs in autoregressive reasoning models."
+    },
+    "results": "Note the attached document is v2 (13 Aug 2026) while the payload abstract is v1: the paper reports end-to-end speedups of 2.6x-18.6x where the v1 abstract says 2.6x-8.6x. LLaDA-8B-Instruct and Dream-7B-Instruct, bf16, greedy (temperature 0), zero-shot, single RTX 4090, 12 tasks; CVEE's tuple (gamma=2.0, tau_CVEE=0.7, p_min=3) is calibrated once offline on LLaDA over a shared 120-trajectory pool and frozen for Dream and the other nine tasks, and CCTC's tau_CCTC=0.8, H=1 are fixed a priori. Paired McNemar tests and bootstrap CIs find no statistically significant accuracy difference between C4 and full decoding in any cell. The saving splits sharply by regime. Short-answer (MMLU, ARC-C, HellaSwag, WinoGrande, PIQA, 64 steps): C4 uses 3.4-4.8 steps on LLaDA (92.5-94.7% saved) at 14.3x-18.7x TPS with accuracy equal to baseline within 0.5 point; CVEE does nearly all the work because the candidate settles inside the first block. Long-reasoning (GSM8K, MATH, SVAMP, ASDiv, GSM-Hard, 256 steps): CVEE mostly declines to fire and CCTC supplies the saving - on Dream GSM8K, CVEE alone leaves the budget at 256.0 steps while full C4 reaches 54.5. LLaDA GSM8K 64.0 vs 66.0 baseline at 62.5 steps (3.55x); MATH 33.0 vs 32.0 at 92.5 steps; SVAMP 81.0 vs 81.0; ASDiv 71.0 vs 68.0; GSM-Hard 37.0 vs 35.0. Baselines collapse in this regime: on LLaDA SVAMP, Prophet drops to 40.0 from 81.0 and SlowFast to 46.0; on Dream GSM8K, Prophet 16.0, SchED 18.0, SlowFast 20.0, KLASS 33.0 against an 85.0 baseline that C4 matches exactly. Code (HumanEval, MBPP, 384 steps, execution-graded): LLaDA HumanEval 42.1 vs 40.2 baseline at 39.4 steps (10.3% of budget, 8.69x); MBPP 45.9 vs 45.9 at 33.3 steps (11.11x); Prophet and SchED fall to 3.0/12.8 on HumanEval and 1.9/27.6 on MBPP, and to 0.6-1.9 on Dream. Stabilization measurement: the progress by which 90% of trajectories reach their final answer runs from 0.04 on short-answer tasks to 0.96 on long-reasoning ones, so no single progress threshold can serve both. Phase diagram of commit vs stabilization time on LLaDA: Prophet is premature on 4% of MMLU trajectories, 87% of MATH and 99% of HumanEval, against CVEE's 2%, 4% and 10%. Component ablation shows neither half of CVEE works alone - confidence-only collapses on HumanEval (4.9 vs 40.2) and stability-only on GSM8K (33.0 vs 66.0) - and that the two gates carry different shares in every regime. Per-block usage on GSM8K falls from about a third of the block allowance in the first block to a sixth in the last, a floor rather than a single bottleneck, which is why no long-reasoning speedup exceeds 6.32x while every code speedup clears 8.69x and every short-answer one clears 13x.",
+    "tags": [
+      "diffusion language models",
+      "early exit",
+      "adaptive sampling",
+      "decoding acceleration",
+      "inference efficiency",
+      "llada",
+      "dream"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-28166",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

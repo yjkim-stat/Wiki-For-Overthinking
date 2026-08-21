@@ -1,0 +1,68 @@
+{
+  "concepts": [
+    "Reasoning Trace Noise",
+    "Repetitive Reasoning Steps",
+    "Final-Answer Attention",
+    "Step-Level Representation Shaping",
+    "Hallucination Detection",
+    "Reasoning Step Selection"
+  ],
+  "contributions": [
+    "Identifying irrelevant and repetitive steps as two distinct forms of reasoning-trace noise that degrade hallucination detection, with annotated evidence that confidence scores and raw-embedding kNN both fail to separate them",
+    "The observation that final-answer attention mass is an annotation-free signal for step informativeness (mean 6.5e-3 for informative steps against 2.1e-3 irrelevant and 3.3e-3 repetitive on annotated AIME 2024), and that among semantically similar steps the later occurrence retains the answer-relevant information",
+    "REDE, a lightweight frozen-LRM projection trained with compactness, dispersion and separation terms over attention-ranked proxy sets, enabling kNN-distance filtering at test time without computing attention or using labels",
+    "Detector-agnostic evaluation showing consistent gains for probing, CCS, perplexity and verbalized-certainty detectors across four benchmarks, two 8B model families and two 32B models, plus cross-dataset transfer of the learned projection",
+    "A bound relating downstream detection risk to the filtering error induced by the learned projection"
+  ],
+  "datasets": [
+    "TruthfulQA",
+    "MATH500 + AIME 2024 + AIME 2025 (combined as MATH)",
+    "CodeElo",
+    "MULTIHOPQA (HotpotQA, 2WikiMultihopQA, MuSiQue, Bamboogle)",
+    "GSM8K (appendix)",
+    "Qwen3-8B / Qwen3-32B",
+    "DeepSeek-R1-Distill-Llama-8B / DeepSeek-R1-Distill-Qwen-32B"
+  ],
+  "generated_at": "2026-08-21T00:38:32Z",
+  "generated_by": "queue",
+  "limitations": "Stated: REDE only filters an already-generated trace and does not intervene during generation, which the authors flag as future work; and they position it as a reliability aid rather than a substitute for human oversight. Beyond that: the fixed global drop ratio zeta=70% is tuned on validation and applied per trace regardless of how much redundancy that particular trace actually has, so nothing here adapts the filter to the instance. The informative/noisy proxy sets are defined by taking the top and bottom rho% of attention scores, which presupposes that every trace contains noisy steps in roughly the same proportion. The step-level accuracy figure (86.37%) and the noise-taxonomy annotations come from AIME 2024 alone with one model. Truthfulness labels come from an LLM judge (robustness is checked against ROUGE-L, BLEURT and a second judge, but no human labels). The theoretical bound rests on an epsilon-approximate assumption that noisy steps are conditionally label-uninformative, which is close to assuming the conclusion. Step Entropy matches or beats REDE on one of the four detectors on TruthfulQA, so the claim that prior step-selection signals fail is weaker on probing than on CCS. The task-accuracy check that 70% of the trace can be discarded is a single dataset (MATH), a single model (Qwen3-8B), and a regeneration protocol rather than a controlled generation-time budget. Detection gains for perplexity and verbalized-certainty detectors leave them far below the probing numbers (63-65 AUROC), so the strong headline figures depend on having a trained probe or CCS.",
+  "method": "Three parts, with the LRM frozen throughout. (1) Scoring: for the last token a_T of the answer, the score of step c_i is the total softmax attention mass a_T assigns to the tokens of that step. An irrelevant step's keys align weakly with the answer query; a repetitive step's attention concentrates on the later occurrence; so both score low. (2) Representation shaping: each step is embedded by perplexity-weighted aggregation of its token hidden states, weighting each token by 1/p_theta(x_t | x_<t) so less predictable, more content-bearing tokens dominate. Steps are ranked by attention score, with the top-rho% taken as an informative proxy set T and the bottom-rho% as a noisy proxy set B. A lightweight projection f_phi is trained with a three-term cosine objective: L_compact pulls pairs within T together, L_disperse pushes pairs within B apart so noisy steps do not form their own cluster, and L_separate pushes T away from B. Attention is used as supervision rather than as a direct test-time filter for two reasons the authors give - recomputing attention at test time costs inference overhead, and per-instance attention varies with trace length and structure. (3) Inference: project each step of a test trace, score it by its k-nearest-neighbor cosine distance to the other steps in the same trace, drop the top-zeta% by distance, and hand the filtered trace to any downstream detector. No attention computation and no labels are needed at test time. An appendix gives a bound on detection error in terms of filtering error under an epsilon-approximate label-uninformativeness assumption on the noisy steps.",
+  "methods": [
+    "REDE",
+    "final-answer attention scoring",
+    "perplexity-weighted step embedding",
+    "kNN distance filtering",
+    "CCS (Contrast-Consistent Search)",
+    "supervised probing",
+    "ARS",
+    "RACE",
+    "RHD",
+    "HaloScope",
+    "TSV",
+    "HaMI",
+    "CED",
+    "Semantic Entropy",
+    "SelfCheckGPT",
+    "SPIRIT",
+    "ASAP",
+    "Step Entropy",
+    "STEP"
+  ],
+  "one_liner": "REDE uses the attention that the final answer token pays to each reasoning step as annotation-free supervision for a lightweight projection, in whose shaped embedding space irrelevant and repetitive steps become kNN outliers that can be dropped before a hallucination detector reads the trace.",
+  "paper_id": "arxiv:2607.22098",
+  "problem": "Large reasoning models emit long traces before answering, and prior work has begun using those traces as a signal for detecting whether the final answer is hallucinated. But traces are not uniformly useful: the authors identify two kinds of noisy step - irrelevant steps that contribute no problem-specific information, and repetitive steps whose content is already covered by later steps - and show both dilute the truthfulness signal, so feeding the whole trace to a detector can be worse than not using it. The two obvious filters fail. Confidence scores separate informative from noisy steps poorly because the distributions overlap heavily, and confidence measures certainty about generation rather than usefulness for detection. kNN on raw step embeddings catches some irrelevant steps but not repetitive ones, which are semantically close to the informative steps they duplicate.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Adjacent in purpose but substantive on the topic's central empirical claim. The paper's goal is hallucination detection, not efficiency, and it never controls generation length - it filters a trace that has already been produced. But its measurements are direct evidence that long traces are mostly padding. It gives a taxonomy of what the excess consists of (irrelevant steps that carry no problem-specific information; repetitive steps whose content later steps subsume), quantifies it - the optimal drop ratio is 70% of steps, rising monotonically up to that point - and, in appendix C.9, shows that regenerating the MATH answer from only the retained 30% costs 1.43 accuracy points (80.00 against 81.43) with Qwen3-8B. That is a clean, if single-setting, statement of how much of a reasoning trace does no work. Two further findings matter here. First, the useful signal is what the final answer attends to, not the model's own confidence: confidence distributions of informative and noisy steps overlap heavily, which is a caution for any length controller keyed to confidence. Second, and going the other way, the paper benchmarks four step-compression methods from the reasoning-efficiency literature (STEP, SPIRIT, ASAP, Step Entropy) on its detection objective and finds their signals do not consistently transfer - Step Entropy is nonetheless competitive with REDE on probing (87.31 vs 86.44 on TruthfulQA), which undercuts the paper's own framing more than it supports it. What the paper does not offer this topic: no accuracy/length tradeoff curve, no per-instance adaptation (zeta is a single global ratio), and no intervention at generation time, which the authors name as the obvious next step."
+  },
+  "results": "Four benchmarks (TruthfulQA; a MATH set combining MATH500, AIME 2024 and AIME 2025; CodeElo; a MULTIHOPQA set from HotpotQA, 2WikiMultihopQA, MuSiQue and Bamboogle), 25% held out for test, AUROC averaged over three seeds, truthfulness labels from a Qwen3-32B judge, greedy decoding, A100s. Filtering helps every detector it is plugged into. On Qwen3-8B TruthfulQA, CCS goes from 68.63 to 87.32 AUROC and supervised probing from 80.42 to 86.44; perplexity 58.17 to 63.46; verbalized certainty 50.37 to 61.10. Gains hold across all four datasets and on DeepSeek-R1-Distill-Llama-8B (e.g. TruthfulQA CCS 54.14 to 78.30, CodeElo probing 75.07 to 82.55). Against baselines, REDE (probing) reaches 87.06 on MATH, 87.19 on CodeElo and 82.94 on MULTIHOPQA with Qwen3-8B, and REDE (CCS), which needs no supervision, reaches 87.32 on TruthfulQA against the strongest prior representation-shaping method ARS at 81.92; on MATH 81.33 vs 77.03. On 32B models: 90.87 on Qwen3-32B TruthfulQA (+5.73 over RACE) and 78.95 on DeepSeek-R1-Distill-Qwen-32B (+13.11 over RACE). The projection transfers across datasets - trained on MULTIHOPQA and tested on CodeElo gives 88.04, slightly above the 87.19 in-domain figure. Ablations: attention used directly as a filter reaches only 80.51 with CCS against REDE's 87.32, though it already beats the LRM-specific baseline RHD at 58.08. Random step removal drops below the unfiltered baseline on every detector (68.63 -> 63.18 for CCS), so the gain is not from subsampling. Four step-selection methods from the reasoning-efficiency literature - STEP, SPIRIT, ASAP and Step Entropy - give inconsistent gains (Step Entropy is the best of them at 82.33 CCS / 87.31 probing on TruthfulQA, ahead of REDE on probing); an LLM-as-Judge filter with Qwen3-32B barely moves the baseline (70.11 CCS). Position-based filters are much weaker than REDE: keeping the latest 30% of steps scores 77.53 on TruthfulQA and keeping the earliest 30% scores 68.42, against REDE's 86.44. Removing L_disperse costs the most (86.44 -> 80.06). The drop ratio zeta rises monotonically from 0 and peaks at 70%, declining after. Step-level agreement with human annotations on AIME 2024 is 86.37%. Most relevant to reasoning length: regenerating the MATH answer conditioned only on the retained steps, after removing about 70% of the trace, gives 80.00% task accuracy against 81.43% for the full trace.",
+  "schema_version": 1,
+  "tags": [
+    "hallucination detection",
+    "reasoning traces",
+    "step filtering",
+    "attention supervision",
+    "representation shaping",
+    "large reasoning models"
+  ]
+}

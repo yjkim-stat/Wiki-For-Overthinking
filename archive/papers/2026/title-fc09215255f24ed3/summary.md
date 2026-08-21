@@ -1,0 +1,54 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# OneTwoVLA: A Unified Vision-Language-Action Model with Adaptive Reasoning
+
+- **Authors**: _unknown_
+- **Venue**: ICLR 2026
+- **Published**: 2026-01-01
+- **Source**: virtualsite
+- **Link**: <https://iclr.cc/virtual/2026/poster/10006973>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+OneTwoVLA is a single vision-language-action model that alternates between emitting explicit natural-language reasoning at selected moments of a robot manipulation task and emitting actions conditioned on the most recent reasoning at all other moments.
+
+## Problem
+
+Dual-system robot architectures put a high-level reasoner (a VLM or LLM planner) above a low-level action policy. The paper argues this split has two costs: the two systems have limited mutual understanding of each other's capabilities, and routing every decision through the high-level planner adds latency. The open question is how one model can both reason and act without paying either cost.
+
+## Contributions
+
+- A unified VLA that emits reasoning and actions from one model rather than splitting them across a planner and an executor.
+- A mechanism whereby actions are conditioned on the most recently emitted reasoning, so reasoning need not be regenerated at every control step.
+- A pipeline for synthesising embodied reasoning-centric vision-language data, co-trained with robot demonstrations.
+- Physical-robot evaluations on long-horizon manipulation, error recovery, human-robot interaction and visual grounding against a flat VLA (pi0) and a Gemini-2.5-Pro dual system.
+
+## Method
+
+A single VLA is trained to produce two kinds of output from the same autoregressive backbone: a reasoning token sequence (task plan, current subtask, error observation, or a reply to a human) and an action chunk. The model decides at each step which to emit; when it emits actions, they are conditioned on the reasoning it most recently wrote, so reasoning is not repeated every control step. Training data is robot demonstrations annotated with reasoning at the moments where reasoning matters, plus synthetic embodied reasoning-centric vision-language data produced by a generation pipeline the paper describes, co-trained with the robot data so that visual grounding generalises beyond the demonstration environments.
+
+## Results
+
+Long-horizon tasks (Tomato-Egg 200 demos, Hotpot 600 demos, Cocktail 300 demos): 87% average success, reported as 30 points above the pi0 baseline and 24 points above a dual-system baseline using Gemini 2.5 Pro as planner with pi0 as executor. Error detection and recovery: 8/10 successful recoveries vs 8/14 (57.1%) for pi0 and 7/12 (58.3%) for the dual system. Human-robot interaction: 20/20 (100%) subtask-level interaction successes vs 13/20 (65%) for the dual system. Visual grounding, single environment (4 objects, 40 trials per method): 78% vs 5% for pi0. Open-world grounding (180 items, 16 training environments, 8 unseen): 73% with the vision-language co-trained variant vs 8% without it and 3% for pi0. Timing: the paper states OneTwoVLA's total time on a long-horizon task matches that of a flat VLA with no language reasoning; no token counts or per-step latency figures are reported.
+
+## Limitations
+
+The paper states that the moments at which reasoning is triggered come from hand-selected heuristics used to annotate the training data, and suggests reinforcement learning would be needed to learn where reasoning is actually worthwhile; that the robot pauses for two to three seconds while reasoning, so an asynchronous architecture is future work; that scaling the backbone would make action inference a bottleneck; and that the synthetic vision-language data was drawn from limited sources. Beyond the stated limits: the paper never varies reasoning frequency or reasoning length and never reports an accuracy curve against it, so its claim that reasoning is emitted at the right moments is supported only by end-task success rates against baselines that either always reason (dual system) or never do (pi0). Success rates come from tens of physical trials per condition, so the differences carry wide confidence intervals. The open-world grounding number (73%) is attributable to the vision-language co-training data rather than to the adaptive reasoning mechanism.
+
+## Why it matters here
+
+- **overthinking**: Tangential. The task was queued on the keyword 'adaptive reasoning', but the adaptation here is over *when* an embodied policy emits a natural-language reasoning step during a manipulation episode, not over how long a reasoning trace should be for a given problem. The paper reports no reasoning-length or token-budget measurement, no accuracy-versus-length curve, and no difficulty-conditioned budget: its evidence is end-task success rate on physical robot trials. The one point of contact with this topic is negative and comes from the paper's own limitations - the reasoning trigger is a hand-selected heuristic in the data annotation, and the authors say learning where reasoning is worthwhile would require RL, which is the same open problem this topic tracks in the text-only setting. The efficiency argument is also a different one: the paper compares against a dual system whose latency comes from calling a separate large planner, not from a long trace, and its own reasoning still stalls the robot for two to three seconds. Do not treat the 87% success rate as evidence about the accuracy/efficiency tradeoff of reasoning length.
+
+## Entities
+
+- **Concepts**: [Adaptive reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Vision-Language-Action model, Dual-system architecture, Reasoning-action interleaving, Error detection and recovery, Visual grounding, Long-horizon task planning
+- **Methods**: OneTwoVLA, pi0, dual-system VLA (Gemini 2.5 Pro planner + pi0 executor), vision-language / robot co-training
+- **Datasets**: Tomato-Egg (200 demonstrations), Hotpot (600 demonstrations), Cocktail (300 demonstrations), Generalizable planning tasks: Get Icy Cola, Empty Plate, Tool Use, Prepare Drinks (2,000 demonstrations, two platforms), Single-environment visual grounding set (4 objects, 40 trials per method), Open-world visual grounding set (180 items, 16 training environments, 8 unseen), Synthesised embodied reasoning-centric vision-language data
+
+Tags: `robotics`, `vla`, `embodied-reasoning`, `adaptive-reasoning`, `dual-system`, `manipulation`, `visual-grounding`, `iclr2026`
+
+---
+
+Record id: `title:fc09215255f24ed3`

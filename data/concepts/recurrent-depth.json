@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Recurrent Depth"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2607.25915",
+      "kind": "paper",
+      "note": "Penelope confines latent reasoning recurrence to a five-layer slice of a decoder-only Transformer, refining a fixed-size boundary memory K times instead of re-running the whole decoder or emitting a chain-of-thought trace.",
+      "title": "Penelope: Localized Latent Recurrence for Efficient Structured Reasoning"
+    },
     {
       "id": "title:f75fffe554037a34",
       "kind": "paper",
@@ -11,10 +19,27 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:10:00Z",
+  "last_seen": "2026-08-21T00:41:33Z",
   "name": "recurrent depth",
   "related": [
     "latent-reasoning",
+    "test-time-compute-scaling",
+    "accuracy-efficiency-tradeoff",
+    "chain-of-thought-internalization",
+    "looped-transformers",
+    "penelope",
+    "localized-latent-recurrence",
+    "boundary-memory-with-time-modulated-gru-updates",
+    "recurrent-readout-states",
+    "progressive-cot-to-latent-curriculum",
+    "coconut",
+    "codi",
+    "lora",
+    "deep-listops-derived-from-listops-long-range-arena-4-800-train-800-val-1-600-tes",
+    "prosqa-17-886-300-500",
+    "prontoqa-9-000-200-800",
+    "llama-3-2-1b",
+    "qwen3-5-0-8b-base",
     "implicit-test-time-compute-scaling",
     "per-token-adaptive-compute",
     "recurrent-depth-latent-reasoning",

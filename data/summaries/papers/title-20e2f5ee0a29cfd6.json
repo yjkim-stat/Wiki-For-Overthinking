@@ -1,0 +1,52 @@
+{
+  "concepts": [
+    "Adaptive reasoning trigger",
+    "Action entropy as uncertainty signal",
+    "Difficulty-aware reasoning policy",
+    "Heuristic-to-RL policy refinement",
+    "Reasoning at fixed intervals",
+    "Embodied data scarcity"
+  ],
+  "contributions": [
+    "Introduces the Uncertainty Adaptive Reasoning Block, a lightweight plugin that decides per navigation step whether to invoke explicit reasoning.",
+    "Proposes Action Entropy as a policy prior for the reasoning-trigger decision.",
+    "Proposes a Heuristics-to-RL training scheme that refines the heuristic trigger into a learned difficulty-aware policy under embodied data constraints.",
+    "Reports gains over the Navid and NaVILA base models on R2R val-unseen, RxR-CE and real-world scenes using 6K training samples, while reasoning on average 2.5 of 55 steps."
+  ],
+  "datasets": [
+    "R2R-CE (val-unseen)",
+    "RxR-CE",
+    "ScanQA",
+    "real-world evaluation over 150 instructions"
+  ],
+  "generated_at": "2026-08-21T00:46:57Z",
+  "generated_by": "queue",
+  "limitations": "The paper states no limitations section; it motivates its design by the cost and scarcity of embodied interaction data. Two things the reader should notice. First, the abstract's headline numbers do not line up cleanly with the tables: '20% on R2R val-unseen' corresponds to Navid 37.0 to 47.7, a 10.7-point absolute gain (about 29% relative), and NaVILA gains 6.2 points; '11.7% on RxR-CE' corresponds to 44.0 to 49.8, 5.8 points absolute. The percentages appear to mix absolute and relative framings, so the headline should not be quoted as point gains. Second, the comparison against closed-source models trained on million-scale data mixes two variables — the adaptive reasoning trigger and the choice of base model — so the 6K-sample framing is about data efficiency of the plugin, not evidence that adaptive reasoning alone closes that gap. The 2.5-of-55 reasoning rate is reported without a matched fixed-interval baseline cost in the material read.",
+  "method": "An Uncertainty Adaptive Reasoning Block (UAR) is added as a lightweight plugin to an existing VLN policy and decides, per step, whether to invoke explicit reasoning. Action Entropy — the entropy of the policy's action distribution — is used as the policy prior for that decision, on the reading that high action entropy marks the steps where the agent is genuinely uncertain. The trigger policy is initialised from this heuristic and then progressively refined by reinforcement learning (a Heuristics-to-RL training scheme), so that a difficulty-aware reasoning policy can be learned from the small amount of embodied data available rather than from large-scale supervised fine-tuning.",
+  "methods": [
+    "AdaNav",
+    "Uncertainty Adaptive Reasoning Block (UAR)",
+    "Action Entropy",
+    "Heuristics-to-RL training",
+    "Navid",
+    "NaVILA"
+  ],
+  "one_liner": "AdaNav triggers explicit reasoning in a vision-language navigation agent only when action entropy signals uncertainty, learning the trigger policy from heuristics then reinforcement learning on 6K samples.",
+  "paper_id": "title:20e2f5ee0a29cfd6",
+  "problem": "Vision-Language Navigation requires grounding a natural language instruction in a long sequence of visual observations. Explicit reasoning can improve temporal consistency and perception-action alignment, but reasoning at fixed steps is both suboptimal and wasteful: it spends computation on steps that do not need it and does not necessarily reason at the steps that do. Learning when to reason is hard in embodied settings because interaction data is costly and far from web-scale.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "On topic, in an embodied rather than a math-benchmark setting. It is the same question the topic tracks — when should a model think, and when is thinking wasted — moved from token budgets in a reasoning trace to reasoning invocations across a navigation trajectory, and it answers with an uncertainty signal rather than a length target: reason where the action distribution is uncertain, act directly elsewhere. Two things carry over to the group's core setting. Reasoning at fixed steps is reported as actively suboptimal, not merely expensive, which is the sequential-decision counterpart of forced-length reasoning hurting accuracy. And action entropy plays the same role here that token entropy plays in DiffAdapt, so the two together are evidence that a model's own output-distribution entropy is a usable trigger for allocating reasoning — worth checking whether the two entropy signals agree in framing, since DiffAdapt finds high entropy on easy problems too."
+  },
+  "results": "Applied to two open-source VLN models, Navid and NaVILA, and evaluated on R2R-CE, RxR-CE and ScanQA, trained on 6K samples. Reported success rates: Navid-AdaNav 47.7% on R2R val-unseen against Navid at 37.0%, and NaVILA-AdaNav 60.19% against NaVILA at 54.0%; on RxR-CE val-unseen zero-shot, NaVILA-AdaNav 49.8% against 44.0%. Real-world evaluation over 150 instructions reports about 11.4 points of success-rate improvement. On the compute side, reasoning is invoked on average 2.5 times per trajectory over trajectories averaging 55 steps.",
+  "schema_version": 1,
+  "tags": [
+    "adaptive-reasoning",
+    "vision-language-navigation",
+    "uncertainty",
+    "action-entropy",
+    "embodied-ai",
+    "when-to-think",
+    "icml-2026"
+  ]
+}

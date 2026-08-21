@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Sequential revision"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "title:474d6c4d88a30199",
+      "kind": "paper",
+      "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
+      "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning"
+    },
     {
       "id": "title:cd5c62ac6be53cbc",
       "kind": "paper",
@@ -10,10 +18,30 @@
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T12:24:12Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:49:10Z",
   "name": "sequential revision",
   "related": [
+    "overthinking",
+    "reflection-in-reasoning-traces",
+    "length-reward",
+    "reflection-reward",
+    "test-time-compute-scaling",
+    "online-reinforcement-learning-for-efficient-reasoning",
+    "difficulty-adaptive-reasoning-length",
+    "rea-rl",
+    "grpo",
+    "parallel-sampling",
+    "supervised-fine-tuning-distillation",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-32b",
+    "deepscaler",
+    "gsm8k",
+    "math-500",
+    "gaokao23",
+    "amc23",
+    "aime-2024",
     "test-time-compute",
     "best-of-n-sampling",
     "mixture-of-reference-policy-model",

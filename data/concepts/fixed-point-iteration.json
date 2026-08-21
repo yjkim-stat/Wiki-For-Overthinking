@@ -3,6 +3,12 @@
   "definition": "",
   "evidence": [
     {
+      "id": "title:3d49618364a0cc92",
+      "kind": "paper",
+      "note": "Adds a self-introspection module to CNN and transformer networks that decides, per input, how many parameters to reuse and how long to iterate, so computation scales with input complexity rather than input size.",
+      "title": "MIND over Body: Adaptive Thinking using Dynamic Computation"
+    },
+    {
       "id": "title:acc0cd457f5fd230",
       "kind": "paper",
       "note": "Provides a mathematical theory showing that implicit (weight-tied, fixed-point) models' expressive power grows with the number of test-time iterations, validated across imaging, scientific computing, operations research and LLM reasoning.",
@@ -10,10 +16,19 @@
     }
   ],
   "first_seen": "2026-08-20T12:20:08Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T12:20:08Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:49:10Z",
   "name": "fixed-point iteration",
   "related": [
+    "adaptive-computation-time",
+    "input-conditional-computation",
+    "parameter-reuse",
+    "self-introspection",
+    "mind",
+    "self-introspection-module",
+    "imagenet",
+    "squad-v1-1",
+    "squad-v2-0",
     "implicit-models",
     "expressive-power",
     "weight-tied-networks"

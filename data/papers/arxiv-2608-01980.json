@@ -1,0 +1,45 @@
+{
+  "abstract": "Chain-of-thought (CoT) reasoning can improve performance on difficult video questions but often wastes decoding tokens on simple ones. We study whether a video multimodal large language model can adapt its reasoning effort to each question. We propose AdaThinkV, an adaptive framework for video reasoning that learns whether to reason explicitly without offline difficulty labels, manually tuned confidence thresholds, or an external router. During reinforcement learning, AdaThinkV samples matched rollouts in explicit reasoning and direct answering modes for each prompt. ThinkGain estimates the prompt-level utility of explicit reasoning by balancing its accuracy gain against additional response length, providing supervision for both conditional response generation and autonomous mode selection. For difficult prompts, limited rollout exploration can yield groups in which every response is unsuccessful and accuracy rewards show little variation, providing insufficient signal for learning. We therefore introduce Variance Recovery Policy Optimization (VRPO), which retains and progressively expands these groups to recover informative signals from prompts that are difficult yet solvable. At inference, AdaThinkV selects a response mode and generates the response in a single autoregressive sequence. Across a unified suite of video reasoning evaluations, AdaThinkV achieves a mean accuracy of 40.79 with an average of 257.20 output tokens, outperforming the strongest evaluated adaptive baseline by 2.98 points while using 22.7% fewer tokens. Project page: https://trilarflagz.github.io/AdaThinkV/",
+  "arxiv_id": "2608.01980",
+  "authors": [
+    "Jingqi Tian",
+    "Haoji Zhang",
+    "Lin Chen",
+    "Hongbo Jin",
+    "Haonan Xu",
+    "Tianrui Zhu",
+    "Xingming Shui",
+    "Shilin Ma",
+    "Wenjing Yang",
+    "Yansong Tang"
+  ],
+  "categories": [
+    "cs.CV",
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T23:36:09Z",
+  "id": "arxiv:2608.01980",
+  "last_seen": "2026-08-20T23:36:09Z",
+  "local_path": "data/pdfs/read/arxiv-2608-01980.pdf",
+  "matched_keywords": [
+    "reasoning effort",
+    "adaptive thinking"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.01980v1",
+  "published": "2026-08-03",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "arxiv",
+  "source_id": "2608.01980v1",
+  "title": "AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-08-03",
+  "url": "https://arxiv.org/abs/2608.01980",
+  "venue": "",
+  "year": 2026
+}

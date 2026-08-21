@@ -1,0 +1,124 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:48:38Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:544eea46a2eb68c1",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "adaptive reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+    "url": "https://iclr.cc/virtual/2026/poster/10011711",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Adaptive Reasoning",
+      "Difficulty-Aware Compute Allocation",
+      "Token-Level Entropy",
+      "Window Entropy",
+      "Exploration Trigger",
+      "Overthinking",
+      "Under-exploration",
+      "Reasoning Trace Length",
+      "Cold-Start Supervised Initialization",
+      "Reinforcement Learning with Verifiable Rewards"
+    ],
+    "contributions": [
+      "The empirical finding that single-token entropy is noisy but high window-entropy (HWE) tokens, averaged over a 4-8 token sliding window, reliably mark reasoning-critical moments",
+      "The empirical finding that reducing HWE usage benefits easy problems while increasing it is required for hard ones, motivating bidirectional rather than compressive length control",
+      "An Adaptive Cold-Start stage pairing roughly 224K multimodal and textual items with reasoning traces whose length is proportional to problem difficulty",
+      "Adaptive Entropy Policy Optimization (AEPO), which uses HWE tokens as exploration triggers and a hierarchical entropy reward with dynamic KL control to set exploration amount",
+      "An open-source unified framework reporting 55.9 average pass@1 over ten multimodal benchmarks at 7B, with measured trace lengths that shorten on GSM8K and lengthen on AIME25"
+    ],
+    "datasets": [
+      "MathVerse",
+      "MathVision",
+      "MathVista",
+      "DynaMath",
+      "WeMath",
+      "LogicVista",
+      "MMMU",
+      "MMMU-Pro",
+      "CharXiv",
+      "MMStar",
+      "AIME24",
+      "AIME25",
+      "MATH-500",
+      "MMLU-Pro",
+      "BBEH",
+      "GPQA",
+      "GSM8K",
+      "ViRL39K"
+    ],
+    "limitations": "The paper does not enumerate limitations. A reader should notice several. The efficiency claim is directional rather than net - AIME25 traces grow by roughly 38%, and no aggregate compute accounting across the benchmark suite is given, so whether total spend falls depends entirely on the mix of easy and hard items. The gap to proprietary systems remains wide (Gemini-2.5-Pro-Thinking 73.8 vs ARES-7B 55.9 average multimodal), so 'closing the gap' is relative. The AIME25 baseline of 3.3 is near the floor, which makes the +58.4 point comparison a statement about the baseline rather than a calibrated measure of the method. The RL stage needs verifiable answers, restricting the approach to domains with checkable ground truth, and the evaluation is concentrated on mathematical and STEM reasoning. Whether the difficulty proxy transfers to problems where trace length and difficulty are less correlated is untested.",
+    "method": "ARES rests on two empirical findings: single-token entropy is too noisy to mark reasoning-critical positions, but high window-entropy (HWE) tokens - token entropies averaged over a sliding window - identify them reliably; and reducing HWE usage helps easy problems while increasing it is necessary for hard ones. The training pipeline has two stages. In the Adaptive Cold-Start stage, multimodal and textual data are curated so that each item is paired with a reasoning trace whose length is proportional to that item's difficulty (traces generated with DeepSeek-R1 for text and Seed-1.5-VL for multimodal, roughly 224K samples), giving the model an initial notion of how much thinking a problem warrants. The second stage is Adaptive Entropy Policy Optimization (AEPO), a reinforcement-learning stage on verifiable QA data (ViRL39K) in which HWE tokens act as exploration triggers deciding when to explore, and a hierarchical entropy reward with dynamic KL control decides how much. Window sizes of 4-8 tokens are reported as the best trade-off for the HWE signal.",
+    "methods": [
+      "ARES",
+      "Adaptive Entropy Policy Optimization (AEPO)",
+      "Adaptive Cold-Start",
+      "high window-entropy (HWE) token detection",
+      "hierarchical entropy reward",
+      "dynamic KL control",
+      "RLVR",
+      "Qwen2.5-VL"
+    ],
+    "one_liner": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
+    "problem": "Multimodal large reasoning models allocate reasoning length badly in both directions: they produce unnecessarily long traces on easy problems and under-explore on hard ones, missing solutions. Fixes that shorten output uniformly damage hard problems, and fixes that lengthen it uniformly waste compute on easy ones. What is missing is a control signal that is per-token and difficulty-aware, so a single policy can compress and expand within the same model.",
+    "relevance": {
+      "overthinking": "Directly on topic, and one of the cleaner statements of the two-sided version of the problem: the paper explicitly frames overthinking on easy problems and under-exploration on hard ones as the same failure of allocation, and refuses to treat length reduction as the goal. Two things are worth carrying forward. First, the control signal: high window-entropy tokens over a 4-8 token window are proposed as a reliable marker of reasoning-critical positions where single-token entropy is not, which gives a concrete, cheap, decode-time quantity for deciding when a model should branch rather than continue. Second, and more useful as a caution, the measured lengths show what adaptive allocation actually costs. ARES shortens GSM8K traces by about 22% and MathVista by about 19% but lengthens AIME25 traces by about 38% against its own cold-start model. Any claim that a difficulty-aware method 'improves efficiency' should therefore be checked against the benchmark mix it was measured on, because the same method reduces and increases spend depending on the item. The paper reports no aggregate compute figure, so its own efficiency headline is not verifiable from the numbers it gives - that is a measurement gap the group should note when comparing adaptive-length methods."
+    },
+    "results": "Base models are Qwen2.5-VL at 3B and 7B. On ten multimodal benchmarks (MathVerse, MathVision, MathVista, DynaMath, WeMath, LogicVista, MMMU, MMMU-Pro, CharXiv, MMStar) ARES-7B averages 55.9 pass@1 against 46.2 for the Vision-G1 open-source baseline, with the largest individual gains on MathVision (51.9 vs 31.3) and MMMU-Pro (54.8 vs 41.2) and a smaller one on MathVerse-V (56.5 vs 50.0). On text, MATH-500 reaches 95.2 vs 69.0 and AIME25 reaches 61.7 against 3.3 for most baselines. The length numbers are the ones that carry the adaptivity claim, and they move in both directions as intended: against the vanilla cold-start model, ARES-RL-7B uses 278.9 vs 358.8 tokens on GSM8K (about 22% shorter), 1494.5 vs 1853.3 on MathVista (about 19% shorter), and 22618.8 vs 16361.6 on AIME25 (about 38% longer). So the efficiency claim is a reallocation, not a net reduction: on the hardest benchmark ARES spends substantially more compute than the model it improves on, and the headline 'lower inference cost' framing holds against commercial systems rather than against its own starting point.",
+    "tags": [
+      "adaptive-reasoning",
+      "overthinking",
+      "token-entropy",
+      "difficulty-aware",
+      "multimodal",
+      "reinforcement-learning",
+      "test-time-compute",
+      "reasoning-length"
+    ]
+  },
+  "task_id": "paper__title-544eea46a2eb68c1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

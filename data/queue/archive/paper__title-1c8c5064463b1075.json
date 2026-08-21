@@ -1,0 +1,97 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:46:57Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:1c8c5064463b1075",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Mind the Budget: Accelerating Deep Reinforcement Learning using Constrained Early Exit Neural Networks",
+    "url": "https://icml.cc/virtual/2026/poster/61963",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "Early exit",
+      "Input-adaptive computation",
+      "Constrained optimization for compute budgets",
+      "Amortized decision policies",
+      "Off-policy actor-critic"
+    ],
+    "contributions": [
+      "Proposes BEXA, an actor-critic architecture with early exit branches in the actor, for deep reinforcement learning.",
+      "Formulates the exit decision as a constrained linear program during training and amortizes its solution for efficient runtime execution.",
+      "Exposes the performance/compute trade-off through a single interpretable budget parameter, compatible with any off-policy actor-critic method.",
+      "Demonstrates the approach with SAC and TD3 on MuJoCo tasks."
+    ],
+    "datasets": [
+      "MuJoCo continuous-control tasks"
+    ],
+    "limitations": "No limitations were available in the material consulted. The reader should note that the evidence base is thin as recorded: continuous-control MuJoCo tasks only, two base algorithms, three exits, and no numeric results in the abstract, so the size of the efficiency gain and the exact performance cost are unknown from what was read. The claim that state-dependent action-selection difficulty exists is asserted as a property of function approximation rather than measured in the abstract.",
+    "method": "Budgeted EXit Actor (BEXA) is an actor-critic architecture with early exit branches inserted into the actor network — exits placed after every layer, giving K = 3 exits in the reported variants. The choice of which exit to use is formulated during training as a constrained linear program that makes the trade-off between performance and inference expenditure explicit and is governed by a single interpretable budget parameter; the solution of that program is then amortized so that at runtime the exit decision is cheap. The construction is independent of the learning algorithm and is compatible with any off-policy actor-critic method.",
+    "methods": [
+      "Budgeted EXit Actor (BEXA)",
+      "early exit neural networks",
+      "constrained linear program",
+      "policy amortization",
+      "SAC",
+      "TD3"
+    ],
+    "one_liner": "BEXA adds early-exit branches to the actor network of an off-policy actor-critic agent and picks the exit per state by solving a constrained linear program during training, then amortizes that solution for cheap runtime inference.",
+    "problem": "Early exit networks adapt computation to input complexity and work in supervised learning, but are largely unexplored in deep reinforcement learning. The paper's premise is that the computation needed to select an optimal action varies with the state, so a fixed-depth actor spends the same compute everywhere; what was missing is a principled way to trade policy performance against inference cost in the RL setting.",
+    "relevance": {
+      "overthinking": "Not relevant as tracked — a keyword false positive on 'early exit' and 'budget'. Both terms here have their ordinary deep-learning meaning: skipping layers of a small MLP actor in a MuJoCo control agent. There is no language model, no chain of thought, and no notion of reasoning length; the compute being saved is per-forward-pass depth, not tokens generated. The one transferable idea is structural rather than empirical: the exit decision is posed as a constrained program with an explicit budget parameter and then amortized, which is a cleaner formulation of the same 'stop when further computation will not change the answer' question that adaptive-length reasoning work handles with heuristics. That is an analogy worth noting, not evidence about reasoning models, and the paper supplies no numbers that bear on this topic."
+    },
+    "results": "Integrated with SAC and TD3 and evaluated on a suite of MuJoCo tasks. The available abstract reports a substantial improvement in inference efficiency with minimal or no loss in performance; it states no numbers. The full paper was not reachable (the OpenReview PDF is behind a verification page and no preprint was found), so no per-environment returns, exit rates or FLOP reductions are recorded here.",
+    "tags": [
+      "early-exit",
+      "reinforcement-learning",
+      "adaptive-computation",
+      "mujoco",
+      "off-topic",
+      "icml-2026"
+    ]
+  },
+  "task_id": "paper__title-1c8c5064463b1075",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

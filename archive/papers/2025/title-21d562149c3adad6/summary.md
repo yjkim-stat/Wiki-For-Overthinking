@@ -1,0 +1,59 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# ARM: Adaptive Reasoning Model
+
+- **Authors**: _unknown_
+- **Venue**: NeurIPS 2025
+- **Published**: 2025-01-01
+- **Source**: virtualsite
+- **Link**: <https://neurips.cc/virtual/2025/poster/115075>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.73
+
+## In one line
+
+ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.
+
+## Problem
+
+Large reasoning models emit a Long chain-of-thought regardless of task difficulty, spending tokens on problems that do not need them. Fixing this by having a human set a token budget per batch reintroduces the human into the loop, so the open question is whether the model can choose its own reasoning format. Plain GRPO does not solve it: the paper identifies format collapse, where the policy converges onto Long CoT for everything because that format has the highest immediate accuracy reward.
+
+## Contributions
+
+- ARM, a reasoning model that selects among Direct Answer, Short CoT, Code and Long CoT per task without a human-specified token budget
+- Ada-GRPO, a GRPO variant with a frequency-based format diversity reward scaling and cosine decay that prevents collapse onto Long CoT
+- Identification and naming of format collapse as the failure mode of applying vanilla GRPO to multi-format reasoning training
+- Two additional inference modes: Instruction-Guided (user forces a format) and Consensus-Guided (three efficient formats vote, Long CoT on disagreement)
+- Measured ~2x training wall-clock speedup arising from shorter rollout generation
+
+## Method
+
+Two stages. Stage 1 is SFT on AQuA-Rat (10.8K examples) annotated in all four formats, so the model can produce each on demand. Stage 2 is Ada-GRPO, a GRPO variant whose reward is scaled by a format diversity factor alpha_i(t) = (G / F(o_i)) * decay_i(t), where F(o_i) is how often that format appears in the sampled group of G rollouts. Rare formats get amplified reward early, so exploration does not die; a cosine decay term shrinks the bonus over training so accuracy reward dominates later. RL data is CommonsenseQA, GSM8K and MATH (19.8K combined). At inference the default Adaptive Mode lets the model choose; Instruction-Guided Mode lets a user force a format with special tokens; Consensus-Guided Mode runs the three efficient formats and falls back to Long CoT only when they disagree.
+
+## Results
+
+Arm-7B vs. a Qwen2.5-7B SFT+GRPO Long-CoT baseline (maj@8): CommonsenseQA 85.7% vs 83.7% at -73.0% tokens; GSM8K 93.7% vs 94.8% at -60.1% tokens; MATH 82.6% vs 84.9% at -36.9% tokens; AIME'25 20.0% vs 20.0% at +7.9% tokens. Average 75.9% vs 76.1% accuracy at -32.5% tokens. The ~70% saving is on the easy commonsense end; on the hardest benchmark (AIME'25) ARM spends 7.9% MORE tokens than the baseline for identical accuracy, so the headline 30% average reduction is carried by easy tasks and does not hold where reasoning length actually matters. Ada-GRPO also gives ~2x training speedup, which follows mechanically from shorter rollouts rather than from any optimization change. Evaluated across Qwen2.5 3B/7B/14B in base, instruct and R1-Distill variants, on CommonsenseQA, OpenBookQA, SVAMP, GSM8K, MATH, AIME'25, Big-Bench-Hard, GPQA and StrategyQA.
+
+## Limitations
+
+The authors state two: the four reasoning formats are predefined by hand and discovering formats automatically is unexplored; and the RL training mix is weighted toward commonsense and mid-range math, so behaviour on extreme-difficulty problems is not well covered. A reader should add that the second limitation is visible in the results — AIME'25 is the one benchmark where token usage rises — and that the reported gains are averages over a benchmark mix whose composition determines the headline number. Accuracy is not strictly preserved either: GSM8K loses 1.1 points and MATH 2.3 points against the Long-CoT baseline.
+
+## Why it matters here
+
+- **overthinking**: Directly on topic, and it attacks the stopping problem from an unusual angle: instead of shortening a Long CoT, it lets the model decline to enter one. Ada-GRPO is a concrete answer to why the obvious approach fails — under plain outcome-reward GRPO the policy collapses onto Long CoT because that format wins on accuracy in every group, so any multi-format scheme needs an explicit force keeping cheap formats alive. The per-benchmark numbers are the more useful contribution for this topic than the headline: the 73% saving on CommonsenseQA and the +7.9% on AIME'25 together say the model is learning task difficulty roughly correctly, and that an average token-reduction figure across a mixed benchmark suite mostly measures how many easy problems the suite contains. Useful as a comparison point against methods that impose a length penalty on a single format.
+
+## Entities
+
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Adaptive Reasoning Format Selection, Format Collapse, [Token Budget](../../../../wiki/concepts/token-budget.md), [Group Relative Policy Optimization](../../../../wiki/concepts/group-relative-policy-optimization.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
+- **Methods**: [Ada-GRPO](../../../../wiki/methods/ada-grpo.md), [GRPO](../../../../wiki/methods/grpo.md), [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), Long CoT / Short CoT / Direct Answer / Code reasoning formats, format diversity reward scaling with cosine decay, majority voting (maj@8)
+- **Datasets**: AQuA-Rat, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), OpenBookQA, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [SVAMP](../../../../wiki/datasets/svamp.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [Big-Bench-Hard](../../../../wiki/datasets/big-bench-hard.md), [GPQA](../../../../wiki/datasets/gpqa.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md)
+
+Tags: `overthinking`, `adaptive-reasoning`, `grpo`, `token-efficiency`, `reasoning-format`, `rl`, `chain-of-thought`
+
+## Abstract
+
+Abstract While large reasoning models demonstrate strong performance on complex tasks, they lack the ability to adjust reasoning token usage based on task difficulty. This often leads to the "overthinking" problem—excessive and unnecessary reasoning—which, although potentially mitigated by human intervention to control the token budget, still fundamentally contradicts the goal of achieving fully autonomous AI. In this work, we propose Adaptive Reasoning Model (ARM), a reasoning model capable of adaptively selecting appropriate reasoning formats based on the task at hand. These formats include three efficient ones—Direct Answer, Short CoT, and Code—as well as a more elaborate format, Long CoT. To train ARM, we introduce Ada-GRPO, an adaptation of Group Relative Policy Optimization (GRPO), which addresses the format collapse issue in traditional GRPO. Ada-GRPO enables ARM to achieve high token efficiency, reducing tokens by an average of $\sim$30%, and up to $\sim$70%, while maintaining performance comparable to the model that relies solely on Long CoT. Furthermore, not only does it improve inference efficiency through reduced token generation, but it also brings a $\sim$2$\times$ speedup in training. In addition to the default Adaptive Mode, ARM supports two additional reasoning modes: 1) Instruction-Guided Mode, which allows users to explicitly specify the reasoning format via special tokens—ideal when the appropriate format is known for a batch of tasks. 2) Consensus-Guided Mode, which aggregates the outputs of the three efficient formats and resorts to Long CoT in case of disagreement, prioritizing performance with higher token usage. All the resources will be released.
+
+---
+
+Record id: `title:21d562149c3adad6`

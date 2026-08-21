@@ -1,0 +1,76 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Derives a compute-optimal recipe for contrastively converting pretrained decoder-only language models into text embedding models, jointly choosing model size, data quantity and fine-tuning method for a given training budget.",
+        "title": "Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reproduces the Kaplan et al. compute-optimal scaling law and shows that three methodological differences — last-layer compute accounting, warmup duration, and scale-dependent optimizer tuning — account for its disagreement with the Chinchilla law.",
+        "title": "Resolving Discrepancies in Compute-Optimal Scaling of Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study of how to split a fixed training-compute budget between model capacity and update-to-data ratio in online value-based deep RL, identifying a TD-overfitting effect that makes the best batch size depend on model size.",
+        "title": "Compute-Optimal Scaling for Value-Based Deep RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes an LLM-agent framework, AgentTTS, that searches for the compute-optimal choice of model and inference budget per subtask in multi-stage complex tasks.",
+        "title": "AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:04:41Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'compute-optimal scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "compute-optimal scaling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "compute-optimal scaling",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [
+      "compute-optimal recipe"
+    ],
+    "definition": "Three of the four sources use this in the pretraining or training sense — allocating a fixed training-compute budget across the axes a trainer controls — and one uses it at inference, so the entry is not a single idea. The training-sense work covers reconciling the Kaplan and Chinchilla laws (attributing the disagreement to last-layer compute accounting, warmup duration and scale-dependent optimizer tuning), a compute-optimal recipe for contrastively converting decoder-only LMs into embedding models by jointly choosing model size, data quantity and fine-tuning method, and a split between model capacity and update-to-data ratio in online value-based deep RL where a TD-overfitting effect makes the best batch size depend on model size. Only AgentTTS uses the phrase at test time, searching for the compute-optimal model and inference budget per subtask of a multi-stage task. A reader should treat the label as a shared phrase across separate literatures rather than evidence that the archive holds one coherent result.",
+    "kind": "concept",
+    "related": [
+      "Compute-optimal inference",
+      "compute-optimal allocation",
+      "Chinchilla scaling law",
+      "Kaplan scaling law"
+    ]
+  },
+  "task_id": "concept__compute-optimal-scaling",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

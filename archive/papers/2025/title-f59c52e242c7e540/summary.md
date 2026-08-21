@@ -43,7 +43,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), compute-optimal allocation, process-based verification, difficulty-conditioned inference, inference-time vs pretraining compute tradeoff
+- **Concepts**: [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [compute-optimal allocation](../../../../wiki/concepts/compute-optimal-allocation.md), process-based verification, difficulty-conditioned inference, inference-time vs pretraining compute tradeoff
 - **Methods**: process-based verifier reward model search, adaptive proposal distribution revision, compute-optimal test-time scaling
 - **Datasets**: _none recorded_
 

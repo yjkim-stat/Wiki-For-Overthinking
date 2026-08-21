@@ -8,7 +8,7 @@ A chain-level chain-of-thought compression method, categorized under 'CoT Compre
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdaptThink](adaptthink.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [Manifold Steering](manifold-steering.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [SuperGPQA](../datasets/supergpqa.md), [TokenSkip](tokenskip.md), [VeriThinker](verithinker.md)
+**Related**: [A*-Thought](a-thought.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [DEER](deer.md), [DRP](drp.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO (Group Relative Policy Optimization)](grpo-group-relative-policy-optimization.md), [LASER](laser.md), [Manifold Steering](manifold-steering.md), [NOWAIT](nowait.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SPIRIT](spirit.md), [SuperGPQA](../datasets/supergpqa.md), [Thinkless](thinkless.md), [TokenSkip](tokenskip.md), [VeriThinker](verithinker.md)
 
 ## What we have settled
 

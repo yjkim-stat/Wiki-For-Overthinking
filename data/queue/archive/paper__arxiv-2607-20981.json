@@ -1,0 +1,125 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-20981.pdf"
+  },
+  "completed_at": "2026-08-21T00:35:36Z",
+  "created_at": "2026-08-20T23:52:31Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.20981",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Efficient multimodal inference is increasingly constrained not only by model quality or FLOP count, but also by the cost of preserving, moving, routing, caching, and quantizing multimodal representations under latency, memory, and energy constraints. This paper reviews recent advances in efficient vision-language and multimodal large language models, covering visual token compression, video token management, KV-cache optimization, Mixture-of-Experts (MoE) routing, low-bit quantization, edge deployment, and hardware-aware benchmarking. We argue that these techniques cannot be treated as independent optimizations. Visual token compression alters downstream feature distributions and MoE routing decisions, routing behavior affects expert utilization and quantization sensitivity, quantized router logits influence expert assignment, KV-cache policies determine retained multimodal evidence, and hardware constraints often transform computational savings into memory and communication bottlenecks. We organize the literature around these interactions and identify key design trade-offs, including accuracy versus token budget, static versus adaptive compression, sparse routing efficiency versus expert collapse, and low-bit inference versus modality-specific degradation. Finally, we introduce Temporal Routing Consistency as a diagnostic for video MoE models and highlight open research directions in routing-aware compression, cross-modal cache management, hardware-aware co-design, and unified benchmarking for multimodal edge intelligence.",
+    "authors": [
+      "Jay Gor",
+      "Karm Dave",
+      "Akshita Abrol",
+      "Rajesh Gupta",
+      "Sudeep Tanwar",
+      "Zhengkui Wang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "adaptive compression",
+      "token budget"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.20981v1",
+    "published": "2026-07-23",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Beyond Independent Optimization: Compression, MoE Routing, and Quantization Interactions in Multimodal Edge Intelligence",
+    "url": "https://arxiv.org/abs/2607.20981",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Failure Propagation Chain",
+      "Temporal Routing Consistency",
+      "Visual Token Compression",
+      "Expert Collapse",
+      "Routing Distribution Shift",
+      "Token Information Density",
+      "KV-Cache Eviction",
+      "Modality-Specific Quantization Degradation",
+      "Accuracy-Efficiency Pareto Frontier",
+      "Cold-Start Loading Latency"
+    ],
+    "contributions": [
+      "A failure-propagation chain that links compression-induced routing distribution shift, routing inconsistency under low-bit quantization, and modality-heterogeneous quantization degradation into one pipeline with three named cross-stage interfaces.",
+      "Temporal Routing Consistency (TRC), a Jaccard-overlap diagnostic for expert jitter between temporally adjacent frames in video MoE models, proposed as a criterion a compression method must not degrade.",
+      "A co-design framing in which compression ratio, routing behaviour, quantization precision, KV-cache residency and hardware capacity are mutually constraining variables on one accuracy-efficiency Pareto frontier.",
+      "A survey of over one hundred works from 2021-2026 organized by interface impact rather than by technique family, with comparison tables for token compression methods, quantization failure modes, and benchmark coverage.",
+      "An audit arguing that no current benchmark measures compression, routing, cache and hardware jointly, and that cold-start expert-loading latency is systematically omitted from throughput-centric evaluation."
+    ],
+    "datasets": [
+      "ImageNet (cited)",
+      "MMBench V1.1 / OpenVLM leaderboard (cited, used for the illustrative Pareto figure)",
+      "VQA and localisation benchmarks (cited)"
+    ],
+    "limitations": "The paper does not state limitations of its own. A reader should notice: (a) it is a survey with no original experiments, so the central coupling claim - that an upstream compression choice measurably degrades downstream routing and quantization - is argued from cited single-stage results rather than demonstrated end to end; (b) TRC, the one novel contribution, is never measured, so there is no evidence about its range on real video MoE models, whether it correlates with any accuracy metric, or what value counts as harmful; (c) the Interface-impact column of Table 2 is the authors' own attribution and repeatedly says the effect is 'untested', which concedes that the interfaces the survey is organized around have mostly not been examined by anyone; (d) speedup figures in Table 2 come from different base models and hardware and are stated as not directly comparable; (e) Figure 7's Pareto frontier is explicitly illustrative rather than a measurement; (f) coverage stops at the works the authors selected, with no stated inclusion criteria or search protocol; (g) a substantial share of the cited literature is dated 2026 and preprint, so the recovery figures quoted have not necessarily been reproduced.",
+    "method": "This is a survey, not an empirical paper; it contributes an organizing framework rather than a system. It covers over one hundred works from 2021-2026 across five themes (vision encoder sparsification, MLLM sequence compression, KV-cache optimisation, MoE routing dynamics, edge quantization and serving) and reorganizes them around a four-stage inference pipeline with three cross-stage interfaces: Interface A (encoder to connector), Interface B (compressed tokens to MoE router), and the quantization interface; the KV cache is treated as a store attached to the chain rather than a fifth stage. Table 1 maps model class to optimization phase, dominant bottleneck and design axis; Table 2 compares twelve visual token compression methods by reported speedup, key limitation and which interface each perturbs; Table 3 maps survey sections to chain stages; Table 4 taxonomizes quantization failure modes by whether calibration can recover them; Table 5 audits benchmark coverage. The one new formal object is Temporal Routing Consistency, TRC = (1/(T-1)) sum_t |E_t intersect E_{t+1}| / |E_t union E_{t+1}|, the mean Jaccard overlap between the expert sets activated by tokens of temporally adjacent frames under Top-k routing; TRC in [0,1], with 1 meaning identical expert sets across adjacent frames. The argument is that a compression method that lowers TRC should be treated as harmful for video understanding even when its static accuracy-FLOP tradeoff looks favourable, because single-frame accuracy metrics do not expose the loss of temporal coherence.",
+    "methods": [
+      "Temporal Routing Consistency (TRC)",
+      "Mixture-of-Experts Top-k routing",
+      "visual token merging (ToMe, ATM, AdaMerge, ToSa, MaMe/MaRe)",
+      "MLLM token dropping and pruning (MustDrop, HiRED, ZipVL, SparseVLM, GreedyPrune, EvoComp, FastVID, CS-VLM)",
+      "video frame budgeting and dropping (DynTok, V2Drop, HERMES, LVC, MMViR)",
+      "KV-cache eviction and compression (GraphKV, MadaKV, H2O, SnapKV, PyramidKV, RetentiveKV, PagedAttention, ChunkKV, StreamingLLM)",
+      "routing-consistent post-training quantization (EAQuant, VSRAQ, MoQE, GEMQ, MoBiE, VLMQ)",
+      "hot-cold expert storage and prefetching (EdgeMoE, D2MoE, ZipMoE, ExpertFlow, Janus)",
+      "token information density thresholding"
+    ],
+    "one_liner": "A literature survey of efficient vision-language and multimodal inference that argues visual token compression, MoE routing, quantization, KV-cache policy and edge hardware must be co-designed because they form a failure-propagation chain, and proposes Temporal Routing Consistency as a diagnostic for expert jitter in video MoE models.",
+    "problem": "Multimodal inference on edge hardware is constrained by the cost of preserving, moving, routing, caching and quantizing representations under latency, memory and energy budgets, not by FLOPs alone. The survey's claim is that the existing literature optimizes each stage in isolation while the stages are coupled: compressing visual tokens shifts the feature distribution the downstream language layers and MoE router were trained on; unstable routing changes expert traffic and quantization sensitivity; quantized router logits change expert assignment; KV-cache eviction deletes evidence needed later; and edge memory hierarchies convert local FLOP savings into memory-movement, cache-pressure or cold-start costs. Optimizing one stage can therefore leave, or create, a failure at the next.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Tangential. This paper was matched on the phrases 'adaptive compression' and 'token budget', but both words mean something different here: the token budget is the number of visual patch tokens a vision encoder emits into a VLM's prefill context, and adaptive compression is content-dependent merging or dropping of those patches, not any decision about how long a model should reason. The paper contains no discussion of chain-of-thought, reasoning length, test-time compute scaling, overthinking, or when a model should stop thinking - the words do not appear anywhere in it. Its accuracy/efficiency tradeoff is over input representation, model precision and memory hierarchy on edge hardware, and its unit of waste is a redundant image patch or an idle expert rather than a redundant reasoning step. It contributes nothing to the overthinking topic and should not be cited as evidence for any concept in it. Two things could be borrowed as analogy only, and should be labelled as such if they ever are: its token information density criterion, which deletes a token whose information content conditioned on context falls below a modality-dependent threshold, is structurally the same shape of test as deleting a reasoning step that adds no new conclusion; and its warning that a method optimizing one stage's metric can create a failure the metric cannot see is the same methodological caution that applies to length-penalty methods judged only on average token count. Neither is a substantive connection, and the underlying systems, models and failure modes are unrelated to reasoning-length work."
+    },
+    "results": "No experiments are run and no measurement is made by the authors; every number is cited from the surveyed work, and Figure 7's Pareto frontier is labelled illustrative. Cited figures used to support the argument: routing-aware post-training quantization recovers 1.15%-2.28% average score across three MoE architectures under W4A4 and W3A4 (Fu et al., 2026); modality-aware VLM quantization retains 93.5% of FP16 performance at W3A3 (69.5 vs 74.3, Zhong et al., 2026); training-free bipartite soft matching (ToMe) gives up to 2x speedup at 0.2-0.3% ImageNet accuracy loss on DeiT, MAE and CLIP-like models; cache-aware expert scheduling with lossless expert-weight compression reports up to 72.77% inference-latency reduction over unoptimized MoE serving (Yang et al., 2026); masked-image pre-training evidence that 75%-85% of visual patches can be hidden and video masking near 90%, taken as the quantitative baseline for how much visual token budget is removable; one 336x336 image at patch size 14 through CLIP-ViT-L/14 yields 576 tokens, with tiling producing thousands; and an expert-collapse threshold of 1.5625% utilisation for a 64-expert Top-k model, below which an expert is wasted capacity. TRC itself is defined but never computed on any model or dataset, and the survey states that no existing method jointly optimizes compression and TRC. The identified design tensions are accuracy versus token budget, static versus content-adaptive compression, sparse routing efficiency versus expert collapse, low-bit serving versus modality-specific degradation, and benchmark convenience versus end-to-end edge realism. Section 13 argues that no benchmark jointly stresses compression, routing, KV-cache behaviour, quantization and hardware under one deployment protocol, and that cold-start expert-loading latency is missing from throughput-centric suites even though it can dominate end-to-end latency for intermittent edge workloads.",
+    "tags": [
+      "survey",
+      "multimodal",
+      "vision-language",
+      "edge-inference",
+      "visual-token-compression",
+      "mixture-of-experts",
+      "quantization",
+      "kv-cache",
+      "hardware-aware"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-20981",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

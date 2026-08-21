@@ -1,17 +1,25 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Adaptive test-time compute"
+  ],
+  "definition": "Both archived sources use 'adaptive test-time compute' for setting the inference budget per query from a predicted signal instead of spending a fixed budget on every query, and they differ in which signal and which budget. CaTS allocates sampling budget per query from a self-distilled calibrated confidence signal and stops early once the model is confident, so the decision is made while sampling; Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and fixes the thinking budget before any reasoning is generated. Neither source defines the term formally, and it overlaps heavily with adaptive reasoning: the sources filed there choose a reasoning style or format per instance, whereas these two choose the size of the budget.",
   "evidence": [
     {
       "id": "title:03232c54fde9b57f",
       "kind": "paper",
       "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
       "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning"
+    },
+    {
+      "id": "title:cc91145094e2b147",
+      "kind": "paper",
+      "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+      "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space"
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:15:21Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "adaptive test-time compute",
   "related": [
     "confidence-calibration",
@@ -23,9 +31,33 @@
     "confidence-based-early-stopping",
     "best-of-n",
     "mathqa",
-    "eight-other-datasets-nine-total-not-individually-named-in-the-summarized-source"
+    "eight-other-datasets-nine-total-not-individually-named-in-the-summarized-source",
+    "thinking-budget-allocation",
+    "self-consistency-as-a-difficulty-proxy",
+    "compute-optimal-inference",
+    "prefill-stage-prediction",
+    "latent-space-probing",
+    "cot-compression",
+    "sonata",
+    "self-consistency-guided-adapter-for-thinking-allocation",
+    "hidden-state-probing-adapter",
+    "qwen3-8b",
+    "gpt-oss-120b",
+    "qwen3-235b-a22b",
+    "intern-s1-mini",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "gpqa"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-reasoning",
+    "test-time-scaling",
+    "self-consistency",
+    "budget-forcing",
+    "early-exit-for-reasoning"
+  ],
   "schema_version": 1,
   "slug": "adaptive-test-time-compute",
   "topics": [

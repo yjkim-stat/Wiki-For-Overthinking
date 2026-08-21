@@ -1,0 +1,54 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.28166",
+      "kind": "paper",
+      "note": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+      "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Decoding Budget Allocation",
+  "related": [
+    "early-exit",
+    "answer-stabilization",
+    "adaptive-sampling",
+    "diffusion-language-models",
+    "confidence-calibration",
+    "c4",
+    "cvee-confidence-verified-early-exit",
+    "cctc-commit-core-then-confirm",
+    "semi-autoregressive-block-diffusion-decoding",
+    "low-confidence-remasking",
+    "prophet",
+    "sched",
+    "fast-dllm",
+    "slowfast-sampling",
+    "klass",
+    "wino",
+    "llada-8b-instruct",
+    "dream-7b-instruct",
+    "mmlu",
+    "arc-challenge",
+    "hellaswag",
+    "winogrande",
+    "piqa",
+    "gsm8k",
+    "math",
+    "svamp",
+    "asdiv",
+    "gsm-hard",
+    "humaneval",
+    "mbpp"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "decoding-budget-allocation",
+  "topics": [
+    "overthinking"
+  ]
+}

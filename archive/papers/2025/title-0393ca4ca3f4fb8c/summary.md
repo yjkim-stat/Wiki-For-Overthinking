@@ -45,7 +45,7 @@ Not stated in the retrievable abstract/summary material; no specific numerical r
 
 - **Concepts**: atomic questions / Markov property in reasoning, decomposition-contraction reasoning process, answer-preserving question simplification, dependency-based directed acyclic graph over subquestions
 - **Methods**: Atom of Thoughts (AoT), Markov reasoning process, Decomposition-contraction
-- **Datasets**: Math reasoning benchmarks (including GSM8K), [BBH (BIG-Bench Hard)](../../../../wiki/datasets/bbh-big-bench-hard.md), MMLU, HotpotQA, LongBench
+- **Datasets**: Math reasoning benchmarks (including GSM8K), [BBH (BIG-Bench Hard)](../../../../wiki/datasets/bbh-big-bench-hard.md), [MMLU](../../../../wiki/datasets/mmlu.md), [HotpotQA](../../../../wiki/datasets/hotpotqa.md), LongBench
 
 Tags: `test-time-scaling`, `markov-reasoning`, `question-decomposition`, `context-accumulation`, `overthinking`, `plug-in-method`
 

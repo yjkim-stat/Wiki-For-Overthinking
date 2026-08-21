@@ -1,0 +1,127 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-29287.pdf"
+  },
+  "completed_at": "2026-08-21T00:37:17Z",
+  "created_at": "2026-08-20T23:51:54Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.29287",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Multi-domain machine translation (MDMT) poses a unique challenge due to varying levels of linguistic complexity across domains. Inspired by human translators' ability to adapt reasoning effort based on difficulty, we propose TwT (Translation with Thought), a resource-rational framework that learns to modulate inference between intuitive and deliberate reasoning. TwT is trained in two stages: (1) supervised fine-tuning on difficulty-aware long chain-of-thought traces distilled from DeepSeek-R1 and rewritten by GPT-4o to reflect human-like reasoning economy, and (2) reinforcement learning with a hybrid reward to optimize translation quality and reasoning efficiency. Evaluated on 15 benchmarks spanning in-domain and out-of-domain settings, as well as 3 seen and 59 unseen languages, with ablations across three backbone models, TwT-7B and TwT-14B outperform much larger SOTA reasoning models in translation quality, while reducing token usage by 32--60\\%. These results confirm that aligning translation behavior with cognitive principles enables robust generalization, high translation quality, and efficient reasoning in MDMT.",
+    "authors": [
+      "Yongshi Ye",
+      "Biao Fu",
+      "Chongxuan Huang",
+      "Yidong Chen",
+      "Xiaodong Shi"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "reasoning effort",
+      "resource-rational",
+      "efficient reasoning",
+      "reasoning efficiency",
+      "adaptive reasoning"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.29287v1",
+    "published": "2026-07-31",
+    "scores": {
+      "overthinking": 0.7
+    },
+    "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation",
+    "url": "https://arxiv.org/abs/2607.29287",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Resource-Rational Reasoning",
+      "Difficulty-Adaptive Reasoning Depth",
+      "System 1 / System 2",
+      "Reasoning Collapse",
+      "Reasoning Redundancy",
+      "Reward Hacking",
+      "Rich Points",
+      "Overthinking"
+    ],
+    "contributions": [
+      "Documents reasoning collapse under pure R1-Zero-style RL for translation: traces fall below 100 tokens with or without KL, and three templates account for ~73% of Zh->En traces, so the emergent-reasoning result from math and code does not transfer to MDMT.",
+      "Quantifies the opposite failure: prompted general CoT uses 23.9x the tokens of parallel SFT on easy in-domain inputs and still scores 3.31 quality points lower; domain-aware prompting restores quality but raises usage to 42.9x.",
+      "A difficulty-adaptive cold-start dataset (~7K examples) in which an LLM judge rates input difficulty on four Rich-Point dimensions and rewrites each distilled trace to the matching depth.",
+      "A hybrid RL reward pairing BLEU with COMET after observing that a purely semantic reward is hacked — semantic score rises while BLEU degrades — plus a 20-gram repetition penalty on the reasoning trace.",
+      "TwT-7B/14B reach or exceed much larger reasoning models on translation quality at 274-291 reasoning tokens versus 420-1332, with the trace lengthening monotonically from Easy (216) to Hard (332).",
+      "Evidence that the adaptive behavior transfers across three backbones and to 59 unseen languages when the backbone is multilingual."
+    ],
+    "datasets": [
+      "7K difficulty-adaptive Long CoT SFT set (10 domains, De->En/En->Zh/Zh->En)",
+      "20K multi-domain parallel RL set",
+      "in-domain test sets: Laws, News, Science, Subtitles, Literary, IT, Koran, Medical",
+      "OOD test sets: Conversation, Ecommerce, Social, Culture, CommonSense",
+      "FLORES+ (59 unseen languages)"
+    ],
+    "limitations": "Stated: RL training data is sampled without controlling the difficulty distribution, so the easy/medium/hard mix is uncontrolled; traces distilled from DeepSeek-R1 and rewritten by GPT-4o may carry those models' biases and stylistic preferences into TwT; and the reward has no difficulty-aware or length-based term, so nothing in RL directly encourages brevity on easy inputs. Noticeable beyond that: the ablation shows adaptive rewriting buys length, not quality — dropping it costs 0.09-0.11 quality points while nearly tripling tokens — so the contribution is a compression of reasoning rather than a better allocation of it, and the paper's stronger framing is not what its own ablation supports. The headline quality margins are thin on a composite metric: 66.62 vs 66.23 for DeepSeek-V3 and 66.05 for GPT-5 in-domain, and TwT is behind GPT-4o (67.25) and Gemini-2.0-Flash-Thinking (66.71) on OOD; no variance, seeds or significance tests are reported anywhere. The reasoning itself earns little over not reasoning: SFT-Parallel-7B scores 65.52 in-domain with no CoT at all and CoT-FT-7B scores 65.39 with 42 tokens, against TwT-7B's 66.27 with 274 — under one point of quality for roughly 230 extra tokens. Token counts for the closed API baselines are of their emitted reasoning as observed, which is not necessarily comparable across vendors. Difficulty labels, the redundancy audit and the difficulty grouping are all produced by other LLMs (GPT-4o, DeepSeek-V3, DeepSeek-V3.2), so the adaptation is evaluated largely against the same kind of judge that defined it. The human evaluation covers 10 examples in one direction.",
+    "method": "Two stages. Cold start: DeepSeek-R1 is prompted with domain-aware instructions to produce CoT traces for 10 domains and three directions (De->En, En->Zh, Zh->En); GPT-4o — selected as the closest match to human judgment — then rates each input's difficulty along four dimensions drawn from the Rich Points idea (sentence complexity, vocabulary rarity, grammatical divergence, contextual nuance) and rewrites the trace to match: easy inputs become terse System-1 checks, hard inputs keep full System-2 deliberation. The backbone is SFT'd on roughly 7K such examples (1 epoch, full-parameter, LLaMA-Factory, 8xA100, lr 1e-5, batch 32, max input 4096, ZeRO-3; about 10 minutes). RL: GRPO on a separate 20K multi-domain parallel set with reward r = r_f + r_q - lambda * r_rep. r_f is a binary +1/-1 format reward on the reasoning-then-translation structure. r_q is BLEU + COMET when the format is valid and -2 otherwise; the hybrid is deliberately not purely semantic because optimizing CometKiwi/COMET alone was observed to hack the reward — semantic score rises while BLEU falls as the model emits vague paraphrases or copies source tokens. r_rep = 1 - |set(G(c))|/|G(c)| over contiguous 20-grams of the reasoning trace, penalizing degenerate loops. RL runs 1 epoch on 8xA100 (verl, batch 16, 16 rollouts, temperature 1.0, lr 1e-6, KL coefficient 1e-3, max response 2048), about 10 hours. Inference uses vLLM at temperature 0.0 with repetition penalty 1.05. Note there is no explicit length reward anywhere — length is controlled entirely by what the cold-start data looks like plus the repetition penalty.",
+    "methods": [
+      "TwT (Translation with Thought)",
+      "difficulty-adaptive CoT distillation and rewriting",
+      "GRPO",
+      "hybrid BLEU+COMET quality reward",
+      "n-gram repetition penalty (n=20)",
+      "binary format reward",
+      "LLaMA-Factory, verl, vLLM",
+      "Qwen2.5-7B/14B-Instruct, Llama-3.1-8B-Instruct, Gemma-2-9B-IT (backbones)",
+      "DeepSeek-R1 (trace distillation), GPT-4o (difficulty rating and rewriting)"
+    ],
+    "one_liner": "TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.",
+    "problem": "Multi-domain machine translation spans inputs whose difficulty varies widely, but reasoning-augmented translation systems apply the same reasoning depth to all of them. The paper's preliminary study makes the failure concrete in two directions: (i) pure R1-Zero-style RL on translation does not produce the emergent long reasoning seen in math and code — traces collapse below 100 tokens into templates, with the top three templates covering about 73% of Zh->En traces, whether or not a KL term is used; (ii) prompted CoT overshoots in the other direction, spending 23.9x more tokens than parallel SFT on easy in-domain inputs (311 vs 13) while scoring 3.31 quality points lower, and adding a domain-aware prompt restores quality but pushes usage to 42.9x (558 vs 13). So neither RL-induced emergence nor prompt-level domain awareness produces reasoning that is allocated where it pays.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "On topic, and unusual for this archive in that it tests the length/accuracy tradeoff outside mathematics — the domain nearly every overthinking result we hold is measured in. Three things it adds. First, a clean negative result on the assumption that RL alone grows reasoning where reasoning helps: on translation, R1-Zero-style RL collapses traces to under 100 tokens of templated text regardless of KL, so 'let RL find the right length' is not domain-general. Second, a measured allocation curve rather than a single average — TwT's traces run 216 / 272 / 332 tokens on Easy / Medium / Hard inputs, which is the shape a difficulty-adaptive method should produce, and it holds quality above every LRM baseline at roughly a third to a fifth of their token counts. Third, a caution about where the adaptation actually comes from: the ablation shows dropping the difficulty-adaptive rewriting leaves quality within 0.1 points while length nearly triples (278 -> 748), and there is no length reward in the RL objective at all, so the length control is entirely inherited from what the cold-start traces look like. That makes this a data-shaping result, not a learned stopping criterion, and it is worth contrasting with the probe-based exit methods we track, which decide at inference time. The honest counterweight is that on this task reasoning buys very little to begin with: a plain parallel-SFT model with no chain of thought scores 65.52 in-domain against TwT-7B's 66.27, so the whole tradeoff is being measured over a range of under one quality point."
+    },
+    "results": "Quality is the mean of BLEU, COMET and CometKiwi; Tokens is the mean generated CoT length. In-domain (8 domains, averaged over En->Zh, Zh->En, De->En): TwT-14B 66.62 quality at 291 tokens and TwT-7B 66.27 at 274, against DeepSeek-R1 65.40 at 586, GPT-5 66.05 at 660, o3-mini 64.75 at 420, o1 65.58 at 433, QwQ-32B 63.55 at 693, and non-reasoning DeepSeek-V3 66.23 / Gemini-2.0-Flash 66.24 / GPT-4o 65.54. OOD (5 domains): TwT-7B 66.25 at 269 tokens vs DeepSeek-R1 65.62 at 561 (292 fewer tokens), Gemini-2.0-Flash-Thinking 66.71 at 1332, GPT-4o 67.25; TwT-14B 66.46 at 288. Against the same-paradigm RL baseline mExTrans-7B, TwT-7B is +4.45 quality with 50.27% fewer reasoning tokens. Multilingual: on 59 unseen FLORES+ languages, TwT-Gemma-2-9B-IT trained on 27K examples reaches 54.65 En->X and 67.04 X->En vs Tower-Plus-9B (same backbone, 286K examples) at 46.46/63.02, +8.19 on En->X; TwT-7B's En->X score of 41.13 is weaker than Gemma-2-9B-IT's own 54.28, so the multilingual result is carried by the Gemma backbone. Difficulty breakdown (Table 8, in-domain): TwT-7B Easy 67.93 at 216 tokens, Medium 64.85 at 272, Hard 62.78 at 332 — the trace does lengthen with difficulty; against General-CoT (Easy 61.54 at 311, Hard 56.53 at 551) that is 33% fewer tokens with +6.4 quality on Easy and +6.7 on Hard. Overall TwT is 32% below o3-mini and 60% below Gemini-2.0-Flash-Thinking in tokens, which is where the abstract's '32-60%' comes from — it is a range across two named comparison models, not a range of measured savings. Ablation (Table 6, dataset-level averages on a different scale from Table 3): removing the difficulty-adaptive rewriting leaves quality essentially unchanged (64.68 vs 64.77 in-domain, 66.17 vs 66.28 OOD) while length rises from 278 to 748 tokens; removing cold start collapses length to 62 tokens and drops quality to 64.18; SFT-only with adaptive CoT reaches 62.47 vs 61.65 domain-aware and 61.39 general CoT; the repetition penalty is a small regularizer (64.52 -> 64.77). Backbone transfer: Gemma-2-9B-IT 59.93 -> 64.71 in-domain, Llama-3.1-8B 59.84 -> 63.20. Redundancy audit by DeepSeek-V3.2 over 15 domains reports TwT resolving 87.3-97.2% of six redundancy types found in the SFT+RL baseline. Trace diversity: mean pairwise Sentence-BERT cosine similarity 0.89 for pure RL vs 0.51 for TwT. All numbers are software evaluations on A100 hardware; a small human/expert qualitative study covers 10 Zh->En examples.",
+    "tags": [
+      "adaptive-reasoning",
+      "machine-translation",
+      "grpo",
+      "reasoning-efficiency",
+      "difficulty-aware",
+      "reward-hacking",
+      "overthinking"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-29287",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

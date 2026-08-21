@@ -43,7 +43,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), progressive reasoning, functional reasoning elements, chain-of-thought distillation, step importance estimation
-- **Methods**: PIR (Perplexity-based Importance Refinement), chain-of-thought distillation
+- **Methods**: PIR (Perplexity-based Importance Refinement), [chain-of-thought distillation](../../../../wiki/methods/chain-of-thought-distillation.md)
 - **Datasets**: [AIME](../../../../wiki/datasets/aime.md), [AMC](../../../../wiki/datasets/amc.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `chain-of-thought-pruning`, `test-time-scaling`, `reasoning-efficiency`

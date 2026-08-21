@@ -44,8 +44,8 @@ The paper has no dedicated Limitations section; the following are what the reade
 ## Entities
 
 - **Concepts**: under-adaptivity (failure to modulate reasoning length with problem difficulty), attention-based step importance scoring from the </think> delimiter, difficulty-adaptive compression rate calibrated by rollout pass rate, uniformity-scaled eviction percentage, sigmoid-smoothed length reward
-- **Methods**: GRPO (Group Relative Policy Optimization), TRAAC (attention-based compression module), [TokenSkip](../../../../wiki/methods/tokenskip.md), L1-Max, [LC-R1](../../../../wiki/methods/lc-r1.md), [AdaptThink](../../../../wiki/methods/adaptthink.md)
-- **Datasets**: DAPO-Math-17k, AIME (2022-2024), AMC (2022-2023), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), BBEH (Big Bench Extra Hard), OptimalThinkingBench (OverthinkingBench, UnderthinkingBench), [SuperGPQA](../../../../wiki/datasets/supergpqa.md), [BBH (Big Bench Hard)](../../../../wiki/datasets/bbh-big-bench-hard.md)
+- **Methods**: [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo-group-relative-policy-optimization.md), TRAAC (attention-based compression module), [TokenSkip](../../../../wiki/methods/tokenskip.md), L1-Max, [LC-R1](../../../../wiki/methods/lc-r1.md), [AdaptThink](../../../../wiki/methods/adaptthink.md)
+- **Datasets**: [DAPO-Math-17k](../../../../wiki/datasets/dapo-math-17k.md), AIME (2022-2024), AMC (2022-2023), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), BBEH (Big Bench Extra Hard), OptimalThinkingBench (OverthinkingBench, UnderthinkingBench), [SuperGPQA](../../../../wiki/datasets/supergpqa.md), [BBH (Big Bench Hard)](../../../../wiki/datasets/bbh-big-bench-hard.md)
 
 Tags: `overthinking`, `underthinking`, `test-time compute`, `reinforcement learning`, `grpo`, `chain-of-thought compression`, `attention`, `adaptive reasoning`, `difficulty calibration`
 

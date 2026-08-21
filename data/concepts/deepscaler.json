@@ -1,0 +1,91 @@
+{
+  "aliases": [
+    "DeepScaler"
+  ],
+  "definition": "In all three citing sources DeepScaleR is a math corpus for reinforcement-learning training and evaluation, not a method: REO-RL trains on 135k problems drawn from DeepScaleR and AReaL, and REA-RL and QuRL both list it among their datasets, with QuRL reporting a DeepScaleR average of 56.40% for the BF16 actor against 55.48% for INT8 rollouts. The name is ambiguous across the wider archive, where DeepScaleR-1.5B-Preview denotes an RL-tuned 1.5B reasoning model used as a base model and as an efficiency-evaluation subject, so a reader should check which of the two a paper means. No archived source describes how the dataset was constructed or how large it is on its own.",
+  "evidence": [
+    {
+      "id": "title:279ee92c27a8bb8d",
+      "kind": "paper",
+      "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+      "title": "How Far Are We from Optimal Reasoning Efficiency?"
+    },
+    {
+      "id": "title:474d6c4d88a30199",
+      "kind": "paper",
+      "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
+      "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning"
+    },
+    {
+      "id": "title:9b034ca49bd46f6f",
+      "kind": "paper",
+      "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
+      "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "DeepScaleR",
+  "related": [
+    "overthinking",
+    "reasoning-efficiency-frontier",
+    "reasoning-efficiency-gap",
+    "token-budget",
+    "accuracy-efficiency-tradeoff",
+    "test-time-compute-scaling",
+    "reo-rl",
+    "reasoning-efficiency-gap-reg",
+    "reinforcement-learning-with-outcome-reward",
+    "length-based-reward-rl",
+    "hgpo",
+    "simpo",
+    "supervised-fine-tuning",
+    "numerical-integration-over-token-budgets",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "minerva-math",
+    "areal",
+    "reflection-in-reasoning-traces",
+    "length-reward",
+    "reflection-reward",
+    "sequential-revision",
+    "online-reinforcement-learning-for-efficient-reasoning",
+    "difficulty-adaptive-reasoning-length",
+    "rea-rl",
+    "grpo",
+    "parallel-sampling",
+    "supervised-fine-tuning-distillation",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-32b",
+    "gsm8k",
+    "math-500",
+    "gaokao23",
+    "quantized-rollout",
+    "policy-ratio-clipping",
+    "reinforcement-learning-with-verifiable-rewards",
+    "quantization-noise",
+    "training-time-compute-bottleneck",
+    "qurl",
+    "adaptive-clipping-range-acr",
+    "invariant-scaling",
+    "rlvr",
+    "int8-quantization",
+    "fp8-quantization",
+    "dapo",
+    "grpo-style-clipped-policy-optimization",
+    "olympiadbench",
+    "omni-math",
+    "still"
+  ],
+  "related_authored": [
+    "dapo-math-17k"
+  ],
+  "schema_version": 1,
+  "slug": "deepscaler",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -9,7 +9,7 @@ The fraction of problems a model solves correctly on its first (single) sampled 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [best-of-N sampling](../methods/best-of-n-sampling.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [pass@K](pass-k.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [best-of-N sampling](../methods/best-of-n-sampling.md), [CMIMC25](../datasets/cmimc25.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [pass@K](pass-k.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 

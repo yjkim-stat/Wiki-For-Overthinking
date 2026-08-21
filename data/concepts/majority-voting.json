@@ -1,9 +1,16 @@
 {
   "aliases": [
-    "self-consistency"
+    "self-consistency",
+    "Majority Voting"
   ],
   "definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
   "evidence": [
+    {
+      "id": "title:0d818df77a2dc810",
+      "kind": "paper",
+      "note": "An empirical study of compute-optimal inference that measures accuracy against FLOPs for greedy decoding, sampling with majority and weighted voting, best-of-n and tree search across model sizes, and introduces REBASE, a reward-guided tree search.",
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving"
+    },
     {
       "id": "title:3f7a94a14d75d893",
       "kind": "paper",
@@ -15,13 +22,35 @@
       "kind": "paper",
       "note": "Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.",
       "title": "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models"
+    },
+    {
+      "id": "title:f4c083a2823b7a48",
+      "kind": "paper",
+      "note": "Analyses the scaling behaviour of self-consistency sampling as mode estimation, derives power-law error decay in the number of samples, and introduces Blend-ASC, a hyperparameter-free scheme that reallocates a fixed sample budget across questions.",
+      "title": "Optimal Self-Consistency for Efficient Reasoning with Large Language Models"
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:15:21Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "majority voting",
   "related": [
+    "test-time-compute-scaling",
+    "compute-optimal-inference",
+    "inference-scaling-laws",
+    "process-reward-model",
+    "tree-search-decoding",
+    "diminishing-returns",
+    "accuracy-efficiency-tradeoff",
+    "rebase-reward-balanced-search",
+    "majority-voting-self-consistency",
+    "best-of-n",
+    "weighted-voting",
+    "monte-carlo-tree-search-comparison",
+    "greedy-decoding",
+    "math-500",
+    "gsm8k",
+    "mbpp",
     "test-time-compute",
     "prediction-diversity",
     "self-consistency",
@@ -33,7 +62,23 @@
     "output-variance-under-extended-thinking",
     "parallel-thinking",
     "best-of-n-sampling",
-    "probabilistic-model-of-output-variance"
+    "probabilistic-model-of-output-variance",
+    "sample-efficiency",
+    "dynamic-sample-allocation",
+    "answer-margin",
+    "power-law-scaling",
+    "mode-estimation",
+    "compute-budget-allocation-across-questions",
+    "blend-asc",
+    "self-consistency-sc",
+    "adaptive-self-consistency-asc",
+    "early-stopping-self-consistency",
+    "ppr-1v1",
+    "empirical-mode-estimation",
+    "chain-of-thought-prompting",
+    "math",
+    "mmlu",
+    "gpqa-diamond"
   ],
   "related_authored": [
     "self-consistency",

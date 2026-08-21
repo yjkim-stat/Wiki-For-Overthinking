@@ -43,10 +43,14 @@ _not recorded_
 ## Entities
 
 - **Concepts**: decision-critical tokens, KV-cache redundancy in reasoning traces, attention-guided token selection
-- **Methods**: DynTS, KV-cache eviction
+- **Methods**: DynTS, [KV-cache eviction](../../../../wiki/methods/kv-cache-eviction.md)
 - **Datasets**: _none recorded_
 
 Tags: `efficient-reasoning`, `kv-cache`, `token-pruning`, `inference-efficiency`
+
+## Abstract
+
+Abstract Large Reasoning Models (LRMs) excel at solving complex problems by explicitly generating a reasoning trace before deriving the final answer. However, these extended generations incur substantial memory footprint and computational overhead, bottlenecking LRMs' efficiency. This work uses attention maps to analyze the influence of reasoning traces and uncover an interesting phenomenon: *only some decision-critical tokens in a reasoning trace steer the model toward the final answer, while the remaining tokens contribute negligibly.* Building on this observation, we propose **Dyn**amic **T**hinking-Token **S**election (**DynTS**). This method identifies decision-critical tokens and retains only their associated Key-Value (KV) cache states during inference, evicting the remaining redundant entries to optimize efficiency. Across six benchmarks, **DynTS** surpasses the state-of-the-art KV cache compression methods, improving Pass@1 by $2.6\\%$ under the same budget. Compared to vanilla Transformers, it reduces inference latency by $1.84–2.62\times$ and peak KV-cache memory footprint by $3.32–5.73\times$ without compromising LRMs' reasoning performance.
 
 ---
 

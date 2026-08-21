@@ -1,0 +1,136 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Penelope confines latent reasoning recurrence to a five-layer slice of a decoder-only Transformer, refining a fixed-size boundary memory K times instead of re-running the whole decoder or emitting a chain-of-thought trace.",
+        "title": "Penelope: Localized Latent Recurrence for Efficient Structured Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REAM merges a slow-thinking recommender with a fast-thinking one at the granularity of individual attention heads, assigning each head a merge coefficient from its reasoning importance and its parameter sensitivity, to shorten reasoning traces without retraining.",
+        "title": "Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.",
+        "title": "Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study of compute-optimal inference that measures accuracy against FLOPs for greedy decoding, sampling with majority and weighted voting, best-of-n and tree search across model sizes, and introduces REBASE, a reward-guided tree search.",
+        "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ConPress observes that a reasoning model shortens its traces when several independent questions share one prompt, and harvests those shortened traces as self-supervised fine-tuning data for the single-question setting.",
+        "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
+        "title": "ARM: Adaptive Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Retrieval-of-Thought stores prior reasoning as a graph of composable thought steps and, at inference, retrieves and traverses it to assemble a problem-specific template that shortens the model's generated reasoning without retraining.",
+        "title": "Retrieval-of-Thought: Efficient Reasoning via Reusing Thoughts",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WS-GRPO trains a preference model from outcome-only correctness labels to score partial reasoning trajectories, turning terminal reward into prefix-level signal about whether continuing is worthwhile, and reports far shorter reasoning at some accuracy cost.",
+        "title": "WS-GRPO: Weakly-Supervised Group-Relative Policy Optimization for Rollout-Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and fixes it by normalising the reward of correct rollouts only against other correct rollouts.",
+        "title": "DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:02:34Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'Accuracy-Efficiency Tradeoff'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Accuracy-Efficiency Tradeoff",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Accuracy-Efficiency Tradeoff",
+    "source_count": 11
+  },
+  "result": {
+    "aliases": [
+      "accuracy-efficiency trade-off",
+      "efficiency-accuracy tradeoff",
+      "accuracy-cost tradeoff"
+    ],
+    "definition": "Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quantity: that shortening or skipping a model's reasoning saves tokens, latency or FLOPs, and that past some point the saving costs accuracy. The sources disagree about where the tradeoff actually binds. Several report it is largely avoidable at current operating points -- ARM cuts average tokens about 30% at roughly unchanged accuracy via Ada-GRPO over four reasoning formats, and CoSMo, ConPress, Retrieval-of-Thought and REAM each shorten traces without retraining accuracy away -- while WS-GRPO reports far shorter reasoning at some accuracy cost, and DRPO shows the tradeoff can be an artifact of the optimiser rather than of the model, since a naive length penalty inside GRPO turns correct-but-long rollouts negative. Two sources make it measurable instead of rhetorical: the inference-scaling-laws study plots accuracy against FLOPs across decoding strategies and model sizes, and 'How Far Are We from Optimal Reasoning Efficiency?' defines an empirical accuracy-versus-token-budget frontier for a fixed base model and scores how far existing methods fall short of it with a single metric, REG. Note: the archive tracks this idea under several near-duplicate entries that were never merged -- 'Accuracy-Length Tradeoff', 'Accuracy-Efficiency Pareto Frontier', 'Accuracy-token Pareto frontier', 'accuracy-efficiency tradeoff curve' and 'accuracy-efficiency tradeoff of reasoning length' -- which describe substantially the same idea.",
+    "kind": "concept",
+    "related": [
+      "Accuracy-Length Tradeoff",
+      "Accuracy-Efficiency Pareto Frontier",
+      "Accuracy-token Pareto frontier",
+      "accuracy-efficiency tradeoff of reasoning length",
+      "Reasoning Efficiency Gap (REG)",
+      "Overthinking"
+    ]
+  },
+  "task_id": "concept__accuracy-efficiency-tradeoff",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

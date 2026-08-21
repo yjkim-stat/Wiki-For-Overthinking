@@ -44,7 +44,7 @@ The paper has no dedicated limitations section, but several are stated in-text: 
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), Reasoning-Action Dilemma, Analysis Paralysis, Rogue Actions, Premature Disengagement, [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), reasoning effort
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), Reasoning-Action Dilemma, Analysis Paralysis, Rogue Actions, Premature Disengagement, [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [reasoning effort](../../../../wiki/concepts/reasoning-effort.md)
 - **Methods**: CodeAct agent scaffolding, OpenHands framework, LLM-as-a-judge (Claude 3.5 Sonnet), native function calling, Pass@k, Lowest Overthinking@k
 - **Datasets**: [SWE-bench Verified](../../../../wiki/datasets/swe-bench-verified.md)
 

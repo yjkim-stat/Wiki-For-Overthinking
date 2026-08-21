@@ -1,0 +1,71 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:a6dab00057eab5aa",
+      "kind": "paper",
+      "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
+      "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization"
+    },
+    {
+      "id": "title:d40396527f776f1d",
+      "kind": "paper",
+      "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+      "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:56:47Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "related": [
+    "adaptive-reasoning",
+    "long-cot-vs-short-cot",
+    "model-merging",
+    "bi-level-preference-optimization",
+    "reasoning-length-reduction",
+    "problem-difficulty-estimation",
+    "ada-r1",
+    "hybrid-cot",
+    "dpo-style-preference-training",
+    "deepseek-r1-distill-qwen-7b",
+    "cot-valve-baseline",
+    "o1-pruner-baseline",
+    "aime-2025",
+    "math-500",
+    "gsm8k",
+    "olympiadbench",
+    "minerva-math",
+    "overthinking",
+    "sample-optimal-length",
+    "self-supervised-length-target",
+    "length-reward-shaping",
+    "redundant-self-verification",
+    "over-exploration-of-alternatives",
+    "chain-of-thought-compression",
+    "shorterbetter",
+    "sample-optimal-length-sol",
+    "reinforcement-learning-with-verifiable-rewards",
+    "o1-pruner",
+    "qwen2-5-instruct",
+    "deepscaler-preview",
+    "aime",
+    "amc",
+    "omni-math",
+    "still",
+    "math",
+    "mathqa",
+    "mmlu",
+    "bbh",
+    "livecodebench",
+    "mbpp",
+    "humaneval"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "deepseek-r1-distill-qwen-1-5b",
+  "topics": [
+    "overthinking"
+  ]
+}

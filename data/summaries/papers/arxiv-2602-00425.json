@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "Segment-level attribution",
+    "Attribution strength",
+    "Attribution direction consistency",
+    "CoT redundancy",
+    "Reflective versus shallow reasoning segments",
+    "Selective loss masking",
+    "Long-CoT distillation"
+  ],
+  "contributions": [
+    "Two segment-level metrics computed from integrated-gradient token attributions: attribution strength (sqrt-length-normalised sum of absolute IG) and direction consistency (|sum IG| / sum |IG|).",
+    "The criterion that important segments have high strength but moderate rather than extreme consistency, on the argument that uniformly-signed attribution marks superficial clarification or uniformly wrong reasoning.",
+    "A selective SFT recipe that masks loss on unimportant segments while keeping the full trajectory in context, as against pruning it from the supervision.",
+    "Measurements that 30-40% of segments carry over 80% of total attribution, and that unimportant segments have higher perplexity, higher entropy, higher self-BLEU and a 49% versus 26% truncation rate."
+  ],
+  "datasets": [
+    "LIMO (817 questions, training)",
+    "MATH500",
+    "AMC23",
+    "AIME24",
+    "GPQA-Diamond",
+    "Minerva",
+    "OlympiadBench"
+  ],
+  "generated_at": "2026-08-21T00:44:36Z",
+  "generated_by": "queue",
+  "limitations": "The paper has no limitations section. Points a reader should notice: the efficiency claim is relative to full-CoT SFT, not to the starting model - on Qwen2.5-7B-Instruct, both SFT variants take the model from 1405 tokens to roughly 10000, a 7x increase, for 3-4 accuracy points, so selective SFT reduces an overhead that the SFT itself created. Gains largely disappear under temperature sampling (+0.5 pass@1 and 2.8% more tokens on R1-Distill-Qwen-7B), which the authors attribute to sampling noise. The ablation shows high-strength-only segments match the full method on accuracy (46.9), so the direction-consistency criterion is supported only by the token count. Only three models, all Qwen-family, and a single 817-question training set (LIMO). Attribution requires backward passes through the whole trace, and no cost for the attribution step is reported. Thresholds tau and beta are tuned on the analysis set.",
+  "method": "A long CoT is split into segments at transition keywords ('\\n\\nWait', '\\n\\nAlternatively'). For each token, integrated gradients (Sundararajan et al. 2017) measure its influence on predicting the correct final answer, with the padding-token embedding as baseline and J interpolation steps. Two segment-level statistics are derived from the token IG values: attribution Strength(S) = sum of |IG| over the segment divided by sqrt(N) (square-root length normalisation, to stop long segments dominating), then normalised across all segments of the CoT so they sum to 1; and direction Consistency(S) = |sum IG| / sum |IG|, which is near 1 when every token pushes the same way and lower when the segment mixes supportive and corrective attribution. Segments are ranked by normalised strength; the smallest top-k* whose cumulative strength exceeds tau is taken, and within that set the important segments are those with consistency <= beta. The claim is that extremely high consistency marks shallow or skewed reasoning (uniform restatement, or uniformly wrong), while moderate consistency marks reflective reasoning. Training is selective SFT: cross-entropy is computed only over tokens inside important segments, normalised by their count, with the rest masked; the full trajectory still sits in the context, so coherence is preserved and nothing is pruned from the input.",
+  "methods": [
+    "Integrated Gradients",
+    "Selective SFT (loss masking)",
+    "Segment Selective SFT",
+    "Rho-1 style token selection",
+    "TokenSkip",
+    "First-Correct-Solution pruning",
+    "Confidence-Gain segment selection"
+  ],
+  "one_liner": "Uses integrated-gradient token attribution, aggregated into per-segment strength and direction-consistency scores, to pick which segments of a long chain-of-thought an SFT run should compute loss on, masking the rest.",
+  "paper_id": "arxiv:2602.00425",
+  "problem": "Long CoT traces are used as cold-start SFT supervision for reasoning models, but a large fraction of each trace is repetition, truncated thought or superficial restatement. Standard full-CoT SFT imitates that redundancy, so the finetuned model produces long outputs with limited accuracy gain. Existing ways to find the useful parts are indirect: token-level logit/entropy filters break semantic coherence, and segment-level perplexity or entropy are proxies that both over-select linguistic scaffolding ('So, let's calculate step by step') and discard segments that contribute indirectly. Simple pruning of the rest degrades accuracy.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly on topic, and on the training side rather than the decoding side. It quantifies redundancy in long CoTs with a measure that is not perplexity or entropy: 30-40% of segments carry over 80% of the attribution to the correct answer, and unimportant segments are characterised by repetition (high self-BLEU) and truncation (49% versus 26%). It then shows that where the loss is applied, not what is in the supervision, controls how verbose the student becomes - masking loss on redundant segments cuts output length 12-18% under greedy decoding while raising accuracy 3-5% relative to full-CoT SFT, whereas pruning those segments out of the supervision entirely loses accuracy (43.9 versus 44.8). Two cautions for the group. First, the length reduction is measured against a full-CoT SFT baseline, and on the one non-reasoning base model tested the SFT itself inflated output from 1405 to about 10000 tokens - so this shortens an overhead that distillation introduced rather than making a reasoning model concise. Second, the effect is a greedy-decoding phenomenon: under temperature sampling the token savings shrink or reverse. The ablation is also a useful negative result for anyone building on the consistency metric, since high-strength selection alone already reaches the paper's accuracy."
+  },
+  "results": "Hyperparameters tau=0.7, beta=0.8, chosen by a greedy search maximising the confidence gap between important and unimportant segments; this labels about 33% of segments and 45% of tokens as important. Analysis on LIMO trajectories from R1-Distill-Qwen2.5-7B: 30-40% of segments carry over 80% of total attribution in both correct and incorrect CoTs; unimportant segments have higher log-perplexity, higher entropy and higher BLEU overlap with preceding segments, and 49% of them are judged incompletely truncated by Qwen3-8B versus 26% of important ones. Main table, 817 LIMO questions for training, six benchmarks (in-domain MATH500, AMC23, AIME24; out-of-domain GPQA-Diamond, Minerva, OlympiadBench), greedy decoding, overall accuracy / average response tokens. R1-Distill-Qwen-1.5B: base 36.7 / 20244; full-CoT SFT 44.8 / 16520; Segment Selective SFT 46.9 / 13506 (+4.7% relative accuracy, -18.2% tokens). R1-Distill-Qwen-7B: base 57.7 / 12518; full SFT 62.1 / 9693; selective 64.5 / 8499 (+3.9%, -12.3%). Qwen2.5-7B-Instruct: base 41.4 / 1405; full SFT 44.2 / 10317; selective 45.6 / 9852 (+3.2%, -4.5%). Under temperature sampling the margins shrink: on R1-Distill-Qwen-7B pass@1 65.5 -> 65.8 and length 7593 -> 7709, i.e. 2.8% longer than full SFT on that row's reported reduction basis; on Qwen2.5-7B-Instruct pass@1 43.4 -> 45.0 with length 9902 -> 9195. Ablation on R1-Distill-Qwen-1.5B (greedy acc / length): full SFT 44.8 / 16520; pruning unimportant segments 43.9 / 15097; random segments 45.1 / 15138; high-|IG| tokens 46.1 / 14612; high-strength-only segments 46.9 / 14715; strength-plus-moderate-consistency 46.9 / 13506 - so consistency filtering buys the token reduction rather than the accuracy. Against other importance measures on the same model: First-Correct-Solution 46.2 / 15238, Confidence-Gain 44.7 / 15479, Segment Perplexity 44.7 / 14973, Segment Entropy 44.5 / 16288, IG-based 46.9 / 13506.",
+  "schema_version": 1,
+  "tags": [
+    "long-cot",
+    "selective-sft",
+    "integrated-gradients",
+    "output-length",
+    "cot-compression",
+    "reasoning-efficiency",
+    "token-reduction"
+  ]
+}

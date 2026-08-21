@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning
+
+- **Authors**: _unknown_
+- **Venue**: NeurIPS 2025
+- **Published**: 2025-01-01
+- **Source**: virtualsite
+- **Link**: <https://neurips.cc/virtual/2025/poster/118481>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.62
+
+## In one line
+
+ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.
+
+## Problem
+
+Models such as OpenAI o1 and DeepSeek-R1 earn their reasoning performance by emitting long chain-of-thought traces, but the same behaviour produces redundant output on problems that do not need it — overthinking. Fixing the excess requires knowing how long a given problem's reasoning should be, and that target is not available in advance and is expensive to supervise by hand.
+
+## Contributions
+
+- Sample Optimal Length (SOL): the length of the shortest correct rollout in a sampled group, used as a per-problem length target derived from the model rather than from human supervision
+- A reward combining a correctness term with an absolute-deviation penalty against SOL, requiring no manually set length budget
+- 50%-80% output-length reduction on DeepSeek-Distill-Qwen-1.5B/7B, in-domain and out-of-domain
+- A trace analysis attributing the saving to reduced repetition, self-verification and over-exploration of alternatives
+
+## Method
+
+For each question the model generates a group of n rollouts. The Sample Optimal Length (SOL) of that group is the length of the shortest response that is correct; if no response in the group is correct, SOL falls back to the mean length over the group. SOL then acts as a per-problem target inside the reward: r(y_j) = alpha * I(y_j = y_i*) - beta * |l(y_j) - l_SOL(G(x_i))|, where the first term pays for correctness and the second charges the absolute deviation of this response's length from the group's SOL, with alpha and beta trading the two off. The target is therefore derived from the model's own samples rather than set by a human, and it moves per problem: an easy question whose shortest correct rollout is brief pulls the whole group short, a hard one whose shortest correct rollout is long does not. The penalty is symmetric on absolute deviation, so responses far below SOL are charged as well as those above it.
+
+## Results
+
+Training used DeepScaleR-preview, 40K mathematics problems drawn from AIME, AMC, Omni-MATH and Still. Base models are DeepSeek-Distill-Qwen-1.5B and 7B. For the 7B model, in-domain (1K held-out mathematics problems) length falls 62.1% with accuracy up 7.1%; out-of-domain (6K problems over MathQA, MMLU, BBH, LiveCodeBench, MBPP, HumanEval) length falls 62.3% with accuracy down 0.48%. Per benchmark, ShorterBetter-7B against Distill-7B: AIME 53.3% vs 36.7% accuracy at 5,288 vs 11,382 tokens; MATH 50.7% vs 52.0% at 3,410 vs 7,762 tokens; MathQA 85.4% vs 83.3% at 980 vs 3,442 tokens. Baselines compared are DeepSeek-R1-Distill-Qwen, Qwen2.5-Instruct, Training Efficient and O1-Pruner. Trace analysis attributes the reduction to less repetition, less self-verification and less exploration of alternative solution paths.
+
+## Limitations
+
+The authors state the method applies only to tasks with verifiable answers, since SOL requires knowing which rollouts are correct, and that evaluating reasoning structure needs more rigorous quantitative metrics than they use. Two things in the paper's own numbers qualify the headline 'while maintaining accuracy': MATH accuracy falls from 52.0% to 50.7%, and the out-of-domain average is down 0.48%. The large in-domain gain (+7.1%, and AIME 36.7% to 53.3%) is not evidence that brevity improves reasoning on its own — the run is additional RL on in-domain mathematics, so training and shortening are confounded. The SOL fallback to mean length when no rollout is correct means that on problems the model cannot solve the reward optimises length against no correctness signal at all, which is where an unwarranted shortening would be least visible. Base models are 1.5B and 7B only, and the reported reductions concentrate on mathematics.
+
+## Why it matters here
+
+- **overthinking**: Directly on topic and among the cleanest statements of the group's central mechanism: the right reasoning length for a problem is knowable from the model's own samples, because the shortest rollout that happens to be correct is an existence proof that the problem is solvable in that many tokens. That turns 'how long should this take' from a hyperparameter into a per-problem quantity the training loop can read off, with no length budget and no annotation. The trace analysis names what the savings are made of — repetition, excessive self-verification, over-exploration of alternatives — which is a concrete decomposition of overthinking rather than a token count, and worth reusing when the group characterises the phenomenon. Two cautions belong with it. The 62% reduction with +7.1% in-domain accuracy is confounded: this is additional RL on in-domain mathematics, so it does not license the reading that shortening improves reasoning. And SOL's fallback to mean length when no rollout is correct means the length pressure keeps operating on exactly the problems where no correctness signal exists — the regime where a model arguably needs to think more, not less. The 1.3-point MATH drop and the 0.48% out-of-domain decline are the visible edge of that.
+
+## Entities
+
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Sample Optimal Length, Self-supervised length target, Length reward shaping, [Redundant self-verification](../../../../wiki/concepts/redundant-self-verification.md), Over-exploration of alternatives, [Chain-of-thought compression](../../../../wiki/concepts/chain-of-thought-compression.md)
+- **Methods**: ShorterBetter, Sample Optimal Length (SOL), [Reinforcement learning with verifiable rewards](../../../../wiki/methods/reinforcement-learning-with-verifiable-rewards.md), [DeepSeek-R1-Distill-Qwen-1.5B](../../../../wiki/methods/deepseek-r1-distill-qwen-1-5b.md), DeepSeek-R1-Distill-Qwen-7B, [O1-Pruner](../../../../wiki/methods/o1-pruner.md), [Qwen2.5-Instruct](../../../../wiki/methods/qwen2-5-instruct.md)
+- **Datasets**: DeepScaleR-preview, [AIME](../../../../wiki/datasets/aime.md), [AMC](../../../../wiki/datasets/amc.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md), [Still](../../../../wiki/datasets/still.md), [MATH](../../../../wiki/datasets/math.md), [MathQA](../../../../wiki/datasets/mathqa.md), [MMLU](../../../../wiki/datasets/mmlu.md), BBH, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [MBPP](../../../../wiki/datasets/mbpp.md), [HumanEval](../../../../wiki/datasets/humaneval.md)
+
+Tags: `overthinking`, `efficient-reasoning`, `reasoning-length`, `reinforcement-learning`, `reasoning-trace`, `cot-compression`, `self-verification`
+
+## Abstract
+
+Abstract Recent models such as OpenAI o1 and DeepSeek-R1 have demonstrated strong performance on reasoning-intensive tasks by generating extended Chain-of-Thought (CoT) traces. While longer reasoning helps with thorough exploration of solution paths for complex problems, it also often leads to inefficient and redundant outputs—a phenomenon commonly described as $\textit{overthinking}$. In this paper, we propose $\texttt{ShorterBetter}$, a simple yet effective reinforcement learning method that enables reasoning models to learn their own optimal CoT lengths without manual supervision. We define the $\textit{Sample Optimal Length}$ (SOL) as the length of the shortest correct response among multiple generations, which serves as a dynamic reward signal to guide the model toward efficient reasoning. Applied to DeepSeek-Distill-Qwen-1.5B/7B as base models, $\texttt{ShorterBetter}$ achieves 50\%-80\% reduction in output lengths in both in-domain and out-of-domain reasoning tasks while maintaining accuracy. Our reasoning trace analysis shows that $\texttt{ShorterBetter}$ refines the structure of the reasoning traces by reducing unnecessary repetition, excessive self-verification, and over-exploration of alternatives.
+
+---
+
+Record id: `title:d40396527f776f1d`

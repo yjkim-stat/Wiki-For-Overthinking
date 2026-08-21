@@ -1,0 +1,77 @@
+{
+  "aliases": [],
+  "definition": "Whether a model's reasoning trace can be watched to catch misbehaviour before it acts - which the archive's sources split into two prerequisites, neither of them guaranteed. Risky Business treats monitorability as depending on faithfulness and in tension with safety: an agent must follow its trace closely enough for the trace to predict what it does, yet a model that follows its trace perfectly also executes tampered unsafe reasoning, which their Targeted Reasoning Replacement edit inserts across 77 HazMart scenarios. The trace-stealing paper attacks the other prerequisite, access: the encrypted chain-of-thought blocks returned by the Anthropic, OpenAI and Google APIs are interchangeable across sessions, users and models within one provider, and a weaker sibling model used as a decryption oracle recovers the hidden traces verbatim - so a trace withheld from the user is not thereby unreadable. The sources keep this distinct from faithfulness, which asks whether the trace reflects the computation rather than whether anyone can see it.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
+      "id": "arxiv:2608.09867",
+      "kind": "paper",
+      "note": "Shows that the encrypted chain-of-thought blocks returned by Anthropic, OpenAI and Google APIs are interchangeable across sessions, users and models within a provider, and uses a weaker sibling model as a decryption oracle to recover hidden reasoning traces verbatim.",
+      "title": "Stealing Reasoning Traces from Proprietary LLM APIs"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Chain-of-thought monitorability",
+  "related": [
+    "chain-of-thought-faithfulness",
+    "faithfulness-safety-tension",
+    "action-commit-token",
+    "representation-steering",
+    "refusal-direction",
+    "reasoning-trace-tampering",
+    "self-reflection-tokens-as-a-resistance-signal",
+    "targeted-reasoning-replacement-trr",
+    "difference-of-means-probing",
+    "activation-addition-representation-steering-with-per-token-renormalization",
+    "attention-mask-ablation",
+    "hint-based-faithfulness-evaluation-comparison-baseline",
+    "qwq-32b",
+    "deepseek-r1-distill-llama-70b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "ministral-3-14b-reasoning",
+    "gpt-oss-120b",
+    "minimax-m2-230b",
+    "hazmart-77-scenarios-11-harm-categories",
+    "mmlu",
+    "encrypted-client-side-reasoning-blocks",
+    "reasoning-compatibility-in-session-cross-user-cross-model",
+    "security-asymmetry-within-a-model-family",
+    "decryption-oracle-via-a-weaker-sibling-model",
+    "anti-distillation-defenses",
+    "invisible-prompt-injection-through-hidden-reasoning",
+    "reasoning-summary-unfaithfulness",
+    "ephemeral-reasoning-traces",
+    "encrypted-thought-injection-current-turn-and-past-turn",
+    "cross-model-decryption-oracle-attack",
+    "assistant-turn-prefilling",
+    "aead-encrypted-reasoning-envelopes-the-mechanism-attacked",
+    "llm-as-a-judge-privacy-labeling",
+    "best-of-n-sampling-for-extraction",
+    "reasoning-trace-distillation",
+    "aime-2025",
+    "codeforces-open-r1-subset",
+    "humanity-s-last-exam",
+    "harmbench-paraphrased-prompt",
+    "posttrainbench-agent-traces",
+    "clawbench-rollouts",
+    "6-708-public-agent-trajectories-scraped-from-github-and-hugging-face-315-320-rea"
+  ],
+  "related_authored": [
+    "chain-of-thought-faithfulness",
+    "cot-obfuscation",
+    "chain-of-thought-monitoring"
+  ],
+  "schema_version": 1,
+  "slug": "chain-of-thought-monitorability",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.02942",
+      "kind": "paper",
+      "note": "OPTD trains a few-step diffusion language model by sampling partial decoding states from the student's own inference trajectory and letting a frozen teacher verify, per state, the longest set of future token releases that can be committed jointly without changing the teacher's rollout outcome.",
+      "title": "OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for Few-Step Diffusion Language Models"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Few-step distillation",
+  "related": [
+    "on-policy-vs-off-policy-state-distribution",
+    "parallel-token-release-tokens-per-forward",
+    "outcome-consistency-under-joint-commitment",
+    "state-dependent-compression-horizon",
+    "certainty-forcing-to-a-release-threshold",
+    "quality-constrained-aup",
+    "optd-on-policy-transition-distillation",
+    "consistency-guided-adaptive-compression-joint-outcome-verification",
+    "set-bottleneck-max-hinge-certainty-forcing",
+    "frozen-teacher-kl-anchor",
+    "confidence-multi-block-threshold-decoding",
+    "lora-fine-tuning",
+    "baselines-llada-fast-dllm-d2f-dparallel-d3llm-tad-q-tad-s",
+    "gsm8k-5-shot",
+    "math-500-4-shot",
+    "mbpp-3-shot-500-problems",
+    "humaneval-0-shot"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "few-step-distillation",
+  "topics": [
+    "overthinking"
+  ]
+}

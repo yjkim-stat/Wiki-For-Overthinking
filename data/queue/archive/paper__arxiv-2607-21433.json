@@ -1,0 +1,128 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-21433.pdf"
+  },
+  "completed_at": "2026-08-21T00:36:53Z",
+  "created_at": "2026-08-20T23:53:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.21433",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chain-of-thought reasoning models such as DeepSeek-R1-Distill-Qwen-7B exhibit a bimodal convergence pattern: generations either terminate within a token budget (converged) or exhaust it without reaching a conclusion (non-converged). We characterize this phenomenon empirically, showing that converged generations achieve 90.3% accuracy on AIME 1983-2024 while non-converged ones achieve only 6.6%, with an overall convergence rate of 62.0%. We then ask whether this outcome is detectable early in the thinking chain using internal model representations. Training linear probes on hidden-state activations at token positions 50-300, we find that layer-20 activations at token 150 achieve AUC 0.608 (+-0.080, 5-fold CV), reliably above chance even at token 50. Activation probes consistently outperform behavioral baselines derived from token entropy and repetition statistics. A sweep-level permutation test yields p=0.063 (100,000 permutations), consistent with a modest signal that our sample size cannot confirm at conventional thresholds. These findings suggest that convergence fate is partially encoded in intermediate representations well before the generation ends, opening a path toward early-exit inference and adaptive compute allocation.",
+    "authors": [
+      "Renuka Oladri",
+      "Niveda Jawahar",
+      "Abdirisak Mohamed"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "token budget",
+      "early exit"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21433v1",
+    "published": "2026-07-23",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models",
+    "url": "https://arxiv.org/abs/2607.21433",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Token Budget Saturation",
+      "Budget Forcing",
+      "Reasoning Non-Convergence",
+      "Bimodal Convergence Pattern",
+      "Minimum Sufficient Budget",
+      "Early-Exit Inference",
+      "Adaptive Compute Allocation",
+      "Linear Probing of Hidden States",
+      "Repetition Loop Failure Mode",
+      "Test-Time Compute Scaling"
+    ],
+    "contributions": [
+      "Measures the marginal value of thinking tokens by budget forcing across three difficulty levels, finding accuracy saturates at 256 tokens on GSM8K and MATH-500 with no measurable gain from any larger budget including uncapped.",
+      "Characterizes a bimodal convergence failure on AIME in which 43.5% of generations never emit </think> within 10,000 tokens and score 11.5%, against 96.5% for those that terminate, and shows problem difficulty explains under 19% of the variance.",
+      "Shows the convergence/non-convergence outcome is partially linearly decodable from hidden states as early as token 50, with the strongest signal in upper-middle layers (layer 20 of 28, AUC 0.608 +/- 0.080) rather than output-adjacent ones.",
+      "Establishes that internal activations beat surface-level behavioral signals (entropy statistics, n-gram repetition, token count) at 8 of 9 checkpoints, with the largest advantage exactly where the behavioral baseline is weakest.",
+      "Rules out memorization as the driver of the convergence-correctness link using 30 post-training-cutoff AIME 2025 problems (converged 100%, non-converged 0%).",
+      "Reports the negative statistical result honestly: sweep-level permutation p=0.063, no individual checkpoint significant, and AUC insufficient for a production early-exit system."
+    ],
+    "datasets": [
+      "GSM8K (200 problems from test split, seed 42)",
+      "MATH-500 (200 problems from test split, seed 42)",
+      "AIME 1983-2024 (200 problems sampled from the 933-problem HuggingFace dataset, seed 42)",
+      "AIME 2025 (all 30 problems, contamination check)"
+    ],
+    "limitations": "The paper states its own limitations at length. Single model: everything is DeepSeek-R1-Distill-Qwen-7B, so the bimodality, the saturation point and the probe signal may not transfer to other families, scales or training recipes. Practical ceiling: 'uncapped' is really 10,000 tokens, so it cannot be ruled out that some non-converged generations would terminate given substantially more. Sample size and power: n=200 with roughly 40-sample CV folds, cell sizes down to n=18 and n=4 in some bootstrap cells; the probe shows predictive information is present in the hidden state, not that it causally determines convergence, which would need activation patching. Greedy decoding: DeepSeek's own guidance advises against greedy decoding for R1 and recommends about temperature 0.6, so the 43.5% non-convergence rate may be partly a decoding artifact; a temperature-0.6 multi-seed comparison is left to future work. Memorization: 6.6% non-converged accuracy on historical AIME likely reflects memorized answers, so the historical baseline slightly overstates true capability. Difficulty proxy: AIME problem number is an imperfect difficulty ordering within and across exam years. Limits a reader should add: the checkpoint sweep and the layer sweep were run at different layers (16 versus 20), so the two headline analyses are not on the same footing and the sweep likely understates achievable AUC; AUC 0.608 is far below anything deployable and the authors say so; the max(AUC, 1-AUC) correction inflates measured AUC when the true signal is near chance, which matters given the effect size; the budget sweep starts at 256 tokens so the true saturation point for GSM8K and MATH-500 could be lower and is never bracketed from below; and code and data are promised only upon acceptance.",
+    "method": "Study 1 (budget forcing): a custom LogitsProcessor counts tokens generated inside the <think>...</think> region and, on reaching budget B, forces </think> by setting all other logits to -inf; the processor is initialized in thinking mode because the chat template opens the thinking phase in the prompt rather than in generated output. Budgets B in {256, 512, 1024, 2048, 4096} plus an uncapped condition, which still carries a practical 10,000-token ceiling. Minimum sufficient budget B* is defined as the smallest budget reaching at least 95% of uncapped accuracy and holding at all larger budgets, with 95% CIs from 1,000-iteration bootstrap and Wilson intervals for binary proportions. Answer extraction cascades \\boxed{}, then 'the answer is' patterns, then the last numeric token after </think>. Study 2 (early detection): all 200 AIME problems are regenerated under the same configuration with two forward hooks - a hidden-state hook on all 28 layers at token 150, and a logit hook on lm_head computing token-level entropy at nine checkpoints (50, 75, 100, 125, 150, 175, 200, 250, 300 tokens) - with generation-step counting used to skip prefill forward passes. Three logistic-regression classifiers (C=1.0, L-BFGS, 2,000 iterations) are compared: an activation probe on the 3,584-dimensional hidden state, a behavioral baseline on seven surface features (entropy mean, max, std and linear trend; repeated-bigram and repeated-trigram fractions; raw token count), and a combined probe. Evaluation is 5-fold stratified CV with AUC-ROC corrected as max(AUC, 1-AUC), a per-checkpoint paired permutation test at B=10,000, and a sweep-level permutation test at B=100,000 that flips labels identically across all nine checkpoints because they derive from the same 200 generations. All runs use greedy decoding on one RTX A5000, float16.",
+    "methods": [
+      "budget forcing via a token-counting LogitsProcessor that forces </think>",
+      "minimum sufficient budget B* with bootstrap CIs",
+      "linear probing of hidden-state activations (logistic regression)",
+      "behavioral baseline probe on entropy and repetition statistics",
+      "layer sweep across all 28 transformer layers",
+      "checkpoint position sweep (50-300 tokens)",
+      "paired and sweep-level permutation tests",
+      "5-fold stratified cross-validation with AUC-ROC",
+      "point-biserial correlation against difficulty proxy",
+      "contamination check on post-cutoff data"
+    ],
+    "one_liner": "Two studies on DeepSeek-R1-Distill-Qwen-7B: a budget-forcing sweep showing GSM8K and MATH-500 accuracy saturates at 256 thinking tokens while AIME splits bimodally into generations that terminate and generations that loop until the 10,000-token ceiling, and a linear-probe study showing that hidden-state activations at token 150 predict which of the two an AIME generation will become at AUC 0.608.",
+    "problem": "Reasoning models have shifted the inference bottleneck from parameter count to generation length, and the field's working assumption is that longer thinking yields better outcomes. That assumption has been checked mostly at the level of aggregate benchmark scores, not per generation. A generation that produces 10,000 tokens of circular reasoning costs the same as one that converges at 4,000, yet the two outcomes differ drastically in accuracy, so the question is (a) what the marginal value of a thinking token actually is at each difficulty level, and (b) whether a doomed generation can be recognized from the model's own internal state before its failure becomes visible in the output stream.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly on topic and useful to the archive in two distinct ways. First, it supplies a clean measurement of the length/accuracy curve rather than a method: budget forcing shows DeepSeek-R1-Distill-Qwen-7B reaches its full GSM8K and MATH-500 accuracy at 256 thinking tokens and gains nothing measurable from any larger budget up to 10,000, which is the strongest form of the topic's central claim - the marginal thinking token on routine problems is pure cost. Second, and more useful, it separates two failure modes the topic often conflates. On AIME the absence of a saturation point does not mean more thinking helps; 43.5% of generations enter a non-terminating loop, never emit </think>, burn the entire 10,000-token budget and score 11.5% against 96.5% for those that terminate. That is not overthinking in the sense of a model verifying too much, it is a qualitatively different failure that additional budget cannot fix, and the paper shows difficulty explains under 19% of it (r^2 about 0.186), so a difficulty-conditioned budget policy would not catch it. The convergence-correctness link is validated on post-cutoff AIME 2025 (converged 100%, non-converged 0%), which makes it hard to attribute to memorization. The third contribution is a foundation rather than a result: convergence fate is partially encoded in upper-middle-layer activations by token 50, before entropy and repetition statistics carry any signal, which is what an early-exit controller would have to read. The honest reading is that the detection half does not yet work - AUC 0.608 at the best layer, sweep-level permutation p=0.063, n=200, one model, greedy decoding that DeepSeek itself advises against and that may inflate the loop rate - so the archive should treat this as evidence that the signal exists and is weak, not as a usable stopping mechanism."
+    },
+    "results": "Study 1: GSM8K and MATH-500 both reach B* at the smallest budget tested, 256 tokens, with accuracy essentially flat at every larger budget including uncapped (uncapped accuracy 0.740 and 0.625); no accuracy is bought by the thousands of tokens beyond that. AIME has no finite B* because accuracy never stabilizes. On AIME (n=200, uncapped), 113 generations (56.5%) emit </think> and score 96.5% at about 4,100 tokens, while 87 (43.5%) never terminate within 10,000 tokens and score 11.5%, consuming the full budget. Convergence is only weakly explained by difficulty: point-biserial correlation with within-exam problem number is r=0.431 (p<0.0001) but r^2 is about 0.186, so under 19% of convergence variance. The gap survives stratification (Table 3): converged accuracy 95.5% / 95.1% / 100% and non-converged 18.2% / 11.1% / 0% across easy, medium and hard terciles, with the hard tercile at n=18 converged and n=41 non-converged. The fresh instrumented run (Table 4) reproduces the pattern with somewhat different values - convergence 62.0%, converged accuracy 90.3%, non-converged 6.6%, mean converged length 4,889 tokens - so the abstract's headline numbers come from the instrumented run, not the budget-forcing run. Study 2: the signal is real in direction but weak in magnitude. Layer sweep at token 150 across all 28 layers peaks at layer 20 (AUC 0.608 +/- 0.080), with layer 21 at 0.606 +/- 0.070, near-chance at layer 0 (0.536) and back toward chance at layer 27 (0.541), so convergence information sits in upper-middle rather than output-adjacent layers. The nine-position checkpoint sweep, run at layer 16 before the layer sweep had identified 20, shows activation probes beating the behavioral baseline at 8 of 9 positions (the exception is 175 tokens at delta AUC -0.001), mean delta AUC +0.035, largest at 50 tokens (0.615 +/- 0.066 versus 0.541 +/- 0.044, delta +0.074). Activation AUC stays in a narrow 0.561-0.615 band with no growth over the sweep, and the behavioral baseline stays at 0.533-0.595 throughout. No individual checkpoint reaches significance; the sweep-level permutation test gives p=0.063, which the authors state is a modest signal their sample size cannot confirm at conventional thresholds. The combined probe tracks the activation probe closely, so behavioral features add little once activations are present. Contamination check on the 30 post-cutoff AIME 2025 problems: convergence rate falls to 36.7%, converged accuracy is 100% (11/11) and non-converged 0% (0/19), so the convergence-correctness link holds on unseen data and the 6.6% non-converged accuracy on historical problems is attributed to partial memorization of answer values. The stated headroom is that an oracle aborting non-converging AIME generations at the start would save about 43.5% of inference compute, and a probe at 50 tokens could in principle flag them 4,000-9,000 tokens before behavioral failure is unambiguous.",
+    "tags": [
+      "overthinking",
+      "token-budget",
+      "budget-forcing",
+      "early-exit",
+      "linear-probe",
+      "interpretability",
+      "non-convergence",
+      "aime",
+      "deepseek-r1-distill",
+      "negative-result"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-21433",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

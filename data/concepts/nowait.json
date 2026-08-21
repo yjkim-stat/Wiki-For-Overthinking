@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "NoWait"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
       "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models"
+    },
+    {
+      "id": "title:7a3e08192f168bcb",
+      "kind": "paper",
+      "note": "ReBalance is a training-free inference-time steering method that reads a reasoning model's token confidence to detect overthinking or underthinking and applies a hidden-state steering vector to shorten or extend the chain of thought accordingly.",
+      "title": "Efficient Reasoning with Balanced Thinking"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "NOWAIT",
   "related": [
     "overthinking",
@@ -73,7 +81,32 @@
     "specrouter",
     "specreason",
     "speculative-thinking",
-    "scot"
+    "scot",
+    "underthinking",
+    "test-time-compute-scaling",
+    "activation-steering",
+    "model-confidence-as-a-stopping-signal",
+    "training-free-efficient-reasoning",
+    "accuracy-length-tradeoff",
+    "rebalance",
+    "activation-steering-steering-vectors",
+    "reasoning-mode-prototypes-from-hidden-states",
+    "confidence-based-dynamic-control-function",
+    "cod",
+    "nothinking",
+    "dynasor-cot",
+    "flashthink",
+    "trimr",
+    "math-500",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "gsm8k",
+    "olympiadbench",
+    "gpqa-diamond",
+    "strategyqa",
+    "livecodebench",
+    "math-500-sampled-problems-for-steering-vector-extraction"
   ],
   "related_authored": [],
   "schema_version": 1,

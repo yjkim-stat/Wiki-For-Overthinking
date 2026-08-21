@@ -1,0 +1,112 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:46:22Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:474d6c4d88a30199",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "efficient reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
+    "url": "https://iclr.cc/virtual/2026/poster/10010716",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Overthinking",
+      "Reflection in reasoning traces",
+      "Length reward",
+      "Reflection reward",
+      "Sequential revision",
+      "Test-time compute scaling",
+      "Online reinforcement learning for efficient reasoning",
+      "Difficulty-adaptive reasoning length"
+    ],
+    "contributions": [
+      "A small distilled reflection model that identifies the first reflection point in a sampled response likely to reach the final answer, allowing responses to be truncated into shorter revisions during online RL rather than through offline generate-and-filter.",
+      "Sequential revision combined with parallel sampling as a training-time scaling scheme for online efficiency RL.",
+      "A reflection reward penalizing responses whose reflection token density falls below the 20th percentile of the training distribution, blocking short non-reflective responses that a plain length reward rewards.",
+      "An empirical result of about 36% token reduction at unchanged accuracy on a five-benchmark math suite with DeepSeek-R1-Distill-Qwen-7B, against a length-reward GRPO baseline that loses about 3.5 accuracy points for a comparable saving.",
+      "Analysis showing reflection frequency is preserved on hard problems and reduced on easy ones."
+    ],
+    "datasets": [
+      "DeepScaleR",
+      "GSM8K",
+      "MATH500",
+      "Gaokao23",
+      "AMC23",
+      "AIME24"
+    ],
+    "limitations": "The authors state the method is validated only on distilled 7B large reasoning models, so it is untested at other scales or on non-distilled models. They state that reflection-position detection cannot guarantee complete elimination of overthinking. They state that sequential scaling adds roughly 10% cost over parallel scaling alone. Beyond the stated limits: the headline 36% is an aggregate token ratio over a five-benchmark suite dominated by easier sets, so it does not establish a per-benchmark saving; the accuracy margin over the base model (80.39 to 80.74) is well inside the noise typical of AMC23 and AIME24, which have few problems each, so the claim supported by the numbers is non-degradation rather than improvement; and the reflection reward is defined against a density quantile of the training data, which ties the notion of adequate reflection to one corpus.",
+    "method": "REA-RL adds a small reflection model to online RL over a large reasoning model. The reflection model is obtained by distilling a Qwen2.5-32B detector into Qwen2.5-7B-Instruct via supervised fine-tuning, so that detection is a single step. Given a sampled response, it locates the first reflection position that is already very likely to lead to the final answer, and the response is truncated there to yield a shorter revision. This gives sequential revision alongside ordinary parallel sampling, so training-time scaling produces short-but-complete trajectories cheaply instead of by generate-and-filter. Separately, a reflection reward penalizes responses whose reflection token density falls in the bottom fifth of the training distribution: R_Reflect(s_i) = min(0, D_i / D_0.2 - 1), where D_i = N_Reflect / N_Token. The floor at zero means a response with adequate reflection density is not rewarded for more, only sparse ones are punished, which blocks the degenerate short-and-non-reflective solutions a bare length reward admits. The length reward and the reflection reward and the reflection model are combined on top of GRPO.",
+    "methods": [
+      "REA-RL",
+      "GRPO",
+      "reflection reward",
+      "sequential revision",
+      "parallel sampling",
+      "supervised fine-tuning distillation",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-32B"
+    ],
+    "one_liner": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
+    "problem": "Large reasoning models overthink, producing long chains of thought that raise inference cost. Two existing remedies each fail: offline approaches synthesize shorter reasoning responses for the model to imitate, but the generation-and-filtering loop is too slow to run online; and online RL with a plain length reward pushes the model toward short responses that have lost the ability to reflect, which costs accuracy. The open question is how to shorten reasoning online without destroying the reflection behaviour that makes the reasoning work.",
+    "relevance": {
+      "overthinking": "Directly on topic, and it makes a specific claim about why the obvious fix fails. A plain length reward is the standard online lever for shortening reasoning, and this paper's own numbers give the cost of using it alone: 76.88% versus 80.39% accuracy on the same suite. The paper's answer is that shortening must be constrained to preserve reflection, enforced as a floor on reflection token density rather than as a length target, and that this recovers base accuracy (80.74%) at a similar token ratio (63.51 vs 57.23). The reported pattern — reflection frequency held on hard problems and reduced on easy ones — is the difficulty-adaptive allocation the topic is about, achieved without an explicit difficulty estimator. The reflection model is also a reusable idea for the topic: a small model that decides where a trace could have stopped, rather than a fixed budget imposed in advance. Caveat for the archive: validated on one 7B distilled model and one math suite, so the 36% figure should be read as evidence for the mechanism, not as a transferable rate."
+    },
+    "results": "Reported on GSM8K, MATH500, Gaokao23, AMC23 and AIME24 with a 16k token budget, starting from DeepSeek-R1-Distill-Qwen-7B. The unmodified base model scores 80.39% average accuracy at a token ratio of 100. GRPO with a plain length reward drops to 76.88% accuracy at a token ratio of 57.23 — i.e. the length reward buys its shortening with roughly 3.5 points of accuracy, which is the failure the paper is arguing against. The full combination (GRPO + length reward + reflection reward + reflection model) reaches 80.74% accuracy at a token ratio of 63.51, so about 36% fewer tokens at accuracy equal to or slightly above the base model. Analysis reports that reflection frequency is retained on hard problems and reduced on easier ones, rather than being suppressed uniformly.",
+    "tags": [
+      "overthinking",
+      "efficient-reasoning",
+      "reinforcement-learning",
+      "grpo",
+      "reflection",
+      "length-reward",
+      "chain-of-thought",
+      "inference-cost",
+      "math-reasoning"
+    ]
+  },
+  "task_id": "paper__title-474d6c4d88a30199",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

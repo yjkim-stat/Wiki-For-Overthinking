@@ -1,0 +1,65 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
+        "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
+        "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:04:42Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'DeepScaleR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepScaleR",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DeepScaleR",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "DeepScaler"
+    ],
+    "definition": "In all three citing sources DeepScaleR is a math corpus for reinforcement-learning training and evaluation, not a method: REO-RL trains on 135k problems drawn from DeepScaleR and AReaL, and REA-RL and QuRL both list it among their datasets, with QuRL reporting a DeepScaleR average of 56.40% for the BF16 actor against 55.48% for INT8 rollouts. The name is ambiguous across the wider archive, where DeepScaleR-1.5B-Preview denotes an RL-tuned 1.5B reasoning model used as a base model and as an efficiency-evaluation subject, so a reader should check which of the two a paper means. No archived source describes how the dataset was constructed or how large it is on its own.",
+    "kind": "dataset",
+    "related": [
+      "DAPO-Math-17k"
+    ]
+  },
+  "task_id": "concept__deepscaler",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

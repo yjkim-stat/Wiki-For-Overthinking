@@ -42,7 +42,7 @@ Abstract does not name the specific datasets, tasks, or quantitative results (ac
 
 ## Entities
 
-- **Concepts**: compute-optimal scaling, multi-stage task decomposition, model and budget allocation
+- **Concepts**: [compute-optimal scaling](../../../../wiki/concepts/compute-optimal-scaling.md), multi-stage task decomposition, model and budget allocation
 - **Methods**: AgentTTS (LLM-agent search framework)
 - **Datasets**: six datasets across four tasks (not individually named in abstract)
 

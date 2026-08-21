@@ -1,0 +1,56 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Statistical Early Stopping for Reasoning Models
+
+- **Authors**: _unknown_
+- **Venue**: ICML 2026
+- **Published**: 2026-01-01
+- **Source**: virtualsite
+- **Link**: <https://icml.cc/virtual/2026/poster/63833>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.
+
+## Problem
+
+Reasoning models overthink specifically under uncertainty: given an ill-posed, ambiguous or unanswerable query they keep generating reasoning steps rather than stopping, because nothing in the decoding procedure represents the possibility that no answer exists. Existing remedies are heuristic - a token budget, a length cap, or prompting the model to report confidence - and none of them carries a statement about how often the rule will cut off a query that was in fact answerable. What is missing is a stopping rule with a controllable error rate rather than a tuned threshold.
+
+## Contributions
+
+- Framing overthinking under uncertainty as a sequential change-detection problem on the reasoning trace, with a controllable error rate rather than a tuned threshold
+- A parametric Renewal rule modelling uncertainty-keyword inter-arrival times as a renewal process with a sequential test
+- A nonparametric conformal Maxwise rule with Proposition 2.1, a finite-sample distribution-free bound of alpha on the probability of halting too early on a well-posed query
+- A 102-keyword uncertainty lexicon in three categories - impossibility (34), speculation (14), insufficiency (56)
+- Evaluation over 12 reasoning models showing 38-70% token savings on ill-posed instances at 0.75-5.42% false-stop rates with alpha = 5%
+- A measured ceiling of 82-85% of oracle detection power for any detector reading the trace alone
+
+## Method
+
+The signal is lexical and read off the trace as it is generated: a list of 102 uncertainty keywords grouped into impossibility (34, e.g. 'cannot determine', 'data cannot'), speculation (14, e.g. 'forgot include', 'educated guess') and insufficiency (56, e.g. 'missing information', 'without specifics'). Two rules turn keyword occurrences into a stopping decision. The Renewal method is parametric: it models the inter-arrival times of uncertainty keywords as a renewal process and applies a sequential test, using asymptotic normality to decide when the arrival rate is inconsistent with a well-posed query. The Maxwise method is nonparametric and conformal: on a calibration set of well-posed traces it records the maximum uncertainty score reached in each trace, takes the (1-alpha)(1+1/n) empirical quantile of those maxima as a threshold tau*, and halts a new trace the first time any checkpoint score exceeds it. Traces are checked at intervals (a bin size), not at every token. The rules only emit a halt signal; the paper leaves downstream handling to the practitioner, naming summarising the partial trace to signal uncertainty, requesting clarification from the user, or abstaining.
+
+## Results
+
+Evaluated over 12 reasoning models spanning DeepSeek-R1-distill (7B/14B/32B), QwQ-32B, Qwen3 (8B/14B/32B), Nemotron (7B/14B), MiMo-7B and Skywork (7B/32B). Calibration uses 200 GSM8K problems; evaluation covers GSM-MC (100), UMWP (228), MiP (52) and MMLU math subsets (133), plus GPQA and HLE for science. Token savings are measured against full unstopped generation and reported on the ill-posed instances: Maxwise saves 63.30% (GSM-MC), 41.10% (UMWP), 68.15% (MiP) and 69.83% (MMLU); Renewal saves 60.69%, 38.29%, 62.78% and 58.80% on the same four. The error side is the false positive rate, the probability of halting on a well-posed query: with alpha set to 5%, Maxwise records 5.42% on GSM-MC down to 2.63% on MMLU, and Renewal 3.75% down to 0.75%, so both stay at or under the nominal level and Renewal is conservative. Proposition 2.1 gives the guarantee for Maxwise, P(exists j: u(T^(n+1); L_j) > tau*) = P(M_{n+1} > tau*) <= alpha - a finite-sample, distribution-free bound on premature halting for well-posed queries, inherited from conformal exchangeability rather than from any model of the trace. Gains are described as especially significant for math reasoning. Against an oracle detector the methods recover only about 82-85% of its detection power.
+
+## Limitations
+
+The scope is narrower than the title suggests, and this is the main thing to record: the methods detect ill-posed and ambiguous queries, and the token savings are measured on ill-posed instances against full generation. They are not a general length-reduction method for answerable problems - a well-posed but hard question that the model simply labours over emits no uncertainty keywords and will not be stopped. The signal is a fixed 102-word English keyword list, so it is model- and language-dependent and, as the paper says, when a model's reasoning does not reflect its ambiguity no trace-only detector can succeed; the 82-85% oracle-power ceiling is the measured cost of relying on the observable trace alone. Bin size trades efficiency against power: infrequent checks save more but lose power when traces terminate early, which is exactly what depresses results on UMWP (41.10% savings, the weakest of the four) because a large fraction of UMWP responses finish before the first evaluation point. The guarantee is one-sided - it bounds false stopping on well-posed queries at alpha but says nothing about the detection rate on ill-posed ones, and it holds under exchangeability with the calibration set, so a shift away from the 200 GSM8K calibration problems is uncovered; the paper separately notes that length-based and logits-based baselines are brittle under distribution shift. Accuracy on well-posed queries is not reported directly, only FPR, so the downstream cost of the 5.42% worst-case false stop is not quantified. Finally the method returns a halt signal, not a resolution, so its practical value depends on an abstention or clarification policy the paper does not evaluate.
+
+## Why it matters here
+
+- **overthinking**: The most directly on-topic paper of this batch and the first in the archive to attach a proved error rate to a stopping decision. Proposition 2.1 bounds the probability of halting too early on a well-posed query at alpha, finite-sample and distribution-free, because the Maxwise rule is split-conformal over calibration traces rather than a model of the trace; measured at alpha = 5% the realised false-stop rates are 5.42% down to 2.63% (Maxwise) and 3.75% down to 0.75% (Renewal). That is the shape of guarantee the group should expect from any stopping method and almost none provide - most report a length reduction and an accuracy delta with no statement about the rate at which the rule is wrong. The savings are large where they apply: 38-70% of tokens across GSM-MC, UMWP, MiP and MMLU over 12 models. But the scope needs recording precisely, because the title overstates it. This stops on ill-posed, ambiguous and unanswerable queries, detected through a fixed 102-word uncertainty lexicon, and the savings are measured on ill-posed instances. It does not shorten a well-posed problem the model merely labours over, which is the other half of what the group means by overthinking. Two further findings are worth carrying: the 82-85% oracle-power ceiling quantifies how much is knowable from the trace alone and bounds every trace-only detector, not just these two; and the guarantee is one-sided, covering false stops but not detection rate, which is the natural asymmetry for a rule whose failure mode is cutting off a good answer.
+
+## Entities
+
+- **Concepts**: Early Stopping, [Overthinking](../../../../wiki/concepts/overthinking.md), Ill-Posed Query, [Uncertainty Quantification](../../../../wiki/concepts/uncertainty-quantification.md), Conformal Prediction, Finite-Sample Guarantee, Renewal Process, Sequential Testing, False Positive Rate Control, Abstention, [Test-Time Compute](../../../../wiki/concepts/test-time-compute.md), Oracle Detection Power
+- **Methods**: Maxwise (conformal nonparametric stopping), Renewal (parametric renewal-process stopping), sequential testing, [conformal prediction](../../../../wiki/methods/conformal-prediction.md), renewal process modelling, uncertainty-keyword monitoring, confidence-prompting baseline, length-based stopping baseline, logits-based uncertainty baseline
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM-MC, UMWP, MiP, [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA](../../../../wiki/datasets/gpqa.md), [HLE](../../../../wiki/datasets/hle.md)
+
+Tags: `early-stopping`, `overthinking`, `conformal-prediction`, `uncertainty`, `sequential-testing`, `ill-posed-queries`, `test-time-compute`, `abstention`, `finite-sample-guarantee`
+
+---
+
+Record id: `title:594984624acaa60d`

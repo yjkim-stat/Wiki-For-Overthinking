@@ -1,0 +1,58 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:0bc5d9b198744bed",
+      "kind": "paper",
+      "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+      "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL"
+    },
+    {
+      "id": "title:75760913d4d6cfa4",
+      "kind": "paper",
+      "note": "Trains an adaptive reasoning model in two stages -- SFT on simple problems presented in both concise and verbose phrasings, then GRPO with a custom reward -- so that its choice between explicit reasoning and a direct answer tracks actual task difficulty rather than how wordy the question is.",
+      "title": "When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "Reward Shaping",
+  "related": [
+    "overthinking",
+    "adaptive-thinking",
+    "thinking-mode-switching",
+    "mode-collapse",
+    "accuracy-efficiency-tradeoff",
+    "test-time-compute",
+    "autothink",
+    "multi-stage-reinforcement-learning",
+    "grpo-style-policy-optimisation",
+    "batch-level-reward-balancing",
+    "length-aware-reward-modulation",
+    "ellipsis-prompt-think-n-n",
+    "math",
+    "minerva-math",
+    "olympiadbench",
+    "aime-2024",
+    "amc23",
+    "gpqa",
+    "mmlu",
+    "livecodebench",
+    "adaptive-reasoning",
+    "reasoning-mode-selection",
+    "superficial-linguistic-complexity",
+    "difficulty-estimation",
+    "robustness-to-surface-cues",
+    "two-stage-sft-rl-training",
+    "group-relative-policy-optimization-grpo",
+    "data-augmentation-by-verbose-restatement"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reward-shaping",
+  "topics": [
+    "overthinking"
+  ]
+}

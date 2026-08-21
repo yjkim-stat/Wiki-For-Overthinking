@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2602.00425",
+      "kind": "paper",
+      "note": "Uses integrated-gradient token attribution, aggregated into per-segment strength and direction-consistency scores, to pick which segments of a long chain-of-thought an SFT run should compute loss on, masking the rest.",
+      "title": "Segment-Level Attribution for Selective Learning of Long Reasoning Traces"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:49:09Z",
+  "name": "First-Correct-Solution pruning",
+  "related": [
+    "segment-level-attribution",
+    "attribution-strength",
+    "attribution-direction-consistency",
+    "cot-redundancy",
+    "reflective-versus-shallow-reasoning-segments",
+    "selective-loss-masking",
+    "long-cot-distillation",
+    "integrated-gradients",
+    "selective-sft-loss-masking",
+    "segment-selective-sft",
+    "rho-1-style-token-selection",
+    "tokenskip",
+    "confidence-gain-segment-selection",
+    "limo-817-questions-training",
+    "math-500",
+    "amc23",
+    "aime-2024",
+    "gpqa-diamond",
+    "minerva",
+    "olympiadbench"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "first-correct-solution-pruning",
+  "topics": [
+    "overthinking"
+  ]
+}

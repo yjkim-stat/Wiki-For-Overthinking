@@ -1,0 +1,78 @@
+{
+  "aliases": [
+    "accuracy-token frontier",
+    "token-accuracy Pareto frontier"
+  ],
+  "definition": "Used by both sources as the yardstick for whether emitting a reasoning trace is worth what it costs in output tokens, with the frontier serving as the comparison surface rather than as something either paper computes in closed form. AdaThinkV makes the tradeoff per question: it estimates from matched forced-thinking and forced-no-thinking rollouts whether reasoning's accuracy gain outweighs its extra tokens, and trains a video multimodal LLM to decide accordingly. 'Reason Wide, Not Deep' moves the same point differently -- distilling a short natural-language skill from agent trajectories into a non-reasoning model's system prompt and measuring how much of the think/no-think accuracy gap it recovers at a fraction of the output tokens. Note: the archive tracks this under several near-duplicate entries that were never merged -- 'Accuracy-Efficiency Pareto Frontier', 'Accuracy-Efficiency Tradeoff', 'Accuracy-Length Tradeoff' and 'accuracy-efficiency tradeoff of reasoning length' -- and they are substantially the same idea.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.01980",
+      "kind": "paper",
+      "note": "AdaThinkV trains a video multimodal LLM to decide per question whether to emit an explicit reasoning trace, by estimating from matched forced-mode rollouts whether reasoning's accuracy gain outweighs its extra tokens, and by expanding rollout groups that produce no learning signal.",
+      "title": "AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning"
+    },
+    {
+      "id": "arxiv:2608.07885",
+      "kind": "paper",
+      "note": "Distills a short natural-language 'skill' from an existing corpus of agent trajectories with a coding agent, injects it into a non-reasoning model's system prompt, and measures how much of the think/no-think gap it recovers at a fraction of the output tokens.",
+      "title": "Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Accuracy-token Pareto frontier",
+  "related": [
+    "conditional-net-utility-of-reasoning",
+    "adaptive-thinking-mode-selection",
+    "length-cost-aware-reward",
+    "dead-zone-abstention-in-noisy-supervision",
+    "zero-variance-rollout-group",
+    "rollout-allocation",
+    "underthinking-vs-overcomplicating",
+    "adathinkv",
+    "thinkgain-paired-rollout-net-utility-estimate-with-length-cost",
+    "variance-recovery-policy-optimization-vrpo",
+    "grpo-dapo-sapo-baselines",
+    "sft-cold-start-with-format-balanced-direct-and-reasoning-traces",
+    "forced-mode-controlled-rollouts-with-marker-masking",
+    "mode-consistency-reward-bonus-and-dead-zone-target",
+    "videoreasonbench",
+    "videomathqa-open-and-multiple-choice",
+    "mmr-vbench-with-and-without-cot",
+    "scivideobench",
+    "video-mme-mvbench-longvideobench-mmvu-video-mmmu",
+    "charades-sta-activitynet-captions-next-gqa",
+    "streamingbench-ovo-bench",
+    "training-10-186-sft-traces-and-30-495-rl-prompts-drawn-from-virl-thinklite-hard",
+    "reasoning-premium",
+    "amortization-of-recurring-reasoning-cost",
+    "episode-invariant-vs-instance-specific-procedural-knowledge",
+    "deep-search-within-an-episode-vs-wide-search-across-episodes",
+    "skill-system-prompt-injection-as-elicitation",
+    "cacheable-prompt-prefix",
+    "corpus-level-failure-mode-statistics",
+    "passive-skill-distillation",
+    "claude-code-claude-sonnet-5-as-distilling-coding-agent",
+    "react-style-agent-harness",
+    "gepa-reflective-prompt-evolution-baseline",
+    "gpt-5-4-mini-reasoning-effort-none-medium",
+    "qwen3-6-27b-enable-thinking-false-true",
+    "alfworld",
+    "spreadsheetbench-verified-ssb-verified",
+    "tau-2-bench-telecom",
+    "tau-2-bench-retail"
+  ],
+  "related_authored": [
+    "accuracy-efficiency-pareto-frontier",
+    "accuracy-efficiency-tradeoff",
+    "accuracy-length-tradeoff",
+    "adaptive-thinking",
+    "reasoning-premium"
+  ],
+  "schema_version": 1,
+  "slug": "accuracy-token-pareto-frontier",
+  "topics": [
+    "overthinking"
+  ]
+}

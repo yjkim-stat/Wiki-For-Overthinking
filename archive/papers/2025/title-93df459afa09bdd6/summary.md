@@ -45,7 +45,7 @@ Abstract does not report specific numeric results or failure cases; no discussio
 
 - **Concepts**: deep research agent, tool-augmented reasoning, online preference optimization
 - **Methods**: Deep Web Explorer, Think-Search-and-Draft strategy, iterative online Direct Preference Optimization (DPO)
-- **Datasets**: [GPQA](../../../../wiki/datasets/gpqa.md), [GAIA](../../../../wiki/datasets/gaia.md), WebWalkerQA, HLE, Glaive
+- **Datasets**: [GPQA](../../../../wiki/datasets/gpqa.md), [GAIA](../../../../wiki/datasets/gaia.md), WebWalkerQA, [HLE](../../../../wiki/datasets/hle.md), Glaive
 
 Tags: `web-agent`, `deep-research`, `tool-use`, `dpo`
 

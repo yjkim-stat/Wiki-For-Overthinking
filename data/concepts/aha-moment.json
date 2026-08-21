@@ -1,7 +1,15 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Aha Moment"
+  ],
+  "definition": "Neither archived source defines 'aha moment'; it is used here as a label rather than an explained concept. In EvoThink it names the second of two separable stages, Aha-Moment Preference Optimization, which builds from-wrong-to-right preference pairs out of the model's most diverse failed attempts and applies DPO to them -- so what the term operationally picks out is the turn within a trace from a wrong path to a correct one, harvested as training signal. The mechanistic-interpretability survey covers the same territory only at the level of its taxonomy (reasoning-oriented training dynamics, reasoning mechanisms, unintended behaviours) and supplies no definition of the term.",
   "evidence": [
+    {
+      "id": "arxiv:2607.19962",
+      "kind": "paper",
+      "note": "EvoThink cuts overthinking in two separable stages: Self-Pruning Training deletes reasoning steps whose local conclusion repeats the previous step's and self-trains on the shortened traces, while Aha-Moment Preference Optimization builds from-wrong-to-right preference pairs out of the model's most diverse failed attempts and applies DPO to them.",
+      "title": "EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization"
+    },
     {
       "id": "local:34cecfd6f28ba72b",
       "kind": "paper",
@@ -11,10 +19,35 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:41:33Z",
   "name": "aha moment",
   "related": [
     "overthinking",
+    "redundant-self-verification",
+    "atomic-reasoning-unit",
+    "reasoning-trajectory-compression",
+    "fast-slow-thinking-switching",
+    "from-wrong-to-right-supervision",
+    "reasoning-length-distribution-by-difficulty",
+    "self-training-on-pruned-traces",
+    "preference-optimization",
+    "evothink",
+    "self-pruning-training-spt",
+    "aha-moment-preference-optimization-ampo",
+    "dpo",
+    "atomic-reasoning-unit-segmentation",
+    "diversity-fitness-over-distinct-local-conclusions",
+    "thinkprune",
+    "o1-pruner",
+    "diet",
+    "kimi-1-5-sft-dpo",
+    "verl",
+    "math-500",
+    "aime-2024",
+    "aime-2025",
+    "taco",
+    "aime-1983-2023-training-set-gold-solutions-from-art-of-problem-solving",
+    "math-training-set",
     "inverted-u-shaped-length-performance-curve",
     "hallucination-in-reasoning-models",
     "chain-of-thought-unfaithfulness",
@@ -30,7 +63,12 @@
     "svd-analysis-of-weight-matrices",
     "causal-intervention-on-chain-of-thought"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-correction",
+    "rl-training-dynamics",
+    "mechanistic-interpretability",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "aha-moment",
   "topics": [

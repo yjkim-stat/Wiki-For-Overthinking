@@ -1,0 +1,121 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-25915.pdf"
+  },
+  "completed_at": "2026-08-21T00:33:39Z",
+  "created_at": "2026-08-20T23:52:11Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.25915",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Complex structured reasoning tasks often require additional computation, yet current language models obtain it mainly by increasing parameter scale or by serializing intermediate steps as chain-of-thought (CoT) tokens. The former raises training and deployment costs, while the latter ties reasoning computation to autoregressive output length. We introduce Penelope, an efficient latent-reasoning framework for pretrained decoder-only Transformers that localizes recurrent computation to a selected decoder interval. The lower decoder prefix is evaluated once to construct a problem-conditioned boundary memory, which is then iteratively refined through time-modulated GRU dynamics and recurrent readout states before answer generation. A progressive CoT-to-latent curriculum transfers visible reasoning into this internal recurrent path, allowing additional computation to be allocated in latent space without repeatedly executing the complete decoder or generating a long intermediate trace. Experiments on open-source structured-reasoning benchmarks show that, at validation-selected latent budgets, Penelope attains competitive accuracy relative to established latent-reasoning models while reducing measured inference latency. These results show that latent refinement can be localized to a narrow decoder interval, reducing repeated full-decoder execution without generating a long visible reasoning trace and providing a practical accuracy-efficiency tradeoff for decoder-only Transformer models.",
+    "authors": [
+      "Yutong Chen",
+      "Shouqian Shi",
+      "Xinran Liu",
+      "Haochen Wang",
+      "Jiaying Wang",
+      "Tianxing Xu",
+      "Yuanxi Wang",
+      "Zirui Ding"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "accuracy-efficiency tradeoff",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.25915v1",
+    "published": "2026-07-28",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Penelope: Localized Latent Recurrence for Efficient Structured Reasoning",
+    "url": "https://arxiv.org/abs/2607.25915",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Latent Reasoning",
+      "Test-Time Compute Scaling",
+      "Recurrent Depth",
+      "Accuracy-Efficiency Tradeoff",
+      "Chain-of-Thought Internalization",
+      "Looped Transformers"
+    ],
+    "contributions": [
+      "A cache-compatible latent-reasoning framework that computes the prompt prefix once and thereafter recurs only fixed-size memory and readout states inside a selected decoder interval, making the marginal cost of a refinement step r layers rather than L",
+      "A problem-conditioned boundary memory coupled to recurrent readout states and a layer-consistent answer-context pass, exposing the latent trajectory to ordinary autoregressive decoding",
+      "A progressive CoT-to-latent curriculum that removes one visible reasoning step per stage while adding one latent refinement",
+      "A placement control showing early, middle and output-side intervals differ by at most 0.19 EM point and full-decoder recurrence by 0.27 point at 2.51x the sequential decoder-layer applications"
+    ],
+    "datasets": [
+      "Deep ListOps (derived from ListOps / Long Range Arena; 4,800 train / 800 val / 1,600 test spanning depths 1-12)",
+      "ProsQA (17,886 / 300 / 500)",
+      "PrOntoQA (9,000 / 200 / 800)",
+      "Llama-3.2-1B",
+      "Qwen3.5-0.8B-Base"
+    ],
+    "limitations": "The recurrent depth K is fixed per run by validation, not chosen per input; the paper states online per-input halting is future work, so nothing here decides when a given problem needs more or less computation. The recurrence buys very little accuracy on its own: the K=0 boundary-only diagnostic is within 0.69 point of the selected depth on Deep ListOps, and the K sweep is non-monotonic within a 0.50-point band, so extra latent steps are not shown to be reliably useful. The placement control shows full-decoder recurrence is only 0.27 point better than the localized interval, a difference the authors themselves note is smaller than run-level variation - which also means the localization is not shown to cost anything, but the accuracy claims across all methods sit inside overlapping standard deviations over three runs. Backbones are 1B and 0.8B and the three tasks are synthetic and structured (expression reduction, synthetic deduction, ontology reasoning) with deterministic extractors; PrOntoQA is near-saturated at 99.6-99.7% for every method. Penelope trains 75.35M parameters against Coconut's 11.28M and the authors explicitly limit the efficiency claim to inference topology and measured latency, not parameters or training cost. Layer-call counts are a serial-depth proxy, not FLOPs or a hardware-independent measure. The evaluated interval is one operating point on one topology; the authors say exact placement remains backbone-dependent. Latency statistics come from locked checkpoint pairs in some tables and run-level means in others, so they are not uniformly comparable.",
+    "method": "For a decoder with L layers, a recurrent interval [ls, le) of width r is chosen and the decoder factors as F[le:L) o F[ls:le) o F[0:ls). The prompt embeddings, m=8 latent memory anchors plus learned group embeddings, and q=2 readout anchors go once through the lower prefix F[0:ls), yielding fixed prompt boundary states Hx and initial states (M0, R0); causal attention to the prompt makes M0 problem-conditioned even though the anchors are shared. A KV cache Cx is built once over the interval from Hx. Each of K refinement steps passes only the m memory positions through the shared interval as queries against Cx: Hlat_t = F[ls:le)(M_{t-1} + G + e_t; Cx). A time network reads [t/Kmax, 1/Kmax] and emits (gamma_t, beta_t, s_t) that FiLM-modulate the interval features (scaled by 0.1 tanh), a residual adapter A_phi is added, a memory GRU proposes a candidate, and the persistent memory updates as M_t = M_{t-1} + 0.5*alpha_t*(candidate - M_{t-1}) with alpha_t = 1 + 0.5 tanh(s_t). In parallel the mean over memory positions plus a readout step embedding is projected to two proposals and integrated by a readout GRU into R_t, so the answer path can see the trajectory. After K steps [M_K; R_K] traverses F[ls:L) once against the cached prompt keys/values, its keys and values are appended to the prompt cache, and ordinary autoregressive decoding produces the answer with no further recurrence. Training uses a progressive CoT-to-latent curriculum starting from the same visible-CoT checkpoint as the Coconut baseline: at replacement depth u the target drops the first u reasoning steps, and each stage removes one visible step while adding one latent refinement (K = u = 1..6 over the first half of training, K fixed at 6 in the second half). Pre-answer cost is counted as sequential decoder-layer applications: L + (K+1)r for Penelope against (K+2)L for full-decoder recurrence, making the marginal cost of a refinement r rather than L.",
+    "methods": [
+      "Penelope",
+      "localized latent recurrence",
+      "boundary memory with time-modulated GRU updates",
+      "recurrent readout states",
+      "progressive CoT-to-latent curriculum",
+      "Coconut",
+      "CODI",
+      "LoRA",
+      "looped Transformers"
+    ],
+    "one_liner": "Penelope confines latent reasoning recurrence to a five-layer slice of a decoder-only Transformer, refining a fixed-size boundary memory K times instead of re-running the whole decoder or emitting a chain-of-thought trace.",
+    "problem": "Language models buy extra reasoning computation either by scaling parameters or by serializing intermediate steps as chain-of-thought tokens, which ties the computation to autoregressive output length. Latent-reasoning methods move the intermediate computation into hidden states, but most of them re-execute a substantial portion of the decoder per latent step, so the marginal cost of one more refinement stays proportional to full model depth. The open question the paper takes is the allocation one: how to give a fixed pretrained backbone more refinement without repeated full-decoder execution.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "On-topic on the efficiency half of the tradeoff and explicitly silent on the stopping half. It sits on the axis the topic cares about - how much computation a problem gets and what it costs - by moving reasoning off the token axis entirely: 4 output tokens against Visible CoT's 69 on Deep ListOps at equal or better accuracy, and 33-47% lower measured latency than full-decoder latent recurrence. But the depth K is picked once per run on validation and held fixed at test time; the paper says online per-input halting is future work, so it does not decide when a model should stop or keep going. The two findings most worth carrying into the topic are negative ones the authors report honestly. First, the depth sweep is not monotonic: across K=1..6 accuracy stays inside a 0.50-point band, and the K=0 boundary-only diagnostic is only 0.69 point behind the validation-selected depth - so on these tasks nearly all of the accuracy comes from one contextualization pass and the extra recurrence buys almost nothing, a latent-space echo of the finding that additional reasoning steps often do not pay. Second, full-decoder recurrence beats the five-layer interval by 0.27 point for 2.51x the serial decoder depth, a difference smaller than run-to-run variation. Caveats: 0.8-1B backbones, three synthetic structured tasks (one of them saturated at 99.7%), and accuracy differences across methods that mostly fall within one standard deviation, so the paper is evidence about latency, not about reasoning quality under a compute budget."
+    },
+    "results": "Llama-3.2-1B (L=16, interval [11,16), so r=5), rank-16 LoRA, three runs per method from one shared visible-CoT checkpoint; latency is batch-1 greedy BF16 generation on an RTX PRO 6000 with CUDA synchronization, so all efficiency numbers are measured wall-clock plus a serial decoder-layer count, not FLOPs. Deep ListOps: Penelope 52.25+/-0.72 EM at validation-selected depths (5,4,2) against Coconut 52.79+/-0.36 (K=8), CODI 51.17+/-0.31 and Visible CoT 51.27+/-0.92; latency 99.82+/-0.65 ms against Coconut's 188.15+/-1.02 (46.9% lower) and Visible CoT's 1047.46 ms, with 4 output tokens against 69. ProsQA: 78.27+/-0.90 against Coconut 79.87+/-1.80 and CODI 78.27+/-1.10 (Visible CoT 45.87+/-0.46), 168.19+/-27.70 ms against 252.25+/-15.94, a 33.3% paired reduction (bootstrap 95% CI 33.0-33.6%). PrOntoQA: 99.67+/-0.07 against Coconut 99.58+/-0.14 and Visible CoT 99.71+/-0.19, 92.85+/-16.70 ms against 160.71+/-0.63, 42.2% lower. Cross-backbone control on Qwen3.5-0.8B-Base: 52.06 EM against Coconut 52.25, 207.11 ms against 469.00 ms (55.8% lower); three-run replication gives Penelope 52.00+/-0.78 against Coconut 51.38+/-0.78. Accuracy differences against Coconut are therefore within or near one standard deviation on every task; the reliable effect is latency. Depth sweep: across K=1..6 Penelope stays within a 0.50-point band, peaking at 56.25% validation EM at K=5, while Coconut first peaks at 55.50% at K=3 - the authors state explicitly these are discrete budget sweeps, not monotonic test-time scaling. Mechanism diagnostics on Deep ListOps: an inference-only K=0 boundary-only pass scores 51.56+/-0.81 against 52.25+/-0.72 with the selected depth, a mean gain of 0.69 point (paired bootstrap 95% CI [0.27, 1.10]); replacing the whole transition unit with a direct overwrite M_t = Hlat_t costs 0.81 point. Placement at fixed K=6 barely matters: early [0,5) 52.04+/-0.47, middle [6,11) 52.23+/-0.85, output-side [11,16) 52.17+/-0.97, and full-decoder recurrence 52.44+/-0.81 at 128 layer calls against 51 - a 0.27-point gap for 2.51x the sequential decoder-layer applications, smaller than run-level variation.",
+    "tags": [
+      "latent reasoning",
+      "recurrent depth",
+      "test-time compute",
+      "chain-of-thought distillation",
+      "inference latency",
+      "decoder-only transformer"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-25915",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Self-Distillation"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "title:11f96b3e58a44cf5",
+      "kind": "paper",
+      "note": "ConPress observes that a reasoning model shortens its traces when several independent questions share one prompt, and harvests those shortened traces as self-supervised fine-tuning data for the single-question setting.",
+      "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure"
+    },
     {
       "id": "title:6c0fc879a2cc7d5b",
       "kind": "paper",
@@ -11,9 +19,25 @@
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:20:08Z",
+  "last_seen": "2026-08-21T00:49:10Z",
   "name": "self-distillation",
   "related": [
+    "overthinking",
+    "self-compression",
+    "contextual-pressure",
+    "reasoning-trace-compression",
+    "accuracy-efficiency-tradeoff",
+    "difficulty-dependent-compression",
+    "conpress",
+    "self-supervised-supervised-fine-tuning",
+    "self-compression-multi-question-prompting",
+    "rejection-style-trace-filtering",
+    "math-500",
+    "aime-2025",
+    "gsm8k",
+    "olympiadbench",
+    "amc",
+    "mmlu-stem",
     "lazy-reasoning",
     "task-decomposition",
     "tool-use",

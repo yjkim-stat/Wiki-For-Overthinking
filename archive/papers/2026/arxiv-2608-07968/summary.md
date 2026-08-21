@@ -47,7 +47,7 @@ The full factorial design (varying length, order, and point values) is run only 
 
 - **Concepts**: shared-budget metareasoning across questions, budget allocation as a knapsack problem, position bias vs. difficulty/value sensitivity in reasoning, per-question reasoning attribution from a shared trace
 - **Methods**: exam-style shared-budget evaluation framework, partial Spearman correlation analysis, marker-based reasoning attribution (token effort, token-weighted centroid solving order), explicit planning prompt condition, knapsack-style value-density analysis using an independent high-budget reference
-- **Datasets**: Omni-MATH, CRUXEval-O
+- **Datasets**: [Omni-MATH](../../../../wiki/datasets/omni-math.md), CRUXEval-O
 
 Tags: `test-time-compute`, `budget-allocation`, `reasoning-models`, `position-bias`, `overthinking`, `evaluation`
 

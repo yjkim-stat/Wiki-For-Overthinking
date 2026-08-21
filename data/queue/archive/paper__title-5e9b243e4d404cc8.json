@@ -1,0 +1,105 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:52:29Z",
+  "created_at": "2026-08-21T00:49:09Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5e9b243e4d404cc8",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference",
+    "url": "https://iclr.cc/virtual/2026/poster/10010491",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Early Exit",
+      "Retrieval-Augmented Inference",
+      "Adaptive Inference Depth",
+      "Exit Layer Distribution Prediction",
+      "Inference Efficiency"
+    ],
+    "contributions": [
+      "Formulates the early-exit decision as predicting a distribution over exit layers, and argues that distribution can be approximated from the exit information of similar data",
+      "A procedure for collecting exit information of correct predictions and building a retrieval database and index from it",
+      "RAEE, which uses retrieved exit information both to pick the exit layer and to correct the prediction at that intermediate layer, without training internal classifiers",
+      "Zero-shot evaluation over eight downstream tasks and four backbones, with database build cost under 2 minutes on one RTX 4090"
+    ],
+    "datasets": [
+      "SST-2",
+      "SST-5",
+      "MR",
+      "CR",
+      "MPQA",
+      "SUBJ",
+      "TREC",
+      "CoLA"
+    ],
+    "limitations": "The paper states no explicit limitations section. Points a reader should notice: the gains are measured on eight sentence-level classification tasks in a zero-shot setting, not on open-ended generation or multi-step reasoning; the accuracy comparison is against other early-exit policies on the same backbone rather than against the full-depth model at every layer budget, so how much of the 63.41 vs 54.05 gap is exit-policy quality and how much is the corrective retrieved information is not separated in the headline number; the method requires a labelled corpus to record correct-prediction exit layers, so it presumes per-task offline preparation; and the retrieval step itself adds latency that the near-halved latency figure must be read as already including.",
+    "method": "The paper models early exit as a distribution prediction problem: for an input, predict the distribution over exit layers that yield a correct answer. It approximates that distribution using exit information from similar data. Offline, the authors run the backbone over a corpus, record for each example the layers at which the prediction was correct, embed the examples, and build a retrieval database plus a similarity index. At inference, the input is embedded, its nearest neighbours are retrieved, and their recorded exit information both selects the exit layer and supplies corrective exit information used at the intermediate layer to adjust the backbone's prediction. No internal classifiers are trained.",
+    "methods": [
+      "RAEE",
+      "early exit",
+      "retrieval-augmented inference",
+      "k-nearest-neighbour retrieval",
+      "RoBERTa-Large",
+      "T5-Large",
+      "Llama-3-8B",
+      "Gemma-7B"
+    ],
+    "one_liner": "RAEE decides which transformer layer to exit at by retrieving the exit behaviour of similar training examples from a pre-built database, instead of training internal classifiers or using heuristics.",
+    "problem": "Layer-wise early exit reduces LLM inference cost by stopping the forward pass at an intermediate layer, but existing exit policies either train internal classifiers (large training overhead) or use heuristics (accuracy loss). The paper frames choosing an exit layer as an open problem of predicting, for a given input, the distribution over which layer would already give the correct prediction.",
+    "relevance": {
+      "overthinking": "Tangential: the archive matched on the keyword 'early exit', but here that means exiting the transformer's layer stack partway through a single forward pass on sentence classification tasks, not stopping a reasoning chain. There is no reasoning trace, no test-time compute scaling, and no notion of a model thinking longer than a problem needs. The only shared idea is per-instance allocation of compute according to how easy the input looks, and RAEE's version of it is depth rather than length. Nothing here transfers to reasoning-length control without re-deriving the method for generation."
+    },
+    "results": "Evaluated on eight classification tasks (SST-2, SST-5, MR, CR, MPQA, SUBJ, TREC, CoLA) with four backbones. With RoBERTa-Large, RAEE reports average accuracy 63.41 against baselines in the 35.75-54.05 range; with Llama-3-8B, 57.39 against baselines in the 36.06-41.80 range. For the billion-parameter backbones (Llama-3-8B, Gemma-7B) the paper reports inference latency reduced by roughly half; for the smaller (million-parameter) backbones the speedup is described as modest because baseline inference was already fast. Building the retrieval database takes under 2 minutes on a single RTX 4090; database and index storage average 3.4MB and 2.1MB per task.",
+    "tags": [
+      "early-exit",
+      "inference-efficiency",
+      "retrieval",
+      "adaptive-computation",
+      "classification"
+    ]
+  },
+  "task_id": "paper__title-5e9b243e4d404cc8",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

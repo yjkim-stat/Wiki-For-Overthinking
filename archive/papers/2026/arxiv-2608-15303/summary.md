@@ -46,7 +46,7 @@ Discussion section (6) and Future Work (7) state several limits: (1) Upfront cos
 
 - **Concepts**: Divergent-Convergent Reasoning (DCR) as a two-phase test-time primitive, minority-report amplification (correct answers recovered even when correct exploration outputs are a minority), recursive/autoregressive reconciliation with unanimous-consent stopping, dispersion of exploration outputs as a training-free proxy for task difficulty, selection-is-easier-than-generation as the mechanistic intuition behind reconciliation gains
 - **Methods**: Divergent-Convergent Reasoning (DCR), single-round DCR (K=25 reviewer width), recursive DCR (K=8 per round, unanimous-consent stopping), dispersion metric (Sentence-BERT centroid distance), ReConcile peer-discussion baseline (replicated for comparison)
-- **Datasets**: MATH500, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), MMLU-PRO
+- **Datasets**: MATH500, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MMLU-PRO](../../../../wiki/datasets/mmlu-pro.md)
 
 Tags: `test-time-scaling`, `multi-agent-reconciliation`, `self-consistency`, `adaptive-compute-allocation`, `minority-report`, `dispersion`
 

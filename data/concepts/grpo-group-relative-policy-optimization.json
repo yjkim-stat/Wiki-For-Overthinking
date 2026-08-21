@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "GRPO (group-relative policy optimization)"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
       "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression"
+    },
+    {
+      "id": "title:d94f940ea2e159b8",
+      "kind": "paper",
+      "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+      "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "GRPO (Group Relative Policy Optimization)",
   "related": [
     "under-adaptivity-failure-to-modulate-reasoning-length-with-problem-difficulty",
@@ -31,7 +39,22 @@
     "bbeh-big-bench-extra-hard",
     "optimalthinkingbench-overthinkingbench-underthinkingbench",
     "supergpqa",
-    "bbh-big-bench-hard"
+    "bbh-big-bench-hard",
+    "overthinking",
+    "adaptive-reasoning-length",
+    "task-difficulty-estimation",
+    "model-uncertainty-as-a-stopping-signal",
+    "chain-of-pixel-reasoning",
+    "reasoning-segmentation",
+    "reasoning-budget",
+    "pixelthink",
+    "seg-zero-baseline",
+    "difficulty-conditioned-reward-shaping",
+    "uncertainty-based-reasoning-budgeting",
+    "reasonseg",
+    "reasonseg-diff",
+    "refcoco",
+    "refcocog"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -1,0 +1,47 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.21433",
+      "kind": "paper",
+      "note": "Two studies on DeepSeek-R1-Distill-Qwen-7B: a budget-forcing sweep showing GSM8K and MATH-500 accuracy saturates at 256 thinking tokens while AIME splits bimodally into generations that terminate and generations that loop until the 10,000-token ceiling, and a linear-probe study showing that hidden-state activations at token 150 predict which of the two an AIME generation will become at AUC 0.608.",
+      "title": "Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "behavioral baseline probe on entropy and repetition statistics",
+  "related": [
+    "token-budget-saturation",
+    "budget-forcing",
+    "reasoning-non-convergence",
+    "bimodal-convergence-pattern",
+    "minimum-sufficient-budget",
+    "early-exit-inference",
+    "adaptive-compute-allocation",
+    "linear-probing-of-hidden-states",
+    "repetition-loop-failure-mode",
+    "test-time-compute-scaling",
+    "budget-forcing-via-a-token-counting-logitsprocessor-that-forces-think",
+    "minimum-sufficient-budget-b-with-bootstrap-cis",
+    "linear-probing-of-hidden-state-activations-logistic-regression",
+    "layer-sweep-across-all-28-transformer-layers",
+    "checkpoint-position-sweep-50-300-tokens",
+    "paired-and-sweep-level-permutation-tests",
+    "5-fold-stratified-cross-validation-with-auc-roc",
+    "point-biserial-correlation-against-difficulty-proxy",
+    "contamination-check-on-post-cutoff-data",
+    "gsm8k-200-problems-from-test-split-seed-42",
+    "math-500-200-problems-from-test-split-seed-42",
+    "aime-1983-2024-200-problems-sampled-from-the-933-problem-huggingface-dataset-see",
+    "aime-2025-all-30-problems-contamination-check"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "behavioral-baseline-probe-on-entropy-and-repetition-statistics",
+  "topics": [
+    "overthinking"
+  ]
+}

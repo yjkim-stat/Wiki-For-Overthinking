@@ -43,10 +43,14 @@ Specific benchmark names, numeric results and model sizes are not given in the a
 ## Entities
 
 - **Concepts**: fixed token budget, budget-aware tree search, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md)
-- **Methods**: Budget-Guided MCTS (BG-MCTS), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), tree-search decoding
+- **Methods**: Budget-Guided MCTS (BG-MCTS), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), [tree-search decoding](../../../../wiki/methods/tree-search-decoding.md)
 - **Datasets**: mathematical reasoning benchmarks, a physics reasoning benchmark
 
 Tags: `test-time-scaling`, `tree-search`, `mcts`, `token-budget`, `inference-cost`
+
+## Abstract
+
+Abstract Tree-search decoding is an effective form of test-time scaling for large language models (LLMs), but real-world deployment often imposes a fixed per-query token budget that varies across settings. Existing tree-search policies are largely budget-agnostic, treating the budget merely as a termination condition, thereby risking late-stage over-branching or premature termination. We propose Budget-Guided MCTS (BG-MCTS), a tree-search decoding algorithm that aligns its search policy with the remaining token budget: it starts with broad exploration, then prioritizes refinement and answer completion as the remaining budget decreases while reducing late-stage branching from shallow nodes. BG-MCTS consistently outperforms budget-agnostic tree-search baselines across inference budgets on mathematical reasoning benchmarks and an additional physics reasoning benchmark with open-weight LLMs.
 
 ---
 

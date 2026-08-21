@@ -43,7 +43,7 @@ The abstract does not name the specific benchmarks, model sizes beyond 'DeepSeek
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), mechanistic interpretability, activation steering, low-dimensional manifold
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md), activation steering, low-dimensional manifold
 - **Methods**: [Manifold Steering](../../../../wiki/methods/manifold-steering.md), [activation steering](../../../../wiki/methods/activation-steering.md), mechanistic interpretability analysis
 - **Datasets**: mathematical benchmarks (unspecified), code generation tasks (unspecified), knowledge-based QA tasks (unspecified)
 

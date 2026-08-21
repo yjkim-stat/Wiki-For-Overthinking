@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: adaptive test-time compute for robot control, pairwise action preference learning, reflexive vs deliberative action selection
 - **Methods**: VLA-ATTC, Relative Action Critic, uncertainty-triggered cognitive switching
-- **Datasets**: LIBERO-LONG
+- **Datasets**: [LIBERO-LONG](../../../../wiki/datasets/libero-long.md)
 
 Tags: `vla`, `robotics`, `test-time-compute`, `action-critic`, `tangential`
 

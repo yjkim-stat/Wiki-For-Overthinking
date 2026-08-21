@@ -43,7 +43,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [underthinking](../../../../wiki/concepts/underthinking.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), chain-of-thought redundancy, verifier-guided truncation
-- **Methods**: TrimR, verifier-guided CoT truncation, asynchronous online trimming system
+- **Methods**: [TrimR](../../../../wiki/methods/trimr.md), verifier-guided CoT truncation, asynchronous online trimming system
 - **Datasets**: MATH500, AIME24, AIME25, [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `overthinking`, `underthinking`, `test-time-scaling`, `cot-trimming`, `verifier`

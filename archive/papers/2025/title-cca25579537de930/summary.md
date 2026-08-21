@@ -43,7 +43,7 @@ The abstract does not specify which LRM base models beyond R1-Distill-Qwen-7B we
 
 ## Entities
 
-- **Concepts**: LRM-as-a-judge, overthinking on simple instances, thinking calibration, thinking budget
+- **Concepts**: LRM-as-a-judge, overthinking on simple instances, thinking calibration, [thinking budget](../../../../wiki/concepts/thinking-budget.md)
 - **Methods**: LRM-as-a-judge, thinking calibration via synthetic trajectory training
 - **Datasets**: WMT24 Metrics benchmark
 

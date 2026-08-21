@@ -1,17 +1,26 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Hybrid-CoT",
+    "Bi-Level Adaptive Reasoning Optimization"
+  ],
+  "definition": "Ada-R1 is a two-stage recipe for per-problem reasoning length: it first merges a long-CoT and a short-CoT model into a single hybrid, then applies bi-level preference training so the model chooses a reasoning style for the problem at the outer level and prefers the shorter correct trace within that style at the inner level. It reports cutting average reasoning length by about 51% across five maths datasets. The archive's survey of efficient R1-style large reasoning models cites it as an instance of single-model optimization but contributes no independent detail.",
   "evidence": [
     {
       "id": "local:6c80b6fd388d671e",
       "kind": "paper",
       "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
       "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models"
+    },
+    {
+      "id": "title:a6dab00057eab5aa",
+      "kind": "paper",
+      "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
+      "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "Ada-R1",
   "related": [
     "overthinking",
@@ -73,9 +82,30 @@
     "specrouter",
     "specreason",
     "speculative-thinking",
-    "scot"
+    "scot",
+    "long-cot-vs-short-cot",
+    "model-merging",
+    "bi-level-preference-optimization",
+    "reasoning-length-reduction",
+    "problem-difficulty-estimation",
+    "hybrid-cot",
+    "dpo-style-preference-training",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "cot-valve-baseline",
+    "o1-pruner-baseline",
+    "aime-2025",
+    "math-500",
+    "gsm8k",
+    "olympiadbench",
+    "minerva-math"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "model-merging",
+    "preference-optimization-dpo",
+    "long-cot-short-cot",
+    "arm-adaptive-reasoning-model"
+  ],
   "schema_version": 1,
   "slug": "ada-r1",
   "topics": [

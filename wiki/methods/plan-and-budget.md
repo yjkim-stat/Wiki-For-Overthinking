@@ -9,7 +9,7 @@ A test-time-compute method that decomposes a query into sub-questions and alloca
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [budget forcing](budget-forcing.md), [early exit](early-exit.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [overthinking](../concepts/overthinking.md), [TokenSkip](tokenskip.md), [underthinking](../concepts/underthinking.md), [VeriThinker](verithinker.md)
+**Related**: [A*-Thought](a-thought.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [budget forcing](budget-forcing.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [DEER](deer.md), [DRP](drp.md), [early exit](early-exit.md), [LASER](laser.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [NOWAIT](nowait.md), [overthinking](../concepts/overthinking.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SPIRIT](spirit.md), [Thinkless](thinkless.md), [TokenSkip](tokenskip.md), [underthinking](../concepts/underthinking.md), [VeriThinker](verithinker.md)
 
 ## Appears in
 

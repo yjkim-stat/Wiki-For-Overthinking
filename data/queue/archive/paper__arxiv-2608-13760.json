@@ -1,0 +1,131 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-13760.pdf"
+  },
+  "completed_at": "2026-08-21T00:36:36Z",
+  "created_at": "2026-08-20T23:53:26Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.13760",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Which reasoning behaviors are associated with correct answers in reasoning models, and does reasoning-oriented training amplify those behaviors? This distinction is important because reasoning-oriented training can make traces look more deliberative without amplifying the behaviors most tied to model correctness. We quantify this mismatch with Behavioral Lift, a metric that measures how much correctness changes when a behavior is present versus absent in a model's reasoning trace. Across 15 models and 6 benchmarks spanning text-only and vision-language reasoning, we annotate 15,282 traces with a taxonomy whose core behaviors are defined for both LLM and VLM traces. We find evidence for an Amplification-Lift Gap, in which thinking models strongly amplify self-correction, hypothesis testing, and uncertainty acknowledgment, while the highest-lift behaviors are confidence calibration, knowledge alignment, and self-awareness. Confidence calibration is among the strongest positive signals of correctness in both modalities, yet is barely amplified; uncertainty acknowledgment is amplified by 3--7$\\times$, yet is weakly or negatively associated with correctness. We find that reasoning-oriented training does not preferentially amplify the highest-Lift behaviors, motivating process-level objectives that reward calibrated and grounded reasoning rather than surface form alone.",
+    "authors": [
+      "Jean de Dieu Nyandwi",
+      "Leena Mathur",
+      "Yonatan Bisk",
+      "Robert Hawkins",
+      "Graham Neubig"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "matched_keywords": [
+      "thinking model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13760v1",
+    "published": "2026-08-13",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models",
+    "url": "https://arxiv.org/abs/2608.13760",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Behavioral Lift",
+      "Amplification-Lift Gap",
+      "Recovery Rate",
+      "Confidence Calibration",
+      "Uncertainty Acknowledgment",
+      "Self-Correction",
+      "Process Supervision",
+      "Reasoning Trace Annotation",
+      "Deliberation as Surface Form"
+    ],
+    "contributions": [
+      "Introduces Behavioral Lift, P(correct | behavior present) - P(correct | behavior absent), separating how often a reasoning behavior appears from how strongly it is associated with correctness.",
+      "Releases a cross-modal taxonomy of 9 modality-neutral higher-order behaviors plus per-modality failure modes, with 15,282 annotated traces from 15 models across 6 benchmarks and both modalities, along with annotation prompts and metrics code.",
+      "Documents an Amplification-Lift Gap: thinking training amplifies self-correction, hypothesis testing and uncertainty acknowledgment, while the highest-Lift behaviors are confidence calibration, knowledge alignment and self-awareness, and no behavior is both strongly amplified and strongly predictive.",
+      "Introduces Recovery Rate and uses it to show thinking-model gains come from recovering after detected failures on computation-heavy tasks, and that thinking can lose on tasks where fast recognition of logical form suffices.",
+      "Shows the gap persists across benchmarks, model families, 2B-32B scale, and already at the OLMo-3 SFT checkpoint before DPO/RLVR."
+    ],
+    "datasets": [
+      "VisualPuzzles",
+      "MathVista (testmini)",
+      "MMMU",
+      "LogiQA2",
+      "MATH-500",
+      "MMLU-Pro",
+      "GPQA Diamond (supplementary frontier validation)"
+    ],
+    "limitations": "Stated: the analysis covers only visible traces, which may be incomplete, post hoc or unfaithful to internal computation; all labels come from automated judges, so systematic judge bias remains possible despite multi-judge validation; and Behavioral Lift is descriptive, so a high-Lift behavior may cause better performance, merely reflect that the model was already on the right track, or co-occur with something else useful. Points a reader should notice: (a) confidence calibration is judged against the ground-truth answer being visible to the judge, and the associated accuracies are extreme (98.8% present vs 26.7% absent for VLMs, 99.6% vs 20.0% for LLMs), which is close to the judge reading correctness off the trace — the authors argue against this with lucky-guess/post-hoc contrasts (calibration present in 3.4%/1.6% of those traces vs ~95% of sound traces) and with probes that stay decodable on correct-only traces, but the metric is not independent of the outcome by construction; (b) judge agreement is only moderate on the focal behaviors (kappa 0.51-0.82 across three alternative judges, mean kappa 0.46-0.56 across all behaviors), with self-awareness among the worst, and the strong 95.1% manual agreement rests on 120 traces; (c) the main sweep is 3B-9B open-weight models, with scale and frontier checks confined to appendix subsets; (d) the OLMo-3 SFT comparison does not isolate the causal contribution of any training stage; (e) the paper reports no measurement of trace length, token cost, or an accuracy-per-token tradeoff — length appears only as a nuisance control in word-count bins.",
+    "method": "Two metrics over annotated traces. Behavioral Lift(b) = P(correct | b present) - P(correct | b absent), explicitly framed as descriptive and not causal. Recovery Rate(m) = P(correct | at least one of the 7 failure modes detected). The taxonomy has six groups; the analyses use nine higher-order behaviors defined in modality-neutral language for both LLM and VLM traces (planning, goal tracking, hypothesis testing, self-correction, uncertainty acknowledgment, confidence calibration, self-awareness, evidence citation, knowledge alignment), grouped as control/regulation, monitoring/judgment and epistemic grounding, plus 7 failure modes per modality (4 shared: logical failure, post-hoc rationalization, shortcut, lucky guess). The crucial definitional split is between uncertainty acknowledgment (the mere presence of expressed doubt) and confidence calibration (expressed certainty tracking the strength of the reasoning, judged false when the trace is clearly over- or under-confident relative to its own reasoning). Annotation is LLM-as-judge with GPT-4o, which receives the question, the ground-truth answer and the model's full output and returns binary labels. Models are 15 open-weight checkpoints from 3B-9B across 7 families, chosen so thinking and instruct variants come from the same family; ~350 responses per benchmark (300 for MathVista testmini).",
+    "methods": [
+      "Behavioral Lift",
+      "Recovery Rate",
+      "cross-modal behavioral taxonomy (9 higher-order behaviors, 7 failure modes per modality)",
+      "LLM-as-judge annotation (GPT-4o), cross-validated against DeepSeek-V3, Gemini-2.5-Flash, Gemini-3-Flash",
+      "within-question control (8 samples per question)",
+      "word-count-quintile length control",
+      "linear probing of hidden states (logistic regression, group-aware CV)",
+      "Qwen3 / Qwen3-VL / Qwen2.5",
+      "OLMo-3-7B-Think-SFT and Instruct-SFT",
+      "InternVL3.5-8B"
+    ],
+    "one_liner": "Annotates 15,282 reasoning traces from 15 models on 6 benchmarks with a nine-behavior taxonomy and shows that the behaviors reasoning-oriented training amplifies most (self-correction, hypothesis testing, uncertainty acknowledgment) are not the behaviors most associated with getting the answer right (confidence calibration, knowledge alignment, self-awareness).",
+    "problem": "Thinking models produce longer, more deliberative-looking traces and usually score higher, but accuracy alone cannot say which behaviors were used or whether the behaviors that thinking training makes more frequent are the ones tied to correctness. A behavior can become common without becoming diagnostic: a model may hedge because it is confused, self-correct because it erred earlier, or branch over hypotheses without testing the right ones. Prior trace taxonomies describe what models do but do not separate how often a behavior appears from how much it is associated with success, and they rarely annotate failures.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "On-topic and unusually direct about the topic's premise. The paper asks whether visibly deliberating more is the same as reasoning better and answers no, with a measurement rather than an anecdote: the three behaviors RL/thinking post-training reliably inflates are precisely the three at the bottom of the correctness ranking, and uncertainty acknowledgment carries negative Lift (-16.1% VLM, -13.9% LLM) while being amplified 3-7x. That gives the group a behavioral account of why extra length is often wasted: what the extra tokens contain is hesitation and re-checking, not calibration or domain grounding. Three specific things are reusable here. First, it supplies a negative-transfer example against 'more thinking helps' from a controlled matched-family comparison rather than a budget sweep: on LogiQA2 instruct models beat thinking models 58.4% vs 54.1% by taking shortcuts that work, and thinking models recover worse there (11.1% vs 24.5%). Second, it identifies when the extra reasoning does pay: when no failure is detected both model types reach 96-99%, so the thinking advantage lives almost entirely in recovery after an error, and self-correction is worth +39pp only conditional on a failure having occurred — a concrete criterion for when a model should keep going rather than stop. Third, it separates two signals the stopping-rule literature tends to conflate: expressed doubt (amplified, non-predictive, and shown to track task difficulty since it falls from 66.7% to 43.7% as thinking models scale 2B to 32B) versus calibrated confidence (barely amplified, highest Lift, and rising with scale). Any early-exit or confidence-gated halting rule that keys on hedging language is keying on the wrong one. The main caveats for our use: length is only a nuisance control here, never an outcome — no token counts, no cost, no accuracy-per-token curve — and Lift is explicitly correlational."
+    },
+    "results": "Amplification. Thinking training raises exactly three behaviors: self-correction 21-55% of responses vs 3-15% for instruct, hypothesis testing 22-52% vs 4-18%, uncertainty acknowledgment 25-85% vs 4-28%, consistently across all 7 families, both modalities and all 6 benchmarks. The other six are roughly flat, and instruct models are sometimes slightly higher on confidence calibration (67.9% vs 66.1% on MATH-500; 46.7% vs 40.9% on MMLU-Pro). Lift. Pooled per modality (VLM N=7,000, LLM N=8,282): confidence calibration +72.2% / +79.6%, self-awareness +62.0% / +52.7%, knowledge alignment +53.7% / +80.3%, evidence citation +34.9% / +49.1%, goal tracking +30.6% / +52.5%, planning +6.6% / +26.3%, self-correction +20.1% / +12.4%, hypothesis testing +1.0% / +1.0%, uncertainty acknowledgment -16.1% / -13.9%. So the three amplified behaviors occupy the bottom of the Lift ranking and the top-right quadrant of the amplification-vs-Lift plot is empty. Robustness of that ranking: it holds within individual benchmarks, within response-complexity strata, per model, under reverse conditioning, and in a within-question control that generates 8 traces per question from Qwen3-4B on 250 MATH-500 problems (mean per-question delta accuracy: confidence calibration +0.305 thinking / +0.518 instruct, both CIs excluding zero; uncertainty acknowledgment +0.006 thinking, -0.094 instruct; self-correction +0.267 thinking / +0.078 instruct). A word-count-quintile control finds trace length accounts for part of the amplification pattern, chiefly in the shortest bin, but self-correction, hypothesis testing and uncertainty acknowledgment remain amplified in the four non-shortest LLM bins. Linear probes on Qwen3-4B hidden states (layer 35/36) recover several behaviors above chance and, in the thinking model on incorrect-only traces, probe decodability rank-correlates with Lift at rho = +0.86 (p = 0.014). Mechanism. Thinking models often win by recovery rather than by avoiding failure: recovery rates 2-3x instruct on VisualPuzzles (23.0% vs 8.4%), MATH-500 (40.8% vs 17.8%) and MMLU-Pro (16.8% vs 6.3%), comparable on MathVista (45.9% vs 47.5%) and MMMU (32.9% vs 33.8%), and reversed on LogiQA2 (11.1% vs 24.5%). Self-correction has modest overall Lift but +39pp among traces with a detected failure. When no failure is detected both model types reach 96-99%. Where thinking hurts: on LogiQA2 instruct models beat thinking models 58.4% vs 54.1% by taking more shortcuts that work (34.2% vs 20.3%). Scale and stage. The gap holds from 2B to 32B on Qwen3-VL/MathVista: at 32B self-correction prevalence is 61.3% thinking vs 11.3% instruct, but self-correction Lift falls from +30.0% at 2B to +5.9% at 32B while confidence calibration Lift rises from +57.7% to +68.7%, and the 32B instruct model actually calibrates better than the thinking model (78.0% vs 71.7%). Uncertainty acknowledgment in thinking models falls from 66.7% at 2B to 43.7% at 32B while instruct stays flat at 8-15%, which the authors read as evidence it tracks task difficulty rather than calibration. The same mismatch is already visible at the OLMo-3-7B SFT checkpoints, before DPO and RLVR (N=1,443). A frontier check on full GPQA-Diamond (198 questions, 7 models from 5 providers, N=1,386) reproduces the Lift ranking on visible responses.",
+    "tags": [
+      "reasoning-traces",
+      "thinking-models",
+      "behavioral-taxonomy",
+      "calibration",
+      "self-correction",
+      "llm-as-judge",
+      "process-supervision",
+      "vlm",
+      "failure-modes"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-13760",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

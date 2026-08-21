@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization
+
+- **Authors**: _unknown_
+- **Venue**: NeurIPS 2025
+- **Published**: 2025-01-01
+- **Source**: virtualsite
+- **Link**: <https://neurips.cc/virtual/2025/poster/117295>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.62
+
+## In one line
+
+Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.
+
+## Problem
+
+Long-thought reasoning models pay a large inference cost, and the paper's empirical analysis shows the cost does not buy anything uniformly: some problems need elaborate reasoning, others gain nothing from Long-CoT, and some are answered less accurately with it than without. Prior efficiency work compresses redundancy inside a single long reasoning path, which leaves the model inside the Long-CoT paradigm and cannot choose not to reason at length in the first place.
+
+## Contributions
+
+- An empirical finding that Long-CoT's benefit varies by problem, with some problems answered less accurately under long reasoning than short
+- A hybrid reasoning model built by merging a Long-CoT and a Short-CoT model so that one model can emit either style
+- Bi-level preference training: group-level preference selects between reasoning styles, instance-level preference selects the concise correct trace inside a style
+- More than 50% average reasoning-length reduction on five mathematical datasets at 1.65 points of average accuracy
+
+## Method
+
+Two stages. Stage one builds a hybrid reasoning model by merging the weights of a Long-CoT model and a Short-CoT model, so a single model can produce either style. Stage two is bi-level preference optimization. At the group level, both long and short traces are sampled for each problem and the preference pair is formed across styles, teaching the model which style suits a given input. At the instance level, preference pairs are formed within a style group, favouring traces that are both correct and shorter. The result is one model that adapts reasoning depth to the problem rather than a length-compression schedule imposed on every problem alike.
+
+## Results
+
+On the 7B model (DeepSeek-R1-Distill-Qwen-7B), average reasoning length falls 50.93% at an average accuracy cost of 1.65 points. Per-dataset against the base Long-CoT model: AIME25 35.8% vs 38.3% (-2.5), MATH500 90.2% vs 90.2% (unchanged), GSM8K 90.3% vs 88.9% (+1.4). Against baselines: CoT-Valve cuts length further (73.06%) but loses 18.41 accuracy points; O1-Pruner cuts only 34.53%. Experiments also cover DeepSeek-R1-Distill-Qwen-1.5B, over AIME25, MATH500, GSM8K, Olympiad and Minerva.
+
+## Limitations
+
+The authors note the design assumes problem complexity has clear, estimable patterns, and that real-world inputs are more diverse than the maths distributions tested, making the style decision harder to make reliably. The evaluation is mathematics only. The accuracy is not free: the largest concession is on the hardest benchmark, AIME25 (-2.5 points), which is precisely where long reasoning is supposed to pay, so the 51%/-1.65 average is carried by easy problems where the short style is safe. Stage one also requires an existing Short-CoT counterpart model to merge with.
+
+## Why it matters here
+
+- **overthinking**: Directly on topic, and this is the primary paper for the Ada-R1 entry the archive already holds from the 'Don't Overthink It' survey's model-merging section. It supplies the evidence for the topic's central premise: that Long-CoT is not merely wasteful on easy problems but can lower accuracy on them, which turns length control from an efficiency question into a correctness one. Its contribution to the topic is the choice of granularity - most length-reduction work compresses a single long trace, whereas Ada-R1 decides per problem which reasoning style to use at all, and only then compresses within it. The reported trade-off is the usable number for the archive: 50.93% shorter for 1.65 accuracy points, against CoT-Valve's 73.06% shorter for 18.41 points, which is the concrete argument that aggressive uniform compression is worse than adaptive selection. The AIME25 regression is the counter-evidence to record alongside it: adaptive routing still under-thinks the hardest problems.
+
+## Entities
+
+- **Concepts**: [Adaptive Reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Long-CoT vs Short-CoT, Model Merging, Bi-Level Preference Optimization, Reasoning Length Reduction, Problem-Difficulty Estimation
+- **Methods**: [Ada-R1](../../../../wiki/methods/ada-r1.md), Hybrid-CoT, [model merging](../../../../wiki/methods/model-merging.md), bi-level preference optimization, DPO-style preference training, DeepSeek-R1-Distill-Qwen-7B, [DeepSeek-R1-Distill-Qwen-1.5B](../../../../wiki/methods/deepseek-r1-distill-qwen-1-5b.md), CoT-Valve (baseline), O1-Pruner (baseline)
+- **Datasets**: AIME25, MATH500, [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [Minerva Math](../../../../wiki/datasets/minerva-math.md)
+
+Tags: `adaptive-reasoning`, `long-cot`, `short-cot`, `model-merging`, `preference-optimization`, `reasoning-length`, `math-reasoning`
+
+## Abstract
+
+Abstract Recently, long-thought reasoning models achieve strong performance on complex reasoning tasks, but often incur substantial inference overhead, making efficiency a critical concern. Our empirical analysis reveals that the benefit of using Long-CoT varies across problems: while some problems require elaborate reasoning, others show no improvement—or even degraded accuracy. This motivates adaptive reasoning strategies that tailor reasoning depth to the input. However, prior work primarily reduces redundancy within long reasoning paths, limiting exploration of more efficient strategies beyond the Long-CoT paradigm. To address this, we propose a novel two-stage framework for adaptive and efficient reasoning. First, we construct a hybrid reasoning model by merging long and short CoT models to enable diverse reasoning styles. Second, we apply bi-level preference training to guide the model to select suitable reasoning styles (group-level), and prefer concise and correct reasoning within each style group (instance-level). Experiments demonstrate that our method significantly reduces inference costs compared to other baseline approaches, while maintaining performance. Notably, on five mathematical datasets, the average length of reasoning is reduced by more than 50\%, highlighting the potential of adaptive strategies to optimize reasoning efficiency in large language models.
+
+---
+
+Record id: `title:a6dab00057eab5aa`

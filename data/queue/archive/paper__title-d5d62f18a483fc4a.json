@@ -1,0 +1,97 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:55:00Z",
+  "created_at": "2026-08-21T00:49:09Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:d5d62f18a483fc4a",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract As models grow larger and training them becomes expensive, it becomes increasingly important to scale training recipes not just to larger models and more data, but to do so in a compute-optimal manner that extracts maximal performance per unit of compute. While such scaling has been well studied for language modeling, reinforcement learning (RL) has received less attention in this regard. In this paper, we investigate compute scaling for online, value-based deep RL. These methods present two primary axes for compute allocation: model capacity and the update-to-data (UTD) ratio. Given a fixed compute budget, we ask: how should resources be partitioned across these axes to maximize data efficiency? Our analysis reveals a nuanced interplay between model size, batch size, and UTD. In particular, we identify a phenomenon we call TD-overfitting: increasing the batch quickly harms Q-function accuracy for small models, but this effect is absent in large models, enabling effective use of large batch size at scale. We provide a mental model for understanding this phenomenon and build guidelines for choosing batch size and UTD to optimize compute usage. Our findings provide a grounded starting point for compute-optimal scaling in deep RL, mirroring studies in supervised learning but adapted to TD learning. Project page: https://value-scaling.github.io/.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Compute-Optimal Scaling for Value-Based Deep RL",
+    "url": "https://neurips.cc/virtual/2025/poster/119555",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "compute-optimal scaling",
+      "TD-overfitting",
+      "update-to-data ratio",
+      "batch size / model size interaction",
+      "data efficiency scaling law"
+    ],
+    "contributions": [
+      "Identification and naming of TD-overfitting: increasing batch size harms Q-function accuracy for small models but not for large ones",
+      "A fitted predictive law for the best batch size as a function of UTD ratio and model size",
+      "A fitted data-efficiency law giving samples-to-performance as a function of UTD ratio and model size, yielding power-law rules for allocating a compute budget between UTD and capacity",
+      "An empirical sweep over 17 control tasks with BRO and SimbaV2 supporting the above"
+    ],
+    "datasets": [
+      "DeepMind Control Suite (13 tasks)",
+      "HumanoidBench (4 tasks)"
+    ],
+    "limitations": "The authors state they were limited in how many variables they could study because each additional variable requires a higher-dimensional grid search, and that the study covers only simulated robotic control tasks, with visual and language domains left to future work. A reader should also note that the fitted laws are extrapolated from a sweep over two SAC-derived architectures, so their transfer to other value-based algorithms is untested here.",
+    "method": "The authors sweep model size, batch size and UTD ratio for SAC-style value-based agents (BRO, SimbaV2) on simulated control tasks and fit predictive relationships to the sweep. Two fitted forms are reported: a best-batch-size law B(sigma, N) as a function of UTD ratio sigma and model size N, and a data-efficiency law D_J(sigma, N) for the samples needed to reach a target return J, from which optimal UTD and model size are read off as power laws in the compute budget. The central empirical mechanism is TD-overfitting: raising the batch size quickly degrades Q-function accuracy for small models but not for large ones, because low-capacity networks produce poor-quality TD targets that generalise badly. The practical consequence is that batch size should grow with model size and shrink as the UTD ratio rises.",
+    "methods": [
+      "BRO",
+      "SimbaV2",
+      "Soft Actor-Critic (SAC)",
+      "TD learning",
+      "update-to-data (UTD) ratio sweeps"
+    ],
+    "one_liner": "An empirical study of how to split a fixed training-compute budget between model capacity and update-to-data ratio in online value-based deep RL, identifying a TD-overfitting effect that makes the best batch size depend on model size.",
+    "problem": "Compute-optimal scaling recipes are well studied for language model pretraining but not for online value-based RL, which has two distinct allocation axes: model capacity and the update-to-data (UTD) ratio. Given a fixed compute budget, how those should be partitioned to maximise data efficiency was open.",
+    "relevance": {
+      "overthinking": "Tangential: this matched only on the keyword 'compute-optimal'. The compute being scaled is training compute for an online value-based RL agent (model capacity vs update-to-data ratio), not test-time reasoning compute in a language model, and nothing here concerns reasoning length, when a model should stop generating, or the accuracy/efficiency tradeoff of a chain of thought. The only loose conceptual echo is that both literatures fit budget-allocation laws; the paper offers no evidence bearing on overthinking and should not be cited for it."
+    },
+    "results": "Evaluated on 17 simulated continuous-control tasks: 13 from the DeepMind Control Suite (split into 7 medium and 6 hard) and 4 from HumanoidBench, using BRO and SimbaV2. The paper reports fitted scaling forms rather than a single headline benchmark number; no accuracy or reward figure is quoted in the supplied material.",
+    "tags": [
+      "reinforcement-learning",
+      "scaling-laws",
+      "compute-optimal",
+      "td-learning",
+      "batch-size",
+      "continuous-control"
+    ]
+  },
+  "task_id": "paper__title-d5d62f18a483fc4a",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

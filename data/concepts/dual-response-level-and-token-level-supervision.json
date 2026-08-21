@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:09cd451102b203a7",
+      "kind": "paper",
+      "note": "Introduces FineHarm, a 29K prompt-response dataset with token-level harmfulness annotations, and the Streaming Content Monitor, a moderator trained on both response- and token-level labels that reads an LLM's output stream and reaches 0.95+ macro F1 after seeing on average the first 18% of tokens.",
+      "title": "From Judgment to Interference: Early Stopping LLM Harmful Outputs via Streaming Content Monitoring"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:49:10Z",
+  "name": "dual response-level and token-level supervision",
+  "related": [
+    "full-detection-versus-partial-detection-in-moderation",
+    "training-inference-gap-from-supervising-on-complete-responses-only",
+    "token-level-harmfulness-annotation",
+    "streaming-judgement-and-early-termination-of-generation",
+    "moderation-latency",
+    "pseudo-harmfulness-annotation-for-alignment",
+    "streaming-content-monitor-scm",
+    "fineharm-dataset-construction-with-pos-based-token-level-annotation",
+    "partial-streaming-detection-versus-full-detection",
+    "token-level-dpo-using-scm-as-pseudo-annotator",
+    "fineharm-constructed-here-29k-prompt-response-pairs-with-token-level-annotations",
+    "toxicchat-out-of-distribution-evaluation",
+    "toxigen-out-of-distribution-evaluation",
+    "pku-saferlhf-safety-alignment-experiment"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "dual-response-level-and-token-level-supervision",
+  "topics": [
+    "overthinking"
+  ]
+}

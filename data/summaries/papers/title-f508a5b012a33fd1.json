@@ -1,0 +1,64 @@
+{
+  "concepts": [
+    "overthinking",
+    "dynamic early exit",
+    "reasoning transition point",
+    "trial answer",
+    "answer confidence",
+    "training-free inference intervention",
+    "test-time scaling",
+    "chain-of-thought compression",
+    "self-truncation"
+  ],
+  "contributions": [
+    "DEER, a training-free dynamic early-exit method for long chain-of-thought that requires no changes to the model.",
+    "Identifying thought-switching transition points (e.g. 'Wait' tokens, or an entropy-based detector) as the natural candidate moments for exiting.",
+    "A trial-answer induction and confidence test using the geometric mean of answer token probabilities against a threshold of 0.95.",
+    "A branch-parallel decoding scheme with specialised attention masking that overlaps trial-answer evaluation with continued reasoning to hide its overhead.",
+    "DEER-PRo, a variant that averages multiple prompt-varied inductions and subtracts a mean-absolute-deviation penalty to resist prompt-induced overconfidence.",
+    "Evidence across 10 benchmarks and 11 models that cutting 19.1%-80.1% of CoT tokens raises accuracy by 0.3%-5.0% rather than lowering it."
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH-500",
+    "AMC 2023",
+    "AIME 2024",
+    "AIME 2025",
+    "OlympiadBench",
+    "GPQA Diamond",
+    "HumanEval",
+    "BigCodeBench",
+    "LiveCodeBench"
+  ],
+  "generated_at": "2026-08-21T00:55:06Z",
+  "generated_by": "queue",
+  "limitations": "The compression is strongly difficulty-dependent and the range 19.1%-80.1% conceals that: the easy benchmarks sit at the top of it and the hard ones at the bottom, because early exits fire far less often on hard problems — for the same model roughly 25% compression on AIME 2024 against roughly 67% on GSM8K. The saving is therefore largest exactly where inference was already cheap, and smallest on the long traces that motivate the work. Transition-point detection by linguistic marker is brittle: on QwQ-32B duplicate '</think>' tokens break it and the entropy-based detector is needed instead. The threshold lambda = 0.95 is a tuned constant, and accuracy declines at extreme values in either direction — too low exits prematurely, too high defers exit — so the method is not hyperparameter-free despite being training-free. Aggregate gains hide per-sample changes in both directions: the paper's own analysis shows exits at different positions flip differing proportions of answers, so some correct answers are lost even where the average improves. The confidence signal is the model's own token probability, which inherits the model's calibration, and answer induction costs extra tokens that the branch-parallel scheme hides in latency rather than eliminates from compute. Evaluation is on verifiable math, science and code tasks where a trial answer is well defined.",
+  "method": "DEER treats the moments where the model switches between thoughts — marked in practice by transition tokens such as 'Wait', with an entropy-based detector as an alternative when those markers are unreliable — as candidate exit points. At each such point it induces a trial answer by prompting the model to conclude, and scores that answer's confidence as the geometric mean of its token probabilities (a geometric mean so that multi-token answers are not penalised by length). If confidence exceeds a threshold lambda, set to 0.95, generation of the thinking block stops and the trial answer is emitted; otherwise the model resumes reasoning from where it was. The method needs no training and drops into existing o1-style reasoning LLMs. Because inducing a trial answer at every transition point costs tokens, a branch-parallel decoding scheme with a specialised attention mask overlaps the trial-answer evaluation with continued reasoning, so the check does not serialise against generation. A variant, DEER-PRo, runs several answer inductions in parallel under varied prompts and calibrates confidence as C_average minus alpha times the mean absolute deviation across them, which guards against a single prompt producing spurious overconfidence.",
+  "methods": [
+    "DEER",
+    "DEER-PRo",
+    "branch-parallel decoding",
+    "answer inducer prompting",
+    "entropy-based transition detection",
+    "chain-of-thought prompting"
+  ],
+  "one_liner": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
+  "paper_id": "title:f508a5b012a33fd1",
+  "problem": "Large reasoning models rely on test-time scaling: longer chains of thought to solve harder problems. Overthinking in a long CoT does not merely waste tokens, it can also cost accuracy, because extra verification loops and redundant steps let the model talk itself out of an answer it already had. Fixed heuristics for truncating a chain (a token cap, a step count) cannot tell the case where the model has genuinely settled from the case where it has not, so the open question is finding a per-instance signal for when to stop.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Squarely on topic and one of the load-bearing results for it. It gives a per-instance stopping rule rather than a global budget: the exit decision is made at the model's own thought boundaries, using the model's own confidence in a provisional answer, so a hard problem keeps thinking and an easy one stops. The headline finding is the one that matters most for the topic — cutting 19.1% to 80.1% of the tokens raises accuracy by 0.3% to 5.0%, so the excess reasoning was not neutral padding but was costing correctness, which is the strong form of the overthinking claim rather than the efficiency-only form. The measured difficulty gradient is the important caveat and should be recorded alongside the headline: compression is roughly 67% on GSM8K but only about 25% on AIME 2024 for the same model, meaning the method saves least on precisely the long hard traces where overthinking is most expensive. It also supplies concrete machinery the group can reuse — thought-switch tokens as exit candidates, geometric-mean token confidence as the stopping signal, and the MAD-calibrated multi-prompt variant as a way to keep a single unlucky prompt from triggering a premature exit."
+  },
+  "results": "Across 10 reasoning benchmarks (GSM8K, MATH-500, AMC 2023, AIME 2024, AIME 2025, OlympiadBench, GPQA Diamond, HumanEval, BigCodeBench, LiveCodeBench) and 11 reasoning LLMs (DeepSeek-R1-Distill-Qwen 1.5B-32B, Qwen3 1.7B-32B, QwQ-32B, DeepSeek-R1), CoT length falls by 19.1% to 80.1% on average while accuracy rises by 0.3% to 5.0%. Reported points include DeepSeek-R1-Distill-Qwen-7B on GSM8K at 91.0% accuracy with 66.7% token reduction (+1.4%) and on MATH-500 at 90.2% with 62.0% reduction (+2.8%); Qwen3-14B on AIME 2024 at 75.0% with 74.9% reduction (+5.0%) and on GSM8K unchanged in accuracy with 45.2% reduction; QwQ-32B on MATH-500 at 94.8% with 80.9% reduction (+1.0%). That accuracy goes up rather than down while tokens are cut is the paper's central evidence that the removed reasoning was not merely redundant but actively harmful.",
+  "schema_version": 1,
+  "tags": [
+    "early exit",
+    "overthinking",
+    "chain-of-thought",
+    "training-free",
+    "test-time scaling",
+    "confidence threshold",
+    "reasoning efficiency",
+    "adaptive compute"
+  ]
+}

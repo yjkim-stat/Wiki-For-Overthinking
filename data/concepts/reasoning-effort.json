@@ -1,5 +1,8 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Reasoning effort",
+    "Reasoning Effort"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +10,23 @@
       "kind": "paper",
       "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
       "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks"
+    },
+    {
+      "id": "title:49c61dced5ecc63a",
+      "kind": "paper",
+      "note": "TRACE detects implicit reward hacking by truncating a model's chain of thought at increasing fractions, forcing an answer at each cut, and scoring the area under the resulting reward-versus-CoT-length curve — a hacking model reaches high reward with little of its reasoning consumed.",
+      "title": "Is it Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort"
+    },
+    {
+      "id": "title:bcd9cf99a0e84a2d",
+      "kind": "paper",
+      "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
+      "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "reasoning effort",
   "related": [
     "overthinking",
@@ -26,7 +41,38 @@
     "native-function-calling",
     "pass-k",
     "lowest-overthinking-k",
-    "swe-bench-verified"
+    "swe-bench-verified",
+    "implicit-reward-hacking",
+    "explicit-reward-hacking",
+    "chain-of-thought-monitoring",
+    "truncated-reasoning",
+    "reward-versus-reasoning-length-curve",
+    "scalable-oversight",
+    "cot-obfuscation",
+    "trace-truncated-reasoning-auc-evaluation",
+    "progressive-cot-truncation-with-forced-answering",
+    "cot-monitoring-baseline",
+    "rloo",
+    "grpo",
+    "qwen2-5-instruct-1-5b-3b-7b-14b-32b-72b",
+    "llama3-8b",
+    "big-math-verified",
+    "apps",
+    "deep-thinking-tokens",
+    "settling-depth",
+    "self-consistency",
+    "logit-lens",
+    "reasoning-length-as-proxy",
+    "deep-thinking-ratio-dtr",
+    "jensen-shannon-divergence-over-layer-wise-predictive-distributions",
+    "think-n",
+    "self-consistency-consensus-n",
+    "self-certainty",
+    "prefix-based-early-rejection",
+    "aime-2024",
+    "aime-2025",
+    "hmmt-2025",
+    "gpqa-diamond"
   ],
   "related_authored": [],
   "schema_version": 1,

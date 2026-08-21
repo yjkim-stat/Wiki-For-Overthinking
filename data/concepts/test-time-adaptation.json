@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Test-Time Adaptation"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,17 +9,32 @@
       "kind": "paper",
       "note": "Proposes TTAug and TTAdapt, two lightweight test-time scaling strategies for small vision-language models that use input augmentation and consensus pseudolabels instead of external supervision.",
       "title": "Efficient Test-Time Scaling for Small Vision-Language Models"
+    },
+    {
+      "id": "title:bf8bc6d3bbf1c242",
+      "kind": "paper",
+      "note": "Makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only early-exit heads in a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it.",
+      "title": "TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices"
     }
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:20:08Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "test-time adaptation",
   "related": [
     "test-time-augmentation",
     "consensus-pseudolabeling",
     "test-time-augmentation-ttaug",
-    "test-time-adaptation-ttadapt"
+    "test-time-adaptation-ttadapt",
+    "distribution-shift",
+    "early-exit",
+    "on-device-inference",
+    "memory-constrained-training",
+    "tinytta",
+    "tinytta-engine",
+    "early-exit-ensembles",
+    "self-ensemble",
+    "test-time-adaptation-tta"
   ],
   "related_authored": [],
   "schema_version": 1,

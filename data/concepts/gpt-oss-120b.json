@@ -1,0 +1,71 @@
+{
+  "aliases": [
+    "GPT-OSS-120B"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
+      "id": "title:cc91145094e2b147",
+      "kind": "paper",
+      "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+      "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "gpt-oss-120b",
+  "related": [
+    "chain-of-thought-faithfulness",
+    "chain-of-thought-monitorability",
+    "faithfulness-safety-tension",
+    "action-commit-token",
+    "representation-steering",
+    "refusal-direction",
+    "reasoning-trace-tampering",
+    "self-reflection-tokens-as-a-resistance-signal",
+    "targeted-reasoning-replacement-trr",
+    "difference-of-means-probing",
+    "activation-addition-representation-steering-with-per-token-renormalization",
+    "attention-mask-ablation",
+    "hint-based-faithfulness-evaluation-comparison-baseline",
+    "qwq-32b",
+    "deepseek-r1-distill-llama-70b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "ministral-3-14b-reasoning",
+    "minimax-m2-230b",
+    "hazmart-77-scenarios-11-harm-categories",
+    "mmlu",
+    "thinking-budget-allocation",
+    "self-consistency-as-a-difficulty-proxy",
+    "compute-optimal-inference",
+    "prefill-stage-prediction",
+    "latent-space-probing",
+    "adaptive-test-time-compute",
+    "cot-compression",
+    "sonata",
+    "self-consistency-guided-adapter-for-thinking-allocation",
+    "self-consistency",
+    "hidden-state-probing-adapter",
+    "qwen3-235b-a22b",
+    "intern-s1-mini",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "math-500",
+    "gpqa"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gpt-oss-120b",
+  "topics": [
+    "overthinking"
+  ]
+}

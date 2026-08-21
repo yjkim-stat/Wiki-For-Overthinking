@@ -9,7 +9,7 @@ A test-time-compute strategy that samples N candidate solutions independently an
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [best-of-N sampling](best-of-n-sampling.md), [rejection sampling](rejection-sampling.md), [test-time compute](../concepts/test-time-compute.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [best-of-N sampling](best-of-n-sampling.md), [rejection sampling](rejection-sampling.md), [sequential revision](sequential-revision.md), [test-time compute](../concepts/test-time-compute.md), [test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

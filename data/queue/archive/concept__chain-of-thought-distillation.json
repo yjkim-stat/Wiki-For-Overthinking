@@ -1,0 +1,68 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "TabRank distills DeepSeek-R1 reranking rationales into a Qwen3-8B listwise table reranker by placing the teacher's reasoning trace in the student's input prompt and computing loss only over the final ranking, rather than training the student to reproduce the trace.",
+        "title": "TabRank: Chain-of-Thought Distillation for Table Re-Rankers",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DC-CoT is a benchmark that isolates the effect of data augmentation, data selection and data mixing on chain-of-thought distillation into smaller student models, across teacher models, student models and reasoning domains.",
+        "title": "The Quest for Efficient Reasoning: A Data-Centric Benchmark to CoT Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
+        "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:05:05Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'chain-of-thought distillation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "chain-of-thought distillation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "chain-of-thought distillation",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "CoT distillation"
+    ],
+    "definition": "Training a smaller student model on the reasoning traces a larger teacher produced, which the archive's sources treat as a data problem rather than a fixed recipe. DC-CoT benchmarks it as exactly that, isolating the contribution of data augmentation, data selection and data mixing across teacher models, student models and reasoning domains; LIMOPro's PIR scores each step of the distilled traces by its effect on answer confidence and prunes only the low-importance verification and error-correction steps, so the student reasons more concisely at unchanged accuracy. The sources do not agree that the student should reproduce the trace at all: TabRank places DeepSeek-R1's reranking rationale in the Qwen3-8B student's input prompt and takes the loss only over the final ranking, so the teacher's reasoning is conditioning rather than a target. What the term shares across all three is only the teacher-trace-to-smaller-student direction; the objective, and how much of the trace survives, is what each paper varies.",
+    "kind": "method",
+    "related": [
+      "chain-of-thought-internalization",
+      "chain-of-thought-compression",
+      "cot-sft",
+      "anti-distillation-defenses"
+    ]
+  },
+  "task_id": "concept__chain-of-thought-distillation",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

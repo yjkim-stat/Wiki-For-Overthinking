@@ -1,0 +1,32 @@
+{
+  "abstract": "Abstract Recent models such as OpenAI o1 and DeepSeek-R1 have demonstrated strong performance on reasoning-intensive tasks by generating extended Chain-of-Thought (CoT) traces. While longer reasoning helps with thorough exploration of solution paths for complex problems, it also often leads to inefficient and redundant outputs—a phenomenon commonly described as $\\textit{overthinking}$. In this paper, we propose $\\texttt{ShorterBetter}$, a simple yet effective reinforcement learning method that enables reasoning models to learn their own optimal CoT lengths without manual supervision. We define the $\\textit{Sample Optimal Length}$ (SOL) as the length of the shortest correct response among multiple generations, which serves as a dynamic reward signal to guide the model toward efficient reasoning. Applied to DeepSeek-Distill-Qwen-1.5B/7B as base models, $\\texttt{ShorterBetter}$ achieves 50\\%-80\\% reduction in output lengths in both in-domain and out-of-domain reasoning tasks while maintaining accuracy. Our reasoning trace analysis shows that $\\texttt{ShorterBetter}$ refines the structure of the reasoning traces by reducing unnecessary repetition, excessive self-verification, and over-exploration of alternatives.",
+  "arxiv_id": "",
+  "authors": [],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-08-20T23:39:26Z",
+  "id": "title:d40396527f776f1d",
+  "last_seen": "2026-08-20T23:39:26Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "efficient reasoning",
+    "reasoning trace"
+  ],
+  "pdf_url": "",
+  "published": "2025-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "virtualsite",
+  "source_id": "neurips-2025-118481",
+  "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://neurips.cc/virtual/2025/poster/118481",
+  "venue": "NeurIPS 2025",
+  "year": 2025
+}

@@ -1,0 +1,45 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) often suffer from overthinking due to redundant verification steps. Existing approaches for mitigating overthinking, such as fast-slow thinking switching and reasoning trajectory compression, fail to make a fine-grained distinction between beneficial and redundant steps within the LRM's reasoning process, and may thus impair reasoning capability in their pursuit of efficiency. To simultaneously improve reasoning efficiency and capability, we propose EvoThink, a framework that reduces redundant verification and encourages the exploration of new reasoning paths. EvoThink comprises two key components: Self-Pruning Training (SPT), an unsupervised method that iteratively prunes redundant reasoning steps and self-trains on the concise trajectories; and Aha-Moment Preference Optimization (AMPO), which, inspired by genetic algorithms, identifies valuable failed reasoning attempts, synthesizes from-wrong-to-right aha-moment data, and optimizes the model to internalize this reasoning pattern. Extensive evaluations across mathematical reasoning and code generation benchmarks demonstrate that EvoThink not only substantially reduces inference-time token usage but also improves the reasoning capability of LRMs.",
+  "arxiv_id": "2607.19962",
+  "authors": [
+    "Xinbang Dai",
+    "Zheyu Xin",
+    "Huikang Hu",
+    "Lin Ren",
+    "Rihui Jin",
+    "Guohui Xiao",
+    "Guilin Qi",
+    "Kuicai Dong",
+    "Zhaocheng Du",
+    "Yuyang Zhang"
+  ],
+  "categories": [
+    "cs.AI"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T23:36:09Z",
+  "id": "arxiv:2607.19962",
+  "last_seen": "2026-08-20T23:36:09Z",
+  "local_path": "data/pdfs/read/arxiv-2607-19962.pdf",
+  "matched_keywords": [
+    "overthinking",
+    "large reasoning model",
+    "reasoning efficiency"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2607.19962v1",
+  "published": "2026-07-22",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "arxiv",
+  "source_id": "2607.19962v1",
+  "title": "EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-07-22",
+  "url": "https://arxiv.org/abs/2607.19962",
+  "venue": "",
+  "year": 2026
+}

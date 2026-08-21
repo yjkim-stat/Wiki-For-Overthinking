@@ -1,0 +1,55 @@
+{
+  "concepts": [
+    "Overthinking",
+    "Group Relative Policy Optimization",
+    "Prefix-Level Reward",
+    "Process Supervision from Outcome Labels",
+    "Length Penalty",
+    "Accuracy-Efficiency Tradeoff",
+    "Rollout Efficiency"
+  ],
+  "contributions": [
+    "An account of why GRPO drifts toward long reasoning: group-relative advantage rewards extended deliberation because more steps give more chances to realize a relative gain",
+    "A preference model trained under a Bradley-Terry objective on outcome-only trajectory labels, requiring no step-level annotation",
+    "Prefix-level pseudo-rewards obtained by scoring consecutive partial trajectories with the frozen preference model, giving dense signal on whether continuation is beneficial",
+    "WS-GRPO, replacing a global length penalty with correctness-aware prefix guidance plus length-normalized rewards and a [3,6] step-count range",
+    "Reported reasoning-length reductions up to 92.9% in tokens and 82.6% in steps, and higher accuracy-per-step early in training than GRPO and Dr.GRPO"
+  ],
+  "datasets": [
+    "ARC",
+    "CommonsenseQA",
+    "DeepMath",
+    "GSM8K"
+  ],
+  "generated_at": "2026-08-21T00:48:00Z",
+  "generated_by": "queue",
+  "limitations": "Stated: mathematical tasks (DeepMath, GSM8K) degrade in accuracy more than commonsense ones, which the authors read as trajectory-level preferences approximating but not capturing step-level correctness; behaviour varies by base model (CommonsenseQA differs across Qwen variants); and length-penalty calibration is still dataset-dependent — which qualifies the paper's own framing, since the [3,6] step range is itself a hand-set length prior, not a learned one. A reader should add: the baselines' absolute lengths are short to begin with (167-309 tokens on Qwen2.5-7B-Instruct), so these are not long-CoT reasoning models and it is unclear whether the method transfers to models generating thousands of tokens; the ARC result reduces reasoning to 2 steps and 16 tokens, which is closer to suppressing reasoning than to right-sizing it; and 'remaining competitive' covers a 7.3-point GSM8K drop.",
+  "method": "Two phases. Phase I trains a preference model P_omega using only trajectory-level correctness labels: pairs of correct and incorrect reasoning paths for the same question are contrasted under a Bradley-Terry objective, so the model learns to rank trajectory quality without step annotations. Phase II freezes it and applies it to prefixes. For step t of rollout i, consecutive partial trajectories are compared, giving a step-wise pseudo-reward r^step_{i,t} = P_omega(q, s_{i,1:t-1}, s_{i,1:t}) — an estimate of whether taking step t improved the trajectory. These aggregate into a trajectory-level term combined with final correctness, and rewards are normalized by trajectory length. Trajectories falling outside a step-count range of [3,6] are explicitly penalized. The result is dense, correctness-aware guidance about when continuation is beneficial, in place of an undifferentiated length penalty.",
+  "methods": [
+    "WS-GRPO",
+    "GRPO",
+    "Dr.GRPO",
+    "Bradley-Terry preference model",
+    "prefix-level pseudo-reward",
+    "length-normalized reward",
+    "outcome-only weak supervision"
+  ],
+  "one_liner": "WS-GRPO trains a preference model from outcome-only correctness labels to score partial reasoning trajectories, turning terminal reward into prefix-level signal about whether continuing is worthwhile, and reports far shorter reasoning at some accuracy cost.",
+  "paper_id": "title:39bbcb4cded34ec7",
+  "problem": "GRPO normalizes reward within a group of rollouts, but the reward arrives only at the end. The paper's argument is that this shapes length upward: a longer deliberation gives more chances to land a relative gain within its group, so the policy drifts toward longer chains and overthinks. The standard fix, a global length penalty, has to be calibrated per dataset and penalizes length without knowing whether the extra steps were doing anything. What is missing is a signal that says, at a given point in a trajectory, whether continuing helps — and step-level labels to train such a signal are usually unavailable, since real supervision is outcome-only.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "On topic, despite the title framing it as rollout efficiency during training. The mechanism lives in RL training, but the measured reductions are mean completion length at evaluation, so what changes is how long the trained policy reasons at inference — the topic's own axis. Two things are worth carrying. First, the causal story: GRPO's group-relative advantage gives longer trajectories more opportunities to score a relative gain, which makes length inflation a consequence of the training objective rather than a habit inherited from data — a specific, checkable explanation for why RL-trained reasoners overthink. Second, the paper is a data point on how far the length knob can be turned before accuracy goes: at 92.9% token reduction the ARC policy emits 16 tokens and 2 steps, which is not right-sized reasoning but suppressed reasoning, and GSM8K loses 7.3 points for a 52.5% cut. Read the numbers rather than the 'remains competitive' framing. Scope caveat: baseline lengths are 167-309 tokens, so this is not tested on long-CoT models where overthinking is usually studied, and the [3,6] step range is a hand-set length prior of the kind the method claims to avoid."
+  },
+  "results": "Benchmarks ARC, CommonsenseQA, DeepMath and GSM8K; base models Qwen3-4B-Instruct, Qwen2.5-7B-Instruct, Llama-3.2-3B-Instruct, Llama-3.1-8B-Instruct. Lengths are mean completion length measured during evaluation at the final validation checkpoint, so the reductions are inference-time behaviour of the trained policy, not merely training rollout cost. On Qwen2.5-7B-Instruct: ARC 90.4% -> 87.9% accuracy (-2.5 points) with tokens 309.30 -> 16.00 (-92.9%) and steps 14.72 -> 2.00 (-82.6%); GSM8K 92.4% -> 85.1% (-7.3 points) with tokens 166.97 -> 79.26 (-52.5%) and steps 6.12 -> 2.17 (-61.5%). The headline '93% shorter, 83% fewer steps while remaining competitive' is the ARC row, where the policy ends up emitting 16 tokens — effectively answering without reasoning — and still gives up 2.5 points. GSM8K is the more informative case: half the tokens for 7.3 points, which is not a competitive-accuracy result by the usual reading of that phrase. Training-dynamics claim: WS-GRPO reaches competitive accuracy quickly with far fewer reasoning steps, so accuracy-per-step is much higher early in training, while GRPO and Dr.GRPO improve more slowly on increasingly long chains; WS-GRPO's efficiency is reported as stable across training rather than degrading.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "grpo",
+    "rl",
+    "reward-modeling",
+    "rollout-efficiency",
+    "reasoning-length",
+    "weak-supervision"
+  ]
+}

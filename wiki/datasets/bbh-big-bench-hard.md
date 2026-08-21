@@ -9,7 +9,7 @@ A benchmark of hard multi-step reasoning tasks used in the archive's sources as 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdaptThink](../methods/adaptthink.md), [AIME](aime.md), [GPQA-Diamond](gpqa-diamond.md), [LC-R1](../methods/lc-r1.md), [SuperGPQA](supergpqa.md), [TokenSkip](../methods/tokenskip.md)
+**Related**: [AdaptThink](../methods/adaptthink.md), [AIME](aime.md), [DAPO-Math-17k](dapo-math-17k.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO (Group Relative Policy Optimization)](../methods/grpo-group-relative-policy-optimization.md), [HotpotQA](hotpotqa.md), [LC-R1](../methods/lc-r1.md), [MMLU](mmlu.md), [SuperGPQA](supergpqa.md), [TokenSkip](../methods/tokenskip.md)
 
 ## Appears in
 

@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: model stitching, accuracy-efficiency tradeoff curve, representation similarity (KL divergence)
 - **Methods**: KLAS, neural network stitching, KL-divergence-based stitch selection
-- **Datasets**: ImageNet-1K
+- **Datasets**: [ImageNet-1K](../../../../wiki/datasets/imagenet-1k.md)
 
 Tags: `model-stitching`, `accuracy-efficiency-tradeoff`, `vision`, `model-selection`
 

@@ -1,0 +1,60 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills
+
+- **Authors**: Agamdeep Singh, Srishti Gautam, Priyanshu Gupta, Nikita Mehrotra, Tanmay Bakshi, Sumit Gulwani
+- **Venue**: cs.AI
+- **Published**: 2026-08-08
+- **Source**: arxiv+curated
+- **Link**: <https://arxiv.org/abs/2608.07885>
+- **PDF**: <https://arxiv.org/pdf/2608.07885v1>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## In one line
+
+Distills a short natural-language 'skill' from an existing corpus of agent trajectories with a coding agent, injects it into a non-reasoning model's system prompt, and measures how much of the think/no-think gap it recovers at a fraction of the output tokens.
+
+## Problem
+
+Reasoning modes beat non-reasoning modes on multi-step agentic tasks but multiply per-episode output tokens by 3.0-5.1x (up to 6.2x for Qwen3.6-27B), and that premium is paid on every episode forever. Reading the traces shows much of the deliberation is not instance-specific but re-derives episode-invariant procedure (e.g. the retail agent re-reasoning that it must not call an account-lookup tool before the customer supplies an email). Existing efficient-reasoning work compresses deliberation within an episode; whether the recurring part can be extracted once and amortized across episodes was open.
+
+## Contributions
+
+- A corpus-to-skill distillation pipeline requiring only existing rollouts and roughly $1-$3 of coding-agent time per domain
+- Evidence that a static system-prompt skill recovers 55%-100%+ of the no-think-to-think gap for GPT-5.4-mini on four agentic benchmarks while emitting 2.9-4.5x fewer output tokens and zero reasoning tokens
+- An ablation showing reasoning traces are not a prerequisite for distillation: no-think-only corpora are competitive with paired think/no-think corpora, with domain-dependent differences in either direction
+- A comparison against GEPA, a reflective prompt optimizer, on which the distilled skills score higher on both tau^2 domains at 4.1x lower production cost
+- A deep-vs-wide search framing that predicts where amortization must fall short: domains whose knowledge is instance-specific rather than episode-invariant
+
+## Method
+
+Passive skill distillation, in three steps. (1) Collect a training corpus: ordinary evaluation rollouts on a training split (50 ALFWorld tasks, 50 SSB-Verified, 50 tau^2-telecom, 35 tau^2-retail) containing per-step observations, actions, tool calls, visible outputs and rewards. No new rollouts are collected for distillation. Two corpus conditions: 'paired' (think and no-think trajectories on the same tasks) and 'no-think-only'. (2) Distill with a coding agent: Claude Code with Claude Sonnet 5 is opened in the corpus directory with a fixed natural-language instruction. It writes and runs its own analysis code over the logs — error-type frequencies, action n-grams, loop detection, win/loss contrasts — reads individual episodes where the statistics point, and compiles 38-126 lines of markdown containing concrete, failure-derived imperative rules that cite corpus statistics (e.g. 'this bug appeared in 13 of 22 rollouts and accounted for 17 of 18 tool errors'). The agent has no environment access and only reads trajectory files and mode-level pass rates. (3) Deploy: the skill is appended verbatim to the non-reasoning model's system prompt; harness, decoding and tools are unchanged. No weights are updated, no per-instance search runs at deployment, and the skill sits in a cacheable prefix. Skills are produced once per model per domain.
+
+## Results
+
+Held-out success, mean of 3 evaluation seeds. GPT-5.4-mini, think vs no-think vs no-think+skill (score / mean output tokens per episode): ALFWorld 0.713/3,723, 0.567/952, 0.787/832 (4.5x token reduction vs think); SSB-Verified 0.613/3,291, 0.447/960, 0.560/831 (4.0x); tau^2-telecom 0.450/2,143, 0.192/421, 0.333/597 (3.6x); tau^2-retail 0.350/1,615, 0.325/536, 0.408/565 (2.9x). Skills recover 55%-100%+ of the think/no-think gap and exceed the think mode outright on ALFWorld and retail, with zero reasoning tokens; on telecom and SSB-Verified a residual gap to think remains (0.333 vs 0.450; 0.560 vs 0.613). Qwen3.6-27B: ALFWorld 0.980 with skill vs 0.827 no-think and 0.773 think (14.9x fewer tokens); SSB-Verified 0.673 vs 0.640/0.560; telecom matches think exactly (0.933) at 5.9x fewer tokens; retail regresses (0.558 vs 0.600 no-think). Mechanism on ALFWorld: missed-transform failures fall from 35.9% to 11.5% of transform tasks and stall loops from 28.7% to 5.3%; episodes shorten from 27.0 to 21.8 turns. Ablation on distillation source (GPT-5.4-mini): think-distilled vs no-think-distilled scores are ALFWorld 0.813/0.787, SpreadsheetBench 0.460/0.560, telecom 0.325/0.333, retail 0.458/0.408 — mixed, with SSB-Verified favoring the no-think-only corpus by 10 points. Versus GEPA on tau^2 (120 metric calls, Claude Sonnet 5 reflection): skills score 45.8% vs 39.2% on retail and 32.5% vs 30.8% on telecom at $3.72 vs $15.28 total production cost (4.1x cheaper); neither prompt method reaches think mode on telecom (0.450). Distillation costs $1.28-$2.44 per domain; per-episode saving on telecom is 2,143-597 = 1,546 output tokens.
+
+## Limitations
+
+Stated: skills were distilled once per model-domain pair, so evaluation variance (3 seeds) is reported but distillation variance is not, and the Qwen retail regression (-4.2 points) suggests the process is not uniformly reliable; results cover only two models and four domains; skills are model-specific and cross-model transfer is untested. The paired-vs-no-think ablation differences are within a range the authors say distillation noise cannot be ruled out for, and the proposed anchoring mechanism for the SSB reversal is not isolated. Reader should also notice: the recovered-gap headline is per-benchmark and the two domains with residual gaps (telecom, SSB-Verified) are the ones the authors argue need genuine per-instance deliberation, so the result does not show reasoning is replaceable in general; held-out sets are 40-50 tasks; ALFWorld and SSB-Verified held-out splits were sampled once by the authors rather than being designated benchmark splits; and the skill only helps where the base non-reasoning model already carries the needed priors (the authors frame it as elicitation).
+
+## Why it matters here
+
+- **overthinking**: On-topic and directly about the accuracy/efficiency tradeoff of reasoning length, but it attacks it from an unusual angle: instead of making the model stop earlier within an episode, it removes the need to think at all by moving the recurring part of the deliberation offline into a prompt. The concrete contribution for this topic is a decomposition of the reasoning premium into an episode-invariant component that can be paid once (55%-100%+ of the think/no-think gap on these four agentic benchmarks, at 2.9-4.5x fewer output tokens) and an instance-specific residual that cannot (telecom, SpreadsheetBench-Verified). That gives a diagnostic the group can use: where a fixed prompt closes the gap, the extra tokens were overthinking a procedure the model had already worked out on earlier episodes; where a residual survives, test-time compute is buying something real. The two cases where the skill beats the reasoning mode outright (ALFWorld 0.787 vs 0.713, retail 0.408 vs 0.350) are also evidence that longer deliberation can be actively worse than a compiled rule, since the reasoning model re-derives a fallible procedure every time. Caveat for our purposes: the setting is multi-step agentic tasks with tool use, not math-style single-answer reasoning, and no per-instance stopping rule is proposed.
+
+## Entities
+
+- **Concepts**: Reasoning premium, Amortization of recurring reasoning cost, Episode-invariant vs instance-specific procedural knowledge, Deep search within an episode vs wide search across episodes, [Accuracy-token Pareto frontier](../../../../wiki/concepts/accuracy-token-pareto-frontier.md), Skill / system-prompt injection as elicitation, Cacheable prompt prefix, Corpus-level failure-mode statistics
+- **Methods**: Passive skill distillation, Claude Code / Claude Sonnet 5 as distilling coding agent, ReAct-style agent harness, GEPA (reflective prompt evolution, baseline), GPT-5.4-mini reasoning_effort none/medium, Qwen3.6-27B enable_thinking false/true
+- **Datasets**: ALFWorld, SpreadsheetBench-Verified (SSB-Verified), tau^2-bench telecom, tau^2-bench retail
+
+Tags: `efficient reasoning`, `agents`, `prompt distillation`, `test-time compute`, `token budget`, `tool use`, `prompt optimization`
+
+## Abstract
+
+Reasoning modes of language models outperform their non-reasoning counterparts on multi-step agentic tasks, but pay a 3-6x premium in output tokens on every episode -- much of it spent re-deriving procedures that are shared across episodes of the same domain. We show this recurring cost can be amortized: a coding agent analyses a small corpus of existing trajectories from a training split and compiles a compact natural-language skill that is injected into the non-reasoning model's system prompt. Across four agentic benchmarks (ALFWorld, tau$^2$-bench telecom and retail, and SpreadsheetBench-Verified), skills recover 55%-100%+ of the reasoning gap for GPT-5.4-mini on held-out tasks -- exceeding the reasoning mode outright on two of four -- while emitting 2.7-6x fewer output tokens and zero reasoning tokens. Notably, reasoning traces are not a prerequisite: skills distilled from non-reasoning trajectories alone remain competitive with skills distilled from paired reasoning/non-reasoning corpora, with domain-dependent differences between the two sources. We interpret these results through a search lens: test-time reasoning is deep search inside a single episode, re-paid at every deployment, while corpus distillation is wide search across episodes, paid once. The two recover overlapping procedural knowledge, and width over cheap trajectories is often the better buy -- with the residual gap on some domains (telecom, SpreadsheetBench) delineating where genuinely per-instance deep search remains necessary.
+
+---
+
+Record id: `arxiv:2608.07885`

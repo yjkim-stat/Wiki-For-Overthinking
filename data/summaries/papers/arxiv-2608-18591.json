@@ -1,0 +1,72 @@
+{
+  "concepts": [
+    "Over-thinking penalty",
+    "Pre-flight vs in-flight budget control",
+    "Reasoning budget / thinking-token budget",
+    "Reasoning effort tiers",
+    "Compute-optimal inference",
+    "Per-sample budget allocation",
+    "LLM performance estimation",
+    "Ordinal performance classes",
+    "Hierarchical budget scanning",
+    "Early stopping on predicted sufficiency",
+    "Pricing reversal",
+    "LLM routing and cascades",
+    "Model self-assessment of difficulty",
+    "Document complexity as a difficulty proxy"
+  ],
+  "contributions": [
+    "BudgetDoc: a dense 9,000-pair benchmark (360 documents x 5 models x 5 budgets) giving explicit supervision for the model-budget-performance surface on three document tasks, split at document level to prevent leakage.",
+    "DRB, a ~1B-parameter multimodal pre-flight estimator (SigLIP-2 + cross-page fusion transformer + Qwen3-0.6B + configuration embeddings) that predicts a 7-class ordinal performance label for a configuration before it is executed, reaching weighted F1 0.753 and class-6 recall 0.932.",
+    "A hierarchical scanning procedure that queries budgets low-to-high and stops early on a predicted perfect class, testing on average 1.0-3.9 of 5 levels.",
+    "Measurement of the over-thinking penalty across five frontier models and three document benchmarks, including monotone F1 decline from 0.86 to 0.81 for Gemini 2.5 Flash on RVL-CDIP as budget rises 0 to 2048.",
+    "Downstream evaluation showing cost reductions in 13 of 15 configurations and F1 maintained or improved in 9 of 15, with estimator compute overhead priced into the reported costs.",
+    "The argument that external pre-flight estimation is complementary to rather than redundant with in-flight self-assessed controls, because only the external cap is enforceable.",
+    "An exploratory probe of the same estimator as a cross-model selector, reported as degrading F1 in all nine settings."
+  ],
+  "datasets": [
+    "BudgetDoc (introduced; 360 base contexts x 5 models x 5 budgets = 9,000 labeled pairs)",
+    "RVL-CDIP (modified: three PDFs from different categories concatenated, page-level multi-class)",
+    "TAT-QA / TAT-DQA (hybrid tabular and textual numerical reasoning over financial reports)",
+    "CheckboxQA (scanned form checkbox-state extraction)"
+  ],
+  "generated_at": "2026-08-21T00:39:16Z",
+  "generated_by": "queue",
+  "limitations": "Stated: a new provider or unobserved architecture requires collecting a fresh calibration sample of configuration-outcome pairs; evaluation is confined to document-centric tasks where visual layout drives difficulty, with text-dominant QA, code and open-ended generation untested; and the scanning pass adds latency, so the approach suits token-heavy high-cost inference rather than real-time pipelines. Beyond those, the evidence base is small: 360 unique documents in total, 120 per task, with all downstream numbers computed on 100 held-out documents, so several of the reported F1 deltas (+0.4%, -0.1%, +1.1%) are within the noise a 100-document sample supports, and no confidence intervals, seeds or significance tests appear anywhere. The 0.753 weighted F1 is not contextualized against any baseline, and since class 6 is 55.8% of the test rows with recall 0.932, much of the metric and most of the actionable behaviour reduce to detecting the majority class of easy samples; the paper says as much when it identifies class 6 recall as the mechanism, but does not report what always-predicting-class-6 would score. The 'up to 99% cost reduction' headline is an artifact of gpt-5.2's maximum-effort baseline being 10-60x the alternatives, not a measure of estimation accuracy -- a fixed policy of always using low effort would capture most of it. Baseline definitions are inconsistent between Section 4.1 ('always at maximum reasoning budget') and the Table 1 caption ('auto-budget for Gemini and high/xhigh for GPT'), which matters because Gemini's auto-budget is itself an adaptive control and a stronger baseline. Accuracy on two of the three tasks is low in absolute terms (F1 around 0.50-0.55 on TAT-DQA and 0.48-0.71 on CheckboxQA for every configuration), so the budget surface is being estimated over a regime where all options are weak. The estimator's overhead is priced as T4 seconds only, excluding training cost and the cost of building the 9,000-call BudgetDoc grid, which must be repaid per model family. Ordinal structure is available but the model is trained with plain cross-entropy rather than an ordinal loss. Model names are learned embeddings, so nothing transfers to a model absent from training -- confirmed by the cross-family degradation. Finally the estimator predicts a bin of the same F1 metric used for scoring, so its usefulness is tied to tasks with a computable per-sample score at data-collection time.",
+  "method": "Two pieces. (1) BudgetDoc, a supervised estimation dataset built by exhaustive combinatorial evaluation: 120 base samples from each of three document tasks (360 unique document/prompt contexts) crossed with five models (gemini-2.5-flash, gemini-3-flash-preview, gemini-3.1-flash-lite-preview, gpt-5.1, gpt-5.2) and five reasoning budgets b in {0, 512, 1024, 1536, 2048}, giving a dense 9,000-pair grid. For GPT the budgets map onto effort tiers (0->none, 512->low, 1024/1536->medium, 2048->high/xhigh), so only four distinct GPT levels exist. Per-sample F1 is discretized into seven ordinal classes: class 0 for F1 < 0.5, classes 1-4 for successive 0.1-wide bins up to 0.9, class 5 for [0.9, 0.99), class 6 for >= 0.99. Prompts are paraphrased with gemini-2.5-flash-lite to prevent syntactic overfitting. Splits are enforced at the unique-document level rather than by random row split -- 240 documents (6,000 pairs) train, 20 (500) validation, 100 (2,500) test -- so the test grid is complete for documents never seen. (2) DRB, the estimator: a SigLIP-2-Large-patch16-512 vision encoder (428M) over page images, whose page embeddings pass through a 12-layer Llama-style fusion transformer (hidden 1152) doing cross-page attention and mean pooling; a Qwen3-0.6B text encoder over the prompt with a linear projection to align dimensions; and learned embedding tables for the target model name and the budget, so the same network can be queried about a configuration it has not run. The four vectors are concatenated into a 2048-unit GELU MLP head trained with cross-entropy over the seven classes. At deployment, 'hierarchical scanning' queries DRB at each budget from lowest to highest, terminating early when class 6 is predicted, and picks the budget with the highest predicted class using lower cost as the tie-break. Reported DRB costs are adjusted for the estimator's own compute at $0.00015/second of GCP T4 time.",
+  "methods": [
+    "DRB (Document-Reasoning Balancer)",
+    "SigLIP-2-Large-patch16-512",
+    "Qwen3-0.6B",
+    "Llama-style cross-page fusion transformer",
+    "Late-fusion MLP classification head",
+    "Gemini 2.5 Flash",
+    "Gemini 3 Flash Preview",
+    "Gemini 3.1 Flash-Lite Preview",
+    "GPT-5.1",
+    "GPT-5.2",
+    "RouteLLM (related work)"
+  ],
+  "one_liner": "Trains a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given (document, prompt, model, reasoning budget) tuple, and uses those predictions to pick a per-sample reasoning budget for document tasks.",
+  "paper_id": "arxiv:2608.18591",
+  "problem": "Frontier models expose user-controllable reasoning budgets, but allocating the maximum uniformly is both expensive and sometimes actively harmful -- the paper's 'over-thinking penalty', where extra test-time compute degrades accuracy or merely wastes money relative to a cheaper configuration. Providers ship in-flight controls (Gemini auto-thinking, GPT reasoning-effort tiers) but these are self-assessed: the model calibrates its own reasoning from its own perception of difficulty, with no external estimate of its likely performance. The paper cites evidence that this is insufficient -- 32% of nominally cheaper model pairs cost more in practice from thinking-token overrun with up to 9.7x per-query cost variance on identical prompts (Chen et al. 2026), up to 30x within-problem variance in agentic coding with models' self-predictions of their own usage correlating only weakly with realized consumption (Kendall tau <= 0.39, Bai et al. 2026). For document tasks, where difficulty is driven by visual layout and table structure rather than by the prompt text, the paper argues an external estimator that reads the rendered document is better placed to make the call than the model reasoning in-flight, and can impose a hard cap the model's own mechanism would not respect.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "On topic, and it attacks the topic from an angle the archive has less of: not a method for making a model stop, but a learned external predictor of whether extra thinking will pay off, decided before the call is issued. Its framing is explicitly the over-thinking penalty, and it supplies direct measurements of it on a modality where difficulty is visual rather than linguistic -- Gemini 2.5 Flash declining monotonically from F1 0.86 to 0.81 on RVL-CDIP as the thinking budget goes 0 to 2048, and GPT-5.2 falling 0.68 to 0.58 on CheckboxQA from low to high effort. That the penalty appears on document classification, where the work is pattern matching rather than deduction, is a useful data point for the topic's core question of which problems reward length. The conceptual contribution worth keeping is the pre-flight versus in-flight distinction: the paper argues, citing the pricing-reversal and agentic-token-variance results, that a model's own difficulty self-assessment is not a reliable stopping signal (self-predicted usage correlating with realized usage at Kendall tau <= 0.39), and that an external estimator is not a redundant second opinion but the only mechanism that can impose a cap the model would otherwise ignore. It also structures the problem usefully as predicting the whole performance-versus-budget surface per sample rather than emitting a single difficulty score. How much the empirical result supports all this is more limited than the abstract suggests, and the archive should record it with the caveats. The estimator's headline weighted F1 of 0.753 sits on a test set that is 55.8% class 6 -- samples that succeed at any budget -- where recall is 0.932, while the middle classes that would actually distinguish budgets score 0.46-0.74; no majority-class baseline is given, so the marginal value of the learned model over 'assume it's easy, use the minimum' is not established. The 99% cost reductions come from gpt-5.2's maximum-effort baseline costing 10-60x the alternatives, which a fixed low-effort policy would also capture. And the whole study rests on 360 documents with 100 in the downstream test set, no seeds and no intervals, so the 9-of-15 accuracy result includes deltas of +0.4% and -0.1%. Read as evidence that the over-thinking penalty is real and systematic across two frontier families, it is solid; read as evidence that a small model can predict the accuracy/compute tradeoff per sample, it is suggestive but underpowered."
+  },
+  "results": "Estimation: weighted F1 0.753 on the 2,500-pair held-out test set (weighted precision 0.756, recall 0.765). The per-class table shows the number is carried by class 6, which has recall 0.932, F1 0.860 -- and 1,396 of the 2,500 test rows, i.e. 55.8% of the test set is the class where any budget succeeds. Intermediate classes are much weaker: class 1 F1 0.463 with recall 0.361, class 0 F1 0.549 with recall 0.491, classes 2-5 between 0.645 and 0.740. No naive or majority-class baseline is reported for comparison. Budget optimization on the 100 held-out documents, against a baseline of auto-budget for Gemini and high/xhigh for GPT: F1 improves in 9 of 15 model-dataset configurations and falls in 6, with changes spanning +5.7% (Gemini-2.5-Flash on CDIP) to -5.7% (Gemini-3.1-Flash-Lite on TAT-DQA); cost falls in 13 of 15, from -5.2% to -99.0%, and rises in two (GPT-5.1 on CheckboxQA +35.6%, GPT-5.1 on TAT-DQA +3.2%). The headline 99% savings come from one specific asymmetry rather than from estimation quality: gpt-5.2 at maximum effort costs $0.09611/sample on CDIP and $0.31805/sample on CheckboxQA, 10-60x the Gemini models, and DRB routes almost everything to zero or minimal budget, giving -99.0% and -98.5% cost at +1.1% and -3.2% F1. Where the baseline is already cheap the picture reverses: Gemini-2.5-Flash on TAT-DQA saves only 5.2% of $0.00149, and estimator latency can dominate -- scanning adds +22.0s (+146.9%) for Gemini-3.1-Flash-Lite on CheckboxQA and +10.3s (+76.4%) on CDIP, though it subtracts time where it cuts a long GPT thinking run (-144.3s, -85.4% for GPT-5.2 on CheckboxQA). TAT-DQA is the weakest target throughout, with F1 losses up to -5.7% under DRB selection, attributed to an irregular performance surface where small chain-length changes swing accuracy. The underlying over-thinking evidence (Figure 1) is that maximum budget is routinely not optimal: Gemini 2.5 Flash on RVL-CDIP declines monotonically from F1 0.86 at budget 0 to 0.81 at 2048, and GPT-5.2 on CheckboxQA falls from 0.68 at low effort to 0.58 at high. Hierarchical scanning tests on average 1.0-3.9 of the 5 budget levels, with a 100% early-stop rate for all Gemini models on CDIP. The exploratory model-selection case study degrades F1 in all nine settings: -2.5% to -9.9% within the Gemini family (cost -9.6% to -75.9%), -9.3% to -10.1% within the GPT family (cost -98.7% to -99.4%), and -6.4% to -11.2% cross-family (cost -59.6% to -95.2%). The authors state DRB was not designed for this and that the cost savings there come from systematically routing away from expensive high-effort tiers rather than from accurate ranking.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking-penalty",
+    "test-time-compute",
+    "reasoning-budget",
+    "compute-optimal-inference",
+    "pre-flight-estimation",
+    "adaptive-compute",
+    "cost-aware-inference",
+    "document-understanding",
+    "multimodal",
+    "routing",
+    "benchmark"
+  ]
+}

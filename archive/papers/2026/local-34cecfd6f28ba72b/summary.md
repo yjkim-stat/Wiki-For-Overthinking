@@ -43,7 +43,7 @@ Stated by the authors: the field moves fast enough that the survey may not captu
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), inverted U-shaped length-performance curve, hallucination in reasoning models, chain-of-thought unfaithfulness, reward hacking, entropy collapse in RL training, thought anchors, aha moment, SFT explores / RL compresses, mechanistic interpretability of LRMs
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), inverted U-shaped length-performance curve, hallucination in reasoning models, chain-of-thought unfaithfulness, [reward hacking](../../../../wiki/concepts/reward-hacking.md), entropy collapse in RL training, thought anchors, [aha moment](../../../../wiki/concepts/aha-moment.md), SFT explores / RL compresses, mechanistic interpretability of LRMs
 - **Methods**: sparse autoencoders (SAEs), steering vectors, [linear probing](../../../../wiki/methods/linear-probing.md), activation/circuit analysis, SVD analysis of weight matrices, causal intervention on chain-of-thought
 - **Datasets**: _none recorded_
 

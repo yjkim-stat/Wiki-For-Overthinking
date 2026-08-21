@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
+        "title": "ARM: Adaptive Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Unifies text-based and visually-grounded reasoning in one vision-language model and uses RL with a mode-relative advantage to make the model pick which mode to use per input, raising average accuracy over eight benchmarks by about 5 points.",
+        "title": "Mixture-of-Visual-Thoughts: Exploring Context-Adaptive Reasoning Mode Selection for General Visual Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:02:35Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'Ada-GRPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Ada-GRPO",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Ada-GRPO",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Adaptive GRPO",
+      "mode-relative advantage"
+    ],
+    "definition": "Ada-GRPO is the reinforcement-learning objective introduced with ARM: a GRPO variant whose advantage is computed so that the model learns to choose among several reasoning formats per task rather than always using the longest one. In ARM the four formats are Direct Answer, Short CoT, Code and Long CoT, and training with Ada-GRPO cuts average tokens by about 30% at roughly unchanged accuracy. The archive's second source, Mixture-of-Visual-Thoughts, uses the same construction under a different name -- a mode-relative advantage that makes a vision-language model select between text-based and visually-grounded reasoning per input, raising average accuracy over eight benchmarks by about 5 points -- so the sources agree on the mechanism (advantage normalised within a reasoning mode) while differing on what the mode selection is for: token saving in one, accuracy in the other.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "ARM: Adaptive Reasoning Model",
+      "DRPO",
+      "Adaptive Reasoning Mode Selection"
+    ]
+  },
+  "task_id": "concept__ada-grpo",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

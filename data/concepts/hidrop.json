@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:b2302bb0271de496",
+      "kind": "paper",
+      "note": "HiDrop prunes about 90% of the vision tokens in a multimodal LLM by injecting them only at the layer where visual-text fusion actually begins and then dropping them on a concave schedule with a per-layer early exit, matching baseline accuracy while training 1.72x faster.",
+      "title": "HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit"
+    }
+  ],
+  "first_seen": "2026-08-21T00:56:47Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "HiDrop",
+  "related": [
+    "vision-token-pruning",
+    "multimodal-fusion-depth",
+    "layer-wise-early-exit",
+    "differentiable-top-k-selection",
+    "prefill-cost-reduction",
+    "late-injection",
+    "concave-pyramid-pruning",
+    "early-exit-layer-wise-vision-token-exit",
+    "differentiable-top-k",
+    "inter-layer-similarity-measure",
+    "flashattention",
+    "llava-1-5",
+    "pdrop-baseline",
+    "twigvlm-baseline",
+    "voco-llama-baseline",
+    "mme-perception",
+    "mmbench",
+    "mmbench-cn",
+    "gqa",
+    "vqav2",
+    "scienceqa-image",
+    "vizwiz",
+    "textvqa",
+    "pope",
+    "seed-image",
+    "mmstar"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "hidrop",
+  "topics": [
+    "overthinking"
+  ]
+}

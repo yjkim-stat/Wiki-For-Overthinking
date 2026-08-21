@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "Redundant self-verification"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.19962",
+      "kind": "paper",
+      "note": "EvoThink cuts overthinking in two separable stages: Self-Pruning Training deletes reasoning steps whose local conclusion repeats the previous step's and self-trains on the shortened traces, while Aha-Moment Preference Optimization builds from-wrong-to-right preference pairs out of the model's most diverse failed attempts and applies DPO to them.",
+      "title": "EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization"
+    },
+    {
+      "id": "title:d40396527f776f1d",
+      "kind": "paper",
+      "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+      "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "Redundant Self-Verification",
+  "related": [
+    "overthinking",
+    "atomic-reasoning-unit",
+    "reasoning-trajectory-compression",
+    "fast-slow-thinking-switching",
+    "aha-moment",
+    "from-wrong-to-right-supervision",
+    "reasoning-length-distribution-by-difficulty",
+    "self-training-on-pruned-traces",
+    "preference-optimization",
+    "evothink",
+    "self-pruning-training-spt",
+    "aha-moment-preference-optimization-ampo",
+    "dpo",
+    "atomic-reasoning-unit-segmentation",
+    "diversity-fitness-over-distinct-local-conclusions",
+    "thinkprune",
+    "o1-pruner",
+    "diet",
+    "kimi-1-5-sft-dpo",
+    "verl",
+    "math-500",
+    "aime-2024",
+    "aime-2025",
+    "taco",
+    "aime-1983-2023-training-set-gold-solutions-from-art-of-problem-solving",
+    "math-training-set",
+    "sample-optimal-length",
+    "self-supervised-length-target",
+    "length-reward-shaping",
+    "over-exploration-of-alternatives",
+    "chain-of-thought-compression",
+    "shorterbetter",
+    "sample-optimal-length-sol",
+    "reinforcement-learning-with-verifiable-rewards",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen2-5-instruct",
+    "deepscaler-preview",
+    "aime",
+    "amc",
+    "omni-math",
+    "still",
+    "math",
+    "mathqa",
+    "mmlu",
+    "bbh",
+    "livecodebench",
+    "mbpp",
+    "humaneval"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "redundant-self-verification",
+  "topics": [
+    "overthinking"
+  ]
+}

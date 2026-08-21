@@ -1,0 +1,78 @@
+{
+  "aliases": [
+    "DPO-Shortest"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:833de99e9b3ea69d",
+      "kind": "paper",
+      "note": "ARLCP is a reinforcement-learning fine-tuning recipe that adds two coupled reward penalties -- one on reflective steps, one on response length scaled by estimated problem complexity -- to shorten chains of thought in distilled reasoning models without losing accuracy.",
+      "title": "Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty"
+    },
+    {
+      "id": "title:ff37e37c3f1ab9b2",
+      "kind": "paper",
+      "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
+      "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:56:47Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T01:05:41Z",
+  "name": "DPO_Shortest",
+  "related": [
+    "overthinking",
+    "unnecessary-reflection",
+    "length-penalty",
+    "problem-complexity-adaptive-compute",
+    "reinforcement-learning-for-reasoning-length",
+    "accuracy-length-tradeoff",
+    "test-time-compute-scaling",
+    "arlcp-adaptive-reflection-and-length-coordinated-penalty",
+    "reinforce-leave-one-out-rloo",
+    "reflection-token-count-rtc-penalty",
+    "complexity-tiered-length-penalty",
+    "nothinking",
+    "sft-shortest",
+    "o1-pruner",
+    "tlmre",
+    "adaptthink",
+    "laser",
+    "gsm8k",
+    "math-500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "adaptive-reasoning",
+    "long-cot",
+    "short-cot",
+    "override-sft-overwriting-default-reasoning-patterns",
+    "long-to-short-compression",
+    "reasoning-adaptability",
+    "accuracy-efficiency-score",
+    "reflective-behaviour-triggers-verification-backtracking-subgoal-setting-backward",
+    "test-time-scaling",
+    "reasoning-distillation",
+    "qfft-question-free-fine-tuning",
+    "supervised-fine-tuning-on-long-cot",
+    "difficulty-adaptive-distillation-dad",
+    "simpo-shortest",
+    "rak-reasoning-adaptability-cohen-s-kappa",
+    "aes-accuracy-efficiency-score",
+    "llama-factory",
+    "s1-1-1k",
+    "limo-871",
+    "bespoke-stratos-17k",
+    "minerva",
+    "gpqa",
+    "mmlu-pro",
+    "llm-aggrefact"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "dpo-shortest",
+  "topics": [
+    "overthinking"
+  ]
+}

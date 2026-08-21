@@ -45,7 +45,7 @@ The abstract does not report the inference-time/compute overhead of running the 
 
 - **Concepts**: mixture of semi-autoregressive experts (dLLMs), block generation schedule, ensembling over generation orders
 - **Methods**: HEX (Hidden semi-autoregressive Experts), majority-vote ensembling, block-schedule diffusion generation
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), ARC-C, TruthfulQA
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), ARC-C, [TruthfulQA](../../../../wiki/datasets/truthfulqa.md)
 
 Tags: `diffusion-llm`, `test-time-scaling`, `ensembling`, `block-schedule`, `training-free`
 

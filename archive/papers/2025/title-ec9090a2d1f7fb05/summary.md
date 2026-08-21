@@ -44,7 +44,7 @@ The abstract does not name the six benchmark tasks, and evaluation is limited to
 
 ## Entities
 
-- **Concepts**: group relative advantage, difficulty bias, discriminative learning, entropy instability in RL, KL-constrained optimization
+- **Concepts**: [group relative advantage](../../../../wiki/concepts/group-relative-advantage.md), difficulty bias, discriminative learning, entropy instability in RL, KL-constrained optimization
 - **Methods**: DisCO, GRPO (baseline), DAPO (baseline), discriminative constrained optimization
 - **Datasets**: six benchmark tasks for mathematical reasoning (unspecified names)
 

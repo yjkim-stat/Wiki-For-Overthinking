@@ -1,0 +1,58 @@
+{
+  "concepts": [
+    "Slow-thinking vs fast-thinking recommendation",
+    "Reasoning verbosity without commensurate accuracy gain",
+    "Model merging as training-free behaviour transfer",
+    "Task vectors in a shared parameter space",
+    "Retrieval criticality of attention heads",
+    "Decision faithfulness (attention from the final prediction to the supporting reasoning segment)",
+    "Fisher update sensitivity",
+    "Head-level heterogeneity of reasoning roles",
+    "Accuracy-efficiency trade-off"
+  ],
+  "contributions": [
+    "Formulates reasoning compression in slow-thinking recommenders as a selective model-merging problem in which the fast-thinking update is allocated by each component's contribution to recommendation performance",
+    "REAM, a head-granular merging method that assigns every attention head its own merge coefficient from retrieval criticality, decision faithfulness and Fisher update sensitivity, solved in closed form as a water-filling solution to a constrained optimization",
+    "Two head-level reasoning-importance signals with causal validation by mean-ablation, shown to identify largely disjoint head sets (top-5% Jaccard <= 1.75%) that are stable across datasets",
+    "Experiments on Amazon Book, Yelp and Amazon Music showing 17.9-24.3% shorter traces with MAE and RMSE both better than the slow-thinking source, where eight training-free merging baselines fail to hold both",
+    "A cost accounting placing the training-free pipeline at 0.69 GPU-hours per dataset, about 4% of the cost of training the two source models"
+  ],
+  "datasets": [
+    "Amazon Book (Reason4Rec splits)",
+    "Amazon Music (Reason4Rec splits)",
+    "Yelp (Reason4Rec splits)"
+  ],
+  "generated_at": "2026-08-21T00:36:57Z",
+  "generated_by": "queue",
+  "limitations": "Stated: at the larger 7B scale REAM does not close the accuracy gap to the slow-thinking source, which the authors name as the main direction for extending selective merging to larger recommenders; the head-level analysis is evaluated only under RecZero's four-segment schema, and fully unstructured traces would need an additional segmentation procedure left to future work; the last six FFN layers are excluded by a validation sweep rather than derived, so the exclusion window is a tuned choice. A reader should also notice: everything is rating prediction on three datasets with 3B-scale models, and traces are ~250-350 tokens, so this is not the long-CoT regime; compression is a fixed property of the merged weights rather than adaptive per input, so an easy and a hard instance still get similarly long traces; the generalizability study covers only Yelp; the reported token reduction is against the slow-thinking source, and two arithmetic baselines reach comparable compression at lower accuracy, so the contribution is the accuracy-preservation rather than the compression itself; and the budget fraction rho is swept and fixed at 0.3, with performance reported as non-monotonic in rho.",
+  "method": "Both source models predict a 1-5 rating from the same user history plus target item and share a base model theta_B (Qwen2.5-3B-Instruct): the slow-thinking model theta_S is RecZero, which emits four sequential segments <analyze_user>, <analyze_item>, <match>, <rate>; the fast-thinking model theta_F is TALLRec adapted to direct rating prediction and fully fine-tuned (not LoRA) so its task vector is expressible over full weight matrices. Merging is theta* = theta_S + sum_b alpha_b * Delta_F,b, where b indexes a Q/O attention head or a shared K/V GQA group and Delta_F is the fast-thinking task vector. Each alpha_b is set from three signals estimated on a 500-example calibration set. (1) Retrieval criticality kappa: following the retrieval-head criterion, count how often a head's generated token matches a token in the segment-relevant evidence region and the head puts its maximum attention on that matching position; successful retrievals are TF-IDF weighted to emphasise rare tokens, aggregated per head, then mapped through a log-z-score sigmoid because the raw counts are unbounded and right-skewed. (2) Decision faithfulness: the share of the <rate> segment's total attention mass directed at the <match> region rather than at the prompt or the analyze regions — <match> is chosen because perturbing it shifts the rating distribution 3.3-5.1x more than perturbing user or item. Both signals are defined per query head and aggregated by max within a GQA group, which conservatively treats shared K/V as reasoning-critical whenever any member head is. (3) Update sensitivity d_b: the diagonal empirical Fisher of theta_S, weighted by the squared fast-thinking update, giving the loss sensitivity to that specific update direction and magnitude. These combine into a per-unit perturbation cost s_b = exp(gamma*(kappa_b + faith_b)) * d_b, and coefficients are chosen by maximizing sum_b w_b*alpha_b (w_b = ||Delta_F,b||_F, i.e. how much update is on offer) subject to sum_b s_b*alpha_b^2 <= epsilon and 0 <= alpha_b <= alpha_bar. The objective is linear with a convex quadratic constraint, so KKT gives a closed-form water-filling solution alpha*_b = clip(w_b/(2*mu*s_b), 0, alpha_bar), with mu found by bisection separately for the Q/O and K/V sets. FFN layers have no head structure, so they take the layer-mean Q/O coefficient, and the last several FFN layers (30-35) are excluded from merging entirely because a validation sweep showed merging them degrades the trade-off. No gradient updates to either source model and no decoding changes.",
+  "methods": [
+    "REAM (Reasoning-HEad-Aware Merging)",
+    "Task arithmetic / task vectors",
+    "DARE, TIES-Merging, Average Merging (baselines)",
+    "AIM, ACM, RAIN-Merging (data-driven baselines)",
+    "Fisher-weighted merging",
+    "RecZero (slow-thinking source)",
+    "TALLRec (fast-thinking source)",
+    "Retrieval-head criterion",
+    "Jensen-Shannon divergence perturbation analysis"
+  ],
+  "one_liner": "REAM merges a slow-thinking recommender with a fast-thinking one at the granularity of individual attention heads, assigning each head a merge coefficient from its reasoning importance and its parameter sensitivity, to shorten reasoning traces without retraining.",
+  "paper_id": "arxiv:2608.10447",
+  "problem": "LLM-based recommenders that generate a structured reasoning trace before predicting a rating are more accurate than direct-prediction models, especially when preference signals are sparse, but produce long traces regardless of input difficulty, raising latency and cost without a matching accuracy gain. Training-based compression (distillation, length-penalized fine-tuning, RL length rewards, pruning) needs labelled or teacher-generated rationales and further target-model optimization; inference-time methods (token budgets, chain-of-draft, sketching) depend on preset budgets and are sensitive to input and task. Model merging is training-free but existing merging methods apply one coefficient per model or per layer and give no reasoning-grounded basis for deciding whether a shorter trace drops filler or drops decision-relevant user-item evidence.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "On-topic. The paper is squarely about the accuracy/efficiency tradeoff of reasoning length, and its specific contribution to the topic is a weights-level control knob rather than a prompt, budget or reward: it shows that a slow-thinking model's verbosity can be reduced 17.9-24.3% by importing a fast-thinking sibling's parameters selectively, and that the selection matters — merging with one global or per-layer coefficient compresses comparably but costs accuracy, while protecting the ~5% of attention heads that carry 78% of evidence-retrieval mass keeps MAE and RMSE at or below the uncompressed source. That gives the group a mechanistic claim worth testing elsewhere: some heads sustain the reasoning that the answer actually depends on and others carry redundant elaboration, and the two are separable. The causal ablations (11.6x NLL increase from ablating retrieval-critical heads versus random) are the strongest part of that argument. Two scope limits matter for us. First, compression is baked into the merged weights, so it is uniform across inputs — this is not an adaptive stopping rule and does nothing about spending more on hard instances, which is the other half of the topic. Second, the setting is 1-5 rating prediction with 3B models and ~250-350-token traces, well below the long-CoT regime most overthinking work studies, and at 7B REAM still trails the unmerged slow-thinking model on MAE, so the approach is not yet shown to hold at scale."
+  },
+  "results": "Three rating-prediction datasets (Amazon Book, Yelp, Amazon Music) using Reason4Rec splits; metrics are MAE, RMSE and mean generated tokens per response (Tok), all lower-is-better, on a single A40 GPU. Against the slow-thinking source RecZero, REAM cuts tokens by 24.3% on Book (313.55 to 237.33), 17.9% on Yelp (314.54 to 258.19) and 21.1% on Music (344.28 to 271.49) while also improving MAE by 4.7%/2.6%/1.6% and RMSE by 2.3%/3.7%/2.2%. Among eight training-free merging baselines, REAM is the only one that improves both MAE and RMSE over theta_S on all three datasets: Task Arithmetic and DARE+TA compress harder on Book (253.13 and 252.81 tokens vs REAM's 237.33 — REAM is still shortest) but worsen MAE (0.6742 and 0.6835 vs 0.6650 for theta_S); AIM+TA and ACM+TA, which derive one coefficient per layer from activation statistics, worsen MAE to 0.6805 and 0.6932 on Book and produce longer traces (260.46, 282.74) than REAM. AIM+TA attains a better RMSE on Music (0.8227 vs REAM's 0.8324) but a worse MAE (0.5678 vs 0.5348); the authors read the recurring RMSE-improves/MAE-worsens pattern as a redistribution of errors rather than an accuracy gain. RAIN-Merging, the other head-granular baseline, underperforms REAM on every metric on all three datasets. Leave-one-out ablation (Music/Yelp): dropping Fisher sensitivity hurts most (MAE 0.5533 vs 0.5348 on Music; 0.7616 vs 0.7564 on Yelp); dropping kappa gives 0.5499/0.7599; dropping faithfulness gives 0.5350 on Music and slightly improves Yelp MAE to 0.7544 while worsening its RMSE and token count. Causal validation: mean-ablating the top-5% kappa heads raises NLL/JSD by 11.57x/3.29x on Music, 4.93x/2.86x on Book and 7.35x/3.19x on Yelp versus size-matched random-head ablation; faithfulness-critical heads give 9.65x/5.64x, 11.16x/5.20x and 6.63x/4.19x. The two signals' top-5% head sets are nearly disjoint (Jaccard <= 1.75%) and their Spearman correlation is negligible. Sparsity: the top 5% of heads hold 77-78% of retrieval mass (Gini 0.920-0.922) but only 22.6-24.0% of faithfulness mass (Gini 0.548-0.556). Cost: the full REAM pipeline takes 41.2 minutes / 0.69 GPU-hours per dataset, about 4% of the 15.7 GPU-hours needed to train the two source models. Transfer (Yelp only, Table 3): on Llama-3.2-3B REAM improves on theta_S across all three metrics (MAE 0.7769 vs 0.8059, Tok 257.18 vs 323.79) and on RecOne it improves MAE to 0.6876 from 0.7395; on Qwen2.5-7B it shortens traces from 336.02 to 288.46 and beats Task Arithmetic, but its MAE (0.7910) remains worse than the unmerged theta_S (0.7626).",
+  "schema_version": 1,
+  "tags": [
+    "efficient reasoning",
+    "model merging",
+    "recommender systems",
+    "reasoning compression",
+    "attention heads",
+    "chain-of-thought",
+    "training-free"
+  ]
+}

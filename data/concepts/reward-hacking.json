@@ -1,20 +1,54 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Reward Hacking"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "arxiv:2607.29287",
+      "kind": "paper",
+      "note": "TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.",
+      "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation"
+    },
     {
       "id": "local:34cecfd6f28ba72b",
       "kind": "paper",
       "note": "A survey that organizes existing mechanistic-interpretability research on large reasoning models into three areas -- reasoning-oriented training dynamics, reasoning mechanisms, and unintended behaviors (hallucination, CoT unfaithfulness, overthinking, unsafety) -- and proposes directions for future mechanistic work.",
       "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures"
+    },
+    {
+      "id": "title:c65838fd39e8d183",
+      "kind": "paper",
+      "note": "Trains Qwen3-8B to split its chain of thought into concurrently decoded threads that spawn and join, so the critical path is shorter than a sequential trace of the same total length, using a trie-based rollout that runs on stock autoregressive inference engines.",
+      "title": "ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "reward hacking",
   "related": [
+    "resource-rational-reasoning",
+    "difficulty-adaptive-reasoning-depth",
+    "system-1-system-2",
+    "reasoning-collapse",
+    "reasoning-redundancy",
+    "rich-points",
     "overthinking",
+    "twt-translation-with-thought",
+    "difficulty-adaptive-cot-distillation-and-rewriting",
+    "grpo",
+    "hybrid-bleu-comet-quality-reward",
+    "n-gram-repetition-penalty-n-20",
+    "binary-format-reward",
+    "llama-factory-verl-vllm",
+    "qwen2-5-7b-14b-instruct-llama-3-1-8b-instruct-gemma-2-9b-it-backbones",
+    "deepseek-r1-trace-distillation-gpt-4o-difficulty-rating-and-rewriting",
+    "7k-difficulty-adaptive-long-cot-sft-set-10-domains-de-en-en-zh-zh-en",
+    "20k-multi-domain-parallel-rl-set",
+    "in-domain-test-sets-laws-news-science-subtitles-literary-it-koran-medical",
+    "ood-test-sets-conversation-ecommerce-social-culture-commonsense",
+    "flores-59-unseen-languages",
     "inverted-u-shaped-length-performance-curve",
     "hallucination-in-reasoning-models",
     "chain-of-thought-unfaithfulness",
@@ -28,7 +62,25 @@
     "linear-probing",
     "activation-circuit-analysis",
     "svd-analysis-of-weight-matrices",
-    "causal-intervention-on-chain-of-thought"
+    "causal-intervention-on-chain-of-thought",
+    "parallel-reasoning",
+    "critical-path-latency",
+    "test-time-compute-scaling",
+    "accuracy-efficiency-pareto-frontier",
+    "adaptive-reasoning-structure",
+    "threadweaver",
+    "p-grpo",
+    "trie-based-rollout",
+    "ancestor-only-attention-mask",
+    "two-stage-parallel-trajectory-generator",
+    "multiverse",
+    "parallel-r1",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math-500",
+    "minerva-math",
+    "olympiadbench"
   ],
   "related_authored": [],
   "schema_version": 1,

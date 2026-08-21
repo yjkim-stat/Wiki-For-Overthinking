@@ -1,0 +1,95 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:54:18Z",
+  "created_at": "2026-08-21T00:49:09Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:75760913d4d6cfa4",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "adaptive reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning",
+    "url": "https://icml.cc/virtual/2026/poster/62755",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "Overthinking",
+      "Adaptive Reasoning",
+      "Reasoning Mode Selection",
+      "Superficial Linguistic Complexity",
+      "Difficulty Estimation",
+      "Robustness to Surface Cues",
+      "Reward Shaping"
+    ],
+    "contributions": [
+      "Identifies a specific failure mode of adaptive reasoning models: they mistake verbosely phrased simple problems for complex ones, so the mode switch keys on superficial linguistic complexity rather than task difficulty.",
+      "A data augmentation for SFT that pairs each simple problem with a redundant restatement of itself, teaching the model to disregard surface verbosity.",
+      "A GRPO stage with a custom reward that refines the adaptive policy to select the reasoning mode by task complexity.",
+      "Claims reduced computational overhead without sacrificing accuracy, and improved robustness against misleading linguistic cues."
+    ],
+    "datasets": [],
+    "limitations": "The available material is the ICML 2026 poster abstract only; no preprint or full text was reachable, so no benchmark, model, baseline or number can be attributed to this paper yet, and the central claims -- 'reduces computational overhead without sacrificing accuracy' and 'improved robustness' -- are unquantified here. A reader should also notice that the training signal for stage one is constructed by restating simple problems verbosely, so the demonstrated robustness may be specific to the augmentation's own style of verbosity rather than to naturally occurring wordy problems; and that the framing treats difficulty as a property the model can be taught to read, without the material stating how ground-truth difficulty was labelled.",
+    "method": "Two stages. Stage one is supervised fine-tuning on augmented data in which the same simple problem appears in both a concise and a redundant, verbosely phrased form, so that the model learns the two phrasings warrant the same reasoning mode and that surface verbosity is not evidence of difficulty. Stage two applies Group Relative Policy Optimization with a custom reward function to refine the adaptive policy, so that mode selection is conditioned on actual task complexity rather than on surface linguistic cues. The available material does not state the backbone models, the reward function's terms, the source of the augmented data, or the evaluation setup.",
+    "methods": [
+      "two-stage SFT + RL training",
+      "Group Relative Policy Optimization (GRPO)",
+      "data augmentation by verbose restatement"
+    ],
+    "one_liner": "Trains an adaptive reasoning model in two stages -- SFT on simple problems presented in both concise and verbose phrasings, then GRPO with a custom reward -- so that its choice between explicit reasoning and a direct answer tracks actual task difficulty rather than how wordy the question is.",
+    "problem": "Adaptive reasoning models that can switch between explicit reasoning and direct answering are meant to fix overthinking, where a large reasoning model spends multi-step reasoning on a simple task and pays unnecessary compute and latency for it. The paper identifies a failure in that fix: the switch is driven by superficial linguistic complexity, so a simple problem phrased verbosely is mistaken for a complex one and gets the expensive mode. The mode selector is reading surface form where it should be reading difficulty.",
+    "relevance": {
+      "overthinking": "Sharpens what the topic means by adaptive reasoning. Most of the literature asks whether a model can learn to stop early; this asks what signal the stopping decision is actually reading, and answers that it is partly reading prose length rather than problem difficulty -- a simple problem in a wordy costume gets the long reasoning mode. That is a concrete confound for every method in the archive that routes on estimated difficulty, and it suggests an evaluation the group does not currently have: hold the problem fixed, vary its phrasing, and see whether the reasoning budget moves. The proposed fix (SFT on concise/verbose pairs, then GRPO on a complexity-based reward) is a plausible remedy but, on the material available, an unquantified one -- the record carries the diagnosis with more confidence than the cure until the full paper can be read."
+    },
+    "results": "",
+    "tags": [
+      "overthinking",
+      "adaptive reasoning",
+      "grpo",
+      "efficient reasoning",
+      "difficulty estimation",
+      "robustness",
+      "large reasoning models"
+    ]
+  },
+  "task_id": "paper__title-75760913d4d6cfa4",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

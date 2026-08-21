@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
       "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models"
+    },
+    {
+      "id": "title:4bd9ad89663d1e26",
+      "kind": "paper",
+      "note": "IAPO shapes token-level RL advantages by each reasoning token's conditional mutual information with the final answer, so uninformative exploration is suppressed rather than length being penalized in aggregate, reporting up to 36% shorter reasoning at equal or better accuracy on math benchmarks.",
+      "title": "IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-20T11:35:54Z",
+  "last_seen": "2026-08-21T00:49:09Z",
   "name": "S-GRPO",
   "related": [
     "overthinking",
@@ -73,7 +79,27 @@
     "specrouter",
     "specreason",
     "speculative-thinking",
-    "scot"
+    "scot",
+    "token-efficient-reasoning",
+    "conditional-mutual-information",
+    "token-wise-advantage-shaping",
+    "reasoning-verbosity",
+    "low-utility-exploration",
+    "test-time-compute-cost",
+    "pass-k-per-token-efficiency",
+    "iapo",
+    "conditional-mutual-information-advantage-shaping",
+    "early-exit-mi-estimator",
+    "kv-cache-preloading",
+    "chunk-wise-forwarding",
+    "grpo",
+    "dapo",
+    "gfpo",
+    "gtpo",
+    "qwen2-5-instruct",
+    "gsm8k",
+    "math-500",
+    "dapo-math-17k"
   ],
   "related_authored": [],
   "schema_version": 1,

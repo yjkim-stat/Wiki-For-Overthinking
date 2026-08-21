@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:fe3c313c25254076",
+      "kind": "paper",
+      "note": "ParoQuant is a 4-bit weight-only post-training quantization method that applies a series of independent Givens (pairwise) rotations plus channel-wise scaling to weights before quantization, with a fused CUDA kernel, in order to keep accuracy on reasoning benchmarks where quantization error accumulates over long chains of thought.",
+      "title": "ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference"
+    }
+  ],
+  "first_seen": "2026-08-21T01:05:41Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T01:05:41Z",
+  "name": "EfficientQAT",
+  "related": [
+    "post-training-quantization",
+    "activation-and-weight-outliers",
+    "rotation-based-outlier-suppression",
+    "error-accumulation-over-long-chains-of-thought",
+    "quantization-group-dynamic-range",
+    "kernel-co-design",
+    "paroquant",
+    "givens-pairwise-rotation",
+    "channel-wise-scaling",
+    "awq",
+    "qtip",
+    "quip",
+    "omniquant",
+    "spinquant",
+    "fast-hadamard-transform",
+    "wikitext2",
+    "c4",
+    "mmlu-pro",
+    "gpqa-diamond",
+    "aime-2024",
+    "aime-2025",
+    "boolq",
+    "arc-challenge",
+    "arc-easy",
+    "hellaswag",
+    "redpajama-calibration",
+    "pile-validation"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "efficientqat",
+  "topics": [
+    "overthinking"
+  ]
+}

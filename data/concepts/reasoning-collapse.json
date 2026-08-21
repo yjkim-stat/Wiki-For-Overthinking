@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "Reasoning collapse"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.29287",
+      "kind": "paper",
+      "note": "TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.",
+      "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation"
+    },
+    {
+      "id": "arxiv:2608.08889",
+      "kind": "paper",
+      "note": "An empirical study of LLM verifiers on four subjective verification tasks from a production recommender platform, showing that explicit reasoning often degrades accuracy and that standard RLVR drives reasoning length to near zero ('reasoning collapse'), plus a conditional length-penalized reward that restores it.",
+      "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Reasoning Collapse",
+  "related": [
+    "resource-rational-reasoning",
+    "difficulty-adaptive-reasoning-depth",
+    "system-1-system-2",
+    "reasoning-redundancy",
+    "reward-hacking",
+    "rich-points",
+    "overthinking",
+    "twt-translation-with-thought",
+    "difficulty-adaptive-cot-distillation-and-rewriting",
+    "grpo",
+    "hybrid-bleu-comet-quality-reward",
+    "n-gram-repetition-penalty-n-20",
+    "binary-format-reward",
+    "llama-factory-verl-vllm",
+    "qwen2-5-7b-14b-instruct-llama-3-1-8b-instruct-gemma-2-9b-it-backbones",
+    "deepseek-r1-trace-distillation-gpt-4o-difficulty-rating-and-rewriting",
+    "7k-difficulty-adaptive-long-cot-sft-set-10-domains-de-en-en-zh-zh-en",
+    "20k-multi-domain-parallel-rl-set",
+    "in-domain-test-sets-laws-news-science-subtitles-literary-it-koran-medical",
+    "ood-test-sets-conversation-ecommerce-social-culture-commonsense",
+    "flores-59-unseen-languages",
+    "reasoning-mismatch-math-centric-reasoning-applied-to-human-centric-rubrics",
+    "monolithic-reasoning-paradox",
+    "length-gated-reward-shaping",
+    "reward-overoptimization-shortcut-to-heuristic-guessing",
+    "reasoning-as-a-tunable-rather-than-a-default",
+    "persona-conditioned-reasoning-bias-and-routing",
+    "subjective-verification-without-a-deterministic-verifier",
+    "dr-grpo",
+    "gspo",
+    "conditional-length-rewarding",
+    "target-constrained-length-penalty",
+    "unconstrained-length-rewarding",
+    "self-consistency-k-8-majority-vote",
+    "persona-conditioned-prompting",
+    "llm-as-a-judge-verification",
+    "four-internal-netflix-verification-tasks-with-human-ground-truth-labels-conversa",
+    "a-public-roleplay-persona-dataset-1-500-personas"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reasoning-collapse",
+  "topics": [
+    "overthinking"
+  ]
+}

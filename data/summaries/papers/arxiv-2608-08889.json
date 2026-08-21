@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "Reasoning collapse",
+    "Reasoning mismatch (math-centric reasoning applied to human-centric rubrics)",
+    "Monolithic reasoning paradox",
+    "Length-gated reward shaping",
+    "Reward overoptimization / shortcut to heuristic guessing",
+    "Reasoning as a tunable rather than a default",
+    "Persona-conditioned reasoning bias and routing",
+    "Subjective verification without a deterministic verifier"
+  ],
+  "contributions": [
+    "A large-scale empirical study across proprietary and open-source models on four real production subjective verification tasks, showing that enforcing explicit reasoning generally degrades macro-F1 relative to zero-shot direct verification",
+    "Identification and characterization of 'reasoning collapse': under outcome-only RLVR on subjective rubrics the policy suppresses long-form deliberation in favour of fast heuristic guessing, with mean completion length dropping from ~300 to ~170 tokens after ~70 GRPO steps",
+    "A conditional length-penalized reward that pays a capped length bonus only on correct verifications, halting collapse and lifting Qwen2.5-7B above both its reasoning and no-reasoning baselines on two rubrics",
+    "Evidence that a reasoning trace's efficacy is tied to its socio-linguistic framing: macro-F1 varies by ~0.38 across 1,500 reasoning personas on the same task",
+    "A proposed but untested mid-training blueprint that uses RLVR to route which reasoning bias to apply rather than to teach how to reason"
+  ],
+  "datasets": [
+    "Four internal Netflix verification tasks with human ground-truth labels (Conversational Query Sensitivity, Generated Text Response Sensitivity, Text: Response Quality, ID: Response Quality)",
+    "A public roleplay persona dataset (1,500 personas)"
+  ],
+  "generated_at": "2026-08-21T00:34:35Z",
+  "generated_by": "queue",
+  "limitations": "Stated: the persona results (Section 5) are intentionally preliminary — the paper quantifies how persona-conditioned reasoning affects accuracy but does not train or deploy the routing architecture it proposes; the data is proprietary Netflix in-production data that cannot be publicly released, so absolute numbers reflect one deployment setting and only relative trends should be expected to transfer; open-source post-training covers two 7B instruction-tuned models and three RLVR algorithms, with larger models left as future work; proprietary models are accessed as black-box APIs so their intrinsic reasoning is not observable and provider-side updates may shift absolute numbers; evaluation is primarily macro-F1 against human labels, with no dedicated study of reasoning-trace faithfulness. A reader should also notice: the conditional-reward results in Table 4 are shown only for Qwen2.5-7B and only on two of the four tasks; L_target = 1000 and lambda = 2e-4 are fixed hyperparameters whose sensitivity is not swept (only lr and beta were coarsely searched); the tasks are binary Yes/No verification, so 'reasoning' here is short (baseline ~280-300 tokens), far below the length regime of long-CoT reasoning models; and the persona spread is measured against human aggregate labels on rubrics whose inter-annotator disagreement the authors themselves call informative, so part of the spread may reflect which annotator population a persona happens to match.",
+  "method": "Three parts. (1) Prompting study: four binary Yes/No verification tasks from Netflix internal guideline documents (Conversational Query Sensitivity, Generated Text Response Sensitivity, Text: Response Quality, ID: Response Quality), each with human ground-truth labels; three prompt formulations are compared — direct JSON verification without reasoning, implicit reasoning (explanation before answer), and explicit reasoning (structured <reason>/<answer> tags) — on a proprietary general-purpose model, a proprietary reasoning model at low and high effort, and Mistral-7B-Instruct and Qwen2.5-7B-Instruct. Metric is macro-F1 on a held-out human-labeled test set, averaged over 5 runs, greedy decoding; self-consistency uses K=8 samples at temperature 0.7 with majority vote. (2) Post-training: GRPO, Dr. GRPO and GSPO with a binary reward on the final verification label only (G=8 rollouts at temperature 1.0, AdamW, lr 1e-6, KL beta 0.04, batch 64 prompts, max 8192 tokens, 400 steps). (3) The proposed fix is a conditional length reward: r_total = r_base + lambda*L when r_base = 1 and L < L_target, else r_base, with L_target = 1000 tokens and lambda = 2e-4. The length bonus is paid only when the answer is correct and is capped at L_target, so extended generation is rewarded only if it is used to solve the task. Two rejected alternatives are reported: an unconstrained monotonic length reward, and a target-constrained bounded penalty. (4) Persona study: 1,500 personas from a public roleplay dataset are used as system prompts instructing the frontier model to produce a persona-consistent reasoning trace plus a Yes/No verification; per-persona macro-F1 against human ground truth isolates reasoning style as the only varied factor. This motivates an untested three-step 'mid-training' blueprint (synthesize persona CoT trajectories, SFT to internalize them, then use GRPO to route which reasoning bias to apply).",
+  "methods": [
+    "GRPO",
+    "Dr. GRPO",
+    "GSPO",
+    "Conditional length rewarding",
+    "Target-constrained length penalty",
+    "Unconstrained length rewarding",
+    "Self-consistency (K=8 majority vote)",
+    "Persona-conditioned prompting",
+    "LLM-as-a-Judge verification"
+  ],
+  "one_liner": "An empirical study of LLM verifiers on four subjective verification tasks from a production recommender platform, showing that explicit reasoning often degrades accuracy and that standard RLVR drives reasoning length to near zero ('reasoning collapse'), plus a conditional length-penalized reward that restores it.",
+  "paper_id": "arxiv:2608.08889",
+  "problem": "Reinforcement Learning with Verifiable Rewards and chain-of-thought have been benchmarked almost entirely on objective, mathematical tasks with deterministic verifiers. Recommender platforms deploy LLMs as autonomous verifiers of safety and quality rubrics where 'correctness' is subjective human preference, there is no canonical correct reasoning trajectory, and no reliable programmatic verifier exists. Whether explicit reasoning techniques forged in objective domains transfer to such rubrics was open.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "On-topic, and useful mainly for the under-thinking half of the topic, which the archive has less of. Three things it contributes. First, a domain where more reasoning is measurably worse: on three of four production subjective rubrics, zero-shot direct verification beats both explicit-reasoning prompting and a dedicated reasoning model at high effort (e.g. 0.901 vs 0.874 macro-F1), and self-consistency with K=8 widens rather than closes the gap (0.690 vs 0.574) — evidence that test-time scaling amplifies an unhelpful reasoning mode rather than correcting it. Second, 'reasoning collapse' is a named and measured mechanism by which outcome-only RL drives a model to think less than the task needs: because subjective domains have no canonical correct trajectory, guessing earns the same reward at a fraction of the token cost, and mean completion length falls from ~300 to ~170 tokens after ~70 GRPO steps. That is the mirror image of the length inflation this topic usually tracks, and it comes from the same reward structure. Third, the conditional length reward is a concrete stopping/continuing control: pay the length bonus only when the final answer is correct and cap it at L_target, which the paper shows is the only one of three formulations that yields useful long generation rather than filler (0.851 at ~980 tokens vs 0.760 for an ungated bounded penalty). Scope caveat for the group: the tasks are binary Yes/No verification with baseline traces of a few hundred tokens, so this is not the multi-thousand-token long-CoT regime, and the persona-routing part is a proposal rather than a result."
+  },
+  "results": "All numbers are macro-F1 on real in-production Netflix rubrics, averaged over 5 runs; run-to-run std below 0.01. Prompting (Table 1): the proprietary general-purpose model scores 0.901 without reasoning on Query Sensitivity vs 0.893 implicit and 0.887 explicit, and the proprietary reasoner reaches only 0.895 (low) / 0.874 (high). Response Sensitivity: 0.622 no-reasoning vs 0.605/0.619, reasoner 0.564/0.580. Text: Response Quality 0.892 vs 0.884/0.876. ID: Response Quality is the one exception (0.513 no-reasoning vs 0.520 explicit). Inference-time scaling does not rescue it: self-consistency K=8 on Response Sensitivity gives 0.690 without reasoning but 0.574 with explicit reasoning, a larger gap. Open-source (Table 2): Mistral-7B benefits from reasoning on all four tasks (e.g. 0.555 to 0.646 on Response Sensitivity); Qwen2.5-7B is mixed — helps on Query Sensitivity (0.748 to 0.805) but hurts Response Sensitivity (0.561 to 0.520). Post-training (Table 3): all three RLVR variants degrade Qwen on every task (Query Sensitivity 0.805 base to 0.749/0.758/0.762), while Mistral gains consistently (Query Sensitivity 0.724 to 0.802 with GSPO). Reasoning collapse (Figure 2): under GRPO, Qwen's mean terminated completion length falls from ~300 tokens to ~170 after roughly 70 training steps. Reward shaping on Qwen (Table 4): the unconstrained length reward runs to the 8192-token cap and destroys accuracy (0.210 Query Sens., 0.185 ID); the target-constrained penalty converges to ~990 tokens but only reaches 0.760 / 0.525 (coherent but functionally useless filler before guessing); the conditional reward reaches 0.851 at ~980 tokens on Query Sensitivity, above the 0.805 no-RLVR reasoning baseline and the 0.748 no-reasoning baseline, and 0.572 at ~960 tokens on ID: Response Quality, above both the 0.539 reasoning and 0.544 no-reasoning baselines. Personas (Figures 3-4): across 1,500 personas on one sensitivity task macro-F1 ranges 0.416 to 0.792, a spread of ~0.38 driven only by the adopted reasoning persona; the effect replicates on the harder ID: Response Quality task with a roughly 0.33-0.65 spread peaked near 0.45.",
+  "schema_version": 1,
+  "tags": [
+    "rlvr",
+    "grpo",
+    "reasoning length",
+    "reward shaping",
+    "llm-as-judge",
+    "recommender systems",
+    "subjective evaluation",
+    "post-training"
+  ]
+}

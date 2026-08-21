@@ -1,0 +1,58 @@
+{
+  "concepts": [
+    "Thinking/non-thinking correctness delta",
+    "Advisory prompt",
+    "Improvement instruction and guard instruction",
+    "Accuracy-cost operating point",
+    "Cross-model prompt transfer",
+    "Common-mode failure",
+    "Procedural guidance"
+  ],
+  "contributions": [
+    "A training-free four-stage pipeline that mines thinking/non-thinking correctness deltas and distills them, via a teacher model reading the reasoning traces, into a fixed advisory prompt composed with the original task template.",
+    "Held-out evidence on five software-engineering task families and four small hybrid models that the distilled prompt improves non-thinking pass rate in 19 of 20 comparisons (mean +3.1 points) while using 58.6% fewer output tokens than the thinking baseline.",
+    "A quantification of the residual accuracy gap: thinking mode still wins in 17 of 20 comparisons by 7.5 points on average, with the size of the concession differing by model family (14.3 points for Qwen3, 0.8 for Gemma-4).",
+    "A cross-model transfer study of failure-distilled prompts, showing positive mean transfer on three of five task families and direction-dependent effects.",
+    "A test of pairwise failure correlation (phi) as a predictor of transfer gain, which finds substantial common-mode failure (mean phi 0.44) but only a weak association with transfer (rho = 0.09), and shows shared failures are rescued less often (21.3%) than target-only failures (49.1%).",
+    "An exception-prediction and method-hallucination evaluation setting for this question, including a 290-example dataset of plausible but nonexistent Python library members checked statically against a documentation snapshot of 30 libraries."
+  ],
+  "datasets": [
+    "LiveCodeBench v1-v6 (341 examples in v5/v6 for distillation and folds; 713 examples in v1-v4 as unseen release sets)",
+    "CRUXEval-I input prediction (800 examples)",
+    "Exception prediction, CRUXEval-style extension of Spiess, Devanbu and Barr (834 examples)",
+    "Output prediction, perturbed-input CRUXEval-style variant (7,450 examples; 200 sampled per held-out fold for transfer)",
+    "Method hallucination dataset (290 examples over 30 Python libraries, statically checked against a documentation snapshot)"
+  ],
+  "generated_at": "2026-08-21T00:33:17Z",
+  "generated_by": "queue",
+  "limitations": "Stated: evaluation is pass rate only, ignoring maintainability, security and usability; a single stochastic generation per condition at temperature 0.7, so gains may partly reflect sampling variability; teacher-generated diagnoses are post-hoc explanations that were not independently validated; no ablation of the teacher's inputs, so the measured effect is of the whole pipeline rather than of the reasoning trace specifically (trace vs no trace, improvement vs guard instructions, synthesized vs generic advice are all left to future work); only four small students, two teachers and five predominantly Python tasks; transfer is directional and sometimes degrades, so a prompt must be validated per target model. Worth noting beyond those: the pipeline moves cost rather than removing it -- the teachers are frontier models (GPT-5.4 and GPT-5.4-mini) run over the whole distillation split, and the reported savings count only student inference; Gamma is negative in 16 of 20 cells, so the distilled non-thinking prompt does not in general reach the accuracy of thinking mode; the near-parity result for Gemma-4 comes with much smaller token savings, so the favourable family may simply be the one whose thinking mode is shorter; and the paper proposes but does not evaluate the obvious deployment policy of escalating hard cases from the distilled prompt back to thinking mode.",
+  "method": "Four stages, all inference-only. (1) A student hybrid model runs the base prompt over a distillation split twice, with thinking off (z=0) and on (z=1), recording predictions, scores, response lengths and reasoning traces; the paired delta d_i = a_{i,1} - a_{i,0} defines an improvement set C+ (non-thinking fails, thinking passes) and a regression set C- (the reverse). (2) A teacher model sees each delta case -- task prompt, expected answer or oracle, both student responses, scores and the reasoning trace -- and emits a structured diagnosis: a mechanism label, a short explanation, a prompt suggestion, an evidence span and a confidence. Validation and test examples are never shown. (3) A larger teacher aggregates the case diagnoses into reusable 'improvement instructions' (do this more systematically: check feasibility conditions, derive invariants, validate boundary cases) and 'guard instructions' (avoid unsupported assumptions, unnecessary transformations, changes to required output format), and composes them with the original template into k=3 candidate templates that must preserve the original fields and placeholders. (4) Candidates are scored on a validation split under both modes; the selected template maximises the mean of thinking and non-thinking validation pass rate, with ties broken by fewer baseline-success regressions, then shorter prompt, then lower index. Held-out evaluation reports the per-mode difference, the gap Gamma = p*_{,0} - p_{0,1} between distilled non-thinking and baseline thinking, and output-token savings 1 - L*_{,0}/L_{0,1} counting reasoning-trace and response tokens but not the input prompt. Transfer is measured by applying model A's prompt to model B; common-mode failure is measured by the pairwise phi coefficient between the two models' binary non-thinking outcomes, and related to transfer gain by Spearman correlation.",
+  "methods": [
+    "prompt distillation from thinking/non-thinking correctness deltas",
+    "teacher-model case diagnosis with structured output (mechanism label, explanation, prompt suggestion, evidence span, confidence)",
+    "improvement instructions and guard instructions",
+    "validation-based candidate prompt selection",
+    "cross-model prompt transfer evaluation",
+    "pairwise phi coefficient for common-mode failure",
+    "paired exact McNemar test, one-sided Wilcoxon signed-rank, Spearman rank correlation"
+  ],
+  "one_liner": "An inference-time pipeline that mines cases where a hybrid model's thinking mode flips correctness, has a frontier teacher turn those cases into short advisory prompt instructions, and evaluates whether the resulting prompt recovers part of thinking-mode accuracy in non-thinking mode on software-engineering tasks.",
+  "paper_id": "arxiv:2608.00437",
+  "problem": "Hybrid reasoning models reduce errors on code tasks when thinking mode is enabled, but thinking costs output tokens and latency, and retraining on cleaner code corpora is impractical. The open question the paper poses is whether the benefit of the thinking toggle can be captured by a fixed prompt, with no weight updates, so that a small model can run in the cheaper non-thinking mode; and whether such a prompt, derived from one model's errors, works on another model.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly on topic. The paper treats the thinking toggle as an accuracy/cost operating point rather than an on/off improvement, and measures both sides: the distilled prompt buys back part of thinking-mode accuracy in non-thinking mode at 58.6% fewer output tokens, but thinking still wins by 7.5 points on average, so the prompt is a cheaper default rather than a replacement. Two findings are useful to the topic beyond the headline. First, the size of the accuracy concession for a given token saving is a property of the model family, not of the task: Qwen3 gives up 14.3 points to save 78% of tokens while Gemma-4 gives up 0.8 to save 39%, which the authors tie to Qwen3 training thinking through a dedicated pipeline with an explicit budget and Gemma-4 adding it on top of standard post-training. That is evidence that 'how much is a token of thinking worth' is not a single curve. Second, the savings are not shortening: in 89 of 116 held-out sets the distilled non-thinking output is longer than the plain non-thinking output, so the prompt appears to substitute brief in-answer working for a much longer trace -- a data point on compressing rather than truncating reasoning. It also supplies an explicit negative for the mode-selection question: thinking-mode gains from the same prompt are smaller (+1.3) and often negative, i.e. the guidance is redundant once the model is already deliberating."
+  },
+  "results": "Non-thinking mode: 19 of 20 model-task comparisons improve, mean +3.1 pass-rate points, 10 nominally significant under paired exact McNemar. Largest gains on Exception Prediction (Qwen3-4B 0.447 -> 0.562, +11.5); LiveCodeBench positive for all four models (+2.3 to +4.8) including the independent v1-v4 release evaluation; Output Prediction, with high baselines, averages +0.8 (Qwen3-4B is -0.0). With thinking mode on, only 14 of 20 improve, mean +1.3, and three of the five families contain negative estimates. On cost (RQ2), distilled non-thinking inference uses 58.6% fewer output tokens than the thinking baseline on average (Method Hallucination 67.5%, LiveCodeBench 63.6%), but thinking mode still scores higher in 17 of 20 cases by an average of +7.5 points, so Gamma is negative in most cells. The trade differs sharply by model family: for the Qwen3 students the distilled prompt saves 78% of output tokens while conceding 14.3 points against the thinking baseline; for Gemma-4 it saves 39% while conceding 0.8. The savings are not simple truncation -- in 89 of 116 held-out sets the distilled non-thinking outputs are longer than the plain non-thinking outputs, consistent with the prompt eliciting brief working inside the answer. Transfer (RQ3) is positive on three of five families: Exception Prediction 48/60 evaluations positive, mean +4.4; LiveCodeBench +2.7; Method Hallucination +2.7 (all Wilcoxon p < .001); Input and Output Prediction average -0.7 with p = .207 and .071. Common-mode failure (RQ4) is substantial, mean phi 0.44 (0.29 on Input Prediction to 0.53 on Method Hallucination), but predicts transfer only weakly: rho = 0.09, p = .131 over 288 directed evaluations. Transferred prompts rescue 21.3% of shared source-target failures versus 49.1% of target-only failures; Gemma-4-E4B -> E2B gains 4.1 points while the reverse direction loses 1.4. Selected prompts are short, averaging +54.5 template tokens; a keyword audit of 100 of them finds 49% asking the model to track state or transitions, 40% to work through concrete examples, 25% to check edge cases. All results are from model inference on benchmark datasets; there is no hardware or human-subject component.",
+  "schema_version": 1,
+  "tags": [
+    "efficient-reasoning",
+    "hybrid-reasoning-models",
+    "thinking-mode",
+    "prompt-distillation",
+    "code-generation",
+    "token-budget",
+    "small-language-models",
+    "prompt-transfer"
+  ]
+}

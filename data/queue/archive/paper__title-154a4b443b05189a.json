@@ -1,0 +1,101 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:46:57Z",
+  "created_at": "2026-08-21T00:41:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:154a4b443b05189a",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "efficient reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "ImgCoT: Compressing Long Chain of Thought into Compact Visual Tokens for Efficient Reasoning of Large Language Model",
+    "url": "https://icml.cc/virtual/2026/poster/63716",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "Latent chain of thought",
+      "Chain-of-thought compression",
+      "Reconstruction target bias",
+      "Spatial inductive bias",
+      "Token-log-likelihood step selection",
+      "Hybrid latent-textual reasoning"
+    ],
+    "contributions": [
+      "Replaces the reconstruction target in latent-CoT autoencoding with an image of the rendered chain of thought, arguing that spatial inductive bias suits reasoning structure better than linguistic bias.",
+      "Introduces loose ImgCoT, which augments the visual latent tokens with textual reasoning steps selected by low token log-likelihood.",
+      "Reports 8-token latent reasoning matching full CoT on MATH, GPQA-Extended and ProsQA across three base models, against latent-CoT baselines Coconut, CODI and CoLaR."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "GPQA-Extended",
+      "ProsQA"
+    ],
+    "limitations": "The paper states that visual latent tokens may obscure fine-grained reasoning details, which affects domain-specific skills, and that increasing the latent token count well beyond the optimum causes underfitting. The GSM8K results undercut the headline framing: the 8-token compression costs 3.7 to 7.7 accuracy points against full CoT there at all three model scales, so the claim of preserved accuracy holds on MATH and ProsQA but not on GSM8K, and the variant that does match full CoT (L-ImgCoT) buys that back with roughly 30% compression rather than the ~12x of ImgCoT. Models are all 0.5B-3B instruction-tuned, not long-CoT reasoning models, so the traces being compressed are not the multi-thousand-token traces that motivate the efficiency problem. Numbers here are read from the paper's tables as reported; the underlying reasoning traces used for distillation and the compute cost of rendering and encoding images are not reflected in the token counts.",
+    "method": "The reconstruction target is changed from textual CoT to visual CoT: the chain of thought is rendered into an image, and the latent tokens are trained to reconstruct that image. The paper's claim is that this substitutes linguistic bias with a spatial inductive bias, i.e. a tendency to model the spatial layout of the reasoning steps, so the latent tokens capture global reasoning structure. A second variant, loose ImgCoT (L-ImgCoT), is a hybrid: the visual latent tokens are augmented with a few key textual reasoning steps, selected by low token log-likelihood, on the grounds that low-likelihood steps carry the reasoning detail the visual tokens lose.",
+    "methods": [
+      "ImgCoT",
+      "loose ImgCoT (L-ImgCoT)",
+      "CoT-to-image rendering as autoencoder reconstruction target",
+      "low-log-likelihood step selection",
+      "Coconut",
+      "CODI",
+      "CoLaR"
+    ],
+    "one_liner": "ImgCoT compresses a long chain of thought into a small set of latent tokens by training the autoencoder to reconstruct an image of the rendered CoT rather than its text.",
+    "problem": "Latent-CoT methods compress long reasoning traces into a few continuous tokens to cut inference cost, but existing autoencoder approaches use the textual CoT as the reconstruction target. The paper argues this forces the latent tokens to preserve surface linguistic features (linguistic bias) instead of the reasoning structure, so the compressed representation carries the wrong information.",
+    "relevance": {
+      "overthinking": "Directly on topic as a length-reduction method: it attacks the token cost of long reasoning traces by compressing them into 8 latent tokens rather than by deciding when to stop. It is the compression arm of the accuracy/efficiency tradeoff, complementary to adaptive-stopping work — the budget is fixed in advance rather than chosen per problem, so nothing here lets a hard problem keep going. Its own GSM8K numbers are the useful evidence for the group: at roughly 12x compression accuracy drops 3.7-7.7 points against full CoT, and the hybrid variant that recovers full-CoT accuracy only compresses by about 30%, which puts a concrete price on the tradeoff at small model scales."
+    },
+    "results": "Evaluated on Qwen2.5-0.5B-Instruct, Qwen2.5-1.5B-Instruct and Llama3.2-3B-Instruct over GSM8K, MATH, GPQA-Extended and ProsQA. ImgCoT uses 8 latent tokens against 100+ tokens for full CoT. On MATH it roughly matches full CoT (0.5B: 9.8 vs 9.2; 1.5B: 19.5 vs 19.4; 3B: 24.1 vs 23.8) and on ProsQA it exceeds it (97.4 vs 94.6 at 0.5B); prior latent-CoT baselines are far lower (Coconut 3.5 on MATH at 0.5B, 3.7 on GSM8K; CODI 4.3 on MATH at 1.5B; CoLaR 19.1 on MATH and 27.4 on GSM8K at 3B). On GSM8K ImgCoT is below full CoT at every scale: 9.2 vs 16.9 (0.5B), 38.7 vs 44.1 (1.5B), 56.8 vs 60.5 (3B). L-ImgCoT is reported to use about 30% fewer tokens than full CoT while matching or exceeding its accuracy.",
+    "tags": [
+      "latent-cot",
+      "cot-compression",
+      "efficient-reasoning",
+      "visual-tokens",
+      "token-budget",
+      "icml-2026"
+    ]
+  },
+  "task_id": "paper__title-154a4b443b05189a",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

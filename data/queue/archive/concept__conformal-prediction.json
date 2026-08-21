@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
+        "title": "Statistical Early Stopping for Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains a neural network to estimate a mixed-integer solver's true optimality gap from its internal state, then uses conformal prediction to calibrate a termination threshold that carries a distribution-free probabilistic guarantee on the quality of the solution returned.",
+        "title": "Conformal Prediction for Early Stopping in Mixed Integer Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
+        "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:04:42Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'conformal prediction'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "conformal prediction",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "conformal prediction",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "In this archive conformal prediction is used not to produce prediction sets but as a wrapper that turns a learned score into a stopping threshold carrying a distribution-free, finite-sample guarantee. The mixed-integer optimization paper is the clearest case: a network estimates the solver's true optimality gap from its internal state, and conformal calibration converts that estimate into a termination threshold with a distribution-free probabilistic guarantee on the quality of the returned solution. ATTS applies the same machinery inside LLM inference, using it to coordinate multi-dimensional test-time scaling asynchronously and cut synchronization overhead between draft and target models. The statistical early-stopping paper is adjacent rather than conformal — it bounds the probability of halting too early on a well-posed query from uncertainty-keyword arrivals — so the archive's three sources share the guarantee's shape more than they share the technique.",
+    "kind": "method",
+    "related": [
+      "Confidence Thresholding",
+      "confidence calibration"
+    ]
+  },
+  "task_id": "concept__conformal-prediction",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

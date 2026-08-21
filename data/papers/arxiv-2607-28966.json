@@ -1,0 +1,43 @@
+{
+  "abstract": "Large language models often improve task performance by generating long reasoning traces, but the resulting computation is frequently wasted on redundant verification and revision. Existing probe-based early-exit approaches mainly inspect explicit self-doubt expressions, leaving many earlier termination opportunities undetected. Expanding inspection to ordinary reasoning boundaries improves coverage, but also exposes highly diverse intermediate states whose predictive information may reside in different hidden layers. We present Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning (BLADE), a lightweight framework that dynamically terminates reasoning by estimating whether the generated prefix is sufficient for correct answering. BLADE constructs multi-granular checkpoints from sentence, self-doubt, and paragraph boundaries, and derives robust training labels through repeated answer completions. It further learns a compact subset of informative probe layers instead of relying on fixed choices or expensive representations from all layers. At inference time, calibrated predictions are combined with checkpoint-specific confirmation rules to balance responsiveness and premature-exit risk. Experiments on five benchmarks and two Qwen3 reasoning models show that BLADE preserves near-baseline accuracy while reducing generated tokens by 24.8% on Qwen3-8B and 15.8% on Qwen3-4B. Ablation studies further confirm the benefits of diverse checkpoints and automatic layer selection, demonstrating an effective approach to more efficient LLM reasoning.",
+  "arxiv_id": "2607.28966",
+  "authors": [
+    "Keshu Fu",
+    "Keqin Peng",
+    "Jun Bai",
+    "Shuhan Qin",
+    "Chen Li",
+    "Junzhu Liang",
+    "Yefei Chen",
+    "Jiaqi Li",
+    "Yuanxin Ouyang"
+  ],
+  "categories": [
+    "cs.CL"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-20T23:36:15Z",
+  "id": "arxiv:2607.28966",
+  "last_seen": "2026-08-20T23:36:15Z",
+  "local_path": "data/pdfs/read/arxiv-2607-28966.pdf",
+  "matched_keywords": [
+    "early exit",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2607.28966v1",
+  "published": "2026-07-31",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "arxiv",
+  "source_id": "2607.28966v1",
+  "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-07-31",
+  "url": "https://arxiv.org/abs/2607.28966",
+  "venue": "",
+  "year": 2026
+}

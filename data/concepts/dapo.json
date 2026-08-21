@@ -1,0 +1,72 @@
+{
+  "aliases": [],
+  "definition": "No archived paper is about DAPO; it is named only in passing, and always as a GRPO-style clipped policy-optimization algorithm for RL with verifiable rewards. IAPO uses it as one baseline among GFPO, GTPO and S-GRPO, reporting the better Pass@k/Length@k ratio against it; other archived work borrows specific pieces of it, namely its clipped objective with asymmetric bounds and token-level aggregation, and its soft overlong penalty. QuRL uses the bare name loosely for training data rather than for the algorithm, which is the DAPO-Math-17k corpus, so the same string denotes both a method and a dataset in the archive and the two are kept as separate entries here. Nothing archived expands the acronym or describes the full method.",
+  "evidence": [
+    {
+      "id": "title:4bd9ad89663d1e26",
+      "kind": "paper",
+      "note": "IAPO shapes token-level RL advantages by each reasoning token's conditional mutual information with the final answer, so uninformative exploration is suppressed rather than length being penalized in aggregate, reporting up to 36% shorter reasoning at equal or better accuracy on math benchmarks.",
+      "title": "IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning"
+    },
+    {
+      "id": "title:9b034ca49bd46f6f",
+      "kind": "paper",
+      "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
+      "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "DAPO",
+  "related": [
+    "token-efficient-reasoning",
+    "conditional-mutual-information",
+    "token-wise-advantage-shaping",
+    "reasoning-verbosity",
+    "low-utility-exploration",
+    "test-time-compute-cost",
+    "pass-k-per-token-efficiency",
+    "overthinking",
+    "iapo",
+    "conditional-mutual-information-advantage-shaping",
+    "early-exit-mi-estimator",
+    "kv-cache-preloading",
+    "chunk-wise-forwarding",
+    "grpo",
+    "s-grpo",
+    "gfpo",
+    "gtpo",
+    "qwen2-5-instruct",
+    "gsm8k",
+    "math-500",
+    "dapo-math-17k",
+    "quantized-rollout",
+    "policy-ratio-clipping",
+    "reinforcement-learning-with-verifiable-rewards",
+    "quantization-noise",
+    "training-time-compute-bottleneck",
+    "qurl",
+    "adaptive-clipping-range-acr",
+    "invariant-scaling",
+    "rlvr",
+    "int8-quantization",
+    "fp8-quantization",
+    "grpo-style-clipped-policy-optimization",
+    "deepscaler",
+    "aime-2024",
+    "amc23",
+    "minerva-math",
+    "olympiadbench",
+    "omni-math",
+    "still"
+  ],
+  "related_authored": [
+    "dapo-math-17k"
+  ],
+  "schema_version": 1,
+  "slug": "dapo",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -46,7 +46,7 @@ The paper notes the falsification asymmetry (refuting is easier than constructin
 
 - **Concepts**: claim-level falsification, signal dilution in whole-trace reliability evaluation, asymmetry between solution construction and claim refutation, nonlinear reliability-weighted consensus aggregation, rescue rate (overturning incorrect majority consensus)
 - **Methods**: Claim-Level Reliability Assessment (CLR), self-consistency / Cons@K majority voting, pass@1, claim-level falsification, nonlinear reliability scoring
-- **Datasets**: HMMT25, HMMT26, CMIMC25, Apex-shortlist
+- **Datasets**: HMMT25, HMMT26, [CMIMC25](../../../../wiki/datasets/cmimc25.md), Apex-shortlist
 
 Tags: `test-time-scaling`, `self-consistency`, `verification`, `reliability-scoring`, `efficient-inference`, `reasoning-benchmarks`
 

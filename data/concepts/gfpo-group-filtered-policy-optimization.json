@@ -1,0 +1,52 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2607.21793",
+      "kind": "paper",
+      "note": "QLPO is a GRPO variant that leaves the reward, advantage estimator and update untouched and instead over-generates K=16 rollouts per prompt and resamples the M=8 training group to favour short-correct and long-incorrect trajectories, which shortens outputs by 30-70% relative to GRPO at roughly unchanged accuracy.",
+      "title": "QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "GFPO (Group Filtered Policy Optimization)",
+  "related": [
+    "length-explosion",
+    "accuracy-length-tradeoff",
+    "implicit-length-control",
+    "group-relative-policy-optimization",
+    "rollout-group-composition",
+    "length-penalty-reward-shaping",
+    "sample-selection-in-rl-post-training",
+    "token-level-loss-normalization",
+    "short-correct-long-incorrect-asymmetry",
+    "qlpo-quadrant-weighted-sampling-for-length-aware-policy-optimization",
+    "grpo",
+    "grpo-with-explicit-length-penalty",
+    "rollout-budget-matched-grpo",
+    "group-trajectory-gradient-decomposition",
+    "verl",
+    "l1",
+    "laser",
+    "thinkprune",
+    "thinkless",
+    "dapo-math-training",
+    "math-lighteval-training-3b-setting",
+    "math-500",
+    "gsm8k",
+    "olympiadbench",
+    "gpqa",
+    "aime-2024",
+    "geo3k-multimodal-preliminary",
+    "eurus-2-rl-data-code-preliminary"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gfpo-group-filtered-policy-optimization",
+  "topics": [
+    "overthinking"
+  ]
+}

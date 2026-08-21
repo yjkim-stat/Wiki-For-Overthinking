@@ -1,0 +1,95 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:53:33Z",
+  "created_at": "2026-08-21T00:49:09Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:8f5c26cc033aae9f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Text embeddings are essential for tasks such as document retrieval, clustering, and semantic similarity assessment. In this paper, we study how to contrastively train text embedding models in a compute-optimal fashion, given a suite of pretrained decoder-only language models. Our innovation is an algorithm that produces optimal configurations of model sizes, data quantities, and fine-tuning methods for text-embedding models at different computational budget levels. The resulting recipe, which we obtain through extensive experiments, can be used by practitioners to make informed design choices for their embedding models. Specifically, our findings suggest that full fine-tuning and Low-Rank Adaptation fine-tuning produce optimal models at lower and higher computational budgets respectively.",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2024-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe",
+    "url": "https://neurips.cc/virtual/2024/poster/93887",
+    "venue": "NeurIPS 2024"
+  },
+  "result": {
+    "concepts": [
+      "Compute-Optimal Scaling",
+      "Contrastive Text Embeddings",
+      "Parameter-Efficient Fine-Tuning",
+      "Training Budget Allocation"
+    ],
+    "contributions": [
+      "An algorithm that returns optimal configurations of model size, data quantity and fine-tuning method for text-embedding models at a given compute budget",
+      "An empirical recipe for practitioners choosing among pretrained decoder-only models for embedding fine-tuning",
+      "The finding that full fine-tuning is compute-optimal at lower budgets while Low-Rank Adaptation is compute-optimal at higher budgets"
+    ],
+    "datasets": [],
+    "limitations": "The abstract states no numbers, so the crossover budget at which LoRA overtakes full fine-tuning -- the practically decisive quantity -- is not given here, nor is the evaluation benchmark named. The recipe is fitted over a particular suite of pretrained decoder-only models, so its transfer to encoder architectures or to a different pretraining corpus is not established. Compute-optimality is defined over training budget; inference cost of the resulting embedding model is not part of the objective, though it is what usually dominates in a deployed retrieval system.",
+    "method": "Given a suite of pretrained decoder-only language models, the authors run contrastive embedding fine-tuning across a grid of model sizes, data quantities and fine-tuning methods, and fit an algorithm that returns the optimal configuration of those three variables at a given computational budget level. The output is a practitioner-facing recipe: read off the budget, get the size, data quantity and fine-tuning method to use.",
+    "methods": [
+      "contrastive learning",
+      "full fine-tuning",
+      "Low-Rank Adaptation (LoRA)",
+      "compute-optimal scaling analysis",
+      "decoder-only language models"
+    ],
+    "one_liner": "Derives a compute-optimal recipe for contrastively converting pretrained decoder-only language models into text embedding models, jointly choosing model size, data quantity and fine-tuning method for a given training budget.",
+    "problem": "Text embeddings underpin document retrieval, clustering and semantic similarity, and are commonly obtained by contrastively fine-tuning an existing decoder-only language model. A practitioner with a fixed training budget must decide simultaneously how large a base model to start from, how much contrastive data to use, and whether to fine-tune fully or with a parameter-efficient method -- and no recipe existed that settles those three choices jointly against budget.",
+    "relevance": {
+      "overthinking": "Not relevant to this topic. The match came from the keyword \"compute-optimal\", which in this paper means allocating a training budget across model size, data quantity and fine-tuning method for text embedding models -- Chinchilla-style training-time scaling. The topic concerns test-time compute: how long a reasoning model thinks on a given problem and when it should stop. Those are different budgets spent at different times on different quantities, and the paper contains no reasoning model, no chain of thought, no inference-length tradeoff and no test-time scaling result. Its subject is retrieval and semantic similarity embeddings. There is no finding here for the group to carry across. File as a false positive of the keyword filter."
+    },
+    "results": "The abstract reports one qualitative finding and no numbers: full fine-tuning is compute-optimal at lower budgets and Low-Rank Adaptation at higher budgets. No embedding benchmark scores, model sizes, data quantities, FLOP figures or scaling-law coefficients are stated in the material available.",
+    "tags": [
+      "compute-optimal",
+      "text embeddings",
+      "contrastive learning",
+      "lora",
+      "fine-tuning",
+      "scaling laws",
+      "retrieval",
+      "off-topic",
+      "neurips-2024"
+    ]
+  },
+  "task_id": "paper__title-8f5c26cc033aae9f",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

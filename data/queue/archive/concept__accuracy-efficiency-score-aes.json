@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.",
+        "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and fixes it by normalising the reward of correct rollouts only against other correct rollouts.",
+        "title": "DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:02:34Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'Accuracy-Efficiency Score (AES)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Accuracy-Efficiency Score (AES)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Accuracy-Efficiency Score (AES)",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "AES"
+    ],
+    "definition": "The two archived papers tagged to this entity -- BLADE, which trains a hidden-state probe to exit generation once a reasoning prefix already supports the correct answer, and DRPO, which fixes the accuracy loss GRPO suffers under a length penalty by normalising correct rollouts only against other correct rollouts -- both aim at reporting accuracy and token cost together, but neither note states what the Accuracy-Efficiency Score is, how it is computed, or what range it takes. On the evidence in the archive this is a single-number summary metric combining task accuracy with generation cost, and nothing more specific can honestly be said until one of the source papers is read for its formula.",
+    "kind": "concept",
+    "related": [
+      "Accuracy-Efficiency Tradeoff",
+      "Overthinking-Adjusted Accuracy (OAA)",
+      "Reasoning Efficiency Gap (REG)"
+    ]
+  },
+  "task_id": "concept__accuracy-efficiency-score-aes",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "aliases": [
+    "confidence thresholding",
+    "Confidence thresholding",
+    "confidence threshold",
+    "static confidence threshold"
+  ],
+  "definition": "Committing to a prediction as soon as a confidence score crosses a fixed cutoff, used in both sources as the exit rule of an early-exit network rather than as anything specific to LLM reasoning. UAT's premise is that the static threshold is the weak point: it replaces it with a multi-armed bandit that adapts the cutoff online and without supervision, reporting 1.70-2.10x speedup at under 2% performance drop. The second source attacks the signal instead of the cutoff, arguing that the calibrated confidence such thresholds read is the wrong quantity because it says nothing about whether later layers would have corrected the prediction. Neither source states how the static threshold is chosen in the first place, so the archive documents the two critiques of the technique better than the technique itself.",
+  "evidence": [
+    {
+      "id": "title:14e8a3607202d3e2",
+      "kind": "paper",
+      "note": "Argues that confidence calibration is the wrong objective for early-exit image classifiers and replaces it with Early-Exit Failure Prediction, a criterion that also accounts for whether later layers could fix the prediction.",
+      "title": "Rethinking Calibration for Early-Exit Neural Networks"
+    },
+    {
+      "id": "title:c65d4659ec08b51c",
+      "kind": "paper",
+      "note": "UAT replaces the static confidence threshold in early-exit deep networks with a multi-armed bandit that adapts the threshold online and unsupervised, reporting 1.70-2.10x speedup at under 2% performance drop.",
+      "title": "Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "Confidence Thresholding",
+  "related": [
+    "early-exit-neural-network",
+    "confidence-calibration",
+    "failure-prediction",
+    "adaptive-computation",
+    "cost-accuracy-tradeoff",
+    "early-exit-failure-prediction-eefp",
+    "early-exit-neural-networks",
+    "temperature-scaling-baseline",
+    "msdnet",
+    "resnet-34",
+    "vit-tiny",
+    "vit-small",
+    "efficientnet-b2",
+    "cifar-100",
+    "tinyimagenet",
+    "imagenet-1k",
+    "early-exit",
+    "adaptive-inference",
+    "overconfidence-on-wrong-predictions",
+    "distribution-shift-at-deployment",
+    "multi-armed-bandit",
+    "risk-control",
+    "uat",
+    "upper-confidence-bound-ucb",
+    "early-exit-deep-neural-networks",
+    "bert-large",
+    "t5-large",
+    "blip-2-vit-flant5-xl",
+    "sst-2",
+    "mnli",
+    "rte",
+    "qnli",
+    "qqp",
+    "squad-2-0",
+    "samsum",
+    "cnn-dailymail",
+    "multinews",
+    "bigpatent",
+    "iwslt"
+  ],
+  "related_authored": [
+    "conformal-prediction",
+    "compute-optimal-inference"
+  ],
+  "schema_version": 1,
+  "slug": "confidence-thresholding",
+  "topics": [
+    "overthinking"
+  ]
+}

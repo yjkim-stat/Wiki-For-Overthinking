@@ -1,0 +1,103 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-21T00:55:00Z",
+  "created_at": "2026-08-21T00:49:09Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:d94f940ea2e159b8",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "matched_keywords": [
+      "efficient reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation",
+    "url": "https://icml.cc/virtual/2026/poster/61221",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "adaptive reasoning length",
+      "task difficulty estimation",
+      "model uncertainty as a stopping signal",
+      "chain-of-pixel reasoning",
+      "reasoning segmentation",
+      "reasoning budget"
+    ],
+    "contributions": [
+      "PixelThink: a GRPO scheme whose reward is modulated by externally estimated task difficulty and internally measured model uncertainty, so reasoning length adapts to scene complexity",
+      "ReasonSeg-Diff: an extended reasoning-segmentation benchmark with annotated reasoning references and difficulty scores",
+      "A metric suite scoring segmentation accuracy, reasoning quality and efficiency jointly rather than separately",
+      "Empirical demonstration of 48.2% token reduction and 30.4% latency reduction with slightly improved gIoU/cIoU over Seg-Zero"
+    ],
+    "datasets": [
+      "ReasonSeg",
+      "ReasonSeg-Diff",
+      "RefCOCO",
+      "RefCOCO+",
+      "RefCOCOg"
+    ],
+    "limitations": "The authors state the framework relies on coarse-grained difficulty scores and manually defined budget rules, which limits adaptiveness on more complex scenes, and that the reasoning and segmentation stages are only loosely coupled, which can hurt consistency between them. Their own numbers also qualify the headline: RScore, the reasoning-quality metric, is slightly lower than Seg-Zero's, which the authors attribute to prioritising brevity over completeness, so the token saving is not free on every axis. The accuracy gains are small in absolute terms (about 2 gIoU points on ReasonSeg-Diff, about 1.2 on ReasonSeg), so the case for the method rests mainly on the token and latency reduction rather than on accuracy.",
+    "method": "PixelThink adds two signals to a GRPO reinforcement-learning loop over a multimodal LLM segmentation policy: an externally estimated task difficulty score for the input, and an internally measured model uncertainty (predictive confidence). These are combined into a reasoning budget that shapes the reward, so the policy learns to compress its reasoning chain when the scene is simple or the model is confident and to spend more tokens when it is not. The paper also builds ReasonSeg-Diff, an extension of ReasonSeg annotated with reasoning references and per-sample difficulty scores, plus metrics that score segmentation accuracy, reasoning quality (RScore) and token efficiency together, so that a length reduction cannot be reported without the accuracy it cost.",
+    "methods": [
+      "PixelThink",
+      "GRPO (group-relative policy optimization)",
+      "Seg-Zero (baseline)",
+      "difficulty-conditioned reward shaping",
+      "uncertainty-based reasoning budgeting"
+    ],
+    "one_liner": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+    "problem": "Reasoning-segmentation models fine-tuned on image-text-mask triples generalise poorly out of distribution without an explicit reasoning step. Recent work adds reinforcement learning (GRPO) to induce reasoning, but the resulting chains are uniformly verbose regardless of how hard the image is, raising cost and giving no control over reasoning quality. Deciding how much reasoning a given scene warrants was open.",
+    "relevance": {
+      "overthinking": "On-topic, and one of the few instances of the problem outside text-only maths reasoning. The paper names overthinking directly as its target: GRPO-trained segmentation models emit uniformly verbose chains irrespective of task complexity, and PixelThink's answer is to make the reward depend on estimated difficulty and model confidence so length tracks need. It supplies two things the topic can use: evidence that the length/accuracy tradeoff is favourable in a multimodal setting (about half the tokens at slightly better gIoU), and a benchmark, ReasonSeg-Diff, that annotates per-sample difficulty so 'did the model think the right amount' becomes measurable rather than inferred from average length. The RScore regression is a useful counterweight: compressing the chain measurably degrades reasoning quality even where mask accuracy improves."
+    },
+    "results": "On the ReasonSeg-Diff test set PixelThink reaches 60.17% gIoU / 55.77% cIoU at 47.66 average reasoning tokens, against the Seg-Zero baseline at 58.20% gIoU / 52.37% cIoU and 90.58 tokens, i.e. about a 2-point gIoU gain at roughly half the tokens. On the original ReasonSeg benchmark PixelThink-7B reports 63.8% gIoU / 62.7% cIoU versus Seg-Zero-7B at 62.6% / 62.0%. Referring-segmentation performance is maintained on RefCOCO (79.3% cIoU) and RefCOCOg (73.9% cIoU). The conference page reports 30.4% lower inference latency and 48.2% fewer tokens.",
+    "tags": [
+      "overthinking",
+      "efficient-reasoning",
+      "multimodal",
+      "segmentation",
+      "grpo",
+      "reasoning-length",
+      "uncertainty"
+    ]
+  },
+  "task_id": "paper__title-d94f940ea2e159b8",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

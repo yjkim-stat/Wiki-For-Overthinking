@@ -1,0 +1,29 @@
+# MMLU-PRO
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: dataset
+- **Also called**: MMLU-Pro
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 8
+
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AIME 2026](aime-2026.md), [AMC23](amc23.md), [ARC-Challenge](arc-challenge.md), [Ares](../methods/ares.md), [BIG-Bench Hard](big-bench-hard.md), [C4](c4.md), [Chain-of-Draft](../methods/chain-of-draft.md), [CMIMC25](cmimc25.md), [confidence calibration](../concepts/confidence-calibration.md), [DEER](../methods/deer.md), [Difficulty-aware compute allocation](../concepts/difficulty-aware-compute-allocation.md), [Distribution Shift](../concepts/distribution-shift.md), [DPO_Shortest](../methods/dpo-shortest.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [Hidden-State Probing](../concepts/hidden-state-probing.md), [HMMT 2025](hmmt-2025.md), [MATH](math.md), [MATH-500](math-500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [Minerva](minerva.md), [MMMU](mmmu.md), [MMStar](mmstar.md), [O1-Pruner](../methods/o1-pruner.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [process supervision](../concepts/process-supervision.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Trace Length](../concepts/reasoning-trace-length.md), [Reinforcement Learning with Verifiable Rewards](../methods/reinforcement-learning-with-verifiable-rewards.md), [Risk Control](../concepts/risk-control.md), [RLVR](../methods/rlvr.md), [Self-Certainty](../methods/self-certainty.md), [SFT_Shortest](../methods/sft-shortest.md), [SuperGPQA](supergpqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md), [ThinkPrune](../methods/thinkprune.md), [Token-Level Entropy](../concepts/token-level-entropy.md), [vLLM](../methods/vllm.md), [WeMath](wemath.md)
+
+## Appears in
+
+- [Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility](../../archive/papers/2026/arxiv-2608-04001/summary.md) — A framework paper that formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, splits it into three structural regimes (single-trajectory, leaf-level, prefix-level), replaces scalar repeated-sampling metrics with a discovery-stability profile that Pass@k and its relatives are coordinates of, specifies exact-replay versus distributional reproducibility, and releases 1,948,821 full reasoning traces with token-level alternatives and two verifier signals.
+- [Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models](../../archive/papers/2026/arxiv-2608-13760/summary.md) — Annotates 15,282 reasoning traces from 15 models on 6 benchmarks with a nine-behavior taxonomy and shows that the behaviors reasoning-oriented training amplifies most (self-correction, hypothesis testing, uncertainty acknowledgment) are not the behaviors most associated with getting the answer right (confidence calibration, knowledge alignment, self-awareness).
+- [Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis](../../archive/papers/2026/arxiv-2608-15303/summary.md) — Divergent-Convergent Reasoning generates diverse candidate solutions and then uses reviewer-style reconciliation calls (optionally run recursively with a verifier-free unanimous-consent stopping rule) to recover correct answers even when they start out as a minority, reaching 93.3% on AIME 2024 and 92.0% on AIME 2025 while using about 27% less compute than a fixed single-round baseline.
+- [DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference](../../archive/papers/2026/title-18b94d8204ec3367/summary.md) — DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.
+- [ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping](../../archive/papers/2026/title-544eea46a2eb68c1/summary.md) — ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.
+- [Anytime Safe PAC Efficient Reasoning](../../archive/papers/2026/title-b525ac9b26640523/summary.md) — Routes queries between a thinking and a non-thinking model with a threshold that is adjusted online by a betting supermartingale, so the accumulated statistical evidence certifies at any stopping time that the accuracy given up stays under a user-specified tolerance.
+- [ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference](../../archive/papers/2026/title-fe3c313c25254076/summary.md) — ParoQuant is a 4-bit weight-only post-training quantization method that applies a series of independent Givens (pairwise) rotations plus channel-wise scaling to weights before quantization, with a fused CUDA kernel, in order to keep accuracy on reasoning benchmarks where quantization error accumulates over long chains of thought.
+- [QFFT, Question-Free Fine-Tuning for Adaptive Reasoning](../../archive/papers/2025/title-ff37e37c3f1ab9b2/summary.md) — QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

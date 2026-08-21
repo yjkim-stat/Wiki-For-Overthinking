@@ -1,0 +1,23 @@
+# SFT_Shortest
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: method
+- **Also called**: SFT-Shortest
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 2
+
+**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DPO_Shortest](dpo-shortest.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [Length Penalty](../concepts/length-penalty.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [MMLU-PRO](../datasets/mmlu-pro.md), [NoThinking](nothinking.md), [O1-Pruner](o1-pruner.md), [overthinking](../concepts/overthinking.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
+
+## Appears in
+
+- [Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty](../../archive/papers/2026/title-833de99e9b3ea69d/summary.md) — ARLCP is a reinforcement-learning fine-tuning recipe that adds two coupled reward penalties -- one on reflective steps, one on response length scaled by estimated problem complexity -- to shorten chains of thought in distilled reasoning models without losing accuracy.
+- [QFFT, Question-Free Fine-Tuning for Adaptive Reasoning](../../archive/papers/2025/title-ff37e37c3f1ab9b2/summary.md) — QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

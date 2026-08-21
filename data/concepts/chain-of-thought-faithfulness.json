@@ -1,0 +1,74 @@
+{
+  "aliases": [],
+  "definition": "Whether a model's visible reasoning trace is the real support for the answer it gives, which the archive's two sources measure from opposite ends. The KV-cache-compression study looks at the trace as evidence: compression can leave final-answer accuracy intact while the rationale that supposedly justifies the answer becomes invalid or fragile, a divergence the authors name the answer-evidence gap. Risky Business instead measures causal dependence - whether the model acts on what its trace says - using Targeted Reasoning Replacement, a search-and-replace edit of the model's own trace over 77 hand-written HazMart shopkeeper scenarios, and finds the property cuts both ways: models that follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently. So faithfulness here is not one quantity - one source asks whether the trace supports the answer, the other whether the answer follows the trace - and the second source shows it is not simply a property to maximise.",
+  "evidence": [
+    {
+      "id": "arxiv:2608.01631",
+      "kind": "paper",
+      "note": "A diagnostic study showing that KV cache compression for large reasoning models can preserve final-answer accuracy while the visible rationale supporting the answer becomes invalid or fragile, which the authors call the answer-evidence gap.",
+      "title": "Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression"
+    },
+    {
+      "id": "arxiv:2608.03745",
+      "kind": "paper",
+      "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    }
+  ],
+  "first_seen": "2026-08-21T00:41:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-21T00:41:33Z",
+  "name": "Chain-of-thought faithfulness",
+  "related": [
+    "answer-evidence-gap",
+    "answer-level-cue-vs-evidential-support",
+    "fixed-trace-replay",
+    "answer-first-rationalization",
+    "asymmetric-diagnostic",
+    "token-eviction-vs-coverage-preserving-quantization",
+    "controlled-fixed-trace-replay",
+    "answer-chain-consistency-rwac-reasoning-wrong-answer-correct",
+    "position-conditioned-perturbation-faithfulness-fidelity-bias-rate",
+    "wrong-chain-span-replacement",
+    "matched-answer-chain-degradation-analysis",
+    "llm-as-a-judge-with-human-validation-cohen-s-kappa",
+    "streamingllm-snapkv-headkv-adakv-pyramidkv-chunkkv-knorm-tova-lagkv-r-kv",
+    "kivi-2-bit-kv-quantization",
+    "aime24-aime25-aime26",
+    "gpqa-diamond",
+    "medcalc-bench",
+    "ruler-qa-32k-token-multi-hop-retrieval",
+    "if-eval-appendix",
+    "chain-of-thought-monitorability",
+    "faithfulness-safety-tension",
+    "action-commit-token",
+    "representation-steering",
+    "refusal-direction",
+    "reasoning-trace-tampering",
+    "self-reflection-tokens-as-a-resistance-signal",
+    "targeted-reasoning-replacement-trr",
+    "difference-of-means-probing",
+    "activation-addition-representation-steering-with-per-token-renormalization",
+    "attention-mask-ablation",
+    "hint-based-faithfulness-evaluation-comparison-baseline",
+    "qwq-32b",
+    "deepseek-r1-distill-llama-70b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "ministral-3-14b-reasoning",
+    "gpt-oss-120b",
+    "minimax-m2-230b",
+    "hazmart-77-scenarios-11-harm-categories",
+    "mmlu"
+  ],
+  "related_authored": [
+    "chain-of-thought-monitorability",
+    "chain-of-thought-unfaithfulness",
+    "causal-intervention-on-chain-of-thought"
+  ],
+  "schema_version": 1,
+  "slug": "chain-of-thought-faithfulness",
+  "topics": [
+    "overthinking"
+  ]
+}

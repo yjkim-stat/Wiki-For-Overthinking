@@ -1,0 +1,58 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings
+
+- **Authors**: _unknown_
+- **Venue**: NeurIPS 2025
+- **Published**: 2025-01-01
+- **Source**: virtualsite
+- **Link**: <https://neurips.cc/virtual/2025/poster/115454>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.62
+
+## In one line
+
+A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.
+
+## Problem
+
+Large reasoning models buy accuracy with long thought trajectories, which is expensive at inference and unusable under a tight token budget. Existing efficiency methods assume the length is simply overthinking and compress the chain of thought, which frequently costs accuracy. The open question is how to choose which spans of a long trace are load-bearing, rather than shortening it uniformly.
+
+## Contributions
+
+- Formulates CoT compression as A* search over a tree of reasoning spans rather than as token- or step-level pruning, with a path cost combining a verification model's probability (g) and the conditional self-information of the solution (h).
+- Bidirectional Importance Score: scores a reasoning step by relevance to both the question and the final solution, computed from a small model's attention and NLL, and shown to beat uniform sampling of steps.
+- A compressed SFT corpus at 31.31% of the original size that trains 24% faster than the uncompressed baseline.
+- A 2.39x accuracy improvement over fine-tuned QwQ-32B under a 512-token budget, and generalization of the same recipe across QwQ-32B, DeepSeek-R1-Distill-Qwen-32B and s1.1-32B.
+
+## Method
+
+The reasoning process is formulated as a search tree in which each node is a reasoning span, and a path through the tree is a candidate compressed chain. Two mechanisms select the path. (1) Bidirectional Importance Score (BIS): each step is scored by relevance both to the question and to the final solution, combining attention weights and negative log-likelihood taken from a small model (GPT-2), with a parameter alpha balancing the question-side against the solution-side term -- this replaces uniform sampling of steps. (2) A* search over paths with cost f = g + h, where g measures the quality of the path so far via a verification model's probability and h estimates remaining cost via the conditional self-information of the solution; the search is bounded by verification depth limits (k_min, k_max) and exploration width W. The compressed traces produced this way form an SFT corpus; s1K-1.1 supplies the long CoT examples and s1.1-32B is the verification model. Backbones are then fine-tuned on the compressed corpus.
+
+## Results
+
+Benchmarks: MATH500, AMC23, OlympiadBench, GSM8K. Backbones: QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, s1.1-32B. Baselines: Chain-of-Draft, Break-the-Chain, TokenSkip, and plain fine-tuning. Under a 512-token budget, 2.39x accuracy over fine-tuned QwQ-32B and 2.49x on ACU (accuracy per computation unit). Under a 4096-token budget, average response length falls from 2,826 to 1,877 tokens -- a 33.59% reduction -- without a substantial accuracy drop. The compressed training corpus is 31.31% of the original size (68.69% reduction) and trains 24% faster. Note that the abstract's claim of 'nearly 50%' output-token reduction at high budget is not what the experiments report: the measured figure is 33.59%.
+
+## Limitations
+
+Stated: the method is confined to supervised fine-tuning; the authors flag extension to RL as future work. A reader should also notice: (1) the abstract claims 'nearly 50%' token reduction at high budget while the experiments report 33.59% (2,826 -> 1,877), so the headline overstates the measured result; (2) the 2.39x figure is an accuracy ratio at a 512-token budget against a fine-tuned baseline that is being starved of tokens -- it says how much better A*-Thought is under severe truncation, not that accuracy improved in absolute terms over an unconstrained model; (3) 'without substantial accuracy drop' is not quantified in the abstract, so the high-budget cost of the 33.59% reduction is left as a qualitative claim; (4) evaluation is entirely mathematical reasoning at 32B scale, with no test at other scales or in non-math domains; (5) the search requires a 32B verification model at data-construction time, so the compression is cheap only at inference, not end to end.
+
+## Why it matters here
+
+- **overthinking**: Explicitly positions itself against the topic's default framing: it says most efficient-reasoning work 'is stuck in the assumption of overthinking' and compresses uniformly, which degrades accuracy. Its alternative claim is that the problem is selection, not length -- some spans carry the reasoning and most do not -- and it operationalizes that with a per-span importance score and a search for the highest-density path. For the accuracy/efficiency tradeoff this supplies the low-budget end of the curve, which most overthinking work neglects: at 512 tokens the question is not whether the model stops too late but whether it can reason at all, and the 2.39x/2.49x ACU numbers are measurements in that regime. The gap between the claimed 'nearly 50%' and the measured 33.59% reduction is worth holding onto when comparing compression rates across the topic's papers -- headline compression figures in this literature are not consistently the measured ones.
+
+## Entities
+
+- **Concepts**: [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), [Overthinking](../../../../wiki/concepts/overthinking.md), [Token Budget](../../../../wiki/concepts/token-budget.md), Reasoning Span, Bidirectional Importance Estimation, Accuracy per Computation Unit, Search over Reasoning Paths, Information Density of a Reasoning Trace
+- **Methods**: [A*-Thought](../../../../wiki/methods/a-thought.md), A* search, Bidirectional Importance Score (BIS), supervised fine-tuning on compressed traces, [QwQ-32B](../../../../wiki/methods/qwq-32b.md), DeepSeek-R1-Distill-Qwen-32B, s1.1-32B, GPT-2 as scoring model, [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), Break-the-Chain, [TokenSkip](../../../../wiki/methods/tokenskip.md)
+- **Datasets**: [s1K-1.1](../../../../wiki/datasets/s1k-1-1.md), MATH500, [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
+
+Tags: `overthinking`, `efficient reasoning`, `cot compression`, `a-star search`, `token budget`, `supervised fine-tuning`, `large reasoning models`, `math reasoning`
+
+## Abstract
+
+Abstract Large Reasoning Models (LRMs) achieve superior performance by extending the thought length. However, a lengthy thinking trajectory leads to reduced efficiency. Most of the existing methods are stuck in the assumption of overthinking and attempt to reason efficiently by compressing the Chain-of-Thought, but this often leads to performance degradation. To address this problem, we introduce A*-Thought, an efficient tree search-based unified framework designed to identify and isolate the most essential thoughts from the extensive reasoning chains produced by these models. It formulates the reasoning process of LRMs as a search tree, where each node represents a reasoning span in the giant reasoning space. By combining the A* search algorithm with a cost function specific to the reasoning path, it can efficiently compress the chain of thought and determine a reasoning path with high information density and low cost. In addition, we also propose a bidirectional importance estimation mechanism, which further refines this search process and enhances its efficiency beyond uniform sampling. Extensive experiments on several advanced math tasks show that A*-Thought effectively balances performance and efficiency over a huge search space. Specifically, A*-Thought can improve the performance of QwQ-32B by 2.39$\times$ with low-budget and reduce the length of the output token by nearly 50\% with high-budget. The proposed method is also compatible with several other LRMs, demonstrating its generalization capability. The code can be accessed at: https://github.com/AI9Stars/AStar-Thought.
+
+---
+
+Record id: `title:6ac5c2757444abad`

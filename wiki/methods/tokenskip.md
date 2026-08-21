@@ -6,9 +6,9 @@ A token-level chain-of-thought compression method listed under 'CoT Compression'
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 4
 
-**Related**: [AdaptThink](adaptthink.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [SuperGPQA](../datasets/supergpqa.md), [VeriThinker](verithinker.md)
+**Related**: [A*-Thought](a-thought.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [BBH (Big Bench Hard)](../datasets/bbh-big-bench-hard.md), [Chain-of-Draft](chain-of-draft.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [DEER](deer.md), [DRP](drp.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO (Group Relative Policy Optimization)](grpo-group-relative-policy-optimization.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [NOWAIT](nowait.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [QwQ-32B](qwq-32b.md), [S-GRPO](s-grpo.md), [s1K-1.1](../datasets/s1k-1-1.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SPIRIT](spirit.md), [SuperGPQA](../datasets/supergpqa.md), [Thinkless](thinkless.md), [Token Budget](../concepts/token-budget.md), [VeriThinker](verithinker.md)
 
 ## What we have settled
 
@@ -17,8 +17,10 @@ A token-level chain-of-thought compression method listed under 'CoT Compression'
 
 ## Appears in
 
+- [Segment-Level Attribution for Selective Learning of Long Reasoning Traces](../../archive/papers/2026/arxiv-2602-00425/summary.md) — Uses integrated-gradient token attribution, aggregated into per-segment strength and direction-consistency scores, to pick which segments of a long chain-of-thought an SFT run should compute loss on, masking the rest.
 - [Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models](../../archive/papers/2025/local-6c80b6fd388d671e/summary.md) — A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.
 - [Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression](../../archive/papers/2025/local-da3fbe3617acc5f8/summary.md) — TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.
+- [A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings](../../archive/papers/2025/title-6ac5c2757444abad/summary.md) — A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.
 
 ## Checked against
 

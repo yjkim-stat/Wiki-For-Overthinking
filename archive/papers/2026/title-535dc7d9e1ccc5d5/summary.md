@@ -43,7 +43,7 @@ The material reviewed (abstract-level) does not state failure modes, ablations, 
 ## Entities
 
 - **Concepts**: progressive length calibration, adaptive length reward, [overthinking](../../../../wiki/concepts/overthinking.md), response-length compression
-- **Methods**: GRPO, SmartThinker, progressive chain-of-thought length calibration
+- **Methods**: [GRPO](../../../../wiki/methods/grpo.md), SmartThinker, progressive chain-of-thought length calibration
 - **Datasets**: AIME25
 
 Tags: `overthinking`, `chain-of-thought`, `grpo`, `length-calibration`, `efficient-reasoning`

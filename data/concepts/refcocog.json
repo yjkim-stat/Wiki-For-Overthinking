@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:56bdffcf992c5e91",
+      "kind": "paper",
+      "note": "DR2Seg splits reasoning segmentation into a description stage and a referring-segmentation stage and rewards the model when a shorter self-contained description still yields the right mask, cutting reasoning length while raising gIoU.",
+      "title": "DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models"
+    },
+    {
+      "id": "title:d94f940ea2e159b8",
+      "kind": "paper",
+      "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+      "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation"
+    }
+  ],
+  "first_seen": "2026-08-21T00:49:09Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-21T00:56:47Z",
+  "name": "RefCOCOg",
+  "related": [
+    "overthinking",
+    "attention-dispersion",
+    "self-rewarding",
+    "task-decomposition",
+    "self-contained-description",
+    "length-reward",
+    "reasoning-segmentation",
+    "rollout-design",
+    "reinforcement-learning-with-verifiable-rewards",
+    "dr2seg",
+    "two-stage-rollout",
+    "self-rewarding-reinforcement-learning",
+    "description-self-reward",
+    "length-based-self-reward",
+    "qwen2-5-vl",
+    "sam2",
+    "sam3",
+    "visionreasoner-baseline",
+    "pixelthink-baseline",
+    "seg-zero-baseline",
+    "sam-r1-baseline",
+    "lisa-baseline",
+    "reasonseg",
+    "refcoco",
+    "visionreasoner-7k",
+    "lvis",
+    "grefcoco",
+    "lisa",
+    "adaptive-reasoning-length",
+    "task-difficulty-estimation",
+    "model-uncertainty-as-a-stopping-signal",
+    "chain-of-pixel-reasoning",
+    "reasoning-budget",
+    "pixelthink",
+    "grpo-group-relative-policy-optimization",
+    "difficulty-conditioned-reward-shaping",
+    "uncertainty-based-reasoning-budgeting",
+    "reasonseg-diff"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "refcocog",
+  "topics": [
+    "overthinking"
+  ]
+}

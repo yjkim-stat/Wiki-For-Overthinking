@@ -7,12 +7,13 @@ A test-time-compute strategy that samples N candidate solutions independently an
 - **Kind**: method
 - **Also called**: Best-of-N, Best-of-N sampling, BoN, best-of-n sampling
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 7
+- **Sources**: 8
 
-**Related**: [Best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [majority voting](majority-voting.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [self-consistency](self-consistency.md), [speculative decoding](speculative-decoding.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [Best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [majority voting](majority-voting.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [SciQ](../datasets/sciq.md), [self-consistency](self-consistency.md), [sequential revision](sequential-revision.md), [speculative decoding](speculative-decoding.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 
+- [Interpretable Adaptive Sampling for LLM Test-Time Scaling](../../archive/papers/2026/arxiv-2608-03961/summary.md) — Assigns a per-prompt sampling budget for best-of-N test-time scaling with a hand-written two-stage fuzzy controller over nine prompt- and model-side signals, trading 1.4-14.5% fewer samples for accuracy changes between -1.8 and +0.5 points against a selector-matched fixed N = 8 baseline.
 - [Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling](../../archive/papers/2026/title-1d5e1f4d59da5916/summary.md) — Benchmarks model-based, training-based and N-gram-based speculative decoding methods as ways to accelerate token generation during LLM test-time scaling (Best-of-N, iterative reasoning), finding N-gram methods best exploit repetitive patterns.
 - [Sample Complexity and Representation Ability of Test-time Scaling Paradigms](../../archive/papers/2026/title-27bc5c2aff7ebdab/summary.md) — A theoretical paper deriving sample-complexity bounds for self-consistency versus best-of-n, and an expressiveness result showing self-correction lets a Transformer simulate online learning over multiple tasks at test time.
 - [Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models](../../archive/papers/2025/title-5d66fe9a10241ce8/summary.md) — Shows that extending a reasoning model's thinking trace improves accuracy only up to a point and then declines from overthinking, and proposes sampling multiple independent short traces (parallel thinking) with majority vote as a more effective use of the same compute budget.

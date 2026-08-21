@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "An empirical scaling study of how to split a fixed pretraining compute budget between a full-precision phase and a quantization-aware training phase, yielding a loss scaling law that predicts the optimal QAT fraction.",
+        "title": "Compute-Optimal Quantization-Aware Training",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyzes verifier-search and proposal-revision as the two primary mechanisms of test-time compute scaling and shows that allocating compute adaptively per prompt difficulty is more efficient than fixed strategies, and can be more effective than scaling model parameters.",
+        "title": "Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:04:41Z",
+  "created_at": "2026-08-21T00:56:48Z",
+  "instructions": "Write the wiki definition for 'compute-optimal allocation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "compute-optimal allocation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "compute-optimal allocation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The two archived sources use this phrase for two unrelated problems, and the entry should not be read as one idea. Compute-Optimal Quantization-Aware Training means it in the pretraining sense: how to split a fixed pretraining compute budget between a full-precision phase and a quantization-aware phase, fitted as a loss scaling law that predicts the optimal QAT fraction. The test-time compute paper means it in the inference sense: how much decoding compute to spend per prompt, via verifier search or proposal revision, where allocating adaptively by prompt difficulty beats a fixed strategy and can beat spending the same compute on more parameters. Nothing in the archive connects the two, and only the second bears on the group's overthinking topic.",
+    "kind": "concept",
+    "related": [
+      "Compute-optimal inference",
+      "compute-optimal scaling",
+      "Chinchilla scaling law"
+    ]
+  },
+  "task_id": "concept__compute-optimal-allocation",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

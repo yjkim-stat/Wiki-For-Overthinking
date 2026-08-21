@@ -1,0 +1,23 @@
+# task decomposition
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: concept
+- **Also called**: Task Decomposition
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 2
+
+**Related**: [Length reward](length-reward.md), [overthinking](overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Reinforcement Learning with Verifiable Rewards](../methods/reinforcement-learning-with-verifiable-rewards.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [self-distillation](../methods/self-distillation.md)
+
+## Appears in
+
+- [DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models](../../archive/papers/2026/title-56bdffcf992c5e91/summary.md) — DR2Seg splits reasoning segmentation into a description stage and a referring-segmentation stage and rewards the model when a shorter self-contained description still yields the right mask, cutting reasoning length while raising gIoU.
+- [D-CORE: Incentivizing Task Decomposition in Large Reasoning Models for Complex Tool Use](../../archive/papers/2026/title-6c0fc879a2cc7d5b/summary.md) — Trains large reasoning models with self-distillation followed by diversity-aware RL to overcome 'Lazy Reasoning' -- inadequate task decomposition -- in complex tool-use settings.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

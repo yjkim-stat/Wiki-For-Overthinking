@@ -1,0 +1,149 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-04001.pdf"
+  },
+  "completed_at": "2026-08-21T00:38:55Z",
+  "created_at": "2026-08-20T23:50:56Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.04001",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used"
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large language models can solve substantially harder reasoning problems with more inference-time compute. The term \"test-time scaling,\" however, now covers diverse inference algorithms that extend deliberation along a single trajectory, sample completed candidates and aggregate them through voting or verification, or search over unfinished partial states. These algorithms differ in their statistical structure, compute accounting, and failure modes. Treating these procedures as interchangeable under a single scalar \"budget,\" or reporting accuracy without the inference protocol that produced it, makes results difficult to compare across studies. We develop a systematic account of test-time scaling along three axes. First, we formalize test-time scaling as budgeted inference over the implicit prefix tree of an autoregressive model and distinguish three structural regimes: single-trajectory sequential scaling, leaf-level scaling with terminal reduction, and prefix-level scaling. Second, we treat the evaluated object as the entire inference system and develop evaluation principles that separate end-to-end system performance from candidate-bank diagnostics. We introduce an evaluation profile whose coordinates and simple functionals recover or bound common repeated-sampling metrics, and prescribe protocol-matched reporting of compute and uncertainty. Third, we specify reproducibility requirements for inference protocols, distinguishing exact replay from distributional reproducibility and identifying the artifacts needed to support each. We also organize the open-weight reasoning ecosystem by model-side and interface mechanisms, apply these principles to broad-knowledge, symbolic-reasoning, and competition-mathematics benchmarks, and assemble over 2 billion full reasoning traces for release with progressively richer verifier and token-level signals.",
+    "authors": [
+      "Mohsen Hariri",
+      "Weicong Chen",
+      "Nahal Shahini",
+      "Vikash Singh",
+      "Kai Ye",
+      "Amirhossein Samandar",
+      "Debargha Ganguly",
+      "Sreehari Sankar",
+      "Yanyan Zhang",
+      "Shouren Wang",
+      "Jerry Peng",
+      "Biyao Zhang",
+      "Michael Hinczewski",
+      "Vipin Chaudhary"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "matched_keywords": [
+      "test time scaling",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.04001v1",
+    "published": "2026-08-04",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+    "url": "https://arxiv.org/abs/2608.04001",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Test-time scaling",
+      "Budgeted inference over the prefix tree",
+      "Single-trajectory / leaf-level / prefix-level scaling",
+      "Terminal reducer",
+      "Discovery versus stability",
+      "Candidate-bank diagnostics versus end-to-end system performance",
+      "Causal stopping controller",
+      "Compute accounting",
+      "Exact replay versus distributional reproducibility",
+      "Reference-free verifier signals"
+    ],
+    "contributions": [
+      "A formalization of test-time scaling as budgeted inference over the implicit prefix tree, with an explicit separation of proposal distribution, evidence map, decision rule and stopping controller as components of the inference system.",
+      "A three-regime taxonomy - single-trajectory sequential, leaf-level with terminal reduction, prefix-level search - that distinguishes methods by which states additional compute may act on, rather than by a single scalar budget.",
+      "The discovery-stability profile S_k as the primary bank-level object, with Pass@k, pass_k, G-Pass@k, mG-Pass@k and Geom@k recovered as coordinates or functionals of it, Maj@k bounded by it, and Beta-Binomial and Dirichlet-categorical posterior versions for uncertainty.",
+      "A distinction between exact replay and distributional reproducibility for randomized inference protocols, with the artifact list each requires, and a classification of stopping rules by the history they may causally inspect.",
+      "A release of 1,948,821 full reasoning traces across 22,449 questions in four blocks with progressively richer signals - width-20 token alternatives, rule-based outcomes, and both a reference-assisted (CompassVerifier-3B) and a reference-free pointwise verifier record - so new reducers can be evaluated without regenerating responses.",
+      "Empirical evidence that candidate discovery outpaces answer selection, with 5.38-16.13 point gaps between Pass@80 and the best observed reducer, and a case where growing the bank lowers submitted accuracy from 75.56% to 65.83%."
+    ],
+    "datasets": [
+      "MMLU-Pro",
+      "BIG-Bench Hard",
+      "AIME 2024",
+      "AIME 2025",
+      "AIME 2026",
+      "HMMT Feb. 2026",
+      "HMMT Nov. 2025",
+      "HMMT 2025",
+      "BrUMO 2025",
+      "CMIMC 2025",
+      "SMT 2025",
+      "SuperGPQA",
+      "MathArena"
+    ],
+    "limitations": "No limitations section. Points a reader should notice: the abstract claims 'over 2 billion full reasoning traces' while the introduction says 'over 2 million' and Table 1 and the conclusion both report 1,948,821, so the abstract's figure is off by three orders of magnitude. The taxonomy covers three regimes but the empirical study is entirely leaf-level - fixed banks of completed candidates with reducers replayed on subsets - so neither single-trajectory sequential scaling nor prefix-level search is measured, and the paper's claims about those regimes are structural rather than experimental. The compute axis in the competition-mathematics figures counts generated candidates and excludes verifier computation, which is exactly the omission the paper's own compute-accounting principle argues against; the verifier here is a separate model pass and is not free. The reference-free verifier is a single model family (Qwen3.6 scoring its own and others' candidates), so the selection gaps measure that verifier rather than reference-free selection in general. The 19.58% of critiques and 16.12% of high-effort responses that hit their token caps mean a non-trivial share of both the evidence and the generations are truncated. Bootstrap intervals overlap enough that generators cannot be ordered, so the effort comparison supports directional statements only. The repeated-mathematics archives carry no hardware manifest, which by the paper's own criteria blocks exact replay for that block. The framework is normative throughout: it prescribes reporting practice rather than demonstrating that following it changes any published conclusion.",
+    "method": "Formalization: prompts induce an implicit rooted prefix tree; a decoding policy induces a proposal distribution over completed leaves that can differ from the raw model distribution; a budgeted algorithm interleaves token generation, prefix expansion, verifier calls, judge calls and terminal reduction under a cumulative cost constraint, giving a scaling curve G(B) that is not assumed monotone. Three regimes: single-trajectory sequential scaling keeps at most one unfinished prefix (budget forcing, s1-style control), so recovery from an early error requires self-revision on the same path; leaf-level scaling produces a bank of completed candidates with all cross-candidate interaction deferred to a terminal reducer; prefix-level scaling allocates on scores for unfinished prefixes. Evaluation: separate end-to-end system performance M_B, the estimand for capability claims, from candidate-bank diagnostics. The discovery-stability profile S_k = (S_k,1, ..., S_k,k) gives the expected fraction of prompts on which a fresh k-attempt run yields at least t correct candidates, with a without-replacement finite-bank estimator and a Beta-Binomial posterior version. Pass@k = S_k,1, pass_k = S_k,k, G-Pass@k_tau = S_k,ceil(tau*k), mG-Pass@k and Geom@k are functionals of the same profile, and Maj@k >= S_k,floor(k/2)+1; scalars are pre-specified functionals of the profile, not substitutes for it. Stopping controllers are classified by what history they may inspect: across-rollout rules can avoid only later traces, within-rollout token-prefix rules (e.g. DeepConf's sliding-window confidence) can also truncate the current trace, and offline filtering of completed traces cannot recover generation already spent. Compute accounting must include generation, evaluation, control and decision. Reproducibility distinguishes exact replay (same texts, signals, stopping and aggregation decisions, from the same weights, tokenizer, chat template, decoding config, RNG streams, software and hardware) from distributional reproducibility (an independent rerun of the declared protocol returning a compatible estimate), and lists the artifacts each requires. Empirically, four fixed response banks are generated and reducers are replayed on nested random subsets of the same banks, so differences among reducers cannot come from new candidates.",
+    "methods": [
+      "Discovery-stability profile",
+      "Pass@k / pass_k / G-Pass@k / mG-Pass@k / Geom@k",
+      "Beta-Binomial posterior over per-prompt success probability",
+      "Without-replacement finite-bank estimator",
+      "Literal answer plurality / self-consistency",
+      "Best-of-N with sequence log-probability, mean token log-probability and perplexity scores",
+      "Pointwise LLM-as-a-Verifier (reference-free)",
+      "CompassVerifier-3B (reference-assisted)",
+      "DeepConf sliding-window token confidence",
+      "Self-Certainty",
+      "Adaptive consistency stopping",
+      "Majority-of-the-Bests",
+      "Budget forcing (s1)",
+      "Prompt bootstrap and nested subset replay"
+    ],
+    "one_liner": "A framework paper that formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, splits it into three structural regimes (single-trajectory, leaf-level, prefix-level), replaces scalar repeated-sampling metrics with a discovery-stability profile that Pass@k and its relatives are coordinates of, specifies exact-replay versus distributional reproducibility, and releases 1,948,821 full reasoning traces with token-level alternatives and two verifier signals.",
+    "problem": "The term 'test-time scaling' now covers algorithms with different statistical structure: extending deliberation along one trajectory, sampling completed candidates and reducing them by voting or verification, and searching over unfinished partial states. Reporting them under a single scalar 'budget', or reporting accuracy without the inference protocol that produced it, makes results incomparable across studies. The paper also argues that what must reproduce under test-time scaling is a randomized inference protocol, not a model checkpoint, and that a candidate bank is one realization of a Monte Carlo experiment, so replaying a run and reproducing the quantity it estimates are different goals.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly on topic and mostly infrastructural: it is the vocabulary and measurement discipline the archive needs in order to compare the length-control and budget-allocation papers it collects. Three things are immediately usable. First, the three regimes separate what 'spend more compute' means - extending one chain, sampling more complete chains, or searching unfinished prefixes - so a claimed saving in one regime is not read as a saving in another, and the stopping taxonomy says exactly what a stopping rule may look at: across-rollout rules can only avoid later traces, within-rollout token-prefix rules can also truncate the trace in progress, and filtering completed traces cannot recover generation already spent. Second, the paper documents non-monotone scaling with a concrete number: on Qwen3-30B-A3B-Thinking-2507, Best-of-N by mean token log-probability falls from 75.56% to 65.83% as the bank grows from 1 to 80, so more test-time compute actively hurts when the selection score is misaligned with correctness - the failure mode 'scaling curves' usually assume away. Third, the discovery-stability profile gives a principled way to state what extra compute buys: the median Pass@k rises from 56.49% to 82.08% between k = 1 and k = 80 while the median all-correct coordinate falls to 15.00%, and reference-free selection leaves 5.38-16.13 points of the Pass@80 ceiling unclaimed. That gap is the quantity the topic should track when judging whether a budget is too large: compute that only widens an already-unreachable ceiling is waste of a different kind than a model reasoning past the answer. The reasoning-effort comparison is also a direct measurement of the topic's tradeoff - gpt-oss-20b low to high raises Pass@80 from 72.58% to 93.55% while 16.12% of high-effort responses hit the 81,920-token cap and none do at low effort. Caveat: all the experiments are leaf-level repeated sampling, so nothing here measures single-chain length control, which is where much of the overthinking literature operates."
+    },
+    "results": "Block 1 (broad): 27 open-weight reasoning models, one zero-shot CoT response per question, all 14 MMLU-Pro domains and 23 BIG-Bench Hard tasks, 500,661 responses. MMLU-Pro exact match spans 3.13% to 70.47% across the roster; BBH flexible-extraction exact match spans 25.97% to 82.20%. Block 2 (repeated mathematics): 20 model configurations x 120 questions from AIME'24, AIME'25, HMMT'25 and BrUMO'25 x 80 seeded responses = 192,000 traces. Median Pass@k rises from 56.49% at k = 1 to 82.08% at k = 80 while the median all-correct coordinate falls to 15.00%, i.e. discovery grows as within-question stability collapses. Mean Spearman agreement with the N = 80 accuracy ranking is 0.967 at k = 1 and 0.992 at k = 8. For the strongest single-response configuration, Qwen3-30B-A3B-Thinking-2507 (75.56% at k = 1): Pass@80 91.67%, all-correct@80 43.33%, literal answer plurality 78.33% at k = 80, sequence-log-probability Best-of-N 77.50%, and mean-token-log-probability (equivalently perplexity) Best-of-N falling from 75.56% to 65.83% as the bank grows - more generation compute lowering submitted accuracy when the selection score is misaligned with correctness. The reference-assisted CompassVerifier diagnostic reaches 89.17% but sees the gold answer and is not an inference-time result. Block 3 (signal-rich competition mathematics): 186 problems from AIME'26, HMMT Feb.'26, HMMT Nov.'25, CMIMC'25 and SMT'25, one Qwen3.6-35B-A3B bank and three gpt-oss-20b banks at low/medium/high reasoning effort, every trace recording the chosen token and up to 20 alternatives at each position. Pass@80 is 94.62% (Qwen3.6) and 72.58% / 91.94% / 93.55% (gpt-oss low / medium / high); accuracy after reference-free pointwise selection is 86.56% / 58.06% / 75.81% / 81.72%, leaving 8.06-16.13 point gaps to the ceiling, and 5.38-14.52 points even when the better of pointwise selection and plurality is taken per bank. Among high-effort responses 2,399 of 14,880 (16.12%) reach the common 81,920-token generation cap, against none at low effort; overlapping prompt-bootstrap intervals and differing response lengths preclude a total ordering of the generators. Block 4: SuperGPQA field-balanced at 50 questions from each of 72 EvalScope fields (3,600 questions), four banks of 80 responses each. Total release 1,948,821 traces across 22,449 questions. In the verifier pipeline, 57,433 critiques (19.58%) hit the 4,096-token cap and their partial critiques were still used.",
+    "tags": [
+      "test-time-scaling",
+      "inference-regimes",
+      "evaluation-protocol",
+      "reproducibility",
+      "repeated-sampling",
+      "pass-at-k",
+      "verifier",
+      "reasoning-traces"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-04001",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

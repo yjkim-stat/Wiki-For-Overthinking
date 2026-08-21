@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Scaling Laws"
+  ],
   "definition": "",
   "evidence": [
+    {
+      "id": "title:5eb9089f909af3c1",
+      "kind": "paper",
+      "note": "Replaces the cosine learning-rate schedule with a constant learning rate followed by a cooldown, so that scaling-law experiments can reuse a single training run across many training durations.",
+      "title": "Scaling Laws and Compute-Optimal Training Beyond Fixed Training Durations"
+    },
     {
       "id": "title:cb7f41c5af287a91",
       "kind": "paper",
@@ -10,10 +18,15 @@
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
-  "kind": "concept",
-  "last_seen": "2026-08-20T12:24:12Z",
+  "kind": "method",
+  "last_seen": "2026-08-21T00:56:47Z",
   "name": "scaling laws",
   "related": [
+    "compute-optimal-training",
+    "learning-rate-schedule",
+    "stochastic-weight-averaging",
+    "constant-learning-rate-with-cooldown",
+    "cosine-learning-rate-schedule",
     "inverse-scaling",
     "u-shaped-scaling",
     "inverse-scaling-prize-task-suite-11-datasets"

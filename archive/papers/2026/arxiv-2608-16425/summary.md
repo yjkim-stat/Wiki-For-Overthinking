@@ -1,0 +1,61 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# ParaTempo: Efficient Parallel Reasoning via Temporal Confidence
+
+- **Authors**: Xuteng Zhang, Wenhao Zeng, Xiaodong Gu, Chao Hu, Haotian Lin, Yuling Shi, Min Wang, Beijun Shen
+- **Venue**: cs.AI
+- **Published**: 2026-08-17
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2608.16425>
+- **PDF**: <https://arxiv.org/pdf/2608.16425v1>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.57
+
+## In one line
+
+A training-free controller for parallel reasoning that probes each branch every 500 tokens for a tentative answer distribution, averages recent probes into a 'temporal confidence' score, and uses that one signal to prune, retire, fork and globally stop branches.
+
+## Problem
+
+Parallel reasoning (self-consistency and its descendants) raises accuracy by sampling K trajectories, but cost scales with both branch count and depth, and fixed-budget sampling ignores that branches converge at different times: converged branches keep emitting redundant tokens while diffuse ones burn budget with no sign of future utility. Existing online controllers use signals that the paper measures as inadequate for branch-level decisions -- final-answer consensus arrives only after most of the computation is spent, token-level entropy/perplexity are not aligned with the answer space, and a single intermediate probe is noisy. Synchronized controllers additionally impose barriers that force fast branches to wait on slow ones, inflating wall-clock latency.
+
+## Contributions
+
+- Temporal confidence: a branch-local convergence signal defined as the exponentiated negative entropy of intermediate answer distributions averaged over a sliding window of recent probes.
+- A preliminary measurement showing token-level entropy and perplexity are near-uninformative about future answer stability (AUC 0.58 and 0.57, |rho| <= 0.13) while a single instantaneous answer probe reaches AUC 0.71 but with volatility 0.26.
+- ParaTempo, a training-free asynchronous controller that drives pruning, early retirement, forking and global early termination from that one signal without cross-branch synchronization.
+- Per-instance quantile calibration of the pruning threshold during a warmup phase, replacing a hand-set global threshold.
+- Confidence-weighted voting that lets a retired branch contribute its answer without continuing to generate.
+- An ablation isolating retirement (6.6 points), forking (3.3 points) and pruning (1.6 points) as complementary on HMMT25.
+
+## Method
+
+Each of K=16 branches is probed every tau=500 generated tokens: an answer-forcing suffix ('</think> Final answer:') is appended to the current prefix and the top-L=20 answer-token logprobs are softmaxed and bucketed into a normalized answer distribution p_{i,t}. Temporal confidence C_{i,t} = exp(-H(g_{i,t})) where g_{i,t} is the mean of the probe distributions in a sliding window of W=7 -- readable as the inverse effective number of competing answer candidates. A warmup of N_warm=15 probes runs with no intervention and calibrates a per-instance pruning threshold as the (1-q_prune) quantile of the observed confidences, q_prune=0.50, so no global threshold is hand-set. After warmup each branch independently takes one of four states: pruned when C_{i,t} < theta_prune; retired when its dominant-answer mass c_{i,t} stays >= theta_retire=0.90 for X=9 consecutive probes (it stops generating but keeps its vote and weight); forked when a slot freed by pruning is reallocated to the highest-confidence eligible donor branch, inheriting its prefix with a fresh sampling seed; otherwise active. Decisions are asynchronous -- no cross-branch barrier. Globally, generation halts when the confidence-weighted vote mass max_a sum_i c_{i,t}*1{y_hat_i,t = a} reaches gamma_ES=0.50 times the number of eligible voters, and the final answer is that weighted argmax. Nothing is trained.
+
+## Results
+
+Four benchmarks (AIME 2026, HMMT Nov 2025, HMMT Feb 2026, GPQA Diamond) on two models, vLLM on one A100 80GB, K=16, 16,384-token cap, averaged over four runs. On Qwen3.5-35B-A3B, ParaTempo averages 71.1% accuracy against self-consistency SC@16 at 72.2%, while cutting mean wall-clock latency 21.8% (247.1s -> 193.3s) and total tokens 30.3% (225k -> 157k). On GPT-OSS-20B the efficiency gain is larger and the accuracy cost is larger too: latency -32.2% (129.7s -> 88.0s) and tokens -18.1%, but accuracy falls from 71.8% to 68.0%, i.e. 3.9 points below SC -- the paper's 'within 1.1 points' framing is the Qwen number only. Per-benchmark the accuracy gap is uneven: on AIME26/Qwen SC scores 87.5 and ParaTempo 83.3 (-4.2), on HMMT25/Qwen ParaTempo is ahead (73.3 vs 69.2), and on HMMT26/Qwen it reaches 42.4 -- equal to zero-shot single-trajectory decoding and below SC's 45.5, so on that benchmark the retained parallel-reasoning benefit is nil. Against the closest baseline, Parallel-Probe (synchronized 2D probing), ParaTempo is +3.9 accuracy points with 10.6% lower latency on Qwen and +3.8 points at comparable sequential cost on GPT-OSS. Sequential (critical-path) tokens are the clearest win: 10.2k vs SC's 15.6k on AIME26/Qwen, against DeepConf's 101-171k, whose sequential control flow makes it the slowest baseline throughout. Signal diagnostics over 90M collected reasoning tokens: mean token entropy and perplexity have volatility 0.54/0.56, |Spearman rho| 0.13/0.12 and AUC 0.58/0.57 for predicting whether the dominant answer survives the next h=5 probes; instantaneous answer confidence scores 0.26/0.41/0.71; temporal confidence has lower volatility than all three (Figure 4a, no number given in text) and a monotonically rising future-stability rate across its quantiles. Ablation on HMMT25/Qwen: removing early retirement costs 6.6 accuracy points (73.3 -> 66.7) and raises both tokens and latency; removing forking costs 3.3 points (-> 70.0) but is the cheapest variant; removing pruning costs 1.6 points and raises latency to 233.0s.
+
+## Limitations
+
+Accuracy is not actually preserved in the strong sense the objective (min cost s.t. A(pi) >= A(pi_fixed)) states: ParaTempo is below SC@16 on 6 of 8 model-benchmark cells, by up to 5.3 points (GPT-OSS/HMMT26), and on HMMT26/Qwen it lands exactly at the zero-shot score. Evaluated on one GPU with two models and four small competition/QA benchmarks (AIME and HMMT sets are 30-ish items each), so per-benchmark accuracy differences of a few points correspond to one or two problems; only four runs are averaged and no variance or confidence interval is reported anywhere. The method needs top-L answer-token logprobs and the ability to inject an answer-forcing suffix mid-generation, so it does not apply to an API that exposes neither. Probing itself costs forward passes that are not separately accounted for in the token counts. Seven hyperparameters (tau, L, W, X, N_warm, q_prune, theta_retire, gamma_ES) are fixed at defaults with no sensitivity study in the main text; only the pruning threshold is auto-calibrated per instance, the retirement threshold 0.90 and stopping threshold 0.50 are global constants. Answer bucketing assumes a short, normalizable final answer (a number or a multiple-choice letter) and would not transfer to open-ended generation. The claimed superiority of temporal confidence over top-1 probability is weak in the paper's own Figure 4(b), where both rise monotonically with quantile.
+
+## Why it matters here
+
+- **overthinking**: Directly on topic, and it moves the overthinking question from the length of one chain to the width of many. The paper's claim is that a converged branch continuing to decode is the parallel-reasoning form of overthinking, and it supplies a measured stopping signal for it: temporal confidence, an entropy of the windowed average of intermediate answer distributions, which it shows predicts future answer stability far better (AUC 0.71 for the single-probe version, better still when windowed) than the token-entropy and perplexity signals commonly used for early exit (AUC 0.58, 0.57). That measurement is reusable independently of the controller: it is direct evidence against token-level uncertainty as an overthinking detector, because a branch can be lexically confident while still switching answers. The ablation is the sharper result for the topic -- stopping converged branches early (retirement) is worth 6.6 accuracy points, i.e. cutting redundant decoding here improved accuracy rather than merely saving tokens, while the exploration it funds (forking) is worth another 3.3. It also separates two costs the topic often conflates: total tokens and critical-path tokens, and shows a controller can cut latency 21.8-32.2% mostly by removing synchronization rather than by thinking less. The honest caveat for the archive is that the accuracy/efficiency trade is not free as the abstract implies: ParaTempo is below fixed-budget self-consistency on 6 of 8 model-benchmark cells and on HMMT26/Qwen falls back to the zero-shot score, so this is evidence about where on the trade-off curve confidence-driven stopping sits, not evidence that stopping is free.
+
+## Entities
+
+- **Concepts**: Temporal confidence, Answer-space convergence, Intermediate answer probing, Asynchronous branch control, Early retirement, Branch pruning, Adaptive forking, Confidence-weighted voting, Parallel test-time scaling, Critical-path (sequential) token cost, Self-consistency, Synchronization barrier
+- **Methods**: ParaTempo, Self-consistency (SC@16), ESC (early-stopping self-consistency), SAC (answer-convergence stopping), DeepConf (high and low), Parallel-Probe, Qwen3.5-35B-A3B, [GPT-OSS-20B](../../../../wiki/methods/gpt-oss-20b.md), [vLLM](../../../../wiki/methods/vllm.md), Nucleus sampling
+- **Datasets**: [AIME 2026](../../../../wiki/datasets/aime-2026.md), HMMT November 2025, HMMT February 2026, [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `parallel-reasoning`, `test-time-scaling`, `early-stopping`, `self-consistency`, `confidence-signal`, `training-free`, `inference-efficiency`, `branch-pruning`, `latency`, `aime`, `gpqa`
+
+## Abstract
+
+Parallel reasoning improves the accuracy and robustness of large reasoning models by exploring multiple solution paths, but its computational cost grows with reasoning depth and branch count. Existing methods for managing these parallel paths typically rely on final-answer consensus, local token confidence, or isolated intermediate probes. However, these signals are often delayed, weakly tied to actual reasoning progress, or too noisy for dynamic, branch-level control. To address these limitations, we introduce ParaTempo, a training-free asynchronous parallel reasoning framework. ParaTempo is driven by temporal confidence, a branch-local measure of answer-space convergence. Each branch is periodically probed for a tentative answer probability distribution, and temporal confidence quantifies how sharply the recent intermediate probes concentrate on a dominant answer. Once sufficient evidence has accumulated, ParaTempo drives its entire control process from this single signal: low-confidence branches are pruned, branches that persistently commit to their dominant answer are retired early, freed computation is reallocated by forking new branches, and generation stops globally once the confidence-weighted vote concentrates. Without requiring synchronization among reasoning trajectories, ParaTempo adaptively allocates computation based on branch-level convergence. Experiments on challenging mathematical and scientific reasoning benchmarks show that ParaTempo reduces average latency by 21.8-32.2% and total token usage by 18.1-30.3% while maintaining competitive accuracy. Moreover, temporal confidence exhibits stronger temporal stability and predictive power for future branch convergence than token-level and instantaneous signals.
+
+---
+
+Record id: `arxiv:2608.16425`
