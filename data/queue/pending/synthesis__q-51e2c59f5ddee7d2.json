@@ -1,0 +1,81 @@
+{
+  "attachments": {
+    "evidence": [
+      {
+        "id": "fixed-point-iteration",
+        "kind": "concept",
+        "note": "In these sources fixed-point iteration means running one block of weights repeatedly on its own output until the representation converges, so that compute is spent on depth of iteration rather than on more parameters; it is a third notion of variable computation, distinct from both exiting a reasoning trace and exiting a layer stack at an intermediate head. 'Expressive Power of Implicit Models' t…",
+        "sources": 2,
+        "title": "fixed-point iteration"
+      },
+      {
+        "id": "early-stopping",
+        "kind": "concept",
+        "note": "The five archived sources use 'early stopping' in three unrelated senses, and the archive should not be read as holding one idea here. Two halt a large reasoning model at inference: CaTS stops drawing further samples for a query once its self-distilled confidence is high enough, and 'Statistical Early Stopping for Reasoning Models' applies sequential stopping rules to the arrival of uncertainty k…",
+        "sources": 5,
+        "title": "early stopping"
+      },
+      {
+        "id": "arxiv:2608.18222",
+        "kind": "paper",
+        "note": "Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour …",
+        "read": true,
+        "title": "Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth"
+      },
+      {
+        "id": "arxiv:2607.28166",
+        "kind": "paper",
+        "note": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+        "read": true,
+        "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models"
+      },
+      {
+        "id": "arxiv:2608.16425",
+        "kind": "paper",
+        "note": "A training-free controller for parallel reasoning that probes each branch every 500 tokens for a tentative answer distribution, averages recent probes into a 'temporal confidence' score, and uses that one signal to prune, retire, fork and globally stop branches.",
+        "read": true,
+        "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence"
+      },
+      {
+        "id": "arxiv:2608.09898",
+        "kind": "paper",
+        "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+        "read": true,
+        "title": "Consilience for Verifier-Free Test-Time Scaling"
+      }
+    ]
+  },
+  "created_at": "2026-08-21T10:20:12Z",
+  "instructions": "출력 답-불변성에 기초한 정지 규칙들(CVEE의 run_t/changes_t, DEER의 trial-answer 신뢰도, ParaTempo의 W=7 시간적 신뢰도, Consilience의 경계창 점수)은 Think Shallow, Solve Deep의 Proposition 1(b)가 기술하는 반례 — 스텝당 변위가 0으로 가면서도 남은 경로 길이가 발산하여(예: delta_u = 1/u) 어떤 유한한 답-불변 구간도 다음 스텝을 보증하지 못하는 궤적 — 에 실제로 노출되어 있는가? 각 규칙이 재는 양을 (변위 delta_t, 결정 마진 mu, 남은 경로 길이 R_t)의 언어로 다시 쓰고, 자기회귀 CoT에서 R_t의 유한성을 추정하는 것이 가능한지 판정할 것.\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
+  "item_id": "q:51e2c59f5ddee7d2",
+  "kind": "synthesis",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - entity names this bears on"
+    ],
+    "kind": "string - one of: decision (the group chose) | fact (it established)",
+    "papers": [
+      "string - canonical ids of archived papers it rests on"
+    ],
+    "rationale": "string - what settled it, and against which evidence",
+    "references": [
+      "string - ids of recorded external references, if any"
+    ],
+    "statement": "string - one sentence somebody could disagree with, settling the question. Leave empty if the evidence does not settle it",
+    "supersedes": "string - id of a finding this replaces, if any",
+    "topics": [
+      "string - tracked topic slugs"
+    ],
+    "unresolved": "string - required *instead of* `statement` when the evidence does not settle the question: what is missing, and what would settle it"
+  },
+  "payload": {
+    "evidence_count": 6,
+    "question": "출력 답-불변성에 기초한 정지 규칙들(CVEE의 run_t/changes_t, DEER의 trial-answer 신뢰도, ParaTempo의 W=7 시간적 신뢰도, Consilience의 경계창 점수)은 Think Shallow, Solve Deep의 Proposition 1(b)가 기술하는 반례 — 스텝당 변위가 0으로 가면서도 남은 경로 길이가 발산하여(예: delta_u = 1/u) 어떤 유한한 답-불변 구간도 다음 스텝을 보증하지 못하는 궤적 — 에 실제로 노출되어 있는가? 각 규칙이 재는 양을 (변위 delta_t, 결정 마진 mu, 남은 경로 길이 R_t)의 언어로 다시 쓰고, 자기회귀 CoT에서 R_t의 유한성을 추정하는 것이 가능한지 판정할 것."
+  },
+  "task_id": "synthesis__q-51e2c59f5ddee7d2",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
