@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<!--
+  A presentation that must work with no network: no CDN, no framework, one
+  file. Arrow keys / space / click to move, "o" for the overview grid, "f" for
+  fullscreen, "p" to print to PDF.
+-->
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dfe3e9;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #2f5cd0;
+  --accent-soft: #eaf0ff;
+  --code-bg: #eef0f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216; --surface: #191d24; --border: #2b313b; --text: #e9ecf1;
+    --muted: #9aa4b2; --accent: #8fb0ff; --accent-soft: #1c2436; --code-bg: #1c2029;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg); color: var(--text); overflow: hidden;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+}
+#deck { height: 100%; }
+section.slide {
+  display: none; height: 100%; padding: 4vmin 7vmin 8vmin;
+  flex-direction: column; justify-content: center;
+  max-width: 1100px; margin: 0 auto;
+}
+section.slide.current { display: flex; }
+section.slide.title-slide { text-align: center; align-items: center; }
+section.slide.title-slide h1 { font-size: clamp(2rem, 5.2vmin, 3.4rem); }
+h1 { font-size: clamp(1.7rem, 4.4vmin, 2.6rem); line-height: 1.2; margin: 0 0 1rem;
+  letter-spacing: -.01em; }
+h2 { font-size: clamp(1.4rem, 3.6vmin, 2.1rem); line-height: 1.25; margin: 0 0 1.2rem;
+  letter-spacing: -.01em; }
+h3 { font-size: clamp(1.05rem, 2.5vmin, 1.4rem); margin: 1.2rem 0 .5rem; color: var(--muted); }
+p, li { font-size: clamp(.95rem, 2.1vmin, 1.25rem); }
+p { margin: 0 0 .8rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin: .45rem 0; }
+.subtitle { color: var(--muted); font-size: clamp(1rem, 2.4vmin, 1.35rem); }
+a { color: var(--accent); }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px;
+  font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: .8rem 1rem; overflow: auto; max-height: 55vh; }
+pre code { background: none; padding: 0; font-size: clamp(.7rem, 1.6vmin, .95rem); }
+blockquote { margin: 0 0 1rem; padding: .6rem 1.1rem; border-left: 4px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 6px 6px 0; }
+.math { background: var(--accent-soft); border-radius: 4px; padding: .05em .3em;
+  font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.math-block { display: block; margin: .8rem 0; padding: .6rem; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: clamp(.75rem, 1.7vmin, 1rem); }
+th, td { border: 1px solid var(--border); padding: .4rem .6rem; text-align: left; }
+th { background: var(--surface); }
+.notes { display: none; }
+
+#bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent);
+  width: 0; transition: width .18s ease; z-index: 5; }
+#hud { position: fixed; right: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .78rem; letter-spacing: .04em; z-index: 5; }
+#hint { position: fixed; left: 1.2rem; bottom: .9rem; color: var(--muted);
+  font-size: .74rem; z-index: 5; opacity: .75; }
+
+#overview { position: fixed; inset: 0; background: var(--bg); overflow: auto;
+  padding: 2rem; display: none; z-index: 10; }
+#overview.open { display: block; }
+#overview .grid { display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+#overview button { text-align: left; cursor: pointer; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem;
+  color: var(--text); font: inherit; font-size: .85rem; min-height: 90px; }
+#overview button:hover { border-color: var(--accent); }
+#overview .num { color: var(--muted); font-size: .72rem; display: block; margin-bottom: .3rem; }
+
+@media print {
+  body { overflow: visible; }
+  section.slide { display: flex !important; height: 100vh; break-after: page;
+    border-bottom: 1px solid #ccc; }
+  #bar, #hud, #hint, #overview { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+{{SLIDES}}
+</div>
+<div id="bar"></div>
+<div id="hud"></div>
+<div id="hint">&larr; &rarr; move &middot; o overview &middot; f fullscreen</div>
+<div id="overview"><div class="grid"></div></div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  var overview = document.getElementById('overview');
+  var grid = overview.querySelector('.grid');
+  var index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach(function (s, i) { s.classList.toggle('current', i === index); });
+    hud.textContent = (index + 1) + ' / ' + slides.length;
+    bar.style.width = ((index + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  slides.forEach(function (slide, i) {
+    var heading = slide.querySelector('h1, h2');
+    var button = document.createElement('button');
+    button.innerHTML = '<span class="num">' + (i + 1) + '</span>' +
+      (heading ? heading.textContent : '(no title)');
+    button.addEventListener('click', function () {
+      overview.classList.remove('open');
+      show(i);
+    });
+    grid.appendChild(button);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    var key = event.key;
+    if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ') {
+      show(index + 1); event.preventDefault();
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+      show(index - 1); event.preventDefault();
+    } else if (key === 'Home') { show(0); }
+    else if (key === 'End') { show(slides.length - 1); }
+    else if (key === 'o' || key === 'Escape') { overview.classList.toggle('open'); }
+    else if (key === 'f') {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen(); }
+    } else if (key === 'p') { window.print(); }
+  });
+
+  document.getElementById('deck').addEventListener('click', function (event) {
+    if (event.target.closest('a')) return;
+    show(index + (event.clientX < window.innerWidth * 0.28 ? -1 : 1));
+  });
+
+  var start = null;
+  document.addEventListener('touchstart', function (e) { start = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (start === null) return;
+    var delta = e.changedTouches[0].clientX - start;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    start = null;
+  });
+
+  var fromHash = parseInt((location.hash || '').slice(1), 10);
+  show(isNaN(fromHash) ? 0 : fromHash - 1);
+})();
+</script>
+</body>
+</html>

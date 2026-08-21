@@ -1,0 +1,254 @@
+"""Wiki entities, derived from the readings.
+
+Every summary names the concepts, methods and datasets it relied on. This is
+where those names become records: accumulated in ``data/concepts/`` with the
+evidence behind each one, and promoted to a note of their own once enough
+independent sources have mentioned them.
+
+The split this module exists to hold is between *derived* and *authored*. The
+evidence, the kind and the co-occurrence links are derived, and are rebuilt from
+scratch on every pass so that a deleted or re-read paper leaves no phantom
+mention behind. The definition, the aliases and the ruled links are authored --
+somebody read the sources and said what the entity is and what it sits next to
+-- and are carried across every rebuild. An entity whose evidence has vanished
+is dropped, unless it carries a definition, in which case the writing outlives
+the evidence that prompted it.
+
+Links are the one thing that exists on both sides, in two fields. ``related``
+holds what appeared together in one summary and is rebuilt away; the entity a
+reader would actually turn to next -- the previous generation of the same
+system, the benchmark a method was built to beat -- rarely shares a summary with
+it, so ``related_authored`` holds what somebody ruled and nothing derives. Two
+fields rather than one because they need opposite lifetimes: merging them would
+make every co-occurrence edge permanent, which is the phantom-mention failure
+this module is built to prevent, moved from evidence to edges.
+
+Deriving records is not rendering them. This lives under ``enrich/`` with the
+rest of the code that writes to ``data/``, so that ``publish/`` can be what it
+says it is: a pure function of the archive.
+"""
+
+from __future__ import annotations
+
+from ..common.config import Config
+from ..common.log import get
+from ..common.paths import WIKI_KINDS, slugify
+from ..local import aliases as _aliases  # LOCAL
+from ..common.schema import Concept, utcnow
+from ..common.store import RecordStore
+
+_LOG = get(__name__)
+
+# fourth kind `model`
+KINDS = WIKI_KINDS
+_KIND_RANK = {"concept": 1, "method": 2, "dataset": 3, "model": 4}
+_RANK_KIND = {v: k for k, v in _KIND_RANK.items()}
+
+
+def slug_for(name: str) -> str:
+    # one entity may have several names, and which one a summary used is
+    # not a fact about the entity. See pipelines/local/aliases.py.
+    return _aliases.canonical(slugify(name))
+
+
+def _upgrade_kind(current: str, incoming: str) -> str:
+    """A name seen as a dataset is a dataset, even if also called a concept."""
+    return _RANK_KIND[max(_KIND_RANK.get(current, 1), _KIND_RANK.get(incoming, 1))]
+
+
+def _add_evidence(concept: Concept, kind: str, item_id: str, title: str, note: str) -> None:
+    for existing in concept.evidence:
+        if existing.get("kind") == kind and existing.get("id") == item_id:
+            return
+    concept.evidence.append(
+        {"kind": kind, "id": item_id, "title": title, "note": note}
+    )
+
+
+def _same(old: Concept, new: Concept) -> bool:
+    """Do these describe the same entity, ignoring when it was last written?
+
+    `last_seen` is the one field that would differ on every pass by
+    construction, so comparing without it is what turns "the harvest ran" into
+    "something actually changed".
+    """
+    before, after = old.to_dict(), new.to_dict()
+    before.pop("last_seen", None)
+    after.pop("last_seen", None)
+    return before == after
+
+
+def harvest(cfg: Config) -> dict[str, Concept]:
+    """Rebuild the concept records from every stored summary.
+
+    Rebuilt from scratch each time rather than updated in place: evidence is
+    derived data, and deriving it fresh keeps a deleted or re-summarized paper
+    from leaving a phantom mention behind. Hand-written definitions live in the
+    stored record and are carried over.
+    """
+    layout = cfg.layout
+    store = RecordStore(layout)
+
+    previous = {c.slug: c for c in store.iter_concepts()}
+    concepts: dict[str, Concept] = {}
+    # Slugs whose kind was adjudicated by a definition task. A local set rather
+    # than a field on Concept: the dataclass is serialized, and a bookkeeping
+    # attribute would leak into the stored JSON.
+    ruled: set[str] = set()
+
+    def entity(name: str, kind: str) -> Concept | None:
+        name = (name or "").strip()
+        if len(name) < 2:
+            return None
+        slug = slug_for(name)
+        if not slug:
+            return None
+        concept = concepts.get(slug)
+        if concept is None:
+            old = previous.get(slug)
+            concept = Concept(
+                slug=slug,
+                # a ruled entity is titled by the ruling, not by which
+                # summary the harvest happened to read first. The surface name
+                # still lands in `aliases` two lines below.
+                name=_aliases.canonical_name(slug) or name,
+                kind=kind,
+                definition=old.definition if old else "",
+                aliases=list(old.aliases) if old else [],
+                # Carried for the same reason the definition is: somebody ruled
+                # on these, and nothing in the summaries can produce them again.
+                # `related` is deliberately not carried — rebuilding it from
+                # nothing is what stops a re-read paper leaving a phantom edge.
+                related_authored=list(old.related_authored) if old else [],
+                first_seen=old.first_seen if old else utcnow(),
+            )
+            concepts[slug] = concept
+            # A stored definition means somebody ruled on what this entity is,
+            # over the whole evidence set. The harvested kind is a side effect
+            # of which list each summary happened to put the name in, so it
+            # must not overrule that judgement on the next render.
+            if old and old.definition:
+                concept.kind = old.kind
+                ruled.add(slug)
+        if slug not in ruled:
+            concept.kind = _upgrade_kind(concept.kind, kind)
+        if name != concept.name and name not in concept.aliases:
+            concept.aliases.append(name)
+        return concept
+
+    def link(names: list[str]) -> None:
+        slugs = [slug_for(n) for n in names if slug_for(n) in concepts]
+        for slug in slugs:
+            concept = concepts[slug]
+            for other in slugs:
+                if other != slug and other not in concept.related:
+                    concept.related.append(other)
+
+    for paper in store.iter_papers():
+        summary = store.load_paper_summary(paper.id)
+        if summary is None:
+            continue
+        names: list[str] = []
+        for kind, values in (
+            ("concept", summary.concepts),
+            ("method", summary.methods),
+            ("dataset", summary.datasets),
+            ("model", summary.models),  # LOCAL
+        ):
+            for name in values:
+                concept = entity(name, kind)
+                if concept is None:
+                    continue
+                _add_evidence(
+                    concept, "paper", paper.id, paper.title, summary.one_liner
+                )
+                for slug in paper.topics:
+                    if slug not in concept.topics:
+                        concept.topics.append(slug)
+                names.append(name)
+        link(names)
+
+    for video in store.iter_videos():
+        summary = store.load_video_summary(video.id)
+        if summary is None:
+            continue
+        names = []
+        for kind, values in (
+            ("concept", summary.concepts),
+            ("method", summary.methods),
+            ("dataset", summary.datasets),
+            ("model", summary.models),  # LOCAL
+        ):
+            for name in values:
+                concept = entity(name, kind)
+                if concept is None:
+                    continue
+                _add_evidence(
+                    concept, "video", video.id, video.title, summary.one_liner
+                )
+                for slug in video.topics:
+                    if slug not in concept.topics:
+                        concept.topics.append(slug)
+                names.append(name)
+        link(names)
+
+    # Drop records whose evidence has disappeared entirely, unless somebody
+    # wrote a definition for them by hand.
+    for slug, old in previous.items():
+        if slug not in concepts and old.definition:
+            concepts[slug] = old
+
+    written = 0
+    for concept in concepts.values():
+        old = previous.get(concept.slug)
+        if old is not None and _same(old, concept):
+            # Nothing about this entity moved, so nothing about its record
+            # should. Writing a fresh `last_seen` here would mean every render
+            # rewrote every concept file -- a whole archive's worth of diff
+            # that records when the code last ran, not when anything was seen.
+            continue
+        concept.last_seen = utcnow()
+        store.save_concept(concept)
+        written += 1
+
+    stale = set(previous) - set(concepts)
+    for slug in stale:
+        store.concept_path(slug).unlink(missing_ok=True)
+
+    _LOG.info(
+        "harvested %d entities from summaries; %d record(s) changed",
+        len(concepts),
+        written,
+    )
+    return concepts
+
+
+def promoted(cfg: Config, concepts: dict[str, Concept]) -> dict[str, Concept]:
+    """Entities with enough independent evidence to deserve their own note."""
+    threshold = int(
+        (cfg.settings.get("wiki", {}) or {}).get("promote_after_mentions", 2)
+    )
+    return {
+        slug: concept
+        for slug, concept in concepts.items()
+        if concept.mention_count >= threshold or concept.definition
+    }
+
+
+# ---------------------------------------------------------------------------
+# Note rendering
+
+
+def undefined_concepts(cfg: Config, live: dict[str, Concept]) -> list[Concept]:
+    """Promoted entities still waiting for a definition."""
+    return [c for c in live.values() if not c.definition.strip()]
+
+
+def rebuild(cfg: Config) -> tuple[dict[str, Concept], dict[str, Concept]]:
+    """``(every entity, those promoted to a note)``.
+
+    The one call a renderer needs, so that deciding what the wiki contains
+    stays here and drawing it stays there.
+    """
+    concepts = harvest(cfg)
+    return concepts, promoted(cfg, concepts)

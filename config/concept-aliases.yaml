@@ -1,0 +1,34 @@
+# One entity, many names.
+#
+# The harvest keys a concept by the slug of whatever name a summary used, so
+# `AIME24` and `AIME 2024` become two records, each holding part of the
+# evidence and each getting its own definition written against that part. This
+# file is where somebody rules that two names are one entity.
+#
+# Both sides may be written as a name or as a slug -- `AIME 2024` and
+# `aime-2024` mean the same thing here. The key is the name that wins; it is
+# what the wiki note is titled.
+#
+#   merge:
+#     <canonical name>:
+#       - <other name>
+#
+# `python3 scripts/merge_concept_aliases.py` lists candidates and retires the
+# records a new entry orphans. Adding an entry alone does not merge what is
+# already on disk -- see that script.
+#
+# **This file is for names, not for neighbours.** A `Concept.aliases` list is
+# populated by readers who use it for both relations, so it is a candidate list
+# and not a merge plan. GPQA is not GPQA-Diamond, which is a subset of it; MATH
+# is not MATH-500, which is 500 problems drawn from it; causal tracing is not
+# activation patching, which this archive's own note argues measures a
+# different quantity. Rulings that are judgement rather than spelling belong in
+# docs/issues/concept-alias-candidates.md until the group takes them.
+merge: {}
+  # One entry per ruling, e.g.
+  #
+  #   AIME 2024:
+  #     - AIME24
+  #     - aime-24
+  #
+  # Replace the empty map above with the block form once you have one.

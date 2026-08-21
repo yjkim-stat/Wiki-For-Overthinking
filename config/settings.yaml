@@ -1,0 +1,85 @@
+# Global settings for the research team's pipeline.
+# Topic-specific knobs live in config/topics/<slug>.yaml.
+
+# Language for every generated artifact: summaries, wiki notes, lecture
+# notes, slides and reports.
+language: en
+
+paths:
+  data: data
+  archive: archive
+  wiki: wiki
+  outputs: outputs
+  templates: templates
+
+collect:
+  # How many days back each run looks. Raise it for a one-off backfill.
+  lookback_days: 2
+  # Hard cap per source per topic per run. Keeps a run bounded even when a
+  # query is too broad.
+  max_items_per_source: 60
+  request_timeout_s: 30
+  retries: 3
+  retry_backoff_s: 2
+  # Fetching the document a reader is about to summarize. An abstract reports a
+  # paper's claims; the experiments section reports its findings, and the two
+  # are not the same paper often enough to matter.
+  pdfs:
+    enabled: true
+    # PDF hosts are the same hosts the metadata APIs throttle, and a body is a
+    # far larger ask than a query -- so fetching documents gets its own, slower
+    # floor rather than spending the budget the queries need.
+    min_request_interval_s: 5.0
+    # Bounded per run. A paper that is skipped keeps its abstract-only task and
+    # is fetched on a later run.
+    max_per_run: 40
+
+  # Stop asking a host after this many consecutive whole-request failures.
+  # Each of those is already `retries` attempts, so this is sustained failure,
+  # not a bad minute. A source that is down for the whole run would otherwise
+  # become the run's dominant cost and still return nothing. 0 disables.
+  give_up_after_failures: 5
+  user_agent: "recipe-for-research-team-management/0.1 (research archiving bot)"
+
+score:
+  # A keyword hit is worth more in the title than in the abstract.
+  title_weight: 3.0
+  abstract_weight: 1.0
+  # Bonus when one of the topic's tracked authors appears.
+  author_bonus: 2.0
+  # Used when a topic does not set its own `min_score`.
+  default_min_score: 0.35
+
+summarize:
+  # queue     -> defer to the daily Claude Code session (default, no API key)
+  # anthropic -> direct Claude API calls (interface only, not configured)
+  # ollama    -> local model endpoint (interface only, not configured)
+  backend: queue
+  # Upper bound on tasks queued per run, so a busy day cannot produce an
+  # unreviewable backlog.
+  max_pending_tasks: 40
+
+wiki:
+  # A concept needs this many independent mentions before it is promoted to
+  # its own note.
+  promote_after_mentions: 2
+  # Everything between these markers is regenerated on every run. Anything
+  # outside them is hand-written and never touched.
+  auto_block_begin: "<!-- auto:begin -->"
+  auto_block_end: "<!-- auto:end -->"
+
+  # A definition is written once, against the sources that existed then. When
+  # the evidence outgrows it the note reads as complete while describing a
+  # subset of itself, which is worse than a missing definition because nothing
+  # about it looks wrong.
+  #
+  # This asks for it again once the evidence reaches this multiple of what the
+  # definition was written against — 2.0 means "when it has doubled". The old
+  # definition is handed back to be revised, never discarded, and a refresh
+  # nobody answers changes nothing.
+  #
+  # 0 disables. Off by default: upgrading should not grow anybody's queue.
+  refresh_definition_at: 0
+  # How many to ask for per render, so a long-neglected archive drains over
+  # several passes, worst first, rather than producing an unfaceable backlog.
+  max_refresh_tasks: 5
