@@ -1,0 +1,72 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Unifies text-based and visually-grounded reasoning in one vision-language model and uses RL with a mode-relative advantage to make the model pick which mode to use per input, raising average accuracy over eight benchmarks by about 5 points.",
+        "title": "Mixture-of-Visual-Thoughts: Exploring Context-Adaptive Reasoning Mode Selection for General Visual Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "vStream trains a lightweight linear estimator to predict counterfactual ablation effects of image regions from cached attention features, so a multimodal reasoning model's visual grounding can be displayed while it reasons rather than recomputed afterwards, at 0.024 s per 10 tokens against 1.9-2.8 s for causal baselines.",
+        "title": "Real-Time Visual Attribution Streaming in Thinking Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
+        "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Heima replaces each stage of a multimodal model's textual chain of thought with a single learned 'thinking token' generated in latent space, and trains a separate decoder that can expand those tokens back into readable reasoning.",
+        "title": "Efficient Reasoning with Hidden Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:31:39Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'MathVista'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "MathVista",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "MathVista",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A vision-language mathematics benchmark, and the one multimodal set in this archive on which reasoning length is actually measured rather than only accuracy. Heima, which replaces each reasoning stage with a single latent token, emits 13.8 tokens per MathVista answer against 216.3 for its LLaVA-CoT baseline - about 6% - at a cost of 3.1 accuracy points on its six-benchmark average, which the archive reads as an honest price for the extreme of compression. ARES shortens MathVista traces by about 19% against its own cold-start model, next to about 22% on GSM8K and about 38% longer on AIME25, so the easy-set pattern holds here too; Mixture-of-Visual-Thoughts reports accuracy only (AdaVaR-3B 69.8% against 62.3% for Qwen2.5-VL-3B) and vStream uses it as one of three maths-category sets for measuring visual-attribution faithfulness, not reasoning cost. Three of its four sources reached the archive through vocabulary shared with the topic rather than through its subject; MathVista is the entity where that overlap still yielded usable length evidence.",
+    "kind": "dataset",
+    "related": [
+      "GSM8K",
+      "MathVerse"
+    ]
+  },
+  "task_id": "concept__mathvista",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

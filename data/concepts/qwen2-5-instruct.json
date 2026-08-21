@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen2.5-Instruct is an instruction-tuned language model family that archived papers train and compare against, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. IAPO trains it at 0.5B, 1.5B and 7B on GSM8K, MATH-500 and DAPO-Math-17k, its one concrete instance being Qwen2.5-7B-Instruct on GSM8K reaching 100% Pass@32 at 111.83 tokens against 177.62 for the S-GRPO baseline, roughly 37% fewer. ShorterBetter names it only as a comparison point alongside DeepSeek-R1-Distill-Qwen, Training Efficient and O1-Pruner; its own training is on the distilled models, not on this one. The name is used loosely for the whole size range rather than a single checkpoint, and the archive describes neither its architecture nor its instruction tuning.",
   "evidence": [
     {
       "id": "title:4bd9ad89663d1e26",
@@ -66,7 +66,10 @@
     "mbpp",
     "humaneval"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct",
+    "qwen3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-instruct",
   "topics": [

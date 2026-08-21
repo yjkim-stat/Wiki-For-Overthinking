@@ -43,8 +43,8 @@ None stated in the available material. Points a reader should notice: the report
 
 ## Entities
 
-- **Concepts**: Early Stopping, Per-Instance Compute Allocation, Learning Status Estimation, Gradient Norm, Training Efficiency
-- **Methods**: Instance-dependent Early Stopping (IES), second-order loss differences, [early stopping](../../../../wiki/methods/early-stopping.md), selective backpropagation
+- **Concepts**: [Early Stopping](../../../../wiki/concepts/early-stopping.md), Per-Instance Compute Allocation, Learning Status Estimation, Gradient Norm, Training Efficiency
+- **Methods**: Instance-dependent Early Stopping (IES), second-order loss differences, early stopping, selective backpropagation
 - **Datasets**: _none recorded_
 
 Tags: `early-stopping`, `training-efficiency`, `selective-backpropagation`, `curriculum`, `supervised-learning`

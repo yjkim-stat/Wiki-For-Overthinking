@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+HLE appears in this archive only as coverage of the hardest science and knowledge questions, and neither citing source reports a length or accuracy number on it. Statistical Early Stopping names GPQA and HLE as its science evaluation but reports its token savings on the four other sets - 63.30% (GSM-MC), 41.10% (UMWP), 68.15% (MiP) and 69.83% (MMLU) for the Maxwise rule, measured on ill-posed instances - so nothing is stated about what its stopping rules do on HLE. WebThinker lists HLE among GPQA, GAIA, WebWalkerQA and Glaive with only a qualitative claim of outperforming existing methods, and the archive files it as sharing no more than the 'large reasoning model' keyword. The group's pattern that token savings shrink on hard sets is therefore untested here rather than confirmed. The archive also holds this benchmark separately under its spelled-out name.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [conformal prediction](../methods/conformal-prediction.md), [early stopping](../methods/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [overthinking](../concepts/overthinking.md), [test-time compute](../concepts/test-time-compute.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [conformal prediction](../methods/conformal-prediction.md), [early stopping](../concepts/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [overthinking](../concepts/overthinking.md), [test-time compute](../concepts/test-time-compute.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

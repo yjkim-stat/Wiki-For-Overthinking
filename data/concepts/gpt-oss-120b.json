@@ -2,7 +2,7 @@
   "aliases": [
     "GPT-OSS-120B"
   ],
-  "definition": "",
+  "definition": "gpt-oss-120b is an open-weight language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight reasoning models on HazMart (77 hand-written agentic shopkeeper scenarios, 11 harm categories, 5 runs each) scoring chain-of-thought faithfulness against safe action under Targeted Reasoning Replacement -- the comparison in which four of the seven models exceed 80% faithfulness, QwQ-32B is best on both axes at about 75%, and DeepSeek-R1-Distill-Llama-70B is the most faithful at 97.5% while acting safely in only 12.3% of cases; the model's own figures are not given in the archived record. Adaptive Thinking uses it as one of four backbones, with Qwen3-8B, Qwen3-235B-A22B and Intern-S1-mini, for Sonata, an adapter that predicts a query's self-consistency from last-layer hidden states at prefill and sets the thinking budget before any thinking tokens are generated. Neither paper says anything about the model's architecture, training or provenance: it appears only as something to run a method on.",
   "evidence": [
     {
       "id": "arxiv:2608.03745",
@@ -62,7 +62,9 @@
     "math-500",
     "gpqa"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-oss-20b"
+  ],
   "schema_version": 1,
   "slug": "gpt-oss-120b",
   "topics": [

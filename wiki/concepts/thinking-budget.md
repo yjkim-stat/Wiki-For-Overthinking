@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [latent reasoning](../methods/latent-reasoning.md), [MATH-500](../datasets/math-500.md), [RLOO](../methods/rloo.md), [test-time scaling](test-time-scaling.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [latent reasoning](latent-reasoning.md), [MATH-500](../datasets/math-500.md), [RLOO](../methods/rloo.md), [test-time scaling](test-time-scaling.md)
 
 ## Appears in
 

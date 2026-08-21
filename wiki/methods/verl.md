@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [aha moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [GPQA](../datasets/gpqa.md), [Group-Relative Policy Optimization](../concepts/group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [MATH-500](../datasets/math-500.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [preference optimization](preference-optimization.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md)
+**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [aha moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [GPQA](../datasets/gpqa.md), [Group-Relative Policy Optimization](group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [MATH-500](../datasets/math-500.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [preference optimization](preference-optimization.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md)
 
 ## Appears in
 

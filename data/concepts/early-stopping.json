@@ -2,7 +2,7 @@
   "aliases": [
     "Early Stopping"
   ],
-  "definition": "",
+  "definition": "The five archived sources use 'early stopping' in three unrelated senses, and the archive should not be read as holding one idea here. Two halt a large reasoning model at inference: CaTS stops drawing further samples for a query once its self-distilled confidence is high enough, and 'Statistical Early Stopping for Reasoning Models' applies sequential stopping rules to the arrival of uncertainty keywords inside a trace, halting on ill-posed or ambiguous queries, with a finite-sample bound on the probability of halting too early on a well-posed one. Two use the classical training sense of stopping an optimizer short of convergence: Instance-dependent Early Stopping drops a training example from backpropagation once the second-order difference of its loss stays near zero, and a theoretical paper shows that in well-specified high-dimensional logistic regression gradient descent stopped early is consistent with polynomially many samples while gradient descent run to convergence is not. The fifth is neither, calibrating a termination threshold for a mixed-integer solver by conformal prediction on a learned estimate of the optimality gap; and none of the five is about leaving a network's layer stack at an intermediate head, which is early exit.",
   "evidence": [
     {
       "id": "title:03232c54fde9b57f",
@@ -36,7 +36,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "early stopping",
   "related": [
@@ -99,7 +99,11 @@
     "l2-regularized-empirical-risk-minimization",
     "max-margin-implicit-bias-analysis"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit",
+    "test-time-scaling",
+    "conformal-prediction"
+  ],
   "schema_version": 1,
   "slug": "early-stopping",
   "topics": [

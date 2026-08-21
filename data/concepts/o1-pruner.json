@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "O1-Pruner is a chain-of-thought length-reduction method that the archive knows almost entirely as a baseline: only one of the four citing papers says anything about how it works. EvoThink classes it with Kimi 1.5, ThinkPrune, DAST and DIET as 'trajectory compression' -- a length penalty applied to the output as a whole -- and argues that this granularity shortens beneficial and redundant verification indiscriminately, which is the axis along which EvoThink positions itself against it. The other three name it without mechanism: ARLCP lists it among its baselines on DeepSeek-R1-Distill-Qwen-1.5B and -7B, ShorterBetter compares against it, and QFFT reports it cutting tokens further than QFFT (0.8K on GSM8K at 7B) while scoring AES -1.7 against QFFT's 2.3 -- a metric whose parameters penalise accuracy loss ten times more than they reward token savings. Beyond the length-penalty characterisation, no archived paper describes its training procedure, and no archived source states its own headline numbers.",
   "evidence": [
     {
       "id": "arxiv:2607.19962",
@@ -124,7 +124,11 @@
     "mmlu-pro",
     "llm-aggrefact"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "thinkprune",
+    "dast",
+    "diet"
+  ],
   "schema_version": 1,
   "slug": "o1-pruner",
   "topics": [

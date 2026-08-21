@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A Python program-synthesis benchmark, graded by execution, that the archive's papers use as the easier half of a code-generation pair with HumanEval. The one paper reporting it directly is C4, where a diffusion language model matches its own baseline exactly (45.9 versus 45.9) using 33.3 of a 384-step budget — an 11.11x saving — while the margin-based baselines Prophet and SchED collapse to 1.9 and 27.6, so MBPP is where the archive's sharpest 'same answer, far less compute' result sits. The reasoning-length papers include it only inside mixtures: SuCo averages it over eight benchmarks, and ShorterBetter puts it in a 6K out-of-domain pool where length falls 62.3% for a 0.48% accuracy drop, while Inference Scaling Laws lists it without a stated number. No archived source gives a standalone MBPP accuracy-versus-token-count figure for a reasoning model.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -129,7 +129,10 @@
     "bbh",
     "livecodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "humaneval",
+    "livecodebench"
+  ],
   "schema_version": 1,
   "slug": "mbpp",
   "topics": [

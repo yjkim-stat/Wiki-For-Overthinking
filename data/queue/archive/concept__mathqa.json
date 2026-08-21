@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
+        "title": "CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+        "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:30:07Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'MathQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "MathQA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "MathQA",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A maths question-answering set that two archived papers use at the easy end of their suites; neither describes its contents, so the archive knows it only by the cost it takes to answer. ShorterBetter places it out-of-domain (with MMLU, BBH, LiveCodeBench, MBPP and HumanEval) and gets the archive's characteristic easy-set result: ShorterBetter-7B reaches 85.4% on MathQA in 980 average tokens against 83.3% in 3,442 for its Distill-7B baseline - a 71.5% token cut with accuracy slightly up, where the same pair on AIME still spends 5,288 against 11,382 tokens. In CaTS it is the worked example for confidence-based early stopping of Best-of-N, where accuracy rises from 73.7 to 83.6 at a 16-sample budget, so here the saving comes from stopping sampling rather than from shortening a chain of thought. The two uses are different enough that MathQA carries no single role in the archive beyond being the cheap benchmark against which the expensive ones are read.",
+    "kind": "dataset",
+    "related": [
+      "GSM8K",
+      "AIME"
+    ]
+  },
+  "task_id": "concept__mathqa",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

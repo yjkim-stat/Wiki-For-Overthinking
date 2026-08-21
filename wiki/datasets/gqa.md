@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GQA entered this wiki through papers that share vocabulary with the tracked topic rather than through the overthinking literature: vStream matched on 'thinking model' and HiDrop on 'early exit', and the archive files both as tangential or as an outright keyword false positive. In both, GQA is one general visual-question-answering set among many - vStream's 'general' category alongside COCO and ReferIt, HiDrop's eleven-benchmark LLaVA-1.5 suite alongside VQAv2, POPE and MMBench - and neither reports anything about it beyond aggregate suite performance (HiDrop retains 96.5% of original average performance at 91.7% vision-token compression). Nothing in either source measures reasoning length, tokens emitted, or a stop/continue decision over a trace: HiDrop's 'early exit' terminates the propagation of image patch embeddings through layers, and its savings are all prefill-side. There is no accuracy/length result on GQA in this archive.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AI2D](ai2d.md), [Layer-wise early exit](../concepts/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
+**Related**: [AI2D](ai2d.md), [ImageNet-1K](imagenet-1k.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
 
 ## Appears in
 

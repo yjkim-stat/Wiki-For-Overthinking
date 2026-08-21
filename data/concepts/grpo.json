@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "In these sources GRPO is the default RL post-training algorithm for reasoning models: rollouts are sampled in a group per prompt and each one's advantage is its reward normalised against that group, with no learned critic. Almost every paper here treats it as a backbone to modify rather than a subject in itself — Ada-GRPO (ARM), S-GRPO, WS-GRPO, SmartThinker, TRACE-adjacent reward work, TwT and CoSMo all keep the update and change the reward, the rollout group or the stopping rule, while QLPO and GFPO change only which sampled rollouts enter the update. Two sources diagnose it as a cause of overthinking rather than a neutral tool: WS-GRPO argues the group-relative advantage rewards longer deliberation because more steps give more chances at a relative gain, and DRPO shows that bolting a length penalty onto GRPO can drive a correct-but-long rollout's advantage negative, which is why naive length penalties cost accuracy. The term is used loosely across the archive — sometimes the specific algorithm, sometimes any group-relative RLVR recipe. Note: the archive tracks this under three unmerged entries — GRPO, Group-Relative Policy Optimization and GRPO (Group Relative Policy Optimization) — which are the same algorithm.",
   "evidence": [
     {
       "id": "arxiv:2607.19691",
@@ -389,7 +389,14 @@
     "omni-math",
     "livecodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "group-relative-policy-optimization",
+    "grpo-group-relative-policy-optimization",
+    "group-relative-advantage",
+    "drpo-decoupled-reward-policy-optimization",
+    "gfpo",
+    "rlvr"
+  ],
   "schema_version": 1,
   "slug": "grpo",
   "topics": [

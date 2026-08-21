@@ -43,7 +43,7 @@ Details on computational overhead of the calibration step, failure cases, and mo
 
 ## Entities
 
-- **Concepts**: [confidence calibration](../../../../wiki/concepts/confidence-calibration.md), [adaptive test-time compute](../../../../wiki/concepts/adaptive-test-time-compute.md), self-consistency, early stopping
+- **Concepts**: [confidence calibration](../../../../wiki/concepts/confidence-calibration.md), [adaptive test-time compute](../../../../wiki/concepts/adaptive-test-time-compute.md), self-consistency, [early stopping](../../../../wiki/concepts/early-stopping.md)
 - **Methods**: Self-Calibration, CaTS, CaTS-SC, [confidence-based early stopping](../../../../wiki/methods/confidence-based-early-stopping.md), [Best-of-N](../../../../wiki/methods/best-of-n.md), [Self-Consistency](../../../../wiki/methods/self-consistency.md)
 - **Datasets**: [MathQA](../../../../wiki/datasets/mathqa.md), eight other datasets (nine total, not individually named in the summarized source)
 

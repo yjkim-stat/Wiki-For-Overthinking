@@ -2,7 +2,7 @@
   "aliases": [
     "Reasoning collapse"
   ],
-  "definition": "",
+  "definition": "The failure in which reinforcement learning drives a model's reasoning trace towards nothing rather than towards length - the under-thinking direction, not overthinking. On four subjective verification rubrics with no deterministic verifier, outcome-only RLVR under GRPO drops Qwen2.5-7B's mean completion length from about 300 tokens to about 170 after roughly 70 steps as the policy switches to fast heuristic guessing; TwT reports the same shape for R1-Zero-style RL on machine translation, where traces fall below 100 tokens and degenerate into templates, three of which cover about 73% of Zh->En traces, with or without a KL term. Both read it as evidence that the emergent long reasoning seen in mathematics and code does not transfer to their domains. The fixes differ: the subjective-tasks paper puts length back into the reward as a capped bonus paid only when the answer is correct (L_target = 1000, lambda = 2e-4), reaching 0.851 macro-F1 at about 980 tokens against 0.805 reasoning and 0.748 no-reasoning baselines, while TwT uses no length reward at all and restores length through difficulty-rewritten cold-start data - removing that stage collapses its traces to 62 tokens.",
   "evidence": [
     {
       "id": "arxiv:2607.29287",
@@ -61,7 +61,10 @@
     "four-internal-netflix-verification-tasks-with-human-ground-truth-labels-conversa",
     "a-public-roleplay-persona-dataset-1-500-personas"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "underthinking",
+    "length-reward"
+  ],
   "schema_version": 1,
   "slug": "reasoning-collapse",
   "topics": [

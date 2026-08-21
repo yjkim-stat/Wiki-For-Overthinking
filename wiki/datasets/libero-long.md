@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LIBERO-LONG is a long-horizon robot manipulation suite that entered this wiki through vision-language-action papers sharing the topic's 'test-time compute' and 'early exit' vocabulary; the archive files VLA-ATTC as tangential and outside the topic's scope, since it reports only that it cuts the failure rate of the PI0.5 baseline by over 50% on LIBERO-LONG. AVA-VLA gives the one genuine adaptive-depth measurement on it - a confidence-gated early exit cutting mean latent reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms, at 98.1% success on LIBERO-Long and 98.3% across LIBERO overall, against 98.0% with a fixed depth of 5 at 156 ms - but the archive notes that success rates near 98% are close enough to saturation that the benchmark cannot resolve whether adaptive depth helps accuracy. So the reading here is that the extra depth buys nothing measurable and the early exit is a latency optimisation that costs no accuracy, not evidence that stopping at the right point improves answers.
 
 - **Kind**: dataset
 - **Also called**: LIBERO-Long
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [early exit](../methods/early-exit.md), [latent reasoning](../methods/latent-reasoning.md)
+**Related**: [early exit](../methods/early-exit.md), [latent reasoning](../concepts/latent-reasoning.md)
 
 ## Appears in
 

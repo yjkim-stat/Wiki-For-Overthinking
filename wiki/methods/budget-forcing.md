@@ -9,7 +9,7 @@ Controlling a reasoning model's chain-of-thought length by inserting a keyword a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Llama-8B](../datasets/deepseek-r1-distill-llama-8b.md), [GAIA](../datasets/gaia.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](../datasets/qwen3-8b.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [GAIA](../datasets/gaia.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
 
 ## Appears in
 

@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Proves via compressed sensing that a sparse autoencoder's linear-nonlinear encoder cannot perform accurate sparse inference even in solvable cases, and shows empirically that replacing the encoder with a stronger sparse-inference procedure recovers codes better at small extra compute.",
+        "title": "Compute Optimal Inference and Provable Amortisation Gap in Sparse Autoencoders",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies that overthinking in large reasoning models corresponds to a low-dimensional manifold in activation space and proposes projecting steering interventions onto that manifold to cut output tokens by up to 71% without hurting accuracy.",
+        "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:07Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'mechanistic interpretability'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "mechanistic interpretability",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "mechanistic interpretability",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Both archived sources use 'mechanistic interpretability' loosely, as a label for reading and intervening on a model's internal representations rather than for circuit-level reverse engineering, and neither defines it. Manifold Steering works in that register: it finds a single activation-space direction correlated with overthinking, traces the plateau-then-harm behaviour of naive steering to that direction lying on a low-dimensional manifold, and projects the steering vector onto the manifold before applying it at inference, cutting output tokens by up to 71% on DeepSeek-R1 distilled models while maintaining or improving accuracy on mathematical benchmarks (the benchmarks are not named in the material the archive holds). The sparse-autoencoder paper attaches the term to the feature-dictionary line of work instead, and argues via compressed sensing that an SAE's linear-nonlinear encoder provably cannot recover the true sparse code even on solvable instances, so substituting a stronger sparse-inference procedure over the same learned dictionary recovers codes better for small extra compute -- the archive records no number for that gain, nor the interpretability metric claimed to improve. Between the two, the term covers both the analysis of internal representations and the interventions that analysis licenses.",
+    "kind": "concept",
+    "related": [
+      "activation steering",
+      "Activation Patching",
+      "directional activation vector for reasoning length",
+      "Amortisation Gap"
+    ]
+  },
+  "task_id": "concept__mechanistic-interpretability",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

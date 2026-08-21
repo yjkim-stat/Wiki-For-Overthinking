@@ -106,6 +106,18 @@ The complement failure mode to overthinking: a model reasons too little on a pro
 
 Seen in: OptimalThinkingBench: Evaluating Over and Underthinking in LLMs; Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs; Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models; Efficient Reasoning with Balanced Thinking.
 
+### early stopping
+
+The five archived sources use 'early stopping' in three unrelated senses, and the archive should not be read as holding one idea here. Two halt a large reasoning model at inference: CaTS stops drawing further samples for a query once its self-distilled confidence is high enough, and 'Statistical Early Stopping for Reasoning Models' applies sequential stopping rules to the arrival of uncertainty keywords inside a trace, halting on ill-posed or ambiguous queries, with a finite-sample bound on the probability of halting too early on a well-posed one. Two use the classical training sense of stopping an optimizer short of convergence: Instance-dependent Early Stopping drops a training example from backpropagation once the second-order difference of its loss stays near zero, and a theoretical paper shows that in well-specified high-dimensional logistic regression gradient descent stopped early is consistent with polynomially many samples while gradient descent run to convergence is not. The fifth is neither, calibrating a termination threshold for a mixed-integer solver by conformal prediction on a learned estimate of the optimality gap; and none of the five is about leaving a network's layer stack at an intermediate head, which is early exit.
+
+Seen in: CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning; Statistical Early Stopping for Reasoning Models; Instance-dependent Early Stopping; Conformal Prediction for Early Stopping in Mixed Integer Optimization.
+
+### latent reasoning
+
+Carrying the intermediate steps of reasoning in continuous hidden states rather than emitting them as chain-of-thought tokens, so that test-time compute is spent on internal iterations instead of on generated text. The archived sources instantiate this in four ways: a recurrent-depth architecture that iterates a latent block to arbitrary depth in place of longer chains; Penelope, which confines the recurrence to a five-layer slice of the decoder and refines a fixed-size boundary memory K times rather than re-running the whole model; Heima, which replaces each stage of a multimodal chain of thought with one learned thinking token and trains a separate decoder to expand those tokens back into readable reasoning; and AVA-VLA, which trains latent reasoning variables in a vision-language-action policy by RL denoising. The recurring open problem across them is not whether to reason latently but how deep to go: AVA-VLA adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success, and SLPO trains a stopping head that turns a fixed latent thinking budget into a learned per-instance horizon, scoring latent transitions with a Gaussian surrogate density from MC-dropout forwards. Because the steps are no longer text, they are not directly inspectable, which is why Heima trains a decoder to recover them.
+
+Seen in: SLPO: Scaling Latent Reasoning via a Surrogate Policy; Penelope: Localized Latent Recurrence for Efficient Structured Reasoning; Efficient Reasoning with Hidden Thinking; Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models.
+
 ### compute-optimal scaling
 
 Three of the four sources use this in the pretraining or training sense — allocating a fixed training-compute budget across the axes a trainer controls — and one uses it at inference, so the entry is not a single idea. The training-sense work covers reconciling the Kaplan and Chinchilla laws (attributing the disagreement to last-layer compute accounting, warmup duration and scale-dependent optimizer tuning), a compute-optimal recipe for contrastively converting decoder-only LMs into embedding models by jointly choosing model size, data quantity and fine-tuning method, and a split between model capacity and update-to-data ratio in online value-based deep RL where a TD-overfitting effect makes the best batch size depend on model size. Only AgentTTS uses the phrase at test time, searching for the compute-optimal model and inference budget per subtask of a multi-stage task. A reader should treat the label as a shared phrase across separate literatures rather than evidence that the archive holds one coherent result.
@@ -118,37 +130,25 @@ The sources use the ordinary sense — a stated confidence that matches how ofte
 
 Seen in: Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models; Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models; CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning; Rethinking Calibration for Early-Exit Neural Networks.
 
-### test-time compute
-
-The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.
-
-Seen in: Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL; Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models; Statistical Early Stopping for Reasoning Models; On the Limits of Test-Time Compute: Sequential Reward Filtering for Better Inference.
-
-### Token Budget
-
-_Definition pending; a task is queued._
-
-Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Efficiency?; A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings; FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning.
-
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 17 | _pending_ |
+| GRPO | 17 | In these sources GRPO is the default RL post-training algorithm for reasoning models: rollouts are sampled in a group per prompt and each one's advantage is its reward normalise... |
 | early exit | 13 | Stopping a reasoning model's generation before it reaches a natural end, once an internal or external signal indicates the answer is already settled, to avoid spending tokens on... |
 | self-consistency | 9 | Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexi... |
 | best-of-N sampling | 8 | A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority vote), trading inference compute for accu... |
 | supervised fine-tuning | 6 | _pending_ |
 | budget forcing | 5 | Controlling a reasoning model's chain-of-thought length by inserting a keyword at inference time -- most commonly 'Wait' to force it to keep thinking past what it would have gen... |
-| early stopping | 5 | _pending_ |
-| latent reasoning | 5 | _pending_ |
+| Qwen3-8B | 5 | Qwen3-8B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong... |
 | Reinforcement Learning with Verifiable Rewards | 5 | _pending_ |
 | vLLM | 5 | _pending_ |
 | activation steering | 4 | Controlling how long or how a reasoning model thinks by directly modifying its internal activations at inference time, rather than by prompting or retraining it. The archived so... |
 | Best-of-N | 4 | A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under thi... |
-| DEER | 4 | _pending_ |
+| DeepSeek-R1-Distill-Qwen-7B | 4 | DeepSeek-R1-Distill-Qwen-7B is a language model -- REA-RL calls it a 7B distilled model, and Ada-R1 and ShorterBetter use it as their long-CoT base -- that archived papers evalu... |
+| DEER | 4 | DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by... |
 | majority voting | 4 | Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' fi... |
-| O1-Pruner | 4 | _pending_ |
+| O1-Pruner | 4 | O1-Pruner is a chain-of-thought length-reduction method that the archive knows almost entirely as a baseline: only one of the four citing papers says anything about how it works... |
 | preference optimization | 4 | Training a model on pairs of preferred-vs-dispreferred outputs to shift its behavior, without a separate reward model. In the archive it is repeatedly used to shorten reasoning:... |
 | TokenSkip | 4 | A token-level chain-of-thought compression method listed under 'CoT Compression' in the 'Don't Overthink It' survey's taxonomy, alongside step/chunk- and chain-level pruning or... |
 | AdaptThink | 3 | A length-based reward-shaping reinforcement-learning method for controlling reasoning length. OptimalThinkingBench tests it as one of five overthinking mitigations, where it cut... |
@@ -167,18 +167,18 @@ Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Ef
 | AMC23 | 21 | The 2023 sitting of the American Mathematics Competitions, used as a hard competition-math evaluation benchmark alongside AIME in CoBa's compute-balanced routing, the on-policy-... |
 | MATH | 15 | The MATH competition-mathematics dataset, used in the archive both directly (e.g. 'Between Underthinking and Overthinking' evaluates on MATH and GSM8K to show reasoning models o... |
 | GPQA | 14 | A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NO... |
-| OlympiadBench | 14 | _pending_ |
+| OlympiadBench | 14 | The olympiad-level competition-mathematics set that 14 archived efficient-reasoning papers use as the hard end of their maths suite, above MATH-500, AMC23 and GSM8K and alongsid... |
 | AIME | 8 | The American Invitational Mathematics Examination, used throughout the archive's sources (unspecified year in this entry) as a standard hard competition-math benchmark. Under th... |
 | LiveCodeBench | 8 | A code-generation benchmark used in the archive alongside math benchmarks to evaluate test-time-compute methods across domains: the bandit-learning compute-allocation paper and... |
-| MMLU-PRO | 8 | _pending_ |
+| MMLU-PRO | 8 | The harder successor to MMLU, used across the archive as the non-mathematical, wide-headroom benchmark on which adaptive-reasoning and efficiency methods are stress-tested. The... |
 | HMMT 2025 | 7 | The 2025 Harvard-MIT Mathematics Tournament, used as a hard competition-math benchmark alongside AIME. In the archive's 5 sources it appears in Gambit's thought-level beam searc... |
-| MMLU | 7 | _pending_ |
+| MMLU | 7 | A multiple-choice knowledge benchmark that the archive's papers use mainly as the short-answer, low-difficulty end of a reasoning suite, and as a capability-preservation check r... |
 | AMC | 6 | A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Ove... |
 | AIME 2026 | 5 | Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level... |
-| Minerva Math | 5 | _pending_ |
-| Qwen3-8B | 5 | _pending_ |
+| Minerva Math | 5 | A mathematics benchmark that five archived efficient-reasoning papers evaluate on (AutoThink, REO-RL, QuRL, Ada-R1, ThreadWeaver); none of them describes its contents, so what t... |
 | CommonsenseQA | 4 | A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods... |
-| DeepSeek-R1-Distill-Qwen-7B | 4 | _pending_ |
+| MathVista | 4 | A vision-language mathematics benchmark, and the one multimodal set in this archive on which reasoning length is actually measured rather than only accuracy. Heima, which replac... |
+| MBPP | 4 | A Python program-synthesis benchmark, graded by execution, that the archive's papers use as the easier half of a code-generation pair with HumanEval. The one paper reporting it... |
 
 ## Reading path
 

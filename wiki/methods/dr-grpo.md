@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The archive's sources name Dr. GRPO only as a GRPO variant used as a training baseline, never describing what it changes. The Netflix verifier study runs it alongside GRPO and GSPO with a binary outcome-only reward (G=8 rollouts, 400 steps) and reports that all three degrade Qwen2.5-7B on every subjective verification task; WS-GRPO reports that GRPO and Dr.GRPO improve more slowly and on increasingly long chains, so their accuracy-per-step early in training is lower than WS-GRPO's. On the archive's evidence the entry supports no more than that: it is a same-family alternative to GRPO whose distinguishing mechanism is not stated in any collected reading.
 
 - **Kind**: method
 - **Also called**: Dr.GRPO
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Group-Relative Policy Optimization](../concepts/group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md)
+**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Group-Relative Policy Optimization](group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md), [RLVR](rlvr.md)
 
 ## Appears in
 

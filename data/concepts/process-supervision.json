@@ -2,7 +2,7 @@
   "aliases": [
     "Process Supervision"
   ],
-  "definition": "",
+  "definition": "Supervising the intermediate steps of a reasoning chain rather than only its final answer. The archive's one worked instance is a safety method: it locates 'safety trigger' points and 'compliance cue' patterns inside the chain, replaces a compliance-cue step with a corrected one to build preference pairs, and trains on them with Intervened Preference Optimization, reporting over 30% harmfulness reduction against baselines on jailbreak and adversarial benchmarks - the archived record names neither the benchmarks nor the baseline numbers. The second source is a caution about what such supervision should reward: annotating 15,282 traces from 15 models across 6 benchmarks, it finds the behaviours reasoning training amplifies most (self-correction, hypothesis testing, uncertainty acknowledgment) sit at the bottom of its correctness-association ranking, uncertainty acknowledgment at -16.1% and -13.9% Behavioral Lift, while the top-ranked confidence calibration, knowledge alignment and self-awareness are barely amplified at all. The archive therefore supports process supervision as a place to intervene without establishing which step-level behaviours are worth rewarding.",
   "evidence": [
     {
       "id": "arxiv:2608.13760",
@@ -51,7 +51,10 @@
     "preference-optimization",
     "intervened-preference-optimization-ipo"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "process-reward-model",
+    "chain-of-thought-monitorability"
+  ],
   "schema_version": 1,
   "slug": "process-supervision",
   "topics": [

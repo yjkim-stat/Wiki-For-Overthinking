@@ -1,0 +1,73 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Uses integrated-gradient token attribution, aggregated into per-segment strength and direction-consistency scores, to pick which segments of a long chain-of-thought an SFT run should compute loss on, masking the rest.",
+        "title": "Segment-Level Attribution for Selective Learning of Long Reasoning Traces",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
+        "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
+        "title": "FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
+        "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:55Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'Minerva'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Minerva",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Minerva",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The shorter spelling under which four archived papers - Segment-Level Attribution, DiffAdapt, FROST and QFFT - name the Minerva maths benchmark; none of them states what it contains, so the archive knows it only by where it sits in an evaluation suite. Segment-Level Attribution puts it out-of-domain, with GPQA-Diamond and OlympiadBench, against in-domain MATH500, AMC23 and AIME24, so it serves there as a generalisation check on compressed-CoT fine-tuning rather than as a training target. FROST's per-benchmark table places it near the hard end: Phi-4-Reasoning after outlier pruning reaches 27.16% on Minerva at 401.19 average tokens, against 93.11% at 154.33 tokens on GSM8K and 26.67% at 899.80 tokens on AIME24 - roughly AIME's accuracy for under half its budget. The archive holds a separate entry, 'Minerva Math', built from the papers that use the longer name; the two are near-certainly one benchmark, kept apart rather than aliased together because a wrong alias silently fuses two entities.",
+    "kind": "dataset",
+    "related": [
+      "Minerva Math",
+      "GPQA-Diamond",
+      "MATH-500"
+    ]
+  },
+  "task_id": "concept__minerva",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A mathematics benchmark that five archived efficient-reasoning papers evaluate on (AutoThink, REO-RL, QuRL, Ada-R1, ThreadWeaver); none of them describes its contents, so what the archive records is the role it plays - the harder maths set where accuracy sits far below MATH-500 for the same model. ThreadWeaver's Qwen3-8B scores 43.7% on Minerva Math against 91.4% on MATH500, and its threading ends 0.2 points below the sequential GRPO baseline (43.7% vs 43.9%) while producing the largest token-latency speedup of its six benchmarks, 1.53x against a median of about 1.19x - an outlier its own record flags. REO-RL uses it as one of only four maths benchmarks (AMC23, AIME24, AIME25, Minerva Math), which that paper's record names as the limit of its evidence: nothing is established outside mathematics. The archive separately holds an entry 'Minerva', written from the papers that use the shorter spelling; the two are near-certainly the same benchmark and are deliberately left un-aliased rather than merged, since an alias filed wrongly cannot be undone.",
   "evidence": [
     {
       "id": "title:0bc5d9b198744bed",
@@ -117,7 +117,11 @@
     "multiverse",
     "parallel-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "minerva",
+    "math-500",
+    "aime"
+  ],
   "schema_version": 1,
   "slug": "minerva-math",
   "topics": [

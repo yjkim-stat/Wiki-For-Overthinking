@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.",
+        "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
+        "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:23:12Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'Hidden-State Probing'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Hidden-State Probing",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Hidden-State Probing",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "hidden-state probe"
+    ],
+    "definition": "In these sources, hidden-state probing means training a small classifier on the internal activations of a frozen reasoning model to predict something that has not been generated yet, so that inference compute can be allocated without fine-tuning the model itself. BLADE probes layer-wise hidden states at sentence and self-doubt boundaries to estimate whether the prefix already supports a correct answer, selecting a fixed set of K layers by distilling a dense cross-layer model into a gated one and stopping generation when a conformally calibrated threshold is met (Qwen3-8B: 7,837 to 5,896 average tokens, -24.8%, accuracy 76.8% to 75.2%). DiffAdapt probes only the final hidden state of the question at prefill to classify it Easy/Normal/Hard and applies a matching prompt, temperature and token cap, cutting tokens by up to 22.4% on Qwen3-4B at comparable accuracy. The two agree on the shape of the technique -- a cheap probe over a frozen backbone -- and differ on what is probed for and when: sufficiency of a partial trace, checked repeatedly during generation, against difficulty of the question, decided once before it starts.",
+    "kind": "concept",
+    "related": [
+      "Latent-space probing",
+      "Difficulty Estimation"
+    ]
+  },
+  "task_id": "concept__hidden-state-probing",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The two sources use 'C4' for two entirely unrelated things that share a name, and nothing here connects them. In 'Commit Locally, Exit Globally', C4 is a decoding method for diffusion language models built from two gates with matched scopes: CVEE decides when the whole sequence may stop, firing when the extracted answer span is confident and has been unchanged for several steps, and CCTC decides which positions a step may commit, committing only a boundary-anchored run and confirming deferred positions one step later. It reports end-to-end speedups of 2.6x-18.6x on LLaDA-8B-Instruct and Dream-7B-Instruct across 12 tasks, with paired McNemar tests finding no statistically significant accuracy difference from full decoding in any cell. In ParoQuant, by contrast, C4 is simply the web-crawl corpus used as a perplexity evaluation set alongside WikiText2, and has nothing to do with early exit.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -16,7 +16,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "dataset",
+  "kind": "method",
   "last_seen": "2026-08-21T01:05:41Z",
   "name": "C4",
   "related": [
@@ -76,7 +76,10 @@
     "redpajama-calibration",
     "pile-validation"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit",
+    "dynamic-early-exit"
+  ],
   "schema_version": 1,
   "slug": "c4",
   "topics": [

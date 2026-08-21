@@ -43,7 +43,7 @@ Not stated in the available material (abstract only; no PDF attached). The metho
 
 ## Entities
 
-- **Concepts**: [KV cache compression](../../../../wiki/concepts/kv-cache-compression.md), Thought Revisiting Tokens, beacon queries, attention pattern clustering
+- **Concepts**: KV cache compression, Thought Revisiting Tokens, beacon queries, attention pattern clustering
 - **Methods**: BeaconKV
 - **Datasets**: _none recorded_
 

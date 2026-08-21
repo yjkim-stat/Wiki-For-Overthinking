@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [best-of-N sampling](best-of-n-sampling.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-7B](../datasets/deepseek-r1-distill-qwen-7b.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](../concepts/length-reward.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [best-of-N sampling](best-of-n-sampling.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](../concepts/length-reward.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md)
 
 ## Appears in
 

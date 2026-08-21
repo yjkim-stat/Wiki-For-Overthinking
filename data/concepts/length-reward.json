@@ -2,7 +2,7 @@
   "aliases": [
     "Length Reward"
   ],
-  "definition": "",
+  "definition": "A reward term in RL fine-tuning that pays a reasoning model for producing a shorter trace; the archived sources use it interchangeably with 'length penalty', the same signal with the sign flipped. The archive's strongest result about it is negative: REA-RL measures a plain length reward on top of GRPO taking DeepSeek-R1-Distill-Qwen-7B from 80.39% to 76.88% average accuracy while cutting the token ratio to 57.23, i.e. buying roughly 36% fewer tokens with about 3.5 accuracy points, and recovers 80.74% at a token ratio of 63.51 only by adding a reflection-density reward and a distilled 7B reflection model. DRPO diagnoses the cause — under GRPO's group-relative normalisation a length penalty can drive the advantage of a correct-but-long rollout negative — and fixes it by normalising correct rollouts only against other correct rollouts, reporting 77.2% length reduction on GSM8K for 1.1% accuracy loss at 1.5B where the next-best baseline gave 68% for 4.3%, though its Accuracy-Efficiency Score turns negative on AIME. DR2Seg shows the signal need not be absolute: it rewards a second-stage rollout for reasoning more briefly than the first against a length anchor N0, cutting reasoning tokens about threefold (26.9 against 85.3) while raising gIoU.",
   "evidence": [
     {
       "id": "title:474d6c4d88a30199",
@@ -89,7 +89,12 @@
     "olympiadbench",
     "aime"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "length-penalty",
+    "grpo",
+    "rea-rl",
+    "laser"
+  ],
   "schema_version": 1,
   "slug": "length-reward",
   "topics": [

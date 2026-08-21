@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A vision-language mathematics benchmark that appears in this archive only through multimodal papers. ARES reports a comparatively small gain on it - ARES-7B at 56.5 pass@1 on MathVerse-V against 50.0 for the Vision-G1 baseline, next to 51.9 against 31.3 on MathVision - and no token counts for it; the only lengths that paper reports are for GSM8K, MathVista and AIME25. In vStream it is not an accuracy benchmark at all but one of three maths-category sets (with MathVista and OlympiadBench) over which visual-attribution faithfulness is measured, and the archive files that paper as tangential: its 0.024 s per 10 tokens is the cost of explaining a trace, not of producing one. Mixture-of-Visual-Thoughts uses it as one of eight benchmarks and reports no cost figures either, so MathVerse entered the wiki through papers sharing the topic's vocabulary rather than its subject, and no accuracy/length tradeoff result held here is measured on it.",
   "evidence": [
     {
       "id": "title:4321f3ae06d02a2e",
@@ -108,7 +108,9 @@
     "gsm8k",
     "virl39k"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mathvista"
+  ],
   "schema_version": 1,
   "slug": "mathverse",
   "topics": [

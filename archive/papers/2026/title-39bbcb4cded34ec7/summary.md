@@ -44,7 +44,7 @@ Stated: mathematical tasks (DeepMath, GSM8K) degrade in accuracy more than commo
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), [Group Relative Policy Optimization](../../../../wiki/concepts/group-relative-policy-optimization.md), Prefix-Level Reward, Process Supervision from Outcome Labels, [Length Penalty](../../../../wiki/concepts/length-penalty.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Rollout Efficiency
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Group Relative Policy Optimization, Prefix-Level Reward, Process Supervision from Outcome Labels, [Length Penalty](../../../../wiki/concepts/length-penalty.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Rollout Efficiency
 - **Methods**: WS-GRPO, [GRPO](../../../../wiki/methods/grpo.md), [Dr.GRPO](../../../../wiki/methods/dr-grpo.md), Bradley-Terry preference model, prefix-level pseudo-reward, length-normalized reward, outcome-only weak supervision
 - **Datasets**: ARC, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), DeepMath, [GSM8K](../../../../wiki/datasets/gsm8k.md)
 

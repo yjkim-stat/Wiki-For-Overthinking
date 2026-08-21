@@ -1,0 +1,81 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
+        "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
+        "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains Qwen3-8B to split its chain of thought into concurrently decoded threads that spawn and join, so the critical path is shorter than a sequential trace of the same total length, using a trie-based rollout that runs on stock autoregressive inference engines.",
+        "title": "ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:20Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'Minerva Math'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Minerva Math",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Minerva Math",
+    "source_count": 5
+  },
+  "result": {
+    "aliases": [],
+    "definition": "A mathematics benchmark that five archived efficient-reasoning papers evaluate on (AutoThink, REO-RL, QuRL, Ada-R1, ThreadWeaver); none of them describes its contents, so what the archive records is the role it plays - the harder maths set where accuracy sits far below MATH-500 for the same model. ThreadWeaver's Qwen3-8B scores 43.7% on Minerva Math against 91.4% on MATH500, and its threading ends 0.2 points below the sequential GRPO baseline (43.7% vs 43.9%) while producing the largest token-latency speedup of its six benchmarks, 1.53x against a median of about 1.19x - an outlier its own record flags. REO-RL uses it as one of only four maths benchmarks (AMC23, AIME24, AIME25, Minerva Math), which that paper's record names as the limit of its evidence: nothing is established outside mathematics. The archive separately holds an entry 'Minerva', written from the papers that use the shorter spelling; the two are near-certainly the same benchmark and are deliberately left un-aliased rather than merged, since an alias filed wrongly cannot be undone.",
+    "kind": "dataset",
+    "related": [
+      "Minerva",
+      "MATH-500",
+      "AIME"
+    ]
+  },
+  "task_id": "concept__minerva-math",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

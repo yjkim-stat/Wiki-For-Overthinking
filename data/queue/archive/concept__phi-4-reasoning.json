@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
+        "title": "Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
+        "title": "FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:27:33Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'Phi-4-reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Phi-4-reasoning",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Phi-4-reasoning",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Phi-4-reasoning is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. GFPO uses it as its sole base model and measures reduction in GRPO's excess length rather than raw length: Shortest-8/16 cuts 23.7%-36.5% across AIME 24/25, GPQA, Omni-MATH and LiveCodeBench, Token Efficiency GFPO cuts 70.9%-84.6%, and Adaptive Difficulty GFPO cuts 35.1%-52.9%, with no statistically significant accuracy difference from GRPO. FROST prunes attention-identified 'reasoning outliers' from its chain of thought and reports GSM8K 93.11% at 154.33 tokens, MATH500 59.80% at 344.37, AIME24 26.67% at 899.80 and Minerva 27.16% at 401.19, alongside a 15.97% drop in maximum attention infinity norm and 91.09% in average kurtosis. Both papers treat it as a reasoning model whose chains are long enough to be worth shortening; neither describes how it was trained.",
+    "kind": "method",
+    "related": []
+  },
+  "task_id": "concept__phi-4-reasoning",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -2,7 +2,7 @@
   "aliases": [
     "Redundant self-verification"
   ],
-  "definition": "",
+  "definition": "Reasoning steps that re-derive or re-check a conclusion the trace has already reached, as against verification that advances it. EvoThink makes the distinction operational at step granularity - an atomic reasoning unit is redundant when the local conclusion it implies equals the previous unit's - and puts over 65% of a large reasoning model's tokens in that category, though the segmentation and the conclusions behind that figure come from an unvalidated LLM annotator, and the rule can only delete a step that repeats its immediate predecessor. ShorterBetter uses the term more loosely, naming reduced self-verification as one of three trace behaviours (with repetition and over-exploration of alternatives) to which it attributes a 50%-80% length reduction, without measuring it directly. Both treat it as the specific waste inside overthinking that a blunt length penalty cannot separate from verification that is doing work.",
   "evidence": [
     {
       "id": "arxiv:2607.19962",
@@ -72,7 +72,11 @@
     "mbpp",
     "humaneval"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "lc-r1",
+    "gralgobench",
+    "self-verification"
+  ],
   "schema_version": 1,
   "slug": "redundant-self-verification",
   "topics": [

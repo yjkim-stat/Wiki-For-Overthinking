@@ -2,7 +2,7 @@
   "aliases": [
     "Olympiad Bench"
   ],
-  "definition": "",
+  "definition": "The olympiad-level competition-mathematics set that 14 archived efficient-reasoning papers use as the hard end of their maths suite, above MATH-500, AMC23 and GSM8K and alongside AIME. It is repeatedly where token savings run out: ReBalance cuts only 2.6-17.6% of tokens on OlympiadBench against 26.8-30.2% on AMC23 and 14.4-35.4% on GSM8K for the same models, and AutoThink's DeepSeek-R1-Distill-Qwen-1.5B scores 44.8% here against 84.0% on MATH. It is also where accuracy is given up first: ThreadWeaver's parallel-threaded Qwen3-8B reaches 63.5% against 65.0% for its sequential GRPO baseline, while Refining Over Resampling buys 47.2% against 41.0% for the strongest verifier baseline only by spending extra self-correction rounds. One archived multimodal paper (Real-Time Visual Attribution Streaming) uses it as a vision-language maths category rather than a text-only one, so what a paper means by 'OlympiadBench' is not identical across the archive.",
   "evidence": [
     {
       "id": "arxiv:2602.00425",
@@ -330,7 +330,11 @@
     "humaneval",
     "bigcodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "omni-math",
+    "aime",
+    "gpqa-diamond"
+  ],
   "schema_version": 1,
   "slug": "olympiadbench",
   "topics": [

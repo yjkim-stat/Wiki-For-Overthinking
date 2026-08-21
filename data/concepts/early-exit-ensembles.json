@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "early-exit-assisted ensembles"
+  ],
+  "definition": "In both sources an early-exit ensemble is a network whose intermediate exit heads are treated as ensemble members rather than as alternative stopping points, on very small on-device models; this is the forward-pass sense of early exit, unrelated to shortening a reasoning trace. QUTE uses early-exit-assisted ensembles to quantify predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, so a deployed model can be monitored without labels. TinyTTA makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only the early-exit heads of a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it. What the two share is the ensemble use of the heads; neither source, as held here, gives an exit criterion for terminating the pass.",
   "evidence": [
     {
       "id": "title:53c7cfefc569f403",
@@ -38,7 +40,10 @@
     "self-ensemble",
     "test-time-adaptation-tta"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit-neural-networks",
+    "early-exit"
+  ],
   "schema_version": 1,
   "slug": "early-exit-ensembles",
   "topics": [

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The mechanism inside GRPO rather than a name for it: each sampled rollout's advantage is its reward normalised against the whole group of rollouts drawn for the same prompt, so a rollout is graded against its siblings instead of against a learned value function. The sources treat it mainly as a failure surface. DRPO shows that once a length penalty enters the reward, a correct-but-long rollout can fall below the group mean and receive a negative advantage, so training pushes the policy away from a valid solution — its fix is to normalise correct rollouts only against other correct rollouts. GFPO works on the same quantity from the other side, zeroing the advantage of every rollout outside a top-k selection so a scalar reward can express a preference among correct answers, and DisCO argues the group-relative construction carries question-level difficulty bias and entropy instability, reporting average gains of 7% over GRPO and 6% over DAPO on math benchmarks with a 1.5B model.
 
 - **Kind**: concept
 - **Also called**: Group-Relative Advantage, Group-relative advantage

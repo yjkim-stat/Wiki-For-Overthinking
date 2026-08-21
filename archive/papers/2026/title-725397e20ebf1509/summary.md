@@ -43,7 +43,7 @@ Stated: no evaluation with larger encoder models; the decoder is fixed at 8B; th
 
 ## Entities
 
-- **Concepts**: [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), Latent Reasoning, Hidden Thinking Tokens, Progressive Encoding, Reasoning Reconstruction / Interpretability, Mutual Information Preservation, Multimodal Reasoning
+- **Concepts**: [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), [Latent Reasoning](../../../../wiki/concepts/latent-reasoning.md), Hidden Thinking Tokens, Progressive Encoding, Reasoning Reconstruction / Interpretability, Mutual Information Preservation, Multimodal Reasoning
 - **Methods**: Heima Encoder, Heima Decoder, progressive encoding, latent thinking tokens, Llama-3.2-11B-Vision-Instruct, Llama-3.1-8B-Instruct, LLaVA-CoT
 - **Datasets**: LLaVA-CoT-100k, [MMStar](../../../../wiki/datasets/mmstar.md), MMBench V1.1, MMVet, [MathVista](../../../../wiki/datasets/mathvista.md), [AI2D](../../../../wiki/datasets/ai2d.md), HallusionBench
 

@@ -2,7 +2,7 @@
   "aliases": [
     "ImageNet-1k"
   ],
-  "definition": "",
+  "definition": "ImageNet-1K is in this wiki because two computer-vision papers matched the tracked topic on shared vocabulary, not because it plays any part in the overthinking literature. Rethinking Calibration matched on 'early exit' and evaluates intermediate classifiers in ResNet-34, ViT-Tiny/Small, EfficientNet-B2 and MSDNet over CIFAR-100, TinyImageNet and ImageNet-1k, reporting better cost-accuracy trade-offs than uncalibrated and temperature-calibrated baselines without per-dataset numbers; the archive records it as a keyword false positive and recommends it not be counted as evidence for any overthinking concept. KLAS matched on the generic phrase 'accuracy-efficiency tradeoff' and reports up to 1.21 percentage points higher ImageNet-1K top-1 at equal cost, or equal accuracy at 1.33x fewer FLOPs, from stitching pretrained vision backbones. Both adapt network depth or architecture for a single forward pass over an image; neither involves a chain of thought, a token budget, or a stop/continue decision over a trace.",
   "evidence": [
     {
       "id": "title:14e8a3607202d3e2",
@@ -45,7 +45,12 @@
     "neural-network-stitching",
     "kl-divergence-based-stitch-selection"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "cifar-100",
+    "tinyimagenet",
+    "imagenet-256x256",
+    "gqa"
+  ],
   "schema_version": 1,
   "slug": "imagenet-1k",
   "topics": [

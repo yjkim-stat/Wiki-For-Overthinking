@@ -42,7 +42,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: implicit models, fixed-point iteration, expressive power, weight-tied networks
+- **Concepts**: implicit models, [fixed-point iteration](../../../../wiki/concepts/fixed-point-iteration.md), expressive power, weight-tied networks
 - **Methods**: _none recorded_
 - **Datasets**: _none recorded_
 

@@ -1,0 +1,81 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "TabRank distills DeepSeek-R1 reranking rationales into a Qwen3-8B listwise table reranker by placing the teacher's reasoning trace in the student's input prompt and computing loss only over the final ranking, rather than training the student to reproduce the trace.",
+        "title": "TabRank: Chain-of-Thought Distillation for Table Re-Rankers",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
+        "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models an LLM reasoning service as a Stackelberg game in which the provider sets a per-token price and a default reasoning-token budget while the user may keep the default, customize it, or exit, and shows the provider's optimal default sits above the budget the user would choose.",
+        "title": "Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+        "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:27:32Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'Qwen3-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-8B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-8B",
+    "source_count": 5
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Qwen3-8B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the archive's most frequently used 8B backbone: TabRank fine-tunes it into a listwise table reranker distilled from DeepSeek-R1 rationales, raising Accuracy@10 over the base Qwen3-8B from 0.6200 to 0.8091 on HybridQA and 0.3816 to 0.5835 on TabFact, while ReCo runs it as one of three compression testbeds, holding 69.6% six-benchmark accuracy against 72.3% for full-cache CoT with generation cut from 6,788 to 3,652 tokens and a 2.18x latency speedup. The token-pricing paper calibrates its accuracy-versus-budget curve on it under s1-style budget forcing and finds the saturation rate varying by roughly an order of magnitude across tasks (b = 2.66e-3 on GSM8K against 9.25e-5 on AIME 2024); Sonata and Risky Business use it as one backbone among several. No archived paper describes the model's own architecture or training.",
+    "kind": "method",
+    "related": [
+      "qwen3-32b",
+      "qwen3-235b-a22b",
+      "deepseek-r1-distill-llama-8b"
+    ]
+  },
+  "task_id": "concept__qwen3-8b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

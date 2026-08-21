@@ -255,7 +255,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Methods</h2>
 <ul>
-<li><strong>GRPO</strong></li>
+<li><strong>GRPO</strong> — In these sources GRPO is the default RL post-training algorithm for reasoning models: rollouts are sampled in a group per prompt and each...</li>
 <li><strong>early exit</strong> — Stopping a reasoning model&#x27;s generation before it reaches a natural end, once an internal or external signal indicates the answer is alre...</li>
 <li><strong>self-consistency</strong> — Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretica...</li>
 <li><strong>best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>

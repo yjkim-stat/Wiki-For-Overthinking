@@ -46,7 +46,7 @@ The paper has no limitations section. Limits a reader should notice: (a) the bas
 
 ## Entities
 
-- **Concepts**: Length Explosion, [Accuracy-Length Tradeoff](../../../../wiki/concepts/accuracy-length-tradeoff.md), Implicit Length Control, [Group-Relative Policy Optimization](../../../../wiki/concepts/group-relative-policy-optimization.md), Rollout Group Composition, Length Penalty Reward Shaping, Sample Selection in RL Post-Training, Token-Level Loss Normalization, Short-Correct / Long-Incorrect Asymmetry
+- **Concepts**: Length Explosion, [Accuracy-Length Tradeoff](../../../../wiki/concepts/accuracy-length-tradeoff.md), Implicit Length Control, Group-Relative Policy Optimization, Rollout Group Composition, Length Penalty Reward Shaping, Sample Selection in RL Post-Training, Token-Level Loss Normalization, Short-Correct / Long-Incorrect Asymmetry
 - **Methods**: QLPO (Quadrant-weighted sampling for Length-aware Policy Optimization), [GRPO](../../../../wiki/methods/grpo.md), GFPO (Group Filtered Policy Optimization), GRPO with explicit length penalty, rollout-budget-matched GRPO, group-trajectory gradient decomposition, token-level loss normalization, [VeRL](../../../../wiki/methods/verl.md), L1, [Laser](../../../../wiki/methods/laser.md), [ThinkPrune](../../../../wiki/methods/thinkprune.md), [Thinkless](../../../../wiki/methods/thinkless.md)
 - **Datasets**: DAPO-MATH (training), MATH-lighteval (training, 3B setting), [MATH-500](../../../../wiki/datasets/math-500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA](../../../../wiki/datasets/gpqa.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), Geo3K (multimodal, preliminary), Eurus-2-RL-Data (code, preliminary)
 

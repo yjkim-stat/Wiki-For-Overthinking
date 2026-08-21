@@ -44,7 +44,7 @@ The paper states no limitations section. Readers should note that the reported 9
 
 ## Entities
 
-- **Concepts**: Vision Token Pruning, Multimodal Fusion Depth, [Layer-wise Early Exit](../../../../wiki/concepts/layer-wise-early-exit.md), Differentiable Top-K Selection, Prefill Cost Reduction
+- **Concepts**: Vision Token Pruning, Multimodal Fusion Depth, Layer-wise Early Exit, Differentiable Top-K Selection, Prefill Cost Reduction
 - **Methods**: HiDrop, Late Injection, Concave Pyramid Pruning, Early Exit (layer-wise vision token exit), differentiable top-k, inter-layer similarity measure, FlashAttention, LLaVA-1.5, PDrop (baseline), TwigVLM (baseline), VoCo-LLaMA (baseline)
 - **Datasets**: MME-Perception, MMBench, MMBench-CN, [GQA](../../../../wiki/datasets/gqa.md), VQAv2, ScienceQA-Image, VizWiz, TextVQA, [POPE](../../../../wiki/datasets/pope.md), SEED-Image, [MMStar](../../../../wiki/datasets/mmstar.md)
 

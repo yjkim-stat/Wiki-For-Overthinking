@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "SLPO adds outcome-reward RL to autoregressive latent (continuous-vector) reasoners by scoring latent transitions with a Gaussian surrogate density built from MC-dropout forwards, and by training a stopping head that turns a fixed latent thinking budget into a learned per-instance horizon.",
+        "title": "SLPO: Scaling Latent Reasoning via a Surrogate Policy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+        "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:22:35Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'GSM-Hard'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GSM-Hard",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GSM-Hard",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "GSM-Hard appears in the archive as the hard end of the grade-school arithmetic family, and it sits on the losing side of the easy/hard split the group tracks. C4 groups it with GSM8K, MATH, SVAMP and ASDiv as 'long-reasoning' at a 256-step budget, where it scores 37.0 against a 35.0 full-decoding baseline; in that regime C4's global exit gate mostly declines to fire and no speedup exceeds 6.32x, against 13x or more on the short-answer sets and 8.69x on code. SLPO uses it as one of three held-out sets (with GSM8K-Test and MultiArith) for latent reasoners trained on GSM8K-Aug, and reports gains only at the level of the whole 12-cell table rather than per benchmark. So the archive's evidence on GSM-Hard is that the same stopping machinery that saves 92-95% of the budget on short-answer tasks saves comparatively little here.",
+    "kind": "dataset",
+    "related": [
+      "GSM8K",
+      "MATH-500",
+      "MultiArith",
+      "SVAMP"
+    ]
+  },
+  "task_id": "concept__gsm-hard",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

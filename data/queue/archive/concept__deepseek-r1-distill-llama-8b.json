@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
+        "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Models an LLM reasoning service as a Stackelberg game in which the provider sets a per-token price and a default reasoning-token budget while the user may keep the default, customize it, or exit, and shows the provider's optimal default sits above the budget the user would choose.",
+        "title": "Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:23:12Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Llama-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepSeek-R1-Distill-Llama-8B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DeepSeek-R1-Distill-Llama-8B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "Llama-8B"
+    ],
+    "definition": "DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run experiments on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. In ReCo it is one of three evaluated models and the one where cache compression is hardest: reward-coordinated compression holds 60.2% six-benchmark accuracy against 62.8% for full-cache CoT at 37% fewer tokens, while the baselines it is compared with collapse on this model (R-KV 48.1%, SnapKV 37.5%), and at a 25% R-KV retention rate its MATH-500 generations grow from 4,409.8 to 7,891.7 tokens, an increase of 79.0%. Keep, Customize, or Exit uses it with Qwen3-8B only to calibrate an accuracy-versus-reasoning-token curve, Q(r) = D + A(1 - e^{-br}), under s1-style budget forcing on AIME 2024, AIME 2025, GPQA Diamond, GSM8K and HMMT 2025, three samples per question -- the model supplies the empirical shape that a pricing game is then built on, rather than being the object of study. Neither paper reports its architecture or training.",
+    "kind": "method",
+    "related": [
+      "distillation",
+      "DeepSeek-R1-Distill-Qwen-7B"
+    ]
+  },
+  "task_id": "concept__deepseek-r1-distill-llama-8b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A multimodal knowledge and reasoning benchmark that reaches this archive through two papers on multimodal models rather than through the reasoning-length literature proper. Its one substantive appearance is in Amplified Does Not Mean Predictive, where MMMU is one of the places the thinking-model advantage disappears: post-failure recovery rates are 32.9% for thinking models against 33.8% for instruct models, comparable rather than the 2-3x gap seen on VisualPuzzles, MATH-500 and MMLU-Pro — evidence that visible deliberation does not pay off uniformly across task types. ARES lists it among ten multimodal benchmarks and reports its largest gains on the harder MMMU-Pro (54.8 versus 41.2 for the Vision-G1 baseline) rather than on MMMU itself. Neither source reports token counts on MMMU — in the first, reasoning length is only a nuisance control — so the archive holds no accuracy/length tradeoff for it.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

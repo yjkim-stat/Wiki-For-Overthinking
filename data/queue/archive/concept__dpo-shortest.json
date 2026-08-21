@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ARLCP is a reinforcement-learning fine-tuning recipe that adds two coupled reward penalties -- one on reflective steps, one on response length scaled by estimated problem complexity -- to shorten chains of thought in distilled reasoning models without losing accuracy.",
+        "title": "Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
+        "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:21:22Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'DPO_Shortest'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DPO_Shortest",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DPO_Shortest",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "DPO-Shortest"
+    ],
+    "definition": "DPO_Shortest appears in the archive only as a long-to-short baseline, named but never described. ARLCP lists it among seven efficient-reasoning baselines it outperforms (NoThinking, SFT_Shortest, DPO_Shortest, O1-Pruner, TLMRE, AdaptThink, LASER), and QFFT places it in the same '-Shortest' family as SFT-Shortest and SimPO-Shortest — preference-optimisation recipes trained to prefer the shortest of a model's sampled responses — reporting Accuracy-Efficiency Scores of -12.9 for SFT-Shortest and -1.6 for SimPO-shortest at 32B against QFFT's 2.3, without giving a DPO_Shortest number. No collected reading states its training procedure, so the entry records what the sources use it for rather than how it works.",
+    "kind": "method",
+    "related": [
+      "SFT_Shortest",
+      "SimPO-Shortest",
+      "Direct Preference Optimization"
+    ]
+  },
+  "task_id": "concept__dpo-shortest",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

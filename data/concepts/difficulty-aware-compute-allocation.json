@@ -2,7 +2,7 @@
   "aliases": [
     "Difficulty-Aware Compute Allocation"
   ],
-  "definition": "",
+  "definition": "Spending inference or exploration effort in proportion to how hard a problem is, so that easy queries are answered cheaply and the saved budget is moved onto hard ones. The two archived sources make the allocation explicit in different places: IBPO casts it as constrained policy optimisation — cap the fraction of queries allowed an expensive response, maximise the reward margin between the expensive and regular groups subject to that cap — and solves the per-batch cap as an integer linear program, taking LLaMA 3.1 8B Instruct from 51.26 to 55.4 pass@1 on MATH500 at 2.16x trials, with only 2% of level-1 problems but 41% of level-5 receiving an expensive response at a 25% cap. ARES instead uses sliding-window token entropy as the in-trace signal for when and how much to explore, after a cold start on traces whose length is proportional to item difficulty. Both make the same point about what the idea buys: it is reallocation rather than net reduction — ARES is about 22% shorter than its cold-start model on GSM8K and 19% shorter on MathVista, but about 38% longer on AIME25 (22,618.8 against 16,361.6 tokens).",
   "evidence": [
     {
       "id": "title:00cdef4a3a910795",
@@ -77,7 +77,12 @@
     "gsm8k",
     "virl39k"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-compute-allocation",
+    "adaptive-reasoning",
+    "token-budget",
+    "test-time-compute-scaling"
+  ],
   "schema_version": 1,
   "slug": "difficulty-aware-compute-allocation",
   "topics": [

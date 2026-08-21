@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+In these sources, hidden-state probing means training a small classifier on the internal activations of a frozen reasoning model to predict something that has not been generated yet, so that inference compute can be allocated without fine-tuning the model itself. BLADE probes layer-wise hidden states at sentence and self-doubt boundaries to estimate whether the prefix already supports a correct answer, selecting a fixed set of K layers by distilling a dense cross-layer model into a gated one and stopping generation when a conformally calibrated threshold is met (Qwen3-8B: 7,837 to 5,896 average tokens, -24.8%, accuracy 76.8% to 75.2%). DiffAdapt probes only the final hidden state of the question at prefill to classify it Easy/Normal/Hard and applies a matching prompt, temperature and token cap, cutting tokens by up to 22.4% on Qwen3-4B at comparable accuracy. The two agree on the shape of the technique -- a cheap probe over a frozen backbone -- and differ on what is probed for and when: sufficiency of a partial trace, checked repeatedly during generation, against difficulty of the question, decided once before it starts.
 
 - **Kind**: concept
-- **Also called**: Hidden-state probing
+- **Also called**: Hidden-state probing, hidden-state probe
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](../methods/deer.md), [Dynamic Early Exit](dynamic-early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [MMLU-PRO](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [ThinkPrune](../methods/thinkprune.md), [vLLM](../methods/vllm.md)
+**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](../methods/deer.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [MMLU-PRO](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [ThinkPrune](../methods/thinkprune.md), [vLLM](../methods/vllm.md)
 
 ## Appears in
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A vision-language mathematics benchmark that reaches this archive through two multimodal papers rather than through the reasoning-length literature. ARES, which the archive files as directly on topic, reports its largest single gain here - ARES-7B at 51.9 pass@1 against 31.3 for the Vision-G1 baseline - but gives no token counts for MathVision itself; its length numbers are reported for GSM8K (about -22%), MathVista (about -19%) and AIME25 (about +38% longer). Mixture-of-Visual-Thoughts (AdaVaR) evaluates on it as one of eight benchmarks and is filed as only partly relevant, because it selects between text and visually-grounded reasoning modes rather than between more and less reasoning, and reports no token counts, latency or cost at all. MathVision therefore entered the wiki through papers sharing the topic's vocabulary - adaptive reasoning, mode selection - rather than its subject, and the archive holds no accuracy/length tradeoff evidence measured on it.",
   "evidence": [
     {
       "id": "title:4321f3ae06d02a2e",
@@ -70,7 +70,9 @@
     "gsm8k",
     "virl39k"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mathvista"
+  ],
   "schema_version": 1,
   "slug": "mathvision",
   "topics": [

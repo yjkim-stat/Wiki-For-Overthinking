@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "GQA entered this wiki through papers that share vocabulary with the tracked topic rather than through the overthinking literature: vStream matched on 'thinking model' and HiDrop on 'early exit', and the archive files both as tangential or as an outright keyword false positive. In both, GQA is one general visual-question-answering set among many - vStream's 'general' category alongside COCO and ReferIt, HiDrop's eleven-benchmark LLaVA-1.5 suite alongside VQAv2, POPE and MMBench - and neither reports anything about it beyond aggregate suite performance (HiDrop retains 96.5% of original average performance at 91.7% vision-token compression). Nothing in either source measures reasoning length, tokens emitted, or a stop/continue decision over a trace: HiDrop's 'early exit' terminates the propagation of image patch embeddings through layers, and its savings are all prefill-side. There is no accuracy/length result on GQA in this archive.",
   "evidence": [
     {
       "id": "title:503ded235751878b",
@@ -80,7 +80,12 @@
     "seed-image",
     "mmstar"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "vqav2",
+    "mmbench",
+    "pope",
+    "imagenet-1k"
+  ],
   "schema_version": 1,
   "slug": "gqa",
   "topics": [

@@ -43,7 +43,7 @@ No limitations section was available in the material read, and no quantitative r
 
 ## Entities
 
-- **Concepts**: Tabular foundation model, In-context learning for tabular prediction, [Layer-wise early exit](../../../../wiki/concepts/layer-wise-early-exit.md), Anytime prediction, Register tokens, Inference-cost-accuracy tradeoff
+- **Concepts**: Tabular foundation model, In-context learning for tabular prediction, Layer-wise early exit, Anytime prediction, Register tokens, Inference-cost-accuracy tradeoff
 - **Methods**: SwiftPFN, TabPFN, Row-wise attention, Gated attention stabilisation, Learnable register tokens, Adaptive layer-wise early exit
 - **Datasets**: _none recorded_
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The shorter spelling under which four archived papers - Segment-Level Attribution, DiffAdapt, FROST and QFFT - name the Minerva maths benchmark; none of them states what it contains, so the archive knows it only by where it sits in an evaluation suite. Segment-Level Attribution puts it out-of-domain, with GPQA-Diamond and OlympiadBench, against in-domain MATH500, AMC23 and AIME24, so it serves there as a generalisation check on compressed-CoT fine-tuning rather than as a training target. FROST's per-benchmark table places it near the hard end: Phi-4-Reasoning after outlier pruning reaches 27.16% on Minerva at 401.19 average tokens, against 93.11% at 154.33 tokens on GSM8K and 26.67% at 899.80 tokens on AIME24 - roughly AIME's accuracy for under half its budget. The archive holds a separate entry, 'Minerva Math', built from the papers that use the longer name; the two are near-certainly one benchmark, kept apart rather than aliased together because a wrong alias silently fuses two entities.",
   "evidence": [
     {
       "id": "arxiv:2602.00425",
@@ -110,7 +110,11 @@
     "bespoke-stratos-17k",
     "llm-aggrefact"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "minerva-math",
+    "gpqa-diamond",
+    "math-500"
+  ],
   "schema_version": 1,
   "slug": "minerva",
   "topics": [

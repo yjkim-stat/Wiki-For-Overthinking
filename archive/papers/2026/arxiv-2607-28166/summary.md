@@ -46,7 +46,7 @@ Stated: CVEE needs an answer unit that the task's output format delimits so a pa
 ## Entities
 
 - **Concepts**: Early Exit, Answer Stabilization, Adaptive Sampling, Diffusion Language Models, [Confidence Calibration](../../../../wiki/concepts/confidence-calibration.md), Decoding Budget Allocation
-- **Methods**: C4, CVEE (Confidence-Verified Early Exit), CCTC (Commit-Core-Then-Confirm), semi-autoregressive block diffusion decoding, low-confidence remasking, Prophet, SchED, Fast-dLLM, SlowFast Sampling, KLASS, WINO, LLaDA-8B-Instruct, Dream-7B-Instruct
+- **Methods**: [C4](../../../../wiki/methods/c4.md), CVEE (Confidence-Verified Early Exit), CCTC (Commit-Core-Then-Confirm), semi-autoregressive block diffusion decoding, low-confidence remasking, Prophet, SchED, Fast-dLLM, SlowFast Sampling, KLASS, WINO, LLaDA-8B-Instruct, Dream-7B-Instruct
 - **Datasets**: [MMLU](../../../../wiki/datasets/mmlu.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), [HellaSwag](../../../../wiki/datasets/hellaswag.md), WinoGrande, PIQA, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [SVAMP](../../../../wiki/datasets/svamp.md), ASDiv, [GSM-Hard](../../../../wiki/datasets/gsm-hard.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [MBPP](../../../../wiki/datasets/mbpp.md)
 
 Tags: `diffusion language models`, `early exit`, `adaptive sampling`, `decoding acceleration`, `inference efficiency`, `llada`, `dream`

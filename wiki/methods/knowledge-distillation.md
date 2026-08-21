@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The two archived sources use the term loosely, for teacher-to-student transfer of behaviour, and they do not share a teacher-student relation. In Smaller, Weaker, Yet Better it means training a separate student by supervised fine-tuning on solutions sampled from a generator model, and is one of three compute-matched setups alongside self-improvement and weak-to-strong improvement; at a fixed sampling-FLOPs budget the data from the weaker, cheaper generator wins the distillation setup by 5.8% on MATH and 1.3% on GSM-8K, despite a 7% higher false-positive rate, because the same budget buys proportionally more samples with 6% higher coverage and 125% higher diversity. In QUTE it means transfer inside a single network at training time: knowledge from early-exit branches is distilled into extra lightweight output blocks placed at the final exit, so one forward pass yields a diverse ensemble for uncertainty estimation at 59% smaller model size and 31% lower on-device latency than the closest prior work. So in the archive the label covers both across-model and across-exit transfer, and the stronger model is not always the teacher.
 
 - **Kind**: method
-- **Also called**: knowledge distillation
+- **Also called**: distillation, knowledge distillation
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [early exit](early-exit.md), [early-exit ensembles](early-exit-ensembles.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [supervised fine-tuning](supervised-fine-tuning.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [early exit](early-exit.md), [early-exit ensembles](early-exit-ensembles.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [supervised fine-tuning](supervised-fine-tuning.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

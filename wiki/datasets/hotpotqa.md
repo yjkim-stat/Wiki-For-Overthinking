@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+HotpotQA is the archive's multi-hop question-answering leg, and it is where reasoning length gets counted in steps rather than in tokens. CoSMo trains and evaluates on it as in-distribution data (with HaluEval, against Natural Questions and CRAG out-of-distribution), reporting a 3.3-point accuracy gain at 28.7% fewer segments and roughly 2.9 segments on average - but its unit is segments, not tokens, and only the SFT-only ablation gives a token figure (19%). It is evaluated on multi-hop QA precisely because its method needs ground-truth hop counts to set a target, which math and code benchmarks do not annotate. Atom of Thoughts also names it as its multi-hop leg alongside BBH, MMLU and LongBench, but the archive could recover only the qualitative claim that performance improves as budget grows, with no numbers.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+In this archive NoThinking appears only as a named comparison method and is never described. ReBalance lists it among nine efficient-reasoning baselines (with CoD, DEER, NoWait, Dynasor-CoT, SEAL, Manifold Steering, FlashThink and TrimR) and ARLCP lists it among its own (with SFT_Shortest, DPO_Shortest, O1-Pruner, TLMRE, AdaptThink and LASER); neither reports its mechanism, and neither gives its scores separately from the baseline set. The one thing the archive does record about the family it is filed with is ReBalance's objection to it: remedies that suppress reflection or cap length make length the control variable and can push a model out of overthinking and into underthinking.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [activation steering](activation-steering.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](deer.md), [DPO_Shortest](dpo-shortest.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [Length Penalty](../concepts/length-penalty.md), [LiveCodeBench](../datasets/livecodebench.md), [Manifold Steering](manifold-steering.md), [MATH-500](../datasets/math-500.md), [NOWAIT](nowait.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [SEAL](seal.md), [SFT_Shortest](sft-shortest.md), [StrategyQA](../datasets/strategyqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [TrimR](trimr.md), [underthinking](../concepts/underthinking.md)
+**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [activation steering](activation-steering.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](deer.md), [DPO_Shortest](dpo-shortest.md), [early exit](early-exit.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [Length Penalty](../concepts/length-penalty.md), [LiveCodeBench](../datasets/livecodebench.md), [Manifold Steering](manifold-steering.md), [MATH-500](../datasets/math-500.md), [NOWAIT](nowait.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [SEAL](seal.md), [SFT_Shortest](sft-shortest.md), [StrategyQA](../datasets/strategyqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [TrimR](trimr.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 

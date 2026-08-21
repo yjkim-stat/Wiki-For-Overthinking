@@ -2,7 +2,7 @@
   "aliases": [
     "Group Relative Policy Optimization"
   ],
-  "definition": "",
+  "definition": "The spelled-out name for GRPO, used here in papers that build directly on it: QLPO leaves its reward, advantage estimator and update untouched and only resamples which rollouts form the training group (K=16 over-generated, M=8 kept), shortening outputs 30-70% at roughly unchanged accuracy; ARM replaces it with Ada-GRPO to pick among four reasoning formats, cutting tokens about 30%; WS-GRPO keeps the group-relative update but replaces a global length penalty with prefix-level rewards from a preference model trained on outcome-only labels. What the three share is the assumption that the group-relative update is sound and that the leverage is elsewhere — in the reward, the group composition or the format choice. Note: the archive tracks this under three unmerged entries — GRPO, Group-Relative Policy Optimization and GRPO (Group Relative Policy Optimization) — which are the same algorithm.",
   "evidence": [
     {
       "id": "arxiv:2607.21793",
@@ -24,7 +24,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-21T00:49:09Z",
   "name": "Group-Relative Policy Optimization",
   "related": [
@@ -87,7 +87,11 @@
     "arc",
     "deepmath"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grpo",
+    "grpo-group-relative-policy-optimization",
+    "group-relative-advantage"
+  ],
   "schema_version": 1,
   "slug": "group-relative-policy-optimization",
   "topics": [

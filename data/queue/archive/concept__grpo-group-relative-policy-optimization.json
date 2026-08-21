@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
+        "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+        "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:21:17Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'GRPO (Group Relative Policy Optimization)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "GRPO (Group Relative Policy Optimization)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "GRPO (Group Relative Policy Optimization)",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Under this spelling the archive holds only two multimodal/adaptive-compression papers, and both use GRPO as an unmodified training loop whose reward they reshape by difficulty: TRAAC prunes a chain of thought using attention from the </think> token and calibrates how aggressively it prunes to estimated problem difficulty, and PixelThink conditions the GRPO reward on an externally estimated task difficulty plus the model's own uncertainty, halving reasoning tokens in reasoning segmentation while slightly improving mask accuracy. Neither source defines the algorithm; both treat it as the given online-RL substrate onto which a difficulty-aware length signal is attached. Note: the archive tracks this under three unmerged entries — GRPO, Group-Relative Policy Optimization and GRPO (Group Relative Policy Optimization) — which are the same algorithm.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "Group-Relative Policy Optimization",
+      "group relative advantage"
+    ]
+  },
+  "task_id": "concept__grpo-group-relative-policy-optimization",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

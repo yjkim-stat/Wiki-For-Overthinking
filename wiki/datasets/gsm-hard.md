@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM-Hard appears in the archive as the hard end of the grade-school arithmetic family, and it sits on the losing side of the easy/hard split the group tracks. C4 groups it with GSM8K, MATH, SVAMP and ASDiv as 'long-reasoning' at a 256-step budget, where it scores 37.0 against a 35.0 full-decoding baseline; in that regime C4's global exit gate mostly declines to fire and no speedup exceeds 6.32x, against 13x or more on the short-answer sets and 8.69x on code. SLPO uses it as one of three held-out sets (with GSM8K-Test and MultiArith) for latent reasoners trained on GSM8K-Aug, and reports gains only at the level of the whole 12-cell table rather than per benchmark. So the archive's evidence on GSM-Hard is that the same stopping machinery that saves 92-95% of the budget on short-answer tasks saves comparatively little here.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-Challenge](arc-challenge.md), [C4](c4.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [latent reasoning](../methods/latent-reasoning.md), [MATH](math.md), [MATH-500](math-500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [RLOO](../methods/rloo.md), [SVAMP](svamp.md), [test-time scaling](../concepts/test-time-scaling.md), [thinking budget](../concepts/thinking-budget.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [latent reasoning](../concepts/latent-reasoning.md), [MATH](math.md), [MATH-500](math-500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [RLOO](../methods/rloo.md), [SVAMP](svamp.md), [test-time scaling](../concepts/test-time-scaling.md), [thinking budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

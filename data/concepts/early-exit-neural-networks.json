@@ -2,7 +2,7 @@
   "aliases": [
     "early exit neural networks"
   ],
-  "definition": "",
+  "definition": "In these three sources an early-exit neural network is a backbone with intermediate prediction heads, so that a forward pass can be terminated at a shallower depth for inputs that do not need the full stack. This is the forward-pass sense of early exit and has nothing to do with shortening a reasoning model's chain of thought. The sources differ entirely on what decides the exit: BEXA attaches exit branches to the actor of an off-policy actor-critic agent and picks the exit per state by solving a constrained linear program during training, then amortizes that solution for cheap runtime inference; the speech-separation paper pairs the architecture with a probabilistic model of the clean signal and its error variance so a target signal-to-noise ratio becomes the exit condition. 'Rethinking Calibration for Early-Exit Neural Networks' argues against the usual criterion, holding that confidence calibration is the wrong objective and replacing it with Early-Exit Failure Prediction, which also accounts for whether later layers could still fix the prediction.",
   "evidence": [
     {
       "id": "title:14e8a3607202d3e2",
@@ -24,7 +24,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "early-exit neural networks",
   "related": [
@@ -64,7 +64,11 @@
     "snr-based-exit-conditions",
     "dynamic-test-time-compute-scaling"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit",
+    "layer-wise-early-exit",
+    "early-exit-ensembles"
+  ],
   "schema_version": 1,
   "slug": "early-exit-neural-networks",
   "topics": [

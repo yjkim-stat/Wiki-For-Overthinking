@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The step that produces a reasoning graph -- and the two archived sources extract from opposite ends, so the phrase covers two procedures rather than one. In Topology of Reasoning extraction reads the graph out of the model: hidden-state representations are taken at each reasoning step, clustered into nodes and linked by generation order, after which graph-theoretic properties are correlated with accuracy. In DARG extraction reads the graph out of the task: for each item in an existing benchmark the reasoning it demands is recovered as an explicit structure, which is then perturbed to generate harder variants whose labels a code-augmented LLM verifies. Neither paper's extraction procedure is recorded in detail in the material the archive holds; for Topology of Reasoning no PDF was attached, so the clustering step in particular is unverified.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

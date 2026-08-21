@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Group Filtered Policy Optimization"
+  ],
+  "definition": "GFPO keeps GRPO's group-relative structure and changes only what reaches the gradient: it samples a larger group per question (G tested at 8, 16, 24), scores each response by a selection metric — shortest length, or token efficiency defined as reward divided by token count — and assigns zero advantage to everything outside the top-k, with k held at 8 or below so the number of responses producing gradient signal matches GRPO's. The retained fraction k/G is the length knob; on Phi-4-reasoning the shortest-response variant cuts GRPO's excess length by 23.7-36.5% across five benchmarks and the token-efficiency variant by 70.9-84.6%, with no statistically significant accuracy difference from GRPO, and Adaptive Difficulty GFPO sets k per question (4 easy, 6 medium, 8 hard, out of G=16) so hard problems keep more long solutions. The trade it names explicitly is training-time sampling converted into reduced test-time compute. IAPO cites it only as one of four baselines (with DAPO, GTPO and S-GRPO) that it reports beating on the Pass@k/Length@k ratio.",
   "evidence": [
     {
       "id": "title:4bd9ad89663d1e26",
@@ -60,7 +62,12 @@
     "omni-math",
     "livecodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grpo",
+    "group-relative-advantage",
+    "qlpo",
+    "token-efficiency-reward-per-token"
+  ],
   "schema_version": 1,
   "slug": "gfpo",
   "topics": [

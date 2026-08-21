@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A decoding-time intervention that shortens a chain of thought by suppressing the tokens that trigger reflection. The efficient-reasoning survey files it under early exit by generation control - logit suppression of reflection trigger tokens such as 'wait' and 'alternatively' - and ReBalance uses it as one of nine efficient-reasoning baselines. Neither source reports NOWAIT's own accuracy or length figures, so the archive records its mechanism but not its cost. What it does record is ReBalance's objection to this family: suppressing reflective keywords treats length as the target and can drive a model from overthinking into underthinking.
 
 - **Kind**: method
 - **Also called**: NoWait

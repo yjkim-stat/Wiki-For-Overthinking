@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A visual question-answering benchmark that is in this wiki only because two vision-language papers matched the overthinking topic on shared vocabulary, not on subject. Mixture-of-Visual-Thoughts groups it with V*, MMStar and SpatialScore as its 'general' (non-math) sets and reports that after RL its model selects the visually-grounded reasoning mode on 99-100% of POPE inputs, the opposite extreme from the math benchmarks where it picks text mode 98-100% of the time; that paper reports no token counts, latency or cost of any kind. HiDrop evaluates LLaVA-1.5 on POPE as one of 11 benchmarks, retaining 96.5% of average performance at 91.7% vision-token compression, and the archive marks it not relevant — a false positive on 'early exit', since its pruning acts on image patch embeddings and its costs are all prefill-side. Nothing in the archive reports a reasoning-length or accuracy/length result on POPE.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Ada-GRPO](../methods/ada-grpo.md), [GQA](gqa.md), [GRPO](../methods/grpo.md), [Layer-wise early exit](../concepts/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [WeMath](wemath.md)
+**Related**: [Ada-GRPO](../methods/ada-grpo.md), [GQA](gqa.md), [GRPO](../methods/grpo.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [WeMath](wemath.md)
 
 ## Appears in
 

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The benchmark both archived sources evaluate reasoning segmentation on. Neither describes how it was built, so what the archive holds is only how it is used: PixelThink-7B reports 63.8% gIoU / 62.7% cIoU on it against Seg-Zero-7B at 62.6% / 62.0%, and DR2Seg at 7B with SAM2 reports gIoU 68.5 on validation and 66.1 on test against VisionReasoner at 65.4 and 62.3, with reasoning tokens falling from 85.3 to 26.9. PixelThink additionally builds ReasonSeg-Diff, an extension annotated with reasoning references and per-sample difficulty scores, where it reaches 60.17% gIoU at 47.66 average reasoning tokens against Seg-Zero's 58.20% at 90.58. Both papers position its queries as reasoning-heavy by contrast with RefCOCO, on which their margins over the same baselines shrink to roughly half a point.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

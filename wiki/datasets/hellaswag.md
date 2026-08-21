@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+HellaSwag serves in this archive as a short-output control - a benchmark whose answer is a few tokens - and both citing papers use it to show that costs which accumulate along a trace barely bite when there is no trace. C4 groups it with MMLU, ARC-Challenge, WinoGrande and PIQA as 'short-answer' at a 64-step budget, where its gates finish in 3.4-4.8 steps on LLaDA (92.5-94.7% of the budget saved, 14.3x-18.7x throughput) with accuracy equal to full decoding within 0.5 point; C4 measures 90%-answer-stabilisation at 0.04 of the budget on these tasks against 0.96 on long-reasoning ones. ParoQuant averages it with BoolQ, ARC-Challenge and ARC-Easy as its non-reasoning split, scoring 69.9 against FP16's 70.1 - a 0.2-point gap, against 0.9 points on MMLU-Pro, GPQA-Diamond and AIME - and attributes the difference explicitly to these benchmarks generating only a few tokens. It is therefore the archive's clearest example of the easy end of the tradeoff, where savings are near-total and accuracy is untouched.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [C4](c4.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [SVAMP](svamp.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [SVAMP](svamp.md)
 
 ## Appears in
 

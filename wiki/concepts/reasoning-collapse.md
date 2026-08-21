@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The failure in which reinforcement learning drives a model's reasoning trace towards nothing rather than towards length - the under-thinking direction, not overthinking. On four subjective verification rubrics with no deterministic verifier, outcome-only RLVR under GRPO drops Qwen2.5-7B's mean completion length from about 300 tokens to about 170 after roughly 70 steps as the policy switches to fast heuristic guessing; TwT reports the same shape for R1-Zero-style RL on machine translation, where traces fall below 100 tokens and degenerate into templates, three of which cover about 73% of Zh->En traces, with or without a KL term. Both read it as evidence that the emergent long reasoning seen in mathematics and code does not transfer to their domains. The fixes differ: the subjective-tasks paper puts length back into the reward as a capped bonus paid only when the answer is correct (L_target = 1000, lambda = 2e-4), reaching 0.851 macro-F1 at about 980 tokens against 0.805 reasoning and 0.748 no-reasoning baselines, while TwT uses no length reward at all and restores length through difficulty-rewritten cold-start data - removing that stage collapses its traces to 62 tokens.
 
 - **Kind**: concept
 - **Also called**: Reasoning collapse
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Dr. GRPO](../methods/dr-grpo.md), [GRPO](../methods/grpo.md), [overthinking](overthinking.md), [reward hacking](reward-hacking.md)
+**Related**: [Dr. GRPO](../methods/dr-grpo.md), [GRPO](../methods/grpo.md), [Length reward](length-reward.md), [overthinking](overthinking.md), [reward hacking](reward-hacking.md), [underthinking](underthinking.md)
 
 ## Appears in
 

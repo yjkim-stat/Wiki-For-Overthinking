@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Llama-8B"
+  ],
+  "definition": "DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run experiments on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. In ReCo it is one of three evaluated models and the one where cache compression is hardest: reward-coordinated compression holds 60.2% six-benchmark accuracy against 62.8% for full-cache CoT at 37% fewer tokens, while the baselines it is compared with collapse on this model (R-KV 48.1%, SnapKV 37.5%), and at a 25% R-KV retention rate its MATH-500 generations grow from 4,409.8 to 7,891.7 tokens, an increase of 79.0%. Keep, Customize, or Exit uses it with Qwen3-8B only to calibrate an accuracy-versus-reasoning-token curve, Q(r) = D + A(1 - e^{-br}), under s1-style budget forcing on AIME 2024, AIME 2025, GPQA Diamond, GSM8K and HMMT 2025, three samples per question -- the model supplies the empirical shape that a pricing game is then built on, rather than being the object of study. Neither paper reports its architecture or training.",
   "evidence": [
     {
       "id": "arxiv:2608.04771",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "dataset",
+  "kind": "method",
   "last_seen": "2026-08-21T00:41:33Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
@@ -65,7 +67,10 @@
     "gsm8k-500-sampled-test-items",
     "hmmt-2025"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "distillation",
+    "deepseek-r1-distill-qwen-7b"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-llama-8b",
   "topics": [

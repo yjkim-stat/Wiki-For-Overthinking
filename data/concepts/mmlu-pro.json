@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "MMLU-Pro"
+    "MMLU-Pro",
+    "MMLU-PRO"
   ],
-  "definition": "",
+  "definition": "The harder successor to MMLU, used across the archive as the non-mathematical, wide-headroom benchmark on which adaptive-reasoning and efficiency methods are stress-tested. The test-time-scaling framework paper covers all 14 MMLU-Pro domains with 27 open-weight models and 500,661 responses, reporting exact match spanning 3.13% to 70.47% across the roster. It is where two archived results complicate the efficiency story: Anytime Safe PAC finds fewer than half of MMLU-Pro queries can be routed away from the thinking model (47.04% expert-call rate at epsilon = 0.08, 78.07% of baseline tokens, against Chain-of-Draft's 73.63%), and ParoQuant's 4-bit accuracy gap to FP16 is carried mostly by MMLU-Pro. Amplified Does Not Mean Predictive reports thinking models at 46.7% versus 40.9% for instruct with post-failure recovery of 16.8% versus 6.3%, and QFFT reaches 73.6 against 64.9 for ordinary SFT at 32B — but none of these report MMLU-Pro token counts, so the length side of the tradeoff is not measured here.",
   "evidence": [
     {
       "id": "arxiv:2608.04001",
@@ -241,7 +242,10 @@
     "amc23",
     "llm-aggrefact"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mmlu",
+    "mmlu-stem"
+  ],
   "schema_version": 1,
   "slug": "mmlu-pro",
   "topics": [

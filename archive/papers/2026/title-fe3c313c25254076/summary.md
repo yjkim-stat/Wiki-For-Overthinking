@@ -45,7 +45,7 @@ The paper notes the GPQA and AIME results are noisy because those benchmarks hav
 
 - **Concepts**: Post-training quantization, Activation and weight outliers, Rotation-based outlier suppression, Error accumulation over long chains of thought, Quantization group dynamic range, Kernel co-design
 - **Methods**: ParoQuant, Givens / pairwise rotation, channel-wise scaling, AWQ, EfficientQAT, QTIP, QuIP#, OmniQuant, SpinQuant, fast Hadamard transform
-- **Datasets**: WikiText2, [C4](../../../../wiki/datasets/c4.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), AIME-24, AIME-25, BoolQ, [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), ARC-Easy, [HellaSwag](../../../../wiki/datasets/hellaswag.md), RedPajama (calibration), Pile (validation)
+- **Datasets**: WikiText2, C4, [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), AIME-24, AIME-25, BoolQ, [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), ARC-Easy, [HellaSwag](../../../../wiki/datasets/hellaswag.md), RedPajama (calibration), Pile (validation)
 
 Tags: `quantization`, `post-training-quantization`, `inference-efficiency`, `givens-rotation`, `outliers`, `cuda-kernel`, `serving-cost`, `iclr2026`
 

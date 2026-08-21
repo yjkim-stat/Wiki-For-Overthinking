@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Neither source defines distribution shift; both take it as the reason a decision rule fixed before deployment stops being valid after it, and each handles it online. In Anytime Safe PAC Efficient Reasoning the shift is in the query stream reaching a thinking/non-thinking router: a threshold calibrated offline on a held-out set is not safe on a later, non-stationary stream, and the paper replaces offline calibration with a betting supermartingale that recertifies the threshold at every time step under partial feedback. In TinyTTA it is shift in the input distribution of a deployed network on a microcontroller, corrected by test-time adaptation of early-exit heads only rather than full backpropagation, reported at up to 57.6% accuracy improvement and up to six times lower memory, and running within the 512 KB of an STM32H747. What the two share is the assumption that the shift is never directly observed at run time -- no labels on device, no counterfactual loss for an unrouted query -- so it has to be tracked through a proxy signal as the stream arrives.",
   "evidence": [
     {
       "id": "title:b525ac9b26640523",
@@ -49,7 +49,10 @@
     "self-ensemble",
     "test-time-adaptation-tta"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "uncertainty-quantification",
+    "accuracy-drop-detection"
+  ],
   "schema_version": 1,
   "slug": "distribution-shift",
   "topics": [

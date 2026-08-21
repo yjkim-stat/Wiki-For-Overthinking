@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-VL is a vision-language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. ARES uses it at 3B and 7B as the base for difficulty-aware entropy-shaped RL, with ARES-7B averaging 55.9 pass@1 over ten multimodal benchmarks against 46.2 for the Vision-G1 baseline, the largest gap on MathVision (51.9 vs 31.3). DR2Seg also builds on it at 3B and 7B for reasoning segmentation, reaching gIoU 68.5 on ReasonSeg validation and 66.1 on test against VisionReasoner's 65.4 and 62.3, while cutting reasoning tokens from 85.3 to 26.9. LEMUR names it among the RL-trained multimodal reasoning models in scope, but reports its unlearning numbers on R1-Onevision-7B rather than on Qwen2.5-VL.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

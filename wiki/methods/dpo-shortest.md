@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DPO_Shortest appears in the archive only as a long-to-short baseline, named but never described. ARLCP lists it among seven efficient-reasoning baselines it outperforms (NoThinking, SFT_Shortest, DPO_Shortest, O1-Pruner, TLMRE, AdaptThink, LASER), and QFFT places it in the same '-Shortest' family as SFT-Shortest and SimPO-Shortest — preference-optimisation recipes trained to prefer the shortest of a model's sampled responses — reporting Accuracy-Efficiency Scores of -12.9 for SFT-Shortest and -1.6 for SimPO-shortest at 32B against QFFT's 2.3, without giving a DPO_Shortest number. No collected reading states its training procedure, so the entry records what the sources use it for rather than how it works.
 
 - **Kind**: method
 - **Also called**: DPO-Shortest

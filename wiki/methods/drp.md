@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DRP is named in the archive only as a comparison point for other efficiency methods, and the two sources place it slightly differently. The efficient-R1 survey files it under model consolidation, as a distillation approach alongside LiteCoT/DAR and TwT that compresses a large teacher's reasoning into a student. FROST treats it as the supervised-fine-tuning representative among efficiency baselines — contrasted with prompting (TALE) and RL (SelfBudgeter, ThinkLess) — and evaluates against it on GSM8K, MATH500, AIME24 and Minerva with Phi-4-Reasoning and GPT-OSS-20B. Neither source expands the acronym or states the method, so nothing here defines it beyond 'a training-based chain-of-thought shortening method'.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

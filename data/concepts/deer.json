@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by transition tokens such as 'Wait', with an entropy-based detector as fallback) as candidate exits, prompts the model there for a trial answer, and stops the thinking block when that answer's confidence, the geometric mean of its token probabilities, exceeds a threshold set to 0.95. Across 10 benchmarks and 11 models it cuts 19.1%-80.1% of chain-of-thought tokens while raising accuracy by 0.3%-5.0%, though the compression is strongly difficulty-dependent: roughly 67% on GSM8K against roughly 25% on AIME 2024 for the same model, so the saving is largest where inference was already cheap. A branch-parallel decoding scheme overlaps the trial-answer check with continued reasoning so it does not serialise against generation, and a variant DEER-PRo averages several prompt-varied inductions minus a mean-absolute-deviation penalty. Other archived work treats it as the standard baseline for this family: ReBalance compares against it, and DiffAdapt reports end-to-end inference 5x faster than DEER.",
   "evidence": [
     {
       "id": "local:6c80b6fd388d671e",
@@ -148,7 +148,11 @@
     "humaneval",
     "bigcodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "dynamic-early-exit",
+    "trial-answer",
+    "early-exit"
+  ],
   "schema_version": 1,
   "slug": "deer",
   "topics": [

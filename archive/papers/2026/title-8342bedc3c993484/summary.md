@@ -44,7 +44,7 @@ The abstract reports directions rather than numbers: it states that early-exit c
 ## Entities
 
 - **Concepts**: Early Exit, Predictive Uncertainty, Calibration, Dynamic Compute Allocation, Anytime Inference
-- **Methods**: [early-exit neural networks](../../../../wiki/methods/early-exit-neural-networks.md), probabilistic / uncertainty-aware signal modelling, joint modelling of signal and error variance, SNR-based exit conditions, dynamic test-time compute scaling
+- **Methods**: early-exit neural networks, probabilistic / uncertainty-aware signal modelling, joint modelling of signal and error variance, SNR-based exit conditions, dynamic test-time compute scaling
 - **Datasets**: _none recorded_
 
 Tags: `early exit`, `speech separation`, `speech enhancement`, `uncertainty`, `calibration`, `on-device`, `signal processing`, `off-topic`, `iclr-2026`

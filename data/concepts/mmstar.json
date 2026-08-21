@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A general (non-mathematical) multimodal question-answering benchmark that entered this archive through vision-language papers matching the topic's vocabulary rather than its subject. Two of its four sources are marked tangential or out of scope: HiDrop is recorded as a false positive on the phrase 'early exit' — the tokens it drops are image patch embeddings, not reasoning steps, and its 96.5%-of-baseline result at 91.7% token compression across 11 benchmarks is a prefill-side cost, not a decoding-length one — and Mixture-of-Visual-Thoughts reports no token counts or latency at all, only that its RL-trained model splits roughly evenly between text and grounded reasoning modes on MMStar (~51% grounded) where it goes almost entirely one way on the math and grounding sets. The two remaining sources use it as one of a large evaluation panel: Heima evaluates zero-shot on MMStar among six benchmarks and prices its extreme latent compression at roughly 6% of baseline tokens for 3.1 accuracy points on the average, and ARES includes it among ten multimodal benchmarks where ARES-7B averages 55.9 pass@1 against 46.2. No archived source reports an MMStar-specific accuracy-versus-reasoning-length figure.",
   "evidence": [
     {
       "id": "title:4321f3ae06d02a2e",
@@ -125,7 +125,10 @@
     "textvqa",
     "seed-image"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mathvista",
+    "mmmu"
+  ],
   "schema_version": 1,
   "slug": "mmstar",
   "topics": [

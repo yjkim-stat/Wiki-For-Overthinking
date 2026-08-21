@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Adds an uncertainty-triggered switch to Vision-Language-Action robot control models that shifts from reflexive action execution to a deliberation phase scored by a pairwise action critic.",
+        "title": "VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AVA-VLA replaces explicit chain-of-thought in a vision-language-action policy with a sequence of latent reasoning variables trained by RL denoising, and adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success rate.",
+        "title": "Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:22:36Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'LIBERO-LONG'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "LIBERO-LONG",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "LIBERO-LONG",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "LIBERO-LONG is a long-horizon robot manipulation suite that entered this wiki through vision-language-action papers sharing the topic's 'test-time compute' and 'early exit' vocabulary; the archive files VLA-ATTC as tangential and outside the topic's scope, since it reports only that it cuts the failure rate of the PI0.5 baseline by over 50% on LIBERO-LONG. AVA-VLA gives the one genuine adaptive-depth measurement on it - a confidence-gated early exit cutting mean latent reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms, at 98.1% success on LIBERO-Long and 98.3% across LIBERO overall, against 98.0% with a fixed depth of 5 at 156 ms - but the archive notes that success rates near 98% are close enough to saturation that the benchmark cannot resolve whether adaptive depth helps accuracy. So the reading here is that the extra depth buys nothing measurable and the early exit is a latency optimisation that costs no accuracy, not evidence that stopping at the right point improves answers.",
+    "kind": "dataset",
+    "related": [
+      "LIBERO",
+      "CALVIN ABC->D"
+    ]
+  },
+  "task_id": "concept__libero-long",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

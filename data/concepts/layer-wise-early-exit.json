@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Layer-wise Early Exit"
+    "Layer-wise Early Exit",
+    "per-layer early exit"
   ],
-  "definition": "",
+  "definition": "Both sources use this in the forward-pass sense: a network carries exit points at intermediate layers so the depth actually executed varies per input, and neither is about the length of a reasoning trace. SwiftPFN attaches a per-sample layer-wise early exit to a row-wise attention-only tabular in-context-learning backbone, so inference depth varies with the sample. HiDrop uses a per-layer early exit as one component of a vision-token reduction scheme for multimodal LLMs, alongside injecting visual tokens only at the layer where visual-text fusion begins and dropping about 90% of them on a concave schedule, reported to match baseline accuracy while training 1.72x faster. Neither source states an exit criterion in the material held here.",
   "evidence": [
     {
       "id": "title:01b92aa66908c5e0",
@@ -18,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "Layer-wise early exit",
   "related": [
@@ -60,7 +61,10 @@
     "seed-image",
     "mmstar"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit-neural-networks",
+    "early-exit"
+  ],
   "schema_version": 1,
   "slug": "layer-wise-early-exit",
   "topics": [

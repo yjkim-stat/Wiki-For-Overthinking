@@ -1,0 +1,58 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.",
+        "title": "Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ParoQuant is a 4-bit weight-only post-training quantization method that applies a series of independent Givens (pairwise) rotations plus channel-wise scaling to weights before quantization, with a fused CUDA kernel, in order to keep accuracy on reasoning benchmarks where quantization error accumulates over long chains of thought.",
+        "title": "ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:22:35Z",
+  "created_at": "2026-08-21T01:05:42Z",
+  "instructions": "Write the wiki definition for 'HellaSwag'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "HellaSwag",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "HellaSwag",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "HellaSwag serves in this archive as a short-output control - a benchmark whose answer is a few tokens - and both citing papers use it to show that costs which accumulate along a trace barely bite when there is no trace. C4 groups it with MMLU, ARC-Challenge, WinoGrande and PIQA as 'short-answer' at a 64-step budget, where its gates finish in 3.4-4.8 steps on LLaDA (92.5-94.7% of the budget saved, 14.3x-18.7x throughput) with accuracy equal to full decoding within 0.5 point; C4 measures 90%-answer-stabilisation at 0.04 of the budget on these tasks against 0.96 on long-reasoning ones. ParoQuant averages it with BoolQ, ARC-Challenge and ARC-Easy as its non-reasoning split, scoring 69.9 against FP16's 70.1 - a 0.2-point gap, against 0.9 points on MMLU-Pro, GPQA-Diamond and AIME - and attributes the difference explicitly to these benchmarks generating only a few tokens. It is therefore the archive's clearest example of the easy end of the tradeoff, where savings are near-total and accuracy is untouched.",
+    "kind": "dataset",
+    "related": [
+      "WinoGrande",
+      "PIQA",
+      "ARC-Challenge",
+      "MMLU"
+    ]
+  },
+  "task_id": "concept__hellaswag",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Lightning OPD 2.0 subtracts a cross-fitted estimate of recurring teacher-reference log-probability disagreement from the token-level on-policy-distillation signal, so an OPD teacher can differ from the model that generated the SFT demonstrations.",
+        "title": "Lightning OPD 2.0: Mitigating Style Bias in Cross-Teacher On-Policy Distillation for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+        "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:08Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'on-policy distillation (OPD)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "on-policy distillation (OPD)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "on-policy distillation (OPD)",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "OPD"
+    ],
+    "definition": "Training a student on its own sampled reasoning trajectories while minimizing reverse KL against a teacher's next-token distribution, as opposed to off-policy distillation, which trains on trajectories the teacher generated. Both archived sources treat OPD as redistributing where the student's existing probability mass sits rather than as widening what it can solve. The test-time-scaling analysis says this directly: across three student-teacher settings on AMC2023 and AIME2024/2025/2026, OPD beats the pre-OPD base model at pass@K for small K and at avg@K for all K, yet the base model catches up and overtakes it by K=1024 in most cells, more problems are forgotten (solvable at pass@1024 before, not after) than learned, and a perplexity comparison shows OPD trajectories stay inside the base model's distribution while shifting toward paths the teacher favours -- so it improves sampling efficiency, not the capability boundary. Lightning OPD 2.0 works inside that frame, subtracting a cross-fitted estimate of recurring teacher-reference log-probability disagreement from the token-level signal so the OPD teacher need not be the model that produced the SFT demonstrations (Qwen3-4B-SFT math average 48.3 to 51.7, code 32.6 to 35.7, single runs with no variance reported).",
+    "kind": "method",
+    "related": [
+      "off-policy distillation",
+      "illusory distillation",
+      "Style-Token Bias",
+      "On-Policy Distillation"
+    ]
+  },
+  "task_id": "concept__on-policy-distillation-opd",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

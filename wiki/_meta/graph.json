@@ -381,12 +381,6 @@
     {
       "authored": false,
       "source": "concept:accuracy-length-tradeoff",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:accuracy-length-tradeoff",
       "target": "concept:length-penalty",
       "type": "links"
     },
@@ -447,6 +441,12 @@
     {
       "authored": false,
       "source": "concept:accuracy-length-tradeoff",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:accuracy-length-tradeoff",
       "target": "method:laser",
       "type": "links"
     },
@@ -499,7 +499,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:adaptive-reasoning",
       "target": "concept:difficulty-aware-compute-allocation",
       "type": "links"
@@ -667,7 +667,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:adaptive-reasoning-length",
       "target": "concept:reasoning-segmentation",
       "type": "links"
@@ -703,6 +703,12 @@
       "type": "links"
     },
     {
+      "authored": false,
+      "source": "concept:adaptive-test-time-compute",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
       "authored": true,
       "source": "concept:adaptive-test-time-compute",
       "target": "concept:test-time-scaling",
@@ -724,12 +730,6 @@
       "authored": true,
       "source": "concept:adaptive-test-time-compute",
       "target": "method:budget-forcing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:adaptive-test-time-compute",
-      "target": "method:early-stopping",
       "type": "links"
     },
     {
@@ -831,12 +831,6 @@
     {
       "authored": false,
       "source": "concept:chain-of-thought-compression",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:chain-of-thought-compression",
       "target": "concept:token-budget",
       "type": "links"
     },
@@ -862,12 +856,6 @@
       "authored": false,
       "source": "concept:chain-of-thought-compression",
       "target": "dataset:amc",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:chain-of-thought-compression",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -945,6 +933,12 @@
     {
       "authored": false,
       "source": "concept:chain-of-thought-compression",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:chain-of-thought-compression",
       "target": "method:deer",
       "type": "links"
     },
@@ -952,6 +946,12 @@
       "authored": false,
       "source": "concept:chain-of-thought-compression",
       "target": "method:drp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:chain-of-thought-compression",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -1053,7 +1053,7 @@
     {
       "authored": true,
       "source": "concept:chain-of-thought-prompting",
-      "target": "method:latent-reasoning",
+      "target": "concept:latent-reasoning",
       "type": "links"
     },
     {
@@ -1119,6 +1119,18 @@
     {
       "authored": false,
       "source": "concept:confidence-calibration",
+      "target": "concept:early-exit-neural-networks",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:confidence-calibration",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:confidence-calibration",
       "target": "concept:process-supervision",
       "type": "links"
     },
@@ -1126,12 +1138,6 @@
       "authored": false,
       "source": "concept:confidence-calibration",
       "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "dataset:c4",
       "type": "links"
     },
     {
@@ -1203,6 +1209,12 @@
     {
       "authored": false,
       "source": "concept:confidence-calibration",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:confidence-calibration",
       "target": "method:confidence-based-early-stopping",
       "type": "links"
     },
@@ -1216,18 +1228,6 @@
       "authored": true,
       "source": "concept:confidence-calibration",
       "target": "method:conformal-prediction",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "method:early-exit-neural-networks",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:confidence-calibration",
-      "target": "method:early-stopping",
       "type": "links"
     },
     {
@@ -1246,6 +1246,18 @@
       "authored": false,
       "source": "concept:difficulty-aware-compute-allocation",
       "target": "concept:reasoning-trace-length",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:difficulty-aware-compute-allocation",
+      "target": "concept:test-time-compute-scaling",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:difficulty-aware-compute-allocation",
+      "target": "concept:token-budget",
       "type": "links"
     },
     {
@@ -1363,33 +1375,93 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "concept:dynamic-early-exit",
-      "target": "concept:accuracy-efficiency-score-aes",
+      "authored": true,
+      "source": "concept:distribution-shift",
+      "target": "concept:uncertainty-quantification",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:dynamic-early-exit",
-      "target": "concept:chain-of-thought-prompting",
+      "source": "concept:early-exit-neural-networks",
+      "target": "dataset:imagenet-1k",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:early-exit-neural-networks",
+      "target": "method:early-exit-ensembles",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:dynamic-early-exit",
-      "target": "concept:hidden-state-probing",
+      "source": "concept:early-stopping",
+      "target": "concept:test-time-compute",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:early-stopping",
+      "target": "concept:test-time-scaling",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:dynamic-early-exit",
-      "target": "dataset:livecodebench",
+      "source": "concept:early-stopping",
+      "target": "concept:uncertainty-quantification",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:dynamic-early-exit",
-      "target": "method:deer",
+      "source": "concept:early-stopping",
+      "target": "dataset:hle",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:early-stopping",
+      "target": "dataset:mathqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:early-stopping",
+      "target": "method:best-of-n",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:early-stopping",
+      "target": "method:conformal-prediction",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:early-stopping",
+      "target": "method:early-exit",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:efficient-reasoning",
+      "target": "concept:chain-of-thought-compression",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:efficient-reasoning",
+      "target": "concept:latent-reasoning",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:efficient-reasoning",
+      "target": "concept:length-penalty",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:efficient-reasoning",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -1429,6 +1501,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "concept:fixed-point-iteration",
+      "target": "concept:test-time-scaling",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "concept:group-relative-advantage",
       "target": "concept:efficient-reasoning",
@@ -1438,96 +1516,6 @@
       "authored": false,
       "source": "concept:group-relative-advantage",
       "target": "method:phi-4-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "concept:accuracy-efficiency-tradeoff",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "concept:length-penalty",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "concept:token-budget",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:big-bench-hard",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:gpqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:gsm8k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:strategyqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "dataset:svamp",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "method:ada-grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "method:dr-grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "method:laser",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "method:supervised-fine-tuning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:group-relative-policy-optimization",
-      "target": "method:thinkless",
       "type": "links"
     },
     {
@@ -1628,56 +1616,122 @@
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "dataset:aime",
+      "source": "concept:latent-reasoning",
+      "target": "concept:accuracy-efficiency-tradeoff",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "concept:chain-of-thought-compression",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "concept:recurrent-depth",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "concept:test-time-compute-scaling",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
+      "source": "concept:latent-reasoning",
+      "target": "concept:thinking-budget",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
+      "source": "concept:latent-reasoning",
+      "target": "dataset:ai2d",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "dataset:livecodebench",
+      "source": "concept:latent-reasoning",
+      "target": "dataset:aime-2025",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "method:confidence-based-early-stopping",
+      "source": "concept:latent-reasoning",
+      "target": "dataset:gsm-hard",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:kv-cache-compression",
-      "target": "method:r-kv",
+      "source": "concept:latent-reasoning",
+      "target": "dataset:libero-long",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:layer-wise-early-exit",
-      "target": "dataset:gqa",
+      "source": "concept:latent-reasoning",
+      "target": "dataset:mathvista",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "concept:layer-wise-early-exit",
+      "source": "concept:latent-reasoning",
       "target": "dataset:mmstar",
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "method:coconut",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "method:codi",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "method:colar",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:latent-reasoning",
+      "target": "method:early-exit",
+      "type": "links"
+    },
+    {
       "authored": false,
-      "source": "concept:layer-wise-early-exit",
-      "target": "dataset:pope",
+      "source": "concept:latent-reasoning",
+      "target": "method:grpo",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:latent-reasoning",
+      "target": "method:rloo",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:latent-reasoning",
+      "target": "method:speculative-decoding",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:length-penalty",
+      "target": "concept:length-reward",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:length-penalty",
+      "target": "concept:token-budget",
       "type": "links"
     },
     {
@@ -1809,13 +1863,13 @@
     {
       "authored": false,
       "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:qwen3-8b",
+      "target": "dataset:strategyqa",
       "type": "links"
     },
     {
       "authored": false,
       "source": "concept:out-of-distribution-generalization",
-      "target": "dataset:strategyqa",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -1893,11 +1947,11 @@
     {
       "authored": false,
       "source": "concept:overthinking",
-      "target": "concept:dynamic-early-exit",
+      "target": "concept:early-stopping",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:overthinking",
       "target": "concept:efficient-reasoning",
       "type": "links"
@@ -1917,12 +1971,6 @@
     {
       "authored": false,
       "source": "concept:overthinking",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:overthinking",
       "target": "concept:hidden-state-probing",
       "type": "links"
     },
@@ -1936,12 +1984,6 @@
       "authored": true,
       "source": "concept:overthinking",
       "target": "concept:inverse-scaling",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:overthinking",
-      "target": "concept:kv-cache-compression",
       "type": "links"
     },
     {
@@ -2121,18 +2163,6 @@
     {
       "authored": false,
       "source": "concept:overthinking",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:overthinking",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:overthinking",
       "target": "dataset:gpqa",
       "type": "links"
     },
@@ -2260,12 +2290,6 @@
       "authored": false,
       "source": "concept:overthinking",
       "target": "dataset:overthinkingbench",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:overthinking",
-      "target": "dataset:qwen3-8b",
       "type": "links"
     },
     {
@@ -2409,7 +2433,19 @@
     {
       "authored": false,
       "source": "concept:overthinking",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -2439,13 +2475,13 @@
     {
       "authored": true,
       "source": "concept:overthinking",
-      "target": "method:early-exit",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:overthinking",
-      "target": "method:early-stopping",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -2457,7 +2493,19 @@
     {
       "authored": false,
       "source": "concept:overthinking",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
       "target": "method:grpo-group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
@@ -2554,6 +2602,12 @@
       "authored": false,
       "source": "concept:overthinking",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -2761,27 +2815,9 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "concept:process-reward-model",
-      "target": "concept:kv-cache-compression",
-      "type": "links"
-    },
-    {
       "authored": true,
       "source": "concept:process-reward-model",
       "target": "concept:process-reward-model-prm",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:process-reward-model",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:process-reward-model",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -2798,6 +2834,24 @@
     },
     {
       "authored": false,
+      "source": "concept:process-reward-model",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:process-reward-model",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:process-reward-model",
+      "target": "method:kv-cache-compression",
+      "type": "links"
+    },
+    {
+      "authored": true,
       "source": "concept:process-reward-model",
       "target": "method:llm-as-a-judge",
       "type": "links"
@@ -2845,9 +2899,27 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "concept:process-supervision",
+      "target": "concept:chain-of-thought-monitorability",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:process-supervision",
+      "target": "concept:process-reward-model",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "concept:process-supervision",
       "target": "dataset:mmmu",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:reasoning-collapse",
+      "target": "concept:length-reward",
       "type": "links"
     },
     {
@@ -2857,9 +2929,21 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "concept:reasoning-collapse",
+      "target": "concept:underthinking",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "concept:reasoning-collapse",
       "target": "method:dr-grpo",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:reasoning-effort",
+      "target": "concept:chain-of-thought-monitorability",
       "type": "links"
     },
     {
@@ -2869,13 +2953,13 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:reasoning-graph",
       "target": "method:reasoning-graph-extraction",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:reasoning-segmentation",
       "target": "dataset:reasonseg",
       "type": "links"
@@ -2899,6 +2983,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "concept:reasoning-trace-length",
+      "target": "method:budget-forcing",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "concept:reasoning-trace-length",
       "target": "method:reinforcement-learning-with-verifiable-rewards",
@@ -2914,6 +3004,12 @@
       "authored": false,
       "source": "concept:recurrent-depth",
       "target": "concept:accuracy-efficiency-tradeoff",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:recurrent-depth",
+      "target": "method:budget-forcing",
       "type": "links"
     },
     {
@@ -2944,12 +3040,6 @@
       "authored": false,
       "source": "concept:redundant-self-verification",
       "target": "dataset:amc",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:redundant-self-verification",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -3009,6 +3099,18 @@
     {
       "authored": false,
       "source": "concept:redundant-self-verification",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:redundant-self-verification",
+      "target": "method:lc-r1",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:redundant-self-verification",
       "target": "method:o1-pruner",
       "type": "links"
     },
@@ -3028,6 +3130,12 @@
       "authored": false,
       "source": "concept:redundant-self-verification",
       "target": "method:reinforcement-learning-with-verifiable-rewards",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "concept:redundant-self-verification",
+      "target": "method:self-verification",
       "type": "links"
     },
     {
@@ -3381,18 +3489,6 @@
     {
       "authored": false,
       "source": "concept:test-time-compute-scaling",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-compute-scaling",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-compute-scaling",
       "target": "dataset:gsm8k",
       "type": "links"
     },
@@ -3459,12 +3555,6 @@
     {
       "authored": false,
       "source": "concept:test-time-compute-scaling",
-      "target": "dataset:qwen3-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-compute-scaling",
       "target": "dataset:s1k-1-1",
       "type": "links"
     },
@@ -3508,6 +3598,18 @@
       "authored": false,
       "source": "concept:test-time-compute-scaling",
       "target": "method:chain-of-draft",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:test-time-compute-scaling",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:test-time-compute-scaling",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -3562,6 +3664,12 @@
       "authored": false,
       "source": "concept:test-time-compute-scaling",
       "target": "method:nowait",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:test-time-compute-scaling",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -3663,7 +3771,7 @@
     {
       "authored": false,
       "source": "concept:test-time-scaling",
-      "target": "concept:dynamic-early-exit",
+      "target": "concept:latent-reasoning",
       "type": "links"
     },
     {
@@ -3855,6 +3963,12 @@
     {
       "authored": false,
       "source": "concept:test-time-scaling",
+      "target": "method:dynamic-early-exit",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:test-time-scaling",
       "target": "method:early-exit",
       "type": "links"
     },
@@ -3862,12 +3976,6 @@
       "authored": false,
       "source": "concept:test-time-scaling",
       "target": "method:grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "concept:test-time-scaling",
-      "target": "method:latent-reasoning",
       "type": "links"
     },
     {
@@ -4315,13 +4423,13 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:underthinking",
       "target": "method:nothinking",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "concept:underthinking",
       "target": "method:nowait",
       "type": "links"
@@ -4473,12 +4581,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "concept:efficient-reasoning",
       "type": "links"
     },
@@ -4491,19 +4593,7 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "concept:hidden-state-probing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "concept:kv-cache-compression",
       "type": "links"
     },
     {
@@ -4653,12 +4743,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "dataset:c4",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "dataset:cmimc25",
       "type": "links"
     },
@@ -4672,18 +4756,6 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -4809,12 +4881,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
-      "target": "dataset:qwen3-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2024",
       "target": "dataset:still",
       "type": "links"
     },
@@ -4863,6 +4929,12 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
       "target": "method:confidence-based-early-stopping",
       "type": "links"
     },
@@ -4881,6 +4953,18 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
       "target": "method:deer",
       "type": "links"
     },
@@ -4894,6 +4978,12 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "method:drp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -4923,7 +5013,19 @@
     {
       "authored": false,
       "source": "dataset:aime-2024",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
       "target": "method:grpo",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
@@ -4978,6 +5080,12 @@
       "authored": false,
       "source": "dataset:aime-2024",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2024",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -5181,12 +5289,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
       "target": "concept:f1-otb-combined-metric",
       "type": "links"
     },
@@ -5199,12 +5301,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
       "target": "concept:hidden-state-probing",
       "type": "links"
     },
@@ -5212,12 +5308,6 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "concept:hybrid-thinking-non-thinking-models",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "concept:kv-cache-compression",
       "type": "links"
     },
     {
@@ -5355,12 +5445,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
-      "target": "dataset:c4",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
       "target": "dataset:cmimc25",
       "type": "links"
     },
@@ -5380,18 +5464,6 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -5511,12 +5583,6 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
-      "target": "dataset:qwen3-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:aime-2025",
       "target": "dataset:s1k-1-1",
       "type": "links"
     },
@@ -5595,6 +5661,12 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
       "target": "method:confidence-based-early-stopping",
       "type": "links"
     },
@@ -5607,7 +5679,19 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -5625,6 +5709,12 @@
     {
       "authored": false,
       "source": "dataset:aime-2025",
+      "target": "method:dynamic-early-exit",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
       "target": "method:gfpo",
       "type": "links"
     },
@@ -5632,6 +5722,18 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "method:gpt-oss-120b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
@@ -5698,6 +5800,12 @@
       "authored": false,
       "source": "dataset:aime-2025",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:aime-2025",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -5979,19 +6087,13 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
       "target": "concept:hidden-state-probing",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "concept:kv-cache-compression",
+      "target": "concept:latent-reasoning",
       "type": "links"
     },
     {
@@ -6111,18 +6213,6 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
       "target": "dataset:gpqa",
       "type": "links"
     },
@@ -6219,12 +6309,6 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "dataset:qwen3-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:amc23",
       "target": "dataset:s1k-1-1",
       "type": "links"
     },
@@ -6303,6 +6387,18 @@
     {
       "authored": false,
       "source": "dataset:amc23",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:amc23",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:amc23",
       "target": "method:deer",
       "type": "links"
     },
@@ -6310,6 +6406,12 @@
       "authored": false,
       "source": "dataset:amc23",
       "target": "method:dpo-shortest",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:amc23",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -6327,13 +6429,13 @@
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "method:laser",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:amc23",
-      "target": "method:latent-reasoning",
+      "target": "method:laser",
       "type": "links"
     },
     {
@@ -6364,6 +6466,12 @@
       "authored": false,
       "source": "dataset:amc23",
       "target": "method:on-policy-distillation-opd",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:amc23",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -6451,7 +6559,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:arc-challenge",
       "target": "dataset:hellaswag",
       "type": "links"
@@ -6574,54 +6682,6 @@
       "authored": false,
       "source": "dataset:big-bench-hard",
       "target": "method:supervised-fine-tuning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:hellaswag",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:humaneval",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:mbpp",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:mmlu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:mmlu-pro",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:c4",
-      "target": "dataset:svamp",
       "type": "links"
     },
     {
@@ -6752,114 +6812,6 @@
     },
     {
       "authored": false,
-      "source": "dataset:deepseek-r1-distill-llama-8b",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-llama-8b",
-      "target": "method:vllm",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "concept:adaptive-reasoning",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "concept:length-reward",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:aime",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:amc",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:livecodebench",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:mathqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:minerva-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "dataset:still",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:ada-r1",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:deepseek-r1-distill-qwen-1-5b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:model-merging",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:qwen2-5-instruct",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:reinforcement-learning-with-verifiable-rewards",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:deepseek-r1-distill-qwen-7b",
-      "target": "method:sequential-revision",
-      "type": "links"
-    },
-    {
-      "authored": false,
       "source": "dataset:gpqa",
       "target": "concept:accuracy-efficiency-tradeoff",
       "type": "links"
@@ -6891,6 +6843,12 @@
     {
       "authored": false,
       "source": "dataset:gpqa",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa",
       "target": "concept:group-relative-advantage",
       "type": "links"
     },
@@ -6898,12 +6856,6 @@
       "authored": false,
       "source": "dataset:gpqa",
       "target": "concept:hidden-state-probing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
-      "target": "concept:kv-cache-compression",
       "type": "links"
     },
     {
@@ -6970,18 +6922,6 @@
       "authored": false,
       "source": "dataset:gpqa",
       "target": "dataset:commonsenseqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -7071,12 +7011,6 @@
     {
       "authored": false,
       "source": "dataset:gpqa",
-      "target": "dataset:qwen3-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
       "target": "dataset:strategyqa",
       "type": "links"
     },
@@ -7125,6 +7059,18 @@
     {
       "authored": false,
       "source": "dataset:gpqa",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa",
       "target": "method:deer",
       "type": "links"
     },
@@ -7132,12 +7078,6 @@
       "authored": false,
       "source": "dataset:gpqa",
       "target": "method:dpo-shortest",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa",
-      "target": "method:early-stopping",
       "type": "links"
     },
     {
@@ -7155,6 +7095,12 @@
     {
       "authored": false,
       "source": "dataset:gpqa",
+      "target": "method:kv-cache-compression",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa",
       "target": "method:phi-4-reasoning",
       "type": "links"
     },
@@ -7162,6 +7108,12 @@
       "authored": false,
       "source": "dataset:gpqa",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -7239,12 +7191,6 @@
     {
       "authored": false,
       "source": "dataset:gpqa-diamond",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
       "target": "concept:overthinking",
       "type": "links"
     },
@@ -7317,12 +7263,6 @@
     {
       "authored": false,
       "source": "dataset:gpqa-diamond",
-      "target": "dataset:c4",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
       "target": "dataset:commonsenseqa",
       "type": "links"
     },
@@ -7330,12 +7270,6 @@
       "authored": false,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:dapo-math-17k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
       "type": "links"
     },
     {
@@ -7387,7 +7321,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:minerva",
       "type": "links"
@@ -7411,15 +7345,9 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gpqa-diamond",
       "target": "dataset:olympiadbench",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gpqa-diamond",
-      "target": "dataset:qwen3-8b",
       "type": "links"
     },
     {
@@ -7467,13 +7395,31 @@
     {
       "authored": false,
       "source": "dataset:gpqa-diamond",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa-diamond",
       "target": "method:chain-of-thought-distillation",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:gpqa-diamond",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa-diamond",
       "target": "method:deer",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa-diamond",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -7533,6 +7479,12 @@
     {
       "authored": false,
       "source": "dataset:gpqa-diamond",
+      "target": "method:qwen3-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gpqa-diamond",
       "target": "method:seal",
       "type": "links"
     },
@@ -7585,13 +7537,7 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:gsm-hard",
-      "target": "dataset:c4",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gsm-hard",
       "target": "dataset:gsm8k",
       "type": "links"
@@ -7627,9 +7573,15 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gsm-hard",
       "target": "dataset:svamp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm-hard",
+      "target": "method:c4",
       "type": "links"
     },
     {
@@ -7701,7 +7653,7 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "concept:dynamic-early-exit",
+      "target": "concept:early-stopping",
       "type": "links"
     },
     {
@@ -7720,12 +7672,6 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "concept:hidden-state-probing",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
-      "target": "concept:kv-cache-compression",
       "type": "links"
     },
     {
@@ -7833,12 +7779,6 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "dataset:c4",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
       "target": "dataset:commonsenseqa",
       "type": "links"
     },
@@ -7852,18 +7792,6 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -7885,7 +7813,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gsm8k",
       "target": "dataset:humaneval",
       "type": "links"
@@ -7921,7 +7849,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:gsm8k",
       "target": "dataset:mathvista",
       "type": "links"
@@ -7972,12 +7900,6 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:gsm8k",
-      "target": "dataset:qwen3-8b",
       "type": "links"
     },
     {
@@ -8073,6 +7995,12 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm8k",
       "target": "method:chain-of-draft",
       "type": "links"
     },
@@ -8103,7 +8031,19 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm8k",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm8k",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -8133,13 +8073,13 @@
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "method:early-exit",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:gsm8k",
-      "target": "method:early-stopping",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -8164,6 +8104,12 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "method:knowledge-distillation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm8k",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
@@ -8212,6 +8158,12 @@
       "authored": false,
       "source": "dataset:gsm8k",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:gsm8k",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -8359,6 +8311,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "dataset:hle",
+      "target": "dataset:gpqa-diamond",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "dataset:hmmt-2025",
       "target": "concept:accuracy-efficiency-tradeoff-of-reasoning-length",
@@ -8433,12 +8391,6 @@
     {
       "authored": false,
       "source": "dataset:hmmt-2025",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:hmmt-2025",
       "target": "dataset:overthinkingbench",
       "type": "links"
     },
@@ -8464,6 +8416,12 @@
       "authored": false,
       "source": "dataset:hmmt-2025",
       "target": "method:adaptthink",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:hmmt-2025",
+      "target": "method:deepseek-r1-distill-llama-8b",
       "type": "links"
     },
     {
@@ -8529,12 +8487,6 @@
     {
       "authored": false,
       "source": "dataset:humaneval",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:humaneval",
       "target": "dataset:aime",
       "type": "links"
     },
@@ -8545,13 +8497,7 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:humaneval",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "dataset:humaneval",
       "target": "dataset:livecodebench",
       "type": "links"
@@ -8563,7 +8509,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:humaneval",
       "target": "dataset:mbpp",
       "type": "links"
@@ -8589,7 +8535,19 @@
     {
       "authored": false,
       "source": "dataset:humaneval",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:humaneval",
       "target": "method:deer",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:humaneval",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -8602,6 +8560,12 @@
       "authored": false,
       "source": "dataset:humaneval",
       "target": "method:reinforcement-learning-with-verifiable-rewards",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:imagenet-1k",
+      "target": "dataset:gqa",
       "type": "links"
     },
     {
@@ -8698,6 +8662,12 @@
       "authored": false,
       "source": "dataset:livecodebench-v6",
       "target": "dataset:hmmt-2025",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:livecodebench-v6",
+      "target": "dataset:livecodebench",
       "type": "links"
     },
     {
@@ -8799,12 +8769,6 @@
     {
       "authored": false,
       "source": "dataset:math",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math",
       "target": "dataset:humaneval",
       "type": "links"
     },
@@ -8896,6 +8860,12 @@
       "authored": false,
       "source": "dataset:math",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -9021,12 +8991,6 @@
     {
       "authored": false,
       "source": "dataset:math-500",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
       "target": "concept:efficient-reasoning",
       "type": "links"
     },
@@ -9039,19 +9003,13 @@
     {
       "authored": false,
       "source": "dataset:math-500",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
       "target": "concept:hidden-state-probing",
       "type": "links"
     },
     {
       "authored": false,
       "source": "dataset:math-500",
-      "target": "concept:kv-cache-compression",
+      "target": "concept:latent-reasoning",
       "type": "links"
     },
     {
@@ -9219,18 +9177,6 @@
     {
       "authored": false,
       "source": "dataset:math-500",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
       "target": "dataset:gpqa",
       "type": "links"
     },
@@ -9241,7 +9187,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:math-500",
       "target": "dataset:gsm-hard",
       "type": "links"
@@ -9301,13 +9247,13 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:math-500",
       "target": "dataset:minerva",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:math-500",
       "target": "dataset:minerva-math",
       "type": "links"
@@ -9346,12 +9292,6 @@
       "authored": false,
       "source": "dataset:math-500",
       "target": "dataset:omni-math",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
-      "target": "dataset:qwen3-8b",
       "type": "links"
     },
     {
@@ -9471,7 +9411,19 @@
     {
       "authored": false,
       "source": "dataset:math-500",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -9490,6 +9442,12 @@
       "authored": false,
       "source": "dataset:math-500",
       "target": "method:drp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -9519,7 +9477,19 @@
     {
       "authored": false,
       "source": "dataset:math-500",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
       "target": "method:grpo",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
+      "target": "method:kv-cache-compression",
       "type": "links"
     },
     {
@@ -9532,12 +9502,6 @@
       "authored": false,
       "source": "dataset:math-500",
       "target": "method:laser",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:math-500",
-      "target": "method:latent-reasoning",
       "type": "links"
     },
     {
@@ -9598,6 +9562,12 @@
       "authored": false,
       "source": "dataset:math-500",
       "target": "method:qwen2-5-vl",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:math-500",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -9739,9 +9709,15 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mathqa",
       "target": "dataset:aime",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:mathqa",
+      "target": "dataset:gsm8k",
       "type": "links"
     },
     {
@@ -9883,19 +9859,19 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mathvista",
       "target": "dataset:mathverse",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mathvista",
       "target": "dataset:mathvision",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mathvista",
       "target": "dataset:mmstar",
       "type": "links"
@@ -9967,13 +9943,7 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:mbpp",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mbpp",
       "target": "dataset:livecodebench",
       "type": "links"
@@ -10030,6 +10000,12 @@
       "authored": false,
       "source": "dataset:mbpp",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mbpp",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -10117,6 +10093,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "dataset:minerva",
+      "target": "dataset:minerva-math",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "dataset:minerva",
       "target": "dataset:mmlu-pro",
@@ -10201,6 +10183,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "dataset:minerva-math",
+      "target": "dataset:aime",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "dataset:minerva-math",
       "target": "dataset:deepscaler",
@@ -10275,6 +10263,12 @@
     {
       "authored": false,
       "source": "dataset:mmlu",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:mmlu",
       "target": "concept:reward-shaping",
       "type": "links"
     },
@@ -10315,13 +10309,7 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "dataset:mmlu",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mmlu",
       "target": "dataset:hellaswag",
       "type": "links"
@@ -10375,6 +10363,18 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "dataset:mmlu",
+      "target": "dataset:mmlu-pro",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:mmlu",
+      "target": "dataset:mmlu-stem",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "dataset:mmlu",
       "target": "dataset:omni-math",
@@ -10407,7 +10407,7 @@
     {
       "authored": false,
       "source": "dataset:mmlu",
-      "target": "method:early-stopping",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -10522,6 +10522,12 @@
       "authored": false,
       "source": "dataset:mmlu-pro",
       "target": "dataset:mathvista",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "dataset:mmlu-pro",
+      "target": "dataset:mmlu-stem",
       "type": "links"
     },
     {
@@ -10651,7 +10657,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mmmu",
       "target": "dataset:mmstar",
       "type": "links"
@@ -10693,7 +10699,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:mmstar",
       "target": "dataset:pope",
       "type": "links"
@@ -10755,12 +10761,6 @@
     {
       "authored": false,
       "source": "dataset:olympiadbench",
-      "target": "concept:dynamic-early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
       "target": "concept:efficient-reasoning",
       "type": "links"
     },
@@ -10768,12 +10768,6 @@
       "authored": false,
       "source": "dataset:olympiadbench",
       "target": "concept:group-relative-advantage",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
-      "target": "concept:group-relative-policy-optimization",
       "type": "links"
     },
     {
@@ -10843,7 +10837,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:olympiadbench",
       "target": "dataset:aime",
       "type": "links"
@@ -10864,12 +10858,6 @@
       "authored": false,
       "source": "dataset:olympiadbench",
       "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:olympiadbench",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -10945,7 +10933,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:olympiadbench",
       "target": "dataset:omni-math",
       "type": "links"
@@ -11007,7 +10995,25 @@
     {
       "authored": false,
       "source": "dataset:olympiadbench",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:olympiadbench",
       "target": "method:deer",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:olympiadbench",
+      "target": "method:dynamic-early-exit",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "dataset:olympiadbench",
+      "target": "method:group-relative-policy-optimization",
       "type": "links"
     },
     {
@@ -11251,105 +11257,9 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:pope",
       "target": "dataset:gqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:adaptive-test-time-compute",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:chain-of-thought-faithfulness",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:chain-of-thought-monitorability",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:compute-optimal-inference",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:kv-cache-compression",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "concept:process-reward-model",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "dataset:hmmt-2025",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "dataset:mmlu",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:confidence-based-early-stopping",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:gpt-oss-120b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:qwq-32b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:r-kv",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:self-consistency",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "dataset:qwen3-8b",
-      "target": "method:vllm",
       "type": "links"
     },
     {
@@ -11653,7 +11563,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:activation-steering",
       "target": "concept:mechanistic-interpretability",
       "type": "links"
@@ -12027,12 +11937,6 @@
     {
       "authored": false,
       "source": "method:budget-forcing",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:budget-forcing",
       "target": "dataset:gaia",
       "type": "links"
     },
@@ -12045,13 +11949,73 @@
     {
       "authored": false,
       "source": "method:budget-forcing",
-      "target": "dataset:qwen3-8b",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:budget-forcing",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
       "authored": false,
       "source": "method:budget-forcing",
       "target": "method:vllm",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:arc-challenge",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:hellaswag",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:humaneval",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:math",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:mbpp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:mmlu",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:mmlu-pro",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:c4",
+      "target": "dataset:svamp",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:c4",
+      "target": "method:dynamic-early-exit",
       "type": "links"
     },
     {
@@ -12085,7 +12049,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:chain-of-thought-distillation",
       "target": "concept:out-of-distribution-generalization",
       "type": "links"
@@ -12123,13 +12087,13 @@
     {
       "authored": false,
       "source": "method:chain-of-thought-distillation",
-      "target": "dataset:qwen3-8b",
+      "target": "dataset:strategyqa",
       "type": "links"
     },
     {
       "authored": false,
       "source": "method:chain-of-thought-distillation",
-      "target": "dataset:strategyqa",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -12145,7 +12109,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:coconut",
       "target": "concept:recurrent-depth",
       "type": "links"
@@ -12283,21 +12247,15 @@
       "type": "links"
     },
     {
+      "authored": false,
+      "source": "method:confidence-based-early-stopping",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
       "authored": true,
       "source": "method:confidence-based-early-stopping",
       "target": "concept:test-time-compute-scaling",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:confidence-based-early-stopping",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:confidence-based-early-stopping",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -12315,7 +12273,13 @@
     {
       "authored": false,
       "source": "method:confidence-based-early-stopping",
-      "target": "method:early-stopping",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:confidence-based-early-stopping",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -12334,6 +12298,12 @@
       "authored": true,
       "source": "method:confidence-thresholding",
       "target": "concept:compute-optimal-inference",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:confidence-thresholding",
+      "target": "concept:early-exit-neural-networks",
       "type": "links"
     },
     {
@@ -12358,12 +12328,6 @@
       "authored": true,
       "source": "method:confidence-thresholding",
       "target": "method:conformal-prediction",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:confidence-thresholding",
-      "target": "method:early-exit-neural-networks",
       "type": "links"
     },
     {
@@ -12418,6 +12382,132 @@
       "authored": false,
       "source": "method:dapo",
       "target": "method:rlvr",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:deepseek-r1-distill-llama-8b",
+      "target": "concept:distillation",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:deepseek-r1-distill-llama-8b",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-llama-8b",
+      "target": "method:vllm",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:deepseek-r1-distill-qwen-1-5b",
+      "target": "concept:distillation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "concept:adaptive-reasoning",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "concept:distillation",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "concept:length-reward",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:aime",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:amc",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:deepscaler",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:livecodebench",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:mathqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:minerva-math",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:omni-math",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "dataset:still",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:ada-r1",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:model-merging",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:qwen2-5-instruct",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:reinforcement-learning-with-verifiable-rewards",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:deepseek-r1-distill-qwen-7b",
+      "target": "method:sequential-revision",
       "type": "links"
     },
     {
@@ -12529,6 +12619,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:dr-grpo",
+      "target": "method:rlvr",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:drp",
       "target": "concept:efficient-reasoning",
@@ -12544,6 +12640,48 @@
       "authored": false,
       "source": "method:drp",
       "target": "method:phi-4-reasoning",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:dynamic-early-exit",
+      "target": "concept:accuracy-efficiency-score-aes",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:dynamic-early-exit",
+      "target": "concept:chain-of-thought-prompting",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:dynamic-early-exit",
+      "target": "concept:early-exit-neural-networks",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:dynamic-early-exit",
+      "target": "concept:hidden-state-probing",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:dynamic-early-exit",
+      "target": "dataset:livecodebench",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:dynamic-early-exit",
+      "target": "method:deer",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:dynamic-early-exit",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -12571,6 +12709,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:early-exit",
+      "target": "concept:early-exit-neural-networks",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:early-exit",
       "target": "concept:risk-control",
@@ -12592,12 +12736,6 @@
       "authored": false,
       "source": "method:early-exit",
       "target": "dataset:arc-challenge",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "dataset:c4",
       "type": "links"
     },
     {
@@ -12667,13 +12805,19 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:early-exit",
+      "target": "method:c4",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:early-exit",
       "target": "method:confidence-thresholding",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:early-exit",
       "target": "method:deer",
       "type": "links"
@@ -12685,15 +12829,9 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:early-exit",
       "target": "method:early-exit-ensembles",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-exit",
-      "target": "method:early-exit-neural-networks",
       "type": "links"
     },
     {
@@ -12721,7 +12859,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:early-exit",
       "target": "method:nowait",
       "type": "links"
@@ -12781,49 +12919,7 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:early-exit-neural-networks",
-      "target": "dataset:imagenet-1k",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "concept:test-time-compute",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "concept:uncertainty-quantification",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "dataset:hle",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "dataset:mathqa",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "method:best-of-n",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:early-stopping",
-      "target": "method:conformal-prediction",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "method:gfpo",
       "target": "concept:group-relative-advantage",
       "type": "links"
@@ -12856,6 +12952,12 @@
       "authored": false,
       "source": "method:gpt-oss-120b",
       "target": "concept:compute-optimal-inference",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:gpt-oss-120b",
+      "target": "method:gpt-oss-20b",
       "type": "links"
     },
     {
@@ -12896,6 +12998,108 @@
     },
     {
       "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "concept:accuracy-efficiency-tradeoff",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:group-relative-policy-optimization",
+      "target": "concept:group-relative-advantage",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "concept:length-penalty",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "concept:token-budget",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:big-bench-hard",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:commonsenseqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:gpqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:gsm8k",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:math",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:strategyqa",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "dataset:svamp",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:ada-grpo",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:dr-grpo",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:grpo-group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:laser",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:supervised-fine-tuning",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:group-relative-policy-optimization",
+      "target": "method:thinkless",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "method:grpo",
       "target": "concept:accuracy-efficiency-pareto-frontier",
       "type": "links"
@@ -12931,25 +13135,19 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:grpo",
       "target": "concept:group-relative-advantage",
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:grpo",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
+      "authored": true,
       "source": "method:grpo",
       "target": "concept:length-penalty",
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:grpo",
       "target": "concept:length-reward",
       "type": "links"
@@ -13030,12 +13228,6 @@
       "authored": false,
       "source": "method:grpo",
       "target": "dataset:deepscaler",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:grpo",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -13191,6 +13383,12 @@
     {
       "authored": false,
       "source": "method:grpo",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:grpo",
       "target": "method:dr-grpo",
       "type": "links"
     },
@@ -13201,9 +13399,21 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:grpo",
       "target": "method:gfpo",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:grpo",
+      "target": "method:group-relative-policy-optimization",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:grpo",
+      "target": "method:grpo-group-relative-policy-optimization",
       "type": "links"
     },
     {
@@ -13234,6 +13444,12 @@
       "authored": false,
       "source": "method:grpo",
       "target": "method:reinforcement-learning-with-verifiable-rewards",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:grpo",
+      "target": "method:rlvr",
       "type": "links"
     },
     {
@@ -13279,6 +13495,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:grpo-group-relative-policy-optimization",
+      "target": "concept:group-relative-advantage",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:grpo-group-relative-policy-optimization",
       "target": "concept:reasoning-segmentation",
@@ -13321,21 +13543,69 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:knowledge-distillation",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:knowledge-distillation",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "method:knowledge-distillation",
       "target": "method:early-exit-ensembles",
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "method:kv-cache-compression",
+      "target": "concept:efficient-reasoning",
+      "type": "links"
+    },
+    {
       "authored": false,
-      "source": "method:kv-cache-eviction",
-      "target": "concept:accuracy-efficiency-pareto-frontier",
+      "source": "method:kv-cache-compression",
+      "target": "dataset:aime",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:kv-cache-compression",
+      "target": "dataset:livecodebench",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:kv-cache-compression",
+      "target": "method:confidence-based-early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:kv-cache-compression",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:kv-cache-compression",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:kv-cache-compression",
+      "target": "method:r-kv",
       "type": "links"
     },
     {
       "authored": false,
       "source": "method:kv-cache-eviction",
-      "target": "concept:kv-cache-compression",
+      "target": "concept:accuracy-efficiency-pareto-frontier",
       "type": "links"
     },
     {
@@ -13357,7 +13627,13 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
+      "source": "method:kv-cache-eviction",
+      "target": "method:kv-cache-compression",
+      "type": "links"
+    },
+    {
+      "authored": true,
       "source": "method:kv-cache-eviction",
       "target": "method:r-kv",
       "type": "links"
@@ -13387,7 +13663,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:laser",
       "target": "concept:adaptive-reasoning",
       "type": "links"
@@ -13399,9 +13675,21 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
+      "source": "method:laser",
+      "target": "concept:efficient-reasoning",
+      "type": "links"
+    },
+    {
+      "authored": true,
       "source": "method:laser",
       "target": "concept:length-penalty",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:laser",
+      "target": "concept:length-reward",
       "type": "links"
     },
     {
@@ -13531,111 +13819,33 @@
       "type": "links"
     },
     {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "concept:accuracy-efficiency-tradeoff",
+      "authored": true,
+      "source": "method:layer-wise-early-exit",
+      "target": "concept:early-exit-neural-networks",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "concept:chain-of-thought-compression",
+      "source": "method:layer-wise-early-exit",
+      "target": "dataset:gqa",
       "type": "links"
     },
     {
       "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "concept:recurrent-depth",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "concept:test-time-compute-scaling",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "concept:thinking-budget",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "dataset:ai2d",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "dataset:aime-2025",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "dataset:gsm-hard",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "dataset:libero-long",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "dataset:mathvista",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
+      "source": "method:layer-wise-early-exit",
       "target": "dataset:mmstar",
       "type": "links"
     },
     {
-      "authored": true,
-      "source": "method:latent-reasoning",
-      "target": "method:coconut",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "method:latent-reasoning",
-      "target": "method:codi",
-      "type": "links"
-    },
-    {
-      "authored": true,
-      "source": "method:latent-reasoning",
-      "target": "method:colar",
-      "type": "links"
-    },
-    {
       "authored": false,
-      "source": "method:latent-reasoning",
+      "source": "method:layer-wise-early-exit",
+      "target": "dataset:pope",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:layer-wise-early-exit",
       "target": "method:early-exit",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "method:grpo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "method:rloo",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:latent-reasoning",
-      "target": "method:speculative-decoding",
       "type": "links"
     },
     {
@@ -13696,6 +13906,12 @@
       "authored": false,
       "source": "method:llama3-8b",
       "target": "dataset:sst-2",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:llama3-8b",
+      "target": "method:deepseek-r1-distill-llama-8b",
       "type": "links"
     },
     {
@@ -13828,6 +14044,12 @@
       "authored": false,
       "source": "method:nothinking",
       "target": "method:dpo-shortest",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:nothinking",
+      "target": "method:early-exit",
       "type": "links"
     },
     {
@@ -13971,12 +14193,6 @@
     {
       "authored": false,
       "source": "method:o1-pruner",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:o1-pruner",
       "target": "dataset:gpqa",
       "type": "links"
     },
@@ -14050,6 +14266,12 @@
       "authored": false,
       "source": "method:o1-pruner",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:o1-pruner",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -14164,6 +14386,12 @@
       "authored": false,
       "source": "method:qwen2-5-instruct",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:qwen2-5-instruct",
+      "target": "method:qwen3-8b",
       "type": "links"
     },
     {
@@ -14282,6 +14510,102 @@
     },
     {
       "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "concept:adaptive-test-time-compute",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "concept:chain-of-thought-faithfulness",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "concept:chain-of-thought-monitorability",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "concept:compute-optimal-inference",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "concept:process-reward-model",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "dataset:hmmt-2025",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "dataset:mmlu",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:confidence-based-early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "method:qwen3-8b",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:deepseek-r1-distill-qwen-7b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:gpt-oss-120b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:kv-cache-compression",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:qwq-32b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:r-kv",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:self-consistency",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:qwen3-8b",
+      "target": "method:vllm",
+      "type": "links"
+    },
+    {
+      "authored": false,
       "source": "method:qwq-32b",
       "target": "concept:token-budget",
       "type": "links"
@@ -14319,19 +14643,19 @@
     {
       "authored": false,
       "source": "method:r-kv",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:r-kv",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:r-kv",
       "target": "dataset:livecodebench",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:r-kv",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:r-kv",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "links"
     },
     {
@@ -14703,6 +15027,12 @@
     {
       "authored": false,
       "source": "method:self-consistency",
+      "target": "concept:early-stopping",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:self-consistency",
       "target": "concept:reasoning-effort",
       "type": "links"
     },
@@ -14722,12 +15052,6 @@
       "authored": false,
       "source": "method:self-consistency",
       "target": "method:best-of-n",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:self-consistency",
-      "target": "method:early-stopping",
       "type": "links"
     },
     {
@@ -14773,7 +15097,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:selfbudgeter",
       "target": "method:drp",
       "type": "links"
@@ -14809,7 +15133,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:sft-shortest",
       "target": "method:dpo-shortest",
       "type": "links"
@@ -15037,7 +15361,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "method:thinkless",
       "target": "method:drp",
       "type": "links"
@@ -15123,12 +15447,6 @@
     {
       "authored": false,
       "source": "method:thinkprune",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:thinkprune",
       "target": "concept:hidden-state-probing",
       "type": "links"
     },
@@ -15159,11 +15477,17 @@
     {
       "authored": false,
       "source": "method:thinkprune",
-      "target": "method:laser",
+      "target": "method:group-relative-policy-optimization",
       "type": "links"
     },
     {
       "authored": false,
+      "source": "method:thinkprune",
+      "target": "method:laser",
+      "type": "links"
+    },
+    {
+      "authored": true,
       "source": "method:thinkprune",
       "target": "method:o1-pruner",
       "type": "links"
@@ -15513,12 +15837,6 @@
     {
       "authored": false,
       "source": "method:verl",
-      "target": "concept:group-relative-policy-optimization",
-      "type": "links"
-    },
-    {
-      "authored": false,
-      "source": "method:verl",
       "target": "dataset:gpqa",
       "type": "links"
     },
@@ -15526,6 +15844,12 @@
       "authored": false,
       "source": "method:verl",
       "target": "dataset:gsm8k",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:verl",
+      "target": "method:group-relative-policy-optimization",
       "type": "links"
     },
     {
@@ -15685,7 +16009,12 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "concept:dynamic-early-exit",
+      "target": "concept:early-exit-neural-networks",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
+      "target": "concept:early-stopping",
       "type": "covers"
     },
     {
@@ -15700,12 +16029,12 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "concept:group-relative-advantage",
+      "target": "concept:fixed-point-iteration",
       "type": "covers"
     },
     {
       "source": "topic:overthinking",
-      "target": "concept:group-relative-policy-optimization",
+      "target": "concept:group-relative-advantage",
       "type": "covers"
     },
     {
@@ -15725,12 +16054,7 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "concept:kv-cache-compression",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "concept:layer-wise-early-exit",
+      "target": "concept:latent-reasoning",
       "type": "covers"
     },
     {
@@ -15980,11 +16304,6 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "dataset:c4",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
       "target": "dataset:cmimc25",
       "type": "covers"
     },
@@ -16001,16 +16320,6 @@
     {
       "source": "topic:overthinking",
       "target": "dataset:deepscaler",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "dataset:deepseek-r1-distill-llama-8b",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "dataset:deepseek-r1-distill-qwen-7b",
       "type": "covers"
     },
     {
@@ -16180,11 +16489,6 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "dataset:qwen3-8b",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
       "target": "dataset:reasonseg",
       "type": "covers"
     },
@@ -16305,6 +16609,11 @@
     },
     {
       "source": "topic:overthinking",
+      "target": "method:c4",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
       "target": "method:chain-of-draft",
       "type": "covers"
     },
@@ -16355,7 +16664,17 @@
     },
     {
       "source": "topic:overthinking",
+      "target": "method:deepseek-r1-distill-llama-8b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
       "target": "method:deepseek-r1-distill-qwen-1-5b",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
+      "target": "method:deepseek-r1-distill-qwen-7b",
       "type": "covers"
     },
     {
@@ -16380,27 +16699,17 @@
     },
     {
       "source": "topic:overthinking",
+      "target": "method:dynamic-early-exit",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
       "target": "method:early-exit",
       "type": "covers"
     },
     {
       "source": "topic:overthinking",
       "target": "method:early-exit-ensembles",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "method:early-exit-neural-networks",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "method:early-stopping",
-      "type": "covers"
-    },
-    {
-      "source": "topic:overthinking",
-      "target": "method:fixed-point-iteration",
       "type": "covers"
     },
     {
@@ -16420,6 +16729,11 @@
     },
     {
       "source": "topic:overthinking",
+      "target": "method:group-relative-policy-optimization",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
       "target": "method:grpo",
       "type": "covers"
     },
@@ -16431,6 +16745,11 @@
     {
       "source": "topic:overthinking",
       "target": "method:knowledge-distillation",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
+      "target": "method:kv-cache-compression",
       "type": "covers"
     },
     {
@@ -16450,7 +16769,7 @@
     },
     {
       "source": "topic:overthinking",
-      "target": "method:latent-reasoning",
+      "target": "method:layer-wise-early-exit",
       "type": "covers"
     },
     {
@@ -16536,6 +16855,11 @@
     {
       "source": "topic:overthinking",
       "target": "method:qwen2-5-vl",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
+      "target": "method:qwen3-8b",
       "type": "covers"
     },
     {
@@ -16699,7 +17023,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-08-21T01:12:15Z",
+  "generated_at": "2026-08-21T01:32:11Z",
   "nodes": [
     {
       "id": "concept:accuracy-efficiency-pareto-frontier",
@@ -16877,11 +17201,18 @@
       "sources": 2
     },
     {
-      "id": "concept:dynamic-early-exit",
+      "id": "concept:early-exit-neural-networks",
       "kind": "concept",
-      "label": "Dynamic Early Exit",
+      "label": "early-exit neural networks",
       "settled": false,
-      "sources": 2
+      "sources": 3
+    },
+    {
+      "id": "concept:early-stopping",
+      "kind": "concept",
+      "label": "early stopping",
+      "settled": false,
+      "sources": 5
     },
     {
       "id": "concept:efficient-reasoning",
@@ -16898,16 +17229,16 @@
       "sources": 1
     },
     {
+      "id": "concept:fixed-point-iteration",
+      "kind": "concept",
+      "label": "fixed-point iteration",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "concept:group-relative-advantage",
       "kind": "concept",
       "label": "group relative advantage",
-      "settled": false,
-      "sources": 3
-    },
-    {
-      "id": "concept:group-relative-policy-optimization",
-      "kind": "concept",
-      "label": "Group-Relative Policy Optimization",
       "settled": false,
       "sources": 3
     },
@@ -16933,18 +17264,11 @@
       "sources": 2
     },
     {
-      "id": "concept:kv-cache-compression",
+      "id": "concept:latent-reasoning",
       "kind": "concept",
-      "label": "KV cache compression",
+      "label": "latent reasoning",
       "settled": false,
-      "sources": 3
-    },
-    {
-      "id": "concept:layer-wise-early-exit",
-      "kind": "concept",
-      "label": "Layer-wise early exit",
-      "settled": false,
-      "sources": 2
+      "sources": 5
     },
     {
       "id": "concept:length-penalty",
@@ -17290,13 +17614,6 @@
       "sources": 3
     },
     {
-      "id": "dataset:c4",
-      "kind": "dataset",
-      "label": "C4",
-      "settled": false,
-      "sources": 2
-    },
-    {
       "id": "dataset:cmimc25",
       "kind": "dataset",
       "label": "CMIMC25",
@@ -17323,20 +17640,6 @@
       "label": "DeepScaleR",
       "settled": false,
       "sources": 3
-    },
-    {
-      "id": "dataset:deepseek-r1-distill-llama-8b",
-      "kind": "dataset",
-      "label": "DeepSeek-R1-Distill-Llama-8B",
-      "settled": false,
-      "sources": 2
-    },
-    {
-      "id": "dataset:deepseek-r1-distill-qwen-7b",
-      "kind": "dataset",
-      "label": "DeepSeek-R1-Distill-Qwen-7B",
-      "settled": false,
-      "sources": 4
     },
     {
       "id": "dataset:gaia",
@@ -17570,13 +17873,6 @@
       "sources": 2
     },
     {
-      "id": "dataset:qwen3-8b",
-      "kind": "dataset",
-      "label": "Qwen3-8B",
-      "settled": false,
-      "sources": 5
-    },
-    {
       "id": "dataset:reasonseg",
       "kind": "dataset",
       "label": "ReasonSeg",
@@ -17745,6 +18041,13 @@
       "sources": 5
     },
     {
+      "id": "method:c4",
+      "kind": "method",
+      "label": "C4",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "method:chain-of-draft",
       "kind": "method",
       "label": "Chain-of-Draft",
@@ -17815,11 +18118,25 @@
       "sources": 2
     },
     {
+      "id": "method:deepseek-r1-distill-llama-8b",
+      "kind": "method",
+      "label": "DeepSeek-R1-Distill-Llama-8B",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "method:deepseek-r1-distill-qwen-1-5b",
       "kind": "method",
       "label": "DeepSeek-R1-Distill-Qwen-1.5B",
       "settled": false,
       "sources": 2
+    },
+    {
+      "id": "method:deepseek-r1-distill-qwen-7b",
+      "kind": "method",
+      "label": "DeepSeek-R1-Distill-Qwen-7B",
+      "settled": false,
+      "sources": 4
     },
     {
       "id": "method:deer",
@@ -17850,6 +18167,13 @@
       "sources": 2
     },
     {
+      "id": "method:dynamic-early-exit",
+      "kind": "method",
+      "label": "Dynamic Early Exit",
+      "settled": false,
+      "sources": 2
+    },
+    {
       "id": "method:early-exit",
       "kind": "method",
       "label": "early exit",
@@ -17860,27 +18184,6 @@
       "id": "method:early-exit-ensembles",
       "kind": "method",
       "label": "early-exit ensembles",
-      "settled": false,
-      "sources": 2
-    },
-    {
-      "id": "method:early-exit-neural-networks",
-      "kind": "method",
-      "label": "early-exit neural networks",
-      "settled": false,
-      "sources": 3
-    },
-    {
-      "id": "method:early-stopping",
-      "kind": "method",
-      "label": "early stopping",
-      "settled": false,
-      "sources": 5
-    },
-    {
-      "id": "method:fixed-point-iteration",
-      "kind": "method",
-      "label": "fixed-point iteration",
       "settled": false,
       "sources": 2
     },
@@ -17906,6 +18209,13 @@
       "sources": 2
     },
     {
+      "id": "method:group-relative-policy-optimization",
+      "kind": "method",
+      "label": "Group-Relative Policy Optimization",
+      "settled": false,
+      "sources": 3
+    },
+    {
       "id": "method:grpo",
       "kind": "method",
       "label": "GRPO",
@@ -17925,6 +18235,13 @@
       "label": "Knowledge Distillation",
       "settled": false,
       "sources": 2
+    },
+    {
+      "id": "method:kv-cache-compression",
+      "kind": "method",
+      "label": "KV cache compression",
+      "settled": false,
+      "sources": 3
     },
     {
       "id": "method:kv-cache-eviction",
@@ -17948,11 +18265,11 @@
       "sources": 3
     },
     {
-      "id": "method:latent-reasoning",
+      "id": "method:layer-wise-early-exit",
       "kind": "method",
-      "label": "latent reasoning",
+      "label": "Layer-wise early exit",
       "settled": false,
-      "sources": 5
+      "sources": 2
     },
     {
       "id": "method:lc-r1",
@@ -18072,6 +18389,13 @@
       "label": "Qwen2.5-VL",
       "settled": false,
       "sources": 3
+    },
+    {
+      "id": "method:qwen3-8b",
+      "kind": "method",
+      "label": "Qwen3-8B",
+      "settled": false,
+      "sources": 5
     },
     {
       "id": "method:qwq-32b",

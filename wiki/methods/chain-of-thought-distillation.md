@@ -9,7 +9,7 @@ Training a smaller student model on the reasoning traces a larger teacher produc
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME](../datasets/aime.md), [AMC](../datasets/amc.md), [ARC-Challenge](../datasets/arc-challenge.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](../datasets/qwen3-8b.md), [StrategyQA](../datasets/strategyqa.md)
+**Related**: [AIME](../datasets/aime.md), [AMC](../datasets/amc.md), [ARC-Challenge](../datasets/arc-challenge.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [StrategyQA](../datasets/strategyqa.md)
 
 ## Appears in
 

@@ -42,7 +42,7 @@ The guarantee is exchangeability-based and holds only for instances drawn from t
 
 ## Entities
 
-- **Concepts**: Conformal Prediction, Early Stopping, Distribution-Free Coverage Guarantees, Optimality Gap, Learning to Optimize
+- **Concepts**: Conformal Prediction, [Early Stopping](../../../../wiki/concepts/early-stopping.md), Distribution-Free Coverage Guarantees, Optimality Gap, Learning to Optimize
 - **Methods**: [conformal prediction](../../../../wiki/methods/conformal-prediction.md), learned optimality-gap estimation from solver state, branch-and-bound early termination, mixed-integer programming
 - **Datasets**: Distributional MIPLIB (six problem families)
 

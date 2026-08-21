@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+        "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A benchmark-construction framework that extracts the reasoning graph behind each item in an existing benchmark and perturbs it to generate new test items at controlled complexity levels, then measures how 15 LLMs degrade as complexity rises.",
+        "title": "DARG: Dynamic Evaluation of Large Language Models via Adaptive Reasoning Graph",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:07Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'reasoning graph extraction'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning graph extraction",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reasoning graph extraction",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The step that produces a reasoning graph -- and the two archived sources extract from opposite ends, so the phrase covers two procedures rather than one. In Topology of Reasoning extraction reads the graph out of the model: hidden-state representations are taken at each reasoning step, clustered into nodes and linked by generation order, after which graph-theoretic properties are correlated with accuracy. In DARG extraction reads the graph out of the task: for each item in an existing benchmark the reasoning it demands is recovered as an explicit structure, which is then perturbed to generate harder variants whose labels a code-augmented LLM verifies. Neither paper's extraction procedure is recorded in detail in the material the archive holds; for Topology of Reasoning no PDF was attached, so the clustering step in particular is unverified.",
+    "kind": "method",
+    "related": [
+      "reasoning graph",
+      "reasoning graph perturbation",
+      "hidden-state clustering"
+    ]
+  },
+  "task_id": "concept__reasoning-graph-extraction",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

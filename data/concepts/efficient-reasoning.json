@@ -2,7 +2,7 @@
   "aliases": [
     "efficient reasoning"
   ],
-  "definition": "",
+  "definition": "An umbrella label for any attempt to get a large reasoning model to reach the same answer with fewer reasoning tokens, rather than a technique of its own; the two archived sources share the goal and nothing of the mechanism. DRPO works on the RL objective, diagnosing why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and normalising correct rollouts only against each other, for 77.2% length reduction on GSM8K at 1.1% accuracy loss on a 1.5B model. FROST leaves the model untouched and edits its output, scoring sentences of the chain of thought by attention to prune 'reasoning outliers', reporting an average 69.68% token reduction and a 26.70% accuracy gain over the base model on four maths benchmarks. Read as a label the archive spans training-time reward shaping, trace pruning, early exit, latent reasoning and serving-side cache compression, so a claim about 'efficient reasoning' says little until the mechanism and the benchmark are named — both sources here are evaluated on mathematics only.",
   "evidence": [
     {
       "id": "title:68327bf6b9e4e869",
@@ -55,7 +55,13 @@
     "aime-2024",
     "minerva"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "overthinking",
+    "chain-of-thought-compression",
+    "length-penalty",
+    "latent-reasoning",
+    "early-exit"
+  ],
   "schema_version": 1,
   "slug": "efficient-reasoning",
   "topics": [

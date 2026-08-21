@@ -44,9 +44,9 @@ The paper states no limitations section. Points a reader should notice: accuracy
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Compression tolerance of a reasoning state, Length inflation under cache compression, [Process reward model](../../../../wiki/concepts/process-reward-model.md), [KV-cache compression](../../../../wiki/concepts/kv-cache-compression.md), Reflection tokens, Confidence-based early stopping, Step-wise inference-time budget allocation
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Compression tolerance of a reasoning state, Length inflation under cache compression, [Process reward model](../../../../wiki/concepts/process-reward-model.md), KV-cache compression, Reflection tokens, Confidence-based early stopping, Step-wise inference-time budget allocation
 - **Methods**: ReCo (Reward-Coordinated Compression), Reward-adaptive KV-cache retention ratio, Attention-guided token selection within a reward-set budget, Reward-banded reflection-token logit penalty, Confidence-probe early stopping on answer perplexity, Pilot (30M process-reward estimator distilled from Skywork-o1-Open-PRM-7B), SnapKV, [R-KV](../../../../wiki/methods/r-kv.md), RPC, SAT, Dynasor
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), AMC2023, AIME24, AIME25, [GPQA](../../../../wiki/datasets/gpqa.md), [DeepSeek-R1-Distill-Llama-8B](../../../../wiki/datasets/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](../../../../wiki/datasets/deepseek-r1-distill-qwen-7b.md), [Qwen3-8B](../../../../wiki/datasets/qwen3-8b.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math-500.md), AMC2023, AIME24, AIME25, [GPQA](../../../../wiki/datasets/gpqa.md), DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Qwen-7B, [Qwen3-8B](../../../../wiki/datasets/qwen3-8b.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `kv-cache`, `early-stopping`, `process-reward`, `chain-of-thought`, `inference-latency`
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A maths question-answering set that two archived papers use at the easy end of their suites; neither describes its contents, so the archive knows it only by the cost it takes to answer. ShorterBetter places it out-of-domain (with MMLU, BBH, LiveCodeBench, MBPP and HumanEval) and gets the archive's characteristic easy-set result: ShorterBetter-7B reaches 85.4% on MathQA in 980 average tokens against 83.3% in 3,442 for its Distill-7B baseline - a 71.5% token cut with accuracy slightly up, where the same pair on AIME still spends 5,288 against 11,382 tokens. In CaTS it is the worked example for confidence-based early stopping of Best-of-N, where accuracy rises from 73.7 to 83.6 at a 16-sample budget, so here the saving comes from stopping sampling rather than from shortening a chain of thought. The two uses are different enough that MathQA carries no single role in the archive beyond being the cheap benchmark against which the expensive ones are read.",
   "evidence": [
     {
       "id": "title:03232c54fde9b57f",
@@ -56,7 +56,10 @@
     "mbpp",
     "humaneval"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gsm8k",
+    "aime"
+  ],
   "schema_version": 1,
   "slug": "mathqa",
   "topics": [

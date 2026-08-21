@@ -44,7 +44,7 @@ No limitations were available in the material consulted. The reader should note 
 ## Entities
 
 - **Concepts**: Early exit, Input-adaptive computation, Constrained optimization for compute budgets, Amortized decision policies, Off-policy actor-critic
-- **Methods**: Budgeted EXit Actor (BEXA), [early exit neural networks](../../../../wiki/methods/early-exit-neural-networks.md), constrained linear program, policy amortization, SAC, TD3
+- **Methods**: Budgeted EXit Actor (BEXA), early exit neural networks, constrained linear program, policy amortization, SAC, TD3
 - **Datasets**: MuJoCo continuous-control tasks
 
 Tags: `early-exit`, `reinforcement-learning`, `adaptive-computation`, `mujoco`, `off-topic`, `icml-2026`

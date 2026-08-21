@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "GSM-Hard appears in the archive as the hard end of the grade-school arithmetic family, and it sits on the losing side of the easy/hard split the group tracks. C4 groups it with GSM8K, MATH, SVAMP and ASDiv as 'long-reasoning' at a 256-step budget, where it scores 37.0 against a 35.0 full-decoding baseline; in that regime C4's global exit gate mostly declines to fire and no speedup exceeds 6.32x, against 13x or more on the short-answer sets and 8.69x on code. SLPO uses it as one of three held-out sets (with GSM8K-Test and MultiArith) for latent reasoners trained on GSM8K-Aug, and reports gains only at the level of the whole 12-cell table rather than per benchmark. So the archive's evidence on GSM-Hard is that the same stopping machinery that saves 92-95% of the budget on short-answer tasks saves comparatively little here.",
   "evidence": [
     {
       "id": "arxiv:2607.19691",
@@ -84,7 +84,12 @@
     "humaneval",
     "mbpp"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gsm8k",
+    "math-500",
+    "multiarith",
+    "svamp"
+  ],
   "schema_version": 1,
   "slug": "gsm-hard",
   "topics": [

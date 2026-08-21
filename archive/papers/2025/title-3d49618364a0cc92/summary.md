@@ -43,8 +43,8 @@ The paper's full text was not reachable (OpenReview blocked automated access), s
 
 ## Entities
 
-- **Concepts**: adaptive computation time, input-conditional computation, parameter reuse, self-introspection, fixed-point iteration
-- **Methods**: MIND, self-introspection module, [fixed-point iteration](../../../../wiki/methods/fixed-point-iteration.md), adaptive computation time
+- **Concepts**: adaptive computation time, input-conditional computation, parameter reuse, self-introspection, [fixed-point iteration](../../../../wiki/concepts/fixed-point-iteration.md)
+- **Methods**: MIND, self-introspection module, fixed-point iteration, adaptive computation time
 - **Datasets**: ImageNet, SQuAD v1.1, SQuAD v2.0
 
 Tags: `adaptive-computation`, `dynamic-computation`, `parameter-efficiency`, `vision`, `question-answering`, `tangential`

@@ -42,7 +42,7 @@ Abstract does not report specific benchmark scores or comparisons to chain-of-th
 
 ## Entities
 
-- **Concepts**: latent reasoning, [recurrent depth](../../../../wiki/concepts/recurrent-depth.md), implicit test-time compute scaling, per-token adaptive compute
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [recurrent depth](../../../../wiki/concepts/recurrent-depth.md), implicit test-time compute scaling, per-token adaptive compute
 - **Methods**: recurrent-depth latent reasoning, per-token adaptive compute, KV-cache sharing, [speculative decoding](../../../../wiki/methods/speculative-decoding.md)
 - **Datasets**: math and coding reasoning tasks (specific benchmarks not named in abstract)
 

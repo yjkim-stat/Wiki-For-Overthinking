@@ -2,7 +2,7 @@
   "aliases": [
     "Omni-Math"
   ],
-  "definition": "",
+  "definition": "A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.",
   "evidence": [
     {
       "id": "arxiv:2608.07968",
@@ -105,7 +105,11 @@
     "mbpp",
     "humaneval"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepscaler-preview",
+    "olympiadbench",
+    "cruxeval-o"
+  ],
   "schema_version": 1,
   "slug": "omni-math",
   "topics": [

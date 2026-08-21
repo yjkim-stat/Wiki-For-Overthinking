@@ -43,7 +43,7 @@ The setting is deliberately narrow: well-specified high-dimensional logistic reg
 ## Entities
 
 - **Concepts**: implicit bias of gradient descent, early stopping as implicit regularization, overparameterization, benign overfitting / interpolating estimators, excess risk and calibration, sample complexity separation
-- **Methods**: gradient descent, [early stopping](../../../../wiki/methods/early-stopping.md), l2-regularized empirical risk minimization, max-margin / implicit bias analysis
+- **Methods**: gradient descent, early stopping, l2-regularized empirical risk minimization, max-margin / implicit bias analysis
 - **Datasets**: _none recorded_
 
 Tags: `learning-theory`, `early-stopping`, `logistic-regression`, `implicit-regularization`, `overparameterization`, `sample-complexity`

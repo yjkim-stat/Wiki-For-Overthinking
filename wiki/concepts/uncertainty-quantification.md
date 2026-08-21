@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [conformal prediction](../methods/conformal-prediction.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [early stopping](../methods/early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [Knowledge Distillation](../methods/knowledge-distillation.md), [MMLU](../datasets/mmlu.md), [overthinking](overthinking.md), [test-time compute](test-time-compute.md)
+**Related**: [conformal prediction](../methods/conformal-prediction.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [Knowledge Distillation](../methods/knowledge-distillation.md), [MMLU](../datasets/mmlu.md), [overthinking](overthinking.md), [test-time compute](test-time-compute.md)
 
 ## Appears in
 

@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
+        "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Dualformer trains a single Transformer on reasoning traces with parts randomly dropped, producing one model that can be run in a solution-only fast mode, a full-trace slow mode, or an auto mode that picks per problem.",
+        "title": "Dualformer: Controllable Fast and Slow Thinking by Learning with Randomized Reasoning Traces",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:44Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'Reasoning Trace Length'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Reasoning Trace Length",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Reasoning Trace Length",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The number of tokens a model spends on intermediate reasoning before answering, used by both sources as a quantity to be allocated by difficulty rather than minimised. ARES reports the allocation moving in both directions against its own cold-start model at 7B: 278.9 versus 358.8 tokens on GSM8K (about 22% shorter) but 22,618.8 versus 16,361.6 on AIME25 (about 38% longer), so the efficiency claim is a reallocation and not a net reduction. Dualformer treats length as a controllable mode of a single model, reaching 97.6% optimal rate on unseen 30x30 mazes at 854 average trace tokens against a complete-trace baseline's 93.3% at 1,538, and 96.6% at 617 tokens when the model picks the mode itself. Neither source treats length as a measure of reasoning quality, and Dualformer reports no trace-length figures at all for its transfer to language-model mathematics, where the gains are one to two points.",
+    "kind": "concept",
+    "related": [
+      "Sample Optimal Length",
+      "Deep-Thinking Tokens",
+      "budget forcing"
+    ]
+  },
+  "task_id": "concept__reasoning-trace-length",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

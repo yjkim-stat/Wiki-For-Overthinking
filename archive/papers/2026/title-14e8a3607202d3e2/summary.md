@@ -43,7 +43,7 @@ The paper notes it offers no method for enforcing the required ordering across e
 ## Entities
 
 - **Concepts**: Early-Exit Neural Network, [Confidence Calibration](../../../../wiki/concepts/confidence-calibration.md), Failure Prediction, Adaptive Computation, Cost-Accuracy Tradeoff, Confidence Thresholding
-- **Methods**: Early-Exit Failure Prediction (EEFP), [early-exit neural networks](../../../../wiki/methods/early-exit-neural-networks.md), temperature scaling (baseline), [confidence thresholding](../../../../wiki/methods/confidence-thresholding.md), MSDNet, ResNet-34, ViT-Tiny, ViT-Small, EfficientNet-B2
+- **Methods**: Early-Exit Failure Prediction (EEFP), early-exit neural networks, temperature scaling (baseline), [confidence thresholding](../../../../wiki/methods/confidence-thresholding.md), MSDNet, ResNet-34, ViT-Tiny, ViT-Small, EfficientNet-B2
 - **Datasets**: CIFAR-100, TinyImageNet, [ImageNet-1k](../../../../wiki/datasets/imagenet-1k.md)
 
 Tags: `early-exit`, `calibration`, `failure-prediction`, `adaptive-computation`, `image-classification`, `computer-vision`, `keyword-false-positive`

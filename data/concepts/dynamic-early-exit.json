@@ -2,7 +2,7 @@
   "aliases": [
     "dynamic early exit"
   ],
-  "definition": "",
+  "definition": "Both sources use dynamic early exit in the reasoning sense: a per-instance decision to terminate a large reasoning model's chain of thought at a natural boundary in the generated text, once a signal indicates the answer has already settled, rather than at a fixed token budget. DEER does it training-free at the points where the model switches thought chains, prompting for a trial answer there and stopping when that answer's token confidence clears a threshold; BLADE trains a lightweight probe on hidden states to judge, at sentence and self-doubt boundaries, whether the reasoning prefix already supports the correct answer, and stops when it does. The 'exit' is from the token stream, not from the layer stack: despite BLADE being titled layer-adaptive, its layers only supply probe features, and neither method leaves a forward pass early in the sense of early-exit neural networks.",
   "evidence": [
     {
       "id": "arxiv:2607.28966",
@@ -18,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "Dynamic Early Exit",
   "related": [
@@ -66,7 +66,11 @@
     "bigcodebench",
     "livecodebench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "early-exit",
+    "early-exit-neural-networks",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "dynamic-early-exit",
   "topics": [

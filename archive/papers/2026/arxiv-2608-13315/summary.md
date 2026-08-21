@@ -47,7 +47,7 @@ Stated: complete-information, single representative user and a fixed task class,
 ## Entities
 
 - **Concepts**: Reasoning-Token Allocation, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), Diminishing Returns of Reasoning Length, Budget Forcing, Token Pricing, Default Effect, Stackelberg Equilibrium, Latency-Accuracy Tradeoff
-- **Methods**: Stackelberg game (leader-follower, backward induction), Lambert W function characterization of the acceptance region, Berge's maximum theorem, budget forcing (s1-style decoding-time reasoning-token enforcement), exponential saturating accuracy-token model Q(r) = D + A(1 - e^{-br}), Qwen3-8B, DeepSeek-R1-Distill-Llama-8B, [vLLM](../../../../wiki/methods/vllm.md)
+- **Methods**: Stackelberg game (leader-follower, backward induction), Lambert W function characterization of the acceptance region, Berge's maximum theorem, budget forcing (s1-style decoding-time reasoning-token enforcement), exponential saturating accuracy-token model Q(r) = D + A(1 - e^{-br}), Qwen3-8B, [DeepSeek-R1-Distill-Llama-8B](../../../../wiki/methods/deepseek-r1-distill-llama-8b.md), [vLLM](../../../../wiki/methods/vllm.md)
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), GSM8K (500 sampled test items), [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md)
 
 Tags: `test-time-compute`, `token-budget`, `pricing`, `stackelberg`, `game-theory`, `default-effects`, `budget-forcing`, `llm-serving`, `latency`

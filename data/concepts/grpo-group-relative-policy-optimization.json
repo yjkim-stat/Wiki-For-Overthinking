@@ -2,7 +2,7 @@
   "aliases": [
     "GRPO (group-relative policy optimization)"
   ],
-  "definition": "",
+  "definition": "Under this spelling the archive holds only two multimodal/adaptive-compression papers, and both use GRPO as an unmodified training loop whose reward they reshape by difficulty: TRAAC prunes a chain of thought using attention from the </think> token and calibrates how aggressively it prunes to estimated problem difficulty, and PixelThink conditions the GRPO reward on an externally estimated task difficulty plus the model's own uncertainty, halving reasoning tokens in reasoning segmentation while slightly improving mask accuracy. Neither source defines the algorithm; both treat it as the given online-RL substrate onto which a difficulty-aware length signal is attached. Note: the archive tracks this under three unmerged entries — GRPO, Group-Relative Policy Optimization and GRPO (Group Relative Policy Optimization) — which are the same algorithm.",
   "evidence": [
     {
       "id": "local:da3fbe3617acc5f8",
@@ -56,7 +56,11 @@
     "refcoco",
     "refcocog"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grpo",
+    "group-relative-policy-optimization",
+    "group-relative-advantage"
+  ],
   "schema_version": 1,
   "slug": "grpo-group-relative-policy-optimization",
   "topics": [

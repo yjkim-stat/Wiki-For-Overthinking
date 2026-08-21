@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source defines distribution shift; both take it as the reason a decision rule fixed before deployment stops being valid after it, and each handles it online. In Anytime Safe PAC Efficient Reasoning the shift is in the query stream reaching a thinking/non-thinking router: a threshold calibrated offline on a held-out set is not safe on a later, non-stationary stream, and the paper replaces offline calibration with a betting supermartingale that recertifies the threshold at every time step under partial feedback. In TinyTTA it is shift in the input distribution of a deployed network on a microcontroller, corrected by test-time adaptation of early-exit heads only rather than full backpropagation, reported at up to 57.6% accuracy improvement and up to six times lower memory, and running within the 512 KB of an STM32H747. What the two share is the assumption that the shift is never directly observed at run time -- no labels on device, no counterfactual loss for an unrouted query -- so it has to be tracked through a proxy signal as the stream arrives.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BIG-Bench Hard](../datasets/big-bench-hard.md), [Chain-of-Draft](../methods/chain-of-draft.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [MATH](../datasets/math.md), [MMLU-PRO](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [test-time adaptation](test-time-adaptation.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [BIG-Bench Hard](../datasets/big-bench-hard.md), [Chain-of-Draft](../methods/chain-of-draft.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [MATH](../datasets/math.md), [MMLU-PRO](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [test-time adaptation](test-time-adaptation.md), [test-time compute scaling](test-time-compute-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## Appears in
 

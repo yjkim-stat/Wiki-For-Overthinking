@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "DR2Seg splits reasoning segmentation into a description stage and a referring-segmentation stage and rewards the model when a shorter self-contained description still yields the right mask, cutting reasoning length while raising gIoU.",
+        "title": "DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+        "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:28:08Z",
+  "created_at": "2026-08-21T01:23:36Z",
+  "instructions": "Write the wiki definition for 'ReasonSeg'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "ReasonSeg",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "ReasonSeg",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The benchmark both archived sources evaluate reasoning segmentation on. Neither describes how it was built, so what the archive holds is only how it is used: PixelThink-7B reports 63.8% gIoU / 62.7% cIoU on it against Seg-Zero-7B at 62.6% / 62.0%, and DR2Seg at 7B with SAM2 reports gIoU 68.5 on validation and 66.1 on test against VisionReasoner at 65.4 and 62.3, with reasoning tokens falling from 85.3 to 26.9. PixelThink additionally builds ReasonSeg-Diff, an extension annotated with reasoning references and per-sample difficulty scores, where it reaches 60.17% gIoU at 47.66 average reasoning tokens against Seg-Zero's 58.20% at 90.58. Both papers position its queries as reasoning-heavy by contrast with RefCOCO, on which their margins over the same baselines shrink to roughly half a point.",
+    "kind": "dataset",
+    "related": [
+      "Reasoning Segmentation",
+      "ReasonSeg-Diff"
+    ]
+  },
+  "task_id": "concept__reasonseg",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
