@@ -67,3 +67,19 @@ wiki:
   # outside them is hand-written and never touched.
   auto_block_begin: "<!-- auto:begin -->"
   auto_block_end: "<!-- auto:end -->"
+
+  # A definition is written once, against the sources that existed then. When
+  # the evidence outgrows it the note reads as complete while describing a
+  # subset of itself, which is worse than a missing definition because nothing
+  # about it looks wrong.
+  #
+  # This asks for it again once the evidence reaches this multiple of what the
+  # definition was written against — 2.0 means "when it has doubled". The old
+  # definition is handed back to be revised, never discarded, and a refresh
+  # nobody answers changes nothing.
+  #
+  # 0 disables. Off by default: upgrading should not grow anybody's queue.
+  refresh_definition_at: 2.0
+  # How many to ask for per render, so a long-neglected archive drains over
+  # several passes, worst first, rather than producing an unfaceable backlog.
+  max_refresh_tasks: 5

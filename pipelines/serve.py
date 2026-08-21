@@ -6,13 +6,23 @@ The archive is worth more than the person who runs it. Colleagues on the same
 host can ask it what it knows without a clone, a checkout, or any way to change
 what they are reading.
 
-**It never writes.** Not to `data/`, not to `wiki/`, not anywhere. Every answer
-is assembled from records the pipeline has already produced, and a request that
-finds nothing returns nothing rather than recording that it was asked. The
-write half of this feature — a request somebody wants acted on — goes through a
-staging directory and a person, and is deliberately not reachable from here.
+**It never touches `data/`.** Every answer is assembled from records the
+pipeline has already produced, and no request of any shape can change one.
 `tests/test_serve.py` asserts the whole of `data/` is byte-identical across a
-run of every endpoint.
+run of every endpoint, including ones shaped like an attack.
+
+**It writes in exactly one place, and a person reads it.** A question the
+archive could not answer is left in `requests/pending/` as a markdown file, the
+same drop folder a colleague would use by hand, and it enters the archive only
+if somebody approves it. What the archive does not know is the most useful thing
+this port produces — it is the only signal anywhere of what people came looking
+for and did not find — and it would be lost the moment the caller closed the
+connection.
+
+That write is bounded and content-addressed: the same question asked a thousand
+times is one file, and the folder stops accepting new ones past a cap. An
+unauthenticated local port is reachable by every process on the box, and a write
+path without a ceiling is a way to fill a disk.
 
 **It never composes an answer.** What comes back is what the archive wrote: a
 definition somebody authored, a finding the group settled, a reading of a paper.
@@ -55,6 +65,7 @@ from .common import config as config_mod
 from .common import log
 from .common import paths as P
 from .common.config import Config
+from .common.schema import title_fingerprint
 from .common.search import search
 from .common.store import RecordStore
 
@@ -68,6 +79,11 @@ DEFAULT_PORT = 8765
 #: archive has nothing to say about it.
 MAX_QUERY = 500
 MAX_LIMIT = 100
+
+#: How many unanswered questions the port will leave for review before it stops
+#: recording them. Not a guess about demand — a ceiling on what an unbounded
+#: local caller can put on the disk.
+MAX_QUESTIONS = 200
 
 
 def _payload(cfg: Config, path: str, params: dict[str, list[str]]) -> tuple[int, dict]:
@@ -98,6 +114,7 @@ def _payload(cfg: Config, path: str, params: dict[str, list[str]]) -> tuple[int,
         result = search(cfg, query, limit=limit)
         result["limit"] = limit
         if not result["hits"]:
+            result["recorded"] = _record_question(cfg, query)
             # Said plainly rather than dressed up as an answer. What the archive
             # does not know is worth knowing, and a caller who is told "nothing"
             # can ask a person; one who is given a plausible near-match cannot.
@@ -109,6 +126,50 @@ def _payload(cfg: Config, path: str, params: dict[str, list[str]]) -> tuple[int,
         return 200, result
 
     return 404, {"error": f"no such endpoint: {path}", "endpoints": ["/ask", "/health"]}
+
+
+def _record_question(cfg: Config, query: str) -> bool:
+    """Leave an unanswered question where a person will see it.
+
+    Into `requests/pending/`, as a request of kind `question`, because that is
+    already the reviewed way in and inventing a second one would be a second
+    thing to secure. Nothing reaches the archive from here: an approved question
+    is work for a session, exactly like a colleague asking for a paper.
+
+    Returns whether it was recorded. Content-addressed on the question, so a
+    caller retrying does not accumulate files, and capped, because an
+    unauthenticated port that can write without a ceiling can fill a disk.
+    """
+    folder = cfg.layout.requests_pending
+    try:
+        folder.mkdir(parents=True, exist_ok=True)
+        existing = list(folder.glob("question-*.md"))
+        path = folder / f"question-{title_fingerprint(query)}.md"
+        if path.exists():
+            return True
+        if len(existing) >= MAX_QUESTIONS:
+            _LOG.warning(
+                "not recording: %d unanswered question(s) already waiting review",
+                len(existing),
+            )
+            return False
+        path.write_text(
+            "---\n"
+            "kind: question\n"
+            f"from: {HOST} (ask endpoint)\n"
+            "subject: asked and not found in the archive\n"
+            "---\n\n"
+            "Somebody asked this and the archive had nothing on it.\n\n"
+            f"> {query}\n",
+            encoding="utf-8",
+        )
+    except OSError as exc:  # pragma: no cover - a read-only or full disk
+        # A question that could not be written is not worth failing an answer
+        # over. The caller asked to read, and reading worked.
+        _LOG.warning("could not record question: %s", exc)
+        return False
+    _LOG.info("recorded an unanswered question for review")
+    return True
 
 
 class _Handler(BaseHTTPRequestHandler):

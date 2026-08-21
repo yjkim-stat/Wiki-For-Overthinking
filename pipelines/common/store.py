@@ -166,6 +166,26 @@ class SeenStore:
         )
         return True
 
+    def keys_for(self, canonical: str) -> list[str]:
+        """Every key that resolves to ``canonical``."""
+        cur = self.conn.execute(
+            "SELECT key FROM seen WHERE canonical = ? ORDER BY key", (canonical,)
+        )
+        return [row[0] for row in cur.fetchall()]
+
+    def repoint(self, old: str, new: str) -> int:
+        """Send every key that resolved to ``old`` to ``new`` instead.
+
+        The one operation `reconcile_identifiers` refuses to perform on its own,
+        available here because a merge has a person naming the survivor. Returns
+        how many keys moved.
+        """
+        cur = self.conn.execute(
+            "UPDATE seen SET canonical = ?, last_seen = ? WHERE canonical = ?",
+            (new, utcnow(), old),
+        )
+        return cur.rowcount
+
     def commit(self) -> None:
         self.conn.commit()
 

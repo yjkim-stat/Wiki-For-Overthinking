@@ -130,3 +130,28 @@ def score_against_topics(
             accepted.append(topic.slug)
 
     return scores, matched, accepted
+
+
+def leverage(record) -> float:
+    """How much this archive's topics care about an item nobody has read yet.
+
+    Takes any record carrying ``topics`` and ``scores`` — a ``Paper`` or a
+    ``Video`` — and sums the scores over the topics that *accepted* it. Summing
+    rather than taking the best one prefers an item several tracked subjects
+    want over one that a single subject wants badly, which is breadth across
+    what the group tracks.
+
+    **This is not the leverage the requirement asked for**, and the
+    substitution is deliberate rather than an approximation. The specification
+    says to order by the source counts of the entities an item is evidence for
+    — which is exact, and undefined for everything unread: entities take their
+    evidence from summaries, an unread item has no summary, and so no entity
+    cites it. Every candidate would score zero and the ordering would degenerate
+    to whatever the store happened to yield.
+
+    What the archive does know before anybody has read an item is what scoring
+    decided when it arrived. That is this number, and it lives here — beside the
+    scoring that produced the values it sums — because two copies of it would be
+    free to disagree about which topics count.
+    """
+    return sum(float(record.scores.get(slug, 0.0)) for slug in record.topics)

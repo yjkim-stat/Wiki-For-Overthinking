@@ -2,7 +2,8 @@ import unittest
 
 from pipelines.common.config import Topic
 from pipelines.common.text import matcher as _pattern
-from pipelines.enrich.score import score_against_topics, score_item
+from pipelines.common.schema import Paper, Video
+from pipelines.enrich.score import leverage, score_against_topics, score_item
 
 SETTINGS = {
     "score": {
@@ -179,3 +180,43 @@ class PluralMatchingTests(unittest.TestCase):
     def test_hyphen_and_whitespace_tolerance_survives(self):
         self.assertMatches("causal inference", "causal-inference")
         self.assertMatches("causal inference", "causal\n  inferences")
+
+
+class LeverageTests(unittest.TestCase):
+    """What the archive knows about an item before anybody has read it.
+
+    Lives beside the scoring that produced the numbers it sums, because two
+    copies of this rule would be free to disagree about which topics count —
+    and the disagreement would show up as a queue and a backfill draining in
+    different orders, with nothing to say which was right.
+    """
+
+    @staticmethod
+    def _paper(topics, scores):
+        return Paper(id="arxiv:1", title="P", source="arxiv",
+                     topics=topics, scores=scores)
+
+    def test_breadth_across_topics_beats_depth_in_one(self):
+        """Sum, not max: leverage is how many tracked subjects want the item."""
+        broad = self._paper(["a", "b"], {"a": 0.4, "b": 0.4})
+        narrow = self._paper(["a"], {"a": 0.7})
+        self.assertGreater(leverage(broad), leverage(narrow))
+
+    def test_a_score_from_a_topic_that_did_not_accept_it_is_not_counted(self):
+        """`scores` holds every topic that passed the hard rules; `topics` holds
+        those that also cleared the threshold. Only the second is acceptance."""
+        paper = self._paper(["a"], {"a": 0.4, "rejected-me": 0.9})
+        self.assertAlmostEqual(leverage(paper), 0.4, places=6)
+
+    def test_a_topic_with_no_recorded_score_contributes_nothing(self):
+        paper = self._paper(["a", "b"], {"a": 0.5})
+        self.assertAlmostEqual(leverage(paper), 0.5, places=6)
+
+    def test_a_video_is_read_the_same_way(self):
+        """Duck-typed on `topics` and `scores`, so a seminar is weighed too."""
+        video = Video(id="youtube:1", title="V", topics=["a", "b"],
+                      scores={"a": 0.3, "b": 0.2})
+        self.assertAlmostEqual(leverage(video), 0.5, places=6)
+
+    def test_an_item_no_topic_accepted_scores_zero(self):
+        self.assertEqual(leverage(self._paper([], {"a": 0.9})), 0.0)

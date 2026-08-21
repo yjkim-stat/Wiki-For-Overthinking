@@ -264,8 +264,12 @@ Nothing is approved automatically, however harmless it looks, and an approved
 request is work for the next maintenance session rather than a change already
 made. A rejected one keeps its reason: declined is not deleted.
 
-**The port writes nothing at all** — not to `data/`, not anywhere — and binds to
-loopback with no flag to change that. There is no authentication, which is why
+**The port never touches `data/`**, and binds to loopback with no flag to change
+that. It writes in exactly one place: a question it could not answer is left in
+`requests/pending/` for the same review as anything else. What the archive does
+not know is the most useful thing this port produces — the only signal anywhere
+of what people came looking for and did not find — and it would otherwise be
+lost the moment the caller closed the connection. There is no authentication, which is why
 the read-only guarantee has to be absolute: on a shared host, loopback means any
 local user. A host that wanted to publish its archive would put a proxy in
 front and make that decision where it can be seen.
@@ -340,6 +344,17 @@ Anything here is never touched.
 That preserved section is where a group's own reading goes — the objection
 someone raised in seminar, the trick that only works on your data.
 
+### Definitions go out of date, and are asked for again
+
+A definition is written once, against the sources that existed then. When the
+evidence outgrows it the note reads as complete while describing a subset of
+itself — worse than a missing definition, because nothing about it looks wrong.
+
+`render` reports these under `stale`. Set `wiki.refresh_definition_at: 2.0` and
+it also asks for them again once the evidence has doubled, a few per pass, worst
+first. The existing definition is handed back to be revised rather than
+discarded, and a refresh nobody answers changes nothing.
+
 ## Configuration
 
 | File | Purpose |
@@ -358,7 +373,12 @@ collecting from the wrong indexes is the most common reason a topic stays empty.
 python3 -m pipelines.run_daily [--days N] [--topic slug] [--source arxiv] [--dry-run]
 python3 -m pipelines.backfill  [--limit N] [--topic slug] [--by score|age|id] [--dry-run]
 python3 -m pipelines.render    [--topic slug] [--only archive|wiki|outputs]
-python3 -m pipelines.enrich.queue stats | list | next | show <id> | complete <id> --file r.json
+python3 -m pipelines.enrich.queue stats | show <id> | complete <id> --file r.json
+python3 -m pipelines.enrich.queue list | next  [--kind paper] [--by id|sources|recency|topic]
+python3 -m pipelines.enrich.synthesis add --question "..." --concept <slug>
+python3 -m pipelines.enrich.lookup add --subject spelling --about "..."
+python3 -m pipelines.duplicates [--json] [--limit N]   # concept slugs that may be one entity
+python3 -m pipelines.digest [--date YYYY-MM-DD]        # what a night of reading did
 python3 -m pipelines.migrate status   # which roots, and what each channel carries
 python3 -m pipelines.serve            # answer questions about the archive, read-only, on 127.0.0.1
 scripts/daily.sh               # collect, then render

@@ -1,6 +1,7 @@
 # A filed PDF duplicates a paper the archive already has
 
-**Status:** open
+**Status:** solved 2026-08-21 by **option D** — see [Resolution](#resolution) at the
+foot of this file and [note 0059](../commit/0059-an-identifier-learned-late-is-still-registered.md).
 **Found:** 2026-08-14, filing the Wan technical report into a deployment that had
 already collected it from arXiv.
 
@@ -112,3 +113,88 @@ The affected pair in the deployment where this was found is
 `arxiv:2503.20314` and `local:94a30c3706dd3819`, the Wan technical report. The
 reading is on the `local:` record; the arXiv record has the richer collection
 metadata (`categories`, `pdf_url`, `published`, `url`).
+
+## Measured, 2026-08-20 — the exposure is 17 records, not 2
+
+The deployment where this was found now holds **23 `local:` paper records, 22 of
+which carry an `arxiv_id`**. Reading `data/index/seen.sqlite` directly:
+**17 of those 22 have no `arxiv:<id>` key in the index.** Each is a duplicate the
+moment the arXiv collector returns that paper.
+
+```
+arXiv:1604.06174  local:4b6b13e0da159f41  Training Deep Nets with Sublinear Memory Cost
+arXiv:1712.05889  local:28b320c2aad1635a  Ray: A Distributed Framework for Emerging AI Applications
+arXiv:2204.07143  local:174bd98b7aa889bf  Neighborhood Attention Transformer
+arXiv:2309.06180  local:4fcaee68c325fe17  Efficient Memory Management ... with PagedAttention
+arXiv:2309.14509  local:5d606eda0c329db9  DeepSpeed Ulysses
+arXiv:2405.09818  local:17ec96e60712eac3  Chameleon
+arXiv:2407.08608  local:367d6bc3d6d1f001  FlashAttention-3
+arXiv:2407.11691  local:4eef9a9cfb44d8d3  VLMEvalKit
+arXiv:2407.21770  local:0051a2c0d3e14568  MoMa
+arXiv:2408.11039  local:7ed4ac3c6652d03a  Transfusion
+arXiv:2410.06511  local:2a7ad248aa51f2d4  TorchTitan
+arXiv:2411.04996  local:01fe9671afd4344c  Mixture-of-Transformers
+arXiv:2504.15247  local:5226f0a5e94acb65  Lance
+arXiv:2505.14683  local:0110f2c1a05dcc9c  Emerging Properties in Unified Multimodal Pretraining
+arXiv:2509.21797  local:fec30a3d34ddb5a0  MoWM
+arXiv:2602.02204  local:0d083b53a61a2f23  vLLM-Omni
+arXiv:2602.15922  local:badf8adcf2b6a678  World Action Models are Zero-shot Policies
+```
+
+**Why the count is what it is.** `paper_keys` builds `arxiv:`, `doi:` and
+`title:` keys, and `Deduplicator.resolve_paper` registers them at *collection*
+time. `local_pdf` creates the record before anything opens the PDF — deliberately,
+and for a good reason — so at that moment the only available key is
+`title:<fingerprint of the filename>`. The identifier arrives at
+`queue complete`, and **nothing re-registers the keys afterwards.**
+
+That makes the two existing duplicates ordinary rather than unlucky: `wan.pdf`
+fingerprinted as `wan`, and the Any2Any upload was missing its title prefix.
+Filing with the full published title as the filename closes the *title* path and
+is now the practice in that deployment — but it does nothing for the `arxiv:`
+path, which is the one these 17 records are exposed on.
+
+**This sharpens the recommendation.** Option A prevents the *next* one; it leaves
+these 17 exposed. What closes them is small and local:
+
+> **D. Re-register keys when a completed reading supplies an identifier the
+> record did not have.** `apply` already writes `arxiv_id`, `doi` and the
+> corrected `title` onto the stored record. Calling `seen.remember` for the keys
+> that changed, at that point, costs one write per new key and makes a later
+> arXiv collection fold instead of fork. It also repairs the existing exposure on
+> the next render, without a sweep and without touching stored records.
+
+Recorded in the deployment as `finding:0febb8a661019e87`.
+
+---
+
+## Resolution
+
+**Option D, as the measurement sharpened it to.** `enrich/dedupe.reconcile_identifiers`
+registers every identifier a stored record carries that nothing in the index
+holds, and `render` runs it after applying readings. Commit
+`fix(enrich): register an identifier a record gained after collection`, note
+[0059](../commit/0059-an-identifier-learned-late-is-still-registered.md).
+
+One adjustment to what this document proposed. Registering at *apply* time — the
+literal reading of D — prevents the next duplicate and closes **none of the 17**,
+because those readings were applied long ago and nothing re-runs them. So it is a
+self-healing pass over the records instead, the same shape as
+`render.shelve_documents`: it re-derives what should be registered from `data/`
+on every render and needs nothing remembered. That covers both the backlog and
+every future case, and makes apply-time registration unnecessary rather than
+merely redundant.
+
+- **A key another record already holds is reported, never repointed.** That is a
+  duplicate which already exists, and choosing which of the two survives is a
+  merge — the one decision this repository is most careful never to make quietly.
+  `render` logs each conflicting pair and counts them in `identifiers.conflicts`.
+- **The two known duplicates are not merged by this.** `arxiv:2503.20314` against
+  `local:94a30c3706dd3819` will now be reported on every render until somebody
+  decides. That is the intended outcome: the reading is on the `local:` record
+  and the collection metadata on the arXiv one, so the merge is a judgement about
+  which fields survive.
+- **It writes no record**, only `data/index/seen.sqlite`, and is idempotent — the
+  second run of a pass registers nothing.
+
+The 17 close on the first render after this lands.

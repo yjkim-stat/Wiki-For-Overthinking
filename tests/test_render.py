@@ -491,9 +491,11 @@ class StalenessTests(unittest.TestCase):
         render.report_staleness(self.cfg)
         self.assertEqual(path.read_text(encoding="utf-8"), before)
 
-    def test_render_reports_both_counts(self):
+    def test_render_reports_every_count(self):
         self._concept(sources=9)
         self._definition_task(written_for=2)
         self._note("## Notes\n\nMine.\n\n<!-- analysis-sources: 4 -->")
         result = render.run(self.cfg, skip_queueing=True)
-        self.assertEqual(result["stale"], {"definitions": 1, "analysis": 1})
+        self.assertEqual(
+            result["stale"], {"definitions": 1, "analysis": 1, "findings": 0}
+        )

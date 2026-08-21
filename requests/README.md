@@ -4,13 +4,21 @@ Ask this archive for a change by leaving a markdown file here, in `pending/`.
 
 ```markdown
 ---
-kind: paper | correction | topic | question | other
+kind: paper | correction | topic | question | merge | other
 from: your name or address
 subject: one line
 ---
 
 What you are asking for, and why.
 ```
+
+Some `question` requests arrive on their own. `pipelines.serve` answers from the
+archive and leaves what it could not answer here, so a folder of them is a
+record of what people looked for and did not find.
+
+`merge` is for "these two records are the same paper". Name both ids and say
+which should survive and why — the archive cannot decide that, because the two
+usually hold different halves of one paper.
 
 **Nothing here happens on its own.** A person reads every file and decides;
 there is no category that is approved automatically, however harmless it looks.

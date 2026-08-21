@@ -25,6 +25,8 @@ from .common.llm import get_summarizer
 from .common.store import RecordStore, read_json
 from .enrich import apply as apply_mod
 from .enrich import concepts as concepts_mod
+from .enrich import dedupe
+from .enrich import findings as findings_mod
 from .enrich.queue import Queue
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
@@ -306,6 +308,88 @@ def stale_definitions(cfg: Config) -> list[dict]:
     return sorted(stale, key=lambda row: row["written_for"] - row["sources_now"])
 
 
+def queue_stale_definitions(cfg: Config) -> dict[str, int]:
+    """Ask again for a definition whose evidence has outgrown it.
+
+    `stale_definitions` reports; this is the step that does something about it,
+    and the distinction it has to preserve is the one `CLAUDE.md` states: **a
+    counter must not discard written work on arithmetic alone.**
+
+    So nothing is rewritten and nothing is cleared. The concept keeps its
+    definition, and a task is filed carrying that definition back to a reader
+    with the question "what has changed" rather than "what is this". A refresh
+    nobody answers leaves the archive exactly as it was, which is the property
+    that makes it safe to file one automatically at all.
+
+    Two bounds, because staleness is a standing condition rather than an event
+    and an unbounded response to it would refill the queue every render:
+
+    **A ratio, not any growth at all.** A definition written against three
+    sources standing at nine is describing a third of its evidence; one written
+    against forty standing at forty-six is not. Re-asking on every new mention
+    would spend a reader's night on definitions that are still true.
+
+    **A cap per render**, so a long-neglected archive drains over several
+    passes, worst first, instead of producing a backlog nobody can face.
+    """
+    settings = cfg.settings.get("wiki", {}) or {}
+    ratio = float(settings.get("refresh_definition_at", 0) or 0)
+    counts = {"stale": 0, "eligible": 0, "queued": 0}
+    if ratio <= 0:
+        # Off by default is deliberate. A deployment that has never seen this
+        # feature should not have its queue grow because it upgraded.
+        return counts
+
+    cap = int(settings.get("max_refresh_tasks", 5) or 0)
+    store = RecordStore(cfg.layout)
+    queue, summarizer = _queue_and_summarizer(cfg)
+
+    rows = stale_definitions(cfg)
+    counts["stale"] = len(rows)
+    for row in rows:  # already sorted: most outgrown first
+        # `written_for` of zero would make any ratio pass; a definition is
+        # written against at least one source or it is not written.
+        written_for = max(1, int(row["written_for"]))
+        if row["sources_now"] < written_for * ratio:
+            continue
+        counts["eligible"] += 1
+        if counts["queued"] >= cap:
+            continue
+
+        concept = store.load_concept(row["slug"])
+        if concept is None or not concept.definition.strip():
+            continue
+        sources = [
+            {
+                "kind": item.get("kind", ""),
+                "title": item.get("title", ""),
+                "note": item.get("note", ""),
+                "topics": concept.topics,
+            }
+            for item in concept.evidence
+        ]
+        summarizer.define_concept(
+            concept.name, sources, cfg.language, previous=concept.definition
+        )
+        counts["queued"] += 1
+
+    if counts["queued"]:
+        _LOG.info(
+            "asked again for %d definition(s) their evidence has outgrown "
+            "(%d eligible of %d stale)",
+            counts["queued"],
+            counts["eligible"],
+            counts["stale"],
+        )
+    elif counts["eligible"]:
+        _LOG.info(
+            "%d definition(s) eligible for a refresh; none filed (cap %d)",
+            counts["eligible"],
+            cap,
+        )
+    return counts
+
+
 def stale_analysis(cfg: Config) -> list[dict]:
     """Hand-written sections that declared a source count and have been outgrown.
 
@@ -350,16 +434,57 @@ def stale_analysis(cfg: Config) -> list[dict]:
     return stale
 
 
+def stale_findings(cfg: Config) -> list[dict]:
+    """Settled positions whose subject has accumulated evidence since.
+
+    A finding is the group's own judgement, reached across whatever the archive
+    held that day. It then sits at the top of every note it bears on, in the
+    place reserved for what outranks the sources — and it goes on sitting there
+    at thirty sources reading exactly as it did at three. `wiki.py` puts it
+    above the evidence deliberately, which is right and is also what makes this
+    the most expensive thing in the archive to have quietly outgrown.
+
+    **Reported and never touched, and unlike a definition it cannot be
+    re-asked.** A definition is derived from its sources, so a task can hand it
+    back with "what has changed". A finding is a position somebody took; the
+    only thing that can revisit it is the group, and a queue task inviting a
+    reader to revise the group's mind would produce something that is not a
+    finding at all. So this reports, and `findings add --supersedes` is how a
+    changed position is recorded — by a person, keeping the old one.
+
+    A finding recorded before `established_against` existed reports nothing:
+    0 means unknown rather than none.
+    """
+    store = RecordStore(cfg.layout)
+    stale: list[dict] = []
+    for finding in store.iter_findings():
+        if not finding.live or not finding.established_against:
+            continue
+        now = findings_mod.evidence_now(store, finding.concepts)
+        if now > finding.established_against:
+            stale.append(
+                {
+                    "id": finding.id,
+                    "statement": finding.statement,
+                    "established_against": finding.established_against,
+                    "sources_now": now,
+                }
+            )
+    return sorted(stale, key=lambda row: row["established_against"] - row["sources_now"])
+
+
 def report_staleness(cfg: Config) -> dict[str, int]:
     """Count what has been outgrown, and say so. Never rewrites anything.
 
     Reporting only, deliberately. Re-deriving a definition means reading its
-    sources; a counter must not discard written work on arithmetic alone. To
-    re-queue one, clear ``definition`` in ``data/concepts/<slug>.json`` and
-    render again.
+    sources; a counter must not discard written work on arithmetic alone. A
+    definition can at least be asked for again — see `queue_stale_definitions` —
+    and a finding cannot: it is a position somebody took, and only the group can
+    revisit it, with `findings add --supersedes`.
     """
     definitions = stale_definitions(cfg)
     analysis = stale_analysis(cfg)
+    settled = stale_findings(cfg)
 
     for row in definitions[:10]:
         _LOG.warning(
@@ -378,7 +503,21 @@ def report_staleness(cfg: Config) -> dict[str, int]:
             row["sources_now"],
         )
 
-    return {"definitions": len(definitions), "analysis": len(analysis)}
+    for row in settled[:10]:
+        _LOG.warning(
+            "finding '%s' was settled against %d source(s); there are now %d",
+            row["statement"][:80],
+            row["established_against"],
+            row["sources_now"],
+        )
+    if len(settled) > 10:
+        _LOG.warning("... and %d more finding(s) their subject has outgrown", len(settled) - 10)
+
+    return {
+        "definitions": len(definitions),
+        "analysis": len(analysis),
+        "findings": len(settled),
+    }
 
 
 def rebuild_outputs(cfg: Config, topic_slugs: list[str] | None = None) -> dict[str, int]:
@@ -416,6 +555,9 @@ def run(
 
     if only in (None, "archive"):
         result["applied"] = apply_mod.completed(cfg)
+        # After applying, because a reading is where a hand-filed paper learns
+        # its arXiv id, and before anything else looks at the records.
+        result["identifiers"] = dedupe.reconcile_identifiers(cfg)
         # After applying, so a reading finished this run files its document too.
         result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)
@@ -436,6 +578,10 @@ def run(
             result["definitions_queued"] = definitions["queued"]
             result["definitions_refreshed"] = definitions["refreshed"]
             result["definitions_undefined"] = definitions["undefined"]
+            # After the missing ones. An entity with no definition at all is a
+            # worse gap than one whose definition is behind its evidence, and
+            # they share the queue's cap.
+            result["definitions_reasked"] = queue_stale_definitions(cfg)["queued"]
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)

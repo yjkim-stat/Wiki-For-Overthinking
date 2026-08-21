@@ -270,3 +270,7 @@ data/abstracts/
 # approved/, rejected/ and done/ are the record of what was asked and what was
 # allowed, which is exactly the sort of thing this repository keeps.
 requests/pending/
+
+# Worktrees created for parallel agent sessions. Each is a checkout of this same
+# repository; committing one would embed a repo inside itself.
+.claude/worktrees/

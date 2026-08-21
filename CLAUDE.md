@@ -93,6 +93,25 @@ python3 -m pipelines.enrich.queue stats
 python3 -m pipelines.enrich.queue list
 ```
 
+**If you are not going to finish the queue tonight, say which end you are
+draining.** `list` and `next` answer in filename order by default, and a task
+id begins with its kind and continues with the item id — so the top twenty is
+the alphabetically first twenty, which is nobody's priority:
+
+```bash
+python3 -m pipelines.enrich.queue list --by sources --limit 20   # most rests on it
+python3 -m pipelines.enrich.queue list --by recency              # newest first
+python3 -m pipelines.enrich.queue list --by topic                # spread across subjects
+```
+
+`--by sources` weighs a concept task by the number of readings that already
+mention the term, and a paper or a video by what scoring decided when it
+arrived — an unread item has no summary, so no entity cites it and its own
+source count is zero for everything in the queue. **Those two are not the same
+unit**, so concept tasks tend to sort above reading tasks; add `--kind` when
+you want an exact ordering within one of them. Ordering changes nothing about
+a task, only which one you are handed first.
+
 For each pending task:
 
 ```bash
@@ -211,6 +230,7 @@ Render also reports what has gone **stale**, under `stale` in its result:
 
 ```
 definition for 'X' was written against 3 source(s); there are now 9
+finding 'The group prefers ...' was settled against 3 source(s); there are now 30
 ```
 
 **An empty queue means nothing is unwritten. It does not mean nothing is out of
@@ -218,8 +238,36 @@ date.** A definition written against three sources and now standing at nine
 reads as complete while describing a third of its evidence — that is worse than
 a missing one, because nothing about it looks wrong. Nothing is rewritten
 automatically: re-deriving a definition means reading its sources, and a counter
-must not discard written work on arithmetic alone. To re-queue one, clear
-`definition` in `data/concepts/<slug>.json` and render again.
+must not discard written work on arithmetic alone.
+
+**Ask for it again rather than clearing it.** Set `wiki.refresh_definition_at`
+in `config/settings.yaml` — `2.0` means "when the evidence has doubled" — and
+render files a revision task for the worst offenders, `wiki.max_refresh_tasks`
+at a time. The task carries the existing definition back to you with the
+question *what has changed*, and the record keeps that definition throughout: a
+refresh nobody answers leaves the archive exactly as it was.
+
+Answer it like any other task. Keep what still holds and change what a later
+source contradicts — returning it unchanged is a real answer, and it records
+that somebody checked.
+
+Clearing `definition` in `data/concepts/<slug>.json` still works and is now the
+worse route: it throws the previous ruling away along with the staleness, and
+most of that ruling is usually still right. Use it when a definition is wrong
+rather than merely behind.
+
+**A settled finding goes out of date too, and cannot be asked for again.** It
+sits at the top of every note it bears on, above the sources, because a position
+the group reached outranks what any one paper said — and it goes on sitting
+there at thirty sources reading exactly as it did at three. That placement is
+right, and it is what makes an outgrown finding the most expensive thing here to
+have stopped noticing.
+
+Nothing re-queues one, and nothing can: a definition is derived from its sources
+so a task can hand it back, but a finding is a position somebody took. Only the
+group revisits it, and the way to record that is a new finding with `supersedes`
+set to the old id — the old statement stays, marked, because why the group used
+to think otherwise is most of what a newcomer needs.
 
 Your own analysis after `<!-- auto:end -->` can opt into the same check by
 ending with a declared source count:
@@ -264,6 +312,52 @@ wrong about what it attaches to.
 of `wiki/findings.md`: why the group used to think otherwise is most of what a
 newcomer needs in order to trust what it thinks now.
 
+**A question the archive cannot answer about itself goes in the queue too.**
+Not judgement — confirmation. How a name is spelled where it was published,
+whether two names are one thing, where a PDF lives, whether there is published
+code:
+
+```bash
+python3 -m pipelines.enrich.lookup add --subject spelling --about "C-LAP"
+python3 -m pipelines.enrich.lookup add --subject document --paper arxiv:2401.12345
+```
+
+**Every answer must cite a recorded reference** — record the page first with
+`references add`. That requirement is the only mechanical difference between
+looking something up and remembering it, and on a question whose whole value is
+that somebody checked, there is nothing else to check.
+
+**`unknown` is always available and needs no reference**, but still needs a
+`rationale` saying what you tried. A search that failed is worth recording: the
+next session sees what was tried instead of starting from nothing.
+
+A confirmed identity or spelling **does not write an alias**. It asks for the
+entity's definition again so the alias goes in through the validator that owns
+aliases — a wrong merge does not mislabel an entity, it fuses two, and the fused
+note looks perfectly healthy afterwards.
+
+**A question that spans more readings than one goes in the queue.** "Read these
+twelve and tell me whether X" is the work that moves an archive forward, and it
+used to happen inside a session, validated by nothing, surviving only in a
+commit message:
+
+```bash
+python3 -m pipelines.enrich.synthesis add \
+  --question "Do these agree on what an instrumental variable requires?" \
+  --concept instrumental-variable --paper arxiv:2401.12345
+```
+
+It is answered like any other task. **A settled answer becomes a finding** and
+is checked by the findings validator on submission — so cite papers the archive
+holds, not ones you remember. **Leaving it open is a real answer**: put in
+`unresolved` what is missing and what would settle it, and the question is
+archived with its reason where the next session finds it. A sentence hedged
+until nobody could disagree with it is worse than an open question, because
+nothing later can tell the two apart.
+
+Leave one for the next night the same way. It is content-addressed on the
+question, so asking twice files one task.
+
 **This is the one record you author.** Everything else in `data/` arrived from a
 collector, and the rule against inventing sources still holds — a finding is not
 a source, it is the group's own position, and it is stored apart from the
@@ -295,6 +389,26 @@ papers and talks the archive has read, and that count is what promotes a concept
 to a note of its own. Two blog posts must not promote anything — if they could,
 nothing afterwards could say what the wiki grew from, and deleting the posts
 would not undo it.
+
+**3b. Write down what the night did.**
+
+```bash
+python3 -m pipelines.digest
+```
+
+`archive/daily/<date>.md` is written by `run_daily`, so a night that collected
+nothing leaves no trace inside the archive — the reading, the definitions, the
+questions settled survive only in a commit message, which is outside the thing
+it is about.
+
+This writes the session's half of that page. Everything in it is derived: it
+counts what the records now say, so it can report the tasks you answered and
+cannot know which note you wrote a paragraph in. **Say that part yourself, below
+`<!-- session:end -->`** — anything after that marker is kept for ever, exactly
+as in a wiki note, and re-running the command leaves it alone.
+
+Read the last section before you stop. *What was left for the next night* is the
+one part of the page that is an input rather than a record.
 
 **4. Commit.** Generated files are tracked on purpose: the container is
 ephemeral, so anything uncommitted is lost.
@@ -414,10 +528,17 @@ python3 -m pipelines.run_daily --source local     # ingest inbox/ and nothing el
 python3 -m pipelines.backfill --dry-run           # which waiting papers still have no document
 python3 -m pipelines.backfill --limit 20          # fetch those documents, best-scoring first
 python3 -m pipelines.render --only wiki           # rebuild one stage
-python3 -m pipelines.enrich.queue next            # the oldest pending task
+python3 -m pipelines.enrich.queue list --by sources  # drain the heaviest end first
+python3 -m pipelines.enrich.queue next            # the first pending task, in filename order
 python3 -m pipelines.enrich.queue reopen <id>     # undo a submission, before render
 python3 -m pipelines.enrich.findings list        # what the group has settled
 python3 -m pipelines.enrich.references list       # what it checked outside the archive
+python3 -m pipelines.enrich.synthesis list        # questions spanning more readings than one
+python3 -m pipelines.enrich.lookup list           # narrow questions needing a look outside
+python3 -m pipelines.duplicates                   # concept slugs that may be one entity, read-only
+python3 -m pipelines.digest                       # write what tonight did into archive/daily/
+python3 -m pipelines.enrich.dedupe conflicts      # identifiers two records both claim
+python3 -m pipelines.enrich.dedupe merge <keep> <fold> --dry-run
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change
