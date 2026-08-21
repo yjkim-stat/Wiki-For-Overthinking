@@ -84,8 +84,21 @@ conferences:
     # Set true only if your group genuinely reads proceedings versions only.
     restrict_to_venues: false
   # OpenReview covers the review-bearing venues before they hit proceedings.
+  #
+  # Turned off 2026-08-21. `api2.openreview.net` answered HTTP 403 to every
+  # lookup from every run that day -- this machine and the scheduled cloud
+  # environment alike, which rules out one host's network policy. A source that
+  # fails on every attempt still costs three requests and their retries per run
+  # and puts a line in each digest's "Run problems", which is how a genuinely
+  # new failure gets lost among the standing ones.
+  #
+  # Turn it back on to re-test: nothing else has to change, and the venues
+  # below keep their `openreview_prefix` so re-enabling is one word. The other
+  # two conference collectors (Semantic Scholar, the venues' own programme
+  # pages) already cover NeurIPS/ICLR/ICML, so what this loses is early sight
+  # of a venue between decisions and proceedings, not the venue itself.
   openreview:
-    enabled: true
+    enabled: false
     api_url: "https://api2.openreview.net/notes"
   # DBLP is the fallback index when the two above miss a venue.
   dblp:
