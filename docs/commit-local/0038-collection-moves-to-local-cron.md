@@ -116,3 +116,12 @@ appended. Two things this fixes beyond the wording:
 - **The API is the normal path and was not being reported at all.** The listing
   is the fallback; a message that names only the fallback cannot distinguish "the
   API worked" from "nothing happened", which is the whole purpose of the line.
+
+## Superseded in part (0040)
+
+This note says the cloud routine "still fires at the same minute and still does
+the reading", and lists turning it off as a rejected alternative. As of
+2026-08-21 it is disabled — see
+[0040](0040-the-cloud-routine-is-turned-off.md). The local cron job described
+above is unchanged and is now the only scheduled writer to this repository;
+reading happens only when somebody opens a session.

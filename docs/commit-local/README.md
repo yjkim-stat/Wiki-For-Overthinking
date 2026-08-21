@@ -71,3 +71,4 @@ See `docs/LOCAL-DELTAS.md` for what this deployment changes in the template.
 | 0037 | [A ruling takes the question with it](0037-a-ruling-takes-the-question-with-it.md) | fix | A fifth of the queue was definition tasks for entities an alias ruling had already retired |
 | 0038 | [Collection moves to local cron](0038-collection-moves-to-local-cron.md) | docs · operational | The cloud routine cannot reach arXiv; a day the listing never browsed is a day lost for good |
 | 0039 | [A URL the identifier already implies](0039-a-url-the-identifier-already-implies.md) | fix | A bibliographic index carries no document, but the arXiv id it resolved to says where one is |
+| 0040 | [The cloud routine is turned off](0040-the-cloud-routine-is-turned-off.md) | docs · operational · breaking | Collection is automated, reading is not; the steady state is a growing backlog, and that is deliberate |
