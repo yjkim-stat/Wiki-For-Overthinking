@@ -26,6 +26,7 @@ from .collect import (
     arxiv_listing,
     conferences,
     curated,
+    github,
     local_pdf,
     pdf_fetch,
     youtube,
@@ -134,7 +135,7 @@ def run(
         )
         return {"papers": 0, "videos": 0, "queued": 0, "errors": ["no topics defined"]}
 
-    sources = sources or ["arxiv", "conferences", "curated", "youtube", "local"]
+    sources = sources or ["arxiv", "conferences", "curated", "youtube", "local", "github"]
     today = date.today()
     since = today - timedelta(days=max(1, days))
     errors: list[str] = []
@@ -147,6 +148,7 @@ def run(
     # -- collect ------------------------------------------------------------
     papers: list[Paper] = []
     videos: list[Video] = []
+    candidates_filed = 0
 
     if "arxiv" in sources:
         try:
@@ -183,6 +185,23 @@ def run(
         except Exception as exc:  # noqa: BLE001
             _LOG.exception("youtube collection failed")
             errors.append(f"youtube: {exc}")
+
+    if "github" in sources:
+        # Not a paper source. It fills `candidates/pending/` and writes no
+        # record: a repository can become a `Reference`, and only a person can
+        # supply the quotation that makes one. See pipelines/candidates.py.
+        try:
+            if github.enabled(cfg):
+                from . import candidates as candidates_mod
+
+                found = github.collect(cfg, topics)
+                # A dry run reports and writes nothing, here as everywhere.
+                candidates_filed = (
+                    len(found) if dry_run else len(candidates_mod.file_new(cfg, found))
+                )
+        except Exception as exc:  # noqa: BLE001
+            _LOG.exception("github candidate collection failed")
+            errors.append(f"github: {exc}")
 
     if "local" in sources:
         try:
@@ -227,6 +246,7 @@ def run(
             "papers": len(accepted_papers),
             "videos": len(accepted_videos),
             "queued": 0,
+            "candidates_filed": candidates_filed,
             "errors": errors,
             "dry_run": True,
         }
@@ -364,6 +384,10 @@ def run(
         "videos": len(new_videos),
         "rejected": len(rejected),
         "queued": queued,
+        # Repositories waiting for somebody to decide. Not records, and never
+        # evidence -- `candidates promote` is the only way one enters the
+        # archive, and it demands the passage relied on.
+        "candidates_filed": candidates_filed,
         # What each announcement day held, against what we hold of it. A short
         # day is a debt to pay down, not a quiet day.
         "coverage": coverage.summarize(cfg.layout),
@@ -388,7 +412,7 @@ def main(argv: list[str] | None = None) -> int:
         "--source",
         action="append",
         dest="sources",
-        choices=["arxiv", "conferences", "curated", "youtube", "local"],
+        choices=["arxiv", "conferences", "curated", "youtube", "local", "github"],
         help="restrict to one or more sources",
     )
     parser.add_argument(

@@ -189,3 +189,31 @@ youtube:
   fetch_transcripts: true
   # Skip anything shorter than this: shorts and teasers are not seminars.
   min_duration_s: 600
+
+# ---------------------------------------------------------------------------
+# GitHub — candidates for a *reference*, never for the archive.
+#
+# A repository cannot become a paper here. `Concept.evidence` counts papers and
+# talks the archive has read, and that count is what promotes an entity to a
+# note of its own; if a repository could contribute to it, nothing afterwards
+# could say what the wiki grew from. What a repository can be is a reference —
+# a published implementation, cited by a finding.
+#
+# Collection therefore fills `candidates/pending/` and writes no record. A
+# session reads one and runs `candidates promote --quoted "..."`, because the
+# quotation is the passage somebody actually relied on and no collector can
+# supply it. See pipelines/candidates.py.
+github:
+  enabled: true
+  # Anonymous search is 10 requests/minute; one query per topic is well inside
+  # it. There is no token here on purpose — an unauthenticated collector cannot
+  # act on behalf of anybody.
+  min_interval_s: 6.0
+  # A repository nobody has touched in a month is not what a daily sweep is for.
+  pushed_within_days: 30
+  # Below this, the signal is mostly name collisions with the search terms.
+  min_stars: 25
+  per_topic_results: 15
+  # The cap bounds a run, not a decision: what is dropped here is offered again
+  # tomorrow, and only `candidates drop` is permanent.
+  max_candidates_per_run: 20
