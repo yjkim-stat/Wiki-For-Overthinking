@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Thinking budget denotes a cap, fixed or learned, on how much reasoning a model performs before answering. SLPO turns a fixed latent thinking budget into a learned per-instance horizon via a trained stopping head; the machine-translation-evaluator source instead finds reasoning models overthink simple translation-quality judgments and calibrates their thinking via synthetic human-like trajectories, cutting the thinking budget roughly 35x while improving correlation with human judgments.
 
 - **Kind**: concept
 - **Also called**: Thinking Budget

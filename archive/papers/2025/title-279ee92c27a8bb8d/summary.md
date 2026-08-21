@@ -45,7 +45,7 @@ The paper states that matching the frontier exactly remains open — REO-RL clos
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Reasoning Efficiency Frontier, Reasoning Efficiency Gap, [Token Budget](../../../../wiki/concepts/token-budget.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md)
-- **Methods**: REO-RL, Reasoning Efficiency Gap (REG), reasoning efficiency frontier, reinforcement learning with outcome reward, length-based reward RL, HGPO, SimPO, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md), numerical integration over token budgets
+- **Methods**: REO-RL, Reasoning Efficiency Gap (REG), reasoning efficiency frontier, reinforcement learning with outcome reward, length-based reward RL, HGPO, SimPO, supervised fine-tuning, numerical integration over token budgets
 - **Datasets**: AMC 2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [Minerva Math](../../../../wiki/datasets/minerva-math.md), [DeepScaleR](../../../../wiki/datasets/deepscaler.md), AReaL
 
 Tags: `overthinking`, `reasoning-efficiency`, `token-budget`, `benchmark`, `metric`, `rl`, `test-time-compute`

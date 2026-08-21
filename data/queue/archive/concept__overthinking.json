@@ -3,6 +3,54 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "EvoThink cuts overthinking in two separable stages: Self-Pruning Training deletes reasoning steps whose local conclusion repeats the previous step's and self-trains on the shortened traces, while Aha-Moment Preference Optimization builds from-wrong-to-right preference pairs out of the model's most diverse failed attempts and applies DPO to them.",
+        "title": "EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.",
+        "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.",
+        "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PACE runs a reasoning LLM's thinking for the next robot action concurrently with the current action's physical execution, and sizes each step's thinking-token budget to fit the execution window, evaluated in the Robotouille kitchen-planning simulator with Qwen3-8B-AWQ.",
+        "title": "PACE: Adaptive Budget Allocation for Time-Efficient Embodied Planning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReCo uses a 30M process-reward estimator to set, per reasoning step, both the KV-cache retention ratio and generation-side controls (a reflection-token logit penalty and confidence-based early stopping), cutting generated tokens by 37-65% and end-to-end latency by 2.08-2.35x versus full-cache CoT.",
+        "title": "Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces BiasTrace, a six-label annotation scheme for reasoning behaviours in bias-sensitive traces, and finds that overthinking (repeated second-guessing or revisiting the same options more than three times) is the strongest behavioural predictor of stereotype-aligned answers on BBQ, then uses the scheme to filter samples at inference time.",
+        "title": "BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Constructs evaluation tasks across four categories (distractor counting, spurious-feature regression, constraint-tracking deduction, and AI-risk model-written evaluations) where letting large reasoning models reason longer at test time makes their accuracy or alignment worse, not better.",
         "title": "Inverse Scaling in Test-Time Compute",
         "topics": [
@@ -75,6 +123,46 @@
       },
       {
         "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.",
+        "title": "Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ConPress observes that a reasoning model shortens its traces when several independent questions share one prompt, and harvests those shortened traces as self-supervised fine-tuning data for the single-question setting.",
+        "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
+        "title": "ARM: Adaptive Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
         "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
         "topics": [
@@ -83,8 +171,40 @@
       },
       {
         "kind": "paper",
-        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
-        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs",
+        "note": "Retrieval-of-Thought stores prior reasoning as a graph of composable thought steps and, at inference, retrieves and traverses it to assemble a problem-specific template that shortens the model's generated reasoning without retraining.",
+        "title": "Retrieval-of-Thought: Efficient Reasoning via Reusing Thoughts",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WS-GRPO trains a preference model from outcome-only correctness labels to score partial reasoning trajectories, turning terminal reward into prefix-level signal about whether continuing is worthwhile, and reports far shorter reasoning at some accuracy cost.",
+        "title": "WS-GRPO: Weakly-Supervised Group-Relative Policy Optimization for Rollout-Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
+        "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACE detects implicit reward hacking by truncating a model's chain of thought at increasing fractions, forcing an answer at each cut, and scoring the area under the resulting reward-versus-CoT-length curve — a hacking model reaches high reward with little of its reasoning consumed.",
+        "title": "Is it Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "IAPO shapes token-level RL advantages by each reasoning token's conditional mutual information with the final answer, so uninformative exploration is suppressed rather than length being penalized in aggregate, reporting up to 36% shorter reasoning at equal or better accuracy on math benchmarks.",
+        "title": "IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning",
         "topics": [
           "overthinking"
         ]
@@ -93,6 +213,30 @@
         "kind": "paper",
         "note": "A GRPO-based training method that dynamically calibrates the target chain-of-thought length per problem to cut redundant reasoning without penalizing correct long answers.",
         "title": "SmartThinker: Progressive Chain-of-Thought Length Calibration for Efficient Large Language Model Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
+        "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DR2Seg splits reasoning segmentation into a description stage and a referring-segmentation stage and rewards the model when a shorter self-contained description still yields the right mask, cutting reasoning length while raising gIoU.",
+        "title": "DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
+        "title": "Statistical Early Stopping for Reasoning Models",
         "topics": [
           "overthinking"
         ]
@@ -115,6 +259,38 @@
       },
       {
         "kind": "paper",
+        "note": "Diagnoses why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and fixes it by normalising the reward of correct rollouts only against other correct rollouts.",
+        "title": "DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "S-GRPO trains a reasoning model to stop its chain of thought early by sampling one reasoning path, forcing answers at several truncation points along it, and paying correct answers a reward that decays with how late the exit was.",
+        "title": "S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
+        "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains an adaptive reasoning model in two stages -- SFT on simple problems presented in both concise and verbose phrasings, then GRPO with a custom reward -- so that its choice between explicit reasoning and a direct answer tracks actual task difficulty rather than how wordy the question is.",
+        "title": "When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "The first systematic study of overthinking in o1-like reasoning models, introducing outcome/process efficiency metrics and a self-training method that trims redundant reasoning on easy problems without hurting accuracy.",
         "title": "Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models",
         "topics": [
@@ -123,8 +299,32 @@
       },
       {
         "kind": "paper",
+        "note": "ReBalance is a training-free inference-time steering method that reads a reasoning model's token confidence to detect overthinking or underthinking and applies a hidden-state steering vector to shorten or extend the chain of thought accordingly.",
+        "title": "Efficient Reasoning with Balanced Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARLCP is a reinforcement-learning fine-tuning recipe that adds two coupled reward penalties -- one on reflective steps, one on response length scaled by estimated problem complexity -- to shorten chains of thought in distilled reasoning models without losing accuracy.",
+        "title": "Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces DECS, a decoupled token-level reward plus curriculum batch scheduling method that cuts reasoning-token length by over 50% while maintaining or improving accuracy in RLVR-trained reasoning models.",
         "title": "Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
+        "title": "SuCo: Sufficiency-guided Continuous Adaptive Reasoning",
         "topics": [
           "overthinking"
         ]
@@ -147,8 +347,32 @@
       },
       {
         "kind": "paper",
+        "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
+        "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A decoding-time framework that sketches a reasoning tree via selective branching and terminates long, low-accuracy reasoning trajectories early, using an observed length-accuracy anti-correlation.",
         "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+        "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+        "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation",
         "topics": [
           "overthinking"
         ]
@@ -176,12 +400,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
+        "title": "Dynamic Early Exit in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
+        "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:29:15Z",
-  "created_at": "2026-08-20T12:28:12Z",
-  "instructions": "Write the wiki definition for 'overthinking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T01:54:30Z",
+  "created_at": "2026-08-21T01:50:21Z",
+  "instructions": "Revise the wiki definition for 'overthinking'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute for no accuracy gain or actively lowers accuracy (or, in one source, safety-relevant behavior) as reasoning length grows. Across the archive's 22 sources it is measured and explained several ways: an accuracy-vs-token-length curve that peaks and then falls (inverted-U); tracking a model abandoning a previously correct intermediate answer ('flip events') or reaching the right answer early and reasoning itself out of it; excessive, unproductive self-verification/backtracking loops; a low-dimensional direction in activation space; and, on agentic software-engineering tasks, favoring internal reasoning over environment interaction. It is mitigated by a wide range of methods in the corpus -- length-penalized preference optimization, self-braking/self-training, decoupled token-level rewards with curriculum scheduling, activation steering, verifier-based trimming, decoding-tree early termination, and budget-aware query decomposition -- most reporting 30-70% token reductions at little or no accuracy cost.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "overthinking",
   "kind": "concept",
   "language": "en",
@@ -197,18 +437,21 @@
   },
   "payload": {
     "name": "overthinking",
-    "source_count": 22
+    "previous_definition": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute for no accuracy gain or actively lowers accuracy (or, in one source, safety-relevant behavior) as reasoning length grows. Across the archive's 22 sources it is measured and explained several ways: an accuracy-vs-token-length curve that peaks and then falls (inverted-U); tracking a model abandoning a previously correct intermediate answer ('flip events') or reaching the right answer early and reasoning itself out of it; excessive, unproductive self-verification/backtracking loops; a low-dimensional direction in activation space; and, on agentic software-engineering tasks, favoring internal reasoning over environment interaction. It is mitigated by a wide range of methods in the corpus -- length-penalized preference optimization, self-braking/self-training, decoupled token-level rewards with curriculum scheduling, activation steering, verifier-based trimming, decoding-tree early termination, and budget-aware query decomposition -- most reporting 30-70% token reductions at little or no accuracy cost.",
+    "source_count": 52
   },
   "result": {
-    "aliases": [],
-    "definition": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute for no accuracy gain or actively lowers accuracy (or, in one source, safety-relevant behavior) as reasoning length grows. Across the archive's 22 sources it is measured and explained several ways: an accuracy-vs-token-length curve that peaks and then falls (inverted-U); tracking a model abandoning a previously correct intermediate answer ('flip events') or reaching the right answer early and reasoning itself out of it; excessive, unproductive self-verification/backtracking loops; a low-dimensional direction in activation space; and, on agentic software-engineering tasks, favoring internal reasoning over environment interaction. It is mitigated by a wide range of methods in the corpus -- length-penalized preference optimization, self-braking/self-training, decoupled token-level rewards with curriculum scheduling, activation steering, verifier-based trimming, decoding-tree early termination, and budget-aware query decomposition -- most reporting 30-70% token reductions at little or no accuracy cost.",
+    "aliases": [
+      "Overthinking"
+    ],
+    "definition": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no accuracy gain, actively lowers accuracy, or degrades safety- or fairness-relevant behavior (e.g. more stereotype-aligned answers under sustained self-doubt, worse AI-risk judgments) as reasoning length grows. It is measured and explained several ways across the archive: an accuracy-vs-token-length curve that peaks and then falls (inverted-U); a model abandoning a previously correct intermediate answer ('flip events') or reasoning itself out of a right answer; excessive, unproductive self-verification and backtracking; information-theoretic divergence from an ideal reasoning path; a low-dimensional direction in activation space; and, on agentic tasks (software engineering, robotic action planning), favoring internal reasoning over acting in the environment. It is mitigated by length-penalized preference optimization, self-braking or self-training, decoupled token-level rewards with curriculum scheduling, activation steering, verifier-based trimming, decoding-tree early termination, parallel short-sample voting, and budget-aware query decomposition -- most reporting 30-70% token reductions at little or no accuracy cost, though a 33-model unified benchmark (OptimalThinkingBench) finds no evaluated model yet balances over- and under-thinking well.",
     "kind": "concept",
     "related": [
-      "underthinking",
-      "test-time compute scaling",
+      "Underthinking",
+      "Test-Time Compute Scaling",
       "OptimalThinkingBench",
       "TRAAC",
-      "manifold steering"
+      "Manifold Steering"
     ]
   },
   "task_id": "concept__overthinking",

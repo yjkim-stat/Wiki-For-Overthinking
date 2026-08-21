@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Risk control names giving an efficiency method a statistical guarantee on how much accuracy it can give up, rather than tuning a threshold by hand. The 'Anytime Safe PAC' source certifies, via a betting supermartingale over accumulated evidence, that switching between a thinking and non-thinking model keeps the accuracy loss under a user-set tolerance at any stopping time; UAT instead adapts an early-exit confidence threshold online with a multi-armed bandit, reporting 1.70-2.10x speedup at under 2% performance drop, without a formal guarantee of the first kind.
 
 - **Kind**: concept
 - **Also called**: Risk control

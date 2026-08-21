@@ -43,7 +43,7 @@ The paper does not present a limitations section in the material available. Two 
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Structural Redundancy, Reasoning Segment, Segment-Level Budget, [Length Penalty](../../../../wiki/concepts/length-penalty.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Consistency Judging
-- **Methods**: CoSMo, split-merge algorithm, consistency judge (LLM-based), structure-aligned reinforcement learning, [GRPO](../../../../wiki/methods/grpo.md), segment-level budget, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
+- **Methods**: CoSMo, split-merge algorithm, consistency judge (LLM-based), structure-aligned reinforcement learning, [GRPO](../../../../wiki/methods/grpo.md), segment-level budget, supervised fine-tuning
 - **Datasets**: [HotpotQA](../../../../wiki/datasets/hotpotqa.md), HaluEval, Natural Questions, CRAG
 
 Tags: `overthinking`, `efficient-reasoning`, `chain-of-thought`, `reinforcement-learning`, `grpo`, `structural-redundancy`, `multi-hop-qa`, `segment-budget`

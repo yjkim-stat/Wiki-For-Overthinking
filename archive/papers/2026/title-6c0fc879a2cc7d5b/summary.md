@@ -44,7 +44,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: Lazy Reasoning, [task decomposition](../../../../wiki/concepts/task-decomposition.md), tool use
-- **Methods**: [self-distillation](../../../../wiki/methods/self-distillation.md), diversity-aware reinforcement learning
+- **Methods**: self-distillation, diversity-aware reinforcement learning
 - **Datasets**: BFCLv3
 
 Tags: `tool-use`, `task-decomposition`, `reinforcement-learning`, `large-reasoning-model`

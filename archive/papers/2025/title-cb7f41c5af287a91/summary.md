@@ -42,7 +42,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [inverse scaling](../../../../wiki/concepts/inverse-scaling.md), U-shaped scaling, scaling laws
+- **Concepts**: [inverse scaling](../../../../wiki/concepts/inverse-scaling.md), U-shaped scaling, [scaling laws](../../../../wiki/concepts/scaling-laws.md)
 - **Methods**: _none recorded_
 - **Datasets**: Inverse Scaling Prize task suite (11 datasets)
 

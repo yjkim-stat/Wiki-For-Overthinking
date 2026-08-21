@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source describes SST-2 directly; it appears as one of the classification benchmarks used to evaluate early-exit inference methods. RAEE retrieves the exit behaviour of similar training examples from a pre-built database to decide which transformer layer to exit at; UAT instead adapts the early-exit confidence threshold online via a multi-armed bandit, reporting 1.70-2.10x speedup at under 2% performance drop.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

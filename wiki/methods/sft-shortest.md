@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source describes SFT_Shortest's own recipe; it appears as a named comparison point alongside their contributions. ARLCP instead shortens chains of thought via two coupled RL reward penalties (on reflective steps, and on length scaled by estimated problem complexity); QFFT fine-tunes on Long-CoT responses with the question deleted, so the model defaults to concise reasoning and switches to reflective Long CoT only under uncertainty or error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.
 
 - **Kind**: method
 - **Also called**: SFT-Shortest

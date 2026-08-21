@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Weighted voting selects a final answer from multiple sampled reasoning chains by weighting each vote instead of counting them equally, as in plain majority voting. The inference-scaling-laws source includes it as one point of comparison against greedy decoding, majority voting, best-of-n and tree search when measuring accuracy against FLOPs; ContextPRM instead trains a process reward model that scores chain-of-thought coherence, rather than domain knowledge, and uses that score to weight the votes, extending the approach to non-math domains.",
   "evidence": [
     {
       "id": "title:0d818df77a2dc810",
@@ -16,7 +16,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:49:10Z",
   "name": "weighted voting",
   "related": [

@@ -46,7 +46,7 @@ Out-of-distribution generalisation is poor and the paper says so: a Dualformer t
 ## Entities
 
 - **Concepts**: System 1 / System 2 Dual-Process Reasoning, Fast and Slow Thinking, Controllable Reasoning Mode, [Reasoning Trace Length](../../../../wiki/concepts/reasoning-trace-length.md), Trace Dropout, Auto Mode Selection, Reasoning Trace Diversity, Search Trace Supervision
-- **Methods**: Dualformer, randomized reasoning traces, structured trace dropping, Searchformer (baseline), Solution-Only model (baseline), A* search trace supervision, [supervised fine-tuning](../../../../wiki/methods/supervised-fine-tuning.md)
+- **Methods**: Dualformer, randomized reasoning traces, structured trace dropping, Searchformer (baseline), Solution-Only model (baseline), A* search trace supervision, supervised fine-tuning
 - **Datasets**: 30x30 and 20x20 maze navigation tasks, Sokoban, Aug-MATH, [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
 Tags: `fast-slow-thinking`, `dual-process`, `reasoning-trace`, `trace-dropping`, `controllable-reasoning`, `planning`, `test-time-compute`, `reasoning-length`

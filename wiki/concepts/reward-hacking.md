@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+None of the three sources define reward hacking's mechanism directly; it appears only as a named risk category. The survey on mechanistic understanding of large reasoning models groups it with hallucination, CoT unfaithfulness and overthinking as one of the 'unintended behaviors' that RL training on reasoning models can produce. TwT's n-gram repetition penalty on its translation reward and ThreadWeaver's reward design for parallel reasoning threads are each built to prevent a shortcut that would satisfy the stated reward without the intended reasoning behaviour, which is the same underlying failure mode the term names.
 
 - **Kind**: concept
 - **Also called**: Reward Hacking

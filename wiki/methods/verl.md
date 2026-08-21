@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source describes veRL directly; it appears as a named point of reference alongside their own RL recipes. EvoThink cuts overthinking via Self-Pruning Training (removing reasoning steps whose local conclusion repeats the previous one) followed by Aha-Moment Preference Optimization (DPO on wrong-to-right preference pairs built from diverse failed attempts); QLPO over-generates rollouts per prompt and resamples the training group to favour short-correct and long-incorrect trajectories, shortening outputs 30-70% relative to GRPO at roughly unchanged accuracy.
 
 - **Kind**: method
 - **Also called**: VeRL

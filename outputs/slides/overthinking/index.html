@@ -244,7 +244,7 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
-<li><strong>overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that either wastes compute...</li>
+<li><strong>overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no...</li>
 <li><strong>test-time scaling</strong> — Letting a model use more inference-time computation -- longer chains of thought, more parallel samples, search -- in the hope of higher a...</li>
 <li><strong>test-time compute scaling</strong> — Letting a language model use more inference-time computation -- a longer chain of thought, more reasoning tokens, more parallel samples,...</li>
 <li><strong>Accuracy-Efficiency Tradeoff</strong> — Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quanti...</li>
@@ -259,17 +259,17 @@ th { background: var(--surface); }
 <li><strong>early exit</strong> — Stopping a reasoning model&#x27;s generation before it reaches a natural end, once an internal or external signal indicates the answer is alre...</li>
 <li><strong>self-consistency</strong> — Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretica...</li>
 <li><strong>best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
-<li><strong>supervised fine-tuning</strong></li>
 <li><strong>budget forcing</strong> — Controlling a reasoning model&#x27;s chain-of-thought length by inserting a keyword at inference time -- most commonly &#x27;Wait&#x27; to force it to k...</li>
+<li><strong>Qwen3-8B</strong> — Qwen3-8B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a mod...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>MATH-500</strong> — A 500-problem curated subset of the MATH benchmark, one of the archive&#x27;s most-used evaluation sets (16 sources) for reasoning-length and...</li>
-<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive&#x27;s 15 s...</li>
-<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark (17 sources): c...</li>
-<li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used in the archive&#x27;s 9 sources as an &#x27;easier&#x27; reasoning testbed, in contrast to harder benchm...</li>
+<li><strong>MATH-500</strong> — A 500-problem curated subset of the MATH benchmark, one of the archive&#x27;s most-used evaluation sets for reasoning-length and test-time-com...</li>
+<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
+<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
+<li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used throughout the archive as an &#x27;easy&#x27; reasoning testbed, in contrast to harder benchmarks l...</li>
 <li><strong>GPQA-Diamond</strong> — A hard multiple-choice science-question benchmark used across the archive&#x27;s 9 sources as a standard hard-reasoning evaluation set for tes...</li>
 <li><strong>AMC23</strong> — The 2023 sitting of the American Mathematics Competitions, used as a hard competition-math evaluation benchmark alongside AIME in CoBa&#x27;s...</li>
 </ul>

@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Reinforcement Learning with Verifiable Rewards"
+  ],
+  "definition": "RLVR is the standard abbreviation for Reinforcement Learning with Verifiable Rewards, RL training whose reward is computed by a programmatic checker rather than a learned model. Its two sources here use it as the training loop being made more efficient: ARES reshapes per-problem exploration effort via sliding-window token entropy, and QuRL runs the RLVR rollout phase with an INT8/FP8 quantized actor for 20-80% faster rollout.",
   "evidence": [
     {
       "id": "title:544eea46a2eb68c1",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "RLVR",
   "related": [

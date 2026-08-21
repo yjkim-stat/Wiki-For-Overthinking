@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+None of the five sources describe vLLM directly in the material given; it appears as a named reference alongside their own contributions to multi-model reasoning evaluation, reasoning-service pricing, parallel-reasoning control, difficulty-adaptive inference, and long-generation decoder architecture. What role vLLM specifically plays in each is not stated in the supplied notes.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

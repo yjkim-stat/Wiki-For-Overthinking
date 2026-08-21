@@ -9,7 +9,7 @@ A 2025 competition-mathematics problem set, used in the archive purely as an eva
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AIME 2026](aime-2026.md), [BIG-Bench Hard](big-bench-hard.md), [HMMT 2025](hmmt-2025.md), [MMLU-PRO](mmlu-pro.md), [Pass@1](../concepts/pass-1.md), [Self-Certainty](../methods/self-certainty.md), [SuperGPQA](supergpqa.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AIME 2026](aime-2026.md), [BIG-Bench Hard](big-bench-hard.md), [HMMT 2025](hmmt-2025.md), [MMLU-PRO](mmlu-pro.md), [Pass@1](../concepts/pass-1.md), [Self-Certainty](../concepts/self-certainty.md), [SuperGPQA](supergpqa.md), [test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

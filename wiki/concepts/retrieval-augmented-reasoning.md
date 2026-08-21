@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Retrieval-augmented reasoning augments a reasoning model's chain of thought with material retrieved at inference time instead of relying only on parametric knowledge and fresh generation. The two sources use different retrieval targets: ThinkRetrieve retrieves a fully worked solved example per reasoning step, while Retrieval-of-Thought retrieves and assembles reusable steps from a stored graph of prior reasoning traces to shorten the newly generated one.
 
 - **Kind**: concept
 - **Also called**: Retrieval-Augmented Reasoning

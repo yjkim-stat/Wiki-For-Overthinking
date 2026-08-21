@@ -9,7 +9,7 @@ GFPO keeps GRPO's group-relative structure and changes only what reaches the gra
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DAPO](dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [GPQA](../datasets/gpqa.md), [group relative advantage](../concepts/group-relative-advantage.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH-500](../datasets/math-500.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](../concepts/overthinking.md), [Phi-4-reasoning](phi-4-reasoning.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [Reinforcement Learning with Verifiable Rewards](reinforcement-learning-with-verifiable-rewards.md), [S-GRPO](s-grpo.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DAPO](dapo.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [GPQA](../datasets/gpqa.md), [group relative advantage](../concepts/group-relative-advantage.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH-500](../datasets/math-500.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](../concepts/overthinking.md), [Phi-4-reasoning](phi-4-reasoning.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [S-GRPO](s-grpo.md)
 
 ## Appears in
 

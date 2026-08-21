@@ -9,7 +9,7 @@ The two archived sources use the term loosely, for teacher-to-student transfer o
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [early exit](early-exit.md), [early-exit ensembles](early-exit-ensembles.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [supervised fine-tuning](supervised-fine-tuning.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [early exit](early-exit.md), [early-exit ensembles](early-exit-ensembles.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

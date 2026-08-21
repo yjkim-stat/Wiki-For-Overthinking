@@ -9,7 +9,7 @@ A test-time-compute strategy that samples N candidate solutions independently an
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 8
 
-**Related**: [Best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [majority voting](majority-voting.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [SciQ](../datasets/sciq.md), [self-consistency](self-consistency.md), [sequential revision](sequential-revision.md), [speculative decoding](speculative-decoding.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [Best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [majority voting](majority-voting.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [SciQ](../datasets/sciq.md), [self-consistency](self-consistency.md), [sequential revision](../concepts/sequential-revision.md), [speculative decoding](speculative-decoding.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

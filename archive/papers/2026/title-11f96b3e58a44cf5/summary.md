@@ -43,7 +43,7 @@ Stated or visible from the tables: compression is weaker and accuracy loss large
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Self-Compression, Contextual Pressure, Reasoning Trace Compression, Self-Distillation, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Difficulty-Dependent Compression
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Self-Compression, Contextual Pressure, Reasoning Trace Compression, [Self-Distillation](../../../../wiki/concepts/self-distillation.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Difficulty-Dependent Compression
 - **Methods**: ConPress, self-supervised supervised fine-tuning, Self-Compression (multi-question prompting), rejection-style trace filtering
 - **Datasets**: MATH500, AIME25, [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AMC](../../../../wiki/datasets/amc.md), [MMLU-STEM](../../../../wiki/datasets/mmlu-stem.md)
 

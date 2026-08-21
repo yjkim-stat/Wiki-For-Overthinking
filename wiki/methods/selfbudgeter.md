@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source explains SelfBudgeter's own mechanism; the survey on efficient R1-style reasoning models lists it within its taxonomy of single-model-optimization approaches, and FROST mentions it only in passing while describing its own attention-based pruning of sentence-level 'reasoning outlier' steps (69.68% average token reduction, 26.70% accuracy gain over the base model on four maths benchmarks).
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

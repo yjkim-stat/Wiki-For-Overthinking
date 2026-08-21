@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Ares is an LLM-agent RTL optimizer that raises the per-call reasoning effort only after progress stalls, and reports the normalized dollar cost of every call next to the power-area-delay figure of merit.",
+        "title": "ARES: Adaptive Reasoning-Effort Steering for PPA- and Cost-Aware RTL Optimization with LLM Agents",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formulates test-time compute allocation across queries as a bandit learning problem so that harder queries get more compute and easier ones get less.",
+        "title": "Strategic Scaling of Test-Time Compute: A Bandit Learning Approach",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:50:08Z",
+  "created_at": "2026-08-21T01:32:11Z",
+  "instructions": "Write the wiki definition for 'test-time compute allocation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "test-time compute allocation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "test-time compute allocation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Test-time compute allocation means deciding, per query, how much inference-time compute or reasoning effort to spend. The RTL-optimization source (ARES) raises an LLM agent's per-call reasoning effort only after progress on a task stalls, reporting normalized dollar cost alongside a power-area-delay figure of merit; 'Strategic Scaling of Test-Time Compute' instead formulates the allocation across queries as a bandit-learning problem, so harder queries receive more compute and easier ones less.",
+    "kind": "concept",
+    "related": []
+  },
+  "task_id": "concept__test-time-compute-allocation",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

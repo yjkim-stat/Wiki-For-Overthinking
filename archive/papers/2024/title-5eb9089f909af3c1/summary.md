@@ -43,8 +43,8 @@ None stated in the available material. A reader should notice that the claim is 
 
 ## Entities
 
-- **Concepts**: Scaling Laws, Compute-Optimal Training, Learning Rate Schedule, Stochastic Weight Averaging
-- **Methods**: constant learning rate with cooldown, cosine learning rate schedule, stochastic weight averaging, [scaling laws](../../../../wiki/methods/scaling-laws.md)
+- **Concepts**: [Scaling Laws](../../../../wiki/concepts/scaling-laws.md), Compute-Optimal Training, Learning Rate Schedule, Stochastic Weight Averaging
+- **Methods**: constant learning rate with cooldown, cosine learning rate schedule, stochastic weight averaging, scaling laws
 - **Datasets**: _none recorded_
 
 Tags: `scaling-laws`, `pretraining`, `learning-rate-schedule`, `weight-averaging`, `training-efficiency`

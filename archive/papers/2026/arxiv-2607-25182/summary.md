@@ -45,7 +45,7 @@ Stated: text-only serialized tables, so tables embedded in scans, PDFs, spreadsh
 ## Entities
 
 - **Concepts**: Chain-of-Thought Distillation, Conditional Reasoning Distillation, Listwise Reranking, Table Retrieval, [Out-of-Distribution Generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), Structural Output Failure
-- **Methods**: TabRank, CoTCond (conditional reasoning distillation), CoTGen (standard chain-of-thought distillation), Naive SFT, DeepSeek-R1 teacher distillation, listwise reranking, Reciprocal Rank Fusion over BM25, SPLADE-V3 and all-mpnet-base-v2, LoRA / LLaMA-Factory, Qwen3-8B
+- **Methods**: TabRank, CoTCond (conditional reasoning distillation), CoTGen (standard chain-of-thought distillation), Naive SFT, DeepSeek-R1 teacher distillation, listwise reranking, Reciprocal Rank Fusion over BM25, SPLADE-V3 and all-mpnet-base-v2, LoRA / LLaMA-Factory, [Qwen3-8B](../../../../wiki/methods/qwen3-8b.md)
 - **Datasets**: NQ-Tables (training, 9,574 queries; 6,728 retained after filtering), Multi-Table QA Benchmark subsets: HybridQA (6,106 queries / 17,229 tables), SQA (148 / 320), TAT-QA (362 / 4,754), TabFact (15,106 / 34,351)
 
 Tags: `reranking`, `table retrieval`, `cot distillation`, `information retrieval`, `out-of-distribution`, `llm distillation`

@@ -43,7 +43,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), best-of-n sampling, sequential revision, mixture-of-reference-policy model
+- **Concepts**: [test-time compute](../../../../wiki/concepts/test-time-compute.md), best-of-n sampling, [sequential revision](../../../../wiki/concepts/sequential-revision.md), mixture-of-reference-policy model
 - **Methods**: [best-of-n (BoN) sampling](../../../../wiki/methods/best-of-n-bon-sampling.md), reward-filtered sequential inference
 - **Datasets**: _none recorded_
 

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reward shaping here means adding structure to an RL reward beyond a single terminal correctness signal, to steer a specific behaviour during training. AutoThink uses a three-stage curriculum with stage-wise reward shaping so an R1-style model learns to decide, per problem, whether to reason explicitly at all; the second source shapes its reward across an SFT-then-GRPO pipeline so the choice between explicit reasoning and a direct answer tracks actual task difficulty rather than how verbosely the question is phrased.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

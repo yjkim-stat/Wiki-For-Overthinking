@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Uncertainty quantification here means estimating how confident a model is in order to decide when to stop computing. QUTE is an early-exit-assisted ensemble that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels; the statistical-early-stopping source instead monitors uncertainty-keyword arrivals inside a reasoning trace with two statistical stopping rules, one with a finite-sample bound on the probability of halting too early on a well-posed query.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

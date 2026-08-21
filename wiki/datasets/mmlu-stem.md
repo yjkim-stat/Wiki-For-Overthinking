@@ -8,7 +8,7 @@ The science-and-mathematics subset of MMLU, which appears in the archive only as
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](aime-2025.md), [AMC](amc.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH-500](math-500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [s1K-1.1](s1k-1-1.md), [self-distillation](../methods/self-distillation.md), [StrategyQA](strategyqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
+**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](aime-2025.md), [AMC](amc.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH-500](math-500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [OlympiadBench](olympiadbench.md), [overthinking](../concepts/overthinking.md), [s1K-1.1](s1k-1-1.md), [self-distillation](../concepts/self-distillation.md), [StrategyQA](strategyqa.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 

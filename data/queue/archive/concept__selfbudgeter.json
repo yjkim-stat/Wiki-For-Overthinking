@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
+        "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
+        "title": "FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:50:07Z",
+  "created_at": "2026-08-21T01:32:11Z",
+  "instructions": "Write the wiki definition for 'SelfBudgeter'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "SelfBudgeter",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "SelfBudgeter",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Neither source explains SelfBudgeter's own mechanism; the survey on efficient R1-style reasoning models lists it within its taxonomy of single-model-optimization approaches, and FROST mentions it only in passing while describing its own attention-based pruning of sentence-level 'reasoning outlier' steps (69.68% average token reduction, 26.70% accuracy gain over the base model on four maths benchmarks).",
+    "kind": "method",
+    "related": []
+  },
+  "task_id": "concept__selfbudgeter",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -8,7 +8,7 @@ The umbrella category of competition-math evaluation sets (AIME, AMC, MATH, MATH
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [MATH-500](../datasets/math-500.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [test-time scaling](test-time-scaling.md), [tree-search decoding](../methods/tree-search-decoding.md)
+**Related**: [AIME](../datasets/aime.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [MATH-500](../datasets/math-500.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [test-time scaling](test-time-scaling.md), [tree-search decoding](tree-search-decoding.md)
 
 ## Appears in
 

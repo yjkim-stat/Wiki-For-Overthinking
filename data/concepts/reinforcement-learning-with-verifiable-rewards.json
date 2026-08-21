@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Reinforcement learning with verifiable rewards"
+    "Reinforcement learning with verifiable rewards",
+    "RLVR"
   ],
-  "definition": "",
+  "definition": "Reinforcement Learning with Verifiable Rewards (RLVR) is RL training whose reward is computed by a programmatic checker (e.g. a correctness checker on a math answer) rather than a learned reward model. The archive's sources treat it as the standard rollout-then-update loop that efficiency work modifies rather than replaces: ARES reshapes exploration effort using token-level entropy, DR²Seg splits the rollout into separate description and segmentation stages, QuRL runs the rollout phase with a quantized actor for speed, GFPO trains only on a filtered subset of a larger sampled rollout group, and ShorterBetter rewards matching the shortest correct rollout's length.",
   "evidence": [
     {
       "id": "title:544eea46a2eb68c1",
@@ -36,7 +37,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:56:47Z",
   "name": "Reinforcement Learning with Verifiable Rewards",
   "related": [

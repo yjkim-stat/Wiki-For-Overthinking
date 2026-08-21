@@ -9,7 +9,7 @@ Phi-4-reasoning is a reasoning language model that archived papers evaluate on, 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DRP](drp.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GFPO](gfpo.md), [GPQA](../datasets/gpqa.md), [GPT-OSS-20B](gpt-oss-20b.md), [group relative advantage](../concepts/group-relative-advantage.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [Omni-MATH](../datasets/omni-math.md), [Reinforcement Learning with Verifiable Rewards](reinforcement-learning-with-verifiable-rewards.md), [SelfBudgeter](selfbudgeter.md), [Thinkless](thinkless.md), [Token Budget](../concepts/token-budget.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DRP](drp.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GFPO](gfpo.md), [GPQA](../datasets/gpqa.md), [GPT-OSS-20B](gpt-oss-20b.md), [group relative advantage](../concepts/group-relative-advantage.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [Omni-MATH](../datasets/omni-math.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [SelfBudgeter](selfbudgeter.md), [Thinkless](thinkless.md), [Token Budget](../concepts/token-budget.md)
 
 ## Appears in
 

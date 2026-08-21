@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+None of the three sources describe TruthfulQA directly; it appears as one of the evaluation benchmarks in their reasoning-quality experiments. REDE uses answer-token attention over reasoning steps as annotation-free supervision to identify and drop irrelevant or repetitive steps before hallucination detection; the diffusion-LLM source shows diffusion LLMs implicitly contain a mixture of semi-autoregressive generation experts and majority-votes across block-generation schedules to boost accuracy; AdaReasoner is an RL-trained, model-agnostic plugin that picks a per-task prompt format, decoding temperature and number of reasoning steps instead of one fixed setup.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

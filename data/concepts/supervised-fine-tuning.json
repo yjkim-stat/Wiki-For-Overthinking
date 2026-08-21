@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Supervised fine-tuning appears across these six sources mainly as the stage that instills a target reasoning behaviour before or alongside RL. CoSMo trains on reasoning chains restructured by merging redundant segments and splitting logical gaps, budgeted by segment count rather than tokens; ARM and 'How Far Are We from Optimal Reasoning Efficiency?' use SFT-then-RL recipes (Ada-GRPO, REO-RL) to reach a chosen point on the accuracy-vs-token-budget frontier; 'Smaller, Weaker, Yet Better' shows that under a fixed sampling-compute budget, SFT data sampled many times from a smaller weaker model trains stronger reasoners than fewer samples from a larger one; 'From Reasoning Traces to Reusable Modules' argues the SFT-then-RL recipe works because RL decomposes the SFT-trained compound traces into reusable atomic modules; Dualformer instead trains one model with parts of its SFT traces randomly dropped, so it can run in fast, slow or auto mode from a single checkpoint.",
   "evidence": [
     {
       "id": "title:0bf980e6919c2982",
@@ -40,7 +40,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-21T00:49:10Z",
   "name": "supervised fine-tuning",
   "related": [

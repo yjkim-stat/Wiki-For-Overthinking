@@ -43,7 +43,7 @@ Specific benchmark names, numeric results and model sizes are not given in the a
 ## Entities
 
 - **Concepts**: fixed token budget, budget-aware tree search, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md)
-- **Methods**: Budget-Guided MCTS (BG-MCTS), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), [tree-search decoding](../../../../wiki/methods/tree-search-decoding.md)
+- **Methods**: Budget-Guided MCTS (BG-MCTS), [Monte Carlo Tree Search](../../../../wiki/methods/monte-carlo-tree-search.md), tree-search decoding
 - **Datasets**: mathematical reasoning benchmarks, a physics reasoning benchmark
 
 Tags: `test-time-scaling`, `tree-search`, `mcts`, `token-budget`, `inference-cost`

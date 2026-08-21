@@ -43,7 +43,7 @@ No limitations section is given in the material available. Observed constraints:
 
 ## Entities
 
-- **Concepts**: [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Compute-Optimal Inference](../../../../wiki/concepts/compute-optimal-inference.md), Inference Scaling Laws, [Process Reward Model](../../../../wiki/concepts/process-reward-model.md), Tree Search Decoding, Majority Voting, Diminishing Returns, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
+- **Concepts**: [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Compute-Optimal Inference](../../../../wiki/concepts/compute-optimal-inference.md), Inference Scaling Laws, [Process Reward Model](../../../../wiki/concepts/process-reward-model.md), [Tree Search Decoding](../../../../wiki/concepts/tree-search-decoding.md), Majority Voting, Diminishing Returns, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
 - **Methods**: REBASE (reward balanced search), majority voting / self-consistency, [best-of-n](../../../../wiki/methods/best-of-n.md), [weighted voting](../../../../wiki/methods/weighted-voting.md), Monte Carlo Tree Search (comparison), process reward model, greedy decoding
 - **Datasets**: MATH500, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MBPP](../../../../wiki/datasets/mbpp.md)
 

@@ -2,7 +2,7 @@
   "aliases": [
     "token budget"
   ],
-  "definition": "",
+  "definition": "Token budget denotes an explicit cap on how many tokens a reasoning model may spend on a problem, used both as a training target and as an evaluation axis. ARM trains a model to pick among four reasoning formats per task to control token spend; 'How Far Are We from Optimal Reasoning Efficiency?' defines an empirical accuracy-vs-token-budget frontier and measures how far existing methods fall short of it with a single metric (REG); A*-Thought selects a short, high-information subset of a reasoning trace via A* search as SFT data for a fixed token budget; FROST prunes sentence-level reasoning outliers via attention, reporting a 69.68% average token reduction.",
   "evidence": [
     {
       "id": "title:21d562149c3adad6",

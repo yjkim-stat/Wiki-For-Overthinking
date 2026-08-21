@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source explains SEAL's own mechanism; the survey on efficient R1-style reasoning models lists it as one instance within its single-model/multi-model taxonomy, and ReBalance mentions it only in passing while describing its own training-free steering-vector method for correcting overthinking or underthinking from token confidence.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+RefCOCO is a referring-expression segmentation/comprehension benchmark built on MS COCO images. The two sources that use it, DR²Seg and PixelThink, apply it only as an evaluation set for reasoning-segmentation methods, scoring predicted masks by generalized IoU (gIoU); neither source describes how the benchmark itself is constructed.
 
 - **Kind**: dataset
 - **Also called**: RefCOCO+
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO (Group Relative Policy Optimization)](../methods/grpo-group-relative-policy-optimization.md), [Length reward](../concepts/length-reward.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](reasonseg.md), [RefCOCOg](refcocog.md), [Reinforcement Learning with Verifiable Rewards](../methods/reinforcement-learning-with-verifiable-rewards.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [task decomposition](../concepts/task-decomposition.md)
+**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO (Group Relative Policy Optimization)](../methods/grpo-group-relative-policy-optimization.md), [Length reward](../concepts/length-reward.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](reasonseg.md), [RefCOCOg](refcocog.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [task decomposition](../concepts/task-decomposition.md)
 
 ## Appears in
 

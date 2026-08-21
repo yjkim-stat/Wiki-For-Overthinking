@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Test-time adaptation means adjusting a model's behaviour at inference on a specific input or distribution shift, without further gradient training on labelled data beforehand. The vision-language source proposes TTAug and TTAdapt, using input augmentation and consensus pseudolabels instead of external supervision to adapt small VLMs; TinyTTA instead makes test-time adaptation feasible on microcontrollers by adapting only early-exit heads in a self-ensemble rather than backpropagating through the whole network.
 
 - **Kind**: concept
 - **Also called**: Test-Time Adaptation

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The two sources that mention S-GRPO do not explain its mechanism: the survey on efficient R1-style reasoning models includes it as one instance in its taxonomy of single-model-optimization methods, and IAPO cites it only in comparison while describing its own token-level mutual-information reward shaping. S-GRPO's own approach is not described in the material supplied here.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

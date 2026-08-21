@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+None of the three sources describe Thinkless's own mechanism; it appears as a named comparison point. QLPO instead over-generates rollouts per prompt and resamples the training group to favour short-correct and long-incorrect trajectories, shortening outputs 30-70% relative to GRPO at roughly unchanged accuracy; the survey places Thinkless within its taxonomy of efficient R1-style methods; FROST prunes attention-identified sentence-level reasoning outliers, reporting 69.68% average token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.
 
 - **Kind**: method
 - **Also called**: ThinkLess

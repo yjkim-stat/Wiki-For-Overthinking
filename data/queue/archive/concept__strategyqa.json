@@ -1,0 +1,69 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
+        "title": "ARM: Adaptive Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReBalance is a training-free inference-time steering method that reads a reasoning model's token confidence to detect overthinking or underthinking and applies a hidden-state steering vector to shorten or extend the chain of thought accordingly.",
+        "title": "Efficient Reasoning with Balanced Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DC-CoT is a benchmark that isolates the effect of data augmentation, data selection and data mixing on chain-of-thought distillation into smaller student models, across teacher models, student models and reasoning domains.",
+        "title": "The Quest for Efficient Reasoning: A Data-Centric Benchmark to CoT Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
+        "title": "SuCo: Sufficiency-guided Continuous Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T01:50:07Z",
+  "created_at": "2026-08-21T01:32:11Z",
+  "instructions": "Write the wiki definition for 'StrategyQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "StrategyQA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "StrategyQA",
+    "source_count": 4
+  },
+  "result": {
+    "aliases": [],
+    "definition": "None of the four sources describe StrategyQA directly; it appears only as one of the evaluation benchmarks in their reasoning-efficiency experiments. ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task; ReBalance steers chain-of-thought length up or down at inference from token-confidence signals; DC-CoT isolates the effect of data augmentation, selection and mixing on CoT distillation; SuCo trains on a difficulty-adaptive 'Minimal Sufficient CoT' prefix via SFT plus a GRPO stage penalising both over- and under-thinking.",
+    "kind": "dataset",
+    "related": []
+  },
+  "task_id": "concept__strategyqa",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

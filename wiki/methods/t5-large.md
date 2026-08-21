@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source describes T5-Large directly; it is used as a backbone model for early-exit inference experiments. RAEE retrieves the exit behaviour of similar training examples from a pre-built database instead of training internal per-layer classifiers; UAT replaces a static confidence threshold with an online multi-armed bandit, reporting 1.70-2.10x speedup at under 2% performance drop.
 
 - **Kind**: method
 - **Also called**: T5-large

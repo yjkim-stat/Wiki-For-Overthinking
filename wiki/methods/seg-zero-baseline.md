@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither DR²Seg's nor PixelThink's given note describes Seg-Zero (baseline) directly, though the entity's own label marks it as the reasoning-segmentation baseline against which they position their contributions: DR²Seg's improvement is splitting the rollout into a description stage and a segmentation stage, and PixelThink's is conditioning the GRPO reward on externally estimated difficulty and the model's own uncertainty.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO (Group Relative Policy Optimization)](grpo-group-relative-policy-optimization.md), [Length reward](../concepts/length-reward.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-VL](qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Reinforcement Learning with Verifiable Rewards](reinforcement-learning-with-verifiable-rewards.md), [task decomposition](../concepts/task-decomposition.md)
+**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO (Group Relative Policy Optimization)](grpo-group-relative-policy-optimization.md), [Length reward](../concepts/length-reward.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-VL](qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [task decomposition](../concepts/task-decomposition.md)
 
 ## Appears in
 

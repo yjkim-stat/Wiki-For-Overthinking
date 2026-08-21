@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "None of the four sources describe StrategyQA directly; it appears only as one of the evaluation benchmarks in their reasoning-efficiency experiments. ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task; ReBalance steers chain-of-thought length up or down at inference from token-confidence signals; DC-CoT isolates the effect of data augmentation, selection and mixing on CoT distillation; SuCo trains on a difficulty-adaptive 'Minimal Sufficient CoT' prefix via SFT plus a GRPO stage penalising both over- and under-thinking.",
   "evidence": [
     {
       "id": "title:21d562149c3adad6",

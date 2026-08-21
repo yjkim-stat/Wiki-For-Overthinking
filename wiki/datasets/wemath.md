@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Neither source describes WeMath directly; it appears as one of the multimodal reasoning benchmarks used to evaluate adaptive reasoning-mode methods. Mixture-of-Visual-Thoughts uses it as one of eight benchmarks on which a mode-relative-advantage RL method that picks between text-based and visually-grounded reasoning raises average accuracy by about 5 points; ARES uses it as an evaluation benchmark for its difficulty-aware, entropy-shaped exploration training for multimodal reasoning models.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Ada-GRPO](../methods/ada-grpo.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Ares](../methods/ares.md), [Difficulty-aware compute allocation](../concepts/difficulty-aware-compute-allocation.md), [GPQA](gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [MATH-500](math-500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMLU-PRO](mmlu-pro.md), [MMMU](mmmu.md), [MMStar](mmstar.md), [overthinking](../concepts/overthinking.md), [POPE](pope.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Trace Length](../concepts/reasoning-trace-length.md), [Reinforcement Learning with Verifiable Rewards](../methods/reinforcement-learning-with-verifiable-rewards.md), [RLVR](../methods/rlvr.md), [Token-Level Entropy](../concepts/token-level-entropy.md)
+**Related**: [Ada-GRPO](../methods/ada-grpo.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Ares](../methods/ares.md), [Difficulty-aware compute allocation](../concepts/difficulty-aware-compute-allocation.md), [GPQA](gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [MATH-500](math-500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMLU-PRO](mmlu-pro.md), [MMMU](mmmu.md), [MMStar](mmstar.md), [overthinking](../concepts/overthinking.md), [POPE](pope.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Trace Length](../concepts/reasoning-trace-length.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [RLVR](../concepts/rlvr.md), [Token-Level Entropy](../concepts/token-level-entropy.md)
 
 ## Appears in
 

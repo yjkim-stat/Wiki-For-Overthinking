@@ -9,7 +9,7 @@ The archive uses the term in two ways it never reconciles. As a provider-exposed
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [HMMT 2025](../datasets/hmmt-2025.md), [Llama3-8B](../methods/llama3-8b.md), [overthinking](overthinking.md), [pass@K](pass-k.md), [RLOO](../methods/rloo.md), [Self-Certainty](../methods/self-certainty.md), [self-consistency](../methods/self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [HMMT 2025](../datasets/hmmt-2025.md), [Llama3-8B](../methods/llama3-8b.md), [overthinking](overthinking.md), [pass@K](pass-k.md), [RLOO](../methods/rloo.md), [Self-Certainty](self-certainty.md), [self-consistency](../methods/self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [test-time compute scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

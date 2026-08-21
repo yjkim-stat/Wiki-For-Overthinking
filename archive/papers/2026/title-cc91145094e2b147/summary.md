@@ -44,7 +44,7 @@ Not stated in the material available. A reader should notice several things. The
 ## Entities
 
 - **Concepts**: Thinking budget allocation, Self-consistency as a difficulty proxy, [Compute-optimal inference](../../../../wiki/concepts/compute-optimal-inference.md), Prefill-stage prediction, Latent-space probing, [Adaptive test-time compute](../../../../wiki/concepts/adaptive-test-time-compute.md), CoT compression
-- **Methods**: Sonata, Self-Consistency-Guided Adapter for Thinking Allocation, [Self-consistency](../../../../wiki/methods/self-consistency.md), Hidden-state probing adapter, Qwen3-8B, [GPT-OSS-120B](../../../../wiki/methods/gpt-oss-120b.md), Qwen3-235B-A22B, Intern-S1-mini
+- **Methods**: Sonata, Self-Consistency-Guided Adapter for Thinking Allocation, [Self-consistency](../../../../wiki/methods/self-consistency.md), Hidden-state probing adapter, [Qwen3-8B](../../../../wiki/methods/qwen3-8b.md), [GPT-OSS-120B](../../../../wiki/methods/gpt-oss-120b.md), Qwen3-235B-A22B, Intern-S1-mini
 - **Datasets**: AIME24, AIME25, [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `adaptive-thinking`, `thinking-budget`, `self-consistency`, `test-time-compute`, `latent-space`, `efficient-reasoning`, `probing`

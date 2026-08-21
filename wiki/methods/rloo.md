@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+None of the three sources describe RLOO's mechanism directly in the material given; it appears as a named baseline/reference algorithm alongside these papers' GRPO-based approaches. SLPO extends outcome-reward RL to latent reasoners with a learned stopping head; TRACE measures implicit reward hacking via a reward-vs-CoT-length curve; DRPO diagnoses and fixes a length-penalty pathology specific to GRPO's group-relative advantage. How RLOO specifically compares is not stated in the supplied notes.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

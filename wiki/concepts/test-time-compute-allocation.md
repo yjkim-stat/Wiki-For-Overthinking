@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Test-time compute allocation means deciding, per query, how much inference-time compute or reasoning effort to spend. The RTL-optimization source (ARES) raises an LLM agent's per-call reasoning effort only after progress on a task stalls, reporting normalized dollar cost alongside a power-area-delay figure of merit; 'Strategic Scaling of Test-Time Compute' instead formulates the allocation across queries as a bandit-learning problem, so harder queries receive more compute and easier ones less.
 
 - **Kind**: concept
 - **Also called**: Test-Time Compute Allocation
