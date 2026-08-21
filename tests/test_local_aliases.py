@@ -281,6 +281,61 @@ class RetireTests(unittest.TestCase):
             )
         )
 
+    def _task(self, slug: str, state: str = "pending") -> Path:
+        directory = self.cfg.layout.queue / state
+        directory.mkdir(parents=True, exist_ok=True)
+        path = directory / f"concept__{slug}.json"
+        path.write_text('{"kind": "concept", "item_id": "%s"}' % slug, encoding="utf-8")
+        return path
+
+    def test_a_retired_record_takes_its_pending_task_with_it(self):
+        """LOCAL: nothing else removes it.
+
+        `render` only files definition tasks and the applier rejects a slug it
+        cannot find, so a task filed before the ruling sits in the queue for
+        ever looking like work somebody owes.
+        """
+        self._concept("aime24", "AIME24", "", 3)
+        self._concept("aime-2024", "AIME 2024", "", 9)
+        task = self._task("aime24")
+
+        self._retire(apply=True)
+
+        self.assertFalse(task.exists())
+
+    def test_a_task_orphaned_by_an_earlier_run_is_still_dropped(self):
+        """The record is already gone; only the task is left.
+
+        This is the state a deployment lands in when it rules on an alias,
+        applies it, and only then notices the task -- which is exactly how the
+        five orphans that prompted this were made.
+        """
+        task = self._task("aime24")
+
+        self._retire(apply=True)
+
+        self.assertFalse(task.exists())
+
+    def test_a_dry_run_drops_nothing(self):
+        self._concept("aime24", "AIME24", "", 3)
+        task = self._task("aime24")
+
+        self._retire(apply=False)
+
+        self.assertTrue(task.exists())
+
+    def test_a_completed_task_is_reported_and_kept(self):
+        """It carries somebody's written answer; deleting it destroys work."""
+        self._concept("aime24", "AIME24", "", 3)
+        self._concept("aime-2024", "AIME 2024", "", 9)
+        answered = self._task("aime24", state="done")
+
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            merge.retire(self.cfg, apply=True)
+
+        self.assertTrue(answered.exists())
+        self.assertIn("still waiting for a render", out.getvalue().replace("\n", " "))
+
     def test_both_defined_clears_the_canonical_on_disk(self):
         self._concept("aime24", "AIME24", "written against 28 sources", 28)
         self._concept("aime-2024", "AIME 2024", "written against 9 sources", 9)

@@ -60,6 +60,27 @@ def _write(path: Path, record: dict) -> None:
     )
 
 
+def _orphaned_tasks(layout, slug: str) -> tuple[list[Path], list[Path]]:
+    """The definition tasks left behind when a concept record is retired.
+
+    A pending task asks for a definition of an entity that will not exist by
+    the time anybody answers it, and nothing else removes it: `render` only
+    files tasks, and the applier rejects a slug it cannot find, so the task
+    sits in the queue for ever looking like work. `discard.py` already does
+    this for a paper's tasks; a concept's had no equivalent.
+
+    Pending and done are separated because only one of them is safe to
+    delete. A pending task carries the question and nothing else. A done one
+    carries somebody's written answer, so it is reported and left alone.
+    """
+    pending, done = [], []
+    for state, bucket in (("pending", pending), ("done", done)):
+        directory = layout.queue / state
+        if directory.exists():
+            bucket.extend(sorted(directory.glob(f"concept__{slug}.json")))
+    return pending, done
+
+
 def retire(cfg, apply: bool) -> int:
     """Fold every declared alias's record into its canonical. Returns exit code."""
     store = RecordStore(cfg.layout)
@@ -76,9 +97,24 @@ def retire(cfg, apply: bool) -> int:
     # twice, and only the first clearing is a clearing. Counting the visits
     # made the dry run promise more work than `--apply` then did.
     cleared: set[str] = set()
+    dropped = 0
     for alias, canonical in sorted(mapping.items()):
         old = records.get(alias)
+        stale_pending, stale_done = _orphaned_tasks(cfg.layout, alias)
         if old is None:
+            # The record is already gone -- retired by an earlier run, or never
+            # written. A task filed before that run is still orphaned, and this
+            # is the only place that would notice.
+            if stale_pending:
+                verb = "dropping" if apply else "would drop"
+                print(
+                    f"{alias}: record already retired, but {len(stale_pending)} "
+                    f"definition task(s) still pending; {verb} them"
+                )
+                if apply:
+                    for path in stale_pending:
+                        path.unlink()
+                dropped += len(stale_pending)
             continue
         new = records.get(canonical)
         where = f"{alias} -> {canonical}"
@@ -98,9 +134,21 @@ def retire(cfg, apply: bool) -> int:
             )
         )
 
+        if stale_pending:
+            verb = "dropping" if apply else "would drop"
+            print(f"    {verb} {len(stale_pending)} pending definition task(s) for {alias}")
+        for path in stale_done:
+            print(
+                f"    !! a completed definition task for {alias} is still waiting "
+                f"for a render ({path.name}); answer it into {canonical} instead"
+            )
+
         if apply:
             _write(retired_dir / f"{alias}.json", old.to_dict())
             store.concept_path(alias).unlink(missing_ok=True)
+            for path in stale_pending:
+                path.unlink()
+        dropped += len(stale_pending)
         folded += 1
 
         if new is None:
@@ -138,7 +186,11 @@ def retire(cfg, apply: bool) -> int:
             _write(store.concept_path(canonical), new.to_dict())
 
     verb = "retired" if apply else "would retire"
-    print(f"\n{verb} {folded} record(s); {len(cleared)} definition(s) cleared for re-derivation")
+    print(
+        f"\n{verb} {folded} record(s); {len(cleared)} definition(s) cleared "
+        f"for re-derivation; {dropped} orphaned task(s) "
+        + ("dropped" if apply else "to drop")
+    )
     if not apply and folded:
         print("re-run with --apply to write, then `python3 -m pipelines.render`")
     return 0

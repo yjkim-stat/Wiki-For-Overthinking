@@ -68,3 +68,4 @@ See `docs/LOCAL-DELTAS.md` for what this deployment changes in the template.
 | 0034 | [Taking the template back in](0034-taking-the-template-back-in.md) | chore | The first merge from `src`, and the first note-number collision |
 | 0035 | [A source that answers 403 to everything](0035-a-source-that-answers-403-to-everything.md) | chore | OpenReview refused every request from two hosts on the same day |
 | 0036 | [Taking the template back in, a second time](0036-taking-the-template-back-in-a-second-time.md) | chore · breaking | A plain merge would have deleted 4,418 archive files; and this deployment stops writing in `docs/commit/` |
+| 0037 | [A ruling takes the question with it](0037-a-ruling-takes-the-question-with-it.md) | fix | A fifth of the queue was definition tasks for entities an alias ruling had already retired |
