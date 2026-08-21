@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Treats an agent harness's orchestration decisions as causal interventions on the current workflow, learns which ones would improve it, and executes only those whose estimated advantage clears a margin -- so deliberation is spent where it changes the plan rather than at every step.",
+        "title": "CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
+        "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T04:38:53Z",
+  "created_at": "2026-08-21T04:37:42Z",
+  "instructions": "Write the wiki definition for 'deepseek-v4-pro'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "deepseek-v4-pro",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "deepseek-v4-pro",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "DeepSeek V4 Pro",
+      "deepseek-v4-pro"
+    ],
+    "definition": "DeepSeek's largest V4 reasoning model, used in this archive as a frontier reference rather than as a subject. Two roles: it is one of three reference models whose average unbudgeted output length defines the difficulty stratification of a shared-budget benchmark, where it is also the best-allocating open model tested; and it is the backbone for the software-repair and terminal-interaction halves of an agentic harness study, whose GAIA half runs on the smaller deepseek-v4-flash instead. That split is worth remembering when reading either paper: a cross-benchmark pattern in the harness study is confounded with the change of backbone.",
+    "kind": "model",
+    "related": [
+      "deepseek-v4-flash",
+      "GLM-5.2",
+      "Gap Ratio"
+    ]
+  },
+  "task_id": "concept__deepseek-v4-pro",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

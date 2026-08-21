@@ -52,9 +52,10 @@ class BackfillTests(unittest.TestCase):
         self.sandbox.close()
 
     def _paper(self, index: int, *, pdf_url: str | None = None, score: float = 0.5,
-               queued: bool = True, local_path: str = "", published: str = "2024-01-15"):
+               queued: bool = True, local_path: str = "", published: str = "2024-01-15",
+               paper_id: str | None = None):
         paper = Paper(
-            id=f"arxiv:2401.0000{index}",
+            id=paper_id or f"arxiv:2401.0000{index}",
             title=f"Paper {index}",
             source="arxiv",
             published=published,
@@ -94,15 +95,56 @@ class BackfillTests(unittest.TestCase):
         self.assertEqual(ready, [])
 
     def test_a_paper_naming_no_pdf_is_counted_not_dropped(self):
-        """These are the input to a lookup asking where the document is."""
-        self._paper(1, pdf_url="")
+        """These are the input to a lookup asking where the document is.
+
+        The id is deliberately not an arXiv one: an arXiv id implies its own
+        document URL and is derived below, so a record that genuinely names no
+        document has to come from a scheme that does not.
+        """
+        self._paper(1, pdf_url="", paper_id="doi:10.1145/3774904.3793054")
         ready, unreachable = self._candidates()
         self.assertEqual(ready, [])
         self.assertEqual(unreachable, 1)
 
+    # -- a url the id already implies ----------------------------------------
+    def test_an_arxiv_paper_with_no_pdf_url_derives_one(self):
+        """It reached the archive through a bibliographic index, which carries
+        a landing page and no document. Its own id says where the document is,
+        and nothing else will ever revisit it: dedup has seen the paper."""
+        self._paper(1, pdf_url="")
+        ready, unreachable = self._candidates()
+        self.assertEqual([p.id for p in ready], ["arxiv:2401.00001"])
+        self.assertEqual(unreachable, 0)
+
+    def test_the_derived_url_is_set_on_the_record_not_only_used(self):
+        """So the fetch records where the document came from."""
+        self._paper(1, pdf_url="")
+        ready, _ = self._candidates()
+        self.assertEqual(ready[0].pdf_url, "https://arxiv.org/pdf/2401.00001")
+
+    def test_a_url_the_record_already_names_is_not_overwritten(self):
+        """A publisher's own link outranks a guess from the identifier."""
+        self._paper(1, pdf_url="https://x.test/chosen.pdf")
+        ready, _ = self._candidates()
+        self.assertEqual(ready[0].pdf_url, "https://x.test/chosen.pdf")
+
+    def test_a_version_suffix_is_dropped_from_the_derived_url(self):
+        """Versions are revisions, not new papers."""
+        paper = Paper(id="arxiv:2401.00009v3", title="T", source="semanticscholar")
+        self.assertEqual(
+            backfill.derived_pdf_url(paper), "https://arxiv.org/pdf/2401.00009"
+        )
+
+    def test_nothing_is_derived_for_a_non_arxiv_identifier(self):
+        for bad in ("doi:10.1145/x", "local:49199e3b0f694ee1", "title:abc", "", "arxiv:"):
+            with self.subTest(bad):
+                self.assertEqual(backfill.derived_pdf_url(Paper(id=bad, title="T", source="dblp")), "")
+
     def test_topic_narrows_both_halves_of_the_count(self):
         self._paper(1)
-        other = self._paper(2, pdf_url="")
+        # Not an arXiv id: an arXiv one would have its document URL derived and
+        # would land in `ready`, which is not what this test is about.
+        other = self._paper(2, pdf_url="", paper_id="doi:10.1145/3774904.3793054")
         other.topics = ["another-topic"]
         self.store.save_paper(other)
         ready, unreachable = self._candidates(topic_slugs=["another-topic"])

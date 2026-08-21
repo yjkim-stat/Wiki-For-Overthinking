@@ -6,12 +6,13 @@ A benchmark of multi-step, tool-using agent tasks used in the archive to evaluat
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [Budget Forcing](../methods/budget-forcing.md), [GPQA](gpqa.md), [HLE](hle.md)
+**Related**: [Budget Forcing](../methods/budget-forcing.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](gpqa.md), [HLE](hle.md), [SWE-bench Verified](swe-bench-verified.md)
 
 ## Appears in
 
+- [CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents](../../archive/papers/2026/arxiv-2607-25825/summary.md) — Treats an agent harness's orchestration decisions as causal interventions on the current workflow, learns which ones would improve it, and executes only those whose estimated advantage clears a margin -- so deliberation is spent where it changes the plan rather than at every step.
 - [Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification](../../archive/papers/2026/title-711c479b500244c5/summary.md) — Studies sequential and parallel test-time compute scaling for deep-search LLM agents and shows that allocating modest compute to a cheap verifier outperforms pushing sequential generation length further.
 - [WebThinker: Empowering Large Reasoning Models with Deep Research Capability](../../archive/papers/2025/title-93df459afa09bdd6/summary.md) — WebThinker gives large reasoning models an autonomous web-search-and-report-drafting loop, trained via iterative online DPO, for knowledge-intensive deep research tasks.
 

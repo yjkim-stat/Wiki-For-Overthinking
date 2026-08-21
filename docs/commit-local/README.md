@@ -70,3 +70,4 @@ See `docs/LOCAL-DELTAS.md` for what this deployment changes in the template.
 | 0036 | [Taking the template back in, a second time](0036-taking-the-template-back-in-a-second-time.md) | chore · breaking | A plain merge would have deleted 4,418 archive files; and this deployment stops writing in `docs/commit/` |
 | 0037 | [A ruling takes the question with it](0037-a-ruling-takes-the-question-with-it.md) | fix | A fifth of the queue was definition tasks for entities an alias ruling had already retired |
 | 0038 | [Collection moves to local cron](0038-collection-moves-to-local-cron.md) | docs · operational | The cloud routine cannot reach arXiv; a day the listing never browsed is a day lost for good |
+| 0039 | [A URL the identifier already implies](0039-a-url-the-identifier-already-implies.md) | fix | A bibliographic index carries no document, but the arXiv id it resolved to says where one is |

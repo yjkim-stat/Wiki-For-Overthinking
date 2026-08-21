@@ -33,7 +33,7 @@ from .common import config as config_mod
 from .common import log
 from .common import paths as P
 from .common.config import Config
-from .common.schema import Paper
+from .common.schema import Paper, strip_arxiv_version
 from .common.store import RecordStore
 from .enrich.queue import Queue
 from .enrich.score import leverage
@@ -70,6 +70,27 @@ def _newest_first(published: str) -> int:
     return -int(digits) if digits.isdigit() else 0
 
 
+def derived_pdf_url(paper: Paper) -> str:
+    """The document URL a record's own identifier already implies, or "".
+
+    A paper that reached the archive through Semantic Scholar or DBLP carries
+    that index's landing page in `url` and, often, no `pdf_url` at all -- those
+    indexes are bibliographic. When the same record's canonical id is an arXiv
+    id, arXiv's own document URL is a mechanical consequence of it, and
+    `backfill` was reporting such a paper as one nothing can reach.
+
+    That mattered more than a missed fetch: deduplication has already seen the
+    paper, so no later run revisits it, and the reading stays abstract-only for
+    good. Derivation is confined to arXiv on purpose -- it is the one identifier
+    scheme here whose document location is fixed by the id rather than
+    negotiated per publisher.
+    """
+    prefix, _, bare = (paper.id or "").partition(":")
+    if prefix != "arxiv" or not bare:
+        return ""
+    return f"https://arxiv.org/pdf/{strip_arxiv_version(bare)}"
+
+
 def candidates(
     cfg: Config,
     store: RecordStore,
@@ -95,6 +116,15 @@ def candidates(
         if paper.local_path:
             continue
         if (paper.pdf_url or "").strip():
+            ready.append(paper)
+            continue
+        # The record names no document, but its own id may imply one. Set it
+        # here rather than only using it, so the fetch that follows records
+        # where the document came from instead of leaving the field empty for
+        # the next run to rediscover.
+        derived = derived_pdf_url(paper)
+        if derived:
+            paper.pdf_url = derived
             ready.append(paper)
         else:
             unreachable += 1

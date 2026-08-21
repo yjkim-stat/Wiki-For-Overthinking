@@ -1,0 +1,142 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2607-25825.pdf"
+  },
+  "completed_at": "2026-08-21T04:37:41Z",
+  "created_at": "2026-08-21T04:25:48Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2607.25825",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Agent harnesses have become the operational infrastructure of modern large language model agents, coordinating context, tools, verification, and execution control to translate latent model capability into reliable long-horizon behavior. However, reliable long-horizon behavior requires harness control to adapt to task demands, execution environments, and evolving execution states, whereas current harnesses predominantly rely on hand-crafted or globally fixed policies; this mismatch manifests as unnecessary computational overhead and, in adverse cases, reduced task success. To address this limitation, we formulate the task of enabling adaptive orchestration in harness systems as a causal learning problem and propose Counterfactual Harness Intervention Learning for Long-Horizon Agents (CHILL-Harness). CHILL-Harness intervenes at the orchestration layer to enable advantage-guided workflow adaptation, thereby improving reasoning and execution efficiency while preserving task performance. Specifically, we develop causal intervention effect learning as the effect-estimation component of CHILL-Harness to estimate intervention-relative workflow advantage from confidence-weighted execution evidence and identify advantageous workflow adaptations. We further introduce advantage-realizing causal orchestration as its realization component to adaptively allocate counterfactual reasoning and realize only workflow adjustments supported by sufficient expected advantage. Finally, we incorporate a success-preserving objective and advantage-margin authorization constraints into CHILL-Harness to promote reliable adaptation. Extensive experiments on heterogeneous long-horizon tasks spanning information seeking, software engineering, and terminal interaction show that CHILL-Harness consistently preserves or improves task success while substantially reducing token consumption and execution time.",
+    "authors": [
+      "Jiarun Fu",
+      "Lizhong Ding",
+      "Sida Chen",
+      "Honglei Xin",
+      "Chunhui Zhang",
+      "Pengqi Li",
+      "Qiuning Wei",
+      "Ye Yuan",
+      "Guoren Wang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "efficient reasoning"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.25825",
+    "published": "2026-07-28",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents",
+    "url": "https://www.semanticscholar.org/paper/00a392559287f448c41d331f0e43694389177348",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "agent harness",
+      "harness orchestration as causal intervention",
+      "counterfactual workflow",
+      "harness over-deliberation",
+      "route before candidate generation",
+      "advantage-margin authorization",
+      "success-preserving objective",
+      "workflow inertia versus harmful replacement",
+      "completion attribution",
+      "matched reference harness",
+      "tokens per solved task",
+      "planner overhead",
+      "long-horizon agent"
+    ],
+    "contributions": [
+      "Formulates adaptive harness orchestration as a causal learning problem over the factual workflow and its admissible alternatives, rather than as configuration search or collaboration-structure design.",
+      "Introduces Causal Intervention Effect Learning, which unifies heterogeneous orchestration behaviours into one intervention space and estimates their context-conditioned effects from paired executions.",
+      "Factorises online control into three predictors -- how much to deliberate, whether to revise, and whether evidence supports completion -- so over-deliberation, workflow inertia and premature or futile termination are each governed by a separate head.",
+      "Routes before generating candidates, so a low-value deliberation is suppressed before its generation cost is paid rather than rejected after it.",
+      "Constrains adaptation by a success-preserving objective with an advantage margin, keeping the factual workflow whenever the estimated benefit is insufficient.",
+      "Measures the cost of forced deliberation directly: an Always-Full ablation loses 43.6 success points on GAIA and 12.3 on SWE-bench Verified while spending more tokens in every case."
+    ],
+    "datasets": [
+      "GAIA",
+      "SWE-bench Verified",
+      "Terminal-Bench 2.0"
+    ],
+    "limitations": "The paper has no limitations section; these are the reader's. The headline claim of preserved-or-improved success is against each benchmark's matched reference run, not against every public system: on Terminal-Bench 2.0 LemonHarness reaches 57.4% against CHILL-Harness's 56.1%, so the method sits on the effectiveness-efficiency frontier there rather than above it, which the text states but the abstract does not. The three benchmarks use two different backbones -- deepseek-v4-flash on GAIA, deepseek-v4-pro on the other two -- so the cross-benchmark pattern is confounded with model choice, and the one benchmark where forced deliberation is catastrophic is also the one on the smaller model. No seeds, repeated runs or variance are reported anywhere, and success rates on these benchmarks move by a point or two on a handful of tasks. CIEL is trained offline on checkpointed paired traces whose collection cost does not appear in the token accounting, so the reported efficiency is inference-time only and the method is not training-free. The Always-Full ablation isolates the deliberation route but is an extreme setting -- full deliberation whenever feasible -- so it bounds the cost of never routing rather than tracing the curve between Skip, Light and Full. The intervention space, the operational utility's six components and the authorization margins are hand-specified; no sensitivity study over them is shown. Evaluation is three benchmarks in one harness family with a 150-turn cap, and the causal framing rests on an intervention-consistency assumption over admissible workflows that the paper states rather than tests.",
+    "method": "The current workflow is treated as a factual reference and each admissible alternative as a counterfactual intervention under the same execution context, giving a potential-outcome formulation in which the workflow effect of an alternative is its expected performance difference against keeping the factual workflow (zero by construction). Two components realise this. Causal Intervention Effect Learning (CIEL) unifies the heterogeneous orchestration behaviours into one intervention space -- Keep, Deliberate, AnswerSynthesis, Revise (Inspect / Verify / Visual) and Stabilize (Dedup / NoOpRecovery) -- and learns a context-conditioned estimator of each family's effect from checkpointed paired executions, with an amortised online predictor so the estimate is available at inference. It then factorises the online control into three heads: the Counterfactual Deliberation Effect predicts how much deliberation is needed (Skip, Light, or Full) and is the component aimed squarely at over-deliberation, where costly planning is repeatedly invoked although the factual workflow is already sufficient; the Counterfactual Revision Effect predicts Keep against Change for a specific candidate, guarding against both workflow inertia and harmful replacement; and the Completion Attribution Effect predicts whether evidence supports finishing, guarding against both running past success and stopping out of futility. Advantage-Realizing Causal Orchestration (ARCO) executes the decision in a deliberate order -- route before generating candidates, so a low-value deliberation is suppressed before its candidate-generation cost is incurred rather than rejected afterwards. It then filters candidates for admissibility, values each by combining operational utility (progress, cost, risk, information gain, robustness, safety) with the estimated intervention effect, and replaces the factual workflow only when the revision head says Change *and* the candidate's advantage exceeds an intervention-dependent authorization margin; otherwise the factual workflow is kept. Termination requires both the learned completion head and explicit verifier evidence. The objective minimises trajectory resource cost subject to a bounded pass-rate degradation against a matched reference harness, realised through outcome-conditioned weak supervision rather than backpropagation through execution, with penalties for resource cost, task failure and adaptations that turn a reference success into a failure.",
+    "methods": [
+      "CHILL-Harness",
+      "Causal Intervention Effect Learning (CIEL)",
+      "Advantage-Realizing Causal Orchestration (ARCO)",
+      "Counterfactual Deliberation Effect (CDE)",
+      "Counterfactual Revision Effect (CRE)",
+      "Completion Attribution Effect (CAE)",
+      "Always-Full ablation",
+      "Terminus-KIRA",
+      "AWorld",
+      "OWL Workforce",
+      "OpenHands",
+      "CodeSweep-SWE-agent",
+      "Meta-Harness",
+      "LemonHarness"
+    ],
+    "models": [
+      "deepseek-v4-flash",
+      "deepseek-v4-pro"
+    ],
+    "one_liner": "Treats an agent harness's orchestration decisions as causal interventions on the current workflow, learns which ones would improve it, and executes only those whose estimated advantage clears a margin -- so deliberation is spent where it changes the plan rather than at every step.",
+    "problem": "An agent harness -- the runtime that manages context, tools, verification and execution control around a base model -- decides at each step whether to keep the current workflow, deliberate further, revise it, recover from a failure, or finish. Existing harnesses take those decisions by hand-crafted rules, fixed thresholds or one globally configured workflow, so the control does not adapt to the task, the environment or the execution state. Over a long horizon that mismatch compounds into redundant reasoning, delayed correction and unnecessary workflow disruption, raising cost and sometimes lowering task success. Prior adaptive work either engineers better fixed procedures or optimises collaboration structures and harness configurations; none of it asks whether a concrete orchestration adjustment would causally improve the workflow currently running.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "The archive's agentic evidence has been one paper, and this is the second -- with a design the first lacks. 'The Danger of Overthinking' scores trajectories with an LLM judge and regresses the score against issue resolution, which is correlational by construction. This paper's Always-Full ablation is an intervention: it forces the deliberation route to Full while holding every other component fixed, and measures what that costs. The answer is the largest overthinking effect in the archive -- GAIA success falls from 71.3% to 27.7%, 43.6 points, while token consumption *rises* 19% -- and it is measured on the same backbone, harness and task set, so it is not a capability comparison. SWE-bench Verified loses 12.3 points the same way. Two further details matter here. The revision rates split the failure into the two modes the archive has been separating: on GAIA 76.1% of forced deliberations authorize a workflow change and accuracy collapses, which is deliberation actively doing damage; on SWE-bench and Terminal-Bench only 3.5% and 3.9% do, and the cost is nearly pure waste (35.58M extra planner tokens and 91.98 hours of planner latency on Terminal-Bench for a 0.2-point success difference). And the fix is architectural in a way that maps onto the archive's own conclusion about read-time signals: routing happens *before* candidate generation, because a decision taken after the cost is incurred can only reject, not save. This also bears on the open synthesis question about whether agentic and maths overthinking are one phenomenon. It does not settle it -- no measure from the maths literature is computed here -- but it removes one asymmetry: the agentic side now has a controlled intervention and not only a correlation, and its effect size (43.6 points) is far larger than anything measured on maths traces."
+    },
+    "results": "Three long-horizon benchmarks with a matched reference run per evaluation (same model, tool, environment, task and resource limits): GAIA for information seeking on deepseek-v4-flash, SWE-bench Verified for repository-level software repair and Terminal-Bench 2.0 for terminal interaction, both on deepseek-v4-pro. Temperature 1.0, at most 150 interaction turns, checkpointed replay disabled at test time, CIEL trained offline on disjoint paired traces and frozen. Token totals include the method's own extra model calls for counterfactual deliberation and candidate valuation. Against public systems: GAIA 71.3% success at 96M tokens and 1.43M tokens per solved task, against Terminus-KIRA 70.2%/134M/2.03M, AWorld 69.7%/161M/2.45M and OWL Workforce 69.1%/174M/2.68M -- 28.4% fewer tokens than the lowest-token baseline and 46.6% less runtime than the fastest. SWE-bench Verified 65.6%/133M/2.25M against Terminus-KIRA 65.0%/157M/2.42M, OpenHands 65.4%/165M/2.52M and CodeSweep-SWE-agent 53.4%/153M/2.87M -- 13.1% fewer tokens, 25.9% less runtime. Terminal-Bench 2.0 56.1%/224M/4.87M against Terminus-KIRA 49.4%/291M/7.11M, Meta-Harness 52.6%/340M/5.00M and LemonHarness 57.4%/380M/5.05M -- 23.1% fewer tokens but only 2.6% less runtime, and here it does not lead on success. The ablation is the paper's most informative result and is a direct measurement of forced deliberation. Always-Full sets the deliberation route to Full whenever feasible while keeping every other component, isolating the choice of deliberation depth. On GAIA success collapses from 71.3% to 27.7% -- 43.6 points -- while tokens *rise* from 96.00M to 114.33M, at an extra 18.33M planner tokens and 37.73 hours of cumulative planner latency; the paper reads this as over-intervention. On SWE-bench Verified success falls 65.6% to 53.3% and tokens rise 133.00M to 160.40M (27.40M extra planner tokens, 70.95 h). On Terminal-Bench 2.0 success is flat, 56.1% against 56.3%, while tokens rise 224.19M to 259.77M (35.58M extra, 91.98 h) -- cost with no benefit. The revision rates under forced deliberation explain the split: of the full deliberation events, 76.1% authorize a workflow revision on GAIA (2,615 events) against 3.5% on SWE-bench Verified (3,708) and 3.9% on Terminal-Bench 2.0 (4,234). So where forced deliberation keeps proposing changes it destroys accuracy, and where it proposes almost none it is close to pure waste. Code is at github.com/csdstar/chill-dev.",
+    "tags": [
+      "agentic",
+      "long-horizon",
+      "agent harness",
+      "causal inference",
+      "over-deliberation",
+      "token efficiency",
+      "orchestration",
+      "swe-bench",
+      "gaia"
+    ]
+  },
+  "task_id": "paper__arxiv-2607-25825",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

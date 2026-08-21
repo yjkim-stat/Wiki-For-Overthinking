@@ -9,7 +9,7 @@ The idea, taken from resource-rational analysis in cognitive science, that an ag
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Claude-Opus-4.8](../models/claude-opus-4-8.md), [GLM-5.2](../models/glm-5-2.md), [GRPO](../methods/grpo.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](overthinking.md), [Reasoning Collapse](reasoning-collapse.md), [Reward Hacking](reward-hacking.md)
+**Related**: [Claude-Opus-4.8](../models/claude-opus-4-8.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GLM-5.2](../models/glm-5-2.md), [GRPO](../methods/grpo.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](overthinking.md), [Reasoning Collapse](reasoning-collapse.md), [Reward Hacking](reward-hacking.md)
 
 ## Appears in
 
