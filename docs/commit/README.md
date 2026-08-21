@@ -116,3 +116,4 @@ reference for everything built before the practice existed.
 | 0096 | [A task says when its record is contested](0096-a-task-says-when-its-record-is-contested.md) | fix | The conflict was reported to whoever ran the render, not to whoever was about to read the paper |
 | 0097 | [A field the prompt never mentions](0097-a-field-the-prompt-never-mentions.md) | fix | It was in the schema and never in the instructions, and the instructions are what a reader follows |
 | 0098 | [A redundancy the author has to see](0098-a-redundancy-the-author-has-to-see.md) | feature | One occurrence matching two keywords scored twice, and nothing downstream would ever complain |
+| 0099 | [A spelling, said on the day it splits](0099-a-spelling-said-on-the-day-it-splits.md) | feature | Two spellings make two records and neither is wrong about anything, which is why nobody notices until 39 sources against 5 |

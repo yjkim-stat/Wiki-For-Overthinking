@@ -1,5 +1,9 @@
 # Ninety-nine names, twenty-seven ruled
 
+**Status:** the code half is done — see [Resolution](#resolution) at the foot of
+this file and [note 0099](../commit/0099-a-spelling-said-on-the-day-it-splits.md).
+The 72 rulings remain the group's.
+
 `config/concept-aliases.yaml` holds **40 redirects** and has folded 40 records
 into 24. `python3 scripts/merge_concept_aliases.py --candidates` lists the
 **72 remaining** — names some reader declared as an alias in a summary that are
@@ -107,3 +111,39 @@ Nothing here prevents the next fragmentation; it only cleans up after one.
 
 Open, and smaller. 40 ruled, 72 left, of which the base/instruct group is ruled
 *not* to merge and the rest wait on the group.
+
+---
+
+## Resolution
+
+**The one action this document called "the one worth doing" is done.** `render`
+reports entity slugs that differ only in punctuation, on the day the second
+spelling appears rather than at 39 sources against 5. Commit
+`feat(render): report an entity that has split on a spelling`, note
+[0099](../commit/0099-a-spelling-said-on-the-day-it-splits.md).
+
+**The other two options were not taken, for this document's own reasons.**
+Showing the reader the existing entities would need 1,927 names filtered to
+plausible neighbours, which is its own problem. Normalising harder in `slugify`
+would rename every slug in the archive and merge pairs nobody ruled on — this
+issue's failure mode applied to every name at once.
+
+**Only the narrowest rule fires at render.** `pipelines.duplicates`
+([0072](../commit/0072-two-names-for-one-entity.md)) knows four — variant,
+plural, suffix, edit distance — and stays a command somebody runs. The render
+reports variants alone, because it fires every pass and a rule with false
+positives becomes noise, and because the other three are exactly the judgements
+this document is about: `MATH` under `MATH500` is a subset, and merging it would
+make the archive unable to state a distinction it currently states.
+
+**Nothing is merged, and the report says where the ruling goes.** The warning
+names `config/concept-aliases.yaml`, which is the authored map — this document's
+own argument for why the harvested `aliases` field cannot be merged on, given it
+holds at least one claim that is simply false.
+
+### What remains, and is not code
+
+The 72 candidates. The three relations this document separates — a spelling, one
+name for one thing, and a neighbour or parent or child — cannot be told apart by
+any rule, which is the finding. The eleven base/instruct pairs stay separate as a
+ruling rather than a deferral. Nothing here changes that, and nothing should.

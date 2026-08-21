@@ -538,6 +538,47 @@ def readings_without_models(cfg: Config) -> list[str]:
     )
 
 
+def fragmented_entities(cfg: Config) -> list[dict]:
+    """Entity slugs that differ only in punctuation, said on the day they appear.
+
+    A term spelled two ways becomes two records, and neither is wrong about
+    anything: each holds a fraction of the evidence, each gets its own
+    definition written against that fraction, and nothing looks broken. One pair
+    in this archive was found at 39 sources against 5.
+
+    `pipelines.duplicates` reports four kinds of near-collision and is a command
+    somebody has to remember to run. Only the narrowest kind is reported here —
+    two slugs identical once punctuation is removed — because this fires on every
+    render and a rule with false positives would become noise, and because the
+    other three are judgements rather than spellings. `MATH` under `MATH500` is a
+    subset, not a spelling; merging it would make the archive unable to state a
+    distinction it currently states.
+
+    Reported and never merged. Which name survives is an editorial decision, and
+    the map at `config/concept-aliases.yaml` is the authored place for it —
+    `Concept.aliases` is harvested and holds at least one claim that is simply
+    false, which is the argument for never merging on it.
+    """
+    from .duplicates import reason_for
+
+    store = RecordStore(cfg.layout)
+    concepts = sorted(store.iter_concepts(), key=lambda c: c.slug)
+    found: list[dict] = []
+    for index, left in enumerate(concepts):
+        for right in concepts[index + 1 :]:
+            if reason_for(left.slug, right.slug) == "variant":
+                pair = sorted(
+                    (left, right), key=lambda c: (-c.mention_count, c.slug)
+                )
+                found.append(
+                    {
+                        "slugs": [pair[0].slug, pair[1].slug],
+                        "sources": [pair[0].mention_count, pair[1].mention_count],
+                    }
+                )
+    return found
+
+
 def report_staleness(cfg: Config) -> dict[str, int]:
     """Count what has been outgrown, and say so. Never rewrites anything.
 
@@ -684,6 +725,17 @@ def run(
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)
+        # Beside staleness rather than inside it: an outgrown definition is a
+        # cost of time passing, and this is a defect that appeared in one pass.
+        fragmented = fragmented_entities(cfg)
+        result["fragmented"] = len(fragmented)
+        for pair in fragmented:
+            _LOG.warning(
+                "'%s' (%d source(s)) and '%s' (%d) differ only in punctuation; "
+                "rule on it in config/concept-aliases.yaml before either grows",
+                pair["slugs"][0], pair["sources"][0],
+                pair["slugs"][1], pair["sources"][1],
+            )
 
     if only in (None, "outputs"):
         result["outputs"] = rebuild_outputs(cfg, topic_slugs)
